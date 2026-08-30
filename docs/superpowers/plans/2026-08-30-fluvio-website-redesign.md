@@ -32,6 +32,7 @@
 ### Task 1: Typed Fluvio content and optimised asset library
 
 **Files:**
+
 - Create: `src/data/fluvio/types.ts`
 - Create: `src/data/fluvio/site.ts`
 - Create: `src/data/fluvio/expertise.ts`
@@ -42,6 +43,7 @@
 - Modify: `package.json`
 
 **Interfaces:**
+
 - Produces: `SiteContent`, `ExpertiseArea`, `TeamMember`, `Project`, `siteContent`, `expertiseAreas`, `teamMembers`, `projects`, `featuredProjects`, `getProjectBySlug(slug)`.
 - Project slugs: `advance-queensland`, `bina`, `monitoring-honiara`, `ghg-emissions-reservoirs`, `wrd`, `tina`, `sol-trader-oil-spill`, `cordap`, `reservoir-sedimentation`.
 - Image strings use the `~/assets/images/fluvio/<filename>` form accepted by AstroWind's image resolver.
@@ -196,6 +198,7 @@ git commit -m "feat: add Fluvio content foundation"
 ### Task 2: Brand shell and background atmosphere
 
 **Files:**
+
 - Create: `src/components/fluvio/PageBackground.astro`
 - Create: `src/components/fluvio/SectionHeading.astro`
 - Modify: `src/components/CustomStyles.astro`
@@ -209,6 +212,7 @@ git commit -m "feat: add Fluvio content foundation"
 - Modify: `src/navigation.ts`
 
 **Interfaces:**
+
 - Consumes: `siteContent` from Task 1.
 - Produces: global Fluvio header/footer, `PageBackground`, `SectionHeading`, updated metadata and tokens.
 - `PageBackground` accepts `variant?: 'default' | 'quiet' | 'deep'` and never captures pointer events.
@@ -253,8 +257,20 @@ Map the global colour variables to near-black green, warm white, water teal, pal
 ```astro
 <div class:list={['fluvio-atmosphere', `fluvio-atmosphere--${variant}`]} aria-hidden="true"></div>
 <style>
-  .fluvio-atmosphere { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
-  @media (prefers-reduced-motion: reduce) { .fluvio-atmosphere::before, .fluvio-atmosphere::after { transform: none !important; transition: none !important; } }
+  .fluvio-atmosphere {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .fluvio-atmosphere::before,
+    .fluvio-atmosphere::after {
+      transform: none !important;
+      transition: none !important;
+    }
+  }
 </style>
 ```
 
@@ -278,6 +294,7 @@ git commit -m "feat: establish Fluvio brand shell"
 ### Task 3: Reusable editorial components and project experience
 
 **Files:**
+
 - Create: `src/components/fluvio/LargeImage.astro`
 - Create: `src/components/fluvio/ExpertiseList.astro`
 - Create: `src/components/fluvio/ProjectFeature.astro`
@@ -290,6 +307,7 @@ git commit -m "feat: establish Fluvio brand shell"
 - Create: `src/pages/[slug].astro`
 
 **Interfaces:**
+
 - Consumes: content types and records from Task 1, `PageBackground` and `SectionHeading` from Task 2.
 - Produces: reusable project, expertise, team, platform and contact sections; nine static legacy project routes.
 - `LargeImage` owns all image rendering and accepts `src`, `alt`, `caption?`, `priority?`, `aspect?: 'hero' | 'landscape' | 'portrait'`.
@@ -346,6 +364,7 @@ git commit -m "feat: build Fluvio project experience"
 ### Task 4: Homepage, Vision, Expertise, Team, Contact and recovery pages
 
 **Files:**
+
 - Create: `src/components/fluvio/HeroSlider.astro`
 - Modify: `src/pages/index.astro`
 - Create: `src/pages/vision.astro`
@@ -357,6 +376,7 @@ git commit -m "feat: build Fluvio project experience"
 - Modify: `src/pages/services.astro`
 
 **Interfaces:**
+
 - Consumes: all typed data and reusable components from Tasks 1 through 3.
 - Produces: the complete primary Fluvio page set and redirects from `/about` to `/vision` and `/services` to `/expertise`.
 
@@ -406,6 +426,7 @@ git commit -m "feat: complete Fluvio consultancy pages"
 ### Task 5: Remove demonstration surfaces, document extension and complete visual verification
 
 **Files:**
+
 - Delete: `src/pages/homes/`
 - Delete: `src/pages/landing/`
 - Delete: `src/pages/pricing.astro`
@@ -416,6 +437,7 @@ git commit -m "feat: complete Fluvio consultancy pages"
 - Modify: `tests/fluvio-content.test.mjs`
 
 **Interfaces:**
+
 - Consumes: completed Fluvio site.
 - Produces: a clean public route surface, documented extension workflow and final verification evidence.
 
@@ -467,6 +489,7 @@ git commit -m "chore: finish Fluvio site cleanup"
 ### Task 6: Multi-colour visual polish and browser verification
 
 **Files:**
+
 - Modify: `src/components/CustomStyles.astro`
 - Modify: `src/assets/styles/tailwind.css`
 - Modify: `src/components/fluvio/PageBackground.astro`
@@ -476,6 +499,7 @@ git commit -m "chore: finish Fluvio site cleanup"
 - Modify: `src/pages/*.astro`
 
 **Interfaces:**
+
 - Consumes: the completed Fluvio content, shell, project system and primary pages.
 - Produces: a balanced multi-colour visual system and verified desktop/mobile experience without changing routes or factual content.
 

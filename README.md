@@ -1,294 +1,91 @@
-# 🚀 AstroWind
+# Fluvio Website
 
-<img src="https://raw.githubusercontent.com/arthelokyo/.github/main/resources/astrowind/lighthouse-score.png" align="right"
-     alt="AstroWind Lighthouse Score" width="100" height="358">
+The Fluvio consultancy website: water, environmental and climate solutions grounded in field science, monitoring technology and practical delivery.
 
-🌟 _Most *starred* & *forked* Astro theme in 2022, 2023, 2024 & 2025_. 🌟
+Built with [Astro](https://astro.build/) and Tailwind CSS on the AstroWind template foundation. The site is fully static, has no server runtime and no client-side framework.
 
-**AstroWind** is a free and open-source template to make your website using **[Astro v7](https://astro.build/) + [Tailwind CSS v4](https://tailwindcss.com/)**. Ready to start a new project and designed taking into account web best practices.
+## Commands
 
-- ✅ **Production-ready** scores in **PageSpeed Insights** reports.
-- ✅ Integration with **Tailwind CSS v4** supporting **Dark mode** and **_RTL_**.
-- ✅ **Fast and SEO friendly blog** with automatic **RSS feed**, **MDX** support, **Categories & Tags**, **Social Share**, ...
-- ✅ **Image Optimization** (using new **Astro Assets** and **Unpic** for Universal image CDN).
-- ✅ Generation of **project sitemap** based on your routes.
-- ✅ **Open Graph tags** for social media sharing.
-- ✅ **Analytics** built-in Google Analytics integration.
-
-<br>
-
-![AstroWind Theme Screenshot](https://raw.githubusercontent.com/arthelokyo/.github/main/resources/astrowind/screenshot-astrowind-readme-def-v1.png)
-
-[![arthelokyo](https://custom-icon-badges.demolab.com/badge/made%20by%20-arthelokyo-556bf2?style=flat-square&logo=arthelokyo&logoColor=white&labelColor=101827)](https://github.com/arthelokyo)
-[![License](https://img.shields.io/github/license/arthelokyo/astrowind?style=flat-square&color=dddddd&labelColor=000000)](https://github.com/arthelokyo/astrowind/blob/main/LICENSE.md)
-[![Maintained](https://img.shields.io/badge/maintained%3F-yes-brightgreen.svg?style=flat-square)](https://github.com/arthelokyo)
-[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](https://github.com/arthelokyo/astrowind#contributing)
-[![Known Vulnerabilities](https://snyk.io/test/github/arthelokyo/astrowind/badge.svg?style=flat-square)](https://snyk.io/test/github/arthelokyo/astrowind)
-[![Stars](https://img.shields.io/github/stars/arthelokyo/astrowind.svg?style=social&label=stars&maxAge=86400&color=ff69b4)](https://github.com/arthelokyo/astrowind)
-[![Forks](https://img.shields.io/github/forks/arthelokyo/astrowind.svg?style=social&label=forks&maxAge=86400&color=ff69b4)](https://github.com/arthelokyo/astrowind)
-
-<br>
-
-<details open>
-<summary>Table of Contents</summary>
-
-- [Demo](#demo)
-- [Upcoming: AstroWind 2.0 – We Need Your Vision!](#-upcoming-astrowind-20--we-need-your-vision)
-- [TL;DR](#tldr)
-- [Getting started](#getting-started)
-  - [Project structure](#project-structure)
-  - [Commands](#commands)
-  - [Configuration](#configuration)
-  - [Deploy](#deploy)
-- [Frequently Asked Questions](#frequently-asked-questions)
-- [Contributing](#contributing)
-- [Acknowledgements](#acknowledgements)
-- [License](#license)
-
-</details>
+All commands run from the project root:
 
-<br>
-
-## Demo
-
-📌 [https://astrowind.vercel.app/](https://astrowind.vercel.app/)
-
-<br>
-
-## 🔔 Upcoming: AstroWind 2.0 – We Need Your Vision!
-
-We're gearing up for **AstroWind 2.0**, and we want it to be shaped by you, our community. Join the discussion and share your ideas, suggestions, and feedback to help us make AstroWind even better.
-
-[Share Your Feedback in Our Discussion!](https://github.com/arthelokyo/astrowind/discussions/392)
-
-<br>
+| Command           | Action                                                |
+| ----------------- | ----------------------------------------------------- |
+| `npm install`     | Install dependencies                                  |
+| `npm run dev`     | Start the local dev server at `http://localhost:4321` |
+| `npm test`        | Run the content and route contract tests              |
+| `npm run check`   | Type-check, lint and verify formatting                |
+| `npm run build`   | Build the production site into `./dist/`              |
+| `npm run preview` | Preview the production build locally                  |
+| `npm run fix`     | Auto-fix lint and formatting issues                   |
 
-## TL;DR
-
-```shell
-npm create astro@latest -- --template arthelokyo/astrowind
-```
-
-## Getting started
-
-**AstroWind** tries to give you quick access to creating a website using [Astro v7](https://astro.build/) + [Tailwind CSS v4](https://tailwindcss.com/). It's a free theme which focuses on simplicity, good practices and high performance.
-
-Very little vanilla javascript is used only to provide basic functionality so that each developer decides which framework (React, Vue, Svelte, Solid JS...) to use and how to approach their goals.
-
-> **Note:** Requires **Node.js >= 22.12.0**. The template currently uses `output: 'static'`, but the blog only works with `prerender = true`.
-
-### Project structure
-
-Inside **AstroWind** template, you'll see the following folders and files:
-
-```
-/
-├── public/
-│   ├── _headers
-│   └── robots.txt
-├── src/
-│   ├── assets/
-│   │   ├── favicons/
-│   │   ├── images/
-│   │   └── styles/
-│   │       └── tailwind.css
-│   ├── components/
-│   │   ├── blog/
-│   │   ├── common/
-│   │   ├── ui/
-│   │   ├── widgets/
-│   │   │   ├── Header.astro
-│   │   │   └── ...
-│   │   ├── CustomStyles.astro
-│   │   ├── Favicons.astro
-│   │   └── Logo.astro
-│   ├── content.config.ts
-│   ├── data/
-│   │   └── post/
-│   │       ├── post-slug-1.md
-│   │       ├── post-slug-2.mdx
-│   │       └── ...
-│   ├── layouts/
-│   │   ├── Layout.astro
-│   │   ├── MarkdownLayout.astro
-│   │   └── PageLayout.astro
-│   ├── pages/
-│   │   ├── [...blog]/
-│   │   │   ├── [category]/
-│   │   │   ├── [tag]/
-│   │   │   ├── [...page].astro
-│   │   │   └── index.astro
-│   │   ├── index.astro
-│   │   ├── 404.astro
-│   │   ├-- rss.xml.ts
-│   │   └── ...
-│   ├── utils/
-│   ├── config.yaml
-│   └── navigation.ts
-├── package.json
-├── astro.config.ts
-└── ...
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory if they do not require any transformation or in the `assets/` directory if they are imported directly.
-
-[![Edit AstroWind on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/arthelokyo/astrowind/tree/main) [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/arthelokyo/astrowind)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file `README.md`. Update `src/config.yaml` and contents. Have fun!
-
-<br>
-
-### Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command             | Action                                             |
-| :------------------ | :------------------------------------------------- |
-| `npm install`       | Installs dependencies                              |
-| `npm run dev`       | Starts local dev server at `localhost:4321`        |
-| `npm run build`     | Build your production site to `./dist/`            |
-| `npm run preview`   | Preview your build locally, before deploying       |
-| `npm run check`     | Check your project for errors                      |
-| `npm run fix`       | Run Eslint and format codes with Prettier          |
-| `npm run astro ...` | Run CLI commands like `astro add`, `astro preview` |
-
-<br>
-
-### Configuration
-
-Basic configuration file: `./src/config.yaml`
-
-```yaml
-site:
-  name: 'Example'
-  site: 'https://example.com'
-  base: '/' # Change this if you need to deploy to Github Pages, for example
-  trailingSlash: false # Generate permalinks with or without "/" at the end
-
-  googleSiteVerificationId: false # Or some value,
-
-# Default SEO metadata
-metadata:
-  title:
-    default: 'Example'
-    template: '%s — Example'
-  description: 'This is the default meta description of Example website'
-  robots:
-    index: true
-    follow: true
-  openGraph:
-    site_name: 'Example'
-    images:
-      - url: '~/assets/images/default.png'
-        width: 1200
-        height: 628
-    type: website
-  twitter:
-    handle: '@twitter_user'
-    site: '@twitter_user'
-    cardType: summary_large_image
-
-i18n:
-  language: en
-  textDirection: ltr
-
-apps:
-  blog:
-    isEnabled: true # If the blog will be enabled
-    postsPerPage: 6 # Number of posts per page
-
-    post:
-      isEnabled: true
-      permalink: '/blog/%slug%' # Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
-      robots:
-        index: true
-
-    list:
-      isEnabled: true
-      pathname: 'blog' # Blog main path, you can change this to "articles" (/articles)
-      robots:
-        index: true
-
-    category:
-      isEnabled: true
-      pathname: 'category' # Category main path /category/some-category, you can change this to "group" (/group/some-category)
-      robots:
-        index: true
-
-    tag:
-      isEnabled: true
-      pathname: 'tag' # Tag main path /tag/some-tag, you can change this to "topics" (/topics/some-category)
-      robots:
-        index: false
-
-    isRelatedPostsEnabled: true # If a widget with related posts is to be displayed below each post
-    relatedPostsCount: 4 # Number of related posts to display
-
-analytics:
-  vendors:
-    googleAnalytics:
-      id: null # or "G-XXXXXXXXXX"
-
-ui:
-  theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
-```
-
-<br>
-
-#### Customize Design
-
-With Tailwind CSS v4, all configuration is CSS-first. To customize Font families, Colors or more Elements refer to the following files:
-
-- `src/components/CustomStyles.astro` — CSS variables for colors and fonts
-- `src/assets/styles/tailwind.css` — Tailwind theme tokens (`@theme`), custom utilities (`@utility`), and plugins
-
-### Deploy
-
-#### Deploy to production (manual)
-
-You can create an optimized production build with:
-
-```shell
-npm run build
-```
-
-Now, your website is ready to be deployed. All generated files are located at
-`dist` folder, which you can deploy the folder to any hosting service you
-prefer.
-
-#### Deploy to Netlify
-
-Clone this repository on your own GitHub account and deploy it to Netlify:
-
-[![Netlify Deploy button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/arthelokyo/astrowind)
-
-#### Deploy to Vercel
-
-Clone this repository on your own GitHub account and deploy to Vercel:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Farthelokyo%2Fastrowind)
-
-#### Deploy to PandaStack
-
-Clone this repository on your own GitHub account and deploy to PandaStack:
-
-[![Deploy to PandaStack](https://dashboard.pandastack.io/deploy-button.svg)](https://dashboard.pandastack.io/deploy?repo=arthelokyo/astrowind&type=static&buildCmd=npm+run+build&outputDir=dist)
-
-<br>
-
-## Contributing
-
-If you have any ideas, suggestions or find any bugs, feel free to open a discussion, an issue or create a pull request.
-That would be very useful for all of us and we would be happy to listen and take action.
+Run `npm test`, `npm run check` and `npm run build` after every content or code change. All three must pass before committing.
+
+## Where content lives
+
+All Fluvio content is typed data in `src/data/fluvio/`:
+
+| File                           | Owns                                                                             |
+| ------------------------------ | -------------------------------------------------------------------------------- |
+| `src/data/fluvio/types.ts`     | The content interfaces (`Project`, `TeamMember`, `ExpertiseArea`, `SiteContent`) |
+| `src/data/fluvio/site.ts`      | Site name, tagline, hero, vision statement and values                            |
+| `src/data/fluvio/projects.ts`  | The project records and the `featuredProjects` selector                          |
+| `src/data/fluvio/team.ts`      | The team profiles                                                                |
+| `src/data/fluvio/expertise.ts` | The six expertise areas                                                          |
+
+Images live in `src/assets/images/fluvio/` and are always referenced with the `~/assets/images/fluvio/...` alias. Pages and components read from these modules; never duplicate a record inside a page.
+
+## Adding a project
+
+1. Copy the project's hero image (and any gallery images) into `src/assets/images/fluvio/` with a descriptive kebab-case name, for example `project-my-catchment.jpeg`.
+2. Append a new object to the `projects` array in `src/data/fluvio/projects.ts` that satisfies the `Project` interface in `src/data/fluvio/types.ts`:
+   - `slug` becomes the public route (`/my-catchment`), served by `src/pages/[slug].astro`. Choose it once; do not rename existing slugs.
+   - `challenge`, `approach` and `outcome` are arrays of paragraphs. Use only verified facts; do not invent statistics, partners or outcomes.
+   - `heroAlt` must factually describe the photograph.
+   - Optional fields: `location`, `timeframe`, `partners`, `gallery`, `relatedProjects` (other project slugs), `featured`.
+3. Set `featured: true` only if the project should appear in the homepage selection.
+4. If the project relates to an expertise area, add its slug to that area's `relatedProjects` in `src/data/fluvio/expertise.ts`.
+5. If the test file pins the expected slug list (`expectedSlugs` in `tests/fluvio-content.test.mjs`), add the new slug there.
+6. Run `npm test && npm run check && npm run build`.
+
+No page changes are needed: `/projects` and the flat project route generate from the data.
+
+## Adding a team member
+
+1. Add a portrait to `src/assets/images/fluvio/` (descriptive name, for example `team-firstname-lastname.jpeg`).
+2. Append a record to `teamMembers` in `src/data/fluvio/team.ts` satisfying the `TeamMember` interface: `name`, `bio`, `portrait`, `portraitAlt`, `specialties`, and optionally `role` and `profileUrl`.
+3. Add the name to `expectedTeamNames` in `tests/fluvio-content.test.mjs` (the list order matches the page order).
+4. Run `npm test && npm run check && npm run build`.
+
+## Adding an expertise area
+
+1. Add a representative image to `src/assets/images/fluvio/`.
+2. Append a record to `expertiseAreas` in `src/data/fluvio/expertise.ts` satisfying the `ExpertiseArea` interface. `description` is an array of paragraphs; `relatedProjects` lists project slugs.
+3. Update `expectedExpertiseTitles` and the expertise count assertion in `tests/fluvio-content.test.mjs`.
+4. Run `npm test && npm run check && npm run build`.
+
+## Updating navigation and metadata
+
+- Header and footer links: `src/navigation.ts`.
+- Site name, default SEO metadata, Open Graph image and theme: `src/config.yaml`.
+- Per-page titles and descriptions: the `metadata` object passed to `PageLayout` in each file under `src/pages/`.
+
+## Contact endpoint (future work)
+
+The Contact page (`src/pages/contact.astro` and `src/components/fluvio/ContactPanel.astro`) currently opens a clearly described, unaddressed email draft because the archive contains no verified public business address. To wire up a real endpoint later:
+
+1. Obtain a verified recipient address or a form-handling endpoint from Fluvio.
+2. Replace the draft action in `ContactPanel.astro` with either a `mailto:` link to the verified address or a `POST` form to the verified endpoint.
+3. Do not add attachment uploads, privacy promises or response-time promises unless Fluvio has confirmed them.
+4. Update the contact assertions in `tests/fluvio-content.test.mjs` to match the new behaviour.
+
+## Routes
+
+Public routes: `/`, `/vision`, `/expertise`, `/projects`, `/team`, `/contact`, the nine flat project routes generated from `src/data/fluvio/projects.ts`, a custom 404, and permanent redirects `/about -> /vision` and `/services -> /expertise`. The template blog is disabled in `src/config.yaml` and its demonstration pages have been removed.
+
+## Tests
+
+`tests/fluvio-content.test.mjs` is the single lean contract file, run with the built-in Node test runner. It pins the content records, routes, accessibility behaviour of the hero slider and the absence of template demonstration content. Keep tests in this file; do not add a browser automation framework for this static site.
 
 ## Acknowledgements
 
-Initially created by **Arthelokyo** and maintained by a community of [contributors](https://github.com/arthelokyo/astrowind/graphs/contributors).
-
-## License
-
-**AstroWind** is licensed under the MIT license — see the [LICENSE](./LICENSE.md) file for details.
+Based on the open-source [AstroWind](https://github.com/arthelokyo/astrowind) template by onWidget, used under the MIT licence (see `LICENSE.md`).

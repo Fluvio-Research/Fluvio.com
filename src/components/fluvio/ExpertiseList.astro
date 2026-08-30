@@ -27,7 +27,9 @@ const Heading = headingLevel;
           <p class="fluvio-expertise-list__number">{String(index + 1).padStart(2, '0')}</p>
           <Heading>{item.title}</Heading>
           <p class="fluvio-expertise-list__summary">{item.summary}</p>
-          {item.description.map((paragraph) => <p>{paragraph}</p>)}
+          {item.description.map((paragraph) => (
+            <p>{paragraph}</p>
+          ))}
         </div>
       </article>
     ))

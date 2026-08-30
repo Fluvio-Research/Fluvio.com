@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
-import { access, readFile } from 'node:fs/promises';
+import { access, readdir, readFile } from 'node:fs/promises';
+import { relative } from 'node:path';
 import test from 'node:test';
 
 import { expertiseAreas } from '../src/data/fluvio/expertise.ts';
@@ -44,6 +45,30 @@ const config = await readFile(new URL('../src/config.yaml', import.meta.url), 'u
 const navigation = await readFile(new URL('../src/navigation.ts', import.meta.url), 'utf8');
 const homepage = await readFile(new URL('../src/pages/index.astro', import.meta.url), 'utf8');
 const homepageFrontmatter = homepage.match(/^---\n([\s\S]*?)\n---/)?.[1] ?? '';
+const repositoryRoot = new URL('../', import.meta.url);
+const excludedDirectories = new Set(['.git', '.superpowers', 'dist', 'docs', 'node_modules']);
+
+async function collectPublicSourceFiles(directory = repositoryRoot) {
+  const entries = await readdir(directory, { withFileTypes: true });
+  const files = [];
+
+  for (const entry of entries) {
+    const entryUrl = new URL(entry.isDirectory() ? `${entry.name}/` : entry.name, directory);
+
+    if (entry.isDirectory()) {
+      if (!excludedDirectories.has(entry.name)) files.push(...(await collectPublicSourceFiles(entryUrl)));
+      continue;
+    }
+
+    const path = relative(repositoryRoot.pathname, entryUrl.pathname);
+    if (path.startsWith('src/pages/') || path === 'src/navigation.ts' || path === 'src/config.yaml')
+      files.push(entryUrl);
+  }
+
+  return files;
+}
+
+const publicSourceFiles = await collectPublicSourceFiles();
 
 const projectExperienceFiles = [
   'src/components/fluvio/LargeImage.astro',
@@ -125,12 +150,25 @@ test('Fluvio shell uses the brand name and primary navigation', () => {
   }
 });
 
+test('Fluvio public sources contain no demonstration copy or routes', async () => {
+  for (const source of publicSourceFiles) {
+    const text = await readFile(source, 'utf8');
+    assert.doesNotMatch(text, /Get template|AstroWind|SaaS|Pricing|Unsplash/i);
+  }
+
+  assert.doesNotMatch(config, /isEnabled:\s*true/);
+  assert.doesNotMatch(navigation, /blog|rss/i);
+});
+
 test('Fluvio project experience provides shared components and static project routes', async () => {
   await Promise.all(projectExperienceFiles.map((path) => access(new URL(`../${path}`, import.meta.url))));
 
   const projectRoute = await readFile(new URL('../src/pages/[slug].astro', import.meta.url), 'utf8');
   const largeImage = await readFile(new URL('../src/components/fluvio/LargeImage.astro', import.meta.url), 'utf8');
-  const projectFeature = await readFile(new URL('../src/components/fluvio/ProjectFeature.astro', import.meta.url), 'utf8');
+  const projectFeature = await readFile(
+    new URL('../src/components/fluvio/ProjectFeature.astro', import.meta.url),
+    'utf8'
+  );
   const projectListItem = await readFile(
     new URL('../src/components/fluvio/ProjectListItem.astro', import.meta.url),
     'utf8'
@@ -147,9 +185,15 @@ test('Fluvio project experience provides shared components and static project ro
   assert.equal(projectFeature.match(/href=\{`\/\$\{project\.slug\}`\}/g)?.length, 1);
   assert.equal(projectListItem.match(/href=\{`\/\$\{project\.slug\}`\}/g)?.length, 1);
   assert.match(projectFeature, /<h2>\{project\.title\}<\/h2>/);
-  assert.match(projectFeature, /<a class="fluvio-project-feature__link" href=\{`\/\$\{project\.slug\}`\}>View project/);
+  assert.match(
+    projectFeature,
+    /<a class="fluvio-project-feature__link" href=\{`\/\$\{project\.slug\}`\}\s*>\s*View project/
+  );
   assert.match(projectListItem, /<h3>\{project\.title\}<\/h3>/);
-  assert.match(projectListItem, /<a class="fluvio-project-item__link" href=\{`\/\$\{project\.slug\}`\}>Read the project/);
+  assert.match(
+    projectListItem,
+    /<a class="fluvio-project-item__link" href=\{`\/\$\{project\.slug\}`\}\s*>\s*Read the project/
+  );
   assert.match(projectFeature, /alt=\{project\.heroAlt\}/);
   assert.match(projectListItem, /alt=\{project\.heroAlt\}/);
   assert.doesNotMatch(platformFeature, /target=["']_blank["']/);

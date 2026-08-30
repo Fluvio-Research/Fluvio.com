@@ -27,9 +27,7 @@ const relatedProjects = new Map(
     <div class="fluvio-expertise-shell">
       <p class="fluvio-expertise-eyebrow">Expertise</p>
       <h1>Water intelligence built for real conditions.</h1>
-      <p>
-        Technical depth across monitoring, modelling and environmental assessment, connected to practical delivery.
-      </p>
+      <p>Technical depth across monitoring, modelling and environmental assessment, connected to practical delivery.</p>
     </div>
   </header>
 
@@ -51,20 +49,20 @@ const relatedProjects = new Map(
             <div class="fluvio-expertise-area__body">
               <h2>{area.title}</h2>
               <p class="fluvio-expertise-area__summary">{area.summary}</p>
-              {area.description.map((paragraph) => <p>{paragraph}</p>)}
+              {area.description.map((paragraph) => (
+                <p>{paragraph}</p>
+              ))}
               <div class="fluvio-expertise-area__projects">
                 <h3>Related projects</h3>
                 <ul>
-                  {
-                    relatedProjects.get(area.slug)?.map((project) => (
-                      <li>
-                        <a href={`/${project.slug}`}>
-                          <span>{project.title}</span>
-                          <span aria-hidden="true">→</span>
-                        </a>
-                      </li>
-                    ))
-                  }
+                  {relatedProjects.get(area.slug)?.map((project) => (
+                    <li>
+                      <a href={`/${project.slug}`}>
+                        <span>{project.title}</span>
+                        <span aria-hidden="true">→</span>
+                      </a>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>

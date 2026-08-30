@@ -26,7 +26,8 @@ const number = index === undefined ? undefined : String(index + 1).padStart(2, '
     <h3>{project.title}</h3>
     <p class="fluvio-project-item__summary">{project.summary}</p>
     <p class="fluvio-project-item__disciplines">{project.disciplines.join(' / ')}</p>
-    <a class="fluvio-project-item__link" href={`/${project.slug}`}>Read the project <span aria-hidden="true">→</span></a>
+    <a class="fluvio-project-item__link" href={`/${project.slug}`}>Read the project <span aria-hidden="true">→</span></a
+    >
   </div>
 </article>
 
@@ -122,5 +123,4 @@ const number = index === undefined ? undefined : String(index + 1).padStart(2, '
       grid-column: 1;
     }
   }
-
 </style>
