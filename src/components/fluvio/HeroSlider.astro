@@ -1,5 +1,6 @@
 ---
 import LargeImage from './LargeImage.astro';
+import { getHomepage } from '~/data/fluvio/store.ts';
 import { defaultLocale, localeHref, t, type Locale } from '~/i18n';
 
 export interface Props {
@@ -9,15 +10,8 @@ export interface Props {
 const { locale = defaultLocale } = Astro.props;
 const strings = t(locale).slider;
 
-const slideImages = [
-  '~/assets/images/fluvio/home-river.jpg',
-  '~/assets/images/fluvio/project-bina.jpeg',
-  '~/assets/images/fluvio/project-honiara.jpeg',
-  '~/assets/images/fluvio/project-advance-queensland.jpeg',
-  '~/assets/images/fluvio/vision-field-team.jpeg',
-];
-
-const slides = strings.slides.map((slide, index) => ({ ...slide, image: slideImages[index] }));
+/** Slides are editable content, managed in the admin under Site settings. */
+const slides = getHomepage(locale).slides;
 
 /** Autoplay cycle length; the CSS countdown reads the same value. */
 const INTERVAL_MS = 6000;

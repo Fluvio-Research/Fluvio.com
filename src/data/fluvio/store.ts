@@ -100,6 +100,45 @@ const navigationSchema = z.object({
 
 export type Navigation = z.infer<typeof navigationSchema>;
 
+const slideSchema = z.object({
+  eyebrow: text,
+  title: text,
+  description: text,
+  action: text,
+  href: z.string().regex(/^\/[a-z0-9#/-]*$/),
+  image: localImage,
+  imageAlt: text,
+});
+
+const homepageSchema = z.object({
+  slides: z.array(slideSchema).min(1).max(8),
+  metaDescription: text,
+  capabilitiesLabel: text,
+  capabilities: z.array(z.object({ title: text, description: text })).length(3),
+  expertiseEyebrow: text,
+  expertiseTitle: text,
+  expertiseIntro: text,
+  expertiseMore: text,
+  projectsTitle: text,
+  projectsIntro: text,
+  projectsFeatured: text,
+  projectsMore: text,
+  platformsTitle: text,
+  platformsIntro: text,
+  teamTitle: text,
+  teamIntro: text,
+  teamMore: text,
+  impactTitle: text,
+  impactBody: z.array(text).min(1),
+  platforms: z.object({
+    label: text,
+    sense: z.object({ title: text, description: text, action: text }),
+    cascade: z.object({ title: text, description: text }),
+  }),
+});
+
+export type Homepage = z.infer<typeof homepageSchema>;
+
 const localized = <Schema extends z.ZodTypeAny>(schema: Schema) => z.object({ en: schema, fr: schema, es: schema });
 
 /* ------------------------------------------------------------------ */
@@ -132,6 +171,7 @@ const teamRecords = loadCollection('team', teamMemberSchema);
 const expertiseRecords = loadCollection('expertise', expertiseSchema);
 const siteRecord = loadRecord(join(contentDir, 'site', 'content.json'), siteSchema);
 const navigationRecord = loadRecord(join(contentDir, 'site', 'navigation.json'), navigationSchema);
+const homepageRecord = loadRecord(join(contentDir, 'site', 'homepage.json'), homepageSchema);
 
 /* ------------------------------------------------------------------ */
 /* Locale projections                                                  */
@@ -159,4 +199,9 @@ export const getSiteContent = (locale: ContentLocale): SiteContent => ({ ...site
 export const getNavigation = (locale: ContentLocale): Navigation => ({
   ...navigationRecord.en,
   ...navigationRecord[locale],
+});
+
+export const getHomepage = (locale: ContentLocale): Homepage => ({
+  ...homepageRecord.en,
+  ...homepageRecord[locale],
 });

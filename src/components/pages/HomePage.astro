@@ -8,7 +8,8 @@ import SectionFrame from '~/components/fluvio/SectionFrame.astro';
 import SectionHeading from '~/components/fluvio/SectionHeading.astro';
 import TeamProfile from '~/components/fluvio/TeamProfile.astro';
 import { getExpertiseAreas, getFeaturedProjects, getSiteContent, getTeamMembers } from '~/data/fluvio/localized';
-import { localeHref, t, type Locale } from '~/i18n';
+import { getHomepage } from '~/data/fluvio/store.ts';
+import { localeHref, type Locale } from '~/i18n';
 import Layout from '~/layouts/PageLayout.astro';
 
 export interface Props {
@@ -16,12 +17,12 @@ export interface Props {
 }
 
 const { locale } = Astro.props;
-const c = t(locale);
+const home = getHomepage(locale);
 const siteContent = getSiteContent(locale);
 
 const metadata = {
   title: siteContent.name,
-  description: c.home.metaDescription,
+  description: home.metaDescription,
   ignoreTitleTemplate: true,
 };
 
@@ -36,10 +37,10 @@ const featuredProjects = getFeaturedProjects(locale);
   <HeroSlider locale={locale} />
 
   {/* 1. Hero -> capability strip: soft mist field, one water-blue rule. */}
-  <SectionFrame tone="mist" rule="river" motif="contour" spacing="compact" ariaLabel={c.home.capabilitiesLabel}>
+  <SectionFrame tone="mist" rule="river" motif="contour" spacing="compact" ariaLabel={home.capabilitiesLabel}>
     <div class="fluvio-home-capability-grid">
       {
-        c.home.capabilities.map((capability) => (
+        home.capabilities.map((capability) => (
           <article class={reveal}>
             <h2>{capability.title}</h2>
             <p>{capability.description}</p>
@@ -52,7 +53,7 @@ const featuredProjects = getFeaturedProjects(locale);
   {/* 2. Capabilities -> Expertise: quiet paper, mineral field from the outer gutter. */}
   <SectionFrame tone="paper" motif="wash-right" labelledby="home-expertise-heading">
     <div id="home-expertise-heading" class:list={['fluvio-home-heading', reveal]}>
-      <SectionHeading eyebrow={c.home.expertiseEyebrow} title={c.home.expertiseTitle} intro={c.home.expertiseIntro} />
+      <SectionHeading eyebrow={home.expertiseEyebrow} title={home.expertiseTitle} intro={home.expertiseIntro} />
     </div>
     <div class="fluvio-home-expertise-grid">
       {
@@ -76,50 +77,50 @@ const featuredProjects = getFeaturedProjects(locale);
       }
     </div>
     <a class="fluvio-link fluvio-home-more" href={localeHref('/expertise', locale)}
-      >{c.home.expertiseMore} <span aria-hidden="true">→</span></a
+      >{home.expertiseMore} <span aria-hidden="true">→</span></a
     >
   </SectionFrame>
 
   {/* 3. Expertise -> Projects: strongest editorial handoff, contour whitespace. */}
   <SectionFrame tone="paper" motif="contour" labelledby="home-projects-heading">
     <header class:list={['fluvio-home-project-heading', reveal]}>
-      <h2 id="home-projects-heading" class="fluvio-display">{c.home.projectsTitle}</h2>
-      <p>{c.home.projectsIntro}</p>
+      <h2 id="home-projects-heading" class="fluvio-display">{home.projectsTitle}</h2>
+      <p>{home.projectsIntro}</p>
     </header>
     <div class="fluvio-home-project-list">
       {
         featuredProjects.map((project, index) => (
           <div class={reveal}>
-            <ProjectFeature project={project} locale={locale} eyebrow={index === 0 ? c.home.projectsFeatured : ''} />
+            <ProjectFeature project={project} locale={locale} eyebrow={index === 0 ? home.projectsFeatured : ''} />
           </div>
         ))
       }
     </div>
     <a class="fluvio-link fluvio-home-more" href={localeHref('/projects', locale)}
-      >{c.home.projectsMore} <span aria-hidden="true">→</span></a
+      >{home.projectsMore} <span aria-hidden="true">→</span></a
     >
   </SectionFrame>
 
   {/* 4. Projects -> Platforms: field evidence to operational technology. */}
   <SectionFrame tone="water" rule="ink" motif="grid" labelledby="home-platforms-heading" class="fluvio-home-platforms">
     <header class:list={['fluvio-home-platform-heading', reveal]}>
-      <h2 id="home-platforms-heading" class="fluvio-display">{c.home.platformsTitle}</h2>
-      <p>{c.home.platformsIntro}</p>
+      <h2 id="home-platforms-heading" class="fluvio-display">{home.platformsTitle}</h2>
+      <p>{home.platformsIntro}</p>
     </header>
     <div class="fluvio-home-platform-grid">
       <div class={reveal}>
         <PlatformFeature
-          title={c.platforms.sense.title}
-          description={c.platforms.sense.description}
+          title={home.platforms.sense.title}
+          description={home.platforms.sense.description}
           href="https://sense.fluvio.com.au/"
-          actionLabel={c.platforms.sense.action}
+          actionLabel={home.platforms.sense.action}
           locale={locale}
         />
       </div>
       <div class={reveal}>
         <PlatformFeature
-          title={c.platforms.cascade.title}
-          description={c.platforms.cascade.description}
+          title={home.platforms.cascade.title}
+          description={home.platforms.cascade.description}
           locale={locale}
         />
       </div>
@@ -129,7 +130,7 @@ const featuredProjects = getFeaturedProjects(locale);
   {/* 5. Platforms -> Team: back to paper and people, with more air. */}
   <SectionFrame tone="paper" spacing="wide" labelledby="home-team-heading">
     <div id="home-team-heading" class:list={['fluvio-home-heading', reveal]}>
-      <SectionHeading title={c.home.teamTitle} intro={c.home.teamIntro} />
+      <SectionHeading title={home.teamTitle} intro={home.teamIntro} />
     </div>
     <div class="fluvio-home-team-grid">
       {
@@ -141,16 +142,16 @@ const featuredProjects = getFeaturedProjects(locale);
       }
     </div>
     <a class="fluvio-link fluvio-home-more" href={localeHref('/team', locale)}
-      >{c.home.teamMore} <span aria-hidden="true">→</span></a
+      >{home.teamMore} <span aria-hidden="true">→</span></a
     >
   </SectionFrame>
 
   {/* 6. Team -> Impact: deep navy chapter break with a coral rule. */}
   <SectionFrame tone="navy" rule="coral" spacing="wide" labelledby="home-impact-heading">
     <div class="fluvio-home-impact-grid">
-      <h2 id="home-impact-heading" class:list={['fluvio-display', reveal]}>{c.home.impactTitle}</h2>
+      <h2 id="home-impact-heading" class:list={['fluvio-display', reveal]}>{home.impactTitle}</h2>
       <div class={reveal}>
-        {c.home.impactBody.map((paragraph) => <p>{paragraph}</p>)}
+        {home.impactBody.map((paragraph) => <p>{paragraph}</p>)}
       </div>
     </div>
   </SectionFrame>

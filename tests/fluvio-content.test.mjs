@@ -7,6 +7,7 @@ import { expertiseAreas } from '../src/data/fluvio/expertise.ts';
 import {
   contentLocales,
   getExpertiseAreas,
+  getHomepage,
   getNavigation,
   getProjects,
   getSiteContent,
@@ -171,7 +172,7 @@ test('Fluvio catalogs translate every string for every locale', () => {
   for (const catalog of [fr, es]) {
     assert.deepEqual(keyPaths(catalog).sort(), reference);
   }
-  assert.equal(en.slider.slides.length, 5);
+  assert.equal(getHomepage('en').slides.length, 5);
 
   // Importing the store already schema-validates every record in every locale;
   // here we pin structural parity across locales.
@@ -269,6 +270,7 @@ test('Fluvio primary pages exist without public template content', async () => {
 test('Fluvio hero slider exposes five accessible, localised, motion-aware slides', async () => {
   const slider = await readFile(new URL('../src/components/fluvio/HeroSlider.astro', import.meta.url), 'utf8');
 
+  const homepage = getHomepage('en');
   for (const image of [
     'home-river.jpg',
     'project-bina.jpeg',
@@ -276,10 +278,10 @@ test('Fluvio hero slider exposes five accessible, localised, motion-aware slides
     'project-advance-queensland.jpeg',
     'vision-field-team.jpeg',
   ]) {
-    assert.match(slider, new RegExp(image.replace('.', '\\.')));
+    assert.ok(homepage.slides.some((slide) => slide.image.endsWith(image)));
   }
-  assert.equal(en.slider.slides.length, 5);
-  assert.equal(en.slider.slides[0].title, 'Technology for a more resilient water future.');
+  assert.equal(homepage.slides.length, 5);
+  assert.equal(homepage.slides[0].title, 'Technology for a more resilient water future.');
   assert.equal(en.slider.pauseAria, 'Pause automatic slide rotation');
   assert.equal(en.slider.resumeAria, 'Resume automatic slide rotation');
   assert.equal(en.slider.previous, 'Previous slide');

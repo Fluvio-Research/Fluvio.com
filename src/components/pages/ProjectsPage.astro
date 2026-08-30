@@ -6,6 +6,7 @@ import ProjectListItem from '~/components/fluvio/ProjectListItem.astro';
 import SectionFrame from '~/components/fluvio/SectionFrame.astro';
 import SectionHeading from '~/components/fluvio/SectionHeading.astro';
 import { getProjects } from '~/data/fluvio/localized';
+import { getHomepage } from '~/data/fluvio/store.ts';
 import { t, type Locale } from '~/i18n';
 import Layout from '~/layouts/PageLayout.astro';
 
@@ -15,6 +16,7 @@ export interface Props {
 
 const { locale } = Astro.props;
 const c = t(locale);
+const { platforms } = getHomepage(locale);
 const projects = getProjects(locale);
 
 const featuredProject = projects.find(({ slug }) => slug === 'advance-queensland') ?? projects[0];
@@ -74,18 +76,18 @@ const metadata = {
     <div class="fluvio-platform-grid">
       <div class={reveal}>
         <PlatformFeature
-          title={c.platforms.sense.title}
-          description={c.platforms.sense.description}
+          title={platforms.sense.title}
+          description={platforms.sense.description}
           href="https://sense.fluvio.com.au/"
-          actionLabel={c.platforms.sense.action}
+          actionLabel={platforms.sense.action}
           index={0}
           locale={locale}
         />
       </div>
       <div class={reveal}>
         <PlatformFeature
-          title={c.platforms.cascade.title}
-          description={c.platforms.cascade.description}
+          title={platforms.cascade.title}
+          description={platforms.cascade.description}
           index={1}
           locale={locale}
         />

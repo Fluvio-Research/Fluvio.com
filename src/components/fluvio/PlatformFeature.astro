@@ -1,6 +1,7 @@
 ---
 import LargeImage from './LargeImage.astro';
-import { defaultLocale, t, type Locale } from '~/i18n';
+import { getHomepage } from '~/data/fluvio/store.ts';
+import { defaultLocale, type Locale } from '~/i18n';
 
 export interface Props {
   title: string;
@@ -14,7 +15,7 @@ export interface Props {
 }
 
 const { title, description, href, actionLabel, image, imageAlt = '', index, locale = defaultLocale } = Astro.props;
-const platformLabel = t(locale).platforms.label;
+const platformLabel = getHomepage(locale).platforms.label;
 ---
 
 <article class="fluvio-platform-feature">

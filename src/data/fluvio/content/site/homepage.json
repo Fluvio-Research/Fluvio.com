@@ -1,0 +1,287 @@
+{
+  "en": {
+    "slides": [
+      {
+        "eyebrow": "Water and climate",
+        "title": "Technology for a more resilient water future.",
+        "description": "Field science, sensing and data systems for practical environmental decisions.",
+        "action": "Our vision",
+        "href": "/vision",
+        "imageAlt": "A river winding through a forested landscape",
+        "image": "/src/assets/images/fluvio/home-river.jpg"
+      },
+      {
+        "eyebrow": "Field intelligence",
+        "title": "Observe water systems as they change.",
+        "description": "Non-contact monitoring and real-time analysis turn complex conditions into useful evidence.",
+        "action": "Explore expertise",
+        "href": "/expertise",
+        "imageAlt": "Flow gauging in the Loaloana Stream",
+        "image": "/src/assets/images/fluvio/project-bina.jpeg"
+      },
+      {
+        "eyebrow": "Collaborative delivery",
+        "title": "Build capability with the people who use it.",
+        "description": "Tools and knowledge shaped with communities, government, industry and regional partners.",
+        "action": "See our projects",
+        "href": "/projects",
+        "imageAlt": "Routine water quality monitoring in the Honiara reticulation network",
+        "image": "/src/assets/images/fluvio/project-honiara.jpeg"
+      },
+      {
+        "eyebrow": "Operational platforms",
+        "title": "From sensors to decisions in real time.",
+        "description": "FluvioSense and FluvioCascade turn live monitoring networks into analysis, reporting and alerts.",
+        "action": "Discover the platforms",
+        "href": "/projects#platforms-heading",
+        "imageAlt": "Installation of a computer vision stream gauging system",
+        "image": "/src/assets/images/fluvio/project-advance-queensland.jpeg"
+      },
+      {
+        "eyebrow": "People and place",
+        "title": "Science, engineering and local knowledge, together.",
+        "description": "Specialists in hydrology, carbon, data and delivery working across Australia and Melanesia.",
+        "action": "Meet the team",
+        "href": "/team",
+        "imageAlt": "A Fluvio field team working together",
+        "image": "/src/assets/images/fluvio/vision-field-team.jpeg"
+      }
+    ],
+    "metaDescription": "Water, environmental and climate solutions grounded in field science, monitoring technology and practical delivery.",
+    "capabilitiesLabel": "Core capabilities",
+    "capabilities": [
+      {
+        "title": "Monitoring systems",
+        "description": "Non-contact sensing, real-time water quality networks and operational data tools."
+      },
+      {
+        "title": "Water modelling",
+        "description": "Catchment, coastal pollution and resource models grounded in environmental evidence."
+      },
+      {
+        "title": "Project delivery",
+        "description": "Field programs and practical systems developed alongside clients, communities and operators."
+      }
+    ],
+    "expertiseEyebrow": "Expertise",
+    "expertiseTitle": "Evidence that moves from field conditions to decisions",
+    "expertiseIntro": "Our team combines water science, environmental monitoring and data systems around the needs of each place and project.",
+    "expertiseMore": "View all six capability areas",
+    "projectsTitle": "Selected projects",
+    "projectsIntro": "Current work across hydrological monitoring, water supply and climate-resilient infrastructure.",
+    "projectsFeatured": "Featured work",
+    "projectsMore": "Explore every project",
+    "platformsTitle": "Monitoring data, made operational",
+    "platformsIntro": "Purpose-built platforms connect environmental observations with analysis, reporting and action.",
+    "teamTitle": "Science, technology and delivery in one team",
+    "teamIntro": "Fluvio brings together specialists in hydrology, carbon, environmental science, spatial analysis and data systems.",
+    "teamMore": "Meet the full team",
+    "impactTitle": "Built with partners across Australia and Melanesia.",
+    "impactBody": [
+      "Our work spans Queensland, Australian reservoirs, Honiara, the Tina River, Bina Harbour and Rennell Island. Programs are shaped with government, utilities, communities and regional organisations.",
+      "Delivery includes field monitoring, operational data systems, training and environmental assessment, with a focus on lasting local capability."
+    ],
+    "platforms": {
+      "label": "Platform",
+      "sense": {
+        "title": "FluvioSense",
+        "description": "A web-based platform to communicate stereo vision and real-time data analytics across flood and water camera networks.",
+        "action": "Visit FluvioSense"
+      },
+      "cascade": {
+        "title": "FluvioCascade",
+        "description": "A web-based platform that ingests real-time environmental monitoring data to support analysis, reporting and alerts."
+      }
+    }
+  },
+  "fr": {
+    "slides": [
+      {
+        "eyebrow": "Eau et climat",
+        "title": "Des technologies pour un avenir de l'eau plus résilient.",
+        "description": "Science de terrain, capteurs et systèmes de données au service de décisions environnementales concrètes.",
+        "action": "Notre vision",
+        "href": "/vision",
+        "imageAlt": "Une rivière serpentant dans un paysage forestier",
+        "image": "/src/assets/images/fluvio/home-river.jpg"
+      },
+      {
+        "eyebrow": "Intelligence de terrain",
+        "title": "Observer les systèmes hydriques au fil de leurs évolutions.",
+        "description": "La surveillance sans contact et l’analyse en temps réel transforment des conditions complexes en données exploitables.",
+        "action": "Découvrir nos expertises",
+        "href": "/expertise",
+        "imageAlt": "Jaugeage de débit dans le cours d’eau Loaloana",
+        "image": "/src/assets/images/fluvio/project-bina.jpeg"
+      },
+      {
+        "eyebrow": "Réalisation collaborative",
+        "title": "Développer les compétences avec celles et ceux qui les utilisent.",
+        "description": "Des outils et des savoirs construits avec les communautés, les pouvoirs publics, l’industrie et les partenaires régionaux.",
+        "action": "Voir nos projets",
+        "href": "/projects",
+        "imageAlt": "Surveillance de routine de la qualité de l’eau dans le réseau de distribution de Honiara",
+        "image": "/src/assets/images/fluvio/project-honiara.jpeg"
+      },
+      {
+        "eyebrow": "Plateformes opérationnelles",
+        "title": "Des capteurs aux décisions, en temps réel.",
+        "description": "FluvioSense et FluvioCascade transforment les réseaux de surveillance en analyses, rapports et alertes.",
+        "action": "Découvrir les plateformes",
+        "href": "/projects#platforms-heading",
+        "imageAlt": "Installation d’un système de jaugeage de cours d’eau par vision par ordinateur",
+        "image": "/src/assets/images/fluvio/project-advance-queensland.jpeg"
+      },
+      {
+        "eyebrow": "Les personnes et les lieux",
+        "title": "Science, ingénierie et savoirs locaux, réunis.",
+        "description": "Des spécialistes en hydrologie, carbone, données et réalisation, à l’œuvre en Australie et en Mélanésie.",
+        "action": "Rencontrer l’équipe",
+        "href": "/team",
+        "imageAlt": "Une équipe de terrain Fluvio au travail",
+        "image": "/src/assets/images/fluvio/vision-field-team.jpeg"
+      }
+    ],
+    "metaDescription": "Solutions pour l’eau, l’environnement et le climat, fondées sur la science de terrain, les technologies de surveillance et une réalisation concrète.",
+    "capabilitiesLabel": "Compétences clés",
+    "capabilities": [
+      {
+        "title": "Systèmes de surveillance",
+        "description": "Capteurs sans contact, réseaux de qualité de l’eau en temps réel et outils de données opérationnels."
+      },
+      {
+        "title": "Modélisation de l’eau",
+        "description": "Modèles de bassins versants, de pollution côtière et de ressources, fondés sur des données environnementales."
+      },
+      {
+        "title": "Réalisation de projets",
+        "description": "Programmes de terrain et systèmes concrets développés avec les clients, les communautés et les opérateurs."
+      }
+    ],
+    "expertiseEyebrow": "Expertise",
+    "expertiseTitle": "Des observations de terrain aux décisions",
+    "expertiseIntro": "Notre équipe associe science de l’eau, surveillance environnementale et systèmes de données, au plus près des besoins de chaque lieu et de chaque projet.",
+    "expertiseMore": "Voir les six domaines de compétence",
+    "projectsTitle": "Projets choisis",
+    "projectsIntro": "Des travaux en cours en surveillance hydrologique, approvisionnement en eau et infrastructures résilientes au climat.",
+    "projectsFeatured": "Projet phare",
+    "projectsMore": "Explorer tous les projets",
+    "platformsTitle": "Des données de surveillance rendues opérationnelles",
+    "platformsIntro": "Des plateformes dédiées relient les observations environnementales à l’analyse, aux rapports et à l’action.",
+    "teamTitle": "Science, technologie et réalisation au sein d’une même équipe",
+    "teamIntro": "Fluvio réunit des spécialistes en hydrologie, carbone, sciences de l’environnement, analyse spatiale et systèmes de données.",
+    "teamMore": "Rencontrer toute l’équipe",
+    "impactTitle": "Construit avec des partenaires en Australie et en Mélanésie.",
+    "impactBody": [
+      "Nos travaux couvrent le Queensland, des réservoirs australiens, Honiara, la rivière Tina, Bina Harbour et l’île Rennell. Les programmes sont élaborés avec les gouvernements, les services d’eau, les communautés et les organisations régionales.",
+      "La réalisation comprend la surveillance de terrain, les systèmes de données opérationnels, la formation et l’évaluation environnementale, avec un souci de compétences locales durables."
+    ],
+    "platforms": {
+      "label": "Plateforme",
+      "sense": {
+        "title": "FluvioSense",
+        "description": "Une plateforme web qui diffuse la vision stéréoscopique et l’analyse de données en temps réel sur des réseaux de caméras de crue et de surveillance de l’eau.",
+        "action": "Visiter FluvioSense"
+      },
+      "cascade": {
+        "title": "FluvioCascade",
+        "description": "Une plateforme web qui ingère des données de surveillance environnementale en temps réel pour l’analyse, les rapports et les alertes."
+      }
+    }
+  },
+  "es": {
+    "slides": [
+      {
+        "eyebrow": "Agua y clima",
+        "title": "Tecnología para un futuro hídrico más resiliente.",
+        "description": "Ciencia de campo, sensores y sistemas de datos para decisiones ambientales prácticas.",
+        "action": "Nuestra visión",
+        "href": "/vision",
+        "imageAlt": "Un río serpenteando por un paisaje boscoso",
+        "image": "/src/assets/images/fluvio/home-river.jpg"
+      },
+      {
+        "eyebrow": "Inteligencia de campo",
+        "title": "Observar los sistemas hídricos mientras cambian.",
+        "description": "El monitoreo sin contacto y el análisis en tiempo real convierten condiciones complejas en evidencia útil.",
+        "action": "Explorar especialidades",
+        "href": "/expertise",
+        "imageAlt": "Aforo de caudal en el arroyo Loaloana",
+        "image": "/src/assets/images/fluvio/project-bina.jpeg"
+      },
+      {
+        "eyebrow": "Ejecución colaborativa",
+        "title": "Construir capacidades con quienes las utilizan.",
+        "description": "Herramientas y conocimiento desarrollados con comunidades, gobiernos, industria y socios regionales.",
+        "action": "Ver nuestros proyectos",
+        "href": "/projects",
+        "imageAlt": "Monitoreo de rutina de la calidad del agua en la red de distribución de Honiara",
+        "image": "/src/assets/images/fluvio/project-honiara.jpeg"
+      },
+      {
+        "eyebrow": "Plataformas operativas",
+        "title": "De los sensores a las decisiones, en tiempo real.",
+        "description": "FluvioSense y FluvioCascade convierten las redes de monitoreo en análisis, informes y alertas.",
+        "action": "Descubrir las plataformas",
+        "href": "/projects#platforms-heading",
+        "imageAlt": "Instalación de un sistema de aforo de cauces por visión artificial",
+        "image": "/src/assets/images/fluvio/project-advance-queensland.jpeg"
+      },
+      {
+        "eyebrow": "Personas y territorio",
+        "title": "Ciencia, ingeniería y conocimiento local, unidos.",
+        "description": "Especialistas en hidrología, carbono, datos y ejecución trabajando en Australia y Melanesia.",
+        "action": "Conocer al equipo",
+        "href": "/team",
+        "imageAlt": "Un equipo de campo de Fluvio trabajando en conjunto",
+        "image": "/src/assets/images/fluvio/vision-field-team.jpeg"
+      }
+    ],
+    "metaDescription": "Soluciones de agua, medio ambiente y clima basadas en ciencia de campo, tecnología de monitoreo y ejecución práctica.",
+    "capabilitiesLabel": "Capacidades principales",
+    "capabilities": [
+      {
+        "title": "Sistemas de monitoreo",
+        "description": "Sensores sin contacto, redes de calidad del agua en tiempo real y herramientas de datos operativos."
+      },
+      {
+        "title": "Modelación del agua",
+        "description": "Modelos de cuencas, contaminación costera y recursos, fundamentados en evidencia ambiental."
+      },
+      {
+        "title": "Ejecución de proyectos",
+        "description": "Programas de campo y sistemas prácticos desarrollados junto a clientes, comunidades y operadores."
+      }
+    ],
+    "expertiseEyebrow": "Especialidades",
+    "expertiseTitle": "Evidencia que va de las condiciones de campo a las decisiones",
+    "expertiseIntro": "Nuestro equipo combina ciencia del agua, monitoreo ambiental y sistemas de datos según las necesidades de cada lugar y cada proyecto.",
+    "expertiseMore": "Ver las seis áreas de capacidad",
+    "projectsTitle": "Proyectos seleccionados",
+    "projectsIntro": "Trabajo en curso en monitoreo hidrológico, abastecimiento de agua e infraestructura resiliente al clima.",
+    "projectsFeatured": "Trabajo destacado",
+    "projectsMore": "Explorar todos los proyectos",
+    "platformsTitle": "Datos de monitoreo, listos para operar",
+    "platformsIntro": "Plataformas diseñadas a medida conectan las observaciones ambientales con el análisis, los informes y la acción.",
+    "teamTitle": "Ciencia, tecnología y ejecución en un solo equipo",
+    "teamIntro": "Fluvio reúne a especialistas en hidrología, carbono, ciencias ambientales, análisis espacial y sistemas de datos.",
+    "teamMore": "Conocer a todo el equipo",
+    "impactTitle": "Construido con socios en Australia y Melanesia.",
+    "impactBody": [
+      "Nuestro trabajo abarca Queensland, embalses australianos, Honiara, el río Tina, Bina Harbour y la isla Rennell. Los programas se diseñan con gobiernos, empresas de agua, comunidades y organizaciones regionales.",
+      "La ejecución incluye monitoreo de campo, sistemas de datos operativos, capacitación y evaluación ambiental, con énfasis en capacidades locales duraderas."
+    ],
+    "platforms": {
+      "label": "Plataforma",
+      "sense": {
+        "title": "FluvioSense",
+        "description": "Una plataforma web que comunica visión estereoscópica y analítica de datos en tiempo real a través de redes de cámaras de inundaciones y de agua.",
+        "action": "Visitar FluvioSense"
+      },
+      "cascade": {
+        "title": "FluvioCascade",
+        "description": "Una plataforma web que ingiere datos de monitoreo ambiental en tiempo real para respaldar análisis, informes y alertas."
+      }
+    }
+  }
+}

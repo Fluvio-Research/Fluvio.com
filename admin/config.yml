@@ -279,6 +279,93 @@ collections:
             fields:
               - { name: title, label: Value, widget: string, i18n: true }
               - { name: description, label: Description, widget: text, i18n: true }
+      - name: homepage
+        label: 'Homepage'
+        file: src/data/fluvio/content/site/homepage.json
+        format: json
+        i18n: true
+        fields:
+          - name: slides
+            label: 'Hero slider (top of the homepage)'
+            label_singular: Slide
+            widget: list
+            min: 1
+            max: 8
+            i18n: true
+            fields:
+              - { name: eyebrow, label: 'Small label above the headline', widget: string, i18n: true }
+              - { name: title, label: Headline, widget: string, i18n: true }
+              - { name: description, label: 'Supporting line', widget: text, i18n: true }
+              - { name: action, label: 'Button text', widget: string, i18n: true }
+              - name: href
+                label: 'Button goes to'
+                widget: select
+                i18n: duplicate
+                options:
+                  - { label: 'Vision page', value: '/vision' }
+                  - { label: 'Expertise page', value: '/expertise' }
+                  - { label: 'Projects page', value: '/projects' }
+                  - { label: 'Projects page, platforms section', value: '/projects#platforms-heading' }
+                  - { label: 'Team page', value: '/team' }
+                  - { label: 'Contact page', value: '/contact' }
+              - { name: image, label: Photo, widget: image, i18n: duplicate }
+              - { name: imageAlt, label: 'Photo description', widget: string, i18n: true }
+          - { name: metaDescription, label: 'Search engine description', widget: text, i18n: true }
+          - name: capabilities
+            label: 'Capability strip (three columns under the slider)'
+            widget: list
+            min: 3
+            max: 3
+            i18n: true
+            fields:
+              - { name: title, label: Title, widget: string, i18n: true }
+              - { name: description, label: Description, widget: text, i18n: true }
+          - {
+              name: capabilitiesLabel,
+              label: 'Capability strip label (for screen readers)',
+              widget: string,
+              i18n: true,
+            }
+          - { name: expertiseEyebrow, label: 'Expertise section: small label', widget: string, i18n: true }
+          - { name: expertiseTitle, label: 'Expertise section: heading', widget: string, i18n: true }
+          - { name: expertiseIntro, label: 'Expertise section: intro', widget: text, i18n: true }
+          - { name: expertiseMore, label: 'Expertise section: link text', widget: string, i18n: true }
+          - { name: projectsTitle, label: 'Projects section: heading', widget: string, i18n: true }
+          - { name: projectsIntro, label: 'Projects section: intro', widget: text, i18n: true }
+          - { name: projectsFeatured, label: 'Projects section: featured tag', widget: string, i18n: true }
+          - { name: projectsMore, label: 'Projects section: link text', widget: string, i18n: true }
+          - { name: platformsTitle, label: 'Platforms section: heading', widget: string, i18n: true }
+          - { name: platformsIntro, label: 'Platforms section: intro', widget: text, i18n: true }
+          - name: platforms
+            label: 'Platform descriptions (also shown on the Projects page)'
+            widget: object
+            i18n: true
+            fields:
+              - { name: label, label: 'Small label', widget: string, i18n: true }
+              - name: sense
+                label: FluvioSense
+                widget: object
+                i18n: true
+                fields:
+                  - { name: title, label: Name, widget: string, i18n: duplicate }
+                  - { name: description, label: Description, widget: text, i18n: true }
+                  - { name: action, label: 'Link text', widget: string, i18n: true }
+              - name: cascade
+                label: FluvioCascade
+                widget: object
+                i18n: true
+                fields:
+                  - { name: title, label: Name, widget: string, i18n: duplicate }
+                  - { name: description, label: Description, widget: text, i18n: true }
+          - { name: teamTitle, label: 'Team section: heading', widget: string, i18n: true }
+          - { name: teamIntro, label: 'Team section: intro', widget: text, i18n: true }
+          - { name: teamMore, label: 'Team section: link text', widget: string, i18n: true }
+          - { name: impactTitle, label: 'Impact section (navy band): heading', widget: string, i18n: true }
+          - name: impactBody
+            label: 'Impact section: paragraphs'
+            widget: list
+            i18n: true
+            field: { name: paragraph, label: Paragraph, widget: text }
       - name: navigation
         label: 'Header and footer'
         file: src/data/fluvio/content/site/navigation.json
