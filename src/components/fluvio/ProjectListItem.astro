@@ -1,6 +1,7 @@
 ---
 import LargeImage from './LargeImage.astro';
 import type { Project } from '~/data/fluvio/types';
+import { getPermalink } from '~/utils/permalinks';
 
 export interface Props {
   project: Project;
@@ -26,7 +27,8 @@ const number = index === undefined ? undefined : String(index + 1).padStart(2, '
     <h3>{project.title}</h3>
     <p class="fluvio-project-item__summary">{project.summary}</p>
     <p class="fluvio-project-item__disciplines">{project.disciplines.join(' / ')}</p>
-    <a class="fluvio-project-item__link" href={`/${project.slug}`}>Read the project <span aria-hidden="true">→</span></a
+    <a class="fluvio-project-item__link" href={getPermalink(`/${project.slug}`)}
+      >Read the project <span aria-hidden="true">→</span></a
     >
   </div>
 </article>

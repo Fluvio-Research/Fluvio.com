@@ -1,5 +1,6 @@
 ---
 import LargeImage from './LargeImage.astro';
+import { getPermalink } from '~/utils/permalinks';
 
 const slides = [
   {
@@ -8,7 +9,7 @@ const slides = [
     description: 'Field science, sensing and data systems for practical environmental decisions.',
     image: '~/assets/images/fluvio/home-river.jpg',
     imageAlt: 'A river winding through a forested landscape',
-    href: '/vision',
+    href: getPermalink('/vision'),
     action: 'Our vision',
   },
   {
@@ -17,7 +18,7 @@ const slides = [
     description: 'Non-contact monitoring and real-time analysis turn complex conditions into useful evidence.',
     image: '~/assets/images/fluvio/project-bina.jpeg',
     imageAlt: 'Flow gauging in the Loaloana Stream',
-    href: '/expertise',
+    href: getPermalink('/expertise'),
     action: 'Explore expertise',
   },
   {
@@ -26,7 +27,7 @@ const slides = [
     description: 'Tools and knowledge shaped with communities, government, industry and regional partners.',
     image: '~/assets/images/fluvio/project-honiara.jpeg',
     imageAlt: 'Routine water quality monitoring in the Honiara reticulation network',
-    href: '/projects',
+    href: getPermalink('/projects'),
     action: 'See our projects',
   },
 ];

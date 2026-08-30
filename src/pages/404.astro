@@ -1,5 +1,6 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
+import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
   title: 'Page not found',
@@ -14,9 +15,9 @@ const metadata = {
       <h1>This path does not lead to a page.</h1>
       <p class="fluvio-not-found__intro">Continue with Fluvio's work, capabilities or current projects.</p>
       <nav aria-label="Page not found options">
-        <a href="/">Home <span aria-hidden="true">→</span></a>
-        <a href="/expertise">Expertise <span aria-hidden="true">→</span></a>
-        <a href="/projects">Projects <span aria-hidden="true">→</span></a>
+        <a href={getPermalink('/')}>Home <span aria-hidden="true">→</span></a>
+        <a href={getPermalink('/expertise')}>Expertise <span aria-hidden="true">→</span></a>
+        <a href={getPermalink('/projects')}>Projects <span aria-hidden="true">→</span></a>
       </nav>
     </div>
   </section>

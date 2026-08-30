@@ -6,6 +6,7 @@ import { expertiseAreas } from '~/data/fluvio/expertise';
 import { projects } from '~/data/fluvio/projects';
 import type { Project } from '~/data/fluvio/types';
 import Layout from '~/layouts/PageLayout.astro';
+import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
   title: 'Expertise',
@@ -74,7 +75,7 @@ const relatedProjects = new Map(
                 <ul>
                   {relatedProjects.get(area.slug)?.map((project) => (
                     <li>
-                      <a href={`/${project.slug}`}>
+                      <a href={getPermalink(`/${project.slug}`)}>
                         <span>{project.title}</span>
                         <span aria-hidden="true">→</span>
                       </a>
@@ -97,7 +98,7 @@ const relatedProjects = new Map(
           Hydrologists, environmental scientists, spatial analysts and data specialists work together from project
           design through field delivery and operational use.
         </p>
-        <a class="fluvio-link" href="/team">Meet the Fluvio team <span aria-hidden="true">→</span></a>
+        <a class="fluvio-link" href={getPermalink('/team')}>Meet the Fluvio team <span aria-hidden="true">→</span></a>
       </div>
     </div>
   </SectionFrame>

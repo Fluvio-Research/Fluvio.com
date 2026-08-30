@@ -5,11 +5,14 @@
  * fields and soft river/silt colour washes. Every layer is fixed behind the
  * content, pointer-safe and static under reduced motion.
  */
+import networkPattern from '~/assets/patterns/fluvio-network.svg';
+
 export interface Props {
   variant?: 'default' | 'quiet' | 'deep';
 }
 
 const { variant = 'default' } = Astro.props;
+const networkPatternUrl = `url("${networkPattern.src}")`;
 ---
 
 <fluvio-page-background aria-hidden="true">
@@ -18,7 +21,7 @@ const { variant = 'default' } = Astro.props;
   </div>
 </fluvio-page-background>
 
-<style>
+<style define:vars={{ 'fluvio-network-pattern': networkPatternUrl }}>
   fluvio-page-background {
     --fluvio-pointer-x: 0px;
     --fluvio-pointer-y: 0px;
@@ -66,7 +69,7 @@ const { variant = 'default' } = Astro.props;
 
   /* Sensor-network pattern from the logo mark, kept to outer gutters. */
   .fluvio-atmosphere__network {
-    background-image: url('/patterns/fluvio-network.svg');
+    background-image: var(--fluvio-network-pattern);
     background-size: 300px 300px;
     mask-image:
       radial-gradient(60rem 52rem at 98% 0%, rgb(0 0 0) 0%, transparent 72%),

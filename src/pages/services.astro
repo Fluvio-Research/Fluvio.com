@@ -1,3 +1,4 @@
 ---
-return Astro.redirect('/expertise', 301);
+import { getPermalink } from '~/utils/permalinks';
+return Astro.redirect(getPermalink('/expertise'), 301);
 ---

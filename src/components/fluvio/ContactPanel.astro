@@ -1,4 +1,6 @@
 ---
+import { getPermalink } from '~/utils/permalinks';
+
 export interface Props {
   eyebrow?: string;
   title?: string;
@@ -11,7 +13,7 @@ const {
   eyebrow = 'Start a conversation',
   title = 'Have a water, environmental or climate challenge?',
   intro = 'Tell us what you are working through. We will bring the right mix of field, science and technology expertise to the conversation.',
-  href = '/contact',
+  href = getPermalink('/contact'),
   actionLabel = 'Contact Fluvio',
 } = Astro.props;
 ---

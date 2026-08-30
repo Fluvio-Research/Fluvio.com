@@ -1,3 +1,4 @@
 ---
-return Astro.redirect('/vision', 301);
+import { getPermalink } from '~/utils/permalinks';
+return Astro.redirect(getPermalink('/vision'), 301);
 ---

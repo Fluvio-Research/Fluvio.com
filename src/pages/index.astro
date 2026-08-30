@@ -12,6 +12,7 @@ import { featuredProjects } from '~/data/fluvio/projects';
 import { siteContent } from '~/data/fluvio/site';
 import { teamMembers } from '~/data/fluvio/team';
 import Layout from '~/layouts/PageLayout.astro';
+import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
   title: siteContent.name,
@@ -69,7 +70,7 @@ const selectedTeam = teamMembers.slice(0, 3);
     <div class="fluvio-home-expertise-grid">
       {
         selectedExpertise.map((area, index) => (
-          <a class:list={['fluvio-home-expertise-card', reveal]} href={`/expertise#${area.slug}`}>
+          <a class:list={['fluvio-home-expertise-card', reveal]} href={getPermalink(`/expertise#${area.slug}`)}>
             <LargeImage
               src={area.image}
               alt={area.imageAlt}
@@ -87,7 +88,7 @@ const selectedTeam = teamMembers.slice(0, 3);
         ))
       }
     </div>
-    <a class="fluvio-link fluvio-home-more" href="/expertise"
+    <a class="fluvio-link fluvio-home-more" href={getPermalink('/expertise')}
       >View all six capability areas <span aria-hidden="true">→</span></a
     >
   </SectionFrame>
@@ -107,7 +108,9 @@ const selectedTeam = teamMembers.slice(0, 3);
         ))
       }
     </div>
-    <a class="fluvio-link fluvio-home-more" href="/projects">Explore every project <span aria-hidden="true">→</span></a>
+    <a class="fluvio-link fluvio-home-more" href={getPermalink('/projects')}
+      >Explore every project <span aria-hidden="true">→</span></a
+    >
   </SectionFrame>
 
   {/* 4. Projects -> Platforms: field evidence to operational technology. */}
@@ -151,7 +154,9 @@ const selectedTeam = teamMembers.slice(0, 3);
         ))
       }
     </div>
-    <a class="fluvio-link fluvio-home-more" href="/team">Meet the full team <span aria-hidden="true">→</span></a>
+    <a class="fluvio-link fluvio-home-more" href={getPermalink('/team')}
+      >Meet the full team <span aria-hidden="true">→</span></a
+    >
   </SectionFrame>
 
   {/* 6. Team -> Impact: deep navy chapter break with a coral rule. */}

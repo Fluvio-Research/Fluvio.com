@@ -182,17 +182,17 @@ test('Fluvio project experience provides shared components and static project ro
   assert.match(projectRoute, /projects\.map\s*\(/);
   assert.match(largeImage, /sizes\?:\s*string/);
   assert.match(largeImage, /sizes=\{imageSizes\}/);
-  assert.equal(projectFeature.match(/href=\{`\/\$\{project\.slug\}`\}/g)?.length, 1);
-  assert.equal(projectListItem.match(/href=\{`\/\$\{project\.slug\}`\}/g)?.length, 1);
+  assert.equal(projectFeature.match(/href=\{getPermalink\(`\/\$\{project\.slug\}`\)\}/g)?.length, 1);
+  assert.equal(projectListItem.match(/href=\{getPermalink\(`\/\$\{project\.slug\}`\)\}/g)?.length, 1);
   assert.match(projectFeature, /<h2>\{project\.title\}<\/h2>/);
   assert.match(
     projectFeature,
-    /<a class="fluvio-project-feature__link" href=\{`\/\$\{project\.slug\}`\}\s*>\s*View project/
+    /<a class="fluvio-project-feature__link" href=\{getPermalink\(`\/\$\{project\.slug\}`\)\}\s*>\s*View project/
   );
   assert.match(projectListItem, /<h3>\{project\.title\}<\/h3>/);
   assert.match(
     projectListItem,
-    /<a class="fluvio-project-item__link" href=\{`\/\$\{project\.slug\}`\}\s*>\s*Read the project/
+    /<a class="fluvio-project-item__link" href=\{getPermalink\(`\/\$\{project\.slug\}`\)\}\s*>\s*Read the project/
   );
   assert.match(projectFeature, /alt=\{project\.heroAlt\}/);
   assert.match(projectListItem, /alt=\{project\.heroAlt\}/);
@@ -239,9 +239,10 @@ test('Fluvio recovery and contact routes use explicit destinations', async () =>
     )
   );
 
-  assert.match(about, /Astro\.redirect\(['"]\/vision['"],\s*301\)/);
-  assert.match(services, /Astro\.redirect\(['"]\/expertise['"],\s*301\)/);
-  for (const href of ['/', '/expertise', '/projects']) assert.match(notFound, new RegExp(`href=["']${href}["']`));
+  assert.match(about, /Astro\.redirect\(getPermalink\(['"]\/vision['"]\),\s*301\)/);
+  assert.match(services, /Astro\.redirect\(getPermalink\(['"]\/expertise['"]\),\s*301\)/);
+  for (const href of ['/', '/expertise', '/projects'])
+    assert.match(notFound, new RegExp(`getPermalink\\('${href}'\\)`));
   assert.match(contact, /href=["']mailto:/);
   assert.match(contact, /https:\/\/www\.linkedin\.com\/company\/fluvioptyltd\//);
   assert.doesNotMatch(contact, /within \d+ hours|attachment upload|server submission/i);
