@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Publish - Fluvio Website Editor</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💧</text></svg>"
+    />
+    <style>
+      :root {
+        --paper: #fbfcfa;
+        --ink: #13202a;
+        --navy: #173b57;
+        --river: #2f7d94;
+        --teal: #3b8587;
+        --slate: #475864;
+        --wash: #dbe9ee;
+        --coral: #d9765b;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: ui-sans-serif, system-ui, sans-serif;
+      }
+      main {
+        width: min(100% - 2rem, 34rem);
+        padding: 2rem 0 3rem;
+      }
+      .ribbon {
+        height: 4px;
+        border-radius: 4px;
+        background: linear-gradient(90deg, var(--navy), var(--river) 35%, var(--teal) 55%, #c39a5b 80%, #d9765b);
+        margin-bottom: 2rem;
+      }
+      h1 {
+        margin: 0 0 0.5rem;
+        font-size: 1.8rem;
+        letter-spacing: -0.02em;
+      }
+      p.lead {
+        margin: 0 0 1.5rem;
+        color: var(--slate);
+        line-height: 1.6;
+      }
+      #files {
+        margin: 0 0 1.5rem;
+        padding: 1rem 1.25rem;
+        border: 1px solid rgb(19 32 42 / 0.12);
+        border-radius: 12px;
+        background: #fff;
+        font-size: 0.9rem;
+        line-height: 1.8;
+        color: var(--slate);
+      }
+      #files strong {
+        color: var(--ink);
+      }
+      label {
+        display: block;
+        font-weight: 600;
+        font-size: 0.92rem;
+        margin-bottom: 0.4rem;
+      }
+      input {
+        width: 100%;
+        padding: 0.75rem 0.9rem;
+        margin-bottom: 1.25rem;
+        border: 1px solid rgb(19 32 42 / 0.18);
+        border-radius: 10px;
+        font-size: 0.95rem;
+      }
+      button {
+        width: 100%;
+        padding: 0.95rem;
+        border: none;
+        border-radius: 999px;
+        background: linear-gradient(115deg, var(--river), var(--teal) 55%, var(--navy));
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 650;
+        cursor: pointer;
+      }
+      button:disabled {
+        opacity: 0.55;
+        cursor: wait;
+      }
+      #result {
+        display: none;
+        margin-top: 1.25rem;
+        padding: 1rem 1.25rem;
+        border-radius: 12px;
+        font-size: 0.92rem;
+        line-height: 1.6;
+        white-space: pre-wrap;
+      }
+      #result.ok {
+        background: var(--wash);
+        color: var(--navy);
+      }
+      #result.bad {
+        background: rgb(217 118 91 / 0.14);
+        color: #8a3a22;
+      }
+      a.back {
+        display: inline-block;
+        margin-top: 1.5rem;
+        color: var(--river);
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="ribbon"></div>
+      <h1>Publish to the live site</h1>
+      <p class="lead" id="lead">Checking what you changed...</p>
+
+      <div id="form" style="display: none">
+        <div id="files"></div>
+        <label for="message">What did you change? (a few words)</label>
+        <input id="message" placeholder="e.g. added the new reservoir project" maxlength="120" />
+        <button id="go">Check and publish</button>
+      </div>
+
+      <div id="result"></div>
+      <a class="back" href="/">&larr; Back to the start page</a>
+    </main>
+    <script>
+      const lead = document.getElementById('lead');
+      const form = document.getElementById('form');
+      const filesEl = document.getElementById('files');
+      const result = document.getElementById('result');
+      const button = document.getElementById('go');
+
+      const friendly = (file) => {
+        const name = file.split('/').pop().replace('.json', '').replaceAll('-', ' ');
+        if (file.includes('/projects/')) return 'Project: ' + name;
+        if (file.includes('/team/')) return 'Team member: ' + name;
+        if (file.includes('/expertise/')) return 'Expertise: ' + name;
+        if (file.includes('homepage')) return 'Homepage';
+        if (file.includes('navigation')) return 'Header and footer';
+        if (file.includes('content.json')) return 'Site content';
+        if (file.includes('assets/images')) return 'New photo: ' + file.split('/').pop();
+        return name;
+      };
+
+      fetch('/api/changes')
+        .then((r) => r.json())
+        .then(({ files }) => {
+          if (files.length === 0) {
+            lead.textContent = 'There is nothing new to publish. Everything is already live.';
+            return;
+          }
+          lead.textContent = 'These changes will go live:';
+          filesEl.innerHTML = files.map((f) => '<strong>&bull;</strong> ' + friendly(f)).join('<br>');
+          form.style.display = 'block';
+        });
+
+      button?.addEventListener('click', async () => {
+        button.disabled = true;
+        button.textContent = 'Checking and publishing... this takes a moment';
+        result.style.display = 'none';
+        const message = document.getElementById('message').value.trim();
+        const response = await fetch('/api/publish', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message }),
+        });
+        const data = await response.json();
+        result.style.display = 'block';
+        if (data.ok) {
+          result.className = 'ok';
+          result.textContent =
+            'Published. The live site is rebuilding itself now; your changes appear in about two minutes at\nhttps://fluvio-research.github.io/Fluvio.com/';
+          form.style.display = 'none';
+          lead.textContent = 'All done.';
+        } else {
+          result.className = 'bad';
+          result.textContent =
+            data.stage === 'checks'
+              ? 'The automatic checks refused this change, so nothing was published. This usually means a required field was left empty or a translation is missing. Reopen the editor, complete the entry, and try again.\n\nDetails for a developer:\n' +
+                (data.log || '')
+              : 'Publishing failed at the "' +
+                data.stage +
+                '" step. Nothing is lost; your edits are still saved on this computer. Details:\n' +
+                (data.log || '');
+          button.disabled = false;
+          button.textContent = 'Check and publish';
+        }
+      });
+    </script>
+  </body>
+</html>
