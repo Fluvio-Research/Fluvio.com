@@ -1,0 +1,65 @@
+{
+  "en": {
+    "order": 8,
+    "title": "Clean Reefs: dynamic pollution mapping",
+    "slug": "cordap",
+    "summary": "Developing a global, open-source pollution mapping and risk assessment tool for coral reefs.",
+    "location": "Globally",
+    "timeframe": "2024 - Current",
+    "disciplines": ["Pollution mapping", "Risk assessment"],
+    "heroImage": "~/assets/images/fluvio/project-cordap.jpeg",
+    "heroAlt": "A sediment plume seen in the Solomon Islands",
+    "challenge": [
+      "Pollution from land-based sources poses a significant threat to reef health globally, affecting over 30% of coral reefs, while available tools are largely inaccessible or unsuitable for decision-making."
+    ],
+    "approach": [
+      "The CLEAN REEFS project is developing a web-based application that provides near-real-time data on pollution sources, exposure, and dispersal patterns."
+    ],
+    "outcome": [
+      "The tool will support on-the-ground conservation in Fiji and the Solomon Islands and create a globally adaptable tool for coral reef communities worldwide."
+    ],
+    "relatedProjects": ["sol-trader-oil-spill"]
+  },
+  "fr": {
+    "order": 8,
+    "title": "Clean Reefs : cartographie dynamique de la pollution",
+    "slug": "cordap",
+    "summary": "Développer un outil mondial et open source de cartographie de la pollution et d’évaluation des risques pour les récifs coralliens.",
+    "location": "Mondial",
+    "timeframe": "2024 - En cours",
+    "disciplines": ["Cartographie de la pollution", "Évaluation des risques"],
+    "heroImage": "~/assets/images/fluvio/project-cordap.jpeg",
+    "heroAlt": "Un panache sédimentaire observé aux Îles Salomon",
+    "challenge": [
+      "La pollution d’origine terrestre constitue une menace majeure pour la santé des récifs à l’échelle mondiale, affectant plus de 30 % des récifs coralliens, alors que les outils disponibles restent largement inaccessibles ou inadaptés à la prise de décision."
+    ],
+    "approach": [
+      "Le projet CLEAN REEFS développe une application web fournissant des données en quasi temps réel sur les sources de pollution, l’exposition et les schémas de dispersion."
+    ],
+    "outcome": [
+      "L’outil appuiera la conservation de terrain aux Fidji et aux Îles Salomon et constituera un outil adaptable à l’échelle mondiale pour les communautés des récifs coralliens."
+    ],
+    "relatedProjects": ["sol-trader-oil-spill"]
+  },
+  "es": {
+    "order": 8,
+    "title": "Clean Reefs: cartografía dinámica de la contaminación",
+    "slug": "cordap",
+    "summary": "Desarrollar una herramienta global y de código abierto de cartografía de la contaminación y evaluación de riesgos para los arrecifes de coral.",
+    "location": "Global",
+    "timeframe": "2024 - Actualidad",
+    "disciplines": ["Cartografía de la contaminación", "Evaluación de riesgos"],
+    "heroImage": "~/assets/images/fluvio/project-cordap.jpeg",
+    "heroAlt": "Una pluma de sedimentos observada en las Islas Salomón",
+    "challenge": [
+      "La contaminación de origen terrestre representa una amenaza importante para la salud de los arrecifes a nivel mundial, afectando a más del 30 % de los arrecifes de coral, mientras que las herramientas disponibles son en gran medida inaccesibles o inadecuadas para la toma de decisiones."
+    ],
+    "approach": [
+      "El proyecto CLEAN REEFS está desarrollando una aplicación web que proporciona datos casi en tiempo real sobre fuentes de contaminación, exposición y patrones de dispersión."
+    ],
+    "outcome": [
+      "La herramienta apoyará la conservación sobre el terreno en Fiyi y las Islas Salomón y creará una herramienta adaptable globalmente para las comunidades de arrecifes de coral de todo el mundo."
+    ],
+    "relatedProjects": ["sol-trader-oil-spill"]
+  }
+}

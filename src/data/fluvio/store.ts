@@ -1,0 +1,160 @@
+/**
+ * Content store: loads the localized JSON records that the admin interface
+ * edits, validates every record against a schema at build time, and exposes
+ * typed, locale-projected accessors. A malformed or incomplete record fails
+ * the build and the test suite rather than shipping.
+ */
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+import { z } from 'astro/zod';
+
+import type { ExpertiseArea, Project, SiteContent, TeamMember } from './types';
+
+export const contentLocales = ['en', 'fr', 'es'] as const;
+export type ContentLocale = (typeof contentLocales)[number];
+
+/* The module may execute from a bundled location at build time, so fall back
+ * to resolving the content directory from the project root. */
+const moduleContentDir = join(dirname(fileURLToPath(import.meta.url)), 'content');
+const contentDir = existsSync(moduleContentDir)
+  ? moduleContentDir
+  : join(process.cwd(), 'src', 'data', 'fluvio', 'content');
+
+/* ------------------------------------------------------------------ */
+/* Schemas                                                             */
+/* ------------------------------------------------------------------ */
+
+const localImage = z.string().regex(/^~\/assets\/images\/fluvio\//, 'images must live in ~/assets/images/fluvio/');
+const text = z.string().min(1);
+const paragraphs = z.array(text).min(1);
+
+const projectSchema = z.object({
+  order: z.number().int().positive(),
+  slug: z.string().regex(/^[a-z0-9-]+$/),
+  title: text,
+  summary: text,
+  location: text.optional(),
+  timeframe: text.optional(),
+  disciplines: z.array(text).min(1),
+  partners: z.array(text).optional(),
+  heroImage: localImage,
+  heroAlt: text,
+  gallery: z.array(z.object({ src: localImage, alt: text, caption: text.optional() })).optional(),
+  challenge: paragraphs,
+  approach: paragraphs,
+  outcome: paragraphs,
+  featured: z.boolean().optional(),
+  relatedProjects: z.array(z.string()).optional(),
+});
+
+const teamMemberSchema = z.object({
+  order: z.number().int().positive(),
+  name: text,
+  role: text.optional(),
+  bio: text,
+  portrait: localImage,
+  portraitAlt: text,
+  specialties: z.array(text).min(1),
+  profileUrl: z.string().url().optional(),
+});
+
+const expertiseSchema = z.object({
+  order: z.number().int().positive(),
+  slug: z.string().regex(/^[a-z0-9-]+$/),
+  title: text,
+  summary: text,
+  description: paragraphs,
+  image: localImage,
+  imageAlt: text,
+  relatedProjects: z.array(z.string()),
+});
+
+const siteSchema = z.object({
+  name: text,
+  tagline: text,
+  summary: text,
+  heroImage: localImage,
+  heroAlt: text,
+  vision: z.object({ title: text, description: text, image: localImage, imageAlt: text }),
+  values: z.array(z.object({ title: text, description: text })).length(5),
+});
+
+const navigationSchema = z.object({
+  vision: text,
+  expertise: text,
+  projects: text,
+  team: text,
+  contact: text,
+  startProject: text,
+  explore: text,
+  company: text,
+  allRightsReserved: text,
+  linkedinLabel: text,
+  languageLabel: text,
+  linkedinUrl: z.string().url(),
+});
+
+export type Navigation = z.infer<typeof navigationSchema>;
+
+const localized = <Schema extends z.ZodTypeAny>(schema: Schema) => z.object({ en: schema, fr: schema, es: schema });
+
+/* ------------------------------------------------------------------ */
+/* Loading                                                             */
+/* ------------------------------------------------------------------ */
+
+type Localized<T> = Record<ContentLocale, T>;
+
+function loadRecord<Schema extends z.ZodTypeAny>(path: string, schema: Schema): Localized<z.infer<Schema>> {
+  const raw: unknown = JSON.parse(readFileSync(path, 'utf8'));
+  const parsed = localized(schema).safeParse(raw);
+  if (!parsed.success) {
+    throw new Error(
+      `Invalid content in ${path}:\n${parsed.error.issues.map((issue) => `  ${issue.path.join('.')}: ${issue.message}`).join('\n')}`
+    );
+  }
+  return parsed.data as Localized<z.infer<Schema>>;
+}
+
+function loadCollection<Schema extends z.ZodTypeAny>(name: string, schema: Schema): Array<Localized<z.infer<Schema>>> {
+  const dir = join(contentDir, name);
+  const records = readdirSync(dir)
+    .filter((file) => file.endsWith('.json'))
+    .map((file) => loadRecord(join(dir, file), schema));
+  return records.sort((a, b) => (a.en as { order: number }).order - (b.en as { order: number }).order);
+}
+
+const projectRecords = loadCollection('projects', projectSchema);
+const teamRecords = loadCollection('team', teamMemberSchema);
+const expertiseRecords = loadCollection('expertise', expertiseSchema);
+const siteRecord = loadRecord(join(contentDir, 'site', 'content.json'), siteSchema);
+const navigationRecord = loadRecord(join(contentDir, 'site', 'navigation.json'), navigationSchema);
+
+/* ------------------------------------------------------------------ */
+/* Locale projections                                                  */
+/* ------------------------------------------------------------------ */
+
+/** Project the requested locale over the English record so a partially
+ *  translated record degrades to English instead of breaking. */
+function project<T extends { order?: number }>(record: Localized<T>, locale: ContentLocale): Omit<T, 'order'> {
+  const defined = Object.fromEntries(Object.entries(record[locale] ?? {}).filter(([, value]) => value !== undefined));
+  const { order: _order, ...rest } = { ...record.en, ...defined };
+  return rest as Omit<T, 'order'>;
+}
+
+export const getProjects = (locale: ContentLocale): Project[] =>
+  projectRecords.map((record) => project(record, locale));
+
+export const getTeamMembers = (locale: ContentLocale): TeamMember[] =>
+  teamRecords.map((record) => project(record, locale));
+
+export const getExpertiseAreas = (locale: ContentLocale): ExpertiseArea[] =>
+  expertiseRecords.map((record) => project(record, locale));
+
+export const getSiteContent = (locale: ContentLocale): SiteContent => ({ ...siteRecord.en, ...siteRecord[locale] });
+
+export const getNavigation = (locale: ContentLocale): Navigation => ({
+  ...navigationRecord.en,
+  ...navigationRecord[locale],
+});

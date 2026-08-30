@@ -1,0 +1,38 @@
+{
+  "en": {
+    "order": 6,
+    "title": "Sediment transport and reservoir assessment",
+    "slug": "sediment-loading",
+    "summary": "Monitoring and mapping sediment loads into coastal environments.",
+    "description": [
+      "Integrating a diverse set of tools including nutrient flux incubations, physical sampling, particle size and penetrometer surveys."
+    ],
+    "image": "~/assets/images/fluvio/project-reservoir-sedimentation.jpeg",
+    "imageAlt": "Reservoir sedimentation field work",
+    "relatedProjects": ["tina", "ghg-emissions-reservoirs", "reservoir-sedimentation"]
+  },
+  "fr": {
+    "order": 6,
+    "title": "Transport sédimentaire et évaluation des réservoirs",
+    "slug": "sediment-loading",
+    "summary": "Surveiller et cartographier les charges sédimentaires vers les milieux côtiers.",
+    "description": [
+      "Nous intégrons un ensemble varié d’outils : incubations de flux de nutriments, échantillonnage physique, granulométrie et relevés au pénétromètre."
+    ],
+    "image": "~/assets/images/fluvio/project-reservoir-sedimentation.jpeg",
+    "imageAlt": "Travaux de terrain sur la sédimentation d’un réservoir",
+    "relatedProjects": ["tina", "ghg-emissions-reservoirs", "reservoir-sedimentation"]
+  },
+  "es": {
+    "order": 6,
+    "title": "Transporte de sedimentos y evaluación de embalses",
+    "slug": "sediment-loading",
+    "summary": "Monitorear y cartografiar las cargas de sedimentos hacia los entornos costeros.",
+    "description": [
+      "Integramos un conjunto diverso de herramientas que incluye incubaciones de flujo de nutrientes, muestreo físico, granulometría y levantamientos con penetrómetro."
+    ],
+    "image": "~/assets/images/fluvio/project-reservoir-sedimentation.jpeg",
+    "imageAlt": "Trabajo de campo sobre sedimentación de un embalse",
+    "relatedProjects": ["tina", "ghg-emissions-reservoirs", "reservoir-sedimentation"]
+  }
+}

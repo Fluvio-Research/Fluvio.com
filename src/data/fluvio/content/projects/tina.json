@@ -1,0 +1,89 @@
+{
+  "en": {
+    "order": 6,
+    "title": "Hydrological monitoring of Tina Hydro",
+    "slug": "tina",
+    "summary": "Hydrological and sediment monitoring for the Tina River Hydro Development Project.",
+    "location": "Tina River, Solomon Islands",
+    "timeframe": "2025 - Current",
+    "disciplines": ["Hydrological monitoring", "Sediment monitoring"],
+    "heroImage": "~/assets/images/fluvio/project-tina.jpeg",
+    "heroAlt": "Hydrological monitoring of Tina Hydro",
+    "gallery": [
+      {
+        "src": "~/assets/images/fluvio/project-tina-station.png",
+        "alt": "A real-time monitoring station deployed on the Tina River",
+        "caption": "A real time monitoring station deployed on the Tina River."
+      }
+    ],
+    "challenge": [
+      "The Tina River Hydro Development Project requires energy calculations based on sediment loads, flow ratings, and mean flow."
+    ],
+    "approach": [
+      "Fluvio has completed hydrological and sediment monitoring using computer vision stream gauging systems, real-time water level stations, real-time water quality stations, sediment analysis, and manual gauging."
+    ],
+    "outcome": [
+      "Bespoke power and communication solutions have been developed to ensure reliability in a remote and complex environment."
+    ],
+    "featured": true,
+    "relatedProjects": ["bina", "advance-queensland"]
+  },
+  "fr": {
+    "order": 6,
+    "title": "Surveillance hydrologique de Tina Hydro",
+    "slug": "tina",
+    "summary": "Surveillance hydrologique et sédimentaire pour le projet hydroélectrique de la rivière Tina.",
+    "location": "Rivière Tina, Îles Salomon",
+    "timeframe": "2025 - En cours",
+    "disciplines": ["Surveillance hydrologique", "Surveillance des sédiments"],
+    "heroImage": "~/assets/images/fluvio/project-tina.jpeg",
+    "heroAlt": "Surveillance hydrologique de Tina Hydro",
+    "gallery": [
+      {
+        "src": "~/assets/images/fluvio/project-tina-station.png",
+        "alt": "A real-time monitoring station deployed on the Tina River",
+        "caption": "A real time monitoring station deployed on the Tina River."
+      }
+    ],
+    "challenge": [
+      "Le projet hydroélectrique de la rivière Tina requiert des calculs d’énergie fondés sur les charges sédimentaires, les courbes de tarage et le débit moyen."
+    ],
+    "approach": [
+      "Fluvio a réalisé la surveillance hydrologique et sédimentaire à l’aide de systèmes de jaugeage par vision par ordinateur, de stations de niveau d’eau en temps réel, de stations de qualité de l’eau en temps réel, d’analyses sédimentaires et de jaugeages manuels."
+    ],
+    "outcome": [
+      "Des solutions sur mesure d’alimentation et de communication ont été développées pour garantir la fiabilité dans un environnement isolé et complexe."
+    ],
+    "featured": true,
+    "relatedProjects": ["bina", "advance-queensland"]
+  },
+  "es": {
+    "order": 6,
+    "title": "Monitoreo hidrológico de Tina Hydro",
+    "slug": "tina",
+    "summary": "Monitoreo hidrológico y de sedimentos para el Proyecto Hidroeléctrico del Río Tina.",
+    "location": "Río Tina, Islas Salomón",
+    "timeframe": "2025 - Actualidad",
+    "disciplines": ["Monitoreo hidrológico", "Monitoreo de sedimentos"],
+    "heroImage": "~/assets/images/fluvio/project-tina.jpeg",
+    "heroAlt": "Monitoreo hidrológico de Tina Hydro",
+    "gallery": [
+      {
+        "src": "~/assets/images/fluvio/project-tina-station.png",
+        "alt": "A real-time monitoring station deployed on the Tina River",
+        "caption": "A real time monitoring station deployed on the Tina River."
+      }
+    ],
+    "challenge": [
+      "El Proyecto Hidroeléctrico del Río Tina requiere cálculos de energía basados en cargas de sedimentos, curvas de gasto y caudal medio."
+    ],
+    "approach": [
+      "Fluvio ha realizado el monitoreo hidrológico y de sedimentos mediante sistemas de aforo por visión artificial, estaciones de nivel de agua en tiempo real, estaciones de calidad del agua en tiempo real, análisis de sedimentos y aforos manuales."
+    ],
+    "outcome": [
+      "Se han desarrollado soluciones a medida de energía y comunicaciones para garantizar la confiabilidad en un entorno remoto y complejo."
+    ],
+    "featured": true,
+    "relatedProjects": ["bina", "advance-queensland"]
+  }
+}

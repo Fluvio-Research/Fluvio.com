@@ -1,0 +1,44 @@
+{
+  "en": {
+    "vision": "Vision",
+    "expertise": "Expertise",
+    "projects": "Projects",
+    "team": "Team",
+    "contact": "Contact",
+    "startProject": "Start a project",
+    "explore": "Explore",
+    "company": "Company",
+    "allRightsReserved": "All rights reserved.",
+    "linkedinLabel": "Fluvio on LinkedIn",
+    "languageLabel": "Language",
+    "linkedinUrl": "https://www.linkedin.com/company/fluvioptyltd/"
+  },
+  "fr": {
+    "vision": "Vision",
+    "expertise": "Expertise",
+    "projects": "Projets",
+    "team": "Équipe",
+    "contact": "Contact",
+    "startProject": "Lancer un projet",
+    "explore": "Explorer",
+    "company": "Entreprise",
+    "allRightsReserved": "Tous droits réservés.",
+    "linkedinLabel": "Fluvio sur LinkedIn",
+    "languageLabel": "Langue",
+    "linkedinUrl": "https://www.linkedin.com/company/fluvioptyltd/"
+  },
+  "es": {
+    "vision": "Visión",
+    "expertise": "Especialidades",
+    "projects": "Proyectos",
+    "team": "Equipo",
+    "contact": "Contacto",
+    "startProject": "Iniciar un proyecto",
+    "explore": "Explorar",
+    "company": "Empresa",
+    "allRightsReserved": "Todos los derechos reservados.",
+    "linkedinLabel": "Fluvio en LinkedIn",
+    "languageLabel": "Idioma",
+    "linkedinUrl": "https://www.linkedin.com/company/fluvioptyltd/"
+  }
+}

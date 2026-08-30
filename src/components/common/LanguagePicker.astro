@@ -1,7 +1,8 @@
 ---
 import { SITE } from 'astrowind:config';
 
-import { localeNames, locales, localizePath, t, unlocalizedPathname, type Locale } from '~/i18n';
+import { getNavigation } from '~/data/fluvio/store.ts';
+import { localeNames, locales, localizePath, unlocalizedPathname, type Locale } from '~/i18n';
 import { getPermalink } from '~/utils/permalinks';
 
 export interface Props {
@@ -13,7 +14,7 @@ const path = unlocalizedPathname(Astro.url.pathname, SITE.base || '/');
 ---
 
 <details class="fluvio-lang">
-  <summary aria-label={t(current).nav.languageLabel}>
+  <summary aria-label={getNavigation(current).languageLabel}>
     <svg
       aria-hidden="true"
       width="15"

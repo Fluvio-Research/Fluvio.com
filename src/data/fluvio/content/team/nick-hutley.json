@@ -1,0 +1,29 @@
+{
+  "en": {
+    "order": 3,
+    "name": "Nick Hutley",
+    "role": "Director of Research and Technology",
+    "bio": "Nick is leading the development of optical flow technology to usher in a new era of hydrological monitoring. He believes the key to effective natural resource management lies in informing adaptive numerical models with critical environmental data streams.",
+    "portrait": "~/assets/images/fluvio/team-nick.png",
+    "portraitAlt": "Nick Hutley",
+    "specialties": ["Optical flow technology"]
+  },
+  "fr": {
+    "order": 3,
+    "name": "Nick Hutley",
+    "role": "Directeur de la recherche et de la technologie",
+    "bio": "Nick pilote le développement de la technologie de flux optique pour ouvrir une nouvelle ère de la surveillance hydrologique. Il est convaincu que la clé d’une gestion efficace des ressources naturelles réside dans l’alimentation de modèles numériques adaptatifs par des flux de données environnementales critiques.",
+    "portrait": "~/assets/images/fluvio/team-nick.png",
+    "portraitAlt": "Nick Hutley",
+    "specialties": ["Technologie de flux optique"]
+  },
+  "es": {
+    "order": 3,
+    "name": "Nick Hutley",
+    "role": "Director de Investigación y Tecnología",
+    "bio": "Nick lidera el desarrollo de la tecnología de flujo óptico para inaugurar una nueva era del monitoreo hidrológico. Cree que la clave de una gestión eficaz de los recursos naturales está en alimentar modelos numéricos adaptativos con flujos de datos ambientales críticos.",
+    "portrait": "~/assets/images/fluvio/team-nick.png",
+    "portraitAlt": "Nick Hutley",
+    "specialties": ["Tecnología de flujo óptico"]
+  }
+}

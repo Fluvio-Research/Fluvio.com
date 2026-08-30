@@ -4,20 +4,6 @@
  * untranslated.
  */
 export const en = {
-  nav: {
-    vision: 'Vision',
-    expertise: 'Expertise',
-    projects: 'Projects',
-    team: 'Team',
-    contact: 'Contact',
-    startProject: 'Start a project',
-    explore: 'Explore',
-    company: 'Company',
-    allRightsReserved: 'All rights reserved.',
-    linkedinLabel: 'Fluvio on LinkedIn',
-    languageLabel: 'Language',
-  },
-
   slider: {
     regionLabel: 'Fluvio introduction',
     slideOf: 'of',

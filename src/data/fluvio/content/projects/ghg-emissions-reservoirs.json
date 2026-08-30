@@ -1,0 +1,65 @@
+{
+  "en": {
+    "order": 4,
+    "title": "Greenhouse gas emissions for reservoirs",
+    "slug": "ghg-emissions-reservoirs",
+    "summary": "Assessing greenhouse gas emissions from extensive flooded land assets.",
+    "location": "Australia wide",
+    "timeframe": "2024 - Current",
+    "disciplines": ["Greenhouse gas assessment", "Methane emissions"],
+    "heroImage": "~/assets/images/fluvio/project-ghg-reservoirs.jpg",
+    "heroAlt": "Methane chambers measuring ebullitive emission rates",
+    "challenge": [
+      "Freshwater systems emit substantial volumes of greenhouse gases, particularly methane, and therefore contribute meaningfully to global emissions."
+    ],
+    "approach": [
+      "Fluvio has completed detailed assessments using IPCC Tier 1 and Tier 2 methodologies, alongside targeted work on field-based verification approaches for monitoring degassing pathways and downstream emissions from run-of-river systems."
+    ],
+    "outcome": [
+      "Fluvio has demonstrated strong expertise in quantifying methane emissions and applying globally recognised assessment frameworks."
+    ],
+    "relatedProjects": ["reservoir-sedimentation"]
+  },
+  "fr": {
+    "order": 4,
+    "title": "Émissions de gaz à effet de serre des réservoirs",
+    "slug": "ghg-emissions-reservoirs",
+    "summary": "Évaluer les émissions de gaz à effet de serre de vastes terres inondées.",
+    "location": "Toute l’Australie",
+    "timeframe": "2024 - En cours",
+    "disciplines": ["Évaluation des gaz à effet de serre", "Émissions de méthane"],
+    "heroImage": "~/assets/images/fluvio/project-ghg-reservoirs.jpg",
+    "heroAlt": "Chambres à méthane mesurant les taux d’émission par ébullition",
+    "challenge": [
+      "Les systèmes d’eau douce émettent des volumes importants de gaz à effet de serre, en particulier du méthane, et contribuent donc de manière significative aux émissions mondiales."
+    ],
+    "approach": [
+      "Fluvio a réalisé des évaluations détaillées selon les méthodologies GIEC de niveaux 1 et 2, ainsi que des travaux ciblés sur des approches de vérification de terrain pour le suivi des voies de dégazage et des émissions en aval des systèmes au fil de l’eau."
+    ],
+    "outcome": [
+      "Fluvio a démontré une solide expertise dans la quantification des émissions de méthane et l’application de cadres d’évaluation mondialement reconnus."
+    ],
+    "relatedProjects": ["reservoir-sedimentation"]
+  },
+  "es": {
+    "order": 4,
+    "title": "Emisiones de gases de efecto invernadero de embalses",
+    "slug": "ghg-emissions-reservoirs",
+    "summary": "Evaluar las emisiones de gases de efecto invernadero de extensas superficies de tierras inundadas.",
+    "location": "Toda Australia",
+    "timeframe": "2024 - Actualidad",
+    "disciplines": ["Evaluación de gases de efecto invernadero", "Emisiones de metano"],
+    "heroImage": "~/assets/images/fluvio/project-ghg-reservoirs.jpg",
+    "heroAlt": "Cámaras de metano midiendo tasas de emisión ebullitiva",
+    "challenge": [
+      "Los sistemas de agua dulce emiten volúmenes sustanciales de gases de efecto invernadero, en particular metano, y por lo tanto contribuyen de manera significativa a las emisiones globales."
+    ],
+    "approach": [
+      "Fluvio ha completado evaluaciones detalladas con las metodologías IPCC de Nivel 1 y Nivel 2, junto con trabajo dirigido a enfoques de verificación en campo para monitorear las vías de desgasificación y las emisiones aguas abajo en sistemas de pasada."
+    ],
+    "outcome": [
+      "Fluvio ha demostrado una sólida experiencia en la cuantificación de emisiones de metano y en la aplicación de marcos de evaluación reconocidos mundialmente."
+    ],
+    "relatedProjects": ["reservoir-sedimentation"]
+  }
+}

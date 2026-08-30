@@ -1,0 +1,86 @@
+{
+  "en": {
+    "order": 5,
+    "title": "Data management system design and training",
+    "slug": "wrd",
+    "summary": "Developing the Solomon Islands Water Information System for the Water Resources Division.",
+    "location": "Honiara, Solomon Islands",
+    "timeframe": "2025 - 2026",
+    "disciplines": ["Data management", "Hydrology", "Training"],
+    "partners": ["Water Resources Division"],
+    "heroImage": "~/assets/images/fluvio/project-wrd-field.jpg",
+    "heroAlt": "Flow gauging with the Water Resources Division on the Mataniko River",
+    "gallery": [
+      {
+        "src": "~/assets/images/fluvio/project-wrd-workshop.jpg",
+        "alt": "Water data management workshop"
+      }
+    ],
+    "challenge": [
+      "The Water Resources Division maintained a largely unstructured and inaccessible archive of historical hydrological data, limiting its operational effectiveness."
+    ],
+    "approach": [
+      "Through a participatory co-designed approach, Fluvio developed SIWIS, an innovative and sustainable pilot data management system, and delivered training on GIS, hydrology, data collection, data storage, and data security."
+    ],
+    "outcome": [
+      "The SIWIS platform enhances the Water Resources Division’s ability to collect, securely store, and meaningfully analyse hydrological data to support evidence-based water management decisions."
+    ],
+    "relatedProjects": ["monitoring-honiara"]
+  },
+  "fr": {
+    "order": 5,
+    "title": "Conception d’un système de gestion des données et formation",
+    "slug": "wrd",
+    "summary": "Développer le système d’information sur l’eau des Îles Salomon pour la Water Resources Division.",
+    "location": "Honiara, Îles Salomon",
+    "timeframe": "2025 - 2026",
+    "disciplines": ["Gestion des données", "Hydrologie", "Formation"],
+    "partners": ["Water Resources Division"],
+    "heroImage": "~/assets/images/fluvio/project-wrd-field.jpg",
+    "heroAlt": "Jaugeage de débit avec la Water Resources Division sur la rivière Mataniko",
+    "gallery": [
+      {
+        "src": "~/assets/images/fluvio/project-wrd-workshop.jpg",
+        "alt": "Water data management workshop"
+      }
+    ],
+    "challenge": [
+      "La Water Resources Division conservait des archives de données hydrologiques historiques largement non structurées et difficiles d’accès, ce qui limitait son efficacité opérationnelle."
+    ],
+    "approach": [
+      "Par une démarche participative de co-conception, Fluvio a développé SIWIS, un système pilote de gestion des données innovant et durable, et dispensé des formations en SIG, hydrologie, collecte, stockage et sécurité des données."
+    ],
+    "outcome": [
+      "La plateforme SIWIS renforce la capacité de la Water Resources Division à collecter, stocker en toute sécurité et analyser utilement les données hydrologiques, à l’appui de décisions de gestion de l’eau fondées sur les faits."
+    ],
+    "relatedProjects": ["monitoring-honiara"]
+  },
+  "es": {
+    "order": 5,
+    "title": "Diseño de un sistema de gestión de datos y capacitación",
+    "slug": "wrd",
+    "summary": "Desarrollar el Sistema de Información del Agua de las Islas Salomón para la Water Resources Division.",
+    "location": "Honiara, Islas Salomón",
+    "timeframe": "2025 - 2026",
+    "disciplines": ["Gestión de datos", "Hidrología", "Capacitación"],
+    "partners": ["Water Resources Division"],
+    "heroImage": "~/assets/images/fluvio/project-wrd-field.jpg",
+    "heroAlt": "Aforo de caudal con la Water Resources Division en el río Mataniko",
+    "gallery": [
+      {
+        "src": "~/assets/images/fluvio/project-wrd-workshop.jpg",
+        "alt": "Water data management workshop"
+      }
+    ],
+    "challenge": [
+      "La Water Resources Division mantenía un archivo de datos hidrológicos históricos mayormente desestructurado e inaccesible, lo que limitaba su eficacia operativa."
+    ],
+    "approach": [
+      "Mediante un enfoque participativo de codiseño, Fluvio desarrolló SIWIS, un sistema piloto de gestión de datos innovador y sostenible, e impartió capacitación en SIG, hidrología, recopilación, almacenamiento y seguridad de datos."
+    ],
+    "outcome": [
+      "La plataforma SIWIS mejora la capacidad de la Water Resources Division para recopilar, almacenar de forma segura y analizar de manera significativa los datos hidrológicos, en apoyo de decisiones de gestión del agua basadas en evidencia."
+    ],
+    "relatedProjects": ["monitoring-honiara"]
+  }
+}

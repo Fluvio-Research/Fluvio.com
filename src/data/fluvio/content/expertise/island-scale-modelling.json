@@ -1,0 +1,38 @@
+{
+  "en": {
+    "order": 2,
+    "title": "Island-scale and catchment modelling",
+    "slug": "island-scale-modelling",
+    "summary": "Creating a pioneering global-scale coastal pollution transport model.",
+    "description": [
+      "This innovative tool leverages earth observation and cloud computing to support integrated land-sea planning and restoration efforts."
+    ],
+    "image": "~/assets/images/fluvio/expertise-coastal-model.png",
+    "imageAlt": "Coastal pollution transport model",
+    "relatedProjects": ["cordap"]
+  },
+  "fr": {
+    "order": 2,
+    "title": "Modélisation insulaire et de bassins versants",
+    "slug": "island-scale-modelling",
+    "summary": "Créer un modèle pionnier de transport de la pollution côtière à l’échelle mondiale.",
+    "description": [
+      "Cet outil innovant s’appuie sur l’observation de la Terre et l’informatique en nuage pour soutenir la planification intégrée terre-mer et les efforts de restauration."
+    ],
+    "image": "~/assets/images/fluvio/expertise-coastal-model.png",
+    "imageAlt": "Modèle de transport de la pollution côtière",
+    "relatedProjects": ["cordap"]
+  },
+  "es": {
+    "order": 2,
+    "title": "Modelación a escala insular y de cuencas",
+    "slug": "island-scale-modelling",
+    "summary": "Crear un modelo pionero de transporte de contaminación costera a escala global.",
+    "description": [
+      "Esta herramienta innovadora aprovecha la observación de la Tierra y la computación en la nube para apoyar la planificación integrada tierra-mar y los esfuerzos de restauración."
+    ],
+    "image": "~/assets/images/fluvio/expertise-coastal-model.png",
+    "imageAlt": "Modelo de transporte de contaminación costera",
+    "relatedProjects": ["cordap"]
+  }
+}

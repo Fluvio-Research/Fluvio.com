@@ -1,0 +1,83 @@
+{
+  "en": {
+    "order": 7,
+    "title": "MV Solomon Trader grounding and oil spill environmental damage assessment",
+    "slug": "sol-trader-oil-spill",
+    "summary": "Environmental impact assessments of the MV Solomon Trader grounding and oil spill event.",
+    "location": "Rennell Island, Solomon Islands",
+    "timeframe": "2019 and 2025",
+    "disciplines": ["Environmental impact assessment", "Ecology assessment"],
+    "heroImage": "~/assets/images/fluvio/project-sol-trader.jpg",
+    "heroAlt": "Travelling to the grounding site in Kangava Bay",
+    "gallery": [
+      {
+        "src": "~/assets/images/fluvio/project-sol-trader-aerial.png",
+        "alt": "Aerial view of the coastal environment"
+      }
+    ],
+    "challenge": [
+      "Following the release of over 300 tonnes of heavy fuel oil onto the shallow fringing reef and marine environment of Kagava Bay, an intensive clean-up operation was conducted from early March to 26 July 2019."
+    ],
+    "approach": [
+      "On behalf of the Solomon Islands Government, Fluvio conducted environmental impact assessments in 2019 and 2025, including shoreline terrestrial, sediment, benthic, and ecology assessments."
+    ],
+    "outcome": [
+      "The findings have been categorised to understand the impacts of the incident on the surrounding environment."
+    ],
+    "relatedProjects": ["cordap"]
+  },
+  "fr": {
+    "order": 7,
+    "title": "Échouement du MV Solomon Trader et évaluation des dommages environnementaux de la marée noire",
+    "slug": "sol-trader-oil-spill",
+    "summary": "Évaluations de l’impact environnemental de l’échouement du MV Solomon Trader et de la marée noire qui a suivi.",
+    "location": "Île Rennell, Îles Salomon",
+    "timeframe": "2019 et 2025",
+    "disciplines": ["Évaluation d’impact environnemental", "Évaluation écologique"],
+    "heroImage": "~/assets/images/fluvio/project-sol-trader.jpg",
+    "heroAlt": "En route vers le site de l’échouement dans la baie de Kangava",
+    "gallery": [
+      {
+        "src": "~/assets/images/fluvio/project-sol-trader-aerial.png",
+        "alt": "Aerial view of the coastal environment"
+      }
+    ],
+    "challenge": [
+      "Après le déversement de plus de 300 tonnes de fioul lourd sur le récif frangeant peu profond et le milieu marin de la baie de Kagava, une opération intensive de nettoyage a été menée de début mars au 26 juillet 2019."
+    ],
+    "approach": [
+      "Pour le compte du gouvernement des Îles Salomon, Fluvio a mené des évaluations d’impact environnemental en 2019 et en 2025, comprenant des évaluations du littoral terrestre, des sédiments, du benthos et de l’écologie."
+    ],
+    "outcome": [
+      "Les résultats ont été catégorisés afin de comprendre les impacts de l’incident sur l’environnement alentour."
+    ],
+    "relatedProjects": ["cordap"]
+  },
+  "es": {
+    "order": 7,
+    "title": "Encalladura del MV Solomon Trader y evaluación del daño ambiental del derrame de petróleo",
+    "slug": "sol-trader-oil-spill",
+    "summary": "Evaluaciones del impacto ambiental de la encalladura del MV Solomon Trader y del derrame de petróleo posterior.",
+    "location": "Isla Rennell, Islas Salomón",
+    "timeframe": "2019 y 2025",
+    "disciplines": ["Evaluación de impacto ambiental", "Evaluación ecológica"],
+    "heroImage": "~/assets/images/fluvio/project-sol-trader.jpg",
+    "heroAlt": "Viaje al sitio de la encalladura en la bahía de Kangava",
+    "gallery": [
+      {
+        "src": "~/assets/images/fluvio/project-sol-trader-aerial.png",
+        "alt": "Aerial view of the coastal environment"
+      }
+    ],
+    "challenge": [
+      "Tras el vertido de más de 300 toneladas de fueloil pesado sobre el arrecife franjeante somero y el entorno marino de la bahía de Kagava, se llevó a cabo una intensa operación de limpieza desde principios de marzo hasta el 26 de julio de 2019."
+    ],
+    "approach": [
+      "En nombre del Gobierno de las Islas Salomón, Fluvio realizó evaluaciones de impacto ambiental en 2019 y 2025, incluidas evaluaciones del litoral terrestre, de sedimentos, bentónicas y ecológicas."
+    ],
+    "outcome": [
+      "Los hallazgos se han categorizado para comprender los impactos del incidente en el entorno circundante."
+    ],
+    "relatedProjects": ["cordap"]
+  }
+}

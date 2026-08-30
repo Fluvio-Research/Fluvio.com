@@ -1,6 +1,7 @@
 ---
 import LargeImage from '~/components/fluvio/LargeImage.astro';
 import SectionFrame from '~/components/fluvio/SectionFrame.astro';
+import { getNavigation } from '~/data/fluvio/store.ts';
 import { t, type Locale } from '~/i18n';
 import Layout from '~/layouts/PageLayout.astro';
 
@@ -10,6 +11,7 @@ export interface Props {
 
 const { locale } = Astro.props;
 const c = t(locale).contactPage;
+const navigation = getNavigation(locale);
 
 const metadata = {
   title: c.metaTitle,
@@ -52,7 +54,7 @@ const mailtoHref = `mailto:?subject=${encodeURIComponent(c.enquirySubject)}&body
       <h2 id="contact-social-heading" class:list={['fluvio-display', reveal]}>{c.socialTitle}</h2>
       <div class:list={['fluvio-contact-body', reveal]}>
         <p>{c.socialBody}</p>
-        <a class="fluvio-link" href="https://www.linkedin.com/company/fluvioptyltd/" rel="noopener noreferrer">
+        <a class="fluvio-link" href={navigation.linkedinUrl} rel="noopener noreferrer">
           {c.socialAction}
           <span aria-hidden="true">↗</span>
         </a>

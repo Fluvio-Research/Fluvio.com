@@ -1,0 +1,38 @@
+{
+  "en": {
+    "order": 3,
+    "title": "Catchment and water resource management",
+    "slug": "catchment-management",
+    "summary": "Understanding catchment-waterway-ocean linkages with government, community and industry.",
+    "description": [
+      "We work with government, community and industry to understand catchment-waterway-ocean linkages, with a strong focus on balancing community needs and environmental benefits."
+    ],
+    "image": "~/assets/images/fluvio/vision-field-team.jpeg",
+    "imageAlt": "Field team at work",
+    "relatedProjects": ["monitoring-honiara", "wrd"]
+  },
+  "fr": {
+    "order": 3,
+    "title": "Gestion des bassins versants et des ressources en eau",
+    "slug": "catchment-management",
+    "summary": "Comprendre les liens bassin versant-cours d’eau-océan avec les pouvoirs publics, les communautés et l’industrie.",
+    "description": [
+      "Nous travaillons avec les pouvoirs publics, les communautés et l’industrie pour comprendre les liens entre bassins versants, cours d’eau et océan, en veillant à équilibrer les besoins des communautés et les bénéfices environnementaux."
+    ],
+    "image": "~/assets/images/fluvio/vision-field-team.jpeg",
+    "imageAlt": "Équipe de terrain au travail",
+    "relatedProjects": ["monitoring-honiara", "wrd"]
+  },
+  "es": {
+    "order": 3,
+    "title": "Gestión de cuencas y recursos hídricos",
+    "slug": "catchment-management",
+    "summary": "Comprender los vínculos cuenca-cauce-océano junto a gobiernos, comunidades e industria.",
+    "description": [
+      "Trabajamos con gobiernos, comunidades e industria para comprender los vínculos entre cuencas, cauces y océano, con un fuerte énfasis en equilibrar las necesidades de las comunidades y los beneficios ambientales."
+    ],
+    "image": "~/assets/images/fluvio/vision-field-team.jpeg",
+    "imageAlt": "Equipo de campo en acción",
+    "relatedProjects": ["monitoring-honiara", "wrd"]
+  }
+}

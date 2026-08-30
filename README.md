@@ -22,54 +22,48 @@ Run `npm test`, `npm run check` and `npm run build` after every content or code 
 
 ## Where content lives
 
-All Fluvio content is typed data in `src/data/fluvio/`:
+All Fluvio content is localized JSON in `src/data/fluvio/content/`, one file per record with `en`, `fr` and `es` sections side by side:
 
-| File                           | Owns                                                                             |
-| ------------------------------ | -------------------------------------------------------------------------------- |
-| `src/data/fluvio/types.ts`     | The content interfaces (`Project`, `TeamMember`, `ExpertiseArea`, `SiteContent`) |
-| `src/data/fluvio/site.ts`      | Site name, tagline, hero, vision statement and values                            |
-| `src/data/fluvio/projects.ts`  | The project records and the `featuredProjects` selector                          |
-| `src/data/fluvio/team.ts`      | The team profiles                                                                |
-| `src/data/fluvio/expertise.ts` | The six expertise areas                                                          |
+| Location                       | Owns                                                    |
+| ------------------------------ | ------------------------------------------------------- |
+| `content/projects/*.json`      | The nine project records                                |
+| `content/team/*.json`          | The nine team profiles                                  |
+| `content/expertise/*.json`     | The six expertise areas                                 |
+| `content/site/content.json`    | Site name, tagline, vision statement and values         |
+| `content/site/navigation.json` | Header menu labels, footer labels and the LinkedIn link |
 
-Images live in `src/assets/images/fluvio/` and are always referenced with the `~/assets/images/fluvio/...` alias. Pages and components read from these modules; never duplicate a record inside a page.
+`src/data/fluvio/store.ts` loads these files, validates every record in every locale against a zod schema (an invalid record fails `npm test` and the build), and exposes the typed accessors the pages use. `types.ts` holds the interfaces. Images live in `src/assets/images/fluvio/` and are referenced with the `~/assets/images/fluvio/...` alias.
 
-## Adding a project
+## Editing content without code
 
-1. Copy the project's hero image (and any gallery images) into `src/assets/images/fluvio/` with a descriptive kebab-case name, for example `project-my-catchment.jpeg`.
-2. Append a new object to the `projects` array in `src/data/fluvio/projects.ts` that satisfies the `Project` interface in `src/data/fluvio/types.ts`:
-   - `slug` becomes the public route (`/my-catchment`), served by `src/pages/[slug].astro`. Choose it once; do not rename existing slugs.
-   - `challenge`, `approach` and `outcome` are arrays of paragraphs. Use only verified facts; do not invent statistics, partners or outcomes.
-   - `heroAlt` must factually describe the photograph.
-   - Optional fields: `location`, `timeframe`, `partners`, `gallery`, `relatedProjects` (other project slugs), `featured`.
-3. Set `featured: true` only if the project should appear in the homepage selection.
-4. If the project relates to an expertise area, add its slug to that area's `relatedProjects` in `src/data/fluvio/expertise.ts`.
-5. If the test file pins the expected slug list (`expectedSlugs` in `tests/fluvio-content.test.mjs`), add the new slug there.
-6. Run `npm test && npm run check && npm run build`.
+A local admin interface edits all of the above through forms, with language tabs for English, French and Spanish:
 
-No page changes are needed: `/projects` and the flat project route generate from the data.
+1. `npm run cms`
+2. Open `http://localhost:4322` in Chrome or Edge
+3. Choose **Work with Local Repository** and select this repository's folder
+4. Edit and save; changes are written to the JSON files in your working tree
+5. Review with `git diff`, then commit and push (or open a pull request)
 
-## Adding a team member
+The admin lives in `admin/` and is deliberately not part of the deployed site; it only ever runs on a team member's machine. The same `admin/config.yml` also works against GitHub directly if a hosted admin is ever wanted.
 
-1. Add a portrait to `src/assets/images/fluvio/` (descriptive name, for example `team-firstname-lastname.jpeg`).
-2. Append a record to `teamMembers` in `src/data/fluvio/team.ts` satisfying the `TeamMember` interface: `name`, `bio`, `portrait`, `portraitAlt`, `specialties`, and optionally `role` and `profileUrl`.
-3. Add the name to `expectedTeamNames` in `tests/fluvio-content.test.mjs` (the list order matches the page order).
-4. Run `npm test && npm run check && npm run build`.
+## Adding a project, team member or expertise area
 
-## Adding an expertise area
+Use the admin (`npm run cms`, above), or edit the JSON directly:
 
-1. Add a representative image to `src/assets/images/fluvio/`.
-2. Append a record to `expertiseAreas` in `src/data/fluvio/expertise.ts` satisfying the `ExpertiseArea` interface. `description` is an array of paragraphs; `relatedProjects` lists project slugs.
-3. Update `expectedExpertiseTitles` and the expertise count assertion in `tests/fluvio-content.test.mjs`.
-4. Run `npm test && npm run check && npm run build`.
+1. Add images to `src/assets/images/fluvio/` with descriptive kebab-case names.
+2. Create the record in the matching `src/data/fluvio/content/` folder, filling `en`, `fr` and `es`. For projects, `slug` becomes the public route and must never change after publishing; `challenge`, `approach` and `outcome` are arrays of paragraphs, and only verified facts belong in them.
+3. Set the `order` field to control display position, and `featured: true` on a project to place it in the homepage selection.
+4. Update the pinned lists in `tests/fluvio-content.test.mjs` (`expectedSlugs`, `expectedTeamNames`, `expectedExpertiseTitles`, and counts).
+5. Run `npm test && npm run check && npm run build`.
+
+No page changes are needed: every route generates from the content store.
 
 ## Languages and translations
 
 The site ships in English (default, at the root), French (`/fr/...`) and Spanish (`/es/...`), with a language dropdown in the header.
 
-- UI and page copy live in `src/i18n/en.ts` (canonical shape), `src/i18n/fr.ts` and `src/i18n/es.ts`. The French and Spanish catalogs are typed against the English one, so a missing string fails `npm run check`, and a test verifies key-for-key parity.
-- Long-form content (project stories, team bios, expertise descriptions, site values) is translated as overlays in `src/data/fluvio/translations/fr.ts` and `es.ts`, keyed by project slug, expertise slug or team member name. `src/data/fluvio/localized.ts` merges them over the canonical English records.
-- When adding a project, team member or expertise area, add the matching entries to both overlay files; the test suite fails if any record is missing a translation.
+- UI and page copy (headings, ledes, slider slides, labels) live in `src/i18n/en.ts` (canonical shape), `src/i18n/fr.ts` and `src/i18n/es.ts`. The French and Spanish catalogs are typed against the English one, so a missing string fails `npm run check`, and a test verifies key-for-key parity.
+- Content records carry their own translations: each JSON file in `src/data/fluvio/content/` holds `en`, `fr` and `es` sections, validated together by the store's schema.
 - Routes, slugs and images are shared across languages; only human-readable text is translated.
 
 ## Updating navigation and metadata

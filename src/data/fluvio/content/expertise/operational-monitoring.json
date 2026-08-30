@@ -1,0 +1,38 @@
+{
+  "en": {
+    "order": 5,
+    "title": "Operational monitoring systems",
+    "slug": "operational-monitoring",
+    "summary": "Digitising water monitoring with state-owned water utilities.",
+    "description": [
+      "By integrating real-time monitoring systems, cloud databases and alerting systems we have reduced response times to critical water quality incidents."
+    ],
+    "image": "~/assets/images/fluvio/project-honiara.jpeg",
+    "imageAlt": "Water quality monitoring",
+    "relatedProjects": ["monitoring-honiara", "wrd"]
+  },
+  "fr": {
+    "order": 5,
+    "title": "Systèmes de surveillance opérationnels",
+    "slug": "operational-monitoring",
+    "summary": "Numériser la surveillance de l’eau avec des services d’eau publics.",
+    "description": [
+      "En intégrant des systèmes de surveillance en temps réel, des bases de données en nuage et des dispositifs d’alerte, nous avons réduit les délais de réponse aux incidents critiques de qualité de l’eau."
+    ],
+    "image": "~/assets/images/fluvio/project-honiara.jpeg",
+    "imageAlt": "Surveillance de la qualité de l’eau",
+    "relatedProjects": ["monitoring-honiara", "wrd"]
+  },
+  "es": {
+    "order": 5,
+    "title": "Sistemas de monitoreo operativos",
+    "slug": "operational-monitoring",
+    "summary": "Digitalizar el monitoreo del agua junto a empresas públicas de agua.",
+    "description": [
+      "Al integrar sistemas de monitoreo en tiempo real, bases de datos en la nube y sistemas de alerta, hemos reducido los tiempos de respuesta ante incidentes críticos de calidad del agua."
+    ],
+    "image": "~/assets/images/fluvio/project-honiara.jpeg",
+    "imageAlt": "Monitoreo de la calidad del agua",
+    "relatedProjects": ["monitoring-honiara", "wrd"]
+  }
+}

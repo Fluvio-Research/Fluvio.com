@@ -2,20 +2,6 @@ import type { Catalog } from './en';
 
 /** Spanish catalog, translated in context with a neutral international register. */
 export const es: Catalog = {
-  nav: {
-    vision: 'Visión',
-    expertise: 'Especialidades',
-    projects: 'Proyectos',
-    team: 'Equipo',
-    contact: 'Contacto',
-    startProject: 'Iniciar un proyecto',
-    explore: 'Explorar',
-    company: 'Empresa',
-    allRightsReserved: 'Todos los derechos reservados.',
-    linkedinLabel: 'Fluvio en LinkedIn',
-    languageLabel: 'Idioma',
-  },
-
   slider: {
     regionLabel: 'Presentación de Fluvio',
     slideOf: 'de',

@@ -1,7 +1,8 @@
-import { localeHref, t, type Locale } from '~/i18n';
+import { getNavigation } from '~/data/fluvio/store.ts';
+import { localeHref, type Locale } from '~/i18n';
 
 export const getHeaderData = (locale: Locale) => {
-  const nav = t(locale).nav;
+  const nav = getNavigation(locale);
   return {
     links: [
       { text: nav.vision, href: localeHref('/vision', locale) },
@@ -15,7 +16,7 @@ export const getHeaderData = (locale: Locale) => {
 };
 
 export const getFooterData = (locale: Locale) => {
-  const nav = t(locale).nav;
+  const nav = getNavigation(locale);
   return {
     links: [
       {
@@ -36,12 +37,7 @@ export const getFooterData = (locale: Locale) => {
     ],
     secondaryLinks: [],
     socialLinks: [
-      {
-        ariaLabel: nav.linkedinLabel,
-        icon: 'tabler:brand-linkedin',
-        href: 'https://www.linkedin.com/company/fluvioptyltd/',
-        target: '_blank',
-      },
+      { ariaLabel: nav.linkedinLabel, icon: 'tabler:brand-linkedin', href: nav.linkedinUrl, target: '_blank' },
     ],
     footNote: `© ${new Date().getFullYear()} Fluvio Pty Ltd. ${nav.allRightsReserved}`,
   };

@@ -1,0 +1,29 @@
+{
+  "en": {
+    "order": 1,
+    "name": "Simon Albert",
+    "role": "Director of Innovation and Strategy",
+    "bio": "Simon is a global leader in the application of innovative monitoring approaches in the pursuit of understanding the interactions of climate, water, and society. He is passionate about people and technology, believing both will be key in overcoming tomorrow's challenges.",
+    "portrait": "~/assets/images/fluvio/team-simon.png",
+    "portraitAlt": "Simon Albert",
+    "specialties": ["Climate, water, and society"]
+  },
+  "fr": {
+    "order": 1,
+    "name": "Simon Albert",
+    "role": "Directeur de l’innovation et de la stratégie",
+    "bio": "Simon est un chef de file mondial de l’application d’approches de surveillance innovantes pour comprendre les interactions entre le climat, l’eau et la société. Passionné par les personnes comme par la technologie, il est convaincu que les deux seront déterminantes pour relever les défis de demain.",
+    "portrait": "~/assets/images/fluvio/team-simon.png",
+    "portraitAlt": "Simon Albert",
+    "specialties": ["Climat, eau et société"]
+  },
+  "es": {
+    "order": 1,
+    "name": "Simon Albert",
+    "role": "Director de Innovación y Estrategia",
+    "bio": "Simon es un líder mundial en la aplicación de enfoques de monitoreo innovadores para comprender las interacciones entre el clima, el agua y la sociedad. Le apasionan las personas y la tecnología, y cree que ambas serán clave para superar los desafíos del mañana.",
+    "portrait": "~/assets/images/fluvio/team-simon.png",
+    "portraitAlt": "Simon Albert",
+    "specialties": ["Clima, agua y sociedad"]
+  }
+}

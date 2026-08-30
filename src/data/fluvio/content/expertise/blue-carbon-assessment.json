@@ -1,0 +1,38 @@
+{
+  "en": {
+    "order": 4,
+    "title": "Blue carbon and greenhouse gas assessment",
+    "slug": "blue-carbon-assessment",
+    "summary": "Quantifying carbon stocks within mangrove and seagrass ecosystems across Melanesia.",
+    "description": [
+      "Working with community, government and regional bodies to quantify carbon stocks within mangrove and seagrass ecosystems across Melanesia."
+    ],
+    "image": "~/assets/images/fluvio/project-sol-trader-aerial.png",
+    "imageAlt": "Coastal environment",
+    "relatedProjects": ["sol-trader-oil-spill"]
+  },
+  "fr": {
+    "order": 4,
+    "title": "Carbone bleu et évaluation des gaz à effet de serre",
+    "slug": "blue-carbon-assessment",
+    "summary": "Quantifier les stocks de carbone des écosystèmes de mangroves et d’herbiers marins de Mélanésie.",
+    "description": [
+      "Nous travaillons avec les communautés, les gouvernements et les organismes régionaux pour quantifier les stocks de carbone des écosystèmes de mangroves et d’herbiers marins à travers la Mélanésie."
+    ],
+    "image": "~/assets/images/fluvio/project-sol-trader-aerial.png",
+    "imageAlt": "Environnement côtier",
+    "relatedProjects": ["sol-trader-oil-spill"]
+  },
+  "es": {
+    "order": 4,
+    "title": "Carbono azul y evaluación de gases de efecto invernadero",
+    "slug": "blue-carbon-assessment",
+    "summary": "Cuantificar las reservas de carbono de los ecosistemas de manglares y pastos marinos de Melanesia.",
+    "description": [
+      "Trabajamos con comunidades, gobiernos y organismos regionales para cuantificar las reservas de carbono de los ecosistemas de manglares y pastos marinos en toda Melanesia."
+    ],
+    "image": "~/assets/images/fluvio/project-sol-trader-aerial.png",
+    "imageAlt": "Entorno costero",
+    "relatedProjects": ["sol-trader-oil-spill"]
+  }
+}

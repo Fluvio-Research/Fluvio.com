@@ -1,0 +1,233 @@
+# Fluvio content admin configuration (Sveltia CMS, Decap-compatible).
+#
+# Run locally with `npm run cms` and choose "Work with Local Repository".
+# The same config works against GitHub later if the admin is ever hosted:
+# the backend below is only used for that remote mode.
+
+backend:
+  name: github
+  repo: Fluvio-Research/Fluvio.com
+  branch: main
+
+site_url: https://fluvio-research.github.io/Fluvio.com/
+display_url: https://fluvio-research.github.io/Fluvio.com/
+
+media_folder: src/assets/images/fluvio
+public_folder: '~/assets/images/fluvio'
+
+editor:
+  preview: false
+
+i18n:
+  structure: single_file
+  locales: [en, fr, es]
+  default_locale: en
+
+collections:
+  - name: projects
+    label: Projects
+    label_singular: Project
+    folder: src/data/fluvio/content/projects
+    format: json
+    extension: json
+    create: true
+    delete: false
+    identifier_field: title
+    slug: '{{fields.slug}}'
+    summary: '{{title}}'
+    sortable_fields: [order, title]
+    i18n: true
+    fields:
+      - { name: order, label: Display order, widget: number, value_type: int, i18n: duplicate }
+      - {
+          name: slug,
+          label: 'URL slug (never change after publishing)',
+          widget: string,
+          pattern: ['^[a-z0-9-]+$', 'Lowercase letters, numbers and hyphens only'],
+          i18n: duplicate,
+        }
+      - { name: title, label: Title, widget: string, i18n: true }
+      - { name: summary, label: Summary, widget: text, i18n: true }
+      - { name: location, label: Location, widget: string, required: false, i18n: true }
+      - { name: timeframe, label: Timeframe, widget: string, required: false, i18n: true }
+      - {
+          name: disciplines,
+          label: Disciplines,
+          widget: list,
+          i18n: true,
+          field: { name: discipline, label: Discipline, widget: string },
+        }
+      - {
+          name: partners,
+          label: Partners,
+          widget: list,
+          required: false,
+          i18n: duplicate,
+          field: { name: partner, label: Partner, widget: string },
+        }
+      - { name: heroImage, label: Main photo, widget: image, i18n: duplicate }
+      - { name: heroAlt, label: 'Main photo description (for accessibility)', widget: string, i18n: true }
+      - {
+          name: gallery,
+          label: Gallery,
+          widget: list,
+          required: false,
+          i18n: duplicate,
+          fields:
+            [
+              { name: src, label: Image, widget: image },
+              { name: alt, label: Image description, widget: string },
+              { name: caption, label: Caption, widget: string, required: false },
+            ],
+        }
+      - {
+          name: challenge,
+          label: 'Story: challenge',
+          widget: list,
+          i18n: true,
+          field: { name: paragraph, label: Paragraph, widget: text },
+        }
+      - {
+          name: approach,
+          label: 'Story: approach',
+          widget: list,
+          i18n: true,
+          field: { name: paragraph, label: Paragraph, widget: text },
+        }
+      - {
+          name: outcome,
+          label: 'Story: outcome',
+          widget: list,
+          i18n: true,
+          field: { name: paragraph, label: Paragraph, widget: text },
+        }
+      - { name: featured, label: 'Featured on the homepage', widget: boolean, required: false, i18n: duplicate }
+      - {
+          name: relatedProjects,
+          label: 'Related project slugs',
+          widget: list,
+          required: false,
+          i18n: duplicate,
+          field: { name: slug, label: Project slug, widget: string },
+        }
+
+  - name: team
+    label: Team
+    label_singular: Team member
+    folder: src/data/fluvio/content/team
+    format: json
+    extension: json
+    create: true
+    delete: false
+    identifier_field: name
+    summary: '{{name}}'
+    sortable_fields: [order, name]
+    i18n: true
+    fields:
+      - { name: order, label: Display order, widget: number, value_type: int, i18n: duplicate }
+      - { name: name, label: Name, widget: string, i18n: duplicate }
+      - { name: role, label: Role, widget: string, required: false, i18n: true }
+      - { name: bio, label: Biography, widget: text, i18n: true }
+      - { name: portrait, label: Portrait, widget: image, i18n: duplicate }
+      - { name: portraitAlt, label: 'Portrait description', widget: string, i18n: duplicate }
+      - {
+          name: specialties,
+          label: Specialties,
+          widget: list,
+          i18n: true,
+          field: { name: specialty, label: Specialty, widget: string },
+        }
+      - { name: profileUrl, label: 'Profile link', widget: string, required: false, i18n: duplicate }
+
+  - name: expertise
+    label: Expertise
+    label_singular: Expertise area
+    folder: src/data/fluvio/content/expertise
+    format: json
+    extension: json
+    create: true
+    delete: false
+    identifier_field: title
+    slug: '{{fields.slug}}'
+    summary: '{{title}}'
+    sortable_fields: [order, title]
+    i18n: true
+    fields:
+      - { name: order, label: Display order, widget: number, value_type: int, i18n: duplicate }
+      - {
+          name: slug,
+          label: 'URL anchor (never change after publishing)',
+          widget: string,
+          pattern: ['^[a-z0-9-]+$', 'Lowercase letters, numbers and hyphens only'],
+          i18n: duplicate,
+        }
+      - { name: title, label: Title, widget: string, i18n: true }
+      - { name: summary, label: Summary, widget: text, i18n: true }
+      - {
+          name: description,
+          label: Description,
+          widget: list,
+          i18n: true,
+          field: { name: paragraph, label: Paragraph, widget: text },
+        }
+      - { name: image, label: Photo, widget: image, i18n: duplicate }
+      - { name: imageAlt, label: 'Photo description', widget: string, i18n: true }
+      - {
+          name: relatedProjects,
+          label: 'Related project slugs',
+          widget: list,
+          i18n: duplicate,
+          field: { name: slug, label: Project slug, widget: string },
+        }
+
+  - name: site
+    label: 'Site settings'
+    i18n: true
+    files:
+      - name: content
+        label: 'Site content'
+        file: src/data/fluvio/content/site/content.json
+        format: json
+        i18n: true
+        fields:
+          - { name: name, label: 'Company name', widget: string, i18n: duplicate }
+          - { name: tagline, label: Tagline, widget: string, i18n: true }
+          - { name: summary, label: 'Company summary', widget: text, i18n: true }
+          - { name: heroImage, label: 'Default social image', widget: image, i18n: duplicate }
+          - { name: heroAlt, label: 'Default image description', widget: string, i18n: true }
+          - name: vision
+            label: Vision
+            widget: object
+            i18n: true
+            fields:
+              - { name: title, label: Title, widget: string, i18n: true }
+              - { name: description, label: Statement, widget: text, i18n: true }
+              - { name: image, label: Photo, widget: image, i18n: duplicate }
+              - { name: imageAlt, label: 'Photo description', widget: string, i18n: true }
+          - name: values
+            label: 'Company values (exactly five)'
+            widget: list
+            i18n: true
+            min: 5
+            max: 5
+            fields:
+              - { name: title, label: Value, widget: string, i18n: true }
+              - { name: description, label: Description, widget: text, i18n: true }
+      - name: navigation
+        label: 'Header and footer'
+        file: src/data/fluvio/content/site/navigation.json
+        format: json
+        i18n: true
+        fields:
+          - { name: vision, label: 'Menu: Vision', widget: string, i18n: true }
+          - { name: expertise, label: 'Menu: Expertise', widget: string, i18n: true }
+          - { name: projects, label: 'Menu: Projects', widget: string, i18n: true }
+          - { name: team, label: 'Menu: Team', widget: string, i18n: true }
+          - { name: contact, label: 'Menu: Contact', widget: string, i18n: true }
+          - { name: startProject, label: 'Header button', widget: string, i18n: true }
+          - { name: explore, label: 'Footer column: Explore', widget: string, i18n: true }
+          - { name: company, label: 'Footer column: Company', widget: string, i18n: true }
+          - { name: allRightsReserved, label: 'Footer copyright line', widget: string, i18n: true }
+          - { name: linkedinLabel, label: 'LinkedIn link label', widget: string, i18n: true }
+          - { name: languageLabel, label: 'Language menu label', widget: string, i18n: true }
+          - { name: linkedinUrl, label: 'LinkedIn URL', widget: string, i18n: duplicate }

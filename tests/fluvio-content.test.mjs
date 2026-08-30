@@ -4,8 +4,14 @@ import { relative } from 'node:path';
 import test from 'node:test';
 
 import { expertiseAreas } from '../src/data/fluvio/expertise.ts';
-import * as frOverlay from '../src/data/fluvio/translations/fr.ts';
-import * as esOverlay from '../src/data/fluvio/translations/es.ts';
+import {
+  contentLocales,
+  getExpertiseAreas,
+  getNavigation,
+  getProjects,
+  getSiteContent,
+  getTeamMembers,
+} from '../src/data/fluvio/store.ts';
 import { en } from '../src/i18n/en.ts';
 import { fr } from '../src/i18n/fr.ts';
 import { es } from '../src/i18n/es.ts';
@@ -151,7 +157,7 @@ test('Fluvio shell uses the brand name and primary navigation', () => {
   assert.doesNotMatch(homepageFrontmatter, /AstroWind|Free template/);
   assert.match(config, /width:\s*1200\s+height:\s*626/);
   for (const label of ['Vision', 'Expertise', 'Projects', 'Team', 'Contact']) {
-    assert.ok(Object.values(en.nav).includes(label));
+    assert.ok(Object.values(getNavigation('en')).includes(label));
   }
 });
 
@@ -167,22 +173,26 @@ test('Fluvio catalogs translate every string for every locale', () => {
   }
   assert.equal(en.slider.slides.length, 5);
 
-  for (const overlay of [frOverlay, esOverlay]) {
-    assert.deepEqual(Object.keys(overlay.projects).sort(), expectedSlugs.slice().sort());
-    assert.deepEqual(Object.keys(overlay.team).sort(), expectedTeamNames.slice().sort());
-    assert.equal(Object.keys(overlay.expertise).length, 6);
-    for (const record of Object.values(overlay.projects)) {
-      for (const field of ['title', 'summary', 'challenge', 'approach', 'outcome']) assert.ok(record[field]);
+  // Importing the store already schema-validates every record in every locale;
+  // here we pin structural parity across locales.
+  for (const locale of contentLocales) {
+    assert.deepEqual(
+      getProjects(locale).map(({ slug }) => slug),
+      getProjects('en').map(({ slug }) => slug)
+    );
+    assert.deepEqual(
+      getTeamMembers(locale).map(({ name }) => name),
+      expectedTeamNames
+    );
+    assert.equal(getExpertiseAreas(locale).length, 6);
+    assert.equal(getSiteContent(locale).values.length, 5);
+    for (const key of ['vision', 'expertise', 'projects', 'team', 'contact', 'startProject', 'linkedinUrl']) {
+      assert.ok(getNavigation(locale)[key]);
     }
-    for (const record of Object.values(overlay.team)) {
-      assert.ok(record.role);
-      assert.ok(record.bio);
-    }
-    for (const record of Object.values(overlay.expertise)) {
-      for (const field of ['title', 'summary', 'description']) assert.ok(record[field]);
-    }
-    assert.equal(overlay.site.values.length, 5);
   }
+  // Translated locales actually differ from English where language differs.
+  assert.notEqual(getProjects('fr')[0].title, getProjects('en')[0].title);
+  assert.notEqual(getTeamMembers('es')[0].role, getTeamMembers('en')[0].role);
 });
 
 test('Fluvio locale routes exist for French and Spanish', async () => {
@@ -299,6 +309,7 @@ test('Fluvio recovery and contact routes use explicit destinations', async () =>
   for (const href of ['/', '/expertise', '/projects'])
     assert.match(notFound, new RegExp(`getPermalink\\('${href}'\\)`));
   assert.match(contact, /mailto:\?subject=/);
-  assert.match(contact, /https:\/\/www\.linkedin\.com\/company\/fluvioptyltd\//);
+  assert.equal(getNavigation('en').linkedinUrl, 'https://www.linkedin.com/company/fluvioptyltd/');
+  assert.match(contact, /navigation\.linkedinUrl/);
   assert.doesNotMatch(contact + en.contactPage.enquiryNote, /within \d+ hours|attachment upload|server submission/i);
 });

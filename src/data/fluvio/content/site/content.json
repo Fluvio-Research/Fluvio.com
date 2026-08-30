@@ -1,0 +1,107 @@
+{
+  "en": {
+    "name": "Fluvio",
+    "tagline": "Innovative Solutions for Tomorrow",
+    "summary": "To support community, government and industry tackle water, environmental and climate challenges.",
+    "heroImage": "~/assets/images/fluvio/home-river.jpg",
+    "heroAlt": "River landscape",
+    "vision": {
+      "title": "Vision",
+      "description": "At Fluvio we envision a world where knowledge and technology are harnessed to ensure a resilient and thriving planet for current and future generations. Our mission is to be the forefront of positive environmental change, applying innovative solutions in water and climate management to contribute to a better future for all.",
+      "image": "~/assets/images/fluvio/vision-kovi-river.jpg",
+      "imageAlt": "Kovi River, Solomon Islands"
+    },
+    "values": [
+      {
+        "title": "Innovation",
+        "description": "Embrace, develop and drive technological advancements for sustainable environmental solutions."
+      },
+      {
+        "title": "Integrity",
+        "description": "Uphold the highest ethical standards in all our interactions and projects."
+      },
+      {
+        "title": "Collaboration",
+        "description": "Foster partnerships with clients, communities, and experts to achieve collective environmental goals with positive social outcomes."
+      },
+      {
+        "title": "Sustainability",
+        "description": "Prioritise long-term environmental health in all projects and innovations."
+      },
+      {
+        "title": "Empowerment",
+        "description": "Empower clients and communities with knowledge and tools to engage with and apply data-driven decision making."
+      }
+    ]
+  },
+  "fr": {
+    "name": "Fluvio",
+    "tagline": "Des solutions innovantes pour demain",
+    "summary": "Aider les communautés, les gouvernements et l’industrie à relever les défis liés à l’eau, à l’environnement et au climat.",
+    "heroImage": "~/assets/images/fluvio/home-river.jpg",
+    "heroAlt": "Paysage fluvial",
+    "vision": {
+      "title": "Vision",
+      "description": "Chez Fluvio, nous imaginons un monde où le savoir et la technologie sont mis au service d’une planète résiliente et florissante pour les générations présentes et futures. Notre mission est d’être à l’avant-garde du changement environnemental positif, en appliquant des solutions innovantes de gestion de l’eau et du climat pour contribuer à un avenir meilleur pour tous.",
+      "image": "~/assets/images/fluvio/vision-kovi-river.jpg",
+      "imageAlt": "La rivière Kovi, Îles Salomon"
+    },
+    "values": [
+      {
+        "title": "Innovation",
+        "description": "Adopter, développer et porter les avancées technologiques au service de solutions environnementales durables."
+      },
+      {
+        "title": "Intégrité",
+        "description": "Respecter les normes éthiques les plus exigeantes dans toutes nos interactions et tous nos projets."
+      },
+      {
+        "title": "Collaboration",
+        "description": "Cultiver des partenariats avec les clients, les communautés et les experts pour atteindre des objectifs environnementaux communs aux retombées sociales positives."
+      },
+      {
+        "title": "Durabilité",
+        "description": "Donner la priorité à la santé environnementale de long terme dans chaque projet et chaque innovation."
+      },
+      {
+        "title": "Autonomisation",
+        "description": "Donner aux clients et aux communautés les connaissances et les outils pour s’approprier une prise de décision fondée sur les données."
+      }
+    ]
+  },
+  "es": {
+    "name": "Fluvio",
+    "tagline": "Soluciones innovadoras para el mañana",
+    "summary": "Ayudar a comunidades, gobiernos e industria a enfrentar los desafíos del agua, el medio ambiente y el clima.",
+    "heroImage": "~/assets/images/fluvio/home-river.jpg",
+    "heroAlt": "Paisaje fluvial",
+    "vision": {
+      "title": "Visión",
+      "description": "En Fluvio imaginamos un mundo donde el conocimiento y la tecnología se aprovechan para asegurar un planeta resiliente y próspero para las generaciones presentes y futuras. Nuestra misión es estar a la vanguardia del cambio ambiental positivo, aplicando soluciones innovadoras en la gestión del agua y el clima para contribuir a un futuro mejor para todos.",
+      "image": "~/assets/images/fluvio/vision-kovi-river.jpg",
+      "imageAlt": "El río Kovi, Islas Salomón"
+    },
+    "values": [
+      {
+        "title": "Innovación",
+        "description": "Adoptar, desarrollar e impulsar los avances tecnológicos al servicio de soluciones ambientales sostenibles."
+      },
+      {
+        "title": "Integridad",
+        "description": "Mantener los más altos estándares éticos en todas nuestras interacciones y proyectos."
+      },
+      {
+        "title": "Colaboración",
+        "description": "Fomentar alianzas con clientes, comunidades y expertos para alcanzar metas ambientales colectivas con resultados sociales positivos."
+      },
+      {
+        "title": "Sostenibilidad",
+        "description": "Priorizar la salud ambiental de largo plazo en todos los proyectos e innovaciones."
+      },
+      {
+        "title": "Empoderamiento",
+        "description": "Dotar a clientes y comunidades del conocimiento y las herramientas para adoptar y aplicar decisiones basadas en datos."
+      }
+    ]
+  }
+}

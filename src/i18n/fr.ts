@@ -2,20 +2,6 @@ import type { Catalog } from './en';
 
 /** French catalog, translated in context for a professional consultancy register. */
 export const fr: Catalog = {
-  nav: {
-    vision: 'Vision',
-    expertise: 'Expertise',
-    projects: 'Projets',
-    team: 'Équipe',
-    contact: 'Contact',
-    startProject: 'Lancer un projet',
-    explore: 'Explorer',
-    company: 'Entreprise',
-    allRightsReserved: 'Tous droits réservés.',
-    linkedinLabel: 'Fluvio sur LinkedIn',
-    languageLabel: 'Langue',
-  },
-
   slider: {
     regionLabel: 'Présentation de Fluvio',
     slideOf: 'sur',

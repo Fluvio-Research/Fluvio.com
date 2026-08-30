@@ -1,0 +1,71 @@
+{
+  "en": {
+    "order": 1,
+    "title": "Next generation autonomous water monitoring systems",
+    "slug": "advance-queensland",
+    "summary": "Refining a computer vision stream gauging system to become a commercially available product.",
+    "location": "Queensland, Australia",
+    "timeframe": "2024 - Current",
+    "disciplines": ["Hydrological monitoring", "Computer vision"],
+    "heroImage": "~/assets/images/fluvio/project-advance-queensland.jpeg",
+    "heroAlt": "Installation of a computer vision stream gauging system",
+    "challenge": [
+      "Fluvio has secured an Advance Queensland grant to refine its computer vision stream gauging system (CVSG) to become a commercially available product."
+    ],
+    "approach": [
+      "This project will refine the existing camera prototype to establish a cost-effective method for measuring water flows and velocity.",
+      "Key milestones include validation across a broad range of waterways in Queensland with targeted deployments, developing a real-time water quality loads monitoring system, and providing a cloud-based archive system for operational personnel."
+    ],
+    "outcome": [
+      "This significantly improves the quantity of data collected and reduces safety risks associated with traditional methods for gauging flow events."
+    ],
+    "featured": true,
+    "relatedProjects": ["tina", "bina"]
+  },
+  "fr": {
+    "order": 1,
+    "title": "Systèmes autonomes de surveillance de l’eau de nouvelle génération",
+    "slug": "advance-queensland",
+    "summary": "Perfectionner un système de jaugeage de cours d’eau par vision par ordinateur pour en faire un produit commercialisable.",
+    "location": "Queensland, Australie",
+    "timeframe": "2024 - En cours",
+    "disciplines": ["Surveillance hydrologique", "Vision par ordinateur"],
+    "heroImage": "~/assets/images/fluvio/project-advance-queensland.jpeg",
+    "heroAlt": "Installation d’un système de jaugeage de cours d’eau par vision par ordinateur",
+    "challenge": [
+      "Fluvio a obtenu une subvention Advance Queensland pour perfectionner son système de jaugeage de cours d’eau par vision par ordinateur (CVSG) et en faire un produit commercialisable."
+    ],
+    "approach": [
+      "Ce projet perfectionnera le prototype de caméra existant afin d’établir une méthode économique de mesure des débits et des vitesses d’écoulement.",
+      "Les jalons clés comprennent une validation sur un large éventail de cours d’eau du Queensland avec des déploiements ciblés, le développement d’un système de suivi en temps réel des charges de qualité de l’eau, et la mise à disposition d’un système d’archivage en nuage pour le personnel opérationnel."
+    ],
+    "outcome": [
+      "Cette approche améliore considérablement la quantité de données recueillies et réduit les risques de sécurité associés aux méthodes traditionnelles de jaugeage des crues."
+    ],
+    "featured": true,
+    "relatedProjects": ["tina", "bina"]
+  },
+  "es": {
+    "order": 1,
+    "title": "Sistemas autónomos de monitoreo del agua de nueva generación",
+    "slug": "advance-queensland",
+    "summary": "Perfeccionar un sistema de aforo de cauces por visión artificial para convertirlo en un producto disponible comercialmente.",
+    "location": "Queensland, Australia",
+    "timeframe": "2024 - Actualidad",
+    "disciplines": ["Monitoreo hidrológico", "Visión artificial"],
+    "heroImage": "~/assets/images/fluvio/project-advance-queensland.jpeg",
+    "heroAlt": "Instalación de un sistema de aforo de cauces por visión artificial",
+    "challenge": [
+      "Fluvio obtuvo una subvención Advance Queensland para perfeccionar su sistema de aforo de cauces por visión artificial (CVSG) y convertirlo en un producto disponible comercialmente."
+    ],
+    "approach": [
+      "Este proyecto perfeccionará el prototipo de cámara existente para establecer un método rentable de medición de caudales y velocidades del agua.",
+      "Los hitos clave incluyen la validación en una amplia variedad de cauces de Queensland con despliegues dirigidos, el desarrollo de un sistema de monitoreo en tiempo real de cargas de calidad del agua, y la provisión de un sistema de archivo en la nube para el personal operativo."
+    ],
+    "outcome": [
+      "Esto mejora significativamente la cantidad de datos recopilados y reduce los riesgos de seguridad asociados a los métodos tradicionales de aforo durante crecidas."
+    ],
+    "featured": true,
+    "relatedProjects": ["tina", "bina"]
+  }
+}

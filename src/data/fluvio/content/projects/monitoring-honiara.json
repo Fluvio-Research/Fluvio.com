@@ -1,0 +1,71 @@
+{
+  "en": {
+    "order": 3,
+    "title": "Hydrological monitoring of Greater Honiara",
+    "slug": "monitoring-honiara",
+    "summary": "Hydrological monitoring and catchment investigations supporting climate-resilient water supply and sanitation services in Greater Honiara.",
+    "location": "Honiara, Solomon Islands",
+    "timeframe": "2022 - Current",
+    "disciplines": ["Hydrological monitoring", "Catchment investigations", "Water quality monitoring"],
+    "partners": ["Solomon Water"],
+    "heroImage": "~/assets/images/fluvio/project-honiara.jpeg",
+    "heroAlt": "Routine water quality monitoring in the Honiara reticulation network",
+    "challenge": [
+      "Only 55% of the greater Honiara population has access to the public water supply system, and less than 10% is connected to the Honiara sewerage network."
+    ],
+    "approach": [
+      "Fluvio has undertaken hydrological monitoring and catchment investigations, including real-time water quality monitoring systems, operational data dashboards with alerting capabilities, automation of existing monitoring activities, and expansion into provisional water sources."
+    ],
+    "outcome": [
+      "All work has been delivered alongside Solomon Water staff with the aim to build local capacity to support the project into the future."
+    ],
+    "featured": true,
+    "relatedProjects": ["wrd", "bina"]
+  },
+  "fr": {
+    "order": 3,
+    "title": "Surveillance hydrologique du Grand Honiara",
+    "slug": "monitoring-honiara",
+    "summary": "Surveillance hydrologique et études de bassins versants à l’appui de services d’eau et d’assainissement résilients au climat dans le Grand Honiara.",
+    "location": "Honiara, Îles Salomon",
+    "timeframe": "2022 - En cours",
+    "disciplines": ["Surveillance hydrologique", "Études de bassins versants", "Surveillance de la qualité de l’eau"],
+    "partners": ["Solomon Water"],
+    "heroImage": "~/assets/images/fluvio/project-honiara.jpeg",
+    "heroAlt": "Surveillance de routine de la qualité de l’eau dans le réseau de distribution de Honiara",
+    "challenge": [
+      "Seulement 55 % de la population du Grand Honiara a accès au réseau public d’eau potable, et moins de 10 % est raccordée au réseau d’assainissement de Honiara."
+    ],
+    "approach": [
+      "Fluvio a mené des travaux de surveillance hydrologique et d’étude des bassins versants, comprenant des systèmes de surveillance de la qualité de l’eau en temps réel, des tableaux de bord opérationnels avec alertes, l’automatisation des activités de surveillance existantes et l’extension à des sources d’eau provisoires."
+    ],
+    "outcome": [
+      "L’ensemble des travaux a été réalisé aux côtés du personnel de Solomon Water, dans l’objectif de renforcer les compétences locales pour porter le projet dans la durée."
+    ],
+    "featured": true,
+    "relatedProjects": ["wrd", "bina"]
+  },
+  "es": {
+    "order": 3,
+    "title": "Monitoreo hidrológico del Gran Honiara",
+    "slug": "monitoring-honiara",
+    "summary": "Monitoreo hidrológico e investigaciones de cuencas en apoyo de servicios de agua y saneamiento resilientes al clima en el Gran Honiara.",
+    "location": "Honiara, Islas Salomón",
+    "timeframe": "2022 - Actualidad",
+    "disciplines": ["Monitoreo hidrológico", "Investigaciones de cuencas", "Monitoreo de calidad del agua"],
+    "partners": ["Solomon Water"],
+    "heroImage": "~/assets/images/fluvio/project-honiara.jpeg",
+    "heroAlt": "Monitoreo de rutina de la calidad del agua en la red de distribución de Honiara",
+    "challenge": [
+      "Solo el 55 % de la población del Gran Honiara tiene acceso al sistema público de abastecimiento de agua, y menos del 10 % está conectada a la red de alcantarillado de Honiara."
+    ],
+    "approach": [
+      "Fluvio ha realizado monitoreo hidrológico e investigaciones de cuencas, incluidos sistemas de monitoreo de calidad del agua en tiempo real, tableros de datos operativos con alertas, la automatización de las actividades de monitoreo existentes y la ampliación hacia fuentes de agua provisionales."
+    ],
+    "outcome": [
+      "Todo el trabajo se ha realizado junto al personal de Solomon Water, con el objetivo de desarrollar capacidades locales que sostengan el proyecto en el futuro."
+    ],
+    "featured": true,
+    "relatedProjects": ["wrd", "bina"]
+  }
+}

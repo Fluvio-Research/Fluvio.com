@@ -1,0 +1,65 @@
+{
+  "en": {
+    "order": 9,
+    "title": "Reservoir sedimentation studies",
+    "slug": "reservoir-sedimentation",
+    "summary": "Identifying and quantifying sedimentation rates within a reservoir.",
+    "location": "Australia",
+    "timeframe": "2024 - 2025",
+    "disciplines": ["Sedimentation monitoring", "Field survey"],
+    "heroImage": "~/assets/images/fluvio/project-reservoir-sedimentation.jpeg",
+    "heroAlt": "Two sediment cores collected from lake beds",
+    "challenge": [
+      "Sedimentation occurs frequently in dams, decreasing their capacity, and increased rates can result in operational challenges."
+    ],
+    "approach": [
+      "The study used an initial field survey with a freefall penetrometer, a follow-up coring survey, in-situ sedimentation arrays, event monitoring nodes at major inflow points, and a visual shoreline assessment."
+    ],
+    "outcome": [
+      "The field program identifies and quantifies sedimentation rates and defines reservoir drawdown sediment dynamics."
+    ],
+    "relatedProjects": ["ghg-emissions-reservoirs"]
+  },
+  "fr": {
+    "order": 9,
+    "title": "Études de sédimentation des réservoirs",
+    "slug": "reservoir-sedimentation",
+    "summary": "Identifier et quantifier les taux de sédimentation au sein d’un réservoir.",
+    "location": "Australie",
+    "timeframe": "2024 - 2025",
+    "disciplines": ["Suivi de la sédimentation", "Relevés de terrain"],
+    "heroImage": "~/assets/images/fluvio/project-reservoir-sedimentation.jpeg",
+    "heroAlt": "Deux carottes de sédiments prélevées dans des fonds lacustres",
+    "challenge": [
+      "La sédimentation est fréquente dans les barrages et réduit leur capacité ; son accélération peut engendrer des difficultés opérationnelles."
+    ],
+    "approach": [
+      "L’étude a combiné un relevé de terrain initial au pénétromètre à chute libre, une campagne de carottage complémentaire, des dispositifs de sédimentation in situ, des stations de suivi d’événements aux principaux points d’entrée et une évaluation visuelle des rives."
+    ],
+    "outcome": [
+      "Le programme de terrain identifie et quantifie les taux de sédimentation et caractérise la dynamique sédimentaire lors des abaissements du réservoir."
+    ],
+    "relatedProjects": ["ghg-emissions-reservoirs"]
+  },
+  "es": {
+    "order": 9,
+    "title": "Estudios de sedimentación de embalses",
+    "slug": "reservoir-sedimentation",
+    "summary": "Identificar y cuantificar las tasas de sedimentación dentro de un embalse.",
+    "location": "Australia",
+    "timeframe": "2024 - 2025",
+    "disciplines": ["Monitoreo de sedimentación", "Levantamiento de campo"],
+    "heroImage": "~/assets/images/fluvio/project-reservoir-sedimentation.jpeg",
+    "heroAlt": "Dos núcleos de sedimento extraídos de lechos lacustres",
+    "challenge": [
+      "La sedimentación ocurre con frecuencia en las presas y reduce su capacidad; el aumento de las tasas puede generar dificultades operativas."
+    ],
+    "approach": [
+      "El estudio combinó un levantamiento de campo inicial con penetrómetro de caída libre, una campaña posterior de extracción de núcleos, arreglos de sedimentación in situ, nodos de monitoreo de eventos en los principales puntos de entrada y una evaluación visual de la línea de costa."
+    ],
+    "outcome": [
+      "El programa de campo identifica y cuantifica las tasas de sedimentación y define la dinámica de sedimentos durante el descenso del nivel del embalse."
+    ],
+    "relatedProjects": ["ghg-emissions-reservoirs"]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "en": {
+    "order": 7,
+    "name": "Mubashir Imran",
+    "role": "Senior Data Scientist",
+    "bio": "Mubashir has a passion for building data-driven interoperable systems that bridge the gaps between people and data. He is committed to the innovation of intuitive tools that push the boundaries of new environmental monitoring and data interfacing solutions.",
+    "portrait": "~/assets/images/fluvio/team-mubashir.jpg",
+    "portraitAlt": "Mubashir Imran",
+    "specialties": ["Data-driven interoperable systems"]
+  },
+  "fr": {
+    "order": 7,
+    "name": "Mubashir Imran",
+    "role": "Data scientist senior",
+    "bio": "Mubashir se passionne pour la construction de systèmes interopérables pilotés par les données, qui rapprochent les personnes et l’information. Il s’attache à innover des outils intuitifs qui repoussent les limites de la surveillance environnementale et des interfaces de données.",
+    "portrait": "~/assets/images/fluvio/team-mubashir.jpg",
+    "portraitAlt": "Mubashir Imran",
+    "specialties": ["Systèmes interopérables pilotés par les données"]
+  },
+  "es": {
+    "order": 7,
+    "name": "Mubashir Imran",
+    "role": "Científico de Datos Senior",
+    "bio": "A Mubashir le apasiona construir sistemas interoperables impulsados por datos que cierren las brechas entre las personas y la información. Está comprometido con la innovación de herramientas intuitivas que amplíen las fronteras del monitoreo ambiental y las interfaces de datos.",
+    "portrait": "~/assets/images/fluvio/team-mubashir.jpg",
+    "portraitAlt": "Mubashir Imran",
+    "specialties": ["Sistemas interoperables impulsados por datos"]
+  }
+}
