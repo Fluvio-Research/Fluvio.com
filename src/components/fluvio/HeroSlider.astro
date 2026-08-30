@@ -1,44 +1,43 @@
 ---
 import LargeImage from './LargeImage.astro';
-import { getPermalink } from '~/utils/permalinks';
+import { defaultLocale, localeHref, t, type Locale } from '~/i18n';
 
-const slides = [
-  {
-    eyebrow: 'Water and climate',
-    title: 'Technology for a more resilient water future.',
-    description: 'Field science, sensing and data systems for practical environmental decisions.',
-    image: '~/assets/images/fluvio/home-river.jpg',
-    imageAlt: 'A river winding through a forested landscape',
-    href: getPermalink('/vision'),
-    action: 'Our vision',
-  },
-  {
-    eyebrow: 'Field intelligence',
-    title: 'Observe water systems as they change.',
-    description: 'Non-contact monitoring and real-time analysis turn complex conditions into useful evidence.',
-    image: '~/assets/images/fluvio/project-bina.jpeg',
-    imageAlt: 'Flow gauging in the Loaloana Stream',
-    href: getPermalink('/expertise'),
-    action: 'Explore expertise',
-  },
-  {
-    eyebrow: 'Collaborative delivery',
-    title: 'Build capability with the people who use it.',
-    description: 'Tools and knowledge shaped with communities, government, industry and regional partners.',
-    image: '~/assets/images/fluvio/project-honiara.jpeg',
-    imageAlt: 'Routine water quality monitoring in the Honiara reticulation network',
-    href: getPermalink('/projects'),
-    action: 'See our projects',
-  },
+export interface Props {
+  locale?: Locale;
+}
+
+const { locale = defaultLocale } = Astro.props;
+const strings = t(locale).slider;
+
+const slideImages = [
+  '~/assets/images/fluvio/home-river.jpg',
+  '~/assets/images/fluvio/project-bina.jpeg',
+  '~/assets/images/fluvio/project-honiara.jpeg',
+  '~/assets/images/fluvio/project-advance-queensland.jpeg',
+  '~/assets/images/fluvio/vision-field-team.jpeg',
 ];
+
+const slides = strings.slides.map((slide, index) => ({ ...slide, image: slideImages[index] }));
+
+/** Autoplay cycle length; the CSS countdown reads the same value. */
+const INTERVAL_MS = 6000;
 ---
 
 <fluvio-hero-slider
   class="fluvio-hero"
   role="region"
   aria-roledescription="carousel"
-  aria-label="Fluvio introduction"
+  aria-label={strings.regionLabel}
   tabindex="0"
+  style={`--hero-interval: ${INTERVAL_MS}ms`}
+  data-interval={INTERVAL_MS}
+  data-label-pause={strings.pause}
+  data-label-resume={strings.resume}
+  data-label-pause-aria={strings.pauseAria}
+  data-label-resume-aria={strings.resumeAria}
+  data-label-autoplay-off={strings.autoplayOff}
+  data-label-autoplay-off-aria={strings.autoplayOffAria}
+  data-status-template={strings.statusTemplate}
 >
   <div class="fluvio-hero__slides">
     {
@@ -48,7 +47,7 @@ const slides = [
           data-hero-slide
           role="group"
           aria-roledescription="slide"
-          aria-label={`${index + 1} of ${slides.length}`}
+          aria-label={`${index + 1} ${strings.slideOf} ${slides.length}`}
           inert={index !== 0}
         >
           <div class="fluvio-hero__media">
@@ -60,7 +59,7 @@ const slides = [
               <p class="fluvio-hero__eyebrow">{slide.eyebrow}</p>
               <h1>{slide.title}</h1>
               <p class="fluvio-hero__description">{slide.description}</p>
-              <a class="fluvio-hero__link" href={slide.href}>
+              <a class="fluvio-hero__link" href={localeHref(slide.href, locale)}>
                 {slide.action} <span aria-hidden="true">→</span>
               </a>
             </div>
@@ -81,18 +80,13 @@ const slides = [
         <span data-hero-progress style={`--hero-progress: ${100 / slides.length}%`}></span>
       </div>
       <div class="fluvio-hero__buttons">
-        <button
-          class="fluvio-hero__playback"
-          type="button"
-          aria-label="Pause automatic slide rotation"
-          data-hero-playback
-        >
-          <span data-hero-playback-label>Pause</span>
+        <button class="fluvio-hero__playback" type="button" aria-label={strings.pauseAria} data-hero-playback>
+          <span data-hero-playback-label>{strings.pause}</span>
         </button>
-        <button type="button" aria-label="Previous slide" data-hero-previous>
+        <button type="button" aria-label={strings.previous} data-hero-previous>
           <span aria-hidden="true">←</span>
         </button>
-        <button type="button" aria-label="Next slide" data-hero-next>
+        <button type="button" aria-label={strings.next} data-hero-next>
           <span aria-hidden="true">→</span>
         </button>
       </div>
@@ -100,7 +94,12 @@ const slides = [
   </div>
 
   <p class="visually-hidden" aria-live="polite" aria-atomic="true" data-hero-status>
-    Slide 1 of {slides.length}: {slides[0].title}
+    {
+      strings.statusTemplate
+        .replace('{current}', '1')
+        .replace('{total}', String(slides.length))
+        .replace('{title}', slides[0].title)
+    }
   </p>
 </fluvio-hero-slider>
 
@@ -163,7 +162,13 @@ const slides = [
 
       if (current) current.textContent = String(this.activeIndex + 1).padStart(2, '0');
       progress?.style.setProperty('--hero-progress', `${((this.activeIndex + 1) / this.slides.length) * 100}%`);
-      if (announce && status) status.textContent = `Slide ${this.activeIndex + 1} of ${this.slides.length}: ${title}`;
+      if (announce && status) {
+        const template = this.dataset.statusTemplate ?? 'Slide {current} of {total}: {title}';
+        status.textContent = template
+          .replace('{current}', String(this.activeIndex + 1))
+          .replace('{total}', String(this.slides.length))
+          .replace('{title}', title);
+      }
       if (this.timer) this.restartCountdown();
     }
 
@@ -198,7 +203,7 @@ const slides = [
         this.contains(document.activeElement)
       )
         return;
-      this.timer = window.setInterval(this.advance, 8000);
+      this.timer = window.setInterval(this.advance, Number(this.dataset.interval) || 6000);
       this.classList.add('is-playing');
       this.restartCountdown();
     };
@@ -226,17 +231,17 @@ const slides = [
 
       if (this.reducedMotion?.matches) {
         button.disabled = true;
-        button.setAttribute('aria-label', 'Automatic slide rotation is off because reduced motion is enabled');
-        label.textContent = 'Autoplay off';
+        button.setAttribute('aria-label', this.dataset.labelAutoplayOffAria ?? 'Autoplay off');
+        label.textContent = this.dataset.labelAutoplayOff ?? 'Autoplay off';
         return;
       }
 
       button.disabled = false;
       button.setAttribute(
         'aria-label',
-        this.manuallyPaused ? 'Resume automatic slide rotation' : 'Pause automatic slide rotation'
+        (this.manuallyPaused ? this.dataset.labelResumeAria : this.dataset.labelPauseAria) ?? ''
       );
-      label.textContent = this.manuallyPaused ? 'Resume' : 'Pause';
+      label.textContent = (this.manuallyPaused ? this.dataset.labelResume : this.dataset.labelPause) ?? '';
     }
 
     private handleFocusOut = () => window.setTimeout(this.resume, 0);
@@ -482,7 +487,7 @@ const slides = [
   /* Autoplay countdown: the bar fills across each 8 second cycle. */
   @media (prefers-reduced-motion: no-preference) {
     .fluvio-hero.is-playing .fluvio-hero__progress span {
-      animation: fluvio-hero-countdown 8s linear both;
+      animation: fluvio-hero-countdown var(--hero-interval, 6s) linear both;
     }
   }
 

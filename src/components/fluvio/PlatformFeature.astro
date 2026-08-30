@@ -1,5 +1,6 @@
 ---
 import LargeImage from './LargeImage.astro';
+import { defaultLocale, t, type Locale } from '~/i18n';
 
 export interface Props {
   title: string;
@@ -9,9 +10,11 @@ export interface Props {
   image?: string;
   imageAlt?: string;
   index?: number;
+  locale?: Locale;
 }
 
-const { title, description, href, actionLabel = 'Visit platform', image, imageAlt = '', index } = Astro.props;
+const { title, description, href, actionLabel, image, imageAlt = '', index, locale = defaultLocale } = Astro.props;
+const platformLabel = t(locale).platforms.label;
 ---
 
 <article class="fluvio-platform-feature">
@@ -26,13 +29,13 @@ const { title, description, href, actionLabel = 'Visit platform', image, imageAl
     )
   }
   <div class="fluvio-platform-feature__body">
-    <p class="fluvio-platform-feature__eyebrow">Platform{index !== undefined && ` / 0${index + 1}`}</p>
+    <p class="fluvio-platform-feature__eyebrow">{platformLabel}{index !== undefined && ` / 0${index + 1}`}</p>
     <h3>{title}</h3>
     <p class="fluvio-platform-feature__description">{description}</p>
     {
       href && (
         <a href={href}>
-          {actionLabel} <span aria-hidden="true">↗</span>
+          {actionLabel ?? title} <span aria-hidden="true">↗</span>
         </a>
       )
     }

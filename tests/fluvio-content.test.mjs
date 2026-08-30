@@ -4,6 +4,11 @@ import { relative } from 'node:path';
 import test from 'node:test';
 
 import { expertiseAreas } from '../src/data/fluvio/expertise.ts';
+import * as frOverlay from '../src/data/fluvio/translations/fr.ts';
+import * as esOverlay from '../src/data/fluvio/translations/es.ts';
+import { en } from '../src/i18n/en.ts';
+import { fr } from '../src/i18n/fr.ts';
+import { es } from '../src/i18n/es.ts';
 import { featuredProjects, getProjectBySlug, projects } from '../src/data/fluvio/projects.ts';
 import { siteContent } from '../src/data/fluvio/site.ts';
 import { teamMembers } from '../src/data/fluvio/team.ts';
@@ -146,8 +151,47 @@ test('Fluvio shell uses the brand name and primary navigation', () => {
   assert.doesNotMatch(homepageFrontmatter, /AstroWind|Free template/);
   assert.match(config, /width:\s*1200\s+height:\s*626/);
   for (const label of ['Vision', 'Expertise', 'Projects', 'Team', 'Contact']) {
-    assert.match(navigation, new RegExp(label));
+    assert.ok(Object.values(en.nav).includes(label));
   }
+});
+
+test('Fluvio catalogs translate every string for every locale', () => {
+  const keyPaths = (value, prefix = '') =>
+    Object.entries(value).flatMap(([key, child]) =>
+      child && typeof child === 'object' ? keyPaths(child, `${prefix}${key}.`) : [`${prefix}${key}`]
+    );
+
+  const reference = keyPaths(en).sort();
+  for (const catalog of [fr, es]) {
+    assert.deepEqual(keyPaths(catalog).sort(), reference);
+  }
+  assert.equal(en.slider.slides.length, 5);
+
+  for (const overlay of [frOverlay, esOverlay]) {
+    assert.deepEqual(Object.keys(overlay.projects).sort(), expectedSlugs.slice().sort());
+    assert.deepEqual(Object.keys(overlay.team).sort(), expectedTeamNames.slice().sort());
+    assert.equal(Object.keys(overlay.expertise).length, 6);
+    for (const record of Object.values(overlay.projects)) {
+      for (const field of ['title', 'summary', 'challenge', 'approach', 'outcome']) assert.ok(record[field]);
+    }
+    for (const record of Object.values(overlay.team)) {
+      assert.ok(record.role);
+      assert.ok(record.bio);
+    }
+    for (const record of Object.values(overlay.expertise)) {
+      for (const field of ['title', 'summary', 'description']) assert.ok(record[field]);
+    }
+    assert.equal(overlay.site.values.length, 5);
+  }
+});
+
+test('Fluvio locale routes exist for French and Spanish', async () => {
+  const localePages = ['index', 'vision', 'expertise', 'projects', 'team', 'contact', '[slug]'];
+  await Promise.all(localePages.map((page) => access(new URL(`../src/pages/[lang]/${page}.astro`, import.meta.url))));
+
+  const langIndex = await readFile(new URL('../src/pages/[lang]/index.astro', import.meta.url), 'utf8');
+  assert.match(langIndex, /params: \{ lang: 'fr' \}/);
+  assert.match(langIndex, /params: \{ lang: 'es' \}/);
 });
 
 test('Fluvio public sources contain no demonstration copy or routes', async () => {
@@ -182,17 +226,17 @@ test('Fluvio project experience provides shared components and static project ro
   assert.match(projectRoute, /projects\.map\s*\(/);
   assert.match(largeImage, /sizes\?:\s*string/);
   assert.match(largeImage, /sizes=\{imageSizes\}/);
-  assert.equal(projectFeature.match(/href=\{getPermalink\(`\/\$\{project\.slug\}`\)\}/g)?.length, 1);
-  assert.equal(projectListItem.match(/href=\{getPermalink\(`\/\$\{project\.slug\}`\)\}/g)?.length, 1);
+  assert.equal(projectFeature.match(/localeHref\(`\/\$\{project\.slug\}`, locale\)/g)?.length, 1);
+  assert.equal(projectListItem.match(/localeHref\(`\/\$\{project\.slug\}`, locale\)/g)?.length, 1);
   assert.match(projectFeature, /<h2>\{project\.title\}<\/h2>/);
   assert.match(
     projectFeature,
-    /<a class="fluvio-project-feature__link" href=\{getPermalink\(`\/\$\{project\.slug\}`\)\}\s*>\s*View project/
+    /<a class="fluvio-project-feature__link" href=\{projectHref\}\s*>\s*\{strings\.viewProject\}/
   );
   assert.match(projectListItem, /<h3>\{project\.title\}<\/h3>/);
   assert.match(
     projectListItem,
-    /<a class="fluvio-project-item__link" href=\{getPermalink\(`\/\$\{project\.slug\}`\)\}\s*>\s*Read the project/
+    /<a class="fluvio-project-item__link" href=\{projectHref\}\s*>\s*\{strings\.readProject\}/
   );
   assert.match(projectFeature, /alt=\{project\.heroAlt\}/);
   assert.match(projectListItem, /alt=\{project\.heroAlt\}/);
@@ -212,20 +256,30 @@ test('Fluvio primary pages exist without public template content', async () => {
   }
 });
 
-test('Fluvio hero slider exposes three accessible, motion-aware slides', async () => {
+test('Fluvio hero slider exposes five accessible, localised, motion-aware slides', async () => {
   const slider = await readFile(new URL('../src/components/fluvio/HeroSlider.astro', import.meta.url), 'utf8');
 
-  for (const image of ['home-river.jpg', 'project-bina.jpeg', 'project-honiara.jpeg']) {
+  for (const image of [
+    'home-river.jpg',
+    'project-bina.jpeg',
+    'project-honiara.jpeg',
+    'project-advance-queensland.jpeg',
+    'vision-field-team.jpeg',
+  ]) {
     assert.match(slider, new RegExp(image.replace('.', '\\.')));
   }
-  assert.match(slider, /Technology for a more resilient water future\./);
+  assert.equal(en.slider.slides.length, 5);
+  assert.equal(en.slider.slides[0].title, 'Technology for a more resilient water future.');
+  assert.equal(en.slider.pauseAria, 'Pause automatic slide rotation');
+  assert.equal(en.slider.resumeAria, 'Resume automatic slide rotation');
+  assert.equal(en.slider.previous, 'Previous slide');
+  assert.equal(en.slider.next, 'Next slide');
+  assert.match(slider, /const INTERVAL_MS = 6000;/);
   assert.match(slider, /aria-live=["']polite["']/);
   assert.match(slider, /<fluvio-hero-slider[^>]*role=["']region["']/);
-  assert.match(slider, /aria-label=["']Previous slide["']/);
-  assert.match(slider, /aria-label=["']Next slide["']/);
+  assert.match(slider, /aria-label=\{strings\.previous\}/);
+  assert.match(slider, /aria-label=\{strings\.next\}/);
   assert.match(slider, /data-hero-playback/);
-  assert.match(slider, /Pause automatic slide rotation/);
-  assert.match(slider, /Resume automatic slide rotation/);
   assert.doesNotMatch(slider, /aria-pressed/);
   assert.match(slider, /ArrowLeft/);
   assert.match(slider, /ArrowRight/);
@@ -233,17 +287,18 @@ test('Fluvio hero slider exposes three accessible, motion-aware slides', async (
 });
 
 test('Fluvio recovery and contact routes use explicit destinations', async () => {
-  const [about, services, notFound, contact] = await Promise.all(
-    ['about.astro', 'services.astro', '404.astro', 'contact.astro'].map((file) =>
+  const [about, services, notFound] = await Promise.all(
+    ['about.astro', 'services.astro', '404.astro'].map((file) =>
       readFile(new URL(`../src/pages/${file}`, import.meta.url), 'utf8')
     )
   );
+  const contact = await readFile(new URL('../src/components/pages/ContactPage.astro', import.meta.url), 'utf8');
 
   assert.match(about, /Astro\.redirect\(getPermalink\(['"]\/vision['"]\),\s*301\)/);
   assert.match(services, /Astro\.redirect\(getPermalink\(['"]\/expertise['"]\),\s*301\)/);
   for (const href of ['/', '/expertise', '/projects'])
     assert.match(notFound, new RegExp(`getPermalink\\('${href}'\\)`));
-  assert.match(contact, /href=["']mailto:/);
+  assert.match(contact, /mailto:\?subject=/);
   assert.match(contact, /https:\/\/www\.linkedin\.com\/company\/fluvioptyltd\//);
-  assert.doesNotMatch(contact, /within \d+ hours|attachment upload|server submission/i);
+  assert.doesNotMatch(contact + en.contactPage.enquiryNote, /within \d+ hours|attachment upload|server submission/i);
 });

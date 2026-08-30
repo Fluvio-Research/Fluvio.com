@@ -1,0 +1,193 @@
+---
+import { SITE } from 'astrowind:config';
+
+import { localeNames, locales, localizePath, t, unlocalizedPathname, type Locale } from '~/i18n';
+import { getPermalink } from '~/utils/permalinks';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale: current } = Astro.props;
+const path = unlocalizedPathname(Astro.url.pathname, SITE.base || '/');
+---
+
+<details class="fluvio-lang">
+  <summary aria-label={t(current).nav.languageLabel}>
+    <svg
+      aria-hidden="true"
+      width="15"
+      height="15"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.8"
+    >
+      <circle cx="12" cy="12" r="9"></circle>
+      <path d="M3.6 9h16.8M3.6 15h16.8M12 3a17 17 0 0 1 0 18M12 3a17 17 0 0 0 0 18"></path>
+    </svg>
+    <span>{current.toUpperCase()}</span>
+    <svg
+      aria-hidden="true"
+      width="10"
+      height="10"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.4"
+    >
+      <path d="M6 9l6 6 6-6"></path>
+    </svg>
+  </summary>
+  <ul>
+    {
+      locales.map((locale) => (
+        <li>
+          <a
+            href={getPermalink(localizePath(path, locale))}
+            aria-current={locale === current ? 'page' : undefined}
+            data-astro-reload
+          >
+            {localeNames[locale]}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</details>
+
+<script>
+  // Close any open language dropdown when clicking elsewhere or pressing Escape.
+  const closeOthers = (event: Event) => {
+    document.querySelectorAll<HTMLDetailsElement>('details.fluvio-lang[open]').forEach((details) => {
+      if (event instanceof KeyboardEvent || !details.contains(event.target as Node)) details.removeAttribute('open');
+    });
+  };
+  document.addEventListener('click', closeOthers);
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeOthers(event);
+  });
+</script>
+
+<style>
+  .fluvio-lang {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-inline: 0.5rem;
+  }
+
+  ul {
+    top: 100%;
+  }
+
+  summary {
+    display: inline-flex;
+    gap: 0.4rem;
+    align-items: center;
+    padding: 0.45rem 0.7rem;
+    border: 1px solid rgb(var(--fluvio-ink) / 0.14);
+    border-radius: 999px;
+    color: var(--aw-color-text-default);
+    cursor: pointer;
+    font-family: var(--aw-font-mono);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    list-style: none;
+    transition:
+      border-color 200ms ease,
+      background-color 200ms ease;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary:hover {
+    border-color: rgb(var(--fluvio-river) / 0.55);
+    background: rgb(var(--fluvio-wash) / 0.35);
+  }
+
+  summary:focus-visible {
+    outline: 2px solid rgb(var(--fluvio-river));
+    outline-offset: 2px;
+  }
+
+  .fluvio-lang[open] summary > svg:last-child {
+    transform: rotate(180deg);
+  }
+
+  summary > svg:last-child {
+    transition: transform 200ms ease;
+  }
+
+  ul {
+    position: absolute;
+    right: 0;
+    z-index: 60;
+    min-width: 9.5rem;
+    margin: 0.5rem 0 0;
+    padding: 0.35rem;
+    border: 1px solid rgb(var(--fluvio-ink) / 0.1);
+    border-radius: 12px;
+    background: rgb(var(--fluvio-paper) / 0.96);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 12px 32px rgb(var(--fluvio-ink) / 0.14);
+    list-style: none;
+  }
+
+  a {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    color: var(--aw-color-text-default);
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  a:hover {
+    background: rgb(var(--fluvio-wash) / 0.5);
+    color: var(--aw-color-text-heading);
+  }
+
+  a[aria-current='page'] {
+    color: rgb(var(--fluvio-river));
+    font-weight: 650;
+  }
+
+  a[aria-current='page']::after {
+    content: '✓';
+  }
+
+  a:focus-visible {
+    outline: 2px solid rgb(var(--fluvio-river));
+    outline-offset: 2px;
+  }
+
+  :global(.dark) summary {
+    border-color: rgb(var(--fluvio-mist) / 0.18);
+  }
+
+  :global(.dark) summary:hover {
+    border-color: rgb(125 186 188 / 0.55);
+    background: rgb(var(--fluvio-navy) / 0.4);
+  }
+
+  :global(.dark) ul {
+    border-color: rgb(var(--fluvio-mist) / 0.12);
+    background: rgb(19 32 42 / 0.96);
+    box-shadow: 0 12px 32px rgb(0 0 0 / 0.4);
+  }
+
+  :global(.dark) a:hover {
+    background: rgb(var(--fluvio-navy) / 0.5);
+  }
+
+  :global(.dark) a[aria-current='page'] {
+    color: rgb(125 186 188);
+  }
+</style>

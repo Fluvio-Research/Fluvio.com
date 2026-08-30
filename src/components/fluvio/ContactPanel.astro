@@ -1,7 +1,8 @@
 ---
-import { getPermalink } from '~/utils/permalinks';
+import { defaultLocale, localeHref, t, type Locale } from '~/i18n';
 
 export interface Props {
+  locale?: Locale;
   eyebrow?: string;
   title?: string;
   intro?: string;
@@ -9,12 +10,15 @@ export interface Props {
   actionLabel?: string;
 }
 
+const { locale = defaultLocale } = Astro.props;
+const strings = t(locale).contactPanel;
+
 const {
-  eyebrow = 'Start a conversation',
-  title = 'Have a water, environmental or climate challenge?',
-  intro = 'Tell us what you are working through. We will bring the right mix of field, science and technology expertise to the conversation.',
-  href = getPermalink('/contact'),
-  actionLabel = 'Contact Fluvio',
+  eyebrow = strings.eyebrow,
+  title = strings.title,
+  intro = strings.intro,
+  href = localeHref('/contact', locale),
+  actionLabel = strings.action,
 } = Astro.props;
 ---
 

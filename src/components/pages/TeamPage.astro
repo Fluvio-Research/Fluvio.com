@@ -1,0 +1,112 @@
+---
+import ContactPanel from '~/components/fluvio/ContactPanel.astro';
+import LargeImage from '~/components/fluvio/LargeImage.astro';
+import SectionFrame from '~/components/fluvio/SectionFrame.astro';
+import SectionHeading from '~/components/fluvio/SectionHeading.astro';
+import TeamProfile from '~/components/fluvio/TeamProfile.astro';
+import { getTeamMembers } from '~/data/fluvio/localized';
+import { t, type Locale } from '~/i18n';
+import Layout from '~/layouts/PageLayout.astro';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const c = t(locale).teamPage;
+const teamMembers = getTeamMembers(locale);
+
+const metadata = {
+  title: c.metaTitle,
+  description: c.metaDescription,
+};
+---
+
+<Layout metadata={metadata} locale={locale}>
+  <header class="fluvio-team-hero">
+    <div class="fluvio-shell fluvio-team-hero__grid">
+      <div>
+        <p class="fluvio-eyebrow">{c.eyebrow}</p>
+        <h1 class="fluvio-title">{c.title}</h1>
+        <p class="fluvio-lede">{c.lede}</p>
+      </div>
+      <LargeImage
+        src="~/assets/images/fluvio/vision-field-team.jpeg"
+        alt={c.heroImageAlt}
+        aspect="landscape"
+        priority
+      />
+    </div>
+  </header>
+
+  <SectionFrame
+    tone="paper"
+    rule="ink"
+    motif="contour"
+    spacing="standard"
+    labelledby="team-directory-heading"
+    class="fluvio-team-directory"
+  >
+    <div id="team-directory-heading" class="fluvio-team-heading">
+      <SectionHeading title={c.directoryTitle} intro={c.directoryIntro} />
+    </div>
+    <div class="fluvio-team-grid">
+      {
+        teamMembers.map((member) => (
+          <div class="fluvio-team-cell">
+            <TeamProfile member={member} locale={locale} headingLevel="h2" />
+          </div>
+        ))
+      }
+    </div>
+  </SectionFrame>
+
+  <SectionFrame tone="warm">
+    <ContactPanel locale={locale} eyebrow="" title={c.contactTitle} intro={c.contactIntro} />
+  </SectionFrame>
+</Layout>
+
+<style>
+  .fluvio-team-hero {
+    padding: clamp(3rem, 7vw, 6rem) 0 clamp(4.5rem, 10vw, 9rem);
+  }
+
+  .fluvio-team-hero__grid {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .fluvio-team-hero :global(h1) {
+    max-width: 12ch;
+  }
+
+  .fluvio-team-hero :global(.fluvio-lede) {
+    max-width: 35rem;
+  }
+
+  .fluvio-team-directory {
+    padding-bottom: clamp(5rem, 12vw, 11rem);
+  }
+
+  .fluvio-team-heading {
+    margin-bottom: clamp(3.5rem, 8vw, 7rem);
+  }
+
+  .fluvio-team-grid {
+    display: grid;
+    gap: clamp(3rem, 6vw, 5rem) clamp(2rem, 4vw, 3.5rem);
+  }
+
+  @media (min-width: 768px) {
+    .fluvio-team-hero__grid {
+      grid-template-columns: minmax(0, 0.85fr) minmax(24rem, 1.15fr);
+      gap: clamp(3rem, 8vw, 8rem);
+    }
+
+    .fluvio-team-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: start;
+    }
+  }
+</style>

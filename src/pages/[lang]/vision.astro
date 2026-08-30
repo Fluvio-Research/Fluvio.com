@@ -1,0 +1,12 @@
+---
+import VisionPage from '~/components/pages/VisionPage.astro';
+import type { Locale } from '~/i18n';
+
+export function getStaticPaths() {
+  return [{ params: { lang: 'fr' } }, { params: { lang: 'es' } }];
+}
+
+const { lang } = Astro.params as { lang: Locale };
+---
+
+<VisionPage locale={lang} />

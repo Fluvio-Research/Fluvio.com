@@ -1,57 +1,48 @@
-import { getPermalink } from './utils/permalinks';
+import { localeHref, t, type Locale } from '~/i18n';
 
-export const headerData = {
-  links: [
-    {
-      text: 'Vision',
-      href: getPermalink('/vision'),
-    },
-    {
-      text: 'Expertise',
-      href: getPermalink('/expertise'),
-    },
-    {
-      text: 'Projects',
-      href: getPermalink('/projects'),
-    },
-    {
-      text: 'Team',
-      href: getPermalink('/team'),
-    },
-    {
-      text: 'Contact',
-      href: getPermalink('/contact'),
-    },
-  ],
-  actions: [{ text: 'Start a project', href: getPermalink('/contact') }],
+export const getHeaderData = (locale: Locale) => {
+  const nav = t(locale).nav;
+  return {
+    links: [
+      { text: nav.vision, href: localeHref('/vision', locale) },
+      { text: nav.expertise, href: localeHref('/expertise', locale) },
+      { text: nav.projects, href: localeHref('/projects', locale) },
+      { text: nav.team, href: localeHref('/team', locale) },
+      { text: nav.contact, href: localeHref('/contact', locale) },
+    ],
+    actions: [{ text: nav.startProject, href: localeHref('/contact', locale) }],
+  };
 };
 
-export const footerData = {
-  links: [
-    {
-      title: 'Explore',
-      links: [
-        { text: 'Vision', href: getPermalink('/vision') },
-        { text: 'Expertise', href: getPermalink('/expertise') },
-        { text: 'Projects', href: getPermalink('/projects') },
-      ],
-    },
-    {
-      title: 'Company',
-      links: [
-        { text: 'Team', href: getPermalink('/team') },
-        { text: 'Contact', href: getPermalink('/contact') },
-      ],
-    },
-  ],
-  secondaryLinks: [],
-  socialLinks: [
-    {
-      ariaLabel: 'Fluvio on LinkedIn',
-      icon: 'tabler:brand-linkedin',
-      href: 'https://www.linkedin.com/company/fluvioptyltd/',
-      target: '_blank',
-    },
-  ],
-  footNote: `© ${new Date().getFullYear()} Fluvio Pty Ltd. All rights reserved.`,
+export const getFooterData = (locale: Locale) => {
+  const nav = t(locale).nav;
+  return {
+    links: [
+      {
+        title: nav.explore,
+        links: [
+          { text: nav.vision, href: localeHref('/vision', locale) },
+          { text: nav.expertise, href: localeHref('/expertise', locale) },
+          { text: nav.projects, href: localeHref('/projects', locale) },
+        ],
+      },
+      {
+        title: nav.company,
+        links: [
+          { text: nav.team, href: localeHref('/team', locale) },
+          { text: nav.contact, href: localeHref('/contact', locale) },
+        ],
+      },
+    ],
+    secondaryLinks: [],
+    socialLinks: [
+      {
+        ariaLabel: nav.linkedinLabel,
+        icon: 'tabler:brand-linkedin',
+        href: 'https://www.linkedin.com/company/fluvioptyltd/',
+        target: '_blank',
+      },
+    ],
+    footNote: `© ${new Date().getFullYear()} Fluvio Pty Ltd. ${nav.allRightsReserved}`,
+  };
 };

@@ -1,0 +1,158 @@
+---
+import ContactPanel from '~/components/fluvio/ContactPanel.astro';
+import PlatformFeature from '~/components/fluvio/PlatformFeature.astro';
+import ProjectFeature from '~/components/fluvio/ProjectFeature.astro';
+import ProjectListItem from '~/components/fluvio/ProjectListItem.astro';
+import SectionFrame from '~/components/fluvio/SectionFrame.astro';
+import SectionHeading from '~/components/fluvio/SectionHeading.astro';
+import { getProjects } from '~/data/fluvio/localized';
+import { t, type Locale } from '~/i18n';
+import Layout from '~/layouts/PageLayout.astro';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const c = t(locale);
+const projects = getProjects(locale);
+
+const featuredProject = projects.find(({ slug }) => slug === 'advance-queensland') ?? projects[0];
+const remainingProjects = projects.filter(({ slug }) => slug !== featuredProject.slug);
+
+const reveal = 'intersect-once intersect-quarter motion-safe:intersect:animate-fade';
+
+const metadata = {
+  title: c.projectsPage.metaTitle,
+  description: c.projectsPage.metaDescription,
+};
+---
+
+<Layout metadata={metadata} locale={locale}>
+  <header class="fluvio-projects-hero">
+    <div class="fluvio-shell">
+      <p class="fluvio-eyebrow">{c.projectsPage.eyebrow}</p>
+      <h1 class="fluvio-title">{c.projectsPage.title}</h1>
+      <p class="fluvio-lede fluvio-projects-lede">{c.projectsPage.lede}</p>
+    </div>
+  </header>
+
+  <SectionFrame tone="paper" spacing="flush" ariaLabel={c.projectsPage.featuredLabel} class="fluvio-projects-featured">
+    <ProjectFeature project={featuredProject} locale={locale} priority />
+  </SectionFrame>
+
+  <SectionFrame tone="paper" motif="contour" labelledby="project-list-heading">
+    <div class:list={['fluvio-projects-section-heading', reveal]}>
+      <SectionHeading
+        eyebrow={c.projectsPage.listEyebrow}
+        title={c.projectsPage.listTitle}
+        intro={c.projectsPage.listIntro}
+        align="split"
+      />
+    </div>
+    <h2 id="project-list-heading" class="visually-hidden">{c.projectsPage.allProjects}</h2>
+    <div class="fluvio-projects-list">
+      {
+        remainingProjects.map((project, index) => (
+          <div class={reveal}>
+            <ProjectListItem project={project} locale={locale} index={index} reverse={index % 2 === 1} />
+          </div>
+        ))
+      }
+    </div>
+  </SectionFrame>
+
+  <SectionFrame tone="water" rule="ink" motif="grid" labelledby="platforms-heading" class="fluvio-projects-platforms">
+    <div class:list={['fluvio-projects-section-heading', reveal]} id="platforms-heading">
+      <SectionHeading
+        eyebrow={c.projectsPage.platformsEyebrow}
+        title={c.projectsPage.platformsTitle}
+        intro={c.projectsPage.platformsIntro}
+        align="split"
+      />
+    </div>
+    <div class="fluvio-platform-grid">
+      <div class={reveal}>
+        <PlatformFeature
+          title={c.platforms.sense.title}
+          description={c.platforms.sense.description}
+          href="https://sense.fluvio.com.au/"
+          actionLabel={c.platforms.sense.action}
+          index={0}
+          locale={locale}
+        />
+      </div>
+      <div class={reveal}>
+        <PlatformFeature
+          title={c.platforms.cascade.title}
+          description={c.platforms.cascade.description}
+          index={1}
+          locale={locale}
+        />
+      </div>
+    </div>
+  </SectionFrame>
+
+  <SectionFrame tone="warm">
+    <div class={reveal}>
+      <ContactPanel locale={locale} />
+    </div>
+  </SectionFrame>
+</Layout>
+
+<style>
+  .fluvio-projects-hero {
+    padding: clamp(5rem, 12vw, 10rem) 0 clamp(4rem, 9vw, 8rem);
+  }
+
+  .fluvio-projects-hero :global(h1) {
+    max-width: 13ch;
+  }
+
+  .fluvio-projects-lede {
+    margin-left: auto;
+    max-width: 46rem;
+  }
+
+  .fluvio-projects-featured {
+    padding-bottom: clamp(4rem, 10vw, 9rem);
+  }
+
+  .fluvio-projects-section-heading {
+    margin-bottom: clamp(3.5rem, 8vw, 7rem);
+  }
+
+  .fluvio-projects-list {
+    display: grid;
+    gap: clamp(5rem, 11vw, 10rem);
+  }
+
+  /* Silt is the platforms section's single supporting accent. */
+  .fluvio-projects-platforms :global(.fluvio-platform-feature__eyebrow) {
+    color: rgb(var(--fluvio-silt-deep));
+  }
+
+  .fluvio-platform-grid {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  @media (min-width: 768px) {
+    .fluvio-platform-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(3rem, 8vw, 8rem);
+    }
+  }
+</style>

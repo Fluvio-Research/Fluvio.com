@@ -1,0 +1,12 @@
+---
+import ProjectsPage from '~/components/pages/ProjectsPage.astro';
+import type { Locale } from '~/i18n';
+
+export function getStaticPaths() {
+  return [{ params: { lang: 'fr' } }, { params: { lang: 'es' } }];
+}
+
+const { lang } = Astro.params as { lang: Locale };
+---
+
+<ProjectsPage locale={lang} />

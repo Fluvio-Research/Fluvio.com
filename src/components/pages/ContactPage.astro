@@ -1,0 +1,116 @@
+---
+import LargeImage from '~/components/fluvio/LargeImage.astro';
+import SectionFrame from '~/components/fluvio/SectionFrame.astro';
+import { t, type Locale } from '~/i18n';
+import Layout from '~/layouts/PageLayout.astro';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const c = t(locale).contactPage;
+
+const metadata = {
+  title: c.metaTitle,
+  description: c.metaDescription,
+};
+
+const reveal = 'intersect-once intersect-quarter motion-safe:intersect:animate-fade';
+
+const mailtoHref = `mailto:?subject=${encodeURIComponent(c.enquirySubject)}&body=${encodeURIComponent(c.enquiryTemplate)}`;
+---
+
+<Layout metadata={metadata} locale={locale}>
+  <header class="fluvio-contact-hero">
+    <div class="fluvio-shell fluvio-contact-hero__grid">
+      <div>
+        <p class="fluvio-eyebrow">{c.eyebrow}</p>
+        <h1 class="fluvio-title">{c.title}</h1>
+        <p class="fluvio-lede">{c.lede}</p>
+      </div>
+      <LargeImage src="~/assets/images/fluvio/home-river.jpg" alt={c.heroImageAlt} aspect="portrait" priority />
+    </div>
+  </header>
+
+  <SectionFrame tone="paper" rule="ink" motif="contour" labelledby="contact-enquiry-heading">
+    <div class="fluvio-contact-grid">
+      <h2 id="contact-enquiry-heading" class:list={['fluvio-display', reveal]}>{c.enquiryTitle}</h2>
+      <div class:list={['fluvio-contact-body', reveal]}>
+        <p>{c.enquiryBody}</p>
+        <a class="fluvio-link" href={mailtoHref}>
+          {c.enquiryAction}
+          <span aria-hidden="true">→</span>
+        </a>
+        <p class="fluvio-contact-note">{c.enquiryNote}</p>
+      </div>
+    </div>
+  </SectionFrame>
+
+  <SectionFrame tone="mist" rule="ink" labelledby="contact-social-heading">
+    <div class="fluvio-contact-grid">
+      <h2 id="contact-social-heading" class:list={['fluvio-display', reveal]}>{c.socialTitle}</h2>
+      <div class:list={['fluvio-contact-body', reveal]}>
+        <p>{c.socialBody}</p>
+        <a class="fluvio-link" href="https://www.linkedin.com/company/fluvioptyltd/" rel="noopener noreferrer">
+          {c.socialAction}
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </SectionFrame>
+</Layout>
+
+<style>
+  .fluvio-contact-hero {
+    padding: clamp(3rem, 7vw, 6rem) 0 clamp(5rem, 11vw, 10rem);
+  }
+
+  .fluvio-contact-hero__grid {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .fluvio-contact-hero :global(h1) {
+    max-width: 12ch;
+  }
+
+  .fluvio-contact-hero :global(.fluvio-lede) {
+    max-width: 35rem;
+  }
+
+  .fluvio-contact-grid {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .fluvio-contact-body > p:first-child {
+    margin: 0 0 1.75rem;
+    max-width: 42rem;
+    color: var(--aw-color-text-muted);
+    font-size: 1.05rem;
+    line-height: 1.75;
+  }
+
+  .fluvio-contact-note {
+    margin: 1.5rem 0 0;
+    max-width: 42rem;
+    color: var(--aw-color-text-muted);
+    font-size: 0.82rem;
+    line-height: 1.65;
+  }
+
+  @media (min-width: 768px) {
+    .fluvio-contact-hero__grid {
+      grid-template-columns: minmax(0, 0.86fr) minmax(24rem, 1.14fr);
+      gap: clamp(3rem, 8vw, 8rem);
+    }
+
+    .fluvio-contact-grid {
+      grid-template-columns: minmax(15rem, 0.65fr) minmax(24rem, 1.35fr);
+      gap: clamp(4rem, 10vw, 10rem);
+      align-items: start;
+    }
+  }
+</style>

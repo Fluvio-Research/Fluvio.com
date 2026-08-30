@@ -63,6 +63,15 @@ No page changes are needed: `/projects` and the flat project route generate from
 3. Update `expectedExpertiseTitles` and the expertise count assertion in `tests/fluvio-content.test.mjs`.
 4. Run `npm test && npm run check && npm run build`.
 
+## Languages and translations
+
+The site ships in English (default, at the root), French (`/fr/...`) and Spanish (`/es/...`), with a language dropdown in the header.
+
+- UI and page copy live in `src/i18n/en.ts` (canonical shape), `src/i18n/fr.ts` and `src/i18n/es.ts`. The French and Spanish catalogs are typed against the English one, so a missing string fails `npm run check`, and a test verifies key-for-key parity.
+- Long-form content (project stories, team bios, expertise descriptions, site values) is translated as overlays in `src/data/fluvio/translations/fr.ts` and `es.ts`, keyed by project slug, expertise slug or team member name. `src/data/fluvio/localized.ts` merges them over the canonical English records.
+- When adding a project, team member or expertise area, add the matching entries to both overlay files; the test suite fails if any record is missing a translation.
+- Routes, slugs and images are shared across languages; only human-readable text is translated.
+
 ## Updating navigation and metadata
 
 - Header and footer links: `src/navigation.ts`.

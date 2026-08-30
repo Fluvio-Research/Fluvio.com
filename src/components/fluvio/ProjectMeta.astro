@@ -1,17 +1,20 @@
 ---
 import type { Project } from '~/data/fluvio/types';
+import { defaultLocale, t, type Locale } from '~/i18n';
 
 export interface Props {
   project: Pick<Project, 'location' | 'timeframe' | 'disciplines' | 'partners'>;
   compact?: boolean;
+  locale?: Locale;
 }
 
-const { project, compact = false } = Astro.props;
+const { project, compact = false, locale = defaultLocale } = Astro.props;
+const terms = t(locale).project;
 const entries = [
-  project.location && { term: 'Location', value: project.location },
-  project.timeframe && { term: 'Timeframe', value: project.timeframe },
-  project.disciplines.length && { term: 'Disciplines', value: project.disciplines.join(', ') },
-  project.partners?.length && { term: 'Partners', value: project.partners.join(', ') },
+  project.location && { term: terms.location, value: project.location },
+  project.timeframe && { term: terms.timeframe, value: project.timeframe },
+  project.disciplines.length && { term: terms.disciplines, value: project.disciplines.join(', ') },
+  project.partners?.length && { term: terms.partners, value: project.partners.join(', ') },
 ].filter(Boolean) as Array<{ term: string; value: string }>;
 ---
 

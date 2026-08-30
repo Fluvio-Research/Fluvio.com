@@ -2,15 +2,19 @@
 import LargeImage from './LargeImage.astro';
 import ProjectMeta from './ProjectMeta.astro';
 import type { Project } from '~/data/fluvio/types';
-import { getPermalink } from '~/utils/permalinks';
+import { defaultLocale, localeHref, t, type Locale } from '~/i18n';
 
 export interface Props {
   project: Project;
   eyebrow?: string;
   priority?: boolean;
+  locale?: Locale;
 }
 
-const { project, eyebrow = 'Featured project', priority = false } = Astro.props;
+const { project, priority = false, locale = defaultLocale } = Astro.props;
+const strings = t(locale).project;
+const { eyebrow = strings.featuredEyebrow } = Astro.props;
+const projectHref = localeHref(`/${project.slug}`, locale);
 ---
 
 <article class="fluvio-project-feature">
@@ -30,8 +34,8 @@ const { project, eyebrow = 'Featured project', priority = false } = Astro.props;
     </div>
     <div class="fluvio-project-feature__summary">
       <p>{project.summary}</p>
-      <a class="fluvio-project-feature__link" href={getPermalink(`/${project.slug}`)}
-        >View project <span aria-hidden="true">↗</span></a
+      <a class="fluvio-project-feature__link" href={projectHref}
+        >{strings.viewProject} <span aria-hidden="true">↗</span></a
       >
     </div>
   </div>
