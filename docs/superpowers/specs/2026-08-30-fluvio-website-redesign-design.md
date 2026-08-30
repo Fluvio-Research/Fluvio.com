@@ -154,16 +154,18 @@ The site supports light and dark themes using AstroWind's existing theme system.
 The homepage follows a clear consultancy narrative:
 
 1. Header with Fluvio logo, primary navigation and a Start a project action.
-2. Editorial hero with the primary statement: "Technology for a more resilient water future."
-3. Supporting copy explaining field science, sensing, modelling and environmental decision support.
-4. Large, clean Fluvio landscape image as the dominant hero visual.
-5. A compact capability strip covering monitoring systems, water modelling and project delivery.
-6. Expertise introduction with three to five clear capability groups.
-7. Featured projects using large alternating image and copy compositions, not a uniform card grid.
-8. FluvioSense and FluvioCascade product or platform introduction.
-9. Team credibility section with selected specialists and a path to the full team.
-10. Partner and regional impact section using factual statements from the archived content.
-11. Contact call to action and full footer.
+2. A large editorial hero slider combining Fluvio field photography with disciplined typography and whitespace.
+3. Three slides led by the themes resilient water systems, field intelligence and collaborative delivery.
+4. Each slide keeps copy and photography in separate regions so the image remains clean.
+5. Manual previous and next controls, slide numbers and a subtle progress line remain keyboard accessible.
+6. Optional slow autoplay pauses on hover or focus and stays on the first slide under reduced-motion preferences.
+7. A compact capability strip covering monitoring systems, water modelling and project delivery.
+8. Expertise introduction with three to five clear capability groups.
+9. Featured projects using large alternating image and copy compositions, not a uniform card grid.
+10. FluvioSense and FluvioCascade product or platform introduction.
+11. Team credibility section with selected specialists and a path to the full team.
+12. Partner and regional impact section using factual statements from the archived content.
+13. Contact call to action and full footer.
 
 ### Vision
 
@@ -312,6 +314,8 @@ Avoid creating alternate components that duplicate AstroWind primitives without 
 - Mobile navigation uses AstroWind's existing accessible toggle pattern.
 - Hover states clarify links and actions without moving content significantly.
 - Background motion is slow, low-contrast and decorative.
+- Pointer movement may gently reshape background contours and diffusion fields to create a modern, engaging response.
+- Astro page transitions may provide a short, restrained crossfade between routes.
 - Project and team elements may use subtle entrance transitions through AstroWind's intersection pattern.
 - Avoid scroll hijacking, custom cursors, looping interface animation and fake technical readouts.
 - The site remains fully understandable when scripts are disabled.
@@ -368,6 +372,7 @@ Before completion:
 
 - `npm run build` succeeds.
 - `npm run check` succeeds.
+- Keep automated coverage lean: one content and route contract test plus Astro's build, type, lint and formatting checks. Do not add a browser-testing framework for this static frontend.
 - All required routes render without errors.
 - Navigation and mobile menu work.
 - Light and dark themes render correctly.

@@ -21,6 +21,8 @@
 - A new project, team member or expertise area must be addable through typed content rather than a new layout.
 - Do not publish a non-functional contact form or promise a response time that has not been verified.
 - Preserve WCAG AA contrast, keyboard navigation, visible focus states, reduced-motion support and responsive layouts.
+- Keep tests lean: maintain one content and route contract test and use Astro's normal build, type, lint and formatting checks. Do not add a browser-testing framework.
+- Use pointer-responsive background contours, restrained page transitions and refined navigation motion to keep the site modern and engaging without placing decorative effects over foreground elements.
 - Node.js must satisfy the repository requirement `>=22.22.3`.
 - `npm run build` and `npm run check` must pass before completion.
 
@@ -343,6 +345,7 @@ git commit -m "feat: build Fluvio project experience"
 ### Task 4: Homepage, Vision, Expertise, Team, Contact and recovery pages
 
 **Files:**
+- Create: `src/components/fluvio/HeroSlider.astro`
 - Modify: `src/pages/index.astro`
 - Create: `src/pages/vision.astro`
 - Create: `src/pages/expertise.astro`
@@ -366,29 +369,33 @@ Run: `npm test`
 
 Expected: FAIL because the homepage and template pages still contain demonstration content.
 
-- [ ] **Step 3: Build the homepage narrative**
+- [ ] **Step 3: Build the accessible hero slider**
 
-Use this section order exactly: editorial hero; large aerial river image; compact capability strip; expertise introduction; three featured projects; FluvioSense and FluvioCascade; selected specialists; partner and regional impact statement; contact panel. Use the primary heading `Technology for a more resilient water future.` and the supporting copy approved in the design specification.
+Create three large copy-and-image slides using `home-river.jpg`, `expertise-stream-monitoring.jpg` and `vision-kovi-river.jpg`. Lead with `Technology for a more resilient water future.` and follow with concise themes for field intelligence and collaborative delivery. Keep images and copy in separate grid regions. Provide labelled previous and next buttons, slide numbers, a progress line, keyboard operation and polite state announcements. Autoplay may advance every eight seconds, but it must pause on hover or focus and remain on the first slide under `prefers-reduced-motion`.
 
-- [ ] **Step 4: Build Vision and Expertise**
+- [ ] **Step 4: Build the remaining homepage narrative**
+
+After the slider, use this section order exactly: compact capability strip; expertise introduction; three featured projects; FluvioSense and FluvioCascade; selected specialists; partner and regional impact statement; contact panel.
+
+- [ ] **Step 5: Build Vision and Expertise**
 
 Vision presents the archived vision statement and the five values Innovation, Integrity, Collaboration, Sustainability and Empowerment with large still imagery. Expertise presents all six typed capability areas with related projects and a concise path to Team.
 
-- [ ] **Step 5: Build Team and Contact**
+- [ ] **Step 6: Build Team and Contact**
 
 Team renders all nine `TeamProfile` records with large consistent portraits. Contact provides a `mailto:` project enquiry action and LinkedIn link. It may show a labelled message form that creates a mail action, but it must not claim server submission, attachment upload or a response time.
 
-- [ ] **Step 6: Build redirects and the not-found page**
+- [ ] **Step 7: Build redirects and the not-found page**
 
 Use `Astro.redirect('/vision', 301)` in `about.astro` and `Astro.redirect('/expertise', 301)` in `services.astro`. The not-found page links to Home, Expertise and Projects.
 
-- [ ] **Step 7: Verify the full primary route set**
+- [ ] **Step 8: Verify the full primary route set**
 
 Run: `npm test && npm run check:astro && npm run build`
 
 Expected: all commands pass. The generated output includes `/`, `/vision`, `/expertise`, `/projects`, `/team`, `/contact`, `/404` and all nine project routes.
 
-- [ ] **Step 8: Commit the primary pages**
+- [ ] **Step 9: Commit the primary pages**
 
 ```bash
 git add src tests
