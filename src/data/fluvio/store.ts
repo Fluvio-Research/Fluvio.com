@@ -139,6 +139,250 @@ const homepageSchema = z.object({
 
 export type Homepage = z.infer<typeof homepageSchema>;
 
+export interface Pages {
+  slider: {
+    regionLabel: string;
+    slideOf: string;
+    previous: string;
+    next: string;
+    pause: string;
+    resume: string;
+    pauseAria: string;
+    resumeAria: string;
+    autoplayOff: string;
+    autoplayOffAria: string;
+    statusTemplate: string;
+  };
+  visionPage: {
+    metaTitle: string;
+    eyebrow: string;
+    title: string;
+    lede: string;
+    statementTitle: string;
+    valuesTitle: string;
+    valuesIntro: string;
+    practiceTitle: string;
+    practiceBody: string[];
+    practiceImageAlt: string;
+    contactEyebrow: string;
+    contactTitle: string;
+    contactIntro: string;
+  };
+  expertisePage: {
+    metaTitle: string;
+    metaDescription: string;
+    eyebrow: string;
+    title: string;
+    lede: string;
+    introTitle: string;
+    introIntro: string;
+    areasLabel: string;
+    relatedProjects: string;
+    teamTitle: string;
+    teamBody: string;
+    teamLink: string;
+  };
+  teamPage: {
+    metaTitle: string;
+    metaDescription: string;
+    eyebrow: string;
+    title: string;
+    lede: string;
+    heroImageAlt: string;
+    directoryTitle: string;
+    directoryIntro: string;
+    contactTitle: string;
+    contactIntro: string;
+    viewProfile: string;
+  };
+  contactPage: {
+    metaTitle: string;
+    metaDescription: string;
+    eyebrow: string;
+    title: string;
+    lede: string;
+    heroImageAlt: string;
+    enquiryTitle: string;
+    enquiryBody: string;
+    enquiryAction: string;
+    enquirySubject: string;
+    enquiryTemplate: string;
+    enquiryNote: string;
+    socialTitle: string;
+    socialBody: string;
+    socialAction: string;
+  };
+  projectsPage: {
+    metaTitle: string;
+    metaDescription: string;
+    eyebrow: string;
+    title: string;
+    lede: string;
+    featuredLabel: string;
+    listEyebrow: string;
+    listTitle: string;
+    listIntro: string;
+    allProjects: string;
+    platformsEyebrow: string;
+    platformsTitle: string;
+    platformsIntro: string;
+  };
+  projectDetail: {
+    back: string;
+    eyebrow: string;
+    challenge: string;
+    approach: string;
+    outcome: string;
+    storyLabel: string;
+    galleryLabel: string;
+    imageLabel: string;
+    relatedExpertiseEyebrow: string;
+    relatedExpertiseTitle: string;
+    relatedProjectsEyebrow: string;
+    relatedProjectsTitle: string;
+    contactEyebrow: string;
+    contactTitle: string;
+    contactIntro: string;
+  };
+  project: {
+    viewProject: string;
+    readProject: string;
+    featuredEyebrow: string;
+    location: string;
+    timeframe: string;
+    disciplines: string;
+    partners: string;
+  };
+  contactPanel: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    action: string;
+  };
+}
+
+const pagesSchema: z.ZodType<Pages> = z.object({
+  slider: z.object({
+    regionLabel: text,
+    slideOf: text,
+    previous: text,
+    next: text,
+    pause: text,
+    resume: text,
+    pauseAria: text,
+    resumeAria: text,
+    autoplayOff: text,
+    autoplayOffAria: text,
+    statusTemplate: text,
+  }),
+  visionPage: z.object({
+    metaTitle: text,
+    eyebrow: text,
+    title: text,
+    lede: text,
+    statementTitle: text,
+    valuesTitle: text,
+    valuesIntro: text,
+    practiceTitle: text,
+    practiceBody: paragraphs,
+    practiceImageAlt: text,
+    contactEyebrow: text,
+    contactTitle: text,
+    contactIntro: text,
+  }),
+  expertisePage: z.object({
+    metaTitle: text,
+    metaDescription: text,
+    eyebrow: text,
+    title: text,
+    lede: text,
+    introTitle: text,
+    introIntro: text,
+    areasLabel: text,
+    relatedProjects: text,
+    teamTitle: text,
+    teamBody: text,
+    teamLink: text,
+  }),
+  teamPage: z.object({
+    metaTitle: text,
+    metaDescription: text,
+    eyebrow: text,
+    title: text,
+    lede: text,
+    heroImageAlt: text,
+    directoryTitle: text,
+    directoryIntro: text,
+    contactTitle: text,
+    contactIntro: text,
+    viewProfile: text,
+  }),
+  contactPage: z.object({
+    metaTitle: text,
+    metaDescription: text,
+    eyebrow: text,
+    title: text,
+    lede: text,
+    heroImageAlt: text,
+    enquiryTitle: text,
+    enquiryBody: text,
+    enquiryAction: text,
+    enquirySubject: text,
+    enquiryTemplate: text,
+    enquiryNote: text,
+    socialTitle: text,
+    socialBody: text,
+    socialAction: text,
+  }),
+  projectsPage: z.object({
+    metaTitle: text,
+    metaDescription: text,
+    eyebrow: text,
+    title: text,
+    lede: text,
+    featuredLabel: text,
+    listEyebrow: text,
+    listTitle: text,
+    listIntro: text,
+    allProjects: text,
+    platformsEyebrow: text,
+    platformsTitle: text,
+    platformsIntro: text,
+  }),
+  projectDetail: z.object({
+    back: text,
+    eyebrow: text,
+    challenge: text,
+    approach: text,
+    outcome: text,
+    storyLabel: text,
+    galleryLabel: text,
+    imageLabel: text,
+    relatedExpertiseEyebrow: text,
+    relatedExpertiseTitle: text,
+    relatedProjectsEyebrow: text,
+    relatedProjectsTitle: text,
+    contactEyebrow: text,
+    contactTitle: text,
+    contactIntro: text,
+  }),
+  project: z.object({
+    viewProject: text,
+    readProject: text,
+    featuredEyebrow: text,
+    location: text,
+    timeframe: text,
+    disciplines: text,
+    partners: text,
+  }),
+  contactPanel: z.object({
+    eyebrow: text,
+    title: text,
+    intro: text,
+    action: text,
+  }),
+});
+
 const localized = <Schema extends z.ZodTypeAny>(schema: Schema) => z.object({ en: schema, fr: schema, es: schema });
 
 /* ------------------------------------------------------------------ */
@@ -172,6 +416,7 @@ const expertiseRecords = loadCollection('expertise', expertiseSchema);
 const siteRecord = loadRecord(join(contentDir, 'site', 'content.json'), siteSchema);
 const navigationRecord = loadRecord(join(contentDir, 'site', 'navigation.json'), navigationSchema);
 const homepageRecord = loadRecord(join(contentDir, 'site', 'homepage.json'), homepageSchema);
+const pagesRecord = loadRecord(join(contentDir, 'site', 'pages.json'), pagesSchema);
 
 /* ------------------------------------------------------------------ */
 /* Locale projections                                                  */
@@ -181,8 +426,9 @@ const homepageRecord = loadRecord(join(contentDir, 'site', 'homepage.json'), hom
  *  translated record degrades to English instead of breaking. */
 function project<T extends { order?: number }>(record: Localized<T>, locale: ContentLocale): Omit<T, 'order'> {
   const defined = Object.fromEntries(Object.entries(record[locale] ?? {}).filter(([, value]) => value !== undefined));
-  const { order: _order, ...rest } = { ...record.en, ...defined };
-  return rest as Omit<T, 'order'>;
+  const merged = { ...record.en, ...defined };
+  delete merged.order;
+  return merged as Omit<T, 'order'>;
 }
 
 export const getProjects = (locale: ContentLocale): Project[] =>
@@ -204,4 +450,9 @@ export const getNavigation = (locale: ContentLocale): Navigation => ({
 export const getHomepage = (locale: ContentLocale): Homepage => ({
   ...homepageRecord.en,
   ...homepageRecord[locale],
+});
+
+export const getPages = (locale: ContentLocale): Pages => ({
+  ...pagesRecord.en,
+  ...pagesRecord[locale],
 });

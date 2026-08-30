@@ -9,13 +9,11 @@ import {
   getExpertiseAreas,
   getHomepage,
   getNavigation,
+  getPages,
   getProjects,
   getSiteContent,
   getTeamMembers,
 } from '../src/data/fluvio/store.ts';
-import { en } from '../src/i18n/en.ts';
-import { fr } from '../src/i18n/fr.ts';
-import { es } from '../src/i18n/es.ts';
 import { featuredProjects, getProjectBySlug, projects } from '../src/data/fluvio/projects.ts';
 import { siteContent } from '../src/data/fluvio/site.ts';
 import { teamMembers } from '../src/data/fluvio/team.ts';
@@ -163,14 +161,17 @@ test('Fluvio shell uses the brand name and primary navigation', () => {
 });
 
 test('Fluvio catalogs translate every string for every locale', () => {
+  // The store schema requires every string in every locale; importing it at
+  // all proves completeness. Pin structural parity and real translation here.
   const keyPaths = (value, prefix = '') =>
     Object.entries(value).flatMap(([key, child]) =>
       child && typeof child === 'object' ? keyPaths(child, `${prefix}${key}.`) : [`${prefix}${key}`]
     );
 
-  const reference = keyPaths(en).sort();
-  for (const catalog of [fr, es]) {
-    assert.deepEqual(keyPaths(catalog).sort(), reference);
+  const reference = keyPaths(getPages('en')).sort();
+  for (const locale of ['fr', 'es']) {
+    assert.deepEqual(keyPaths(getPages(locale)).sort(), reference);
+    assert.notEqual(getPages(locale).visionPage.title, getPages('en').visionPage.title);
   }
   assert.equal(getHomepage('en').slides.length, 5);
 
@@ -282,10 +283,10 @@ test('Fluvio hero slider exposes five accessible, localised, motion-aware slides
   }
   assert.equal(homepage.slides.length, 5);
   assert.equal(homepage.slides[0].title, 'Technology for a more resilient water future.');
-  assert.equal(en.slider.pauseAria, 'Pause automatic slide rotation');
-  assert.equal(en.slider.resumeAria, 'Resume automatic slide rotation');
-  assert.equal(en.slider.previous, 'Previous slide');
-  assert.equal(en.slider.next, 'Next slide');
+  assert.equal(getPages('en').slider.pauseAria, 'Pause automatic slide rotation');
+  assert.equal(getPages('en').slider.resumeAria, 'Resume automatic slide rotation');
+  assert.equal(getPages('en').slider.previous, 'Previous slide');
+  assert.equal(getPages('en').slider.next, 'Next slide');
   assert.match(slider, /const INTERVAL_MS = 6000;/);
   assert.match(slider, /aria-live=["']polite["']/);
   assert.match(slider, /<fluvio-hero-slider[^>]*role=["']region["']/);
@@ -313,5 +314,8 @@ test('Fluvio recovery and contact routes use explicit destinations', async () =>
   assert.match(contact, /mailto:\?subject=/);
   assert.equal(getNavigation('en').linkedinUrl, 'https://www.linkedin.com/company/fluvioptyltd/');
   assert.match(contact, /navigation\.linkedinUrl/);
-  assert.doesNotMatch(contact + en.contactPage.enquiryNote, /within \d+ hours|attachment upload|server submission/i);
+  assert.doesNotMatch(
+    contact + getPages('en').contactPage.enquiryNote,
+    /within \d+ hours|attachment upload|server submission/i
+  );
 });

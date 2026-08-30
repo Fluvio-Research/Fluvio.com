@@ -1,8 +1,5 @@
+import { getPages, type Pages } from '~/data/fluvio/store.ts';
 import { getPermalink } from '~/utils/permalinks';
-
-import { en } from './en';
-import { es } from './es';
-import { fr } from './fr';
 
 export const locales = ['en', 'fr', 'es'] as const;
 export type Locale = (typeof locales)[number];
@@ -14,10 +11,8 @@ export const localeNames: Record<Locale, string> = {
   es: 'Español',
 };
 
-const catalogs = { en, fr, es } as const;
-
-/** The full string catalog for a locale. */
-export const t = (locale: Locale) => catalogs[locale];
+/** The full page-string catalog for a locale, served from the content store. */
+export const t = (locale: Locale): Pages => getPages(locale);
 
 /** Locale variants other than the default get a path prefix. */
 export const localizePath = (path: string, locale: Locale): string =>

@@ -15,7 +15,7 @@
     "astro": "astro",
     "test": "node --experimental-strip-types --test tests/*.test.mjs",
     "check": "npm run check:astro && npm run check:eslint && npm run check:prettier",
-    "check:astro": "astro check",
+    "check:astro": "NODE_OPTIONS=--max-old-space-size=4096 astro check",
     "check:eslint": "eslint .",
     "check:prettier": "prettier --check .",
     "fix": "npm run fix:eslint && npm run fix:prettier",
