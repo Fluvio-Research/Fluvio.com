@@ -121,15 +121,18 @@ Hydrological and technology concepts appear only as background atmosphere:
 
 ### Colour
 
-The core palette is restrained:
+The core palette is varied but controlled:
 
-- Near-black green for primary text and dark surfaces
-- Warm white for the main page background
-- Water teal as the single primary accent
-- Pale aqua and mineral grey for low-contrast backgrounds and rules
-- Photography provides the majority of secondary colour
+- Warm white and soft mist for primary page backgrounds
+- Deep water navy for primary text, navigation and dark surfaces
+- River blue and teal for water and technology cues
+- Mineral blue for technical detail
+- Silt gold for landscape warmth
+- Restrained field coral for occasional high-attention accents
+- Green remains primarily in real photography rather than dominating page backgrounds
+- Use one supporting accent within a section instead of combining every accent at once
 
-The site supports light and dark themes using AstroWind's existing theme system. Dark mode must remain calm, legible and photographic rather than becoming neon.
+The site supports light and dark themes using AstroWind's existing theme system. Dark mode must remain navy-led, calm, legible and photographic rather than becoming neon or forest green.
 
 ### Typography
 

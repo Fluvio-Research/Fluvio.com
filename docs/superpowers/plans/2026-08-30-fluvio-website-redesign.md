@@ -17,6 +17,7 @@
 - Use archived content from `/Users/muhammadimran/Mubashir/FluvioWebsite/Old` as the factual source of truth.
 - Preserve the nine legacy flat project slugs exactly.
 - Keep page copy professional, concise and suitable for government, infrastructure, research and community partners.
+- Use warm white and soft mist backgrounds, deep navy structure, river blue/teal, mineral blue, silt gold and restrained field coral. Green remains primarily in photography and does not dominate page surfaces.
 - Use Astro's local image optimisation and meaningful alternative text.
 - A new project, team member or expertise area must be addable through typed content rather than a new layout.
 - Do not publish a non-functional contact form or promise a response time that has not been verified.
@@ -456,13 +457,69 @@ Run: `npm test && npm run check && npm run build`
 
 Expected: all commands exit successfully with no formatting, lint, type or build errors.
 
-- [ ] **Step 6: Inspect the site at desktop and mobile widths**
-
-Inspect `/`, `/vision`, `/expertise`, `/projects`, `/team`, `/contact` and one project route. Confirm large images remain unoverlaid, background effects stay behind content, dark mode remains readable, mobile navigation works, focus states are visible and reduced-motion mode is calm.
-
-- [ ] **Step 7: Commit final cleanup and documentation**
+- [ ] **Step 6: Commit cleanup and documentation**
 
 ```bash
 git add -A
 git commit -m "chore: finish Fluvio site cleanup"
+```
+
+### Task 6: Multi-colour visual polish and browser verification
+
+**Files:**
+- Modify: `src/components/CustomStyles.astro`
+- Modify: `src/assets/styles/tailwind.css`
+- Modify: `src/components/fluvio/PageBackground.astro`
+- Modify: `src/components/fluvio/*.astro`
+- Modify: `src/components/widgets/Header.astro`
+- Modify: `src/components/widgets/Footer.astro`
+- Modify: `src/pages/*.astro`
+
+**Interfaces:**
+- Consumes: the completed Fluvio content, shell, project system and primary pages.
+- Produces: a balanced multi-colour visual system and verified desktop/mobile experience without changing routes or factual content.
+
+- [ ] **Step 1: Replace the green-dominant palette**
+
+Use these core values and derive accessible light/dark variants from them:
+
+```css
+:root {
+  --fluvio-paper: #fbfcfa;
+  --fluvio-mist: #f1f6f8;
+  --fluvio-ink: #13202a;
+  --fluvio-navy: #173b57;
+  --fluvio-river: #2f7d94;
+  --fluvio-teal: #3b8587;
+  --fluvio-mineral: #7089ad;
+  --fluvio-silt: #c39a5b;
+  --fluvio-coral: #d9765b;
+}
+```
+
+Warm white and mist lead the background. Navy leads typography and dark bands. Blue and teal communicate water and technology. Silt and coral appear sparingly in calls to action, small rules or background fields. Do not use green as a large surface colour.
+
+- [ ] **Step 2: Rebalance the hydrological background**
+
+Replace forest-green fields with low-opacity river blue, mineral blue and occasional warm silt/coral diffusion. Keep all background layers below content, pointer-safe and static under reduced motion.
+
+- [ ] **Step 3: Audit every public page for colour rhythm**
+
+Use at most one supporting accent per section. Ensure calls to action remain consistent, project photography stays unfiltered and page-to-page colour rhythm varies without becoming decorative clutter.
+
+- [ ] **Step 4: Run automated verification**
+
+Run: `npm test && npm run check && npm run build`
+
+Expected: all commands exit successfully with no test, type, lint, formatting or build errors.
+
+- [ ] **Step 5: Inspect desktop and mobile output**
+
+Inspect `/`, `/vision`, `/expertise`, `/projects`, `/team`, `/contact` and one project route at desktop and mobile widths. Confirm the hero slider controls and pause state work; large images remain unoverlaid; background effects stay behind content; dark mode remains readable; mobile navigation works; focus states are visible; and reduced-motion mode is calm.
+
+- [ ] **Step 6: Commit the final visual polish**
+
+```bash
+git add src
+git commit -m "feat: refine Fluvio visual palette"
 ```
