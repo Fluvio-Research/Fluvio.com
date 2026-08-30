@@ -1,65 +1,52 @@
 ---
-// Font family is provided by Astro's native Fonts API (see `fonts` in
-// astro.config.ts and <Font /> in Layout.astro), exposed as `--font-inter`.
-// To switch typefaces, change the `fonts` entry and repoint `--aw-font-*` below.
-
-// 'DM Sans'
-// Nunito
-// Dosis
-// Outfit
-// Roboto
-// Literata
-// 'IBM Plex Sans'
-// Karla
-// Poppins
-// 'Fira Sans'
-// 'Libre Franklin'
-// Inconsolata
-// Raleway
-// Oswald
-// 'Space Grotesk'
-// Urbanist
+// Inter is self-hosted by Astro's native Fonts API and remains the single
+// sans family for body and display text. Serif and mono stacks are reserved
+// for occasional emphasis and compact labels.
 ---
 
 <style is:inline>
   :root {
+    --fluvio-ink: 23 37 31;
+    --fluvio-paper: 245 248 245;
+    --fluvio-water: 57 122 120;
+    --fluvio-aqua: 220 235 231;
+    --fluvio-mineral: 95 109 103;
+
     --aw-font-sans: var(--font-inter);
-    --aw-font-serif: var(--font-inter);
+    --aw-font-serif: Georgia, 'Times New Roman', serif;
     --aw-font-heading: var(--font-inter);
+    --aw-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-    --aw-color-primary: rgb(1 97 239);
-    --aw-color-secondary: rgb(1 84 207);
-    --aw-color-accent: rgb(109 40 217);
+    --aw-color-primary: rgb(var(--fluvio-water));
+    --aw-color-secondary: rgb(43 98 96);
+    --aw-color-accent: rgb(var(--fluvio-water));
 
-    --aw-color-text-heading: rgb(0 0 0);
-    --aw-color-text-default: rgb(16 16 16);
-    --aw-color-text-muted: rgb(16 16 16 / 66%);
-    --aw-color-bg-page: rgb(255 255 255);
+    --aw-color-text-heading: rgb(var(--fluvio-ink));
+    --aw-color-text-default: rgb(var(--fluvio-ink));
+    --aw-color-text-muted: rgb(var(--fluvio-mineral));
+    --aw-color-bg-page: rgb(var(--fluvio-paper));
 
-    --aw-color-bg-page-dark: rgb(3 6 32);
+    --aw-color-bg-page-dark: rgb(var(--fluvio-ink));
 
     ::selection {
-      background-color: lavender;
+      background-color: rgb(var(--fluvio-aqua));
+      color: rgb(var(--fluvio-ink));
     }
   }
 
   .dark {
-    --aw-font-sans: var(--font-inter);
-    --aw-font-serif: var(--font-inter);
-    --aw-font-heading: var(--font-inter);
+    --aw-color-primary: rgb(122 183 178);
+    --aw-color-secondary: rgb(145 201 196);
+    --aw-color-accent: rgb(122 183 178);
 
-    --aw-color-primary: rgb(1 97 239);
-    --aw-color-secondary: rgb(1 84 207);
-    --aw-color-accent: rgb(109 40 217);
-
-    --aw-color-text-heading: rgb(247, 248, 248);
-    --aw-color-text-default: rgb(229 236 246);
-    --aw-color-text-muted: rgb(229 236 246 / 66%);
-    --aw-color-bg-page: rgb(3 6 32);
+    --aw-color-text-heading: rgb(var(--fluvio-paper));
+    --aw-color-text-default: rgb(226 235 230);
+    --aw-color-text-muted: rgb(173 188 181);
+    --aw-color-bg-page: rgb(var(--fluvio-ink));
 
     ::selection {
-      background-color: black;
-      color: snow;
+      background-color: rgb(var(--fluvio-water));
+      color: rgb(var(--fluvio-paper));
     }
   }
 </style>

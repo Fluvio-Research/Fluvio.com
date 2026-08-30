@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 
 import { expertiseAreas } from '../src/data/fluvio/expertise.ts';
@@ -38,6 +39,9 @@ const expectedExpertiseTitles = [
   'Operational monitoring systems',
   'Sediment transport and reservoir assessment',
 ];
+
+const config = await readFile(new URL('../src/config.yaml', import.meta.url), 'utf8');
+const navigation = await readFile(new URL('../src/navigation.ts', import.meta.url), 'utf8');
 
 test('Fluvio content has complete project, expertise and team records', () => {
   assert.deepEqual(projects.map(({ slug }) => slug).sort(), expectedSlugs.sort());
@@ -85,4 +89,12 @@ test('Fluvio project selectors return featured and matching projects', () => {
   ]);
   assert.equal(getProjectBySlug('tina')?.title, 'Hydrological monitoring of Tina Hydro');
   assert.equal(getProjectBySlug('missing-project'), undefined);
+});
+
+test('Fluvio shell uses the brand name and primary navigation', () => {
+  assert.match(config, /name:\s*Fluvio/);
+  assert.doesNotMatch(config + navigation, /Get template|SaaS|Pricing|AstroWind/);
+  for (const label of ['Vision', 'Expertise', 'Projects', 'Team', 'Contact']) {
+    assert.match(navigation, new RegExp(label));
+  }
 });

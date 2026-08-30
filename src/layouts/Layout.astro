@@ -13,6 +13,7 @@ import Metadata from '~/components/common/Metadata.astro';
 import SiteVerification from '~/components/common/SiteVerification.astro';
 import Analytics from '~/components/common/Analytics.astro';
 import Intersect from '~/components/common/Intersect.astro';
+import PageBackground from '~/components/fluvio/PageBackground.astro';
 
 // Comment the line below to disable View Transitions
 import { ClientRouter } from 'astro:transitions';
@@ -45,8 +46,11 @@ const { language, textDirection } = I18N;
     <ClientRouter fallback="swap" />
   </head>
 
-  <body class="antialiased text-default bg-page tracking-tight">
-    <slot />
+  <body class="relative isolate min-h-[100dvh] overflow-x-clip antialiased text-default bg-page">
+    <PageBackground />
+    <div class="relative z-[1] min-h-[100dvh]">
+      <slot />
+    </div>
 
     <Intersect />
   </body>

@@ -5,8 +5,7 @@ import ToggleTheme from '~/components/common/ToggleTheme.astro';
 import ToggleMenu from '~/components/common/ToggleMenu.astro';
 import Button from '~/components/ui/Button.astro';
 
-import { getHomePermalink } from '~/utils/permalinks';
-import { trimSlash, getAsset } from '~/utils/permalinks';
+import { getHomePermalink, trimSlash } from '~/utils/permalinks';
 import type { CallToAction } from '~/types';
 
 interface Link {
@@ -28,7 +27,6 @@ export interface Props {
   isDark?: boolean;
   isFullWidth?: boolean;
   showToggleTheme?: boolean;
-  showRssFeed?: boolean;
   position?: string;
 }
 
@@ -40,7 +38,6 @@ const {
   isDark = false,
   isFullWidth = false,
   showToggleTheme = false,
-  showRssFeed = false,
   position = 'center',
 } = Astro.props;
 
@@ -51,15 +48,15 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
   <header
     class:list={[
       { sticky: isSticky, relative: !isSticky, dark: isDark },
-      'top-0 z-40 flex-none mx-auto w-full border-b border-gray-50/0 transition-[opacity] ease-in-out',
+      'top-0 z-40 flex-none mx-auto w-full border-b border-transparent',
     ]}
     {...isSticky ? { 'data-aw-sticky-header': true } : {}}
     {...id ? { id } : {}}
   >
-    <div class="absolute inset-0"></div>
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
     <div
       class:list={[
-        'relative text-default py-3 px-3 md:px-6 mx-auto w-full',
+        'relative text-default min-h-[72px] py-3 px-4 md:px-6 mx-auto w-full',
         {
           'md:flex md:justify-between': position !== 'center',
         },
@@ -72,11 +69,16 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
       ]}
     >
       <div class:list={[{ 'mr-auto rtl:mr-0 rtl:ml-auto': position === 'right' }, 'flex justify-between']}>
-        <a class="flex items-center" href={getHomePermalink()}>
+        <a
+          class="flex items-center rounded-[4px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+          href={getHomePermalink()}
+        >
           <Logo />
         </a>
         <div class="flex items-center md:hidden">
-          <ToggleMenu />
+          <ToggleMenu
+            class="group flex h-12 w-12 cursor-pointer flex-col items-center justify-center rounded-[4px] transition-colors hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+          />
         </div>
       </div>
       <nav
@@ -84,7 +86,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
         aria-label="Main navigation"
       >
         <ul
-          class="flex flex-col md:flex-row md:self-center w-full md:w-auto text-xl md:text-[0.9375rem] tracking-[0.01rem] font-medium md:justify-center"
+          class="flex flex-col md:flex-row md:self-center w-full md:w-auto text-xl md:text-[0.875rem] tracking-[0.01em] font-medium md:justify-center"
         >
           {
             links.map(({ text, href, links }) => (
@@ -93,7 +95,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                   <>
                     <button
                       type="button"
-                      class="hover:text-link dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap"
+                      class="flex items-center whitespace-nowrap rounded-[4px] px-3 py-3 hover:bg-primary/10 hover:text-primary focus-visible:bg-primary/10 focus-visible:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                     >
                       {text}{' '}
                       <Icon
@@ -106,7 +108,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                         <li>
                           <a
                             class:list={[
-                              'first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-link dark:hover:text-white dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap',
+                              'first:rounded-t last:rounded-b md:hover:bg-primary/10 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary py-2 px-5 block whitespace-no-wrap',
                               { 'aw-link-active': href2 === currentPath },
                             ]}
                             href={href2}
@@ -120,7 +122,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                 ) : (
                   <a
                     class:list={[
-                      'hover:text-link dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap',
+                      'flex items-center whitespace-nowrap rounded-[4px] px-3 py-3 hover:bg-primary/10 hover:text-primary focus-visible:bg-primary/10 focus-visible:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary',
                       { 'aw-link-active': href === currentPath },
                     ]}
                     href={href}
@@ -142,23 +144,15 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
         <div class="items-center flex justify-between w-full md:w-auto">
           <div class="flex">
             {showToggleTheme && <ToggleTheme iconClass="w-6 h-6 md:w-5 md:h-5 md:inline-block" />}
-            {
-              showRssFeed && (
-                <a
-                  class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
-                  aria-label="RSS Feed"
-                  href={getAsset('/rss.xml')}
-                >
-                  <Icon name="tabler:rss" class="w-5 h-5" />
-                </a>
-              )
-            }
           </div>
           {
             actions?.length ? (
               <span class="ml-4 rtl:ml-0 rtl:mr-4">
                 {actions.map((btnProps) => (
-                  <Button {...btnProps} class="ml-2 py-2.5 px-5.5 md:px-6 font-semibold shadow-none text-sm w-auto" />
+                  <Button
+                    {...btnProps}
+                    class="ml-2 py-2.5 px-5 md:px-6 font-semibold shadow-none text-sm w-auto whitespace-nowrap"
+                  />
                 ))}
               </span>
             ) : (
@@ -179,7 +173,6 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 
 <script>
   class AwHeader extends HTMLElement {
-    private onScroll?: () => void;
     private mql?: MediaQueryList;
     private onMqlChange?: () => void;
     private onPageLoad = () => {
@@ -203,7 +196,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
         toggle?.classList.remove('expanded');
         toggle?.setAttribute('aria-expanded', 'false');
         document.body.classList.remove('overflow-hidden');
-        header?.classList.remove('h-screen', 'expanded', 'bg-page');
+        header?.classList.remove('expanded');
         nav?.classList.add('hidden');
         lastChild?.classList.add('hidden');
       };
@@ -213,9 +206,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
         const expanded = toggle.classList.toggle('expanded');
         toggle.setAttribute('aria-expanded', String(expanded));
         document.body.classList.toggle('overflow-hidden');
-        header?.classList.toggle('h-screen');
         header?.classList.toggle('expanded');
-        header?.classList.toggle('bg-page');
         nav?.classList.toggle('hidden');
         lastChild?.classList.toggle('hidden');
       });
@@ -238,29 +229,10 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
       this.onMqlChange = () => closeMenu();
       this.mql.addEventListener('change', this.onMqlChange);
 
-      // Sticky header: toggle the `scroll` class past a small threshold.
-      if (header?.hasAttribute('data-aw-sticky-header')) {
-        let ticking = false;
-        const applyStyles = () => {
-          if (window.scrollY > 60) header.classList.add('scroll');
-          else header.classList.remove('scroll');
-          ticking = false;
-        };
-        this.onScroll = () => {
-          if (!ticking) {
-            window.requestAnimationFrame(applyStyles);
-            ticking = true;
-          }
-        };
-        applyStyles();
-        document.addEventListener('scroll', this.onScroll, { passive: true });
-      }
-
       document.documentElement.classList.add('motion-safe:scroll-smooth');
     }
 
     disconnectedCallback() {
-      if (this.onScroll) document.removeEventListener('scroll', this.onScroll);
       if (this.mql && this.onMqlChange) this.mql.removeEventListener('change', this.onMqlChange);
       document.removeEventListener('astro:page-load', this.onPageLoad);
     }

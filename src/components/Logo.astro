@@ -1,9 +1,16 @@
 ---
-import { SITE } from 'astrowind:config';
+import { Image } from 'astro:assets';
+
+import logo from '~/assets/images/fluvio/logo.png';
+import { siteContent } from '~/data/fluvio/site';
 ---
 
-<span
-  class="self-center ml-2 rtl:ml-0 rtl:mr-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white"
->
-  🚀 {SITE?.name}
-</span>
+<Image
+  src={logo}
+  alt={siteContent.name}
+  width={1583}
+  height={734}
+  class="h-12 w-auto max-w-[9.75rem] object-contain object-left"
+  loading="eager"
+  decoding="async"
+/>

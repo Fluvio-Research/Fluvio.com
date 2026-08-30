@@ -1,0 +1,170 @@
+---
+export interface Props {
+  variant?: 'default' | 'quiet' | 'deep';
+}
+
+const { variant = 'default' } = Astro.props;
+---
+
+<fluvio-page-background aria-hidden="true">
+  <div class:list={['fluvio-atmosphere', `fluvio-atmosphere--${variant}`]}></div>
+</fluvio-page-background>
+
+<style>
+  fluvio-page-background {
+    --fluvio-pointer-x: 0px;
+    --fluvio-pointer-y: 0px;
+    display: contents;
+  }
+
+  .fluvio-atmosphere {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .fluvio-atmosphere::before,
+  .fluvio-atmosphere::after {
+    position: absolute;
+    inset: -12%;
+    content: '';
+    pointer-events: none;
+    transform: translate3d(var(--fluvio-pointer-x), var(--fluvio-pointer-y), 0);
+  }
+
+  .fluvio-atmosphere::before {
+    background:
+      radial-gradient(circle at 14% 12%, rgb(var(--fluvio-aqua) / 0.5), transparent 30%),
+      radial-gradient(circle at 88% 34%, rgb(var(--fluvio-water) / 0.12), transparent 34%),
+      radial-gradient(circle at 44% 92%, rgb(var(--fluvio-aqua) / 0.34), transparent 32%);
+    opacity: 0.52;
+  }
+
+  .fluvio-atmosphere::after {
+    background: repeating-radial-gradient(
+      ellipse at 84% 18%,
+      transparent 0 42px,
+      rgb(var(--fluvio-water) / 0.065) 43px 44px,
+      transparent 45px 82px
+    );
+    opacity: 0.42;
+  }
+
+  .fluvio-atmosphere--quiet::before {
+    opacity: 0.42;
+  }
+
+  .fluvio-atmosphere--quiet::after {
+    opacity: 0.34;
+  }
+
+  .fluvio-atmosphere--deep::before {
+    background:
+      radial-gradient(circle at 12% 14%, rgb(var(--fluvio-water) / 0.2), transparent 30%),
+      radial-gradient(circle at 82% 42%, rgb(var(--fluvio-aqua) / 0.14), transparent 35%);
+    opacity: 0.6;
+  }
+
+  .fluvio-atmosphere--deep::after {
+    opacity: 0.48;
+  }
+
+  :global(.dark) .fluvio-atmosphere::before,
+  :global(.dark) .fluvio-atmosphere::after {
+    opacity: 0.24;
+  }
+
+  @media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+    .fluvio-atmosphere::before {
+      animation: fluvio-water-drift 24s ease-in-out infinite alternate;
+    }
+
+    .fluvio-atmosphere::after {
+      animation: fluvio-contour-drift 32s ease-in-out infinite alternate;
+    }
+  }
+
+  @keyframes fluvio-water-drift {
+    to {
+      transform: translate3d(calc(var(--fluvio-pointer-x) + 2.5%), calc(var(--fluvio-pointer-y) - 1.5%), 0) scale(1.025);
+    }
+  }
+
+  @keyframes fluvio-contour-drift {
+    to {
+      transform: translate3d(calc(var(--fluvio-pointer-x) - 1.5%), calc(var(--fluvio-pointer-y) + 2%), 0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fluvio-atmosphere::before,
+    .fluvio-atmosphere::after {
+      animation: none !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+</style>
+
+<script>
+  class FluvioPageBackground extends HTMLElement {
+    private media?: MediaQueryList;
+    private abortController?: AbortController;
+    private frame = 0;
+    private pointerX = 0;
+    private pointerY = 0;
+
+    private updatePointer = () => {
+      this.style.setProperty('--fluvio-pointer-x', `${this.pointerX}px`);
+      this.style.setProperty('--fluvio-pointer-y', `${this.pointerY}px`);
+      this.frame = 0;
+    };
+
+    private onPointerMove = (event: PointerEvent) => {
+      this.pointerX = (event.clientX / window.innerWidth - 0.5) * 20;
+      this.pointerY = (event.clientY / window.innerHeight - 0.5) * 16;
+      if (!this.frame) this.frame = window.requestAnimationFrame(this.updatePointer);
+    };
+
+    private syncPointerTracking = () => {
+      this.abortController?.abort();
+      this.abortController = undefined;
+      if (this.frame) {
+        window.cancelAnimationFrame(this.frame);
+        this.frame = 0;
+      }
+
+      if (!this.media?.matches) {
+        this.style.removeProperty('--fluvio-pointer-x');
+        this.style.removeProperty('--fluvio-pointer-y');
+        return;
+      }
+
+      this.abortController = new AbortController();
+      document.addEventListener('pointermove', this.onPointerMove, {
+        passive: true,
+        signal: this.abortController.signal,
+      });
+    };
+
+    connectedCallback() {
+      this.media = window.matchMedia(
+        '(min-width: 768px) and (pointer: fine) and (prefers-reduced-motion: no-preference)'
+      );
+      this.media.addEventListener('change', this.syncPointerTracking);
+      this.syncPointerTracking();
+    }
+
+    disconnectedCallback() {
+      this.abortController?.abort();
+      this.media?.removeEventListener('change', this.syncPointerTracking);
+      if (this.frame) window.cancelAnimationFrame(this.frame);
+    }
+  }
+
+  if (!customElements.get('fluvio-page-background')) {
+    customElements.define('fluvio-page-background', FluvioPageBackground);
+  }
+</script>
