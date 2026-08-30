@@ -82,6 +82,17 @@ const path = unlocalizedPathname(Astro.url.pathname, SITE.base || '/');
     top: 100%;
   }
 
+  /* On the phone the picker lives in the bottom action bar, so the menu
+     must open upward or it would render below the screen edge. */
+  @media (max-width: 767px) {
+    ul {
+      top: auto;
+      right: auto;
+      bottom: calc(100% + 0.5rem);
+      left: 0;
+    }
+  }
+
   summary {
     display: inline-flex;
     gap: 0.4rem;
