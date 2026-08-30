@@ -13,7 +13,7 @@ export const expertiseAreas: ExpertiseArea[] = [
     relatedProjects: ['tina', 'bina', 'advance-queensland'],
   },
   {
-    title: 'Island scale modelling',
+    title: 'Island-scale and catchment modelling',
     slug: 'island-scale-modelling',
     summary: 'Creating a pioneering global-scale coastal pollution transport model.',
     description: [
@@ -24,7 +24,7 @@ export const expertiseAreas: ExpertiseArea[] = [
     relatedProjects: ['cordap'],
   },
   {
-    title: 'Catchment management',
+    title: 'Catchment and water resource management',
     slug: 'catchment-management',
     summary: 'Understanding catchment-waterway-ocean linkages with government, community and industry.',
     description: [
@@ -35,7 +35,7 @@ export const expertiseAreas: ExpertiseArea[] = [
     relatedProjects: ['monitoring-honiara', 'wrd'],
   },
   {
-    title: 'Blue carbon assessment',
+    title: 'Blue carbon and greenhouse gas assessment',
     slug: 'blue-carbon-assessment',
     summary: 'Quantifying carbon stocks within mangrove and seagrass ecosystems across Melanesia.',
     description: [
@@ -46,7 +46,7 @@ export const expertiseAreas: ExpertiseArea[] = [
     relatedProjects: ['sol-trader-oil-spill'],
   },
   {
-    title: 'Operational monitoring',
+    title: 'Operational monitoring systems',
     slug: 'operational-monitoring',
     summary: 'Digitising water monitoring with state-owned water utilities.',
     description: [
@@ -57,7 +57,7 @@ export const expertiseAreas: ExpertiseArea[] = [
     relatedProjects: ['monitoring-honiara', 'wrd'],
   },
   {
-    title: 'Sediment loading',
+    title: 'Sediment transport and reservoir assessment',
     slug: 'sediment-loading',
     summary: 'Monitoring and mapping sediment loads into coastal environments.',
     description: [

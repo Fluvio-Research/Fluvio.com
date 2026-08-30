@@ -22,3 +22,15 @@ The content-contract test was added before the content modules existed. Its firs
 ## Scope
 
 Changes are limited to the assigned content, image, test, package-script, and task-report paths.
+
+## Review fix record
+
+### Reasoning
+
+The expertise display labels were updated to the six required design labels without changing their existing slugs, descriptions, images, or related project links. The content contract test now checks every required team name and expertise label, verifies the homepage and vision content fields, and exercises both project selectors for successful and missing-slug cases.
+
+### Commands and output summary
+
+- `npm test`: 4 passing tests, 0 failures. The new labels test first failed only because the five former labels did not match the required values; it passed after the label update.
+- `npm run check:astro`: 0 errors, 0 warnings, 0 hints.
+- `git diff --check`: no whitespace errors.
