@@ -25,11 +25,11 @@ const { project, eyebrow = 'Featured project', priority = false } = Astro.props;
   <div class="fluvio-project-feature__body">
     <div>
       <p class="fluvio-project-feature__eyebrow">{eyebrow}</p>
-      <h2><a href={`/${project.slug}`}>{project.title}</a></h2>
+      <h2>{project.title}</h2>
     </div>
     <div class="fluvio-project-feature__summary">
       <p>{project.summary}</p>
-      <span class="fluvio-project-feature__link" aria-hidden="true">View project <span>↗</span></span>
+      <a class="fluvio-project-feature__link" href={`/${project.slug}`}>View project <span aria-hidden="true">↗</span></a>
     </div>
   </div>
   <ProjectMeta project={project} compact />
@@ -71,11 +71,6 @@ const { project, eyebrow = 'Featured project', priority = false } = Astro.props;
     line-height: 1;
   }
 
-  h2 a {
-    color: inherit;
-    text-decoration: none;
-  }
-
   .fluvio-project-feature__summary p {
     margin: 0 0 1.25rem;
     max-width: 48ch;
@@ -92,17 +87,18 @@ const { project, eyebrow = 'Featured project', priority = false } = Astro.props;
     color: rgb(var(--fluvio-water));
     font-size: 0.9rem;
     font-weight: 650;
-    pointer-events: none;
+    text-decoration: none;
   }
 
-  h2 a:hover,
-  h2 a:focus-visible {
+  .fluvio-project-feature__link:hover,
+  .fluvio-project-feature__link:focus-visible {
     color: rgb(var(--fluvio-water));
   }
 
-  h2 a:focus-visible {
+  .fluvio-project-feature__link:focus-visible {
     border-radius: 4px;
     outline: 2px solid rgb(var(--fluvio-water));
+    outline-offset: 4px;
   }
 
   @media (min-width: 768px) {

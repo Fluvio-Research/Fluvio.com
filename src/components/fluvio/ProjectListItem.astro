@@ -23,10 +23,10 @@ const number = index === undefined ? undefined : String(index + 1).padStart(2, '
   </div>
   <div class="fluvio-project-item__body">
     {number && <p class="fluvio-project-item__number">{number}</p>}
-    <h3><a href={`/${project.slug}`}>{project.title}</a></h3>
+    <h3>{project.title}</h3>
     <p class="fluvio-project-item__summary">{project.summary}</p>
     <p class="fluvio-project-item__disciplines">{project.disciplines.join(' / ')}</p>
-    <span class="fluvio-project-item__link" aria-hidden="true">Read the project <span>→</span></span>
+    <a class="fluvio-project-item__link" href={`/${project.slug}`}>Read the project <span aria-hidden="true">→</span></a>
   </div>
 </article>
 
@@ -70,11 +70,6 @@ const number = index === undefined ? undefined : String(index + 1).padStart(2, '
     line-height: 1.05;
   }
 
-  h3 a {
-    color: inherit;
-    text-decoration: none;
-  }
-
   .fluvio-project-item__summary {
     margin: 1.15rem 0;
     color: var(--aw-color-text-muted);
@@ -94,17 +89,18 @@ const number = index === undefined ? undefined : String(index + 1).padStart(2, '
     color: rgb(var(--fluvio-water));
     font-size: 0.88rem;
     font-weight: 650;
-    pointer-events: none;
+    text-decoration: none;
   }
 
-  h3 a:hover,
-  h3 a:focus-visible {
+  .fluvio-project-item__link:hover,
+  .fluvio-project-item__link:focus-visible {
     color: rgb(var(--fluvio-water));
   }
 
-  h3 a:focus-visible {
+  .fluvio-project-item__link:focus-visible {
     border-radius: 4px;
     outline: 2px solid rgb(var(--fluvio-water));
+    outline-offset: 4px;
   }
 
   @media (min-width: 768px) {

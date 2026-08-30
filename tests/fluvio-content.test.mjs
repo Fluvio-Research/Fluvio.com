@@ -137,6 +137,10 @@ test('Fluvio project experience provides shared components and static project ro
   assert.match(largeImage, /sizes=\{imageSizes\}/);
   assert.equal(projectFeature.match(/href=\{`\/\$\{project\.slug\}`\}/g)?.length, 1);
   assert.equal(projectListItem.match(/href=\{`\/\$\{project\.slug\}`\}/g)?.length, 1);
+  assert.match(projectFeature, /<h2>\{project\.title\}<\/h2>/);
+  assert.match(projectFeature, /<a class="fluvio-project-feature__link" href=\{`\/\$\{project\.slug\}`\}>View project/);
+  assert.match(projectListItem, /<h3>\{project\.title\}<\/h3>/);
+  assert.match(projectListItem, /<a class="fluvio-project-item__link" href=\{`\/\$\{project\.slug\}`\}>Read the project/);
   assert.match(projectFeature, /alt=\{project\.heroAlt\}/);
   assert.match(projectListItem, /alt=\{project\.heroAlt\}/);
   assert.doesNotMatch(platformFeature, /target=["']_blank["']/);
