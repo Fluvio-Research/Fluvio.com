@@ -264,31 +264,91 @@
     transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  #header .btn {
+  #header::before {
+    transition: opacity 300ms ease;
+  }
+
+  #header.sticky > div:first-child {
+    transition:
+      background-color 350ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 350ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-radius 350ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 350ms cubic-bezier(0.22, 1, 0.36, 1),
+      inset 350ms cubic-bezier(0.22, 1, 0.36, 1),
+      height 350ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  #header img {
+    transition: transform 250ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  #header a:hover > img {
+    transform: scale(1.05);
+  }
+
+  #header :is(.btn, .btn-secondary, .btn-primary) {
     transition:
       transform 200ms ease,
       box-shadow 200ms ease,
-      background-color 200ms ease,
-      border-color 200ms ease;
+      filter 200ms ease;
   }
 
-  #header .btn:hover {
+  #header :is(.btn, .btn-secondary, .btn-primary):hover {
     transform: translateY(-1px);
-    box-shadow: 0 6px 18px rgb(var(--fluvio-ink) / 0.12);
+    filter: brightness(1.1);
+    box-shadow: 0 8px 22px rgb(var(--fluvio-river) / 0.35);
   }
 }
 
-#header.sticky > div:first-child {
-  background-color: rgb(var(--fluvio-paper) / 92%);
-  border-bottom: 1px solid rgb(var(--fluvio-ink) / 10%);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 0.25rem 1.5rem rgb(var(--fluvio-ink) / 5%);
+/* The call to action is a gradient pill drawn from the water palette */
+#header :is(.btn, .btn-secondary, .btn-primary) {
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(115deg, rgb(var(--fluvio-river)), rgb(var(--fluvio-teal)) 55%, rgb(var(--fluvio-navy)));
+  color: rgb(255 255 255);
 }
-.dark #header.sticky > div:first-child,
-#header.sticky.dark > div:first-child {
-  background-color: rgb(var(--fluvio-ink) / 94%);
-  border-bottom-color: rgb(var(--fluvio-mist) / 12%);
-  box-shadow: none;
+
+.dark #header :is(.btn, .btn-secondary, .btn-primary) {
+  color: rgb(255 255 255);
+}
+
+/*
+ * The bar starts transparent over the page atmosphere, then condenses into
+ * a floating frosted capsule once the page scrolls.
+ */
+#header.sticky > div:first-child {
+  background-color: transparent;
+}
+
+#header.sticky.is-scrolled:not(.expanded) > div:first-child {
+  background-color: rgb(var(--fluvio-paper) / 88%);
+  border-bottom: 1px solid rgb(var(--fluvio-ink) / 10%);
+  backdrop-filter: blur(14px) saturate(1.3);
+  box-shadow: 0 0.25rem 1.5rem rgb(var(--fluvio-ink) / 6%);
+}
+
+#header.is-scrolled::before {
+  opacity: 0;
+}
+
+@media (min-width: 768px) {
+  #header.sticky.is-scrolled:not(.expanded) > div:first-child {
+    top: 0.5rem;
+    bottom: auto;
+    height: calc(100% - 1rem);
+    left: max(0.75rem, calc((100% - 82rem) / 2));
+    right: max(0.75rem, calc((100% - 82rem) / 2));
+    border: 1px solid rgb(var(--fluvio-ink) / 0.08);
+    border-radius: 999px;
+    box-shadow: 0 12px 32px rgb(var(--fluvio-ink) / 0.12);
+  }
+}
+
+.dark #header.sticky.is-scrolled:not(.expanded) > div:first-child,
+#header.sticky.is-scrolled.dark:not(.expanded) > div:first-child {
+  background-color: rgb(var(--fluvio-navy) / 55%);
+  border-color: rgb(var(--fluvio-mist) / 14%);
+  box-shadow: 0 12px 32px rgb(0 0 0 / 0.35);
 }
 
 #header.expanded {

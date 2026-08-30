@@ -175,13 +175,23 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
   class AwHeader extends HTMLElement {
     private mql?: MediaQueryList;
     private onMqlChange?: () => void;
+    private header?: HTMLElement | null;
+    private onScroll = () => {
+      this.header?.classList.toggle('is-scrolled', window.scrollY > 24);
+    };
     private onPageLoad = () => {
       this.updateActiveLinks();
       this.closeOpenDropdown();
+      this.onScroll();
     };
 
     connectedCallback() {
       const header = this.querySelector<HTMLElement>('#header');
+      this.header = header;
+
+      // Condense the bar into its floating state once the page scrolls.
+      window.addEventListener('scroll', this.onScroll, { passive: true });
+      this.onScroll();
       const toggle = this.querySelector<HTMLElement>('[data-aw-toggle-menu]');
       const nav = this.querySelector<HTMLElement>('#header nav');
       const lastChild = this.querySelector<HTMLElement>('#header > div > div:last-child');
@@ -235,6 +245,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
     disconnectedCallback() {
       if (this.mql && this.onMqlChange) this.mql.removeEventListener('change', this.onMqlChange);
       document.removeEventListener('astro:page-load', this.onPageLoad);
+      window.removeEventListener('scroll', this.onScroll);
     }
 
     // With `transition:persist` the header (and its focus) survives client-side
