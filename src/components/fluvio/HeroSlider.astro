@@ -1,0 +1,377 @@
+---
+import LargeImage from './LargeImage.astro';
+
+const slides = [
+  {
+    eyebrow: 'Water and climate',
+    title: 'Technology for a more resilient water future.',
+    description: 'Field science, sensing and data systems for practical environmental decisions.',
+    image: '~/assets/images/fluvio/home-river.jpg',
+    imageAlt: 'A river winding through a forested landscape',
+    href: '/vision',
+    action: 'Our vision',
+  },
+  {
+    eyebrow: 'Field intelligence',
+    title: 'Observe water systems as they change.',
+    description: 'Non-contact monitoring and real-time analysis turn complex conditions into useful evidence.',
+    image: '~/assets/images/fluvio/expertise-stream-monitoring.jpg',
+    imageAlt: 'Hydrological monitoring equipment installed in a stream',
+    href: '/expertise',
+    action: 'Explore expertise',
+  },
+  {
+    eyebrow: 'Collaborative delivery',
+    title: 'Build capability with the people who use it.',
+    description: 'Tools and knowledge shaped with communities, government, industry and regional partners.',
+    image: '~/assets/images/fluvio/vision-kovi-river.jpg',
+    imageAlt: 'Kovi River in the Solomon Islands',
+    href: '/projects',
+    action: 'See our projects',
+  },
+];
+---
+
+<fluvio-hero-slider class="fluvio-hero" aria-roledescription="carousel" aria-label="Fluvio introduction" tabindex="0">
+  <div class="fluvio-hero__slides">
+    {
+      slides.map((slide, index) => (
+        <article
+          class="fluvio-hero__slide"
+          data-hero-slide
+          role="group"
+          aria-roledescription="slide"
+          aria-label={`${index + 1} of ${slides.length}`}
+          hidden={index !== 0}
+        >
+          <div class="fluvio-hero__copy">
+            <p class="fluvio-hero__eyebrow">{slide.eyebrow}</p>
+            <h1>{slide.title}</h1>
+            <p class="fluvio-hero__description">{slide.description}</p>
+            <a class="fluvio-hero__link" href={slide.href}>
+              {slide.action} <span aria-hidden="true">→</span>
+            </a>
+          </div>
+          <div class="fluvio-hero__image">
+            <LargeImage
+              src={slide.image}
+              alt={slide.imageAlt}
+              aspect="portrait"
+              priority={index === 0}
+              sizes="(min-width: 1280px) 704px, (min-width: 768px) 52vw, calc(100vw - 2rem)"
+            />
+          </div>
+        </article>
+      ))
+    }
+  </div>
+
+  <div class="fluvio-hero__navigation" aria-label="Slide controls">
+    <div class="fluvio-hero__count" aria-hidden="true">
+      <span data-hero-current>01</span>
+      <span>/</span>
+      <span>{String(slides.length).padStart(2, '0')}</span>
+    </div>
+    <div class="fluvio-hero__progress" aria-hidden="true">
+      <span data-hero-progress style={`--hero-progress: ${100 / slides.length}%`}></span>
+    </div>
+    <div class="fluvio-hero__buttons">
+      <button type="button" aria-label="Previous slide" data-hero-previous>
+        <span aria-hidden="true">←</span>
+      </button>
+      <button type="button" aria-label="Next slide" data-hero-next>
+        <span aria-hidden="true">→</span>
+      </button>
+    </div>
+  </div>
+
+  <p class="visually-hidden" aria-live="polite" aria-atomic="true" data-hero-status>
+    Slide 1 of {slides.length}: {slides[0].title}
+  </p>
+</fluvio-hero-slider>
+
+<script>
+  class FluvioHeroSlider extends HTMLElement {
+    private activeIndex = 0;
+    private timer?: number;
+    private slides: HTMLElement[] = [];
+    private reducedMotion?: MediaQueryList;
+
+    connectedCallback() {
+      this.slides = Array.from(this.querySelectorAll<HTMLElement>('[data-hero-slide]'));
+      if (this.slides.length < 2) return;
+
+      this.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      this.querySelector('[data-hero-previous]')?.addEventListener('click', this.previous);
+      this.querySelector('[data-hero-next]')?.addEventListener('click', this.next);
+      this.addEventListener('keydown', this.handleKeydown);
+      this.addEventListener('mouseenter', this.pause);
+      this.addEventListener('mouseleave', this.resume);
+      this.addEventListener('focusin', this.pause);
+      this.addEventListener('focusout', this.handleFocusOut);
+      this.reducedMotion.addEventListener('change', this.handleMotionChange);
+      this.show(0, false);
+      this.resume();
+    }
+
+    disconnectedCallback() {
+      this.pause();
+      this.querySelector('[data-hero-previous]')?.removeEventListener('click', this.previous);
+      this.querySelector('[data-hero-next]')?.removeEventListener('click', this.next);
+      this.removeEventListener('keydown', this.handleKeydown);
+      this.removeEventListener('mouseenter', this.pause);
+      this.removeEventListener('mouseleave', this.resume);
+      this.removeEventListener('focusin', this.pause);
+      this.removeEventListener('focusout', this.handleFocusOut);
+      this.reducedMotion?.removeEventListener('change', this.handleMotionChange);
+    }
+
+    private previous = () => this.show(this.activeIndex - 1);
+    private next = () => this.show(this.activeIndex + 1);
+
+    private show(index: number, announce = true) {
+      this.activeIndex = (index + this.slides.length) % this.slides.length;
+      this.slides.forEach((slide, slideIndex) => {
+        slide.hidden = slideIndex !== this.activeIndex;
+      });
+
+      const current = this.querySelector<HTMLElement>('[data-hero-current]');
+      const progress = this.querySelector<HTMLElement>('[data-hero-progress]');
+      const status = this.querySelector<HTMLElement>('[data-hero-status]');
+      const title = this.slides[this.activeIndex]?.querySelector('h1')?.textContent?.trim() ?? '';
+
+      if (current) current.textContent = String(this.activeIndex + 1).padStart(2, '0');
+      progress?.style.setProperty('--hero-progress', `${((this.activeIndex + 1) / this.slides.length) * 100}%`);
+      if (announce && status) status.textContent = `Slide ${this.activeIndex + 1} of ${this.slides.length}: ${title}`;
+    }
+
+    private handleKeydown = (event: KeyboardEvent) => {
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        this.previous();
+      } else if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        this.next();
+      } else if (event.key === 'Home') {
+        event.preventDefault();
+        this.show(0);
+      } else if (event.key === 'End') {
+        event.preventDefault();
+        this.show(this.slides.length - 1);
+      }
+    };
+
+    private pause = () => {
+      if (this.timer) window.clearInterval(this.timer);
+      this.timer = undefined;
+    };
+
+    private resume = () => {
+      this.pause();
+      if (this.reducedMotion?.matches || this.matches(':hover') || this.contains(document.activeElement)) return;
+      this.timer = window.setInterval(this.next, 8000);
+    };
+
+    private handleFocusOut = () => window.setTimeout(this.resume, 0);
+
+    private handleMotionChange = () => {
+      this.pause();
+      if (this.reducedMotion?.matches) this.show(0, false);
+      else this.resume();
+    };
+  }
+
+  if (!customElements.get('fluvio-hero-slider')) customElements.define('fluvio-hero-slider', FluvioHeroSlider);
+</script>
+
+<style>
+  .fluvio-hero {
+    display: block;
+    width: min(100% - 2rem, 88rem);
+    margin-inline: auto;
+    padding: clamp(2rem, 5vw, 4.5rem) 0 clamp(3rem, 7vw, 6rem);
+    outline: none;
+  }
+
+  .fluvio-hero__slide {
+    display: grid;
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+
+  .fluvio-hero__slide[hidden] {
+    display: none;
+  }
+
+  .fluvio-hero__copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 26rem;
+    padding: clamp(2rem, 5vw, 4.5rem) clamp(1rem, 4vw, 3.5rem) clamp(2rem, 4vw, 3.5rem) 0;
+  }
+
+  .fluvio-hero__eyebrow {
+    margin: 0 0 1.25rem;
+    color: rgb(var(--fluvio-water));
+    font-family: var(--aw-font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    margin: 0;
+    max-width: 19ch;
+    color: var(--aw-color-text-heading);
+    font-family: var(--aw-font-heading);
+    font-size: clamp(3rem, 4.5vw, 5.25rem);
+    font-weight: 500;
+    letter-spacing: -0.06em;
+    line-height: 0.94;
+  }
+
+  .fluvio-hero__description {
+    margin: clamp(1.5rem, 3vw, 2.5rem) 0 0;
+    max-width: 37rem;
+    color: var(--aw-color-text-muted);
+    font-size: clamp(1rem, 1.5vw, 1.18rem);
+    line-height: 1.65;
+  }
+
+  .fluvio-hero__link {
+    display: inline-flex;
+    gap: 0.5rem;
+    align-items: center;
+    align-self: flex-start;
+    margin-top: 1.75rem;
+    border-bottom: 1px solid currentColor;
+    color: rgb(var(--fluvio-water));
+    font-size: 0.9rem;
+    font-weight: 650;
+    text-decoration: none;
+  }
+
+  .fluvio-hero__link:focus-visible,
+  button:focus-visible,
+  .fluvio-hero:focus-visible {
+    border-radius: 4px;
+    outline: 2px solid rgb(var(--fluvio-water));
+    outline-offset: 4px;
+  }
+
+  .fluvio-hero__image :global(.fluvio-image__frame) {
+    min-height: 26rem;
+    aspect-ratio: 4 / 5;
+  }
+
+  .fluvio-hero__navigation {
+    display: grid;
+    grid-template-columns: auto minmax(4rem, 1fr) auto;
+    gap: 1.25rem;
+    align-items: center;
+    margin-top: 1.25rem;
+  }
+
+  .fluvio-hero__count {
+    display: flex;
+    gap: 0.4rem;
+    color: var(--aw-color-text-muted);
+    font-family: var(--aw-font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+  }
+
+  .fluvio-hero__count [data-hero-current] {
+    color: var(--aw-color-text-heading);
+  }
+
+  .fluvio-hero__progress {
+    height: 1px;
+    background: rgb(var(--fluvio-ink) / 0.16);
+  }
+
+  .fluvio-hero__progress span {
+    display: block;
+    width: var(--hero-progress);
+    height: 1px;
+    background: rgb(var(--fluvio-water));
+  }
+
+  .fluvio-hero__buttons {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  button {
+    display: grid;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+    border: 1px solid rgb(var(--fluvio-ink) / 0.28);
+    border-radius: 4px;
+    background: transparent;
+    color: var(--aw-color-text-heading);
+    cursor: pointer;
+    font-size: 1rem;
+    place-items: center;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  :global(.dark) .fluvio-hero__progress {
+    background: rgb(var(--fluvio-paper) / 0.18);
+  }
+
+  :global(.dark) button {
+    border-color: rgb(var(--fluvio-paper) / 0.3);
+  }
+
+  @media (min-width: 768px) {
+    .fluvio-hero {
+      width: min(100% - 4rem, 88rem);
+    }
+
+    .fluvio-hero__slide {
+      grid-template-columns: minmax(0, 1.05fr) minmax(24rem, 0.95fr);
+      gap: clamp(2rem, 6vw, 6rem);
+      min-height: min(43rem, calc(100dvh - 10rem));
+    }
+
+    .fluvio-hero__image,
+    .fluvio-hero__image :global(.fluvio-image) {
+      height: 100%;
+    }
+
+    .fluvio-hero__image :global(.fluvio-image__frame) {
+      height: 100%;
+      min-height: 34rem;
+      aspect-ratio: auto;
+    }
+
+    .fluvio-hero__navigation {
+      grid-template-columns: 5rem minmax(0, 1fr) auto;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fluvio-hero *,
+    .fluvio-hero *::before,
+    .fluvio-hero *::after {
+      scroll-behavior: auto !important;
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+</style>

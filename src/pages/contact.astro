@@ -1,79 +1,191 @@
 ---
+import LargeImage from '~/components/fluvio/LargeImage.astro';
 import Layout from '~/layouts/PageLayout.astro';
-import HeroText from '~/components/widgets/HeroText.astro';
-import ContactUs from '~/components/widgets/Contact.astro';
-import Features2 from '~/components/widgets/Features2.astro';
 
 const metadata = {
   title: 'Contact',
+  description: 'Start a conversation with Fluvio about a water, environmental or climate project.',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- HeroText Widget ******************* -->
+  <header class="fluvio-contact-hero">
+    <div class="fluvio-contact-shell fluvio-contact-hero__grid">
+      <div>
+        <p class="fluvio-contact-eyebrow">Contact</p>
+        <h1>Start with the place, problem and decision.</h1>
+        <p>Tell us about the water, environmental or climate challenge your team is working through.</p>
+      </div>
+      <LargeImage
+        src="~/assets/images/fluvio/home-river.jpg"
+        alt="A river landscape viewed from above"
+        aspect="portrait"
+        priority
+      />
+    </div>
+  </header>
 
-  <HeroText tagline="Contact" title="Let's Connect!" />
+  <section class="fluvio-contact-enquiry" aria-labelledby="contact-enquiry-heading">
+    <div class="fluvio-contact-shell fluvio-contact-enquiry__grid">
+      <h2 id="contact-enquiry-heading">Project enquiry</h2>
+      <div class="fluvio-contact-enquiry__body">
+        <p>
+          Include the project location, the environmental system involved and the decision or operational need you want
+          to support.
+        </p>
+        <a
+          class="fluvio-contact-action"
+          href="mailto:?subject=Project%20enquiry%20for%20Fluvio&body=Project%20location%3A%0A%0AEnvironmental%20system%3A%0A%0ADecision%20or%20operational%20need%3A%0A%0AProject%20context%3A"
+        >
+          Open a project enquiry <span aria-hidden="true">→</span>
+        </a>
+        <p class="fluvio-contact-note">
+          This opens a draft in your email application. Nothing is submitted through this website, and the archived site
+          does not provide a public direct email address.
+        </p>
+      </div>
+    </div>
+  </section>
 
-  <ContactUs
-    id="form"
-    title="Drop us a message today!"
-    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking  for right there! If not, our support team is delighted to help you."
-    inputs={[
-      {
-        type: 'text',
-        name: 'name',
-        label: 'Name',
-      },
-      {
-        type: 'email',
-        name: 'email',
-        label: 'Email',
-      },
-    ]}
-    textarea={{
-      label: 'Message',
-    }}
-    disclaimer={{
-      label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
-    }}
-    description="Our support team typically responds within 24 business hours."
-  />
-
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="We are here to help!"
-    items={[
-      {
-        title: 'General support',
-        description: `Chat with us for inquiries related to account management, website navigation, payment issues, accessing purchased templates or general questions about the website's functionality.`,
-      },
-      {
-        title: 'Contact sales',
-        description:
-          'Chat with us for questions about purchases, customization options, licensing for commercial use, inquiries about specific template, etc.',
-      },
-      {
-        title: 'Technical support',
-        description:
-          'Chat with us when facing issues like template installation, problems editing difficulties, compatibility issues with software or download errors, or other technical challenges related to using the templates.',
-      },
-      {
-        title: 'Phone',
-        description: '+1 (234) 567-890',
-        icon: 'tabler:headset',
-      },
-      {
-        title: 'Email',
-        description: 'contact@support.com',
-        icon: 'tabler:mail',
-      },
-      {
-        title: 'Location',
-        description: '1234 Lorem Ipsum St, 12345, Miami, EEUU',
-        icon: 'tabler:map-pin',
-      },
-    ]}
-  />
+  <section class="fluvio-contact-social" aria-labelledby="contact-social-heading">
+    <div class="fluvio-contact-shell fluvio-contact-social__grid">
+      <h2 id="contact-social-heading">Follow Fluvio</h2>
+      <div>
+        <p>See company updates and current work through the verified Fluvio company page.</p>
+        <a href="https://www.linkedin.com/company/fluvioptyltd/" rel="noopener noreferrer">
+          Fluvio on LinkedIn <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
 </Layout>
+
+<style>
+  .fluvio-contact-shell {
+    width: min(100% - 2rem, 80rem);
+    margin-inline: auto;
+  }
+
+  .fluvio-contact-hero {
+    padding: clamp(3rem, 7vw, 6rem) 0 clamp(5rem, 11vw, 10rem);
+  }
+
+  .fluvio-contact-hero__grid {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .fluvio-contact-eyebrow {
+    margin: 0 0 1.25rem;
+    color: rgb(var(--fluvio-water));
+    font-family: var(--aw-font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    margin: 0;
+    max-width: 12ch;
+    color: var(--aw-color-text-heading);
+    font-family: var(--aw-font-heading);
+    font-size: clamp(3.2rem, 7vw, 6.5rem);
+    font-weight: 500;
+    letter-spacing: -0.06em;
+    line-height: 0.95;
+  }
+
+  .fluvio-contact-hero__grid > div > p:last-child {
+    margin: 1.75rem 0 0;
+    max-width: 35rem;
+    color: var(--aw-color-text-muted);
+    font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+    line-height: 1.65;
+  }
+
+  .fluvio-contact-enquiry,
+  .fluvio-contact-social {
+    padding: clamp(4.5rem, 10vw, 9rem) 0;
+    border-top: 1px solid rgb(var(--fluvio-ink) / 0.15);
+  }
+
+  .fluvio-contact-social {
+    background: rgb(var(--fluvio-aqua) / 0.12);
+  }
+
+  .fluvio-contact-enquiry__grid,
+  .fluvio-contact-social__grid {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .fluvio-contact-enquiry h2,
+  .fluvio-contact-social h2 {
+    margin: 0;
+    color: var(--aw-color-text-heading);
+    font-family: var(--aw-font-heading);
+    font-size: clamp(2.5rem, 5vw, 4.75rem);
+    font-weight: 520;
+    letter-spacing: -0.05em;
+    line-height: 1;
+  }
+
+  .fluvio-contact-enquiry__body > p:first-child,
+  .fluvio-contact-social p {
+    margin: 0 0 1.75rem;
+    max-width: 42rem;
+    color: var(--aw-color-text-muted);
+    font-size: 1.05rem;
+    line-height: 1.75;
+  }
+
+  .fluvio-contact-action,
+  .fluvio-contact-social a {
+    display: inline-flex;
+    gap: 0.5rem;
+    align-items: center;
+    border-bottom: 1px solid currentColor;
+    color: rgb(var(--fluvio-water));
+    font-weight: 650;
+    text-decoration: none;
+  }
+
+  .fluvio-contact-note {
+    margin: 1.5rem 0 0;
+    max-width: 42rem;
+    color: var(--aw-color-text-muted);
+    font-size: 0.82rem;
+    line-height: 1.65;
+  }
+
+  a:focus-visible {
+    border-radius: 4px;
+    outline: 2px solid rgb(var(--fluvio-water));
+    outline-offset: 4px;
+  }
+
+  :global(.dark) .fluvio-contact-enquiry,
+  :global(.dark) .fluvio-contact-social {
+    border-color: rgb(var(--fluvio-paper) / 0.16);
+  }
+
+  @media (min-width: 768px) {
+    .fluvio-contact-shell {
+      width: min(100% - 4rem, 80rem);
+    }
+
+    .fluvio-contact-hero__grid {
+      grid-template-columns: minmax(0, 0.86fr) minmax(24rem, 1.14fr);
+      gap: clamp(3rem, 8vw, 8rem);
+    }
+
+    .fluvio-contact-enquiry__grid,
+    .fluvio-contact-social__grid {
+      grid-template-columns: minmax(15rem, 0.65fr) minmax(24rem, 1.35fr);
+      gap: clamp(4rem, 10vw, 10rem);
+      align-items: start;
+    }
+  }
+</style>

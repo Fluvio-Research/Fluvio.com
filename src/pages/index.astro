@@ -1,400 +1,367 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-
-import Hero from '~/components/widgets/Hero.astro';
-import Note from '~/components/widgets/Note.astro';
-import Features from '~/components/widgets/Features.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-import Steps from '~/components/widgets/Steps.astro';
-import Content from '~/components/widgets/Content.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
-import Stats from '~/components/widgets/Stats.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import ContactPanel from '~/components/fluvio/ContactPanel.astro';
+import HeroSlider from '~/components/fluvio/HeroSlider.astro';
+import PlatformFeature from '~/components/fluvio/PlatformFeature.astro';
+import ProjectFeature from '~/components/fluvio/ProjectFeature.astro';
+import SectionHeading from '~/components/fluvio/SectionHeading.astro';
+import TeamProfile from '~/components/fluvio/TeamProfile.astro';
+import { expertiseAreas } from '~/data/fluvio/expertise';
+import { featuredProjects } from '~/data/fluvio/projects';
 import { siteContent } from '~/data/fluvio/site';
+import { teamMembers } from '~/data/fluvio/team';
+import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
   title: siteContent.name,
   description: siteContent.summary,
   ignoreTitleTemplate: true,
 };
+
+const capabilities = [
+  {
+    title: 'Monitoring systems',
+    description: 'Non-contact sensing, real-time water quality networks and operational data tools.',
+  },
+  {
+    title: 'Water modelling',
+    description: 'Catchment, coastal pollution and resource models grounded in environmental evidence.',
+  },
+  {
+    title: 'Project delivery',
+    description: 'Field programs and practical systems developed alongside clients, communities and operators.',
+  },
+];
+
+const selectedExpertise = expertiseAreas.slice(0, 4);
+const selectedTeam = teamMembers.slice(0, 3);
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
+  <HeroSlider />
 
-  <Hero
-    actions={[
+  <section class="fluvio-home-capabilities" aria-label="Core capabilities">
+    <div class="fluvio-home-shell fluvio-home-capability-grid">
       {
-        variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/arthelokyo/astrowind',
-        target: '_blank',
-        icon: 'tabler:download',
-      },
-      { text: 'Learn more', href: '#features' },
-    ]}
-    image={{ src: '~/assets/images/hero-image.png', alt: 'AstroWind Hero Image' }}
-  >
-    <Fragment slot="title">
-      Free template for <span class="hidden xl:inline">creating websites with</span>
-      <span class="text-accent dark:text-white"> Astro v7</span> + Tailwind CSS
-    </Fragment>
+        capabilities.map((capability) => (
+          <article>
+            <h2>{capability.title}</h2>
+            <p>{capability.description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
 
-    <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
-        <span class="font-semibold">AstroWind</span> is a free, customizable and production-ready template for Astro v7 +
-        Tailwind CSS v4.</span
-      >
-      <span class="block mb-1 sm:hidden font-bold text-blue-600">AstroWind: Production-ready.</span>
-      Suitable for Startups, Small Business, SaaS websites, Professional Portfolios, Marketing websites, Landing Pages & Blogs.
-    </Fragment>
-  </Hero>
+  <section class="fluvio-home-section" aria-labelledby="home-expertise-heading">
+    <div class="fluvio-home-shell">
+      <div id="home-expertise-heading" class="fluvio-home-heading">
+        <SectionHeading
+          eyebrow="Expertise"
+          title="Evidence that moves from field conditions to decisions"
+          intro="Our team combines water science, environmental monitoring and data systems around the needs of each place and project."
+        />
+      </div>
+      <div class="fluvio-home-expertise-list">
+        {
+          selectedExpertise.map((area) => (
+            <a href={`/expertise#${area.slug}`}>
+              <span>{area.title}</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          ))
+        }
+      </div>
+      <a class="fluvio-home-text-link" href="/expertise">View all six capability areas <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
 
-  <!-- Note Widget ******************* -->
+  <section class="fluvio-home-section fluvio-home-section--projects" aria-labelledby="home-projects-heading">
+    <div class="fluvio-home-shell">
+      <header class="fluvio-home-project-heading">
+        <h2 id="home-projects-heading">Selected projects</h2>
+        <p>Current work across hydrological monitoring, water supply and climate-resilient infrastructure.</p>
+      </header>
+      <div class="fluvio-home-project-list">
+        {
+          featuredProjects.map((project, index) => (
+            <ProjectFeature project={project} eyebrow={index === 0 ? 'Featured work' : ''} />
+          ))
+        }
+      </div>
+      <a class="fluvio-home-text-link" href="/projects">Explore every project <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
 
-  <Note title="Philosophy:" description="Simplicity, Best Practices and High Performance" />
+  <section class="fluvio-home-section fluvio-home-section--platforms" aria-labelledby="home-platforms-heading">
+    <div class="fluvio-home-shell">
+      <header class="fluvio-home-platform-heading">
+        <h2 id="home-platforms-heading">Monitoring data, made operational</h2>
+        <p>Purpose-built platforms connect environmental observations with analysis, reporting and action.</p>
+      </header>
+      <div class="fluvio-home-platform-grid">
+        <PlatformFeature
+          title="FluvioSense"
+          description="A web-based platform to communicate stereo vision and real-time data analytics across flood and water camera networks."
+          href="https://sense.fluvio.com.au/"
+          actionLabel="Visit FluvioSense"
+        />
+        <PlatformFeature
+          title="FluvioCascade"
+          description="A web-based platform that ingests real-time environmental monitoring data to support analysis, reporting and alerts."
+        />
+      </div>
+    </div>
+  </section>
 
-  <!-- Features Widget *************** -->
+  <section class="fluvio-home-section" aria-labelledby="home-team-heading">
+    <div class="fluvio-home-shell">
+      <div id="home-team-heading" class="fluvio-home-heading">
+        <SectionHeading
+          title="Science, technology and delivery in one team"
+          intro="Fluvio brings together specialists in hydrology, carbon, environmental science, spatial analysis and data systems."
+        />
+      </div>
+      <div class="fluvio-home-team-grid">
+        {selectedTeam.map((member) => <TeamProfile member={member} />)}
+      </div>
+      <a class="fluvio-home-text-link" href="/team">Meet the full team <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
 
-  <Features
-    id="features"
-    tagline="Features"
-    title="What you get with AstroWind"
-    subtitle="One of the most professional and comprehensive templates currently on the market. Most starred & forked Astro theme in 2022, 2023, 2024 and 2025."
-    items={[
-      {
-        title: 'Astro + Tailwind CSS Integration',
-        description:
-          'A seamless integration between two great frameworks that offer high productivity, performance and versatility. Now powered by Tailwind CSS v4.',
-        icon: 'tabler:brand-tailwind',
-      },
-      {
-        title: 'Ready-to-use Components',
-        description:
-          'Widgets made with Tailwind CSS v4 ready to be used in Marketing Websites, SaaS, Blogs, Personal Profiles, Small Business...',
-        icon: 'tabler:components',
-      },
-      {
-        title: 'Best Practices',
-        description:
-          'Creating secure, efficient, and user-friendly websites that deliver exceptional experiences and lasting value.',
-        icon: 'tabler:list-check',
-      },
-      {
-        title: 'Excellent Page Speed',
-        description:
-          'Having a good page speed impacts organic search ranking, improves user experience (UI/UX) and increase conversion rates.',
-        icon: 'tabler:rocket',
-      },
-      {
-        title: 'Search Engine Optimization (SEO)',
-        description:
-          "SEO lies in its ability to enhance a website's visibility, driving organic traffic and enabling it to reach a wider audience.",
-        icon: 'tabler:arrows-right-left',
-      },
-      {
-        title: 'Open to new ideas and contributions',
-        description:
-          'Embracing a culture that is open to new ideas and contributions is integral fostering innovation, collaboration, and a dynamic user experience.',
-        icon: 'tabler:bulb',
-      },
-    ]}
-  />
+  <section class="fluvio-home-impact" aria-labelledby="home-impact-heading">
+    <div class="fluvio-home-shell fluvio-home-impact-grid">
+      <h2 id="home-impact-heading">Built with partners across Australia and Melanesia.</h2>
+      <div>
+        <p>
+          Our work spans Queensland, Australian reservoirs, Honiara, the Tina River, Bina Harbour and Rennell Island.
+          Programs are shaped with government, utilities, communities and regional organisations.
+        </p>
+        <p>
+          Delivery includes field monitoring, operational data systems, training and environmental assessment, with a
+          focus on lasting local capability.
+        </p>
+      </div>
+    </div>
+  </section>
 
-  <!-- Content Widget **************** -->
-
-  <Content
-    isReversed
-    tagline="Inside template"
-    title="AstroWind's Blueprint: Fun Meets Functionality!"
-    items={[
-      {
-        title: 'Built on top of Astro v7',
-        description:
-          'Benefiting from the performance and developer-friendly features of this modern static site generator.',
-      },
-      {
-        title: 'Styled using Tailwind CSS v4',
-        description:
-          'Facilitating rapid design and consistent styling with this highly popular utility-first CSS framework.',
-      },
-      {
-        title: 'Cross-browser compatibility',
-        description:
-          'Ensure your website looks and functions consistently across various web browsers, delivering a seamless experience to all users.',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Colorful Image',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Building on modern foundations</h3>
-      Gain a competitive advantage by incorporating industry leading practices
-    </Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    isAfterContent
-    items={[
-      {
-        title: 'High level of customization',
-        description: `Tailor the template effortlessly to match your brand's identity and requirements, making your website distinct and saving you time.`,
-      },
-      {
-        title: 'Multiple layout possibilities',
-        description:
-          'Explore various layout options to find the structure that best presents your content, enhancing user engagement and navigation.',
-      },
-      {
-        title: 'Fully responsive design',
-        description:
-          "Ensure your website's optimal performance on various devices and screen sizes, providing a consistent and enjoyable user experience.",
-      },
-      {
-        title: 'Integration of media',
-        description:
-          'Seamlessly incorporate images, videos, and multimedia elements that enhance your content and engage visitors effectively.',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2194&q=80',
-      alt: 'Blueprint Image',
-    }}
-  >
-    <Fragment slot="content">Ensure your online presence truly represents you.</Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    isReversed
-    isAfterContent
-    items={[
-      {
-        title: 'Enhanced user engagement',
-        description:
-          'Captivate your audience with interactive elements, intuitive navigation, and visually appealing layouts, encouraging longer visits.',
-      },
-      {
-        title: 'Continuous improvement',
-        description:
-          'Ensure your website stays aligned with the latest trends and technologies through regular updates and enhancements.',
-      },
-      {
-        title: 'Time and resource efficiency',
-        description:
-          'Skip the time-consuming process of building a website from scratch and launch your online presence sooner with AstroWind.',
-      },
-      {
-        title: 'Community support',
-        description: `Join the growing AstroWind community for insights, resources, and assistance, ensuring you're never alone on your web development journey.`,
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1611462985358-60d3498e0364?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Astronauts Image',
-    }}
-  >
-    <Fragment slot="content">Designed to foster growth and success.</Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Steps Widget ****************** -->
-
-  <Steps
-    title="Get your dream website up and running in no time with AstroWind."
-    items={[
-      {
-        title: 'Step 1: <span class="font-medium">Download</span>',
-        description:
-          "Kickstart with GitHub! Either fork the AstroWind template or simply click 'Use this template'. Your canvas awaits, ready for your digital masterpiece. In just a few clicks, you've already set the foundation.",
-        icon: 'tabler:package',
-      },
-      {
-        title: 'Step 2: <span class="font-medium">Add content</span>',
-        description:
-          "Pour your vision into it. Add images, text, and all that jazz to breathe life into your digital space. Remember, it's the content that tells your story, so make it captivating.",
-        icon: 'tabler:letter-case',
-      },
-      {
-        title: 'Step 3: <span class="font-medium">Customize styles</span>',
-        description:
-          'Give it your personal touch. Tailor colors, fonts, and layouts until it feels just right. Your unique flair, amplified by AstroWind! Precision in design ensures a seamless user experience.',
-        icon: 'tabler:paint',
-      },
-      {
-        title: 'Ready!',
-        icon: 'tabler:check',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-      alt: 'Steps image',
-    }}
-  />
-
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Most used widgets"
-    subtitle="Provides frequently used components for building websites using Tailwind CSS v4"
-    tagline="Components"
-    items={[
-      {
-        title: 'Headers',
-        description: "Ever tried driving without GPS? Boom! That's why websites need headers for direction.",
-        icon: 'flat-color-icons:template',
-      },
-      {
-        title: 'Heros',
-        description:
-          "Picture a superhero landing – epic, right? That's the job of a Hero section, making grand entrances!",
-        icon: 'flat-color-icons:gallery',
-      },
-      {
-        title: 'Features',
-        description:
-          'Where websites strut their stuff and show off superpowers. No holding back on the bragging rights here!',
-        icon: 'flat-color-icons:approval',
-      },
-      {
-        title: 'Content',
-        description:
-          "Dive into the meat and potatoes of a site; without it, you'd just be window shopping. Content is king.",
-        icon: 'flat-color-icons:document',
-      },
-      {
-        title: 'Call-to-Action',
-        description:
-          'That enthusiastic friend who\'s always urging, "Do it! Do it!"? Yeah, that\'s this button nudging you towards adventure.',
-        icon: 'flat-color-icons:advertising',
-      },
-      {
-        title: 'Pricing',
-        description: 'Behold the dessert menu of the website world. Tempting choices await, can you resist?',
-        icon: 'flat-color-icons:currency-exchange',
-      },
-      {
-        title: 'Testimonial',
-        description: 'Step into the gossip corner! Here, other visitors spill the beans and share the juicy details.',
-        icon: 'flat-color-icons:voice-presentation',
-      },
-      {
-        title: 'Contact',
-        description:
-          'Like a digital mailbox, but faster! Drop a line, ask a question, or send a virtual high-five. Ding! Message in.',
-        icon: 'flat-color-icons:business-contact',
-      },
-      {
-        title: 'Footers',
-        description: "The footer's like the credits of a movie but sprinkled with easter eggs. Time to hunt!",
-        icon: 'flat-color-icons:database',
-      },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Features2>
-
-  <!-- HighlightedPosts Widget ******* -->
-
-  <BlogLatestPosts
-    title="Find out more content in our Blog"
-    information={`The blog is used to display AstroWind documentation.
-                        Each new article will be an important step that you will need to know to be an expert in creating a website using Astro v7 + Tailwind CSS v4.
-                        Astro is a very interesting technology. Thanks.
-                `}
-  />
-
-  <!-- FAQs Widget ******************* -->
-
-  <FAQs
-    title="Frequently Asked Questions"
-    subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
-    tagline="FAQs"
-    classes={{ container: 'max-w-6xl' }}
-    items={[
-      {
-        title: 'Why AstroWind?',
-        description:
-          "Michael Knight a young loner on a crusade to champion the cause of the innocent. The helpless. The powerless in a world of criminals who operate above the law. Here he comes Here comes Speed Racer. He's a demon on wheels.",
-      },
-      {
-        title: 'What do I need to start?',
-        description:
-          'Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds. Many say exploration is part of our destiny, but it’s actually our duty to future generations.',
-      },
-      {
-        title: 'How to install the Astro + Tailwind CSS template?',
-        description:
-          "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.",
-      },
-      {
-        title: "What's something that you don't understand?",
-        description:
-          "A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear. I didn't even know we were calling him Big Bear.",
-      },
-      {
-        title: 'What is something that you would like to try again?',
-        description:
-          "A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in.",
-      },
-      {
-        title: 'If you could only ask one question to each person you meet, what would that question be?',
-        description:
-          "This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.",
-      },
-    ]}
-  />
-
-  <!-- Stats Widget ****************** -->
-
-  <Stats
-    stats={[
-      { title: 'Downloads', amount: '132K' },
-      { title: 'Stars', amount: '24.8K' },
-      { title: 'Forks', amount: '10.3K' },
-      { title: 'Users', amount: '48.4K' },
-    ]}
-  />
-
-  <!-- CallToAction Widget *********** -->
-
-  <CallToAction
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/arthelokyo/astrowind',
-        target: '_blank',
-        icon: 'tabler:download',
-      },
-    ]}
-  >
-    <Fragment slot="title">
-      Astro&nbsp;+&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
-    </Fragment>
-
-    <Fragment slot="subtitle">
-      Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't
-      waste more time! :P
-    </Fragment>
-  </CallToAction>
+  <section class="fluvio-home-contact">
+    <div class="fluvio-home-shell">
+      <ContactPanel />
+    </div>
+  </section>
 </Layout>
+
+<style>
+  .fluvio-home-shell {
+    width: min(100% - 2rem, 80rem);
+    margin-inline: auto;
+  }
+
+  .fluvio-home-section {
+    padding: clamp(4.5rem, 10vw, 9rem) 0;
+  }
+
+  .fluvio-home-heading {
+    margin-bottom: clamp(3rem, 7vw, 6rem);
+  }
+
+  .fluvio-home-capabilities {
+    padding: clamp(2.25rem, 5vw, 4rem) 0;
+    border-top: 1px solid rgb(var(--fluvio-ink) / 0.16);
+    border-bottom: 1px solid rgb(var(--fluvio-ink) / 0.16);
+  }
+
+  .fluvio-home-capability-grid {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .fluvio-home-capability-grid article {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .fluvio-home-capability-grid h2 {
+    margin: 0;
+    color: var(--aw-color-text-heading);
+    font-family: var(--aw-font-heading);
+    font-size: 1.1rem;
+    font-weight: 620;
+    letter-spacing: -0.015em;
+  }
+
+  .fluvio-home-capability-grid p {
+    margin: 0;
+    max-width: 31rem;
+    color: var(--aw-color-text-muted);
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  .fluvio-home-expertise-list {
+    display: grid;
+    max-width: 64rem;
+    margin-left: auto;
+  }
+
+  .fluvio-home-expertise-list a {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+    align-items: center;
+    padding: 1.35rem 0;
+    border-bottom: 1px solid rgb(var(--fluvio-ink) / 0.15);
+    color: var(--aw-color-text-heading);
+    font-family: var(--aw-font-heading);
+    font-size: clamp(1.3rem, 2.5vw, 2.15rem);
+    font-weight: 520;
+    letter-spacing: -0.03em;
+    text-decoration: none;
+  }
+
+  .fluvio-home-text-link {
+    display: inline-flex;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    border-bottom: 1px solid currentColor;
+    color: rgb(var(--fluvio-water));
+    font-size: 0.9rem;
+    font-weight: 650;
+    text-decoration: none;
+  }
+
+  .fluvio-home-project-heading,
+  .fluvio-home-platform-heading {
+    max-width: 54rem;
+    margin-bottom: clamp(3rem, 7vw, 6rem);
+  }
+
+  .fluvio-home-project-heading h2,
+  .fluvio-home-platform-heading h2,
+  .fluvio-home-impact h2 {
+    margin: 0;
+    color: var(--aw-color-text-heading);
+    font-family: var(--aw-font-heading);
+    font-size: clamp(2.5rem, 5vw, 4.75rem);
+    font-weight: 520;
+    letter-spacing: -0.05em;
+    line-height: 0.98;
+  }
+
+  .fluvio-home-project-heading p,
+  .fluvio-home-platform-heading p {
+    margin: 1.5rem 0 0;
+    max-width: 42rem;
+    color: var(--aw-color-text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .fluvio-home-project-list {
+    display: grid;
+    gap: clamp(5rem, 11vw, 10rem);
+  }
+
+  .fluvio-home-project-list > :global(.fluvio-project-feature:nth-child(2)) {
+    width: min(100%, 70rem);
+    margin-left: auto;
+  }
+
+  .fluvio-home-project-list > :global(.fluvio-project-feature:nth-child(3)) {
+    width: min(100%, 74rem);
+  }
+
+  .fluvio-home-section--platforms {
+    background: rgb(var(--fluvio-aqua) / 0.12);
+  }
+
+  .fluvio-home-platform-grid {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .fluvio-home-team-grid {
+    display: grid;
+    gap: 3rem;
+  }
+
+  .fluvio-home-impact {
+    padding: clamp(5rem, 12vw, 11rem) 0;
+    border-top: 1px solid rgb(var(--fluvio-ink) / 0.15);
+  }
+
+  .fluvio-home-impact-grid {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .fluvio-home-impact h2 {
+    max-width: 15ch;
+  }
+
+  .fluvio-home-impact p {
+    margin: 0 0 1.2rem;
+    max-width: 45rem;
+    color: var(--aw-color-text-muted);
+    font-size: clamp(1.05rem, 1.7vw, 1.25rem);
+    line-height: 1.75;
+  }
+
+  .fluvio-home-contact {
+    padding: 0 0 clamp(4.5rem, 10vw, 9rem);
+  }
+
+  a:focus-visible {
+    border-radius: 4px;
+    outline: 2px solid rgb(var(--fluvio-water));
+    outline-offset: 4px;
+  }
+
+  :global(.dark) .fluvio-home-capabilities,
+  :global(.dark) .fluvio-home-impact,
+  :global(.dark) .fluvio-home-expertise-list a {
+    border-color: rgb(var(--fluvio-paper) / 0.16);
+  }
+
+  @media (min-width: 768px) {
+    .fluvio-home-shell {
+      width: min(100% - 4rem, 80rem);
+    }
+
+    .fluvio-home-capability-grid {
+      grid-template-columns: 1.15fr 0.85fr 1fr;
+      gap: clamp(2rem, 5vw, 5rem);
+    }
+
+    .fluvio-home-platform-grid {
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      gap: clamp(3rem, 8vw, 8rem);
+    }
+
+    .fluvio-home-team-grid {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: clamp(1.5rem, 3vw, 3rem);
+      align-items: start;
+    }
+
+    .fluvio-home-team-grid > :global(.fluvio-team-profile:nth-child(1)) {
+      grid-column: span 5;
+    }
+
+    .fluvio-home-team-grid > :global(.fluvio-team-profile:nth-child(2)) {
+      grid-column: span 3;
+      margin-top: 5rem;
+    }
+
+    .fluvio-home-team-grid > :global(.fluvio-team-profile:nth-child(3)) {
+      grid-column: span 4;
+      margin-top: 1.5rem;
+    }
+
+    .fluvio-home-impact-grid {
+      grid-template-columns: minmax(0, 0.9fr) minmax(24rem, 1.1fr);
+      gap: clamp(4rem, 10vw, 10rem);
+      align-items: start;
+    }
+  }
+</style>

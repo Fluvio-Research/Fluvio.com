@@ -58,6 +58,15 @@ const projectExperienceFiles = [
   'src/pages/[slug].astro',
 ];
 
+const primaryPageFiles = [
+  'src/pages/index.astro',
+  'src/pages/vision.astro',
+  'src/pages/expertise.astro',
+  'src/pages/projects.astro',
+  'src/pages/team.astro',
+  'src/pages/contact.astro',
+];
+
 test('Fluvio content has complete project, expertise and team records', () => {
   assert.deepEqual(projects.map(({ slug }) => slug).sort(), expectedSlugs.sort());
   assert.equal(new Set(projects.map(({ slug }) => slug)).size, 9);
@@ -144,4 +153,47 @@ test('Fluvio project experience provides shared components and static project ro
   assert.match(projectFeature, /alt=\{project\.heroAlt\}/);
   assert.match(projectListItem, /alt=\{project\.heroAlt\}/);
   assert.doesNotMatch(platformFeature, /target=["']_blank["']/);
+});
+
+test('Fluvio primary pages exist without public template content', async () => {
+  const sources = await Promise.all(
+    primaryPageFiles.map(async (path) => {
+      await access(new URL(`../${path}`, import.meta.url));
+      return readFile(new URL(`../${path}`, import.meta.url), 'utf8');
+    })
+  );
+
+  for (const source of sources) {
+    assert.doesNotMatch(source, /Get template|AstroWind|Pricing|SaaS|images\.unsplash\.com/i);
+  }
+});
+
+test('Fluvio hero slider exposes three accessible, motion-aware slides', async () => {
+  const slider = await readFile(new URL('../src/components/fluvio/HeroSlider.astro', import.meta.url), 'utf8');
+
+  for (const image of ['home-river.jpg', 'expertise-stream-monitoring.jpg', 'vision-kovi-river.jpg']) {
+    assert.match(slider, new RegExp(image.replace('.', '\\.')));
+  }
+  assert.match(slider, /Technology for a more resilient water future\./);
+  assert.match(slider, /aria-live=["']polite["']/);
+  assert.match(slider, /aria-label=["']Previous slide["']/);
+  assert.match(slider, /aria-label=["']Next slide["']/);
+  assert.match(slider, /ArrowLeft/);
+  assert.match(slider, /ArrowRight/);
+  assert.match(slider, /prefers-reduced-motion/);
+});
+
+test('Fluvio recovery and contact routes use explicit destinations', async () => {
+  const [about, services, notFound, contact] = await Promise.all(
+    ['about.astro', 'services.astro', '404.astro', 'contact.astro'].map((file) =>
+      readFile(new URL(`../src/pages/${file}`, import.meta.url), 'utf8')
+    )
+  );
+
+  assert.match(about, /Astro\.redirect\(['"]\/vision['"],\s*301\)/);
+  assert.match(services, /Astro\.redirect\(['"]\/expertise['"],\s*301\)/);
+  for (const href of ['/', '/expertise', '/projects']) assert.match(notFound, new RegExp(`href=["']${href}["']`));
+  assert.match(contact, /href=["']mailto:/);
+  assert.match(contact, /https:\/\/www\.linkedin\.com\/company\/fluvioptyltd\//);
+  assert.doesNotMatch(contact, /within \d+ hours|attachment upload|server submission/i);
 });

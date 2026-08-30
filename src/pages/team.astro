@@ -1,0 +1,144 @@
+---
+import ContactPanel from '~/components/fluvio/ContactPanel.astro';
+import LargeImage from '~/components/fluvio/LargeImage.astro';
+import SectionHeading from '~/components/fluvio/SectionHeading.astro';
+import TeamProfile from '~/components/fluvio/TeamProfile.astro';
+import { teamMembers } from '~/data/fluvio/team';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Team',
+  description:
+    'Meet the Fluvio team working across hydrology, environmental science, carbon, spatial analysis and data systems.',
+};
+---
+
+<Layout metadata={metadata}>
+  <header class="fluvio-team-hero">
+    <div class="fluvio-team-shell fluvio-team-hero__grid">
+      <div class="fluvio-team-hero__copy">
+        <p class="fluvio-team-eyebrow">Team</p>
+        <h1>Many disciplines. One environmental practice.</h1>
+        <p>Specialists working together across field science, environmental systems and applied technology.</p>
+      </div>
+      <LargeImage
+        src="~/assets/images/fluvio/vision-field-team.jpeg"
+        alt="Fluvio specialists working together in the field"
+        aspect="landscape"
+        priority
+      />
+    </div>
+  </header>
+
+  <section class="fluvio-team-directory" aria-labelledby="team-directory-heading">
+    <div class="fluvio-team-shell">
+      <div id="team-directory-heading" class="fluvio-team-heading">
+        <SectionHeading
+          title="People behind the work"
+          intro="The team brings research, industry and regional experience to complex water, climate and environmental challenges."
+        />
+      </div>
+      <div class="fluvio-team-grid">
+        {teamMembers.map((member) => <TeamProfile member={member} headingLevel="h2" />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="fluvio-team-contact">
+    <div class="fluvio-team-shell">
+      <ContactPanel
+        eyebrow=""
+        title="Bring the right mix of expertise to your project."
+        intro="Tell us about the system, place or decision your team is working through."
+      />
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .fluvio-team-shell {
+    width: min(100% - 2rem, 80rem);
+    margin-inline: auto;
+  }
+
+  .fluvio-team-hero {
+    padding: clamp(3rem, 7vw, 6rem) 0 clamp(4.5rem, 10vw, 9rem);
+  }
+
+  .fluvio-team-hero__grid {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .fluvio-team-eyebrow {
+    margin: 0 0 1.25rem;
+    color: rgb(var(--fluvio-water));
+    font-family: var(--aw-font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    margin: 0;
+    max-width: 12ch;
+    color: var(--aw-color-text-heading);
+    font-family: var(--aw-font-heading);
+    font-size: clamp(3.2rem, 7vw, 6.5rem);
+    font-weight: 500;
+    letter-spacing: -0.06em;
+    line-height: 0.95;
+  }
+
+  .fluvio-team-hero__copy > p:last-child {
+    margin: 1.75rem 0 0;
+    max-width: 35rem;
+    color: var(--aw-color-text-muted);
+    font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+    line-height: 1.65;
+  }
+
+  .fluvio-team-directory {
+    padding: clamp(4.5rem, 10vw, 9rem) 0 clamp(5rem, 12vw, 11rem);
+    border-top: 1px solid rgb(var(--fluvio-ink) / 0.15);
+  }
+
+  .fluvio-team-heading {
+    margin-bottom: clamp(3.5rem, 8vw, 7rem);
+  }
+
+  .fluvio-team-grid {
+    display: grid;
+    gap: clamp(4rem, 9vw, 8rem) clamp(2rem, 6vw, 6rem);
+  }
+
+  .fluvio-team-contact {
+    padding: 0 0 clamp(4.5rem, 10vw, 9rem);
+  }
+
+  :global(.dark) .fluvio-team-directory {
+    border-color: rgb(var(--fluvio-paper) / 0.16);
+  }
+
+  @media (min-width: 768px) {
+    .fluvio-team-shell {
+      width: min(100% - 4rem, 80rem);
+    }
+
+    .fluvio-team-hero__grid {
+      grid-template-columns: minmax(0, 0.85fr) minmax(24rem, 1.15fr);
+      gap: clamp(3rem, 8vw, 8rem);
+    }
+
+    .fluvio-team-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: start;
+    }
+
+    .fluvio-team-grid > :global(.fluvio-team-profile:nth-child(even)) {
+      margin-top: clamp(2rem, 6vw, 6rem);
+    }
+  }
+</style>

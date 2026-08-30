@@ -1,24 +1,92 @@
 ---
-import Layout from '~/layouts/Layout.astro';
-import { getHomePermalink } from '~/utils/permalinks';
+import Layout from '~/layouts/PageLayout.astro';
 
-const title = `Error 404`;
+const metadata = {
+  title: 'Page not found',
+  description: 'The requested Fluvio page could not be found.',
+};
 ---
 
-<Layout metadata={{ title }}>
-  <section class="flex items-center h-full p-16">
-    <div class="container flex flex-col items-center justify-center px-5 mx-auto my-8">
-      <div class="max-w-md text-center">
-        <h2 class="mb-8 font-bold text-9xl">
-          <span class="sr-only">Error</span>
-          <span class="text-primary">404</span>
-        </h2>
-        <p class="text-3xl font-semibold md:text-3xl">Sorry, we couldn't find this page.</p>
-        <p class="mt-4 mb-8 text-lg text-muted dark:text-slate-400">
-          But don't worry, you can find plenty of other things on our homepage.
-        </p>
-        <a rel="noopener noreferrer" href={getHomePermalink()} class="btn ml-4">Back to homepage</a>
-      </div>
+<Layout metadata={metadata}>
+  <section class="fluvio-not-found">
+    <div class="fluvio-not-found__shell">
+      <p class="fluvio-not-found__code">404</p>
+      <h1>This path does not lead to a page.</h1>
+      <p class="fluvio-not-found__intro">Continue with Fluvio's work, capabilities or current projects.</p>
+      <nav aria-label="Page not found options">
+        <a href="/">Home <span aria-hidden="true">→</span></a>
+        <a href="/expertise">Expertise <span aria-hidden="true">→</span></a>
+        <a href="/projects">Projects <span aria-hidden="true">→</span></a>
+      </nav>
     </div>
   </section>
 </Layout>
+
+<style>
+  .fluvio-not-found {
+    display: grid;
+    min-height: min(42rem, calc(100dvh - 10rem));
+    padding: clamp(4rem, 10vw, 9rem) 0;
+    align-items: center;
+  }
+
+  .fluvio-not-found__shell {
+    width: min(100% - 2rem, 72rem);
+    margin-inline: auto;
+  }
+
+  .fluvio-not-found__code {
+    margin: 0 0 1.25rem;
+    color: rgb(var(--fluvio-water));
+    font-family: var(--aw-font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+  }
+
+  h1 {
+    margin: 0;
+    max-width: 14ch;
+    color: var(--aw-color-text-heading);
+    font-family: var(--aw-font-heading);
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    font-weight: 500;
+    letter-spacing: -0.06em;
+    line-height: 0.96;
+  }
+
+  .fluvio-not-found__intro {
+    margin: 1.75rem 0 2.5rem;
+    max-width: 38rem;
+    color: var(--aw-color-text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem 2rem;
+  }
+
+  a {
+    display: inline-flex;
+    gap: 0.45rem;
+    border-bottom: 1px solid currentColor;
+    color: rgb(var(--fluvio-water));
+    font-weight: 650;
+    text-decoration: none;
+  }
+
+  a:focus-visible {
+    border-radius: 4px;
+    outline: 2px solid rgb(var(--fluvio-water));
+    outline-offset: 4px;
+  }
+
+  @media (min-width: 768px) {
+    .fluvio-not-found__shell {
+      width: min(100% - 4rem, 72rem);
+    }
+  }
+</style>
