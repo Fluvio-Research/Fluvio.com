@@ -7,11 +7,11 @@
     "location": "Tina River, Solomon Islands",
     "timeframe": "2025 - Current",
     "disciplines": ["Hydrological monitoring", "Sediment monitoring"],
-    "heroImage": "~/assets/images/fluvio/project-tina.jpeg",
+    "heroImage": "/src/assets/images/fluvio/project-tina.jpeg",
     "heroAlt": "Hydrological monitoring of Tina Hydro",
     "gallery": [
       {
-        "src": "~/assets/images/fluvio/project-tina-station.png",
+        "src": "/src/assets/images/fluvio/project-tina-station.png",
         "alt": "A real-time monitoring station deployed on the Tina River",
         "caption": "A real time monitoring station deployed on the Tina River."
       }
@@ -36,11 +36,11 @@
     "location": "Rivière Tina, Îles Salomon",
     "timeframe": "2025 - En cours",
     "disciplines": ["Surveillance hydrologique", "Surveillance des sédiments"],
-    "heroImage": "~/assets/images/fluvio/project-tina.jpeg",
+    "heroImage": "/src/assets/images/fluvio/project-tina.jpeg",
     "heroAlt": "Surveillance hydrologique de Tina Hydro",
     "gallery": [
       {
-        "src": "~/assets/images/fluvio/project-tina-station.png",
+        "src": "/src/assets/images/fluvio/project-tina-station.png",
         "alt": "A real-time monitoring station deployed on the Tina River",
         "caption": "A real time monitoring station deployed on the Tina River."
       }
@@ -65,11 +65,11 @@
     "location": "Río Tina, Islas Salomón",
     "timeframe": "2025 - Actualidad",
     "disciplines": ["Monitoreo hidrológico", "Monitoreo de sedimentos"],
-    "heroImage": "~/assets/images/fluvio/project-tina.jpeg",
+    "heroImage": "/src/assets/images/fluvio/project-tina.jpeg",
     "heroAlt": "Monitoreo hidrológico de Tina Hydro",
     "gallery": [
       {
-        "src": "~/assets/images/fluvio/project-tina-station.png",
+        "src": "/src/assets/images/fluvio/project-tina-station.png",
         "alt": "A real-time monitoring station deployed on the Tina River",
         "caption": "A real time monitoring station deployed on the Tina River."
       }

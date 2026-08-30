@@ -7,7 +7,7 @@
     "location": "Australia wide",
     "timeframe": "2024 - Current",
     "disciplines": ["Greenhouse gas assessment", "Methane emissions"],
-    "heroImage": "~/assets/images/fluvio/project-ghg-reservoirs.jpg",
+    "heroImage": "/src/assets/images/fluvio/project-ghg-reservoirs.jpg",
     "heroAlt": "Methane chambers measuring ebullitive emission rates",
     "challenge": [
       "Freshwater systems emit substantial volumes of greenhouse gases, particularly methane, and therefore contribute meaningfully to global emissions."
@@ -28,7 +28,7 @@
     "location": "Toute l’Australie",
     "timeframe": "2024 - En cours",
     "disciplines": ["Évaluation des gaz à effet de serre", "Émissions de méthane"],
-    "heroImage": "~/assets/images/fluvio/project-ghg-reservoirs.jpg",
+    "heroImage": "/src/assets/images/fluvio/project-ghg-reservoirs.jpg",
     "heroAlt": "Chambres à méthane mesurant les taux d’émission par ébullition",
     "challenge": [
       "Les systèmes d’eau douce émettent des volumes importants de gaz à effet de serre, en particulier du méthane, et contribuent donc de manière significative aux émissions mondiales."
@@ -49,7 +49,7 @@
     "location": "Toda Australia",
     "timeframe": "2024 - Actualidad",
     "disciplines": ["Evaluación de gases de efecto invernadero", "Emisiones de metano"],
-    "heroImage": "~/assets/images/fluvio/project-ghg-reservoirs.jpg",
+    "heroImage": "/src/assets/images/fluvio/project-ghg-reservoirs.jpg",
     "heroAlt": "Cámaras de metano midiendo tasas de emisión ebullitiva",
     "challenge": [
       "Los sistemas de agua dulce emiten volúmenes sustanciales de gases de efecto invernadero, en particular metano, y por lo tanto contribuyen de manera significativa a las emisiones globales."

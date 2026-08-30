@@ -7,7 +7,7 @@
     "description": [
       "By integrating real-time monitoring systems, cloud databases and alerting systems we have reduced response times to critical water quality incidents."
     ],
-    "image": "~/assets/images/fluvio/project-honiara.jpeg",
+    "image": "/src/assets/images/fluvio/project-honiara.jpeg",
     "imageAlt": "Water quality monitoring",
     "relatedProjects": ["monitoring-honiara", "wrd"]
   },
@@ -19,7 +19,7 @@
     "description": [
       "En intégrant des systèmes de surveillance en temps réel, des bases de données en nuage et des dispositifs d’alerte, nous avons réduit les délais de réponse aux incidents critiques de qualité de l’eau."
     ],
-    "image": "~/assets/images/fluvio/project-honiara.jpeg",
+    "image": "/src/assets/images/fluvio/project-honiara.jpeg",
     "imageAlt": "Surveillance de la qualité de l’eau",
     "relatedProjects": ["monitoring-honiara", "wrd"]
   },
@@ -31,7 +31,7 @@
     "description": [
       "Al integrar sistemas de monitoreo en tiempo real, bases de datos en la nube y sistemas de alerta, hemos reducido los tiempos de respuesta ante incidentes críticos de calidad del agua."
     ],
-    "image": "~/assets/images/fluvio/project-honiara.jpeg",
+    "image": "/src/assets/images/fluvio/project-honiara.jpeg",
     "imageAlt": "Monitoreo de la calidad del agua",
     "relatedProjects": ["monitoring-honiara", "wrd"]
   }

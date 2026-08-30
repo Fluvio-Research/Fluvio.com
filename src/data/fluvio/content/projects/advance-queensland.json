@@ -7,7 +7,7 @@
     "location": "Queensland, Australia",
     "timeframe": "2024 - Current",
     "disciplines": ["Hydrological monitoring", "Computer vision"],
-    "heroImage": "~/assets/images/fluvio/project-advance-queensland.jpeg",
+    "heroImage": "/src/assets/images/fluvio/project-advance-queensland.jpeg",
     "heroAlt": "Installation of a computer vision stream gauging system",
     "challenge": [
       "Fluvio has secured an Advance Queensland grant to refine its computer vision stream gauging system (CVSG) to become a commercially available product."
@@ -30,7 +30,7 @@
     "location": "Queensland, Australie",
     "timeframe": "2024 - En cours",
     "disciplines": ["Surveillance hydrologique", "Vision par ordinateur"],
-    "heroImage": "~/assets/images/fluvio/project-advance-queensland.jpeg",
+    "heroImage": "/src/assets/images/fluvio/project-advance-queensland.jpeg",
     "heroAlt": "Installation d’un système de jaugeage de cours d’eau par vision par ordinateur",
     "challenge": [
       "Fluvio a obtenu une subvention Advance Queensland pour perfectionner son système de jaugeage de cours d’eau par vision par ordinateur (CVSG) et en faire un produit commercialisable."
@@ -53,7 +53,7 @@
     "location": "Queensland, Australia",
     "timeframe": "2024 - Actualidad",
     "disciplines": ["Monitoreo hidrológico", "Visión artificial"],
-    "heroImage": "~/assets/images/fluvio/project-advance-queensland.jpeg",
+    "heroImage": "/src/assets/images/fluvio/project-advance-queensland.jpeg",
     "heroAlt": "Instalación de un sistema de aforo de cauces por visión artificial",
     "challenge": [
       "Fluvio obtuvo una subvención Advance Queensland para perfeccionar su sistema de aforo de cauces por visión artificial (CVSG) y convertirlo en un producto disponible comercialmente."

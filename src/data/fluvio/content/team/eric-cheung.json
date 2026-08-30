@@ -4,7 +4,7 @@
     "name": "Eric Cheung",
     "role": "Senior Data Scientist",
     "bio": "Eric is focused on applying computer vision and machine learning to turn visual data into meaningful insights. He enjoys using data and technology to address environmental challenges and improve monitoring and analysis.",
-    "portrait": "~/assets/images/fluvio/team-eric.jpeg",
+    "portrait": "/src/assets/images/fluvio/team-eric.jpeg",
     "portraitAlt": "Eric Cheung",
     "specialties": ["Computer vision", "Machine learning"]
   },
@@ -13,7 +13,7 @@
     "name": "Eric Cheung",
     "role": "Data scientist senior",
     "bio": "Eric applique la vision par ordinateur et l’apprentissage automatique pour transformer les données visuelles en enseignements utiles. Il aime mettre les données et la technologie au service des défis environnementaux et de l’amélioration de la surveillance et de l’analyse.",
-    "portrait": "~/assets/images/fluvio/team-eric.jpeg",
+    "portrait": "/src/assets/images/fluvio/team-eric.jpeg",
     "portraitAlt": "Eric Cheung",
     "specialties": ["Vision par ordinateur", "Apprentissage automatique"]
   },
@@ -22,7 +22,7 @@
     "name": "Eric Cheung",
     "role": "Científico de Datos Senior",
     "bio": "Eric se centra en aplicar la visión artificial y el aprendizaje automático para convertir los datos visuales en información significativa. Disfruta usar los datos y la tecnología para abordar desafíos ambientales y mejorar el monitoreo y el análisis.",
-    "portrait": "~/assets/images/fluvio/team-eric.jpeg",
+    "portrait": "/src/assets/images/fluvio/team-eric.jpeg",
     "portraitAlt": "Eric Cheung",
     "specialties": ["Visión artificial", "Aprendizaje automático"]
   }

@@ -7,7 +7,7 @@
     "description": [
       "This system improves safety and efficiency by utilising non-contact sensors and real-time analysis to monitor velocity and discharge of river systems."
     ],
-    "image": "~/assets/images/fluvio/expertise-stream-monitoring.jpg",
+    "image": "/src/assets/images/fluvio/expertise-stream-monitoring.jpg",
     "imageAlt": "Hydrological monitoring in a stream",
     "relatedProjects": ["tina", "bina", "advance-queensland"]
   },
@@ -19,7 +19,7 @@
     "description": [
       "Ce système améliore la sécurité et l’efficacité grâce à des capteurs sans contact et à une analyse en temps réel pour suivre la vitesse et le débit des cours d’eau."
     ],
-    "image": "~/assets/images/fluvio/expertise-stream-monitoring.jpg",
+    "image": "/src/assets/images/fluvio/expertise-stream-monitoring.jpg",
     "imageAlt": "Surveillance hydrologique dans un cours d’eau",
     "relatedProjects": ["tina", "bina", "advance-queensland"]
   },
@@ -31,7 +31,7 @@
     "description": [
       "Este sistema mejora la seguridad y la eficiencia mediante sensores sin contacto y análisis en tiempo real para monitorear la velocidad y el caudal de los sistemas fluviales."
     ],
-    "image": "~/assets/images/fluvio/expertise-stream-monitoring.jpg",
+    "image": "/src/assets/images/fluvio/expertise-stream-monitoring.jpg",
     "imageAlt": "Monitoreo hidrológico en un arroyo",
     "relatedProjects": ["tina", "bina", "advance-queensland"]
   }

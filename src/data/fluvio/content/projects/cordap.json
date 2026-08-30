@@ -7,7 +7,7 @@
     "location": "Globally",
     "timeframe": "2024 - Current",
     "disciplines": ["Pollution mapping", "Risk assessment"],
-    "heroImage": "~/assets/images/fluvio/project-cordap.jpeg",
+    "heroImage": "/src/assets/images/fluvio/project-cordap.jpeg",
     "heroAlt": "A sediment plume seen in the Solomon Islands",
     "challenge": [
       "Pollution from land-based sources poses a significant threat to reef health globally, affecting over 30% of coral reefs, while available tools are largely inaccessible or unsuitable for decision-making."
@@ -28,7 +28,7 @@
     "location": "Mondial",
     "timeframe": "2024 - En cours",
     "disciplines": ["Cartographie de la pollution", "Évaluation des risques"],
-    "heroImage": "~/assets/images/fluvio/project-cordap.jpeg",
+    "heroImage": "/src/assets/images/fluvio/project-cordap.jpeg",
     "heroAlt": "Un panache sédimentaire observé aux Îles Salomon",
     "challenge": [
       "La pollution d’origine terrestre constitue une menace majeure pour la santé des récifs à l’échelle mondiale, affectant plus de 30 % des récifs coralliens, alors que les outils disponibles restent largement inaccessibles ou inadaptés à la prise de décision."
@@ -49,7 +49,7 @@
     "location": "Global",
     "timeframe": "2024 - Actualidad",
     "disciplines": ["Cartografía de la contaminación", "Evaluación de riesgos"],
-    "heroImage": "~/assets/images/fluvio/project-cordap.jpeg",
+    "heroImage": "/src/assets/images/fluvio/project-cordap.jpeg",
     "heroAlt": "Una pluma de sedimentos observada en las Islas Salomón",
     "challenge": [
       "La contaminación de origen terrestre representa una amenaza importante para la salud de los arrecifes a nivel mundial, afectando a más del 30 % de los arrecifes de coral, mientras que las herramientas disponibles son en gran medida inaccesibles o inadecuadas para la toma de decisiones."

@@ -7,7 +7,7 @@
     "description": [
       "We work with government, community and industry to understand catchment-waterway-ocean linkages, with a strong focus on balancing community needs and environmental benefits."
     ],
-    "image": "~/assets/images/fluvio/vision-field-team.jpeg",
+    "image": "/src/assets/images/fluvio/vision-field-team.jpeg",
     "imageAlt": "Field team at work",
     "relatedProjects": ["monitoring-honiara", "wrd"]
   },
@@ -19,7 +19,7 @@
     "description": [
       "Nous travaillons avec les pouvoirs publics, les communautés et l’industrie pour comprendre les liens entre bassins versants, cours d’eau et océan, en veillant à équilibrer les besoins des communautés et les bénéfices environnementaux."
     ],
-    "image": "~/assets/images/fluvio/vision-field-team.jpeg",
+    "image": "/src/assets/images/fluvio/vision-field-team.jpeg",
     "imageAlt": "Équipe de terrain au travail",
     "relatedProjects": ["monitoring-honiara", "wrd"]
   },
@@ -31,7 +31,7 @@
     "description": [
       "Trabajamos con gobiernos, comunidades e industria para comprender los vínculos entre cuencas, cauces y océano, con un fuerte énfasis en equilibrar las necesidades de las comunidades y los beneficios ambientales."
     ],
-    "image": "~/assets/images/fluvio/vision-field-team.jpeg",
+    "image": "/src/assets/images/fluvio/vision-field-team.jpeg",
     "imageAlt": "Equipo de campo en acción",
     "relatedProjects": ["monitoring-honiara", "wrd"]
   }

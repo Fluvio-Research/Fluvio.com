@@ -7,7 +7,7 @@
     "location": "Bina Harbour, Solomon Islands",
     "timeframe": "2025 - Current",
     "disciplines": ["Hydrological monitoring", "Water quality monitoring"],
-    "heroImage": "~/assets/images/fluvio/project-bina.jpeg",
+    "heroImage": "/src/assets/images/fluvio/project-bina.jpeg",
     "heroAlt": "Flow gauging in the Loaloana Stream",
     "challenge": [
       "The Bina Harbour Development Project requires a reliable and clean water source to meet immediate and long-term demand for its tuna processing facility."
@@ -28,7 +28,7 @@
     "location": "Bina Harbour, Îles Salomon",
     "timeframe": "2025 - En cours",
     "disciplines": ["Surveillance hydrologique", "Surveillance de la qualité de l’eau"],
-    "heroImage": "~/assets/images/fluvio/project-bina.jpeg",
+    "heroImage": "/src/assets/images/fluvio/project-bina.jpeg",
     "heroAlt": "Jaugeage de débit dans le cours d’eau Loaloana",
     "challenge": [
       "Le projet de développement de Bina Harbour requiert une source d’eau fiable et propre pour répondre à la demande immédiate et de long terme de son usine de transformation du thon."
@@ -49,7 +49,7 @@
     "location": "Bina Harbour, Islas Salomón",
     "timeframe": "2025 - Actualidad",
     "disciplines": ["Monitoreo hidrológico", "Monitoreo de calidad del agua"],
-    "heroImage": "~/assets/images/fluvio/project-bina.jpeg",
+    "heroImage": "/src/assets/images/fluvio/project-bina.jpeg",
     "heroAlt": "Aforo de caudal en el arroyo Loaloana",
     "challenge": [
       "El proyecto de desarrollo de Bina Harbour requiere una fuente de agua confiable y limpia para satisfacer la demanda inmediata y de largo plazo de su planta procesadora de atún."

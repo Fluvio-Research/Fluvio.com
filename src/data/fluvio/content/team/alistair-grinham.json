@@ -4,7 +4,7 @@
     "name": "Alistair Grinham",
     "role": "Director of Sustainability and Industry",
     "bio": "Alistair is an internationally recognised expert in carbon and sediment dynamics across terrestrial and aquatic environments. He seeks to support the global energy transition and better understanding the impact of extreme events on natural and built environments.",
-    "portrait": "~/assets/images/fluvio/team-alistair.png",
+    "portrait": "/src/assets/images/fluvio/team-alistair.png",
     "portraitAlt": "Alistair Grinham",
     "specialties": ["Carbon and sediment dynamics"]
   },
@@ -13,7 +13,7 @@
     "name": "Alistair Grinham",
     "role": "Directeur du développement durable et de l’industrie",
     "bio": "Alistair est un expert internationalement reconnu de la dynamique du carbone et des sédiments dans les milieux terrestres et aquatiques. Il s’attache à soutenir la transition énergétique mondiale et à mieux comprendre l’impact des événements extrêmes sur les milieux naturels et bâtis.",
-    "portrait": "~/assets/images/fluvio/team-alistair.png",
+    "portrait": "/src/assets/images/fluvio/team-alistair.png",
     "portraitAlt": "Alistair Grinham",
     "specialties": ["Dynamique du carbone et des sédiments"]
   },
@@ -22,7 +22,7 @@
     "name": "Alistair Grinham",
     "role": "Director de Sostenibilidad e Industria",
     "bio": "Alistair es un experto reconocido internacionalmente en la dinámica del carbono y los sedimentos en entornos terrestres y acuáticos. Busca apoyar la transición energética global y comprender mejor el impacto de los eventos extremos en los entornos naturales y construidos.",
-    "portrait": "~/assets/images/fluvio/team-alistair.png",
+    "portrait": "/src/assets/images/fluvio/team-alistair.png",
     "portraitAlt": "Alistair Grinham",
     "specialties": ["Dinámica del carbono y los sedimentos"]
   }

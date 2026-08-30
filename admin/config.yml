@@ -13,7 +13,7 @@ site_url: https://fluvio-research.github.io/Fluvio.com/
 display_url: https://fluvio-research.github.io/Fluvio.com/
 
 media_folder: src/assets/images/fluvio
-public_folder: '~/assets/images/fluvio'
+public_folder: '/src/assets/images/fluvio'
 
 editor:
   preview: false
@@ -27,6 +27,10 @@ collections:
   - name: projects
     label: Projects
     label_singular: Project
+    description: >-
+      The project case studies shown on the Projects page and the homepage.
+      Each project has English, French and Spanish tabs; fill in all three.
+      Fields marked as shared apply to every language automatically.
     folder: src/data/fluvio/content/projects
     format: json
     extension: json
@@ -38,7 +42,14 @@ collections:
     sortable_fields: [order, title]
     i18n: true
     fields:
-      - { name: order, label: Display order, widget: number, value_type: int, i18n: duplicate }
+      - {
+          name: order,
+          label: Display order,
+          widget: number,
+          value_type: int,
+          i18n: duplicate,
+          hint: 'Position on the page; 1 comes first.',
+        }
       - {
           name: slug,
           label: 'URL slug (never change after publishing)',
@@ -47,9 +58,29 @@ collections:
           i18n: duplicate,
         }
       - { name: title, label: Title, widget: string, i18n: true }
-      - { name: summary, label: Summary, widget: text, i18n: true }
-      - { name: location, label: Location, widget: string, required: false, i18n: true }
-      - { name: timeframe, label: Timeframe, widget: string, required: false, i18n: true }
+      - {
+          name: summary,
+          label: Summary,
+          widget: text,
+          i18n: true,
+          hint: 'One or two sentences shown in project lists.',
+        }
+      - {
+          name: location,
+          label: Location,
+          widget: string,
+          required: false,
+          i18n: true,
+          hint: 'For example: Honiara, Solomon Islands.',
+        }
+      - {
+          name: timeframe,
+          label: Timeframe,
+          widget: string,
+          required: false,
+          i18n: true,
+          hint: 'For example: 2024 - Current.',
+        }
       - {
           name: disciplines,
           label: Disciplines,
@@ -66,7 +97,13 @@ collections:
           field: { name: partner, label: Partner, widget: string },
         }
       - { name: heroImage, label: Main photo, widget: image, i18n: duplicate }
-      - { name: heroAlt, label: 'Main photo description (for accessibility)', widget: string, i18n: true }
+      - {
+          name: heroAlt,
+          label: 'Main photo description (for accessibility)',
+          widget: string,
+          i18n: true,
+          hint: 'Describe what the photo shows, for screen readers.',
+        }
       - {
           name: gallery,
           label: Gallery,
@@ -101,19 +138,30 @@ collections:
           i18n: true,
           field: { name: paragraph, label: Paragraph, widget: text },
         }
-      - { name: featured, label: 'Featured on the homepage', widget: boolean, required: false, i18n: duplicate }
+      - {
+          name: featured,
+          label: 'Featured on the homepage',
+          widget: boolean,
+          required: false,
+          i18n: duplicate,
+          hint: 'Turn on to show this project in the homepage selection.',
+        }
       - {
           name: relatedProjects,
           label: 'Related project slugs',
           widget: list,
           required: false,
           i18n: duplicate,
+          hint: 'The URL slugs of other projects to cross-link, e.g. tina or bina.',
           field: { name: slug, label: Project slug, widget: string },
         }
 
   - name: team
     label: Team
     label_singular: Team member
+    description: >-
+      The people on the Team page. Photos should be roughly square. Roles,
+      biographies and specialties need all three language tabs filled in.
     folder: src/data/fluvio/content/team
     format: json
     extension: json
@@ -124,7 +172,14 @@ collections:
     sortable_fields: [order, name]
     i18n: true
     fields:
-      - { name: order, label: Display order, widget: number, value_type: int, i18n: duplicate }
+      - {
+          name: order,
+          label: Display order,
+          widget: number,
+          value_type: int,
+          i18n: duplicate,
+          hint: 'Position on the page; 1 comes first.',
+        }
       - { name: name, label: Name, widget: string, i18n: duplicate }
       - { name: role, label: Role, widget: string, required: false, i18n: true }
       - { name: bio, label: Biography, widget: text, i18n: true }
@@ -142,6 +197,9 @@ collections:
   - name: expertise
     label: Expertise
     label_singular: Expertise area
+    description: >-
+      The six capability areas on the Expertise page. The first four also
+      appear on the homepage, in display order.
     folder: src/data/fluvio/content/expertise
     format: json
     extension: json
@@ -153,7 +211,14 @@ collections:
     sortable_fields: [order, title]
     i18n: true
     fields:
-      - { name: order, label: Display order, widget: number, value_type: int, i18n: duplicate }
+      - {
+          name: order,
+          label: Display order,
+          widget: number,
+          value_type: int,
+          i18n: duplicate,
+          hint: 'Position on the page; 1 comes first.',
+        }
       - {
           name: slug,
           label: 'URL anchor (never change after publishing)',
@@ -182,6 +247,7 @@ collections:
 
   - name: site
     label: 'Site settings'
+    description: 'Company-wide text: the vision statement, values, and the words in the header and footer.'
     i18n: true
     files:
       - name: content

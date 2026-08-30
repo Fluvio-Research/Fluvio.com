@@ -4,7 +4,7 @@
     "name": "Melanie Johnson",
     "role": "Spatial Analyst & Science Communicator",
     "bio": "Melanie is an experienced geospatial analyst, conservation scientist, and drone pilot. Her creative approach improves science communication across a variety of mediums, and she is committed to using her diverse skillset to facilitate positive change.",
-    "portrait": "~/assets/images/fluvio/team-melanie.jpeg",
+    "portrait": "/src/assets/images/fluvio/team-melanie.jpeg",
     "portraitAlt": "Melanie Johnson",
     "specialties": ["Geospatial analysis", "Conservation science"]
   },
@@ -13,7 +13,7 @@
     "name": "Melanie Johnson",
     "role": "Analyste spatiale et communicatrice scientifique",
     "bio": "Melanie est une analyste géospatiale expérimentée, scientifique de la conservation et télépilote de drone. Son approche créative enrichit la communication scientifique sur des supports variés, et elle met son éventail de compétences au service d’un changement positif.",
-    "portrait": "~/assets/images/fluvio/team-melanie.jpeg",
+    "portrait": "/src/assets/images/fluvio/team-melanie.jpeg",
     "portraitAlt": "Melanie Johnson",
     "specialties": ["Analyse géospatiale", "Science de la conservation"]
   },
@@ -22,7 +22,7 @@
     "name": "Melanie Johnson",
     "role": "Analista Espacial y Comunicadora Científica",
     "bio": "Melanie es una analista geoespacial experimentada, científica de la conservación y piloto de drones. Su enfoque creativo mejora la comunicación científica en diversos medios, y está comprometida con usar su variado conjunto de habilidades para facilitar un cambio positivo.",
-    "portrait": "~/assets/images/fluvio/team-melanie.jpeg",
+    "portrait": "/src/assets/images/fluvio/team-melanie.jpeg",
     "portraitAlt": "Melanie Johnson",
     "specialties": ["Análisis geoespacial", "Ciencia de la conservación"]
   }

@@ -1,7 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
 import Logo from '~/components/Logo.astro';
-import { siteContent } from '~/data/fluvio/site';
 import { getHomePermalink } from '~/utils/permalinks';
 
 interface Link {
@@ -18,6 +17,7 @@ interface Links {
 }
 
 export interface Props {
+  description?: string;
   links: Array<Links>;
   secondaryLinks: Array<Link>;
   socialLinks: Array<Link>;
@@ -25,7 +25,14 @@ export interface Props {
   theme?: string;
 }
 
-const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme = 'light' } = Astro.props;
+const {
+  description = '',
+  socialLinks = [],
+  secondaryLinks = [],
+  links = [],
+  footNote = '',
+  theme = 'light',
+} = Astro.props;
 ---
 
 <footer
@@ -46,7 +53,7 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
             <Logo />
           </a>
         </div>
-        <p class="max-w-lg text-base leading-relaxed text-muted">{siteContent.summary}</p>
+        <p class="max-w-lg text-base leading-relaxed text-muted">{description}</p>
         <div class="mt-5 text-sm text-muted flex flex-wrap gap-x-4 gap-y-2">
           {
             secondaryLinks.map(({ text, href }) => (

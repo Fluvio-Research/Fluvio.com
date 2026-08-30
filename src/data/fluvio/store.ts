@@ -26,7 +26,9 @@ const contentDir = existsSync(moduleContentDir)
 /* Schemas                                                             */
 /* ------------------------------------------------------------------ */
 
-const localImage = z.string().regex(/^~\/assets\/images\/fluvio\//, 'images must live in ~/assets/images/fluvio/');
+const localImage = z
+  .string()
+  .regex(/^(?:~|\/src)\/assets\/images\/fluvio\//, 'images must live in src/assets/images/fluvio/');
 const text = z.string().min(1);
 const paragraphs = z.array(text).min(1);
 

@@ -8,11 +8,11 @@
     "timeframe": "2025 - 2026",
     "disciplines": ["Data management", "Hydrology", "Training"],
     "partners": ["Water Resources Division"],
-    "heroImage": "~/assets/images/fluvio/project-wrd-field.jpg",
+    "heroImage": "/src/assets/images/fluvio/project-wrd-field.jpg",
     "heroAlt": "Flow gauging with the Water Resources Division on the Mataniko River",
     "gallery": [
       {
-        "src": "~/assets/images/fluvio/project-wrd-workshop.jpg",
+        "src": "/src/assets/images/fluvio/project-wrd-workshop.jpg",
         "alt": "Water data management workshop"
       }
     ],
@@ -36,11 +36,11 @@
     "timeframe": "2025 - 2026",
     "disciplines": ["Gestion des données", "Hydrologie", "Formation"],
     "partners": ["Water Resources Division"],
-    "heroImage": "~/assets/images/fluvio/project-wrd-field.jpg",
+    "heroImage": "/src/assets/images/fluvio/project-wrd-field.jpg",
     "heroAlt": "Jaugeage de débit avec la Water Resources Division sur la rivière Mataniko",
     "gallery": [
       {
-        "src": "~/assets/images/fluvio/project-wrd-workshop.jpg",
+        "src": "/src/assets/images/fluvio/project-wrd-workshop.jpg",
         "alt": "Water data management workshop"
       }
     ],
@@ -64,11 +64,11 @@
     "timeframe": "2025 - 2026",
     "disciplines": ["Gestión de datos", "Hidrología", "Capacitación"],
     "partners": ["Water Resources Division"],
-    "heroImage": "~/assets/images/fluvio/project-wrd-field.jpg",
+    "heroImage": "/src/assets/images/fluvio/project-wrd-field.jpg",
     "heroAlt": "Aforo de caudal con la Water Resources Division en el río Mataniko",
     "gallery": [
       {
-        "src": "~/assets/images/fluvio/project-wrd-workshop.jpg",
+        "src": "/src/assets/images/fluvio/project-wrd-workshop.jpg",
         "alt": "Water data management workshop"
       }
     ],

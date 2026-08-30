@@ -29,12 +29,17 @@ export const findImage = async (
   imagePath?: string | ImageMetadata | null
 ): Promise<string | ImageMetadata | undefined | null> => {
   if (typeof imagePath !== 'string') return imagePath;
-  if (imagePath.startsWith('http://') || imagePath.startsWith('https://') || imagePath.startsWith('/'))
+  // Repo-real paths (written by the content admin) resolve via the glob too.
+  const isAliased = imagePath.startsWith('~/assets/images');
+  const isRepoPath = imagePath.startsWith('/src/assets/images');
+  if (!isAliased && !isRepoPath) {
+    if (imagePath.startsWith('http://') || imagePath.startsWith('https://') || imagePath.startsWith('/'))
+      return imagePath;
     return imagePath;
-  if (!imagePath.startsWith('~/assets/images')) return imagePath;
+  }
 
   const images = loadLocalImages();
-  const key = imagePath.replace('~/', '/src/');
+  const key = isAliased ? imagePath.replace('~/', '/src/') : imagePath;
   const loader = images[key];
 
   if (typeof loader !== 'function') return null;

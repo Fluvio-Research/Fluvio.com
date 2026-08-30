@@ -111,7 +111,7 @@ test('Fluvio content has complete project, expertise and team records', () => {
   for (const item of [...projects, ...expertiseAreas, ...teamMembers]) {
     assert.ok(item.title || item.name);
     assert.ok(item.summary || item.bio);
-    assert.match(item.heroImage || item.image || item.portrait, /^~\/assets\/images\/fluvio\//);
+    assert.match(item.heroImage || item.image || item.portrait, /^(?:~|\/src)\/assets\/images\/fluvio\//);
   }
 });
 
@@ -130,10 +130,10 @@ test('Fluvio site content provides the homepage and vision contract', () => {
   assert.equal(siteContent.name, 'Fluvio');
   assert.equal(siteContent.tagline, 'Innovative Solutions for Tomorrow');
   assert.ok(siteContent.summary);
-  assert.match(siteContent.heroImage, /^~\/assets\/images\/fluvio\//);
+  assert.match(siteContent.heroImage, /^(?:~|\/src)\/assets\/images\/fluvio\//);
   assert.equal(siteContent.vision.title, 'Vision');
   assert.ok(siteContent.vision.description);
-  assert.match(siteContent.vision.image, /^~\/assets\/images\/fluvio\//);
+  assert.match(siteContent.vision.image, /^(?:~|\/src)\/assets\/images\/fluvio\//);
   assert.equal(siteContent.values.length, 5);
   for (const value of siteContent.values) {
     assert.ok(value.title);

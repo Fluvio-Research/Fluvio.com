@@ -7,7 +7,7 @@
     "location": "Australia",
     "timeframe": "2024 - 2025",
     "disciplines": ["Sedimentation monitoring", "Field survey"],
-    "heroImage": "~/assets/images/fluvio/project-reservoir-sedimentation.jpeg",
+    "heroImage": "/src/assets/images/fluvio/project-reservoir-sedimentation.jpeg",
     "heroAlt": "Two sediment cores collected from lake beds",
     "challenge": [
       "Sedimentation occurs frequently in dams, decreasing their capacity, and increased rates can result in operational challenges."
@@ -28,7 +28,7 @@
     "location": "Australie",
     "timeframe": "2024 - 2025",
     "disciplines": ["Suivi de la sédimentation", "Relevés de terrain"],
-    "heroImage": "~/assets/images/fluvio/project-reservoir-sedimentation.jpeg",
+    "heroImage": "/src/assets/images/fluvio/project-reservoir-sedimentation.jpeg",
     "heroAlt": "Deux carottes de sédiments prélevées dans des fonds lacustres",
     "challenge": [
       "La sédimentation est fréquente dans les barrages et réduit leur capacité ; son accélération peut engendrer des difficultés opérationnelles."
@@ -49,7 +49,7 @@
     "location": "Australia",
     "timeframe": "2024 - 2025",
     "disciplines": ["Monitoreo de sedimentación", "Levantamiento de campo"],
-    "heroImage": "~/assets/images/fluvio/project-reservoir-sedimentation.jpeg",
+    "heroImage": "/src/assets/images/fluvio/project-reservoir-sedimentation.jpeg",
     "heroAlt": "Dos núcleos de sedimento extraídos de lechos lacustres",
     "challenge": [
       "La sedimentación ocurre con frecuencia en las presas y reduce su capacidad; el aumento de las tasas puede generar dificultades operativas."

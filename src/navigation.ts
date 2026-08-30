@@ -1,4 +1,4 @@
-import { getNavigation } from '~/data/fluvio/store.ts';
+import { getNavigation, getSiteContent } from '~/data/fluvio/store.ts';
 import { localeHref, type Locale } from '~/i18n';
 
 export const getHeaderData = (locale: Locale) => {
@@ -18,6 +18,7 @@ export const getHeaderData = (locale: Locale) => {
 export const getFooterData = (locale: Locale) => {
   const nav = getNavigation(locale);
   return {
+    description: getSiteContent(locale).summary,
     links: [
       {
         title: nav.explore,

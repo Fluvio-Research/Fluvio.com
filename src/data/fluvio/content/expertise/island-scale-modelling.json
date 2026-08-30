@@ -7,7 +7,7 @@
     "description": [
       "This innovative tool leverages earth observation and cloud computing to support integrated land-sea planning and restoration efforts."
     ],
-    "image": "~/assets/images/fluvio/expertise-coastal-model.png",
+    "image": "/src/assets/images/fluvio/expertise-coastal-model.png",
     "imageAlt": "Coastal pollution transport model",
     "relatedProjects": ["cordap"]
   },
@@ -19,7 +19,7 @@
     "description": [
       "Cet outil innovant s’appuie sur l’observation de la Terre et l’informatique en nuage pour soutenir la planification intégrée terre-mer et les efforts de restauration."
     ],
-    "image": "~/assets/images/fluvio/expertise-coastal-model.png",
+    "image": "/src/assets/images/fluvio/expertise-coastal-model.png",
     "imageAlt": "Modèle de transport de la pollution côtière",
     "relatedProjects": ["cordap"]
   },
@@ -31,7 +31,7 @@
     "description": [
       "Esta herramienta innovadora aprovecha la observación de la Tierra y la computación en la nube para apoyar la planificación integrada tierra-mar y los esfuerzos de restauración."
     ],
-    "image": "~/assets/images/fluvio/expertise-coastal-model.png",
+    "image": "/src/assets/images/fluvio/expertise-coastal-model.png",
     "imageAlt": "Modelo de transporte de contaminación costera",
     "relatedProjects": ["cordap"]
   }

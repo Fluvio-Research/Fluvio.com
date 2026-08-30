@@ -4,7 +4,7 @@
     "name": "Mandus Boselalu",
     "role": "Senior Environmental Scientist - Melanesia",
     "bio": "Mandus has over 15 years' experience leading environmental and social assessments for large projects in Melanesia. Based in Solomon Islands, Mandus is motivated to apply Fluvio's integrated approaches to the complex issues facing rural communities.",
-    "portrait": "~/assets/images/fluvio/team-mandus.jpg",
+    "portrait": "/src/assets/images/fluvio/team-mandus.jpg",
     "portraitAlt": "Mandus Boselalu",
     "specialties": ["Environmental and social assessments"]
   },
@@ -13,7 +13,7 @@
     "name": "Mandus Boselalu",
     "role": "Scientifique environnemental senior - Mélanésie",
     "bio": "Mandus cumule plus de quinze ans d’expérience à la tête d’évaluations environnementales et sociales de grands projets en Mélanésie. Basé aux Îles Salomon, il souhaite appliquer les approches intégrées de Fluvio aux enjeux complexes des communautés rurales.",
-    "portrait": "~/assets/images/fluvio/team-mandus.jpg",
+    "portrait": "/src/assets/images/fluvio/team-mandus.jpg",
     "portraitAlt": "Mandus Boselalu",
     "specialties": ["Évaluations environnementales et sociales"]
   },
@@ -22,7 +22,7 @@
     "name": "Mandus Boselalu",
     "role": "Científico Ambiental Senior - Melanesia",
     "bio": "Mandus tiene más de 15 años de experiencia liderando evaluaciones ambientales y sociales de grandes proyectos en Melanesia. Radicado en las Islas Salomón, está motivado por aplicar los enfoques integrados de Fluvio a los problemas complejos que enfrentan las comunidades rurales.",
-    "portrait": "~/assets/images/fluvio/team-mandus.jpg",
+    "portrait": "/src/assets/images/fluvio/team-mandus.jpg",
     "portraitAlt": "Mandus Boselalu",
     "specialties": ["Evaluaciones ambientales y sociales"]
   }

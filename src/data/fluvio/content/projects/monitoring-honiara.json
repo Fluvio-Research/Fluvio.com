@@ -8,7 +8,7 @@
     "timeframe": "2022 - Current",
     "disciplines": ["Hydrological monitoring", "Catchment investigations", "Water quality monitoring"],
     "partners": ["Solomon Water"],
-    "heroImage": "~/assets/images/fluvio/project-honiara.jpeg",
+    "heroImage": "/src/assets/images/fluvio/project-honiara.jpeg",
     "heroAlt": "Routine water quality monitoring in the Honiara reticulation network",
     "challenge": [
       "Only 55% of the greater Honiara population has access to the public water supply system, and less than 10% is connected to the Honiara sewerage network."
@@ -31,7 +31,7 @@
     "timeframe": "2022 - En cours",
     "disciplines": ["Surveillance hydrologique", "Études de bassins versants", "Surveillance de la qualité de l’eau"],
     "partners": ["Solomon Water"],
-    "heroImage": "~/assets/images/fluvio/project-honiara.jpeg",
+    "heroImage": "/src/assets/images/fluvio/project-honiara.jpeg",
     "heroAlt": "Surveillance de routine de la qualité de l’eau dans le réseau de distribution de Honiara",
     "challenge": [
       "Seulement 55 % de la population du Grand Honiara a accès au réseau public d’eau potable, et moins de 10 % est raccordée au réseau d’assainissement de Honiara."
@@ -54,7 +54,7 @@
     "timeframe": "2022 - Actualidad",
     "disciplines": ["Monitoreo hidrológico", "Investigaciones de cuencas", "Monitoreo de calidad del agua"],
     "partners": ["Solomon Water"],
-    "heroImage": "~/assets/images/fluvio/project-honiara.jpeg",
+    "heroImage": "/src/assets/images/fluvio/project-honiara.jpeg",
     "heroAlt": "Monitoreo de rutina de la calidad del agua en la red de distribución de Honiara",
     "challenge": [
       "Solo el 55 % de la población del Gran Honiara tiene acceso al sistema público de abastecimiento de agua, y menos del 10 % está conectada a la red de alcantarillado de Honiara."

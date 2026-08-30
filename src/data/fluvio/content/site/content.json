@@ -3,12 +3,12 @@
     "name": "Fluvio",
     "tagline": "Innovative Solutions for Tomorrow",
     "summary": "To support community, government and industry tackle water, environmental and climate challenges.",
-    "heroImage": "~/assets/images/fluvio/home-river.jpg",
+    "heroImage": "/src/assets/images/fluvio/home-river.jpg",
     "heroAlt": "River landscape",
     "vision": {
       "title": "Vision",
       "description": "At Fluvio we envision a world where knowledge and technology are harnessed to ensure a resilient and thriving planet for current and future generations. Our mission is to be the forefront of positive environmental change, applying innovative solutions in water and climate management to contribute to a better future for all.",
-      "image": "~/assets/images/fluvio/vision-kovi-river.jpg",
+      "image": "/src/assets/images/fluvio/vision-kovi-river.jpg",
       "imageAlt": "Kovi River, Solomon Islands"
     },
     "values": [
@@ -38,12 +38,12 @@
     "name": "Fluvio",
     "tagline": "Des solutions innovantes pour demain",
     "summary": "Aider les communautés, les gouvernements et l’industrie à relever les défis liés à l’eau, à l’environnement et au climat.",
-    "heroImage": "~/assets/images/fluvio/home-river.jpg",
+    "heroImage": "/src/assets/images/fluvio/home-river.jpg",
     "heroAlt": "Paysage fluvial",
     "vision": {
       "title": "Vision",
       "description": "Chez Fluvio, nous imaginons un monde où le savoir et la technologie sont mis au service d’une planète résiliente et florissante pour les générations présentes et futures. Notre mission est d’être à l’avant-garde du changement environnemental positif, en appliquant des solutions innovantes de gestion de l’eau et du climat pour contribuer à un avenir meilleur pour tous.",
-      "image": "~/assets/images/fluvio/vision-kovi-river.jpg",
+      "image": "/src/assets/images/fluvio/vision-kovi-river.jpg",
       "imageAlt": "La rivière Kovi, Îles Salomon"
     },
     "values": [
@@ -73,12 +73,12 @@
     "name": "Fluvio",
     "tagline": "Soluciones innovadoras para el mañana",
     "summary": "Ayudar a comunidades, gobiernos e industria a enfrentar los desafíos del agua, el medio ambiente y el clima.",
-    "heroImage": "~/assets/images/fluvio/home-river.jpg",
+    "heroImage": "/src/assets/images/fluvio/home-river.jpg",
     "heroAlt": "Paisaje fluvial",
     "vision": {
       "title": "Visión",
       "description": "En Fluvio imaginamos un mundo donde el conocimiento y la tecnología se aprovechan para asegurar un planeta resiliente y próspero para las generaciones presentes y futuras. Nuestra misión es estar a la vanguardia del cambio ambiental positivo, aplicando soluciones innovadoras en la gestión del agua y el clima para contribuir a un futuro mejor para todos.",
-      "image": "~/assets/images/fluvio/vision-kovi-river.jpg",
+      "image": "/src/assets/images/fluvio/vision-kovi-river.jpg",
       "imageAlt": "El río Kovi, Islas Salomón"
     },
     "values": [
