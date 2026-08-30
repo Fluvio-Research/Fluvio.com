@@ -11,9 +11,11 @@ import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import { siteContent } from '~/data/fluvio/site';
 
 const metadata = {
-  title: 'AstroWind — Free template for creating websites with Astro + Tailwind CSS',
+  title: siteContent.name,
+  description: siteContent.summary,
   ignoreTitleTemplate: true,
 };
 ---

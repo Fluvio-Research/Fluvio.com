@@ -18,7 +18,7 @@ metadata:
     images:
       - url: '~/assets/images/fluvio/home-river.jpg'
         width: 1200
-        height: 675
+        height: 626
     type: website
   twitter:
     cardType: summary_large_image
