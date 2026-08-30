@@ -1,8 +1,10 @@
 ---
 import ContactPanel from '~/components/fluvio/ContactPanel.astro';
 import HeroSlider from '~/components/fluvio/HeroSlider.astro';
+import LargeImage from '~/components/fluvio/LargeImage.astro';
 import PlatformFeature from '~/components/fluvio/PlatformFeature.astro';
 import ProjectFeature from '~/components/fluvio/ProjectFeature.astro';
+import SectionFrame from '~/components/fluvio/SectionFrame.astro';
 import SectionHeading from '~/components/fluvio/SectionHeading.astro';
 import TeamProfile from '~/components/fluvio/TeamProfile.astro';
 import { expertiseAreas } from '~/data/fluvio/expertise';
@@ -32,6 +34,8 @@ const capabilities = [
   },
 ];
 
+const reveal = 'intersect-once intersect-quarter motion-safe:intersect:animate-fade';
+
 const selectedExpertise = expertiseAreas.slice(0, 4);
 const selectedTeam = teamMembers.slice(0, 3);
 ---
@@ -39,101 +43,124 @@ const selectedTeam = teamMembers.slice(0, 3);
 <Layout metadata={metadata}>
   <HeroSlider />
 
-  <section class="fluvio-home-capabilities" aria-label="Core capabilities">
-    <div class="fluvio-home-shell fluvio-home-capability-grid">
+  {/* 1. Hero -> capability strip: soft mist field, one water-blue rule. */}
+  <SectionFrame tone="mist" rule="river" motif="contour" spacing="compact" ariaLabel="Core capabilities">
+    <div class="fluvio-home-capability-grid">
       {
         capabilities.map((capability) => (
-          <article>
+          <article class={reveal}>
             <h2>{capability.title}</h2>
             <p>{capability.description}</p>
           </article>
         ))
       }
     </div>
-  </section>
+  </SectionFrame>
 
-  <section class="fluvio-home-section" aria-labelledby="home-expertise-heading">
-    <div class="fluvio-home-shell">
-      <div id="home-expertise-heading" class="fluvio-home-heading">
-        <SectionHeading
-          eyebrow="Expertise"
-          title="Evidence that moves from field conditions to decisions"
-          intro="Our team combines water science, environmental monitoring and data systems around the needs of each place and project."
-        />
-      </div>
-      <div class="fluvio-home-expertise-list">
-        {
-          selectedExpertise.map((area) => (
-            <a href={`/expertise#${area.slug}`}>
-              <span>{area.title}</span>
-              <span aria-hidden="true">→</span>
-            </a>
-          ))
-        }
-      </div>
-      <a class="fluvio-home-text-link" href="/expertise"
-        >View all six capability areas <span aria-hidden="true">→</span></a
-      >
+  {/* 2. Capabilities -> Expertise: quiet paper, mineral field from the outer gutter. */}
+  <SectionFrame tone="paper" motif="wash-right" labelledby="home-expertise-heading">
+    <div id="home-expertise-heading" class:list={['fluvio-home-heading', reveal]}>
+      <SectionHeading
+        eyebrow="Expertise"
+        title="Evidence that moves from field conditions to decisions"
+        intro="Our team combines water science, environmental monitoring and data systems around the needs of each place and project."
+      />
     </div>
-  </section>
+    <div class="fluvio-home-expertise-grid">
+      {
+        selectedExpertise.map((area, index) => (
+          <a class:list={['fluvio-home-expertise-card', reveal]} href={`/expertise#${area.slug}`}>
+            <LargeImage
+              src={area.image}
+              alt={area.imageAlt}
+              aspect="landscape"
+              sizes="(min-width: 1280px) 616px, (min-width: 768px) 45vw, calc(100vw - 2rem)"
+            />
+            <span class="fluvio-home-expertise-card__meta">
+              <span class="fluvio-home-expertise-card__number">{String(index + 1).padStart(2, '0')}</span>
+              <span class="fluvio-home-expertise-card__title">{area.title}</span>
+              <span class="fluvio-home-expertise-card__arrow" aria-hidden="true">
+                →
+              </span>
+            </span>
+          </a>
+        ))
+      }
+    </div>
+    <a class="fluvio-link fluvio-home-more" href="/expertise"
+      >View all six capability areas <span aria-hidden="true">→</span></a
+    >
+  </SectionFrame>
 
-  <section class="fluvio-home-section fluvio-home-section--projects" aria-labelledby="home-projects-heading">
-    <div class="fluvio-home-shell">
-      <header class="fluvio-home-project-heading">
-        <h2 id="home-projects-heading">Selected projects</h2>
-        <p>Current work across hydrological monitoring, water supply and climate-resilient infrastructure.</p>
-      </header>
-      <div class="fluvio-home-project-list">
-        {
-          featuredProjects.map((project, index) => (
+  {/* 3. Expertise -> Projects: strongest editorial handoff, contour whitespace. */}
+  <SectionFrame tone="paper" motif="contour" labelledby="home-projects-heading">
+    <header class:list={['fluvio-home-project-heading', reveal]}>
+      <h2 id="home-projects-heading" class="fluvio-display">Selected projects</h2>
+      <p>Current work across hydrological monitoring, water supply and climate-resilient infrastructure.</p>
+    </header>
+    <div class="fluvio-home-project-list">
+      {
+        featuredProjects.map((project, index) => (
+          <div class={reveal}>
             <ProjectFeature project={project} eyebrow={index === 0 ? 'Featured work' : ''} />
-          ))
-        }
-      </div>
-      <a class="fluvio-home-text-link" href="/projects">Explore every project <span aria-hidden="true">→</span></a>
+          </div>
+        ))
+      }
     </div>
-  </section>
+    <a class="fluvio-link fluvio-home-more" href="/projects">Explore every project <span aria-hidden="true">→</span></a>
+  </SectionFrame>
 
-  <section class="fluvio-home-section fluvio-home-section--platforms" aria-labelledby="home-platforms-heading">
-    <div class="fluvio-home-shell">
-      <header class="fluvio-home-platform-heading">
-        <h2 id="home-platforms-heading">Monitoring data, made operational</h2>
-        <p>Purpose-built platforms connect environmental observations with analysis, reporting and action.</p>
-      </header>
-      <div class="fluvio-home-platform-grid">
+  {/* 4. Projects -> Platforms: field evidence to operational technology. */}
+  <SectionFrame tone="water" rule="ink" motif="grid" labelledby="home-platforms-heading" class="fluvio-home-platforms">
+    <header class:list={['fluvio-home-platform-heading', reveal]}>
+      <h2 id="home-platforms-heading" class="fluvio-display">Monitoring data, made operational</h2>
+      <p>Purpose-built platforms connect environmental observations with analysis, reporting and action.</p>
+    </header>
+    <div class="fluvio-home-platform-grid">
+      <div class={reveal}>
         <PlatformFeature
           title="FluvioSense"
           description="A web-based platform to communicate stereo vision and real-time data analytics across flood and water camera networks."
           href="https://sense.fluvio.com.au/"
           actionLabel="Visit FluvioSense"
         />
+      </div>
+      <div class={reveal}>
         <PlatformFeature
           title="FluvioCascade"
           description="A web-based platform that ingests real-time environmental monitoring data to support analysis, reporting and alerts."
         />
       </div>
     </div>
-  </section>
+  </SectionFrame>
 
-  <section class="fluvio-home-section" aria-labelledby="home-team-heading">
-    <div class="fluvio-home-shell">
-      <div id="home-team-heading" class="fluvio-home-heading">
-        <SectionHeading
-          title="Science, technology and delivery in one team"
-          intro="Fluvio brings together specialists in hydrology, carbon, environmental science, spatial analysis and data systems."
-        />
-      </div>
-      <div class="fluvio-home-team-grid">
-        {selectedTeam.map((member) => <TeamProfile member={member} />)}
-      </div>
-      <a class="fluvio-home-text-link" href="/team">Meet the full team <span aria-hidden="true">→</span></a>
+  {/* 5. Platforms -> Team: back to paper and people, with more air. */}
+  <SectionFrame tone="paper" spacing="wide" labelledby="home-team-heading">
+    <div id="home-team-heading" class:list={['fluvio-home-heading', reveal]}>
+      <SectionHeading
+        title="Science, technology and delivery in one team"
+        intro="Fluvio brings together specialists in hydrology, carbon, environmental science, spatial analysis and data systems."
+      />
     </div>
-  </section>
+    <div class="fluvio-home-team-grid">
+      {
+        selectedTeam.map((member) => (
+          <div class:list={['fluvio-home-team-cell', reveal]}>
+            <TeamProfile member={member} />
+          </div>
+        ))
+      }
+    </div>
+    <a class="fluvio-link fluvio-home-more" href="/team">Meet the full team <span aria-hidden="true">→</span></a>
+  </SectionFrame>
 
-  <section class="fluvio-home-impact" aria-labelledby="home-impact-heading">
-    <div class="fluvio-home-shell fluvio-home-impact-grid">
-      <h2 id="home-impact-heading">Built with partners across Australia and Melanesia.</h2>
-      <div>
+  {/* 6. Team -> Impact: deep navy chapter break with a coral rule. */}
+  <SectionFrame tone="navy" rule="coral" spacing="wide" labelledby="home-impact-heading">
+    <div class="fluvio-home-impact-grid">
+      <h2 id="home-impact-heading" class:list={['fluvio-display', reveal]}>
+        Built with partners across Australia and Melanesia.
+      </h2>
+      <div class={reveal}>
         <p>
           Our work spans Queensland, Australian reservoirs, Honiara, the Tina River, Bina Harbour and Rennell Island.
           Programs are shaped with government, utilities, communities and regional organisations.
@@ -144,33 +171,19 @@ const selectedTeam = teamMembers.slice(0, 3);
         </p>
       </div>
     </div>
-  </section>
+  </SectionFrame>
 
-  <section class="fluvio-home-contact">
-    <div class="fluvio-home-shell">
+  {/* 7. Impact -> Contact: warm closing handoff. */}
+  <SectionFrame tone="warm">
+    <div class={reveal}>
       <ContactPanel />
     </div>
-  </section>
+  </SectionFrame>
 </Layout>
 
 <style>
-  .fluvio-home-shell {
-    width: min(100% - 2rem, 80rem);
-    margin-inline: auto;
-  }
-
-  .fluvio-home-section {
-    padding: clamp(4.5rem, 10vw, 9rem) 0;
-  }
-
   .fluvio-home-heading {
     margin-bottom: clamp(3rem, 7vw, 6rem);
-  }
-
-  .fluvio-home-capabilities {
-    padding: clamp(2.25rem, 5vw, 4rem) 0;
-    border-top: 1px solid rgb(var(--fluvio-ink) / 0.16);
-    border-bottom: 1px solid rgb(var(--fluvio-ink) / 0.16);
   }
 
   .fluvio-home-capability-grid {
@@ -200,54 +213,67 @@ const selectedTeam = teamMembers.slice(0, 3);
     line-height: 1.65;
   }
 
-  .fluvio-home-expertise-list {
+  .fluvio-home-expertise-grid {
     display: grid;
-    max-width: 64rem;
-    margin-left: auto;
+    gap: clamp(2.5rem, 5vw, 4rem) clamp(2rem, 4vw, 4rem);
   }
 
-  .fluvio-home-expertise-list a {
+  .fluvio-home-expertise-card {
     display: grid;
-    grid-template-columns: 1fr auto;
+    gap: 1.1rem;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .fluvio-home-expertise-card__meta {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     gap: 1rem;
-    align-items: center;
-    padding: 1.35rem 0;
-    border-bottom: 1px solid rgb(var(--fluvio-ink) / 0.15);
+    align-items: baseline;
+    padding-top: 1rem;
+    border-top: 1px solid rgb(var(--fluvio-ink) / 0.15);
+  }
+
+  .fluvio-home-expertise-card__number {
+    color: rgb(var(--fluvio-river));
+    font-family: var(--aw-font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+  }
+
+  .fluvio-home-expertise-card__title {
     color: var(--aw-color-text-heading);
     font-family: var(--aw-font-heading);
-    font-size: clamp(1.3rem, 2.5vw, 2.15rem);
-    font-weight: 520;
-    letter-spacing: -0.03em;
-    text-decoration: none;
+    font-size: clamp(1.25rem, 2vw, 1.7rem);
+    font-weight: 550;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+    transition: color 250ms ease;
   }
 
-  .fluvio-home-text-link {
-    display: inline-flex;
-    gap: 0.5rem;
+  .fluvio-home-expertise-card__arrow {
+    color: rgb(var(--fluvio-river));
+    font-size: 1.1rem;
+    transition: transform 250ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .fluvio-home-expertise-card:hover .fluvio-home-expertise-card__title {
+    color: rgb(var(--fluvio-river));
+  }
+
+  .fluvio-home-expertise-card:hover .fluvio-home-expertise-card__arrow {
+    transform: translateX(0.35rem);
+  }
+
+  .fluvio-home-more {
     margin-top: 2rem;
-    border-bottom: 1px solid currentColor;
-    color: rgb(var(--fluvio-water));
-    font-size: 0.9rem;
-    font-weight: 650;
-    text-decoration: none;
   }
 
   .fluvio-home-project-heading,
   .fluvio-home-platform-heading {
     max-width: 54rem;
     margin-bottom: clamp(3rem, 7vw, 6rem);
-  }
-
-  .fluvio-home-project-heading h2,
-  .fluvio-home-platform-heading h2,
-  .fluvio-home-impact h2 {
-    margin: 0;
-    color: var(--aw-color-text-heading);
-    font-family: var(--aw-font-heading);
-    font-size: clamp(2.5rem, 5vw, 4.75rem);
-    font-weight: 520;
-    letter-spacing: -0.05em;
-    line-height: 0.98;
   }
 
   .fluvio-home-project-heading p,
@@ -264,17 +290,18 @@ const selectedTeam = teamMembers.slice(0, 3);
     gap: clamp(5rem, 11vw, 10rem);
   }
 
-  .fluvio-home-project-list > :global(.fluvio-project-feature:nth-child(2)) {
+  .fluvio-home-project-list > div:nth-child(2) {
     width: min(100%, 70rem);
     margin-left: auto;
   }
 
-  .fluvio-home-project-list > :global(.fluvio-project-feature:nth-child(3)) {
+  .fluvio-home-project-list > div:nth-child(3) {
     width: min(100%, 74rem);
   }
 
-  .fluvio-home-section--platforms {
-    background: rgb(var(--fluvio-aqua) / 0.12);
+  /* Silt is the platforms section's single supporting accent. */
+  .fluvio-home-platforms :global(.fluvio-platform-feature__eyebrow) {
+    color: rgb(var(--fluvio-silt-deep));
   }
 
   .fluvio-home-platform-grid {
@@ -287,21 +314,16 @@ const selectedTeam = teamMembers.slice(0, 3);
     gap: 3rem;
   }
 
-  .fluvio-home-impact {
-    padding: clamp(5rem, 12vw, 11rem) 0;
-    border-top: 1px solid rgb(var(--fluvio-ink) / 0.15);
-  }
-
   .fluvio-home-impact-grid {
     display: grid;
     gap: 2.5rem;
   }
 
-  .fluvio-home-impact h2 {
+  .fluvio-home-impact-grid h2 {
     max-width: 15ch;
   }
 
-  .fluvio-home-impact p {
+  .fluvio-home-impact-grid p {
     margin: 0 0 1.2rem;
     max-width: 45rem;
     color: var(--aw-color-text-muted);
@@ -309,25 +331,13 @@ const selectedTeam = teamMembers.slice(0, 3);
     line-height: 1.75;
   }
 
-  .fluvio-home-contact {
-    padding: 0 0 clamp(4.5rem, 10vw, 9rem);
-  }
-
-  a:focus-visible {
-    border-radius: 4px;
-    outline: 2px solid rgb(var(--fluvio-water));
-    outline-offset: 4px;
-  }
-
-  :global(.dark) .fluvio-home-capabilities,
-  :global(.dark) .fluvio-home-impact,
-  :global(.dark) .fluvio-home-expertise-list a {
-    border-color: rgb(var(--fluvio-paper) / 0.16);
+  :global(.dark) .fluvio-home-expertise-card__meta {
+    border-color: rgb(var(--fluvio-mist) / 0.16);
   }
 
   @media (min-width: 768px) {
-    .fluvio-home-shell {
-      width: min(100% - 4rem, 80rem);
+    .fluvio-home-expertise-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .fluvio-home-capability-grid {
@@ -341,23 +351,9 @@ const selectedTeam = teamMembers.slice(0, 3);
     }
 
     .fluvio-home-team-grid {
-      grid-template-columns: repeat(12, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: clamp(1.5rem, 3vw, 3rem);
       align-items: start;
-    }
-
-    .fluvio-home-team-grid > :global(.fluvio-team-profile:nth-child(1)) {
-      grid-column: span 5;
-    }
-
-    .fluvio-home-team-grid > :global(.fluvio-team-profile:nth-child(2)) {
-      grid-column: span 3;
-      margin-top: 5rem;
-    }
-
-    .fluvio-home-team-grid > :global(.fluvio-team-profile:nth-child(3)) {
-      grid-column: span 4;
-      margin-top: 1.5rem;
     }
 
     .fluvio-home-impact-grid {

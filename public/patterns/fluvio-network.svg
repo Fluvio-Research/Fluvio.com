@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="260" height="260" viewBox="0 0 260 260">
+  <!-- Sensor-network motif drawn from the node pattern inside the Fluvio logo mark. -->
+  <g fill="none" stroke="#7089AD" stroke-width="1">
+    <path d="M30 40L95 25M95 25L170 55M170 55L235 30M170 55L250 110M30 40L60 120M60 120L140 140M140 140L250 110M140 140L120 225M35 200L120 225M120 225L205 215M205 215L220 150M220 150L250 110M60 120L35 200M95 25L140 140" />
+    <circle cx="30" cy="40" r="10" />
+    <circle cx="170" cy="55" r="12" />
+    <circle cx="120" cy="225" r="11" />
+    <circle cx="250" cy="110" r="9" />
+    <circle cx="35" cy="200" r="7" />
+  </g>
+  <g fill="#7089AD">
+    <circle cx="95" cy="25" r="5" />
+    <circle cx="235" cy="30" r="6" />
+    <circle cx="60" cy="120" r="4" />
+    <circle cx="140" cy="140" r="8" />
+    <circle cx="220" cy="150" r="5" />
+    <circle cx="205" cy="215" r="4" />
+  </g>
+</svg>

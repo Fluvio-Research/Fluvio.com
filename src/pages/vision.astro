@@ -1,6 +1,7 @@
 ---
 import ContactPanel from '~/components/fluvio/ContactPanel.astro';
 import LargeImage from '~/components/fluvio/LargeImage.astro';
+import SectionFrame from '~/components/fluvio/SectionFrame.astro';
 import SectionHeading from '~/components/fluvio/SectionHeading.astro';
 import { siteContent } from '~/data/fluvio/site';
 import Layout from '~/layouts/PageLayout.astro';
@@ -9,16 +10,20 @@ const metadata = {
   title: 'Vision',
   description: siteContent.vision.description,
 };
+
+const reveal = 'intersect-once intersect-quarter motion-safe:intersect:animate-fade';
 ---
 
 <Layout metadata={metadata}>
   <header class="fluvio-vision-hero">
-    <div class="fluvio-vision-shell fluvio-vision-hero__copy">
-      <p class="fluvio-vision-eyebrow">Vision</p>
-      <h1>Healthier water systems. More resilient communities.</h1>
-      <p>Knowledge and technology can help secure a thriving planet for current and future generations.</p>
+    <div class="fluvio-shell fluvio-shell--narrow fluvio-vision-hero__copy">
+      <p class="fluvio-eyebrow">Vision</p>
+      <h1 class="fluvio-title">Healthier water systems. More resilient communities.</h1>
+      <p class="fluvio-lede fluvio-vision-hero__lede">
+        Knowledge and technology can help secure a thriving planet for current and future generations.
+      </p>
     </div>
-    <div class="fluvio-vision-shell fluvio-vision-shell--wide">
+    <div class="fluvio-shell fluvio-shell--wide">
       <LargeImage
         src={siteContent.vision.image}
         alt={siteContent.vision.imageAlt}
@@ -29,38 +34,36 @@ const metadata = {
     </div>
   </header>
 
-  <section class="fluvio-vision-statement" aria-labelledby="vision-statement-heading">
-    <div class="fluvio-vision-shell fluvio-vision-statement__grid">
-      <h2 id="vision-statement-heading">Why Fluvio exists</h2>
+  <SectionFrame tone="paper" rule="ink" motif="contour" shell="narrow" labelledby="vision-statement-heading">
+    <div class:list={['fluvio-vision-statement__grid', reveal]}>
+      <h2 id="vision-statement-heading" class="fluvio-display">Why Fluvio exists</h2>
       <p>{siteContent.vision.description}</p>
     </div>
-  </section>
+  </SectionFrame>
 
-  <section class="fluvio-vision-values" aria-labelledby="vision-values-heading">
-    <div class="fluvio-vision-shell">
-      <div id="vision-values-heading" class="fluvio-vision-section-heading">
-        <SectionHeading
-          title="Five values guide the work"
-          intro="They shape how Fluvio develops technology, works with partners and supports long-term environmental outcomes."
-        />
-      </div>
-      <div class="fluvio-vision-values__grid">
-        {
-          siteContent.values.map((value) => (
-            <article>
-              <h3>{value.title}</h3>
-              <p>{value.description}</p>
-            </article>
-          ))
-        }
-      </div>
+  <SectionFrame tone="mist" shell="narrow" labelledby="vision-values-heading">
+    <div id="vision-values-heading" class:list={['fluvio-vision-section-heading', reveal]}>
+      <SectionHeading
+        title="Five values guide the work"
+        intro="They shape how Fluvio develops technology, works with partners and supports long-term environmental outcomes."
+      />
     </div>
-  </section>
+    <div class="fluvio-vision-values__grid">
+      {
+        siteContent.values.map((value) => (
+          <article class={reveal}>
+            <h3>{value.title}</h3>
+            <p>{value.description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </SectionFrame>
 
-  <section class="fluvio-vision-practice" aria-labelledby="vision-practice-heading">
-    <div class="fluvio-vision-shell fluvio-vision-practice__grid">
-      <div>
-        <h2 id="vision-practice-heading">A regional practice, grounded in place</h2>
+  <SectionFrame tone="paper" motif="wash-left" shell="narrow" labelledby="vision-practice-heading">
+    <div class="fluvio-vision-practice__grid">
+      <div class={reveal}>
+        <h2 id="vision-practice-heading" class="fluvio-display">A regional practice, grounded in place</h2>
         <p>
           Fluvio works across Australian and Melanesian water systems, combining field evidence with tools that fit
           local conditions and operational needs.
@@ -70,35 +73,28 @@ const metadata = {
           will use and sustain them.
         </p>
       </div>
-      <LargeImage
-        src="~/assets/images/fluvio/vision-field-team.jpeg"
-        alt="A Fluvio field team working together"
-        aspect="landscape"
-      />
+      <div class={reveal}>
+        <LargeImage
+          src="~/assets/images/fluvio/vision-field-team.jpeg"
+          alt="A Fluvio field team working together"
+          aspect="landscape"
+        />
+      </div>
     </div>
-  </section>
+  </SectionFrame>
 
-  <section class="fluvio-vision-contact">
-    <div class="fluvio-vision-shell">
+  <SectionFrame tone="warm" shell="narrow">
+    <div class={reveal}>
       <ContactPanel
         eyebrow="Projects and partnerships"
         title="Work towards a more resilient water future with us."
         intro="Bring us the water, environmental or climate challenge you are working through."
       />
     </div>
-  </section>
+  </SectionFrame>
 </Layout>
 
 <style>
-  .fluvio-vision-shell {
-    width: min(100% - 2rem, 72rem);
-    margin-inline: auto;
-  }
-
-  .fluvio-vision-shell--wide {
-    width: min(100% - 2rem, 88rem);
-  }
-
   .fluvio-vision-hero {
     padding: clamp(3rem, 7vw, 6rem) 0 clamp(4.5rem, 10vw, 9rem);
   }
@@ -107,43 +103,12 @@ const metadata = {
     margin-bottom: clamp(3rem, 7vw, 6rem);
   }
 
-  .fluvio-vision-eyebrow {
-    margin: 0 0 1.25rem;
-    color: rgb(var(--fluvio-water));
-    font-family: var(--aw-font-mono);
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-  }
-
-  h1 {
-    margin: 0;
+  .fluvio-vision-hero :global(h1) {
     max-width: 14ch;
-    color: var(--aw-color-text-heading);
-    font-family: var(--aw-font-heading);
-    font-size: clamp(3.25rem, 7.5vw, 7rem);
-    font-weight: 500;
-    letter-spacing: -0.06em;
-    line-height: 0.94;
   }
 
-  .fluvio-vision-hero__copy > p:last-child {
-    margin: clamp(1.75rem, 4vw, 3rem) 0 0 auto;
-    max-width: 38rem;
-    color: var(--aw-color-text-muted);
-    font-size: clamp(1.05rem, 2vw, 1.3rem);
-    line-height: 1.65;
-  }
-
-  .fluvio-vision-statement,
-  .fluvio-vision-values,
-  .fluvio-vision-practice {
-    padding: clamp(4.5rem, 10vw, 9rem) 0;
-  }
-
-  .fluvio-vision-statement {
-    border-top: 1px solid rgb(var(--fluvio-ink) / 0.15);
+  .fluvio-vision-hero__lede {
+    margin-left: auto;
   }
 
   .fluvio-vision-statement__grid {
@@ -151,26 +116,11 @@ const metadata = {
     gap: 2rem;
   }
 
-  .fluvio-vision-statement h2,
-  .fluvio-vision-practice h2 {
-    margin: 0;
-    color: var(--aw-color-text-heading);
-    font-family: var(--aw-font-heading);
-    font-size: clamp(2.4rem, 5vw, 4.75rem);
-    font-weight: 520;
-    letter-spacing: -0.05em;
-    line-height: 1;
-  }
-
-  .fluvio-vision-statement p {
+  .fluvio-vision-statement__grid p {
     margin: 0;
     color: var(--aw-color-text-muted);
     font-size: clamp(1.2rem, 2.4vw, 1.65rem);
     line-height: 1.65;
-  }
-
-  .fluvio-vision-values {
-    background: rgb(var(--fluvio-aqua) / 0.12);
   }
 
   .fluvio-vision-section-heading {
@@ -182,12 +132,12 @@ const metadata = {
     gap: 0 2rem;
   }
 
-  .fluvio-vision-values article {
+  .fluvio-vision-values__grid article {
     padding: 2rem 0;
     border-top: 1px solid rgb(var(--fluvio-ink) / 0.16);
   }
 
-  .fluvio-vision-values h3 {
+  .fluvio-vision-values__grid h3 {
     margin: 0 0 1rem;
     color: var(--aw-color-text-heading);
     font-family: var(--aw-font-heading);
@@ -196,8 +146,8 @@ const metadata = {
     letter-spacing: -0.035em;
   }
 
-  .fluvio-vision-values p,
-  .fluvio-vision-practice p {
+  .fluvio-vision-values__grid p,
+  .fluvio-vision-practice__grid p {
     margin: 0;
     max-width: 38rem;
     color: var(--aw-color-text-muted);
@@ -210,32 +160,19 @@ const metadata = {
     align-items: center;
   }
 
-  .fluvio-vision-practice h2 {
+  .fluvio-vision-practice__grid h2 {
     margin-bottom: 1.5rem;
   }
 
-  .fluvio-vision-practice p + p {
+  .fluvio-vision-practice__grid p + p {
     margin-top: 1rem;
   }
 
-  .fluvio-vision-contact {
-    padding: 0 0 clamp(4.5rem, 10vw, 9rem);
-  }
-
-  :global(.dark) .fluvio-vision-statement,
-  :global(.dark) .fluvio-vision-values article {
-    border-color: rgb(var(--fluvio-paper) / 0.16);
+  :global(.dark) .fluvio-vision-values__grid article {
+    border-color: rgb(var(--fluvio-mist) / 0.16);
   }
 
   @media (min-width: 768px) {
-    .fluvio-vision-shell {
-      width: min(100% - 4rem, 72rem);
-    }
-
-    .fluvio-vision-shell--wide {
-      width: min(100% - 4rem, 88rem);
-    }
-
     .fluvio-vision-statement__grid {
       grid-template-columns: minmax(15rem, 0.6fr) minmax(0, 1.4fr);
       gap: clamp(4rem, 10vw, 10rem);
@@ -246,7 +183,7 @@ const metadata = {
       column-gap: clamp(3rem, 8vw, 8rem);
     }
 
-    .fluvio-vision-values article:nth-child(5) {
+    .fluvio-vision-values__grid article:nth-child(5) {
       grid-column: 2;
     }
 

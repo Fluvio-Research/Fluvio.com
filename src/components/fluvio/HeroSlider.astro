@@ -15,8 +15,8 @@ const slides = [
     eyebrow: 'Field intelligence',
     title: 'Observe water systems as they change.',
     description: 'Non-contact monitoring and real-time analysis turn complex conditions into useful evidence.',
-    image: '~/assets/images/fluvio/expertise-stream-monitoring.jpg',
-    imageAlt: 'Hydrological monitoring equipment installed in a stream',
+    image: '~/assets/images/fluvio/project-bina.jpeg',
+    imageAlt: 'Flow gauging in the Loaloana Stream',
     href: '/expertise',
     action: 'Explore expertise',
   },
@@ -24,8 +24,8 @@ const slides = [
     eyebrow: 'Collaborative delivery',
     title: 'Build capability with the people who use it.',
     description: 'Tools and knowledge shaped with communities, government, industry and regional partners.',
-    image: '~/assets/images/fluvio/vision-kovi-river.jpg',
-    imageAlt: 'Kovi River in the Solomon Islands',
+    image: '~/assets/images/fluvio/project-honiara.jpeg',
+    imageAlt: 'Routine water quality monitoring in the Honiara reticulation network',
     href: '/projects',
     action: 'See our projects',
   },
@@ -43,29 +43,26 @@ const slides = [
     {
       slides.map((slide, index) => (
         <article
-          class="fluvio-hero__slide"
+          class:list={['fluvio-hero__slide', { 'is-active': index === 0 }]}
           data-hero-slide
           role="group"
           aria-roledescription="slide"
           aria-label={`${index + 1} of ${slides.length}`}
-          hidden={index !== 0}
+          inert={index !== 0}
         >
-          <div class="fluvio-hero__copy">
-            <p class="fluvio-hero__eyebrow">{slide.eyebrow}</p>
-            <h1>{slide.title}</h1>
-            <p class="fluvio-hero__description">{slide.description}</p>
-            <a class="fluvio-hero__link" href={slide.href}>
-              {slide.action} <span aria-hidden="true">→</span>
-            </a>
+          <div class="fluvio-hero__media">
+            <LargeImage src={slide.image} alt={slide.imageAlt} aspect="fill" priority={index === 0} />
           </div>
-          <div class="fluvio-hero__image">
-            <LargeImage
-              src={slide.image}
-              alt={slide.imageAlt}
-              aspect="portrait"
-              priority={index === 0}
-              sizes="(min-width: 1280px) 704px, (min-width: 768px) 52vw, calc(100vw - 2rem)"
-            />
+          <div class="fluvio-hero__scrim" aria-hidden="true" />
+          <div class="fluvio-hero__copy">
+            <div class="fluvio-shell fluvio-hero__content">
+              <p class="fluvio-hero__eyebrow">{slide.eyebrow}</p>
+              <h1>{slide.title}</h1>
+              <p class="fluvio-hero__description">{slide.description}</p>
+              <a class="fluvio-hero__link" href={slide.href}>
+                {slide.action} <span aria-hidden="true">→</span>
+              </a>
+            </div>
           </div>
         </article>
       ))
@@ -73,29 +70,31 @@ const slides = [
   </div>
 
   <div class="fluvio-hero__navigation" aria-label="Slide controls">
-    <div class="fluvio-hero__count" aria-hidden="true">
-      <span data-hero-current>01</span>
-      <span>/</span>
-      <span>{String(slides.length).padStart(2, '0')}</span>
-    </div>
-    <div class="fluvio-hero__progress" aria-hidden="true">
-      <span data-hero-progress style={`--hero-progress: ${100 / slides.length}%`}></span>
-    </div>
-    <div class="fluvio-hero__buttons">
-      <button
-        class="fluvio-hero__playback"
-        type="button"
-        aria-label="Pause automatic slide rotation"
-        data-hero-playback
-      >
-        <span data-hero-playback-label>Pause</span>
-      </button>
-      <button type="button" aria-label="Previous slide" data-hero-previous>
-        <span aria-hidden="true">←</span>
-      </button>
-      <button type="button" aria-label="Next slide" data-hero-next>
-        <span aria-hidden="true">→</span>
-      </button>
+    <div class="fluvio-shell fluvio-hero__navrow">
+      <div class="fluvio-hero__count" aria-hidden="true">
+        <span data-hero-current>01</span>
+        <span>/</span>
+        <span>{String(slides.length).padStart(2, '0')}</span>
+      </div>
+      <div class="fluvio-hero__progress" aria-hidden="true">
+        <span data-hero-progress style={`--hero-progress: ${100 / slides.length}%`}></span>
+      </div>
+      <div class="fluvio-hero__buttons">
+        <button
+          class="fluvio-hero__playback"
+          type="button"
+          aria-label="Pause automatic slide rotation"
+          data-hero-playback
+        >
+          <span data-hero-playback-label>Pause</span>
+        </button>
+        <button type="button" aria-label="Previous slide" data-hero-previous>
+          <span aria-hidden="true">←</span>
+        </button>
+        <button type="button" aria-label="Next slide" data-hero-next>
+          <span aria-hidden="true">→</span>
+        </button>
+      </div>
     </div>
   </div>
 
@@ -151,7 +150,9 @@ const slides = [
     private show(index: number, announce = true) {
       this.activeIndex = (index + this.slides.length) % this.slides.length;
       this.slides.forEach((slide, slideIndex) => {
-        slide.hidden = slideIndex !== this.activeIndex;
+        const active = slideIndex === this.activeIndex;
+        slide.classList.toggle('is-active', active);
+        slide.toggleAttribute('inert', !active);
       });
 
       const current = this.querySelector<HTMLElement>('[data-hero-current]');
@@ -162,6 +163,7 @@ const slides = [
       if (current) current.textContent = String(this.activeIndex + 1).padStart(2, '0');
       progress?.style.setProperty('--hero-progress', `${((this.activeIndex + 1) / this.slides.length) * 100}%`);
       if (announce && status) status.textContent = `Slide ${this.activeIndex + 1} of ${this.slides.length}: ${title}`;
+      if (this.timer) this.restartCountdown();
     }
 
     private handleKeydown = (event: KeyboardEvent) => {
@@ -183,6 +185,7 @@ const slides = [
     private pause = () => {
       if (this.timer) window.clearInterval(this.timer);
       this.timer = undefined;
+      this.classList.remove('is-playing');
     };
 
     private resume = () => {
@@ -195,7 +198,18 @@ const slides = [
       )
         return;
       this.timer = window.setInterval(this.advance, 8000);
+      this.classList.add('is-playing');
+      this.restartCountdown();
     };
+
+    /* Restart the visual autoplay countdown so it stays in step with the timer. */
+    private restartCountdown() {
+      const bar = this.querySelector<HTMLElement>('[data-hero-progress]');
+      if (!bar) return;
+      bar.style.animation = 'none';
+      void bar.offsetWidth;
+      bar.style.animation = '';
+    }
 
     private togglePlayback = () => {
       this.manuallyPaused = !this.manuallyPaused;
@@ -239,117 +253,245 @@ const slides = [
 
 <style>
   .fluvio-hero {
+    position: relative;
     display: block;
-    width: min(100% - 2rem, 88rem);
-    margin-inline: auto;
-    padding: clamp(2rem, 5vw, 4.5rem) 0 clamp(3rem, 7vw, 6rem);
+    width: 100%;
     outline: none;
   }
 
-  .fluvio-hero__slide {
-    display: grid;
-    gap: 1.5rem;
-    align-items: stretch;
+  .fluvio-hero:focus-visible {
+    outline: 2px solid rgb(var(--fluvio-river));
+    outline-offset: -4px;
   }
 
-  .fluvio-hero__slide[hidden] {
-    display: none;
+  .fluvio-hero__slides {
+    display: grid;
+  }
+
+  .fluvio-hero__slide {
+    position: relative;
+    grid-area: 1 / 1;
+    display: flex;
+    align-items: flex-end;
+    min-height: clamp(32rem, 92dvh, 56rem);
+    overflow: hidden;
+    z-index: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 800ms ease,
+      visibility 0s linear 800ms;
+  }
+
+  .fluvio-hero__slide.is-active {
+    z-index: 1;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 800ms ease;
+  }
+
+  .fluvio-hero__media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  /* Slow settle-in zoom on the active photograph. */
+  @media (prefers-reduced-motion: no-preference) {
+    .fluvio-hero__slide.is-active .fluvio-hero__media :global(img) {
+      animation: fluvio-hero-settle 11s cubic-bezier(0.2, 0.6, 0.35, 1) both;
+    }
+  }
+
+  @keyframes fluvio-hero-settle {
+    from {
+      transform: scale(1.07);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
+  /* Legibility scrim: deep ink from the copy corner, never a flat filter. */
+  .fluvio-hero__scrim {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+      linear-gradient(
+        76deg,
+        rgb(var(--fluvio-ink) / 0.82) 0%,
+        rgb(var(--fluvio-ink) / 0.58) 38%,
+        rgb(var(--fluvio-ink) / 0.14) 64%,
+        rgb(var(--fluvio-ink) / 0) 82%
+      ),
+      linear-gradient(0deg, rgb(var(--fluvio-ink) / 0.68) 0%, rgb(var(--fluvio-ink) / 0) 42%);
   }
 
   .fluvio-hero__copy {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: clamp(6rem, 16vh, 9rem) 0 clamp(7.5rem, 14vh, 9.5rem);
+  }
+
+  .fluvio-hero__content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    min-height: 26rem;
-    padding: clamp(2rem, 5vw, 4.5rem) clamp(1rem, 4vw, 3.5rem) clamp(2rem, 4vw, 3.5rem) 0;
+    align-items: flex-start;
   }
 
   .fluvio-hero__eyebrow {
-    margin: 0 0 1.25rem;
-    color: rgb(var(--fluvio-water));
+    margin: 0 0 1.4rem;
+    color: rgb(216 238 244);
     font-family: var(--aw-font-mono);
-    font-size: 0.7rem;
+    font-size: 0.72rem;
     font-weight: 600;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
   }
 
   h1 {
     margin: 0;
-    max-width: 19ch;
-    color: var(--aw-color-text-heading);
+    max-width: 15ch;
+    color: rgb(var(--fluvio-paper));
     font-family: var(--aw-font-heading);
-    font-size: clamp(3rem, 4.5vw, 5.25rem);
+    font-size: clamp(2.6rem, 6vw, 5.75rem);
     font-weight: 500;
-    letter-spacing: -0.06em;
-    line-height: 0.94;
+    letter-spacing: -0.045em;
+    line-height: 1;
+    text-wrap: balance;
   }
 
   .fluvio-hero__description {
-    margin: clamp(1.5rem, 3vw, 2.5rem) 0 0;
-    max-width: 37rem;
-    color: var(--aw-color-text-muted);
+    margin: clamp(1.25rem, 2.5vw, 2rem) 0 0;
+    max-width: 34rem;
+    color: rgb(226 236 242 / 0.92);
     font-size: clamp(1rem, 1.5vw, 1.18rem);
     line-height: 1.65;
   }
 
   .fluvio-hero__link {
     display: inline-flex;
-    gap: 0.5rem;
+    gap: 0.6rem;
     align-items: center;
-    align-self: flex-start;
-    margin-top: 1.75rem;
-    border-bottom: 1px solid currentColor;
-    color: rgb(var(--fluvio-water));
-    font-size: 0.9rem;
-    font-weight: 650;
+    margin-top: clamp(1.75rem, 3vw, 2.5rem);
+    padding: 0.85rem 1.6rem;
+    border: 1px solid rgb(255 255 255 / 0.45);
+    border-radius: 999px;
+    background: rgb(255 255 255 / 0.1);
+    backdrop-filter: blur(10px);
+    color: rgb(var(--fluvio-paper));
+    font-size: 0.92rem;
+    font-weight: 600;
     text-decoration: none;
+    transition:
+      background-color 250ms ease,
+      border-color 250ms ease;
   }
 
-  .fluvio-hero__link:focus-visible,
-  button:focus-visible,
-  .fluvio-hero:focus-visible {
-    border-radius: 4px;
-    outline: 2px solid rgb(var(--fluvio-water));
-    outline-offset: 4px;
+  .fluvio-hero__link:hover {
+    border-color: rgb(255 255 255 / 0.75);
+    background: rgb(255 255 255 / 0.22);
   }
 
-  .fluvio-hero__image :global(.fluvio-image__frame) {
-    min-height: 26rem;
-    aspect-ratio: 4 / 5;
+  .fluvio-hero__link > span[aria-hidden] {
+    transition: transform 250ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 
+  .fluvio-hero__link:hover > span[aria-hidden] {
+    transform: translateX(0.3rem);
+  }
+
+  /* Copy rises softly as each slide becomes active. */
+  @media (prefers-reduced-motion: no-preference) {
+    .fluvio-hero__slide.is-active .fluvio-hero__content > * {
+      animation: fluvio-hero-rise 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .fluvio-hero__slide.is-active .fluvio-hero__content > :nth-child(2) {
+      animation-delay: 90ms;
+    }
+
+    .fluvio-hero__slide.is-active .fluvio-hero__content > :nth-child(3) {
+      animation-delay: 180ms;
+    }
+
+    .fluvio-hero__slide.is-active .fluvio-hero__content > :nth-child(4) {
+      animation-delay: 270ms;
+    }
+  }
+
+  @keyframes fluvio-hero-rise {
+    from {
+      opacity: 0;
+      transform: translateY(1.5rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Overlaid slide controls */
   .fluvio-hero__navigation {
+    position: absolute;
+    inset-inline: 0;
+    bottom: clamp(1.5rem, 4vh, 2.75rem);
+    z-index: 3;
+  }
+
+  .fluvio-hero__navrow {
     display: grid;
-    grid-template-columns: auto minmax(4rem, 1fr) auto;
-    gap: 1.25rem;
+    grid-template-columns: auto minmax(3rem, 1fr) auto;
+    gap: clamp(1rem, 3vw, 2rem);
     align-items: center;
-    margin-top: 1.25rem;
   }
 
   .fluvio-hero__count {
     display: flex;
     gap: 0.4rem;
-    color: var(--aw-color-text-muted);
+    color: rgb(255 255 255 / 0.65);
     font-family: var(--aw-font-mono);
     font-size: 0.72rem;
     letter-spacing: 0.08em;
   }
 
   .fluvio-hero__count [data-hero-current] {
-    color: var(--aw-color-text-heading);
+    color: rgb(var(--fluvio-paper));
   }
 
   .fluvio-hero__progress {
-    height: 1px;
-    background: rgb(var(--fluvio-ink) / 0.16);
+    height: 2px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: rgb(255 255 255 / 0.25);
   }
 
   .fluvio-hero__progress span {
     display: block;
     width: var(--hero-progress);
-    height: 1px;
-    background: rgb(var(--fluvio-water));
+    height: 100%;
+    border-radius: 999px;
+    background: rgb(var(--fluvio-paper));
+    transition: width 350ms ease;
+  }
+
+  /* Autoplay countdown: the bar fills across each 8 second cycle. */
+  @media (prefers-reduced-motion: no-preference) {
+    .fluvio-hero.is-playing .fluvio-hero__progress span {
+      animation: fluvio-hero-countdown 8s linear both;
+    }
+  }
+
+  @keyframes fluvio-hero-countdown {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
   }
 
   .fluvio-hero__buttons {
@@ -362,19 +504,28 @@ const slides = [
     width: 2.75rem;
     height: 2.75rem;
     padding: 0;
-    border: 1px solid rgb(var(--fluvio-ink) / 0.28);
-    border-radius: 4px;
-    background: transparent;
-    color: var(--aw-color-text-heading);
+    border: 1px solid rgb(255 255 255 / 0.4);
+    border-radius: 999px;
+    background: rgb(255 255 255 / 0.08);
+    backdrop-filter: blur(10px);
+    color: rgb(var(--fluvio-paper));
     cursor: pointer;
     font-size: 1rem;
     place-items: center;
+    transition:
+      background-color 250ms ease,
+      border-color 250ms ease;
+  }
+
+  button:hover:not(:disabled) {
+    border-color: rgb(255 255 255 / 0.75);
+    background: rgb(255 255 255 / 0.2);
   }
 
   .fluvio-hero__playback {
     width: auto;
     min-width: 5rem;
-    padding-inline: 0.75rem;
+    padding-inline: 1rem;
     font-family: var(--aw-font-mono);
     font-size: 0.68rem;
     letter-spacing: 0.04em;
@@ -383,6 +534,11 @@ const slides = [
   button:disabled {
     cursor: not-allowed;
     opacity: 0.55;
+  }
+
+  .fluvio-hero a:focus-visible,
+  .fluvio-hero button:focus-visible {
+    outline-color: rgb(255 255 255 / 0.9);
   }
 
   .visually-hidden {
@@ -397,38 +553,18 @@ const slides = [
     border: 0;
   }
 
-  :global(.dark) .fluvio-hero__progress {
-    background: rgb(var(--fluvio-paper) / 0.18);
-  }
-
-  :global(.dark) button {
-    border-color: rgb(var(--fluvio-paper) / 0.3);
-  }
-
-  @media (min-width: 768px) {
-    .fluvio-hero {
-      width: min(100% - 4rem, 88rem);
-    }
-
+  @media (max-width: 767px) {
     .fluvio-hero__slide {
-      grid-template-columns: minmax(0, 1.05fr) minmax(24rem, 0.95fr);
-      gap: clamp(2rem, 6vw, 6rem);
-      min-height: min(43rem, calc(100dvh - 10rem));
+      min-height: clamp(30rem, 88dvh, 44rem);
     }
 
-    .fluvio-hero__image,
-    .fluvio-hero__image :global(.fluvio-image) {
-      height: 100%;
+    .fluvio-hero__navrow {
+      grid-template-columns: auto minmax(2rem, 1fr) auto;
     }
 
-    .fluvio-hero__image :global(.fluvio-image__frame) {
-      height: 100%;
-      min-height: 34rem;
-      aspect-ratio: auto;
-    }
-
-    .fluvio-hero__navigation {
-      grid-template-columns: 5rem minmax(0, 1fr) auto;
+    .fluvio-hero__playback {
+      min-width: 4.25rem;
+      padding-inline: 0.75rem;
     }
   }
 

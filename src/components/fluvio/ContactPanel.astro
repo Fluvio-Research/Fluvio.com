@@ -32,14 +32,15 @@ const {
     display: grid;
     gap: 2rem;
     padding: clamp(2rem, 6vw, 5rem);
-    border-radius: 6px;
-    background: rgb(var(--fluvio-ink));
+    border-radius: 14px;
+    background:
+      radial-gradient(120% 110% at 88% -10%, rgb(var(--fluvio-river) / 0.28), transparent 55%), rgb(var(--fluvio-navy));
     color: rgb(var(--fluvio-paper));
   }
 
   .fluvio-contact-panel__eyebrow {
     margin: 0 0 1rem;
-    color: rgb(var(--fluvio-aqua));
+    color: rgb(var(--fluvio-wash));
     font-family: var(--aw-font-mono);
     font-size: 0.7rem;
     font-weight: 600;
@@ -74,14 +75,14 @@ const {
     gap: 0.5rem;
     align-items: center;
     border-bottom: 1px solid currentColor;
-    color: rgb(var(--fluvio-aqua));
+    color: rgb(var(--fluvio-wash));
     font-weight: 650;
     text-decoration: none;
   }
 
   a:focus-visible {
     border-radius: 4px;
-    outline: 2px solid rgb(var(--fluvio-aqua));
+    outline: 2px solid rgb(var(--fluvio-wash));
     outline-offset: 4px;
   }
 
@@ -92,7 +93,11 @@ const {
     }
   }
 
+  a:hover {
+    color: rgb(var(--fluvio-paper));
+  }
+
   :global(.dark) .fluvio-contact-panel {
-    background: rgb(4 26 34);
+    background: radial-gradient(120% 110% at 88% -10%, rgb(var(--fluvio-river) / 0.2), transparent 55%), rgb(13 36 55);
   }
 </style>

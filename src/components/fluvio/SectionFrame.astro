@@ -1,0 +1,208 @@
+---
+/**
+ * One shared section framing system: tone, boundary rule, background motif
+ * and vertical rhythm. Every decorative layer sits behind the content shell,
+ * never over text, images, buttons or cards, and is pointer-safe.
+ */
+export interface Props {
+  id?: string;
+  labelledby?: string;
+  ariaLabel?: string;
+  as?: 'section' | 'header' | 'div';
+  tone?: 'paper' | 'mist' | 'water' | 'navy' | 'warm';
+  rule?: 'none' | 'ink' | 'river' | 'coral';
+  motif?: 'none' | 'contour' | 'wash-left' | 'wash-right' | 'grid';
+  spacing?: 'flush' | 'compact' | 'standard' | 'wide';
+  shell?: 'default' | 'narrow' | 'wide' | 'none';
+  class?: string;
+}
+
+const {
+  id,
+  labelledby,
+  ariaLabel,
+  as: Tag = 'section',
+  tone = 'paper',
+  rule = 'none',
+  motif = 'none',
+  spacing = 'standard',
+  shell = 'default',
+  class: className,
+} = Astro.props;
+
+const shellClass =
+  shell === 'none' ? undefined : ['fluvio-shell', shell !== 'default' && `fluvio-shell--${shell}`].filter(Boolean);
+---
+
+<Tag
+  id={id}
+  aria-labelledby={labelledby}
+  aria-label={ariaLabel}
+  class:list={[
+    'fluvio-section',
+    `fluvio-section--${tone}`,
+    `fluvio-section--space-${spacing}`,
+    rule !== 'none' && `fluvio-section--rule-${rule}`,
+    motif !== 'none' && `fluvio-section--motif-${motif.startsWith('wash') ? 'wash' : motif}`,
+    motif === 'wash-left' && 'fluvio-section--wash-left',
+    className,
+  ]}
+>
+  {motif !== 'none' && <div class="fluvio-section__motif" aria-hidden="true" />}
+  {
+    shellClass ? (
+      <div class:list={shellClass}>
+        <slot />
+      </div>
+    ) : (
+      <slot />
+    )
+  }
+</Tag>
+
+<style>
+  .fluvio-section {
+    position: relative;
+    overflow: clip;
+  }
+
+  .fluvio-section > :global(.fluvio-shell) {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Vertical rhythm */
+  .fluvio-section--space-flush {
+    padding: 0;
+  }
+
+  .fluvio-section--space-compact {
+    padding: clamp(2.5rem, 6vw, 4.5rem) 0;
+  }
+
+  .fluvio-section--space-standard {
+    padding: clamp(4.5rem, 10vw, 9rem) 0;
+  }
+
+  .fluvio-section--space-wide {
+    padding: clamp(5.5rem, 13vw, 12rem) 0;
+  }
+
+  /* Tones. Paper stays transparent so the hydrological atmosphere shows. */
+  .fluvio-section--mist {
+    background: linear-gradient(
+      180deg,
+      rgb(var(--fluvio-mist) / 0) 0%,
+      rgb(var(--fluvio-mist) / 0.9) 14%,
+      rgb(var(--fluvio-mist) / 0.9) 86%,
+      rgb(var(--fluvio-mist) / 0) 100%
+    );
+  }
+
+  .fluvio-section--water {
+    background: linear-gradient(
+      180deg,
+      rgb(var(--fluvio-mineral) / 0) 0%,
+      rgb(var(--fluvio-mineral) / 0.12) 16%,
+      rgb(var(--fluvio-wash) / 0.34) 60%,
+      rgb(var(--fluvio-mineral) / 0.05) 100%
+    );
+  }
+
+  .fluvio-section--warm {
+    background: linear-gradient(180deg, rgb(var(--fluvio-silt) / 0.1) 0%, rgb(var(--fluvio-silt) / 0) 78%);
+  }
+
+  .fluvio-section--navy {
+    background:
+      radial-gradient(120% 90% at 85% 0%, rgb(var(--fluvio-river) / 0.16), transparent 52%), rgb(var(--fluvio-navy));
+
+    /* Children pick up navy-chapter colours automatically. */
+    --aw-color-text-heading: rgb(var(--fluvio-paper));
+    --aw-color-text-default: rgb(228 238 244);
+    --aw-color-text-muted: rgb(178 199 213);
+    --fluvio-river: 154 205 220;
+    --fluvio-slate: 178 199 213;
+  }
+
+  /* Boundary rules: one thin editorial line per handoff. */
+  .fluvio-section--rule-ink {
+    border-top: 1px solid rgb(var(--fluvio-ink) / 0.14);
+  }
+
+  .fluvio-section--rule-river {
+    border-top: 1px solid rgb(var(--fluvio-river) / 0.38);
+  }
+
+  .fluvio-section--rule-coral {
+    border-top: 2px solid rgb(var(--fluvio-coral) / 0.75);
+  }
+
+  /* Background motifs stay in gutters and negative space. */
+  .fluvio-section__motif {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Topographic contour field, echoing hydrology, in an outer gutter. */
+  .fluvio-section--motif-contour .fluvio-section__motif {
+    background: repeating-radial-gradient(
+      ellipse 90rem 42rem at 108% 4rem,
+      transparent 0 46px,
+      rgb(var(--fluvio-river) / 0.09) 47px 48px,
+      transparent 49px 92px
+    );
+    mask-image: linear-gradient(265deg, rgb(0 0 0) 0%, rgb(0 0 0 / 0.55) 38%, transparent 68%);
+  }
+
+  /* Soft mineral field entering from one outer gutter. */
+  .fluvio-section--motif-wash .fluvio-section__motif {
+    background: radial-gradient(70rem 44rem at 112% 30%, rgb(var(--fluvio-mineral) / 0.16), transparent 62%);
+  }
+
+  .fluvio-section--wash-left .fluvio-section__motif {
+    background: radial-gradient(70rem 44rem at -12% 30%, rgb(var(--fluvio-mineral) / 0.16), transparent 62%);
+  }
+
+  /* Sparse technical dot grid for operational-technology sections. */
+  .fluvio-section--motif-grid .fluvio-section__motif {
+    background-image: radial-gradient(rgb(var(--fluvio-navy) / 0.2) 1px, transparent 1.5px);
+    background-size: 26px 26px;
+    mask-image: radial-gradient(58rem 34rem at 100% 12%, rgb(0 0 0 / 0.7), transparent 70%);
+  }
+
+  /* Dark theme: navy-led fields, same geometry. */
+  :global(.dark) .fluvio-section--mist {
+    background: linear-gradient(
+      180deg,
+      rgb(var(--fluvio-navy) / 0) 0%,
+      rgb(var(--fluvio-navy) / 0.24) 14%,
+      rgb(var(--fluvio-navy) / 0.24) 86%,
+      rgb(var(--fluvio-navy) / 0) 100%
+    );
+  }
+
+  :global(.dark) .fluvio-section--water {
+    background: linear-gradient(
+      180deg,
+      rgb(var(--fluvio-navy) / 0) 0%,
+      rgb(var(--fluvio-navy) / 0.3) 16%,
+      rgb(var(--fluvio-navy) / 0.38) 60%,
+      rgb(var(--fluvio-navy) / 0.08) 100%
+    );
+  }
+
+  :global(.dark) .fluvio-section--warm {
+    background: linear-gradient(180deg, rgb(var(--fluvio-silt) / 0.07) 0%, rgb(var(--fluvio-silt) / 0) 78%);
+  }
+
+  :global(.dark) .fluvio-section--rule-ink {
+    border-top-color: rgb(var(--fluvio-mist) / 0.14);
+  }
+
+  :global(.dark) .fluvio-section--motif-grid .fluvio-section__motif {
+    background-image: radial-gradient(rgb(var(--fluvio-mist) / 0.16) 1px, transparent 1.5px);
+  }
+</style>

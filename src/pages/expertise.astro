@@ -1,5 +1,6 @@
 ---
 import LargeImage from '~/components/fluvio/LargeImage.astro';
+import SectionFrame from '~/components/fluvio/SectionFrame.astro';
 import SectionHeading from '~/components/fluvio/SectionHeading.astro';
 import { expertiseAreas } from '~/data/fluvio/expertise';
 import { projects } from '~/data/fluvio/projects';
@@ -11,6 +12,8 @@ const metadata = {
   description:
     'Fluvio expertise in hydrological monitoring, water modelling, resource management, carbon assessment and operational data systems.',
 };
+
+const reveal = 'intersect-once intersect-quarter motion-safe:intersect:animate-fade';
 
 const relatedProjects = new Map(
   expertiseAreas.map((area) => [
@@ -24,27 +27,41 @@ const relatedProjects = new Map(
 
 <Layout metadata={metadata}>
   <header class="fluvio-expertise-hero">
-    <div class="fluvio-expertise-shell">
-      <p class="fluvio-expertise-eyebrow">Expertise</p>
-      <h1>Water intelligence built for real conditions.</h1>
-      <p>Technical depth across monitoring, modelling and environmental assessment, connected to practical delivery.</p>
+    <div class="fluvio-shell">
+      <p class="fluvio-eyebrow">Expertise</p>
+      <h1 class="fluvio-title">Water intelligence built for real conditions.</h1>
+      <p class="fluvio-lede">
+        Technical depth across monitoring, modelling and environmental assessment, connected to practical delivery.
+      </p>
     </div>
   </header>
 
-  <section class="fluvio-expertise-intro" aria-labelledby="expertise-intro-heading">
-    <div class="fluvio-expertise-shell" id="expertise-intro-heading">
+  <SectionFrame
+    tone="paper"
+    rule="ink"
+    motif="contour"
+    labelledby="expertise-intro-heading"
+    class="fluvio-expertise-intro"
+  >
+    <div id="expertise-intro-heading" class={reveal}>
       <SectionHeading
         title="Six capabilities, one connected environmental practice"
         intro="Each capability draws on field science, data and collaboration, with evidence from projects across Australia and Melanesia."
       />
     </div>
-  </section>
+  </SectionFrame>
 
-  <section class="fluvio-expertise-areas" aria-label="Capability areas">
-    <div class="fluvio-expertise-shell fluvio-expertise-grid">
+  <SectionFrame
+    tone="paper"
+    motif="wash-right"
+    spacing="flush"
+    ariaLabel="Capability areas"
+    class="fluvio-expertise-areas"
+  >
+    <div class="fluvio-expertise-grid">
       {
         expertiseAreas.map((area) => (
-          <article class="fluvio-expertise-area" id={area.slug}>
+          <article class:list={['fluvio-expertise-area', reveal]} id={area.slug}>
             <LargeImage src={area.image} alt={area.imageAlt} aspect="landscape" />
             <div class="fluvio-expertise-area__body">
               <h2>{area.title}</h2>
@@ -70,64 +87,33 @@ const relatedProjects = new Map(
         ))
       }
     </div>
-  </section>
+  </SectionFrame>
 
-  <section class="fluvio-expertise-team" aria-labelledby="expertise-team-heading">
-    <div class="fluvio-expertise-shell fluvio-expertise-team__grid">
-      <h2 id="expertise-team-heading">The capability is multidisciplinary.</h2>
-      <div>
+  <SectionFrame tone="water" rule="ink" motif="grid" labelledby="expertise-team-heading">
+    <div class="fluvio-expertise-team__grid">
+      <h2 id="expertise-team-heading" class:list={['fluvio-display', reveal]}>The capability is multidisciplinary.</h2>
+      <div class={reveal}>
         <p>
           Hydrologists, environmental scientists, spatial analysts and data specialists work together from project
           design through field delivery and operational use.
         </p>
-        <a href="/team">Meet the Fluvio team <span aria-hidden="true">→</span></a>
+        <a class="fluvio-link" href="/team">Meet the Fluvio team <span aria-hidden="true">→</span></a>
       </div>
     </div>
-  </section>
+  </SectionFrame>
 </Layout>
 
 <style>
-  .fluvio-expertise-shell {
-    width: min(100% - 2rem, 80rem);
-    margin-inline: auto;
-  }
-
   .fluvio-expertise-hero {
     padding: clamp(4rem, 9vw, 8rem) 0 clamp(3.5rem, 8vw, 7rem);
   }
 
-  .fluvio-expertise-eyebrow {
-    margin: 0 0 1.25rem;
-    color: rgb(var(--fluvio-water));
-    font-family: var(--aw-font-mono);
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-  }
-
-  h1 {
-    margin: 0;
+  .fluvio-expertise-hero :global(h1) {
     max-width: 13ch;
-    color: var(--aw-color-text-heading);
-    font-family: var(--aw-font-heading);
-    font-size: clamp(3.25rem, 7.5vw, 7rem);
-    font-weight: 500;
-    letter-spacing: -0.06em;
-    line-height: 0.94;
   }
 
-  .fluvio-expertise-hero .fluvio-expertise-shell > p:last-child {
-    margin: clamp(1.75rem, 4vw, 3rem) 0 0;
+  .fluvio-expertise-hero :global(.fluvio-lede) {
     max-width: 40rem;
-    color: var(--aw-color-text-muted);
-    font-size: clamp(1.05rem, 2vw, 1.3rem);
-    line-height: 1.65;
-  }
-
-  .fluvio-expertise-intro {
-    padding: clamp(3.5rem, 8vw, 7rem) 0 clamp(4rem, 9vw, 8rem);
-    border-top: 1px solid rgb(var(--fluvio-ink) / 0.15);
   }
 
   .fluvio-expertise-areas {
@@ -178,7 +164,7 @@ const relatedProjects = new Map(
 
   .fluvio-expertise-area__projects h3 {
     margin: 0 0 0.75rem;
-    color: rgb(var(--fluvio-water));
+    color: rgb(var(--fluvio-river));
     font-family: var(--aw-font-mono);
     font-size: 0.68rem;
     font-weight: 600;
@@ -204,9 +190,14 @@ const relatedProjects = new Map(
     text-decoration: none;
   }
 
-  .fluvio-expertise-team {
-    padding: clamp(5rem, 11vw, 10rem) 0;
-    background: rgb(var(--fluvio-aqua) / 0.12);
+  @media (prefers-reduced-motion: no-preference) {
+    .fluvio-expertise-area__projects a {
+      transition: color 200ms ease;
+    }
+
+    .fluvio-expertise-area__projects a:hover {
+      color: rgb(var(--fluvio-river));
+    }
   }
 
   .fluvio-expertise-team__grid {
@@ -214,18 +205,11 @@ const relatedProjects = new Map(
     gap: 2.5rem;
   }
 
-  .fluvio-expertise-team h2 {
-    margin: 0;
+  .fluvio-expertise-team__grid h2 {
     max-width: 15ch;
-    color: var(--aw-color-text-heading);
-    font-family: var(--aw-font-heading);
-    font-size: clamp(2.5rem, 5vw, 4.75rem);
-    font-weight: 520;
-    letter-spacing: -0.05em;
-    line-height: 1;
   }
 
-  .fluvio-expertise-team p {
+  .fluvio-expertise-team__grid p {
     margin: 0 0 1.5rem;
     max-width: 42rem;
     color: var(--aw-color-text-muted);
@@ -233,31 +217,11 @@ const relatedProjects = new Map(
     line-height: 1.75;
   }
 
-  .fluvio-expertise-team a {
-    display: inline-flex;
-    gap: 0.5rem;
-    border-bottom: 1px solid currentColor;
-    color: rgb(var(--fluvio-water));
-    font-weight: 650;
-    text-decoration: none;
-  }
-
-  a:focus-visible {
-    border-radius: 4px;
-    outline: 2px solid rgb(var(--fluvio-water));
-    outline-offset: 4px;
-  }
-
-  :global(.dark) .fluvio-expertise-intro,
   :global(.dark) .fluvio-expertise-area__projects {
-    border-color: rgb(var(--fluvio-paper) / 0.16);
+    border-color: rgb(var(--fluvio-mist) / 0.16);
   }
 
   @media (min-width: 768px) {
-    .fluvio-expertise-shell {
-      width: min(100% - 4rem, 80rem);
-    }
-
     .fluvio-expertise-grid {
       grid-template-columns: repeat(12, minmax(0, 1fr));
       column-gap: clamp(2rem, 5vw, 5rem);

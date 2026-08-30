@@ -6,7 +6,7 @@ export interface Props {
   alt: string;
   caption?: string;
   priority?: boolean;
-  aspect?: 'hero' | 'landscape' | 'portrait';
+  aspect?: 'hero' | 'landscape' | 'portrait' | 'fill';
   sizes?: string;
 }
 
@@ -15,6 +15,7 @@ const defaultSizes = {
   hero: '(min-width: 1440px) 1408px, (min-width: 768px) calc(100vw - 4rem), calc(100vw - 2rem)',
   landscape: '(min-width: 1280px) 704px, (min-width: 768px) 56vw, calc(100vw - 2rem)',
   portrait: '(min-width: 1280px) 384px, (min-width: 768px) 40vw, calc(100vw - 2rem)',
+  fill: '100vw',
 } satisfies Record<NonNullable<Props['aspect']>, string>;
 const imageSizes = sizes ?? defaultSizes[aspect];
 ---
@@ -27,7 +28,7 @@ const imageSizes = sizes ?? defaultSizes[aspect];
       loading={priority ? 'eager' : 'lazy'}
       fetchpriority={priority ? 'high' : 'auto'}
       layout="cover"
-      widths={[480, 768, 1080, 1440, 1920]}
+      widths={[480, 768, 1080, 1440, 1920, 2560]}
       sizes={imageSizes}
     />
   </div>
@@ -42,8 +43,8 @@ const imageSizes = sizes ?? defaultSizes[aspect];
 
   .fluvio-image__frame {
     overflow: hidden;
-    border-radius: 6px;
-    background: rgb(var(--fluvio-water) / 0.08);
+    border-radius: 10px;
+    background: rgb(var(--fluvio-river) / 0.08);
   }
 
   .fluvio-image--hero .fluvio-image__frame {
@@ -56,6 +57,17 @@ const imageSizes = sizes ?? defaultSizes[aspect];
 
   .fluvio-image--portrait .fluvio-image__frame {
     aspect-ratio: 4 / 5;
+  }
+
+  /* Fills its positioned parent edge to edge, e.g. the full-bleed hero. */
+  .fluvio-image--fill {
+    height: 100%;
+  }
+
+  .fluvio-image--fill .fluvio-image__frame {
+    height: 100%;
+    aspect-ratio: auto;
+    border-radius: 0;
   }
 
   .fluvio-image :global(img) {

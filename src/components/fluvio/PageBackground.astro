@@ -1,4 +1,10 @@
 ---
+/**
+ * Site-wide hydrological and technology atmosphere, drawn from the Fluvio
+ * logo mark: a mineral-blue sensor-network pattern, topographic contour
+ * fields and soft river/silt colour washes. Every layer is fixed behind the
+ * content, pointer-safe and static under reduced motion.
+ */
 export interface Props {
   variant?: 'default' | 'quiet' | 'deep';
 }
@@ -7,7 +13,9 @@ const { variant = 'default' } = Astro.props;
 ---
 
 <fluvio-page-background aria-hidden="true">
-  <div class:list={['fluvio-atmosphere', `fluvio-atmosphere--${variant}`]}></div>
+  <div class:list={['fluvio-atmosphere', `fluvio-atmosphere--${variant}`]}>
+    <div class="fluvio-atmosphere__network"></div>
+  </div>
 </fluvio-page-background>
 
 <style>
@@ -26,7 +34,8 @@ const { variant = 'default' } = Astro.props;
   }
 
   .fluvio-atmosphere::before,
-  .fluvio-atmosphere::after {
+  .fluvio-atmosphere::after,
+  .fluvio-atmosphere__network {
     position: absolute;
     inset: -12%;
     content: '';
@@ -34,46 +43,75 @@ const { variant = 'default' } = Astro.props;
     transform: translate3d(var(--fluvio-pointer-x), var(--fluvio-pointer-y), 0);
   }
 
+  /* Soft water and landscape washes: mist, river, mineral and a hint of silt. */
   .fluvio-atmosphere::before {
     background:
-      radial-gradient(circle at 14% 12%, rgb(var(--fluvio-aqua) / 0.5), transparent 30%),
-      radial-gradient(circle at 88% 34%, rgb(var(--fluvio-water) / 0.12), transparent 34%),
-      radial-gradient(circle at 44% 92%, rgb(var(--fluvio-aqua) / 0.34), transparent 32%);
-    opacity: 0.52;
+      radial-gradient(circle at 12% 10%, rgb(var(--fluvio-wash) / 0.55), transparent 32%),
+      radial-gradient(circle at 88% 30%, rgb(var(--fluvio-river) / 0.1), transparent 34%),
+      radial-gradient(circle at 18% 78%, rgb(var(--fluvio-mineral) / 0.12), transparent 30%),
+      radial-gradient(circle at 78% 92%, rgb(var(--fluvio-silt) / 0.08), transparent 30%);
+    opacity: 0.6;
   }
 
+  /* Topographic contour field in river blue. */
   .fluvio-atmosphere::after {
     background: repeating-radial-gradient(
-      ellipse at 84% 18%,
+      ellipse at 84% 16%,
       transparent 0 42px,
-      rgb(var(--fluvio-water) / 0.065) 43px 44px,
+      rgb(var(--fluvio-river) / 0.07) 43px 44px,
       transparent 45px 82px
     );
-    opacity: 0.42;
+    opacity: 0.5;
+  }
+
+  /* Sensor-network pattern from the logo mark, kept to outer gutters. */
+  .fluvio-atmosphere__network {
+    background-image: url('/patterns/fluvio-network.svg');
+    background-size: 300px 300px;
+    mask-image:
+      radial-gradient(60rem 52rem at 98% 0%, rgb(0 0 0) 0%, transparent 72%),
+      radial-gradient(52rem 46rem at 0% 96%, rgb(0 0 0 / 0.9) 0%, transparent 70%);
+    opacity: 0.32;
   }
 
   .fluvio-atmosphere--quiet::before {
-    opacity: 0.42;
+    opacity: 0.45;
   }
 
   .fluvio-atmosphere--quiet::after {
-    opacity: 0.34;
+    opacity: 0.36;
+  }
+
+  .fluvio-atmosphere--quiet .fluvio-atmosphere__network {
+    opacity: 0.2;
   }
 
   .fluvio-atmosphere--deep::before {
     background:
-      radial-gradient(circle at 12% 14%, rgb(var(--fluvio-water) / 0.2), transparent 30%),
-      radial-gradient(circle at 82% 42%, rgb(var(--fluvio-aqua) / 0.14), transparent 35%);
-    opacity: 0.6;
+      radial-gradient(circle at 12% 14%, rgb(var(--fluvio-river) / 0.16), transparent 30%),
+      radial-gradient(circle at 82% 42%, rgb(var(--fluvio-mineral) / 0.14), transparent 35%);
+    opacity: 0.65;
   }
 
   .fluvio-atmosphere--deep::after {
-    opacity: 0.48;
+    opacity: 0.55;
   }
 
-  :global(.dark) .fluvio-atmosphere::before,
+  :global(.dark) .fluvio-atmosphere::before {
+    background:
+      radial-gradient(circle at 12% 10%, rgb(var(--fluvio-navy) / 0.5), transparent 34%),
+      radial-gradient(circle at 88% 30%, rgb(var(--fluvio-river) / 0.14), transparent 34%),
+      radial-gradient(circle at 18% 78%, rgb(var(--fluvio-mineral) / 0.1), transparent 30%),
+      radial-gradient(circle at 78% 92%, rgb(var(--fluvio-silt) / 0.06), transparent 30%);
+    opacity: 0.5;
+  }
+
   :global(.dark) .fluvio-atmosphere::after {
-    opacity: 0.24;
+    opacity: 0.3;
+  }
+
+  :global(.dark) .fluvio-atmosphere__network {
+    opacity: 0.22;
   }
 
   @media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
@@ -83,6 +121,10 @@ const { variant = 'default' } = Astro.props;
 
     .fluvio-atmosphere::after {
       animation: fluvio-contour-drift 32s ease-in-out infinite alternate;
+    }
+
+    .fluvio-atmosphere__network {
+      animation: fluvio-network-drift 40s ease-in-out infinite alternate;
     }
   }
 
@@ -98,9 +140,16 @@ const { variant = 'default' } = Astro.props;
     }
   }
 
+  @keyframes fluvio-network-drift {
+    to {
+      transform: translate3d(calc(var(--fluvio-pointer-x) + 1.25%), calc(var(--fluvio-pointer-y) + 1.5%), 0);
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .fluvio-atmosphere::before,
-    .fluvio-atmosphere::after {
+    .fluvio-atmosphere::after,
+    .fluvio-atmosphere__network {
       animation: none !important;
       transform: none !important;
       transition: none !important;

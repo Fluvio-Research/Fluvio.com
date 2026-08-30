@@ -28,6 +28,8 @@ const metadata = {
   title: project.title,
   description: project.summary,
 };
+
+const reveal = 'intersect-once intersect-quarter motion-safe:intersect:animate-fade';
 ---
 
 <Layout metadata={metadata}>
@@ -56,17 +58,17 @@ const metadata = {
 
     <section class="fluvio-project-story" aria-label="Project story">
       <div class="fluvio-project-shell fluvio-project-shell--story">
-        <div class="fluvio-project-story__section">
+        <div class:list={['fluvio-project-story__section', reveal]}>
           <p class="fluvio-project-story__number">01</p>
           <h2>Challenge</h2>
           <div>{project.challenge.map((paragraph) => <p>{paragraph}</p>)}</div>
         </div>
-        <div class="fluvio-project-story__section">
+        <div class:list={['fluvio-project-story__section', reveal]}>
           <p class="fluvio-project-story__number">02</p>
           <h2>Approach</h2>
           <div>{project.approach.map((paragraph) => <p>{paragraph}</p>)}</div>
         </div>
-        <div class="fluvio-project-story__section">
+        <div class:list={['fluvio-project-story__section', reveal]}>
           <p class="fluvio-project-story__number">03</p>
           <h2>Outcome</h2>
           <div>{project.outcome.map((paragraph) => <p>{paragraph}</p>)}</div>
@@ -96,7 +98,7 @@ const metadata = {
       relatedExpertise.length > 0 && (
         <section class="fluvio-project-related" aria-labelledby="related-expertise-heading">
           <div class="fluvio-project-shell">
-            <div class="fluvio-project-related__heading" id="related-expertise-heading">
+            <div class:list={['fluvio-project-related__heading', reveal]} id="related-expertise-heading">
               <SectionHeading eyebrow="Related expertise" title="Capabilities behind the work" />
             </div>
             <ExpertiseList items={relatedExpertise} headingLevel="h3" />
@@ -109,7 +111,7 @@ const metadata = {
       relatedProjects.length > 0 && (
         <section class="fluvio-project-related" aria-labelledby="related-projects-heading">
           <div class="fluvio-project-shell">
-            <div class="fluvio-project-related__heading" id="related-projects-heading">
+            <div class:list={['fluvio-project-related__heading', reveal]} id="related-projects-heading">
               <SectionHeading eyebrow="Continue exploring" title="Related projects" />
             </div>
             <div class="fluvio-project-related__list">
@@ -159,7 +161,7 @@ const metadata = {
 
   .fluvio-project-eyebrow,
   .fluvio-project-story__number {
-    color: rgb(var(--fluvio-water));
+    color: rgb(var(--fluvio-river));
     font-family: var(--aw-font-mono);
     font-size: 0.7rem;
     font-weight: 600;
@@ -259,17 +261,11 @@ const metadata = {
 
   .fluvio-project-back:hover,
   .fluvio-project-back:focus-visible {
-    color: rgb(var(--fluvio-water));
-  }
-
-  .fluvio-project-back:focus-visible {
-    border-radius: 4px;
-    outline: 2px solid rgb(var(--fluvio-water));
-    outline-offset: 4px;
+    color: rgb(var(--fluvio-river));
   }
 
   :global(.dark) .fluvio-project-story__section {
-    border-color: rgb(var(--fluvio-paper) / 0.15);
+    border-color: rgb(var(--fluvio-mist) / 0.15);
   }
 
   @media (min-width: 768px) {

@@ -215,7 +215,7 @@ test('Fluvio primary pages exist without public template content', async () => {
 test('Fluvio hero slider exposes three accessible, motion-aware slides', async () => {
   const slider = await readFile(new URL('../src/components/fluvio/HeroSlider.astro', import.meta.url), 'utf8');
 
-  for (const image of ['home-river.jpg', 'expertise-stream-monitoring.jpg', 'vision-kovi-river.jpg']) {
+  for (const image of ['home-river.jpg', 'project-bina.jpeg', 'project-honiara.jpeg']) {
     assert.match(slider, new RegExp(image.replace('.', '\\.')));
   }
   assert.match(slider, /Technology for a more resilient water future\./);

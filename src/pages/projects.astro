@@ -4,11 +4,14 @@ import ContactPanel from '~/components/fluvio/ContactPanel.astro';
 import PlatformFeature from '~/components/fluvio/PlatformFeature.astro';
 import ProjectFeature from '~/components/fluvio/ProjectFeature.astro';
 import ProjectListItem from '~/components/fluvio/ProjectListItem.astro';
+import SectionFrame from '~/components/fluvio/SectionFrame.astro';
 import SectionHeading from '~/components/fluvio/SectionHeading.astro';
 import { projects } from '~/data/fluvio/projects';
 
 const featuredProject = projects.find(({ slug }) => slug === 'advance-queensland') ?? projects[0];
 const remainingProjects = projects.filter(({ slug }) => slug !== featuredProject.slug);
+
+const reveal = 'intersect-once intersect-quarter motion-safe:intersect:animate-fade';
 
 const metadata = {
   title: 'Projects',
@@ -19,124 +22,93 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <header class="fluvio-projects-hero">
-    <div class="fluvio-projects-shell">
-      <p class="fluvio-projects-eyebrow">Projects</p>
-      <h1>Field intelligence for complex environmental systems.</h1>
-      <p class="fluvio-projects-intro">
+    <div class="fluvio-shell">
+      <p class="fluvio-eyebrow">Projects</p>
+      <h1 class="fluvio-title">Field intelligence for complex environmental systems.</h1>
+      <p class="fluvio-lede fluvio-projects-lede">
         We combine practical field science, monitoring technology and data systems to help communities, governments and
         industry make better decisions about water and climate.
       </p>
     </div>
   </header>
 
-  <div class="fluvio-projects-page">
-    <section class="fluvio-projects-section fluvio-projects-section--featured" aria-label="Featured project">
-      <div class="fluvio-projects-shell">
-        <ProjectFeature project={featuredProject} priority />
-      </div>
-    </section>
+  <SectionFrame tone="paper" spacing="flush" ariaLabel="Featured project" class="fluvio-projects-featured">
+    <ProjectFeature project={featuredProject} priority />
+  </SectionFrame>
 
-    <section class="fluvio-projects-section" aria-labelledby="project-list-heading">
-      <div class="fluvio-projects-shell">
-        <div class="fluvio-projects-section-heading">
-          <SectionHeading
-            eyebrow="Selected work"
-            title="Across catchments, coastlines and communities"
-            intro="Nine projects, each shaped by its place, partners and operational realities."
-            align="split"
-          />
-        </div>
-        <h2 id="project-list-heading" class="visually-hidden">All projects</h2>
-        <div class="fluvio-projects-list">
-          {
-            remainingProjects.map((project, index) => (
-              <ProjectListItem project={project} index={index} reverse={index % 2 === 1} />
-            ))
-          }
-        </div>
-      </div>
-    </section>
+  <SectionFrame tone="paper" motif="contour" labelledby="project-list-heading">
+    <div class:list={['fluvio-projects-section-heading', reveal]}>
+      <SectionHeading
+        eyebrow="Selected work"
+        title="Across catchments, coastlines and communities"
+        intro="Nine projects, each shaped by its place, partners and operational realities."
+        align="split"
+      />
+    </div>
+    <h2 id="project-list-heading" class="visually-hidden">All projects</h2>
+    <div class="fluvio-projects-list">
+      {
+        remainingProjects.map((project, index) => (
+          <div class={reveal}>
+            <ProjectListItem project={project} index={index} reverse={index % 2 === 1} />
+          </div>
+        ))
+      }
+    </div>
+  </SectionFrame>
 
-    <section class="fluvio-projects-section fluvio-projects-section--platforms" aria-labelledby="platforms-heading">
-      <div class="fluvio-projects-shell">
-        <div class="fluvio-projects-section-heading" id="platforms-heading">
-          <SectionHeading
-            eyebrow="Platforms"
-            title="Environmental data, ready to use"
-            intro="Purpose-built tools turn monitoring networks into information that teams can understand and act on."
-            align="split"
-          />
-        </div>
-        <div class="fluvio-platform-grid">
-          <PlatformFeature
-            title="FluvioSense"
-            description="A web-based platform to communicate stereo vision and real-time data analytics across flood and water camera networks."
-            href="https://sense.fluvio.com.au/"
-            actionLabel="Visit FluvioSense"
-            index={0}
-          />
-          <PlatformFeature
-            title="FluvioCascade"
-            description="A web-based platform that ingests real-time environmental monitoring data to support analysis, reporting and alerts."
-            index={1}
-          />
-        </div>
+  <SectionFrame tone="water" rule="ink" motif="grid" labelledby="platforms-heading" class="fluvio-projects-platforms">
+    <div class:list={['fluvio-projects-section-heading', reveal]} id="platforms-heading">
+      <SectionHeading
+        eyebrow="Platforms"
+        title="Environmental data, ready to use"
+        intro="Purpose-built tools turn monitoring networks into information that teams can understand and act on."
+        align="split"
+      />
+    </div>
+    <div class="fluvio-platform-grid">
+      <div class={reveal}>
+        <PlatformFeature
+          title="FluvioSense"
+          description="A web-based platform to communicate stereo vision and real-time data analytics across flood and water camera networks."
+          href="https://sense.fluvio.com.au/"
+          actionLabel="Visit FluvioSense"
+          index={0}
+        />
       </div>
-    </section>
+      <div class={reveal}>
+        <PlatformFeature
+          title="FluvioCascade"
+          description="A web-based platform that ingests real-time environmental monitoring data to support analysis, reporting and alerts."
+          index={1}
+        />
+      </div>
+    </div>
+  </SectionFrame>
 
-    <section class="fluvio-projects-contact">
-      <div class="fluvio-projects-shell">
-        <ContactPanel />
-      </div>
-    </section>
-  </div>
+  <SectionFrame tone="warm">
+    <div class={reveal}>
+      <ContactPanel />
+    </div>
+  </SectionFrame>
 </Layout>
 
 <style>
-  .fluvio-projects-shell {
-    width: min(100% - 2rem, 80rem);
-    margin-inline: auto;
-  }
-
   .fluvio-projects-hero {
     padding: clamp(5rem, 12vw, 10rem) 0 clamp(4rem, 9vw, 8rem);
   }
 
-  .fluvio-projects-eyebrow {
-    margin: 0 0 1.25rem;
-    color: rgb(var(--fluvio-water));
-    font-family: var(--aw-font-mono);
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-  }
-
-  h1 {
-    margin: 0;
+  .fluvio-projects-hero :global(h1) {
     max-width: 13ch;
-    color: var(--aw-color-text-heading);
-    font-family: var(--aw-font-heading);
-    font-size: clamp(3.25rem, 8vw, 7.5rem);
-    font-weight: 500;
-    letter-spacing: -0.06em;
-    line-height: 0.92;
   }
 
-  .fluvio-projects-intro {
-    margin: clamp(2rem, 5vw, 4rem) 0 0 auto;
+  .fluvio-projects-lede {
+    margin-left: auto;
     max-width: 46rem;
-    color: var(--aw-color-text-muted);
-    font-size: clamp(1.05rem, 2vw, 1.35rem);
-    line-height: 1.65;
   }
 
-  .fluvio-projects-section {
-    padding: clamp(4rem, 10vw, 9rem) 0;
-  }
-
-  .fluvio-projects-section--featured {
-    padding-top: 0;
+  .fluvio-projects-featured {
+    padding-bottom: clamp(4rem, 10vw, 9rem);
   }
 
   .fluvio-projects-section-heading {
@@ -148,17 +120,14 @@ const metadata = {
     gap: clamp(5rem, 11vw, 10rem);
   }
 
-  .fluvio-projects-section--platforms {
-    background: rgb(var(--fluvio-aqua) / 0.16);
+  /* Silt is the platforms section's single supporting accent. */
+  .fluvio-projects-platforms :global(.fluvio-platform-feature__eyebrow) {
+    color: rgb(var(--fluvio-silt-deep));
   }
 
   .fluvio-platform-grid {
     display: grid;
     gap: 2rem;
-  }
-
-  .fluvio-projects-contact {
-    padding: clamp(4rem, 10vw, 9rem) 0;
   }
 
   .visually-hidden {
@@ -174,10 +143,6 @@ const metadata = {
   }
 
   @media (min-width: 768px) {
-    .fluvio-projects-shell {
-      width: min(100% - 4rem, 80rem);
-    }
-
     .fluvio-platform-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: clamp(3rem, 8vw, 8rem);

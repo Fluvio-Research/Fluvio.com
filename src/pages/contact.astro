@@ -1,20 +1,25 @@
 ---
 import LargeImage from '~/components/fluvio/LargeImage.astro';
+import SectionFrame from '~/components/fluvio/SectionFrame.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
   title: 'Contact',
   description: 'Start a conversation with Fluvio about a water, environmental or climate project.',
 };
+
+const reveal = 'intersect-once intersect-quarter motion-safe:intersect:animate-fade';
 ---
 
 <Layout metadata={metadata}>
   <header class="fluvio-contact-hero">
-    <div class="fluvio-contact-shell fluvio-contact-hero__grid">
+    <div class="fluvio-shell fluvio-contact-hero__grid">
       <div>
-        <p class="fluvio-contact-eyebrow">Contact</p>
-        <h1>Start with the place, problem and decision.</h1>
-        <p>Tell us about the water, environmental or climate challenge your team is working through.</p>
+        <p class="fluvio-eyebrow">Contact</p>
+        <h1 class="fluvio-title">Start with the place, problem and decision.</h1>
+        <p class="fluvio-lede">
+          Tell us about the water, environmental or climate challenge your team is working through.
+        </p>
       </div>
       <LargeImage
         src="~/assets/images/fluvio/home-river.jpg"
@@ -25,16 +30,16 @@ const metadata = {
     </div>
   </header>
 
-  <section class="fluvio-contact-enquiry" aria-labelledby="contact-enquiry-heading">
-    <div class="fluvio-contact-shell fluvio-contact-enquiry__grid">
-      <h2 id="contact-enquiry-heading">Project enquiry</h2>
-      <div class="fluvio-contact-enquiry__body">
+  <SectionFrame tone="paper" rule="ink" motif="contour" labelledby="contact-enquiry-heading">
+    <div class="fluvio-contact-grid">
+      <h2 id="contact-enquiry-heading" class:list={['fluvio-display', reveal]}>Project enquiry</h2>
+      <div class:list={['fluvio-contact-body', reveal]}>
         <p>
           Include the project location, the environmental system involved and the decision or operational need you want
           to support.
         </p>
         <a
-          class="fluvio-contact-action"
+          class="fluvio-link"
           href="mailto:?subject=Project%20enquiry%20for%20Fluvio&body=Project%20location%3A%0A%0AEnvironmental%20system%3A%0A%0ADecision%20or%20operational%20need%3A%0A%0AProject%20context%3A"
         >
           Open a project enquiry <span aria-hidden="true">→</span>
@@ -45,27 +50,22 @@ const metadata = {
         </p>
       </div>
     </div>
-  </section>
+  </SectionFrame>
 
-  <section class="fluvio-contact-social" aria-labelledby="contact-social-heading">
-    <div class="fluvio-contact-shell fluvio-contact-social__grid">
-      <h2 id="contact-social-heading">Follow Fluvio</h2>
-      <div>
+  <SectionFrame tone="mist" rule="ink" labelledby="contact-social-heading">
+    <div class="fluvio-contact-grid">
+      <h2 id="contact-social-heading" class:list={['fluvio-display', reveal]}>Follow Fluvio</h2>
+      <div class:list={['fluvio-contact-body', reveal]}>
         <p>See company updates and current work through the verified Fluvio company page.</p>
-        <a href="https://www.linkedin.com/company/fluvioptyltd/" rel="noopener noreferrer">
+        <a class="fluvio-link" href="https://www.linkedin.com/company/fluvioptyltd/" rel="noopener noreferrer">
           Fluvio on LinkedIn <span aria-hidden="true">↗</span>
         </a>
       </div>
     </div>
-  </section>
+  </SectionFrame>
 </Layout>
 
 <style>
-  .fluvio-contact-shell {
-    width: min(100% - 2rem, 80rem);
-    margin-inline: auto;
-  }
-
   .fluvio-contact-hero {
     padding: clamp(3rem, 7vw, 6rem) 0 clamp(5rem, 11vw, 10rem);
   }
@@ -76,80 +76,25 @@ const metadata = {
     align-items: center;
   }
 
-  .fluvio-contact-eyebrow {
-    margin: 0 0 1.25rem;
-    color: rgb(var(--fluvio-water));
-    font-family: var(--aw-font-mono);
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-  }
-
-  h1 {
-    margin: 0;
+  .fluvio-contact-hero :global(h1) {
     max-width: 12ch;
-    color: var(--aw-color-text-heading);
-    font-family: var(--aw-font-heading);
-    font-size: clamp(3.2rem, 7vw, 6.5rem);
-    font-weight: 500;
-    letter-spacing: -0.06em;
-    line-height: 0.95;
   }
 
-  .fluvio-contact-hero__grid > div > p:last-child {
-    margin: 1.75rem 0 0;
+  .fluvio-contact-hero :global(.fluvio-lede) {
     max-width: 35rem;
-    color: var(--aw-color-text-muted);
-    font-size: clamp(1.05rem, 1.8vw, 1.25rem);
-    line-height: 1.65;
   }
 
-  .fluvio-contact-enquiry,
-  .fluvio-contact-social {
-    padding: clamp(4.5rem, 10vw, 9rem) 0;
-    border-top: 1px solid rgb(var(--fluvio-ink) / 0.15);
-  }
-
-  .fluvio-contact-social {
-    background: rgb(var(--fluvio-aqua) / 0.12);
-  }
-
-  .fluvio-contact-enquiry__grid,
-  .fluvio-contact-social__grid {
+  .fluvio-contact-grid {
     display: grid;
     gap: 2rem;
   }
 
-  .fluvio-contact-enquiry h2,
-  .fluvio-contact-social h2 {
-    margin: 0;
-    color: var(--aw-color-text-heading);
-    font-family: var(--aw-font-heading);
-    font-size: clamp(2.5rem, 5vw, 4.75rem);
-    font-weight: 520;
-    letter-spacing: -0.05em;
-    line-height: 1;
-  }
-
-  .fluvio-contact-enquiry__body > p:first-child,
-  .fluvio-contact-social p {
+  .fluvio-contact-body > p:first-child {
     margin: 0 0 1.75rem;
     max-width: 42rem;
     color: var(--aw-color-text-muted);
     font-size: 1.05rem;
     line-height: 1.75;
-  }
-
-  .fluvio-contact-action,
-  .fluvio-contact-social a {
-    display: inline-flex;
-    gap: 0.5rem;
-    align-items: center;
-    border-bottom: 1px solid currentColor;
-    color: rgb(var(--fluvio-water));
-    font-weight: 650;
-    text-decoration: none;
   }
 
   .fluvio-contact-note {
@@ -160,29 +105,13 @@ const metadata = {
     line-height: 1.65;
   }
 
-  a:focus-visible {
-    border-radius: 4px;
-    outline: 2px solid rgb(var(--fluvio-water));
-    outline-offset: 4px;
-  }
-
-  :global(.dark) .fluvio-contact-enquiry,
-  :global(.dark) .fluvio-contact-social {
-    border-color: rgb(var(--fluvio-paper) / 0.16);
-  }
-
   @media (min-width: 768px) {
-    .fluvio-contact-shell {
-      width: min(100% - 4rem, 80rem);
-    }
-
     .fluvio-contact-hero__grid {
       grid-template-columns: minmax(0, 0.86fr) minmax(24rem, 1.14fr);
       gap: clamp(3rem, 8vw, 8rem);
     }
 
-    .fluvio-contact-enquiry__grid,
-    .fluvio-contact-social__grid {
+    .fluvio-contact-grid {
       grid-template-columns: minmax(15rem, 0.65fr) minmax(24rem, 1.35fr);
       gap: clamp(4rem, 10vw, 10rem);
       align-items: start;
