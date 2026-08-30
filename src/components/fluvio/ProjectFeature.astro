@@ -1,0 +1,117 @@
+---
+import LargeImage from './LargeImage.astro';
+import ProjectMeta from './ProjectMeta.astro';
+import type { Project } from '~/data/fluvio/types';
+
+export interface Props {
+  project: Project;
+  eyebrow?: string;
+  priority?: boolean;
+}
+
+const { project, eyebrow = 'Featured project', priority = false } = Astro.props;
+---
+
+<article class="fluvio-project-feature">
+  <a class="fluvio-project-feature__image" href={`/${project.slug}`} aria-label={`View ${project.title}`}>
+    <LargeImage src={project.heroImage} alt={project.heroAlt} aspect="hero" priority={priority} />
+  </a>
+  <div class="fluvio-project-feature__body">
+    <div>
+      <p class="fluvio-project-feature__eyebrow">{eyebrow}</p>
+      <h2><a href={`/${project.slug}`}>{project.title}</a></h2>
+    </div>
+    <div class="fluvio-project-feature__summary">
+      <p>{project.summary}</p>
+      <a class="fluvio-project-feature__link" href={`/${project.slug}`}>View project <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+  <ProjectMeta project={project} compact />
+</article>
+
+<style>
+  .fluvio-project-feature {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .fluvio-project-feature__image {
+    display: block;
+    border-radius: 6px;
+    outline-offset: 5px;
+  }
+
+  .fluvio-project-feature__body {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .fluvio-project-feature__eyebrow {
+    margin: 0 0 0.75rem;
+    color: rgb(var(--fluvio-water));
+    font-family: var(--aw-font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    margin: 0;
+    max-width: 20ch;
+    font-family: var(--aw-font-heading);
+    font-size: clamp(2rem, 4.2vw, 4.5rem);
+    font-weight: 520;
+    letter-spacing: -0.045em;
+    line-height: 1;
+  }
+
+  h2 a,
+  .fluvio-project-feature__link {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .fluvio-project-feature__summary p {
+    margin: 0 0 1.25rem;
+    max-width: 48ch;
+    color: var(--aw-color-text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .fluvio-project-feature__link {
+    display: inline-flex;
+    gap: 0.45rem;
+    align-items: center;
+    border-bottom: 1px solid currentColor;
+    color: rgb(var(--fluvio-water));
+    font-size: 0.9rem;
+    font-weight: 650;
+    transition: color 150ms ease;
+  }
+
+  a:hover,
+  a:focus-visible {
+    color: rgb(var(--fluvio-water));
+  }
+
+  a:focus-visible {
+    border-radius: 4px;
+    outline: 2px solid rgb(var(--fluvio-water));
+  }
+
+  @media (min-width: 768px) {
+    .fluvio-project-feature__body {
+      grid-template-columns: minmax(0, 1.4fr) minmax(18rem, 0.6fr);
+      align-items: end;
+      gap: clamp(3rem, 8vw, 8rem);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fluvio-project-feature__link {
+      transition: none;
+    }
+  }
+</style>

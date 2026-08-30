@@ -1,0 +1,132 @@
+---
+import LargeImage from './LargeImage.astro';
+import type { Project } from '~/data/fluvio/types';
+
+export interface Props {
+  project: Project;
+  index?: number;
+  reverse?: boolean;
+}
+
+const { project, index, reverse = false } = Astro.props;
+const number = index === undefined ? undefined : String(index + 1).padStart(2, '0');
+---
+
+<article class:list={['fluvio-project-item', { 'fluvio-project-item--reverse': reverse }]}>
+  <a class="fluvio-project-item__image" href={`/${project.slug}`} aria-label={`View ${project.title}`}>
+    <LargeImage src={project.heroImage} alt={project.heroAlt} aspect="landscape" />
+  </a>
+  <div class="fluvio-project-item__body">
+    {number && <p class="fluvio-project-item__number">{number}</p>}
+    <h3><a href={`/${project.slug}`}>{project.title}</a></h3>
+    <p class="fluvio-project-item__summary">{project.summary}</p>
+    <p class="fluvio-project-item__disciplines">{project.disciplines.join(' / ')}</p>
+    <a class="fluvio-project-item__link" href={`/${project.slug}`}>Read the project <span aria-hidden="true">→</span></a>
+  </div>
+</article>
+
+<style>
+  .fluvio-project-item {
+    display: grid;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .fluvio-project-item__image {
+    display: block;
+    border-radius: 6px;
+    outline-offset: 5px;
+  }
+
+  .fluvio-project-item__body {
+    max-width: 34rem;
+  }
+
+  .fluvio-project-item__number,
+  .fluvio-project-item__disciplines {
+    color: rgb(var(--fluvio-water));
+    font-family: var(--aw-font-mono);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  .fluvio-project-item__number {
+    margin: 0 0 1rem;
+  }
+
+  h3 {
+    margin: 0;
+    font-family: var(--aw-font-heading);
+    font-size: clamp(1.75rem, 3.2vw, 3rem);
+    font-weight: 520;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+  }
+
+  h3 a,
+  .fluvio-project-item__link {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .fluvio-project-item__summary {
+    margin: 1.15rem 0;
+    color: var(--aw-color-text-muted);
+    line-height: 1.7;
+  }
+
+  .fluvio-project-item__disciplines {
+    margin: 0 0 1.35rem;
+    color: var(--aw-color-text-muted);
+  }
+
+  .fluvio-project-item__link {
+    display: inline-flex;
+    gap: 0.5rem;
+    align-items: center;
+    border-bottom: 1px solid currentColor;
+    color: rgb(var(--fluvio-water));
+    font-size: 0.88rem;
+    font-weight: 650;
+    transition: color 150ms ease;
+  }
+
+  a:hover,
+  a:focus-visible {
+    color: rgb(var(--fluvio-water));
+  }
+
+  a:focus-visible {
+    border-radius: 4px;
+    outline: 2px solid rgb(var(--fluvio-water));
+  }
+
+  @media (min-width: 768px) {
+    .fluvio-project-item {
+      grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
+      gap: clamp(2.5rem, 7vw, 7rem);
+    }
+
+    .fluvio-project-item--reverse {
+      grid-template-columns: minmax(18rem, 0.8fr) minmax(0, 1.2fr);
+    }
+
+    .fluvio-project-item--reverse .fluvio-project-item__image {
+      grid-column: 2;
+    }
+
+    .fluvio-project-item--reverse .fluvio-project-item__body {
+      grid-row: 1;
+      grid-column: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fluvio-project-item__link {
+      transition: none;
+    }
+  }
+</style>

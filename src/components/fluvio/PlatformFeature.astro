@@ -1,0 +1,88 @@
+---
+import LargeImage from './LargeImage.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  href?: string;
+  actionLabel?: string;
+  image?: string;
+  imageAlt?: string;
+  index?: number;
+}
+
+const { title, description, href, actionLabel = 'Visit platform', image, imageAlt = '', index } = Astro.props;
+---
+
+<article class="fluvio-platform-feature">
+  {image && <LargeImage src={image} alt={imageAlt} aspect="landscape" />}
+  <div class="fluvio-platform-feature__body">
+    <p class="fluvio-platform-feature__eyebrow">Platform{index !== undefined && ` / 0${index + 1}`}</p>
+    <h3>{title}</h3>
+    <p class="fluvio-platform-feature__description">{description}</p>
+    {
+      href && (
+        <a href={href} target="_blank" rel="noopener noreferrer">
+          {actionLabel} <span aria-hidden="true">↗</span>
+        </a>
+      )
+    }
+  </div>
+</article>
+
+<style>
+  .fluvio-platform-feature {
+    display: grid;
+    gap: 1.5rem;
+    height: 100%;
+    padding: clamp(1.5rem, 4vw, 3.25rem) 0;
+    border-top: 1px solid rgb(var(--fluvio-ink) / 0.16);
+  }
+
+  .fluvio-platform-feature__eyebrow {
+    margin: 0 0 1.75rem;
+    color: rgb(var(--fluvio-water));
+    font-family: var(--aw-font-mono);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    margin: 0;
+    color: var(--aw-color-text-heading);
+    font-family: var(--aw-font-heading);
+    font-size: clamp(2rem, 4vw, 3.75rem);
+    font-weight: 520;
+    letter-spacing: -0.045em;
+    line-height: 1;
+  }
+
+  .fluvio-platform-feature__description {
+    margin: 1.2rem 0 0;
+    max-width: 48ch;
+    color: var(--aw-color-text-muted);
+    line-height: 1.7;
+  }
+
+  a {
+    display: inline-flex;
+    gap: 0.4rem;
+    margin-top: 1.5rem;
+    border-bottom: 1px solid currentColor;
+    color: rgb(var(--fluvio-water));
+    font-size: 0.88rem;
+    font-weight: 650;
+    text-decoration: none;
+  }
+
+  a:focus-visible {
+    border-radius: 4px;
+    outline: 2px solid rgb(var(--fluvio-water));
+  }
+
+  :global(.dark) .fluvio-platform-feature {
+    border-color: rgb(var(--fluvio-paper) / 0.16);
+  }
+</style>

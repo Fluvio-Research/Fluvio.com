@@ -1,0 +1,98 @@
+---
+export interface Props {
+  eyebrow?: string;
+  title?: string;
+  intro?: string;
+  href?: string;
+  actionLabel?: string;
+}
+
+const {
+  eyebrow = 'Start a conversation',
+  title = 'Have a water, environmental or climate challenge?',
+  intro = 'Tell us what you are working through. We will bring the right mix of field, science and technology expertise to the conversation.',
+  href = '/contact',
+  actionLabel = 'Contact Fluvio',
+} = Astro.props;
+---
+
+<section class="fluvio-contact-panel">
+  <div>
+    <p class="fluvio-contact-panel__eyebrow">{eyebrow}</p>
+    <h2>{title}</h2>
+  </div>
+  <div class="fluvio-contact-panel__action">
+    <p>{intro}</p>
+    <a href={href}>{actionLabel} <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+<style>
+  .fluvio-contact-panel {
+    display: grid;
+    gap: 2rem;
+    padding: clamp(2rem, 6vw, 5rem);
+    border-radius: 6px;
+    background: rgb(var(--fluvio-ink));
+    color: rgb(var(--fluvio-paper));
+  }
+
+  .fluvio-contact-panel__eyebrow {
+    margin: 0 0 1rem;
+    color: rgb(var(--fluvio-aqua));
+    font-family: var(--aw-font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    margin: 0;
+    max-width: 17ch;
+    color: inherit;
+    font-family: var(--aw-font-heading);
+    font-size: clamp(2.2rem, 5vw, 4.75rem);
+    font-weight: 520;
+    letter-spacing: -0.05em;
+    line-height: 0.98;
+  }
+
+  .fluvio-contact-panel__action {
+    align-self: end;
+  }
+
+  .fluvio-contact-panel__action p {
+    margin: 0 0 1.5rem;
+    max-width: 48ch;
+    color: rgb(var(--fluvio-paper) / 0.72);
+    line-height: 1.7;
+  }
+
+  a {
+    display: inline-flex;
+    gap: 0.5rem;
+    align-items: center;
+    border-bottom: 1px solid currentColor;
+    color: rgb(var(--fluvio-aqua));
+    font-weight: 650;
+    text-decoration: none;
+  }
+
+  a:focus-visible {
+    border-radius: 4px;
+    outline: 2px solid rgb(var(--fluvio-aqua));
+    outline-offset: 4px;
+  }
+
+  @media (min-width: 768px) {
+    .fluvio-contact-panel {
+      grid-template-columns: minmax(0, 1.3fr) minmax(18rem, 0.7fr);
+      gap: clamp(3rem, 8vw, 8rem);
+    }
+  }
+
+  :global(.dark) .fluvio-contact-panel {
+    background: rgb(4 26 34);
+  }
+</style>

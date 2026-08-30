@@ -1,0 +1,66 @@
+---
+import type { Project } from '~/data/fluvio/types';
+
+export interface Props {
+  project: Pick<Project, 'location' | 'timeframe' | 'disciplines' | 'partners'>;
+  compact?: boolean;
+}
+
+const { project, compact = false } = Astro.props;
+const entries = [
+  project.location && { term: 'Location', value: project.location },
+  project.timeframe && { term: 'Timeframe', value: project.timeframe },
+  project.disciplines.length && { term: 'Disciplines', value: project.disciplines.join(', ') },
+  project.partners?.length && { term: 'Partners', value: project.partners.join(', ') },
+].filter(Boolean) as Array<{ term: string; value: string }>;
+---
+
+{
+  entries.length > 0 && (
+    <dl class:list={['fluvio-project-meta', { 'fluvio-project-meta--compact': compact }]}>
+      {entries.map(({ term, value }) => (
+        <div>
+          <dt>{term}</dt>
+          <dd>{value}</dd>
+        </div>
+      ))}
+    </dl>
+  )
+}
+
+<style>
+  .fluvio-project-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: 1.5rem 2rem;
+    margin: 0;
+    padding: 1.5rem 0 0;
+    border-top: 1px solid rgb(var(--fluvio-ink) / 0.14);
+  }
+
+  .fluvio-project-meta--compact {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  dt {
+    margin-bottom: 0.35rem;
+    color: rgb(var(--fluvio-water));
+    font-family: var(--aw-font-mono);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  dd {
+    margin: 0;
+    color: var(--aw-color-text-default);
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  :global(.dark) .fluvio-project-meta {
+    border-color: rgb(var(--fluvio-paper) / 0.14);
+  }
+</style>

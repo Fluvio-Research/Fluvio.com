@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
+import { access, readFile } from 'node:fs/promises';
 import test from 'node:test';
 
 import { expertiseAreas } from '../src/data/fluvio/expertise.ts';
@@ -44,6 +44,19 @@ const config = await readFile(new URL('../src/config.yaml', import.meta.url), 'u
 const navigation = await readFile(new URL('../src/navigation.ts', import.meta.url), 'utf8');
 const homepage = await readFile(new URL('../src/pages/index.astro', import.meta.url), 'utf8');
 const homepageFrontmatter = homepage.match(/^---\n([\s\S]*?)\n---/)?.[1] ?? '';
+
+const projectExperienceFiles = [
+  'src/components/fluvio/LargeImage.astro',
+  'src/components/fluvio/ExpertiseList.astro',
+  'src/components/fluvio/ProjectFeature.astro',
+  'src/components/fluvio/ProjectListItem.astro',
+  'src/components/fluvio/ProjectMeta.astro',
+  'src/components/fluvio/TeamProfile.astro',
+  'src/components/fluvio/PlatformFeature.astro',
+  'src/components/fluvio/ContactPanel.astro',
+  'src/pages/projects.astro',
+  'src/pages/[slug].astro',
+];
 
 test('Fluvio content has complete project, expertise and team records', () => {
   assert.deepEqual(projects.map(({ slug }) => slug).sort(), expectedSlugs.sort());
@@ -101,4 +114,13 @@ test('Fluvio shell uses the brand name and primary navigation', () => {
   for (const label of ['Vision', 'Expertise', 'Projects', 'Team', 'Contact']) {
     assert.match(navigation, new RegExp(label));
   }
+});
+
+test('Fluvio project experience provides shared components and static project routes', async () => {
+  await Promise.all(projectExperienceFiles.map((path) => access(new URL(`../${path}`, import.meta.url))));
+
+  const projectRoute = await readFile(new URL('../src/pages/[slug].astro', import.meta.url), 'utf8');
+  assert.match(projectRoute, /export function getStaticPaths\s*\(/);
+  assert.match(projectRoute, /import\s*\{\s*projects\s*\}\s*from\s*['"]~\/data\/fluvio\/projects['"]/);
+  assert.match(projectRoute, /projects\.map\s*\(/);
 });

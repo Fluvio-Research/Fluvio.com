@@ -1,0 +1,93 @@
+---
+import LargeImage from './LargeImage.astro';
+import type { TeamMember } from '~/data/fluvio/types';
+
+export interface Props {
+  member: TeamMember;
+  headingLevel?: 'h2' | 'h3';
+}
+
+const { member, headingLevel = 'h3' } = Astro.props;
+const Heading = headingLevel;
+---
+
+<article class="fluvio-team-profile">
+  <LargeImage src={member.portrait} alt={member.portraitAlt} aspect="portrait" />
+  <div class="fluvio-team-profile__body">
+    <Heading>{member.name}</Heading>
+    {member.role && <p class="fluvio-team-profile__role">{member.role}</p>}
+    <p class="fluvio-team-profile__bio">{member.bio}</p>
+    {
+      member.specialties.length > 0 && (
+        <p class="fluvio-team-profile__specialties">{member.specialties.join(' / ')}</p>
+      )
+    }
+    {
+      member.profileUrl && (
+        <a href={member.profileUrl} rel="noopener noreferrer">
+          View profile <span aria-hidden="true">↗</span>
+        </a>
+      )
+    }
+  </div>
+</article>
+
+<style>
+  .fluvio-team-profile {
+    display: grid;
+    gap: 1.35rem;
+  }
+
+  h2,
+  h3 {
+    margin: 0;
+    color: var(--aw-color-text-heading);
+    font-family: var(--aw-font-heading);
+    font-size: clamp(1.6rem, 2.8vw, 2.5rem);
+    font-weight: 520;
+    letter-spacing: -0.035em;
+    line-height: 1.05;
+  }
+
+  .fluvio-team-profile__role,
+  .fluvio-team-profile__specialties {
+    font-family: var(--aw-font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  .fluvio-team-profile__role {
+    margin: 0.6rem 0 1rem;
+    color: rgb(var(--fluvio-water));
+  }
+
+  .fluvio-team-profile__bio {
+    margin: 0;
+    color: var(--aw-color-text-muted);
+    line-height: 1.7;
+  }
+
+  .fluvio-team-profile__specialties {
+    margin: 1.1rem 0 0;
+    color: var(--aw-color-text-muted);
+  }
+
+  a {
+    display: inline-flex;
+    gap: 0.4rem;
+    margin-top: 1.15rem;
+    border-bottom: 1px solid currentColor;
+    color: rgb(var(--fluvio-water));
+    font-size: 0.88rem;
+    font-weight: 650;
+    text-decoration: none;
+  }
+
+  a:focus-visible {
+    border-radius: 4px;
+    outline: 2px solid rgb(var(--fluvio-water));
+  }
+</style>

@@ -1,0 +1,277 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import ContactPanel from '~/components/fluvio/ContactPanel.astro';
+import ExpertiseList from '~/components/fluvio/ExpertiseList.astro';
+import LargeImage from '~/components/fluvio/LargeImage.astro';
+import ProjectListItem from '~/components/fluvio/ProjectListItem.astro';
+import ProjectMeta from '~/components/fluvio/ProjectMeta.astro';
+import SectionHeading from '~/components/fluvio/SectionHeading.astro';
+import { expertiseAreas } from '~/data/fluvio/expertise';
+import { projects } from '~/data/fluvio/projects';
+import type { Project } from '~/data/fluvio/types';
+
+export function getStaticPaths() {
+  return projects.map((project) => ({ params: { slug: project.slug }, props: { project } }));
+}
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props as Props;
+const relatedExpertise = expertiseAreas.filter(({ relatedProjects }) => relatedProjects.includes(project.slug));
+const relatedProjects = (project.relatedProjects ?? [])
+  .map((slug) => projects.find((candidate) => candidate.slug === slug))
+  .filter((candidate): candidate is Project => Boolean(candidate));
+
+const metadata = {
+  title: project.title,
+  description: project.summary,
+};
+---
+
+<Layout metadata={metadata}>
+  <div class="fluvio-project-page">
+    <header class="fluvio-project-hero">
+      <div class="fluvio-project-shell">
+        <a class="fluvio-project-back" href="/projects"><span aria-hidden="true">←</span> All projects</a>
+        <p class="fluvio-project-eyebrow">Project</p>
+        <h1>{project.title}</h1>
+        <p class="fluvio-project-summary">{project.summary}</p>
+        <ProjectMeta project={project} />
+      </div>
+    </header>
+
+    <section class="fluvio-project-hero-image" aria-label={`${project.title} image`}>
+      <div class="fluvio-project-shell fluvio-project-shell--wide">
+        <LargeImage src={project.heroImage} alt={project.heroAlt} aspect="hero" priority />
+      </div>
+    </section>
+
+    <section class="fluvio-project-story" aria-label="Project story">
+      <div class="fluvio-project-shell fluvio-project-shell--story">
+        <div class="fluvio-project-story__section">
+          <p class="fluvio-project-story__number">01</p>
+          <h2>Challenge</h2>
+          <div>{project.challenge.map((paragraph) => <p>{paragraph}</p>)}</div>
+        </div>
+        <div class="fluvio-project-story__section">
+          <p class="fluvio-project-story__number">02</p>
+          <h2>Approach</h2>
+          <div>{project.approach.map((paragraph) => <p>{paragraph}</p>)}</div>
+        </div>
+        <div class="fluvio-project-story__section">
+          <p class="fluvio-project-story__number">03</p>
+          <h2>Outcome</h2>
+          <div>{project.outcome.map((paragraph) => <p>{paragraph}</p>)}</div>
+        </div>
+      </div>
+    </section>
+
+    {
+      project.gallery && project.gallery.length > 0 && (
+        <section class="fluvio-project-gallery" aria-label="Project gallery">
+          <div class="fluvio-project-shell fluvio-project-shell--wide">
+            {project.gallery.map((image) => (
+              <LargeImage src={image.src} alt={image.alt} caption={image.caption} aspect="landscape" />
+            ))}
+          </div>
+        </section>
+      )
+    }
+
+    {
+      relatedExpertise.length > 0 && (
+        <section class="fluvio-project-related" aria-labelledby="related-expertise-heading">
+          <div class="fluvio-project-shell">
+            <div class="fluvio-project-related__heading" id="related-expertise-heading">
+              <SectionHeading eyebrow="Related expertise" title="Capabilities behind the work" />
+            </div>
+            <ExpertiseList items={relatedExpertise} headingLevel="h3" />
+          </div>
+        </section>
+      )
+    }
+
+    {
+      relatedProjects.length > 0 && (
+        <section class="fluvio-project-related" aria-labelledby="related-projects-heading">
+          <div class="fluvio-project-shell">
+            <div class="fluvio-project-related__heading" id="related-projects-heading">
+              <SectionHeading eyebrow="Continue exploring" title="Related projects" />
+            </div>
+            <div class="fluvio-project-related__list">
+              {relatedProjects.map((relatedProject, index) => (
+                <ProjectListItem project={relatedProject} reverse={index % 2 === 1} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )
+    }
+
+    <section class="fluvio-project-contact">
+      <div class="fluvio-project-shell">
+        <ContactPanel
+          eyebrow="Work with us"
+          title="Need a project shaped around your environment?"
+          intro="We build monitoring and decision systems around real places, practical constraints and the people who use them."
+        />
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .fluvio-project-shell {
+    width: min(100% - 2rem, 70rem);
+    margin-inline: auto;
+  }
+
+  .fluvio-project-shell--wide {
+    width: min(100% - 2rem, 88rem);
+  }
+
+  .fluvio-project-hero {
+    padding: clamp(3.5rem, 9vw, 8rem) 0 clamp(3rem, 7vw, 6rem);
+  }
+
+  .fluvio-project-back {
+    display: inline-flex;
+    gap: 0.5rem;
+    margin-bottom: clamp(3rem, 8vw, 7rem);
+    color: var(--aw-color-text-muted);
+    font-size: 0.85rem;
+    text-decoration: none;
+  }
+
+  .fluvio-project-eyebrow,
+  .fluvio-project-story__number {
+    color: rgb(var(--fluvio-water));
+    font-family: var(--aw-font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .fluvio-project-eyebrow {
+    margin: 0 0 1.2rem;
+  }
+
+  h1 {
+    margin: 0;
+    max-width: 15ch;
+    color: var(--aw-color-text-heading);
+    font-family: var(--aw-font-heading);
+    font-size: clamp(3rem, 7.5vw, 7rem);
+    font-weight: 500;
+    letter-spacing: -0.06em;
+    line-height: 0.94;
+  }
+
+  .fluvio-project-summary {
+    margin: clamp(1.75rem, 4vw, 3.5rem) 0 clamp(2.5rem, 6vw, 5rem) auto;
+    max-width: 45rem;
+    color: var(--aw-color-text-muted);
+    font-size: clamp(1.05rem, 2vw, 1.35rem);
+    line-height: 1.65;
+  }
+
+  .fluvio-project-hero-image {
+    padding-bottom: clamp(4rem, 10vw, 9rem);
+  }
+
+  .fluvio-project-shell--story {
+    display: grid;
+    gap: 0;
+  }
+
+  .fluvio-project-story__section {
+    display: grid;
+    gap: 1.5rem;
+    padding: clamp(2.5rem, 6vw, 5rem) 0;
+    border-top: 1px solid rgb(var(--fluvio-ink) / 0.15);
+  }
+
+  .fluvio-project-story__number {
+    margin: 0;
+  }
+
+  .fluvio-project-story h2 {
+    margin: 0;
+    color: var(--aw-color-text-heading);
+    font-family: var(--aw-font-heading);
+    font-size: clamp(2rem, 4vw, 4rem);
+    font-weight: 520;
+    letter-spacing: -0.045em;
+    line-height: 1;
+  }
+
+  .fluvio-project-story__section div {
+    max-width: 44rem;
+  }
+
+  .fluvio-project-story__section div p {
+    margin: 0 0 1rem;
+    color: var(--aw-color-text-muted);
+    font-size: 1.05rem;
+    line-height: 1.75;
+  }
+
+  .fluvio-project-gallery {
+    padding: clamp(3rem, 8vw, 7rem) 0;
+  }
+
+  .fluvio-project-gallery .fluvio-project-shell {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .fluvio-project-related {
+    padding: clamp(4rem, 10vw, 9rem) 0;
+  }
+
+  .fluvio-project-related__heading {
+    margin-bottom: clamp(3rem, 8vw, 7rem);
+  }
+
+  .fluvio-project-related__list {
+    display: grid;
+    gap: clamp(4rem, 9vw, 8rem);
+  }
+
+  .fluvio-project-contact {
+    padding: clamp(4rem, 10vw, 9rem) 0;
+  }
+
+  .fluvio-project-back:hover,
+  .fluvio-project-back:focus-visible {
+    color: rgb(var(--fluvio-water));
+  }
+
+  .fluvio-project-back:focus-visible {
+    border-radius: 4px;
+    outline: 2px solid rgb(var(--fluvio-water));
+    outline-offset: 4px;
+  }
+
+  :global(.dark) .fluvio-project-story__section {
+    border-color: rgb(var(--fluvio-paper) / 0.15);
+  }
+
+  @media (min-width: 768px) {
+    .fluvio-project-shell {
+      width: min(100% - 4rem, 70rem);
+    }
+
+    .fluvio-project-shell--wide {
+      width: min(100% - 4rem, 88rem);
+    }
+
+    .fluvio-project-story__section {
+      grid-template-columns: 4rem minmax(12rem, 0.55fr) minmax(0, 1.45fr);
+      gap: clamp(2rem, 5vw, 5rem);
+    }
+  }
+</style>
