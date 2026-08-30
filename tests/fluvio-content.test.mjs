@@ -176,8 +176,12 @@ test('Fluvio hero slider exposes three accessible, motion-aware slides', async (
   }
   assert.match(slider, /Technology for a more resilient water future\./);
   assert.match(slider, /aria-live=["']polite["']/);
+  assert.match(slider, /<fluvio-hero-slider[^>]*role=["']region["']/);
   assert.match(slider, /aria-label=["']Previous slide["']/);
   assert.match(slider, /aria-label=["']Next slide["']/);
+  assert.match(slider, /data-hero-playback/);
+  assert.match(slider, /Pause automatic slide rotation/);
+  assert.match(slider, /Resume automatic slide rotation/);
   assert.match(slider, /ArrowLeft/);
   assert.match(slider, /ArrowRight/);
   assert.match(slider, /prefers-reduced-motion/);

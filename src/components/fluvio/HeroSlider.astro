@@ -32,7 +32,13 @@ const slides = [
 ];
 ---
 
-<fluvio-hero-slider class="fluvio-hero" aria-roledescription="carousel" aria-label="Fluvio introduction" tabindex="0">
+<fluvio-hero-slider
+  class="fluvio-hero"
+  role="region"
+  aria-roledescription="carousel"
+  aria-label="Fluvio introduction"
+  tabindex="0"
+>
   <div class="fluvio-hero__slides">
     {
       slides.map((slide, index) => (
@@ -76,6 +82,15 @@ const slides = [
       <span data-hero-progress style={`--hero-progress: ${100 / slides.length}%`}></span>
     </div>
     <div class="fluvio-hero__buttons">
+      <button
+        class="fluvio-hero__playback"
+        type="button"
+        aria-label="Pause automatic slide rotation"
+        aria-pressed="false"
+        data-hero-playback
+      >
+        <span data-hero-playback-label>Pause</span>
+      </button>
       <button type="button" aria-label="Previous slide" data-hero-previous>
         <span aria-hidden="true">←</span>
       </button>
@@ -96,12 +111,14 @@ const slides = [
     private timer?: number;
     private slides: HTMLElement[] = [];
     private reducedMotion?: MediaQueryList;
+    private manuallyPaused = false;
 
     connectedCallback() {
       this.slides = Array.from(this.querySelectorAll<HTMLElement>('[data-hero-slide]'));
       if (this.slides.length < 2) return;
 
       this.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      this.querySelector('[data-hero-playback]')?.addEventListener('click', this.togglePlayback);
       this.querySelector('[data-hero-previous]')?.addEventListener('click', this.previous);
       this.querySelector('[data-hero-next]')?.addEventListener('click', this.next);
       this.addEventListener('keydown', this.handleKeydown);
@@ -111,11 +128,13 @@ const slides = [
       this.addEventListener('focusout', this.handleFocusOut);
       this.reducedMotion.addEventListener('change', this.handleMotionChange);
       this.show(0, false);
+      this.updatePlaybackControl();
       this.resume();
     }
 
     disconnectedCallback() {
       this.pause();
+      this.querySelector('[data-hero-playback]')?.removeEventListener('click', this.togglePlayback);
       this.querySelector('[data-hero-previous]')?.removeEventListener('click', this.previous);
       this.querySelector('[data-hero-next]')?.removeEventListener('click', this.next);
       this.removeEventListener('keydown', this.handleKeydown);
@@ -128,6 +147,7 @@ const slides = [
 
     private previous = () => this.show(this.activeIndex - 1);
     private next = () => this.show(this.activeIndex + 1);
+    private advance = () => this.show(this.activeIndex + 1, false);
 
     private show(index: number, announce = true) {
       this.activeIndex = (index + this.slides.length) % this.slides.length;
@@ -168,9 +188,44 @@ const slides = [
 
     private resume = () => {
       this.pause();
-      if (this.reducedMotion?.matches || this.matches(':hover') || this.contains(document.activeElement)) return;
-      this.timer = window.setInterval(this.next, 8000);
+      if (
+        this.manuallyPaused ||
+        this.reducedMotion?.matches ||
+        this.matches(':hover') ||
+        this.contains(document.activeElement)
+      )
+        return;
+      this.timer = window.setInterval(this.advance, 8000);
     };
+
+    private togglePlayback = () => {
+      this.manuallyPaused = !this.manuallyPaused;
+      this.updatePlaybackControl();
+      if (this.manuallyPaused) this.pause();
+      else this.resume();
+    };
+
+    private updatePlaybackControl() {
+      const button = this.querySelector<HTMLButtonElement>('[data-hero-playback]');
+      const label = button?.querySelector<HTMLElement>('[data-hero-playback-label]');
+      if (!button || !label) return;
+
+      if (this.reducedMotion?.matches) {
+        button.disabled = true;
+        button.setAttribute('aria-label', 'Automatic slide rotation is off because reduced motion is enabled');
+        button.setAttribute('aria-pressed', 'true');
+        label.textContent = 'Autoplay off';
+        return;
+      }
+
+      button.disabled = false;
+      button.setAttribute(
+        'aria-label',
+        this.manuallyPaused ? 'Resume automatic slide rotation' : 'Pause automatic slide rotation'
+      );
+      button.setAttribute('aria-pressed', String(this.manuallyPaused));
+      label.textContent = this.manuallyPaused ? 'Resume' : 'Pause';
+    }
 
     private handleFocusOut = () => window.setTimeout(this.resume, 0);
 
@@ -178,6 +233,7 @@ const slides = [
       this.pause();
       if (this.reducedMotion?.matches) this.show(0, false);
       else this.resume();
+      this.updatePlaybackControl();
     };
   }
 
@@ -316,6 +372,20 @@ const slides = [
     cursor: pointer;
     font-size: 1rem;
     place-items: center;
+  }
+
+  .fluvio-hero__playback {
+    width: auto;
+    min-width: 5rem;
+    padding-inline: 0.75rem;
+    font-family: var(--aw-font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
   }
 
   .visually-hidden {
