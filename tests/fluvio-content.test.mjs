@@ -182,6 +182,7 @@ test('Fluvio hero slider exposes three accessible, motion-aware slides', async (
   assert.match(slider, /data-hero-playback/);
   assert.match(slider, /Pause automatic slide rotation/);
   assert.match(slider, /Resume automatic slide rotation/);
+  assert.doesNotMatch(slider, /aria-pressed/);
   assert.match(slider, /ArrowLeft/);
   assert.match(slider, /ArrowRight/);
   assert.match(slider, /prefers-reduced-motion/);

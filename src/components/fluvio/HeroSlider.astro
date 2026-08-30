@@ -86,7 +86,6 @@ const slides = [
         class="fluvio-hero__playback"
         type="button"
         aria-label="Pause automatic slide rotation"
-        aria-pressed="false"
         data-hero-playback
       >
         <span data-hero-playback-label>Pause</span>
@@ -213,7 +212,6 @@ const slides = [
       if (this.reducedMotion?.matches) {
         button.disabled = true;
         button.setAttribute('aria-label', 'Automatic slide rotation is off because reduced motion is enabled');
-        button.setAttribute('aria-pressed', 'true');
         label.textContent = 'Autoplay off';
         return;
       }
@@ -223,7 +221,6 @@ const slides = [
         'aria-label',
         this.manuallyPaused ? 'Resume automatic slide rotation' : 'Pause automatic slide rotation'
       );
-      button.setAttribute('aria-pressed', String(this.manuallyPaused));
       label.textContent = this.manuallyPaused ? 'Resume' : 'Pause';
     }
 
