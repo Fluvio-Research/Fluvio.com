@@ -120,7 +120,24 @@ test('Fluvio project experience provides shared components and static project ro
   await Promise.all(projectExperienceFiles.map((path) => access(new URL(`../${path}`, import.meta.url))));
 
   const projectRoute = await readFile(new URL('../src/pages/[slug].astro', import.meta.url), 'utf8');
+  const largeImage = await readFile(new URL('../src/components/fluvio/LargeImage.astro', import.meta.url), 'utf8');
+  const projectFeature = await readFile(new URL('../src/components/fluvio/ProjectFeature.astro', import.meta.url), 'utf8');
+  const projectListItem = await readFile(
+    new URL('../src/components/fluvio/ProjectListItem.astro', import.meta.url),
+    'utf8'
+  );
+  const platformFeature = await readFile(
+    new URL('../src/components/fluvio/PlatformFeature.astro', import.meta.url),
+    'utf8'
+  );
   assert.match(projectRoute, /export function getStaticPaths\s*\(/);
   assert.match(projectRoute, /import\s*\{\s*projects\s*\}\s*from\s*['"]~\/data\/fluvio\/projects['"]/);
   assert.match(projectRoute, /projects\.map\s*\(/);
+  assert.match(largeImage, /sizes\?:\s*string/);
+  assert.match(largeImage, /sizes=\{imageSizes\}/);
+  assert.equal(projectFeature.match(/href=\{`\/\$\{project\.slug\}`\}/g)?.length, 1);
+  assert.equal(projectListItem.match(/href=\{`\/\$\{project\.slug\}`\}/g)?.length, 1);
+  assert.match(projectFeature, /alt=\{project\.heroAlt\}/);
+  assert.match(projectListItem, /alt=\{project\.heroAlt\}/);
+  assert.doesNotMatch(platformFeature, /target=["']_blank["']/);
 });

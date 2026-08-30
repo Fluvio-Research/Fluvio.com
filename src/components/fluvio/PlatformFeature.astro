@@ -15,14 +15,23 @@ const { title, description, href, actionLabel = 'Visit platform', image, imageAl
 ---
 
 <article class="fluvio-platform-feature">
-  {image && <LargeImage src={image} alt={imageAlt} aspect="landscape" />}
+  {
+    image && (
+      <LargeImage
+        src={image}
+        alt={imageAlt}
+        aspect="landscape"
+        sizes="(min-width: 1280px) 576px, (min-width: 768px) 45vw, calc(100vw - 2rem)"
+      />
+    )
+  }
   <div class="fluvio-platform-feature__body">
     <p class="fluvio-platform-feature__eyebrow">Platform{index !== undefined && ` / 0${index + 1}`}</p>
     <h3>{title}</h3>
     <p class="fluvio-platform-feature__description">{description}</p>
     {
       href && (
-        <a href={href} target="_blank" rel="noopener noreferrer">
+        <a href={href}>
           {actionLabel} <span aria-hidden="true">↗</span>
         </a>
       )

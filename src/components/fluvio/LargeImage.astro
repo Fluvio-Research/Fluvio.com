@@ -7,9 +7,16 @@ export interface Props {
   caption?: string;
   priority?: boolean;
   aspect?: 'hero' | 'landscape' | 'portrait';
+  sizes?: string;
 }
 
-const { src, alt, caption, priority = false, aspect = 'landscape' } = Astro.props;
+const { src, alt, caption, priority = false, aspect = 'landscape', sizes } = Astro.props;
+const defaultSizes = {
+  hero: '(min-width: 1440px) 1408px, (min-width: 768px) calc(100vw - 4rem), calc(100vw - 2rem)',
+  landscape: '(min-width: 1280px) 704px, (min-width: 768px) 56vw, calc(100vw - 2rem)',
+  portrait: '(min-width: 1280px) 384px, (min-width: 768px) 40vw, calc(100vw - 2rem)',
+} satisfies Record<NonNullable<Props['aspect']>, string>;
+const imageSizes = sizes ?? defaultSizes[aspect];
 ---
 
 <figure class:list={['fluvio-image', `fluvio-image--${aspect}`]}>
@@ -21,7 +28,7 @@ const { src, alt, caption, priority = false, aspect = 'landscape' } = Astro.prop
       fetchpriority={priority ? 'high' : 'auto'}
       layout="cover"
       widths={[480, 768, 1080, 1440, 1920]}
-      sizes="(min-width: 1280px) 1200px, 100vw"
+      sizes={imageSizes}
     />
   </div>
   {caption && <figcaption>{caption}</figcaption>}

@@ -44,7 +44,13 @@ const metadata = {
 
     <section class="fluvio-project-hero-image" aria-label={`${project.title} image`}>
       <div class="fluvio-project-shell fluvio-project-shell--wide">
-        <LargeImage src={project.heroImage} alt={project.heroAlt} aspect="hero" priority />
+        <LargeImage
+          src={project.heroImage}
+          alt={project.heroAlt}
+          aspect="hero"
+          priority
+          sizes="(min-width: 1440px) 1408px, (min-width: 768px) calc(100vw - 4rem), calc(100vw - 2rem)"
+        />
       </div>
     </section>
 
@@ -73,7 +79,13 @@ const metadata = {
         <section class="fluvio-project-gallery" aria-label="Project gallery">
           <div class="fluvio-project-shell fluvio-project-shell--wide">
             {project.gallery.map((image) => (
-              <LargeImage src={image.src} alt={image.alt} caption={image.caption} aspect="landscape" />
+              <LargeImage
+                src={image.src}
+                alt={image.alt}
+                caption={image.caption}
+                aspect="landscape"
+                sizes="(min-width: 1440px) 1408px, (min-width: 768px) calc(100vw - 4rem), calc(100vw - 2rem)"
+              />
             ))}
           </div>
         </section>

@@ -12,7 +12,12 @@ const Heading = headingLevel;
 ---
 
 <article class="fluvio-team-profile">
-  <LargeImage src={member.portrait} alt={member.portraitAlt} aspect="portrait" />
+  <LargeImage
+    src={member.portrait}
+    alt={member.portraitAlt}
+    aspect="portrait"
+    sizes="(min-width: 1280px) 384px, (min-width: 768px) 40vw, calc(100vw - 2rem)"
+  />
   <div class="fluvio-team-profile__body">
     <Heading>{member.name}</Heading>
     {member.role && <p class="fluvio-team-profile__role">{member.role}</p>}

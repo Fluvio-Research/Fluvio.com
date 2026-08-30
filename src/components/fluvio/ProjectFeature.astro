@@ -13,9 +13,15 @@ const { project, eyebrow = 'Featured project', priority = false } = Astro.props;
 ---
 
 <article class="fluvio-project-feature">
-  <a class="fluvio-project-feature__image" href={`/${project.slug}`} aria-label={`View ${project.title}`}>
-    <LargeImage src={project.heroImage} alt={project.heroAlt} aspect="hero" priority={priority} />
-  </a>
+  <div class="fluvio-project-feature__image">
+    <LargeImage
+      src={project.heroImage}
+      alt={project.heroAlt}
+      aspect="hero"
+      priority={priority}
+      sizes="(min-width: 1280px) 1280px, (min-width: 768px) calc(100vw - 4rem), calc(100vw - 2rem)"
+    />
+  </div>
   <div class="fluvio-project-feature__body">
     <div>
       <p class="fluvio-project-feature__eyebrow">{eyebrow}</p>
@@ -23,7 +29,7 @@ const { project, eyebrow = 'Featured project', priority = false } = Astro.props;
     </div>
     <div class="fluvio-project-feature__summary">
       <p>{project.summary}</p>
-      <a class="fluvio-project-feature__link" href={`/${project.slug}`}>View project <span aria-hidden="true">↗</span></a>
+      <span class="fluvio-project-feature__link" aria-hidden="true">View project <span>↗</span></span>
     </div>
   </div>
   <ProjectMeta project={project} compact />
@@ -38,7 +44,6 @@ const { project, eyebrow = 'Featured project', priority = false } = Astro.props;
   .fluvio-project-feature__image {
     display: block;
     border-radius: 6px;
-    outline-offset: 5px;
   }
 
   .fluvio-project-feature__body {
@@ -66,8 +71,7 @@ const { project, eyebrow = 'Featured project', priority = false } = Astro.props;
     line-height: 1;
   }
 
-  h2 a,
-  .fluvio-project-feature__link {
+  h2 a {
     color: inherit;
     text-decoration: none;
   }
@@ -88,15 +92,15 @@ const { project, eyebrow = 'Featured project', priority = false } = Astro.props;
     color: rgb(var(--fluvio-water));
     font-size: 0.9rem;
     font-weight: 650;
-    transition: color 150ms ease;
+    pointer-events: none;
   }
 
-  a:hover,
-  a:focus-visible {
+  h2 a:hover,
+  h2 a:focus-visible {
     color: rgb(var(--fluvio-water));
   }
 
-  a:focus-visible {
+  h2 a:focus-visible {
     border-radius: 4px;
     outline: 2px solid rgb(var(--fluvio-water));
   }
@@ -109,9 +113,4 @@ const { project, eyebrow = 'Featured project', priority = false } = Astro.props;
     }
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .fluvio-project-feature__link {
-      transition: none;
-    }
-  }
 </style>
