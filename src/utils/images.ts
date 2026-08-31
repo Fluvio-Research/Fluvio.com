@@ -46,6 +46,30 @@ export const findImage = async (
   return ((await loader()) as { default: ImageMetadata }).default;
 };
 
+// Local videos resolve to plain served URLs; they never go through Sharp.
+let _localVideos: Record<string, string> | undefined;
+
+const loadLocalVideos = () => {
+  if (_localVideos) return _localVideos;
+  try {
+    _localVideos = import.meta.glob('~/assets/images/**/*.{mp4,webm,MP4,WEBM}', {
+      eager: true,
+      query: '?url',
+      import: 'default',
+    }) as Record<string, string>;
+  } catch {
+    _localVideos = {};
+  }
+  return _localVideos;
+};
+
+/** Resolve a content video reference (`/src/assets/images/…` or `~/assets/images/…`) to its served URL. */
+export const findVideo = (videoPath?: string | null): string | undefined => {
+  if (!videoPath) return undefined;
+  const key = videoPath.startsWith('~/') ? videoPath.replace('~/', '/src/') : videoPath;
+  return loadLocalVideos()[key];
+};
+
 const OG_WIDTH = 1200;
 const OG_HEIGHT = 626;
 

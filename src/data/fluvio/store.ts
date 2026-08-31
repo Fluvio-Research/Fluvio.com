@@ -29,6 +29,12 @@ const contentDir = existsSync(moduleContentDir)
 const localImage = z
   .string()
   .regex(/^(?:~|\/src)\/assets\/images\/fluvio\//, 'images must live in src/assets/images/fluvio/');
+const localVideo = z
+  .string()
+  .regex(
+    /^(?:~|\/src)\/assets\/images\/fluvio\/.+\.(?:mp4|webm)$/i,
+    'videos must live in src/assets/images/fluvio/ and be .mp4 or .webm'
+  );
 const text = z.string().min(1);
 const paragraphs = z.array(text).min(1);
 
@@ -108,6 +114,8 @@ const slideSchema = z.object({
   href: z.string().regex(/^\/[a-z0-9#/-]*$/),
   image: localImage,
   imageAlt: text,
+  /** Optional background video; the image stays as poster and fallback. */
+  video: localVideo.optional(),
 });
 
 const platformSchema = z.object({

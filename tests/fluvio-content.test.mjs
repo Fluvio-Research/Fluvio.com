@@ -290,6 +290,8 @@ test('Fluvio hero slider exposes five accessible, localised, motion-aware slides
   assert.equal(getPages('en').slider.previous, 'Previous slide');
   assert.equal(getPages('en').slider.next, 'Next slide');
   assert.match(slider, /const INTERVAL_MS = 6000;/);
+  assert.match(slider, /const VIDEO_MAX_MS = 30000;/);
+  assert.match(slider, /data-hero-video/);
   assert.match(slider, /aria-live=["']polite["']/);
   assert.match(slider, /<fluvio-hero-slider[^>]*role=["']region["']/);
   assert.match(slider, /aria-label=\{strings\.previous\}/);

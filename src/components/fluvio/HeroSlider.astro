@@ -1,6 +1,7 @@
 ---
 import LargeImage from './LargeImage.astro';
 import { getHomepage } from '~/data/fluvio/store.ts';
+import { findVideo } from '~/utils/images';
 import { defaultLocale, localeHref, t, type Locale } from '~/i18n';
 
 export interface Props {
@@ -15,6 +16,10 @@ const slides = getHomepage(locale).slides;
 
 /** Autoplay cycle length; the CSS countdown reads the same value. */
 const INTERVAL_MS = 6000;
+/** Upper bound for a video slide; it advances earlier when the video ends. */
+const VIDEO_MAX_MS = 30000;
+
+const videoUrls = slides.map((slide) => findVideo(slide.video));
 ---
 
 <fluvio-hero-slider
@@ -25,6 +30,7 @@ const INTERVAL_MS = 6000;
   tabindex="0"
   style={`--hero-interval: ${INTERVAL_MS}ms`}
   data-interval={INTERVAL_MS}
+  data-video-interval={VIDEO_MAX_MS}
   data-label-pause={strings.pause}
   data-label-resume={strings.resume}
   data-label-pause-aria={strings.pauseAria}
@@ -46,6 +52,18 @@ const INTERVAL_MS = 6000;
         >
           <div class="fluvio-hero__media">
             <LargeImage src={slide.image} alt={slide.imageAlt} aspect="fill" priority={index === 0} />
+            {videoUrls[index] && (
+              <video
+                class="fluvio-hero__video"
+                data-hero-video
+                src={videoUrls[index]}
+                muted
+                playsinline
+                preload={index === 0 ? 'auto' : 'metadata'}
+                aria-hidden="true"
+                tabindex="-1"
+              />
+            )}
           </div>
           <div class="fluvio-hero__scrim" aria-hidden="true" />
           <div class="fluvio-hero__copy">
@@ -110,6 +128,17 @@ const INTERVAL_MS = 6000;
       if (this.slides.length < 2) return;
 
       this.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      this.slides.forEach((slide, index) => {
+        const video = this.videoFor(index);
+        if (!video) return;
+        video.addEventListener('playing', () => slide.classList.add('is-video-playing'));
+        video.addEventListener('ended', () => {
+          if (index === this.activeIndex && this.timer) this.advance();
+        });
+        video.addEventListener('loadedmetadata', () => {
+          if (index === this.activeIndex && this.timer) this.schedule();
+        });
+      });
       this.querySelector('[data-hero-playback]')?.addEventListener('click', this.togglePlayback);
       this.querySelector('[data-hero-previous]')?.addEventListener('click', this.previous);
       this.querySelector('[data-hero-next]')?.addEventListener('click', this.next);
@@ -163,7 +192,50 @@ const INTERVAL_MS = 6000;
           .replace('{total}', String(this.slides.length))
           .replace('{title}', title);
       }
-      if (this.timer) this.restartCountdown();
+      this.syncVideos();
+      if (this.timer) this.schedule();
+    }
+
+    private videoFor(index: number) {
+      return this.slides[index]?.querySelector<HTMLVideoElement>('[data-hero-video]') ?? null;
+    }
+
+    /* Play the active slide's video from the start; rewind all the others. */
+    private syncVideos() {
+      this.slides.forEach((slide, index) => {
+        const video = this.videoFor(index);
+        if (!video) return;
+        if (index !== this.activeIndex) {
+          video.pause();
+          video.currentTime = 0;
+          slide.classList.remove('is-video-playing');
+        } else if (this.reducedMotion?.matches || this.manuallyPaused) {
+          video.pause();
+          slide.classList.remove('is-video-playing');
+        } else {
+          video.play().catch(() => {});
+        }
+      });
+    }
+
+    /* Arm the advance timer for the active slide. A video slide stays up for
+       the video's own length (it also advances on 'ended'), capped so a long
+       clip can never stall the carousel. */
+    private schedule() {
+      if (this.timer) window.clearTimeout(this.timer);
+      const delay = this.delayForActiveSlide();
+      this.style.setProperty('--hero-interval', `${delay}ms`);
+      this.timer = window.setTimeout(this.advance, delay);
+      this.restartCountdown();
+    }
+
+    private delayForActiveSlide(): number {
+      const video = this.videoFor(this.activeIndex);
+      if (!video) return Number(this.dataset.interval) || 6000;
+      const max = Number(this.dataset.videoInterval) || 30000;
+      const duration = video.duration;
+      if (Number.isFinite(duration) && duration > 0) return Math.min(Math.round(duration * 1000) + 400, max);
+      return max;
     }
 
     private handleKeydown = (event: KeyboardEvent) => {
@@ -183,7 +255,7 @@ const INTERVAL_MS = 6000;
     };
 
     private pause = () => {
-      if (this.timer) window.clearInterval(this.timer);
+      if (this.timer) window.clearTimeout(this.timer);
       this.timer = undefined;
       this.classList.remove('is-playing');
     };
@@ -197,9 +269,8 @@ const INTERVAL_MS = 6000;
         this.contains(document.activeElement)
       )
         return;
-      this.timer = window.setInterval(this.advance, Number(this.dataset.interval) || 6000);
       this.classList.add('is-playing');
-      this.restartCountdown();
+      this.schedule();
     };
 
     /* Restart the visual autoplay countdown so it stays in step with the timer. */
@@ -216,6 +287,7 @@ const INTERVAL_MS = 6000;
       this.updatePlaybackControl();
       if (this.manuallyPaused) this.pause();
       else this.resume();
+      this.syncVideos();
     };
 
     private updatePlaybackControl() {
@@ -244,6 +316,7 @@ const INTERVAL_MS = 6000;
       this.pause();
       if (this.reducedMotion?.matches) this.show(0, false);
       else this.resume();
+      this.syncVideos();
       this.updatePlaybackControl();
     };
   }
@@ -294,6 +367,21 @@ const INTERVAL_MS = 6000;
     position: absolute;
     inset: 0;
     z-index: 0;
+  }
+
+  /* Background video fades in over its poster photo once playback starts. */
+  .fluvio-hero__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 700ms ease;
+  }
+
+  .fluvio-hero__slide.is-video-playing .fluvio-hero__video {
+    opacity: 1;
   }
 
   /* Slow settle-in zoom on the active photograph. */
