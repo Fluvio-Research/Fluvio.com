@@ -36,15 +36,10 @@ All Fluvio content is localized JSON in `src/data/fluvio/content/`, one file per
 
 ## Editing content without code
 
-A local admin interface edits all of the above through forms, with language tabs for English, Solomon Islands Pijin, French and Spanish:
+The content admin lives in the private `Fluvio-Research/Webiste-CMS` repository, with language tabs for English, Solomon Islands Pijin, French and Spanish. Two ways to use it:
 
-1. `npm run cms`
-2. Open `http://localhost:4322` in Chrome or Edge
-3. Choose **Work with Local Repository** and select this repository's folder
-4. Edit and save; changes are written to the JSON files in your working tree
-5. Review with `git diff`, then commit and push (or open a pull request)
-
-The admin lives in `admin/` and is deliberately not part of the deployed site; it only ever runs on a team member's machine. The same `admin/config.yml` also works against GitHub directly if a hosted admin is ever wanted.
+- Locally: clone `Webiste-CMS` next to this repository and run `npm run cms` there. Choose **Work with Local Repository** and select this repository's folder; edits are written to the JSON files in your working tree. Review with `git diff`, then commit and push.
+- Hosted: `https://data.fluvio.com.au/fluvio-cms/` (behind the Grafana login on that server) edits this repository on GitHub directly; sign in with a GitHub access token.
 
 ## Adding a project, team member or expertise area
 
