@@ -411,156 +411,156 @@ collections:
         format: json
         i18n: true
         fields:
-      - name: visionPage
-        label: 'Vision page'
-        widget: object
-        i18n: true
-        fields:
-          - { name: metaTitle, label: 'Browser tab title', widget: string, i18n: true }
-          - { name: eyebrow, label: 'Small label', widget: string, i18n: true }
-          - { name: title, label: 'Page heading', widget: string, i18n: true }
-          - { name: lede, label: 'Intro line', widget: text, i18n: true }
-          - { name: statementTitle, label: 'Statement heading', widget: string, i18n: true }
-          - { name: valuesTitle, label: 'Values heading', widget: string, i18n: true }
-          - { name: valuesIntro, label: 'Values intro', widget: text, i18n: true }
-          - { name: practiceTitle, label: 'Practice heading', widget: string, i18n: true }
-          - { name: practiceImageAlt, label: 'Practice photo description', widget: string, i18n: true }
-          - { name: contactEyebrow, label: 'Contact card: small label', widget: string, i18n: true }
-          - { name: contactTitle, label: 'Contact card: heading', widget: string, i18n: true }
-          - { name: contactIntro, label: 'Contact card: intro', widget: text, i18n: true }
-          - name: practiceBody
-            label: 'Practice paragraphs'
-            widget: list
-            i18n: true
-            field: { name: paragraph, label: Paragraph, widget: text }
-      - name: expertisePage
-        label: 'Expertise page'
-        widget: object
-        i18n: true
-        fields:
-          - { name: metaTitle, label: 'Browser tab title', widget: string, i18n: true }
-          - { name: metaDescription, label: 'Search engine description', widget: text, i18n: true }
-          - { name: eyebrow, label: 'Small label', widget: string, i18n: true }
-          - { name: title, label: 'Page heading', widget: string, i18n: true }
-          - { name: lede, label: 'Intro line', widget: text, i18n: true }
-          - { name: introTitle, label: 'Section heading', widget: string, i18n: true }
-          - { name: introIntro, label: 'Section intro', widget: text, i18n: true }
-          - { name: areasLabel, label: 'Areas label (screen readers)', widget: string, i18n: true }
-          - { name: relatedProjects, label: 'Related projects label', widget: string, i18n: true }
-          - { name: teamTitle, label: 'Team band heading', widget: string, i18n: true }
-          - { name: teamBody, label: 'Team band text', widget: text, i18n: true }
-          - { name: teamLink, label: 'Team band link', widget: string, i18n: true }
-      - name: teamPage
-        label: 'Team page'
-        widget: object
-        i18n: true
-        fields:
-          - { name: metaTitle, label: 'Browser tab title', widget: string, i18n: true }
-          - { name: metaDescription, label: 'Search engine description', widget: text, i18n: true }
-          - { name: eyebrow, label: 'Small label', widget: string, i18n: true }
-          - { name: title, label: 'Page heading', widget: string, i18n: true }
-          - { name: lede, label: 'Intro line', widget: text, i18n: true }
-          - { name: heroImageAlt, label: 'Top photo description', widget: string, i18n: true }
-          - { name: directoryTitle, label: 'Directory heading', widget: string, i18n: true }
-          - { name: directoryIntro, label: 'Directory intro', widget: text, i18n: true }
-          - { name: contactTitle, label: 'Contact card: heading', widget: string, i18n: true }
-          - { name: contactIntro, label: 'Contact card: intro', widget: text, i18n: true }
-          - { name: viewProfile, label: 'Profile link text', widget: string, i18n: true }
-      - name: contactPage
-        label: 'Contact page'
-        widget: object
-        i18n: true
-        fields:
-          - { name: metaTitle, label: 'Browser tab title', widget: string, i18n: true }
-          - { name: metaDescription, label: 'Search engine description', widget: text, i18n: true }
-          - { name: eyebrow, label: 'Small label', widget: string, i18n: true }
-          - { name: title, label: 'Page heading', widget: string, i18n: true }
-          - { name: lede, label: 'Intro line', widget: text, i18n: true }
-          - { name: heroImageAlt, label: 'Photo description', widget: string, i18n: true }
-          - { name: enquiryTitle, label: 'Enquiry heading', widget: string, i18n: true }
-          - { name: enquiryBody, label: 'Enquiry text', widget: text, i18n: true }
-          - { name: enquiryAction, label: 'Enquiry link text', widget: string, i18n: true }
-          - { name: enquirySubject, label: 'Email draft subject', widget: string, i18n: true }
-          - { name: enquiryTemplate, label: 'Email draft template', widget: text, i18n: true }
-          - { name: enquiryNote, label: 'Small print under the link', widget: text, i18n: true }
-          - { name: socialTitle, label: 'Follow heading', widget: string, i18n: true }
-          - { name: socialBody, label: 'Follow text', widget: text, i18n: true }
-          - { name: socialAction, label: 'Follow link text', widget: string, i18n: true }
-      - name: projectsPage
-        label: 'Projects page'
-        widget: object
-        i18n: true
-        fields:
-          - { name: metaTitle, label: 'Browser tab title', widget: string, i18n: true }
-          - { name: metaDescription, label: 'Search engine description', widget: text, i18n: true }
-          - { name: eyebrow, label: 'Small label', widget: string, i18n: true }
-          - { name: title, label: 'Page heading', widget: string, i18n: true }
-          - { name: lede, label: 'Intro line', widget: text, i18n: true }
-          - { name: featuredLabel, label: 'Featured label (screen readers)', widget: string, i18n: true }
-          - { name: listEyebrow, label: 'List: small label', widget: string, i18n: true }
-          - { name: listTitle, label: 'List: heading', widget: string, i18n: true }
-          - { name: listIntro, label: 'List: intro', widget: text, i18n: true }
-          - { name: allProjects, label: 'Hidden list heading (screen readers)', widget: string, i18n: true }
-          - { name: platformsEyebrow, label: 'Platforms: small label', widget: string, i18n: true }
-          - { name: platformsTitle, label: 'Platforms: heading', widget: string, i18n: true }
-          - { name: platformsIntro, label: 'Platforms: intro', widget: text, i18n: true }
-      - name: projectDetail
-        label: 'Project pages (shared labels)'
-        widget: object
-        i18n: true
-        fields:
-          - { name: back, label: 'Back link', widget: string, i18n: true }
-          - { name: eyebrow, label: 'Small label', widget: string, i18n: true }
-          - { name: challenge, label: 'Story heading 1', widget: string, i18n: true }
-          - { name: approach, label: 'Story heading 2', widget: string, i18n: true }
-          - { name: outcome, label: 'Story heading 3', widget: string, i18n: true }
-          - { name: storyLabel, label: 'Story label (screen readers)', widget: string, i18n: true }
-          - { name: galleryLabel, label: 'Gallery label (screen readers)', widget: string, i18n: true }
-          - { name: imageLabel, label: 'Image label (screen readers)', widget: string, i18n: true }
-          - { name: relatedExpertiseEyebrow, label: 'Related expertise: small label', widget: string, i18n: true }
-          - { name: relatedExpertiseTitle, label: 'Related expertise: heading', widget: string, i18n: true }
-          - { name: relatedProjectsEyebrow, label: 'Related projects: small label', widget: string, i18n: true }
-          - { name: relatedProjectsTitle, label: 'Related projects: heading', widget: string, i18n: true }
-          - { name: contactEyebrow, label: 'Contact card: small label', widget: string, i18n: true }
-          - { name: contactTitle, label: 'Contact card: heading', widget: string, i18n: true }
-          - { name: contactIntro, label: 'Contact card: intro', widget: text, i18n: true }
-      - name: project
-        label: 'Project cards (buttons and labels)'
-        widget: object
-        i18n: true
-        fields:
-          - { name: viewProject, label: 'View project button', widget: string, i18n: true }
-          - { name: readProject, label: 'Read project button', widget: string, i18n: true }
-          - { name: featuredEyebrow, label: 'Featured tag', widget: string, i18n: true }
-          - { name: location, label: 'Location label', widget: string, i18n: true }
-          - { name: timeframe, label: 'Timeframe label', widget: string, i18n: true }
-          - { name: disciplines, label: 'Disciplines label', widget: string, i18n: true }
-          - { name: partners, label: 'Partners label', widget: string, i18n: true }
-      - name: contactPanel
-        label: 'Contact card (default text)'
-        widget: object
-        i18n: true
-        fields:
-          - { name: eyebrow, label: 'Small label', widget: string, i18n: true }
-          - { name: title, label: 'Heading', widget: string, i18n: true }
-          - { name: intro, label: 'Intro', widget: text, i18n: true }
-          - { name: action, label: 'Button text', widget: string, i18n: true }
-      - name: slider
-        label: 'Slider controls (accessibility text)'
-        widget: object
-        i18n: true
-        fields:
-          - { name: regionLabel, label: 'Slider label', widget: string, i18n: true }
-          - { name: slideOf, label: 'Word between numbers (1 of 5)', widget: string, i18n: true }
-          - { name: previous, label: 'Previous button label', widget: string, i18n: true }
-          - { name: next, label: 'Next button label', widget: string, i18n: true }
-          - { name: pause, label: 'Pause button', widget: string, i18n: true }
-          - { name: resume, label: 'Resume button', widget: string, i18n: true }
-          - { name: pauseAria, label: 'Pause description', widget: string, i18n: true }
-          - { name: resumeAria, label: 'Resume description', widget: string, i18n: true }
-          - { name: autoplayOff, label: 'Autoplay off text', widget: string, i18n: true }
-          - { name: autoplayOffAria, label: 'Autoplay off description', widget: string, i18n: true }
-          - { name: statusTemplate, label: 'Announcement template', widget: string, i18n: true }
+        - name: visionPage
+          label: 'Vision page'
+          widget: object
+          i18n: true
+          fields:
+            - { name: metaTitle, label: 'Browser tab title', widget: string, i18n: true }
+            - { name: eyebrow, label: 'Small label', widget: string, i18n: true }
+            - { name: title, label: 'Page heading', widget: string, i18n: true }
+            - { name: lede, label: 'Intro line', widget: text, i18n: true }
+            - { name: statementTitle, label: 'Statement heading', widget: string, i18n: true }
+            - { name: valuesTitle, label: 'Values heading', widget: string, i18n: true }
+            - { name: valuesIntro, label: 'Values intro', widget: text, i18n: true }
+            - { name: practiceTitle, label: 'Practice heading', widget: string, i18n: true }
+            - { name: practiceImageAlt, label: 'Practice photo description', widget: string, i18n: true }
+            - { name: contactEyebrow, label: 'Contact card: small label', widget: string, i18n: true }
+            - { name: contactTitle, label: 'Contact card: heading', widget: string, i18n: true }
+            - { name: contactIntro, label: 'Contact card: intro', widget: text, i18n: true }
+            - name: practiceBody
+              label: 'Practice paragraphs'
+              widget: list
+              i18n: true
+              field: { name: paragraph, label: Paragraph, widget: text }
+        - name: expertisePage
+          label: 'Expertise page'
+          widget: object
+          i18n: true
+          fields:
+            - { name: metaTitle, label: 'Browser tab title', widget: string, i18n: true }
+            - { name: metaDescription, label: 'Search engine description', widget: text, i18n: true }
+            - { name: eyebrow, label: 'Small label', widget: string, i18n: true }
+            - { name: title, label: 'Page heading', widget: string, i18n: true }
+            - { name: lede, label: 'Intro line', widget: text, i18n: true }
+            - { name: introTitle, label: 'Section heading', widget: string, i18n: true }
+            - { name: introIntro, label: 'Section intro', widget: text, i18n: true }
+            - { name: areasLabel, label: 'Areas label (screen readers)', widget: string, i18n: true }
+            - { name: relatedProjects, label: 'Related projects label', widget: string, i18n: true }
+            - { name: teamTitle, label: 'Team band heading', widget: string, i18n: true }
+            - { name: teamBody, label: 'Team band text', widget: text, i18n: true }
+            - { name: teamLink, label: 'Team band link', widget: string, i18n: true }
+        - name: teamPage
+          label: 'Team page'
+          widget: object
+          i18n: true
+          fields:
+            - { name: metaTitle, label: 'Browser tab title', widget: string, i18n: true }
+            - { name: metaDescription, label: 'Search engine description', widget: text, i18n: true }
+            - { name: eyebrow, label: 'Small label', widget: string, i18n: true }
+            - { name: title, label: 'Page heading', widget: string, i18n: true }
+            - { name: lede, label: 'Intro line', widget: text, i18n: true }
+            - { name: heroImageAlt, label: 'Top photo description', widget: string, i18n: true }
+            - { name: directoryTitle, label: 'Directory heading', widget: string, i18n: true }
+            - { name: directoryIntro, label: 'Directory intro', widget: text, i18n: true }
+            - { name: contactTitle, label: 'Contact card: heading', widget: string, i18n: true }
+            - { name: contactIntro, label: 'Contact card: intro', widget: text, i18n: true }
+            - { name: viewProfile, label: 'Profile link text', widget: string, i18n: true }
+        - name: contactPage
+          label: 'Contact page'
+          widget: object
+          i18n: true
+          fields:
+            - { name: metaTitle, label: 'Browser tab title', widget: string, i18n: true }
+            - { name: metaDescription, label: 'Search engine description', widget: text, i18n: true }
+            - { name: eyebrow, label: 'Small label', widget: string, i18n: true }
+            - { name: title, label: 'Page heading', widget: string, i18n: true }
+            - { name: lede, label: 'Intro line', widget: text, i18n: true }
+            - { name: heroImageAlt, label: 'Photo description', widget: string, i18n: true }
+            - { name: enquiryTitle, label: 'Enquiry heading', widget: string, i18n: true }
+            - { name: enquiryBody, label: 'Enquiry text', widget: text, i18n: true }
+            - { name: enquiryAction, label: 'Enquiry link text', widget: string, i18n: true }
+            - { name: enquirySubject, label: 'Email draft subject', widget: string, i18n: true }
+            - { name: enquiryTemplate, label: 'Email draft template', widget: text, i18n: true }
+            - { name: enquiryNote, label: 'Small print under the link', widget: text, i18n: true }
+            - { name: socialTitle, label: 'Follow heading', widget: string, i18n: true }
+            - { name: socialBody, label: 'Follow text', widget: text, i18n: true }
+            - { name: socialAction, label: 'Follow link text', widget: string, i18n: true }
+        - name: projectsPage
+          label: 'Projects page'
+          widget: object
+          i18n: true
+          fields:
+            - { name: metaTitle, label: 'Browser tab title', widget: string, i18n: true }
+            - { name: metaDescription, label: 'Search engine description', widget: text, i18n: true }
+            - { name: eyebrow, label: 'Small label', widget: string, i18n: true }
+            - { name: title, label: 'Page heading', widget: string, i18n: true }
+            - { name: lede, label: 'Intro line', widget: text, i18n: true }
+            - { name: featuredLabel, label: 'Featured label (screen readers)', widget: string, i18n: true }
+            - { name: listEyebrow, label: 'List: small label', widget: string, i18n: true }
+            - { name: listTitle, label: 'List: heading', widget: string, i18n: true }
+            - { name: listIntro, label: 'List: intro', widget: text, i18n: true }
+            - { name: allProjects, label: 'Hidden list heading (screen readers)', widget: string, i18n: true }
+            - { name: platformsEyebrow, label: 'Platforms: small label', widget: string, i18n: true }
+            - { name: platformsTitle, label: 'Platforms: heading', widget: string, i18n: true }
+            - { name: platformsIntro, label: 'Platforms: intro', widget: text, i18n: true }
+        - name: projectDetail
+          label: 'Project pages (shared labels)'
+          widget: object
+          i18n: true
+          fields:
+            - { name: back, label: 'Back link', widget: string, i18n: true }
+            - { name: eyebrow, label: 'Small label', widget: string, i18n: true }
+            - { name: challenge, label: 'Story heading 1', widget: string, i18n: true }
+            - { name: approach, label: 'Story heading 2', widget: string, i18n: true }
+            - { name: outcome, label: 'Story heading 3', widget: string, i18n: true }
+            - { name: storyLabel, label: 'Story label (screen readers)', widget: string, i18n: true }
+            - { name: galleryLabel, label: 'Gallery label (screen readers)', widget: string, i18n: true }
+            - { name: imageLabel, label: 'Image label (screen readers)', widget: string, i18n: true }
+            - { name: relatedExpertiseEyebrow, label: 'Related expertise: small label', widget: string, i18n: true }
+            - { name: relatedExpertiseTitle, label: 'Related expertise: heading', widget: string, i18n: true }
+            - { name: relatedProjectsEyebrow, label: 'Related projects: small label', widget: string, i18n: true }
+            - { name: relatedProjectsTitle, label: 'Related projects: heading', widget: string, i18n: true }
+            - { name: contactEyebrow, label: 'Contact card: small label', widget: string, i18n: true }
+            - { name: contactTitle, label: 'Contact card: heading', widget: string, i18n: true }
+            - { name: contactIntro, label: 'Contact card: intro', widget: text, i18n: true }
+        - name: project
+          label: 'Project cards (buttons and labels)'
+          widget: object
+          i18n: true
+          fields:
+            - { name: viewProject, label: 'View project button', widget: string, i18n: true }
+            - { name: readProject, label: 'Read project button', widget: string, i18n: true }
+            - { name: featuredEyebrow, label: 'Featured tag', widget: string, i18n: true }
+            - { name: location, label: 'Location label', widget: string, i18n: true }
+            - { name: timeframe, label: 'Timeframe label', widget: string, i18n: true }
+            - { name: disciplines, label: 'Disciplines label', widget: string, i18n: true }
+            - { name: partners, label: 'Partners label', widget: string, i18n: true }
+        - name: contactPanel
+          label: 'Contact card (default text)'
+          widget: object
+          i18n: true
+          fields:
+            - { name: eyebrow, label: 'Small label', widget: string, i18n: true }
+            - { name: title, label: 'Heading', widget: string, i18n: true }
+            - { name: intro, label: 'Intro', widget: text, i18n: true }
+            - { name: action, label: 'Button text', widget: string, i18n: true }
+        - name: slider
+          label: 'Slider controls (accessibility text)'
+          widget: object
+          i18n: true
+          fields:
+            - { name: regionLabel, label: 'Slider label', widget: string, i18n: true }
+            - { name: slideOf, label: 'Word between numbers (1 of 5)', widget: string, i18n: true }
+            - { name: previous, label: 'Previous button label', widget: string, i18n: true }
+            - { name: next, label: 'Next button label', widget: string, i18n: true }
+            - { name: pause, label: 'Pause button', widget: string, i18n: true }
+            - { name: resume, label: 'Resume button', widget: string, i18n: true }
+            - { name: pauseAria, label: 'Pause description', widget: string, i18n: true }
+            - { name: resumeAria, label: 'Resume description', widget: string, i18n: true }
+            - { name: autoplayOff, label: 'Autoplay off text', widget: string, i18n: true }
+            - { name: autoplayOffAria, label: 'Autoplay off description', widget: string, i18n: true }
+            - { name: statusTemplate, label: 'Announcement template', widget: string, i18n: true }
       - name: navigation
         label: 'Header and footer'
         file: src/data/fluvio/content/site/navigation.json
