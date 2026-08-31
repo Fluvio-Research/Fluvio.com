@@ -7,8 +7,8 @@
     "description": [
       "By integrating real-time monitoring systems, cloud databases and alerting systems we have reduced response times to critical water quality incidents."
     ],
-    "image": "/src/assets/images/fluvio/project-honiara.jpeg",
-    "imageAlt": "Water quality monitoring",
+    "image": "/src/assets/images/fluvio/expertise-siwis-dashboard.jpg",
+    "imageAlt": "The SIWIS dashboard mapping monitoring stations across Solomon Islands",
     "relatedProjects": ["monitoring-honiara", "wrd"]
   },
   "pijin": {
@@ -19,8 +19,8 @@
     "description": [
       "Taem mifala joinim olketa real-time monitoring sistem, cloud database an alert sistem, mifala katem daon taem fo ansarem olketa serious problem long kwaliti blong wata."
     ],
-    "image": "/src/assets/images/fluvio/project-honiara.jpeg",
-    "imageAlt": "Monitorim kwaliti blong wata",
+    "image": "/src/assets/images/fluvio/expertise-siwis-dashboard.jpg",
+    "imageAlt": "SIWIS dashboard wea soim olketa monitoring station long map blong Solomon Aelan",
     "relatedProjects": ["monitoring-honiara", "wrd"]
   },
   "fr": {
@@ -31,8 +31,8 @@
     "description": [
       "En intégrant des systèmes de surveillance en temps réel, des bases de données en nuage et des dispositifs d’alerte, nous avons réduit les délais de réponse aux incidents critiques de qualité de l’eau."
     ],
-    "image": "/src/assets/images/fluvio/project-honiara.jpeg",
-    "imageAlt": "Surveillance de la qualité de l’eau",
+    "image": "/src/assets/images/fluvio/expertise-siwis-dashboard.jpg",
+    "imageAlt": "Le tableau de bord SIWIS cartographiant les stations de suivi aux Îles Salomon",
     "relatedProjects": ["monitoring-honiara", "wrd"]
   },
   "es": {
@@ -43,8 +43,8 @@
     "description": [
       "Al integrar sistemas de monitoreo en tiempo real, bases de datos en la nube y sistemas de alerta, hemos reducido los tiempos de respuesta ante incidentes críticos de calidad del agua."
     ],
-    "image": "/src/assets/images/fluvio/project-honiara.jpeg",
-    "imageAlt": "Monitoreo de la calidad del agua",
+    "image": "/src/assets/images/fluvio/expertise-siwis-dashboard.jpg",
+    "imageAlt": "El panel SIWIS que mapea las estaciones de monitoreo en las Islas Salomón",
     "relatedProjects": ["monitoring-honiara", "wrd"]
   }
 }
