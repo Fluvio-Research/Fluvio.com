@@ -8,18 +8,18 @@
     "timeframe": "2022 - Current",
     "disciplines": ["Hydrological monitoring", "Catchment investigations", "Water quality monitoring"],
     "partners": ["Solomon Water"],
-    "heroImage": "/src/assets/images/fluvio/project-honiara.jpeg",
-    "heroAlt": "A Solomon Water technician preparing a filtration funnel for a water quality sample in the laboratory",
+    "heroImage": "/src/assets/images/fluvio/project-honiara-siwis-dashboard.png",
+    "heroAlt": "The Solomon Islands Water Information System dashboard, mapping monitoring stations across the country alongside site, river and record counts",
     "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-honiara.jpeg",
+        "alt": "A Solomon Water technician preparing a filtration funnel for a water quality sample in the laboratory",
+        "caption": "Laboratory analysis of water quality samples alongside Solomon Water staff."
+      },
       {
         "src": "/src/assets/images/fluvio/project-honiara-reticulation.jpg",
         "alt": "A Solomon Water field officer filling sample bottles from a tap over a steel drum",
         "caption": "Routine water quality monitoring in the Honiara reticulation network."
-      },
-      {
-        "src": "/src/assets/images/fluvio/project-honiara-siwis-dashboard.png",
-        "alt": "A dashboard showing a map of monitoring stations across the Solomon Islands alongside site, river and record counts",
-        "caption": "The Solomon Islands Water Information System, the national hydrological database that holds the monitoring records these programs feed."
       }
     ],
     "challenge": [
@@ -45,18 +45,18 @@
     "timeframe": "2022 - Distaem",
     "disciplines": ["Monitorim wata", "Olketa catchment investigation", "Monitorim kwaliti blong wata"],
     "partners": ["Solomon Water"],
-    "heroImage": "/src/assets/images/fluvio/project-honiara.jpeg",
-    "heroAlt": "Wanfala technician blong Solomon Water hemi redim wanfala filtration funnel fo wanfala sample blong kwaliti blong wata insaet long laboratory",
+    "heroImage": "/src/assets/images/fluvio/project-honiara-siwis-dashboard.png",
+    "heroAlt": "Dashboard blong Solomon Islands Water Information System, wea mapem olketa monitoring station raonem full kantri, wetem namba blong olketa site, reva an record",
     "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-honiara.jpeg",
+        "alt": "Wanfala technician blong Solomon Water hemi redim wanfala filtration funnel fo wanfala sample blong kwaliti blong wata insaet long laboratory",
+        "caption": "Analysis long laboratory blong olketa sample blong kwaliti blong wata, tugeta wetem olketa staff blong Solomon Water."
+      },
       {
         "src": "/src/assets/images/fluvio/project-honiara-reticulation.jpg",
         "alt": "Wanfala field officer blong Solomon Water hemi fulimap olketa sample bottle from wanfala tap antap long wanfala steel drum",
         "caption": "Monitoring blong kwaliti blong wata wea olketa duim oltaem long paep sistem blong Honiara."
-      },
-      {
-        "src": "/src/assets/images/fluvio/project-honiara-siwis-dashboard.png",
-        "alt": "Wanfala dashboard wea soim wanfala map blong olketa monitoring station raonem Solomon Aelan, wetem namba blong olketa site, reva an record",
-        "caption": "Solomon Islands Water Information System, hemi national database blong hydrology wea holem olketa monitoring record wea olketa program ia sendem insaet."
       }
     ],
     "challenge": [
@@ -82,18 +82,18 @@
     "timeframe": "2022 - En cours",
     "disciplines": ["Surveillance hydrologique", "Études de bassins versants", "Surveillance de la qualité de l’eau"],
     "partners": ["Solomon Water"],
-    "heroImage": "/src/assets/images/fluvio/project-honiara.jpeg",
-    "heroAlt": "Une technicienne de Solomon Water prépare un entonnoir de filtration pour un échantillon de qualité de l’eau au laboratoire",
+    "heroImage": "/src/assets/images/fluvio/project-honiara-siwis-dashboard.png",
+    "heroAlt": "Le tableau de bord du Solomon Islands Water Information System, cartographiant les stations de surveillance du pays avec le nombre de sites, de rivières et d’enregistrements",
     "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-honiara.jpeg",
+        "alt": "Une technicienne de Solomon Water prépare un entonnoir de filtration pour un échantillon de qualité de l’eau au laboratoire",
+        "caption": "Analyse en laboratoire des échantillons de qualité de l’eau aux côtés du personnel de Solomon Water."
+      },
       {
         "src": "/src/assets/images/fluvio/project-honiara-reticulation.jpg",
         "alt": "Un agent de terrain de Solomon Water remplit des flacons d’échantillonnage à un robinet posé sur un fût métallique",
         "caption": "Surveillance de routine de la qualité de l’eau dans le réseau de distribution de Honiara."
-      },
-      {
-        "src": "/src/assets/images/fluvio/project-honiara-siwis-dashboard.png",
-        "alt": "Un tableau de bord affichant une carte des stations de surveillance des Îles Salomon ainsi que le nombre de sites, de rivières et d’enregistrements",
-        "caption": "Le Solomon Islands Water Information System, la base de données hydrologique nationale qui rassemble les enregistrements produits par ces programmes de surveillance."
       }
     ],
     "challenge": [
@@ -119,18 +119,18 @@
     "timeframe": "2022 - Actualidad",
     "disciplines": ["Monitoreo hidrológico", "Investigaciones de cuencas", "Monitoreo de calidad del agua"],
     "partners": ["Solomon Water"],
-    "heroImage": "/src/assets/images/fluvio/project-honiara.jpeg",
-    "heroAlt": "Una técnica de Solomon Water prepara un embudo de filtración para una muestra de calidad del agua en el laboratorio",
+    "heroImage": "/src/assets/images/fluvio/project-honiara-siwis-dashboard.png",
+    "heroAlt": "El tablero del Solomon Islands Water Information System, que cartografía las estaciones de monitoreo del país junto con los recuentos de sitios, ríos y registros",
     "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-honiara.jpeg",
+        "alt": "Una técnica de Solomon Water prepara un embudo de filtración para una muestra de calidad del agua en el laboratorio",
+        "caption": "Análisis de laboratorio de muestras de calidad del agua junto al personal de Solomon Water."
+      },
       {
         "src": "/src/assets/images/fluvio/project-honiara-reticulation.jpg",
         "alt": "Un funcionario de campo de Solomon Water llena frascos de muestreo desde un grifo montado sobre un tambor metálico",
         "caption": "Monitoreo de rutina de la calidad del agua en la red de distribución de Honiara."
-      },
-      {
-        "src": "/src/assets/images/fluvio/project-honiara-siwis-dashboard.png",
-        "alt": "Un tablero que muestra un mapa de estaciones de monitoreo en las Islas Salomón junto con los recuentos de sitios, ríos y registros",
-        "caption": "El Solomon Islands Water Information System, la base de datos hidrológica nacional que reúne los registros de monitoreo que alimentan estos programas."
       }
     ],
     "challenge": [
