@@ -8,6 +8,15 @@
     "portraitAlt": "Alistair Grinham",
     "specialties": ["Carbon and sediment dynamics"]
   },
+  "pis": {
+    "order": 2,
+    "name": "Alistair Grinham",
+    "role": "Director blong Sustainability an Indastri",
+    "bio": "Alistair hemi wanfala ekspet wea olketa savve long hem long full wol, long saed blong carbon an sediment long graon an long wata. Hemi laek sapotem jenis blong energy long full wol, an fo luksavve moa gud hao olketa bigfala disaster olketa affectim enviromen an olketa samting wea pipol buildim.",
+    "portrait": "/src/assets/images/fluvio/team-alistair.png",
+    "portraitAlt": "Alistair Grinham",
+    "specialties": ["Carbon an sediment"]
+  },
   "fr": {
     "order": 2,
     "name": "Alistair Grinham",

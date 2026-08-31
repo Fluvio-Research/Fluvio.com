@@ -8,6 +8,15 @@
     "portraitAlt": "Melanie Johnson",
     "specialties": ["Geospatial analysis", "Conservation science"]
   },
+  "pis": {
+    "order": 4,
+    "name": "Melanie Johnson",
+    "role": "Spatial Analyst an Saens Communicator",
+    "bio": "Melanie hemi wanfala geospatial analyst, saentis fo conservation, an drone pilot wea garem staka experience. Creative wei blong hem mekem toktok abaotem saens hemi moa klia long staka difren wei, an hemi barava strong fo iusim olketa difren savve blong hem fo helpem gudfala jenis.",
+    "portrait": "/src/assets/images/fluvio/team-melanie.jpeg",
+    "portraitAlt": "Melanie Johnson",
+    "specialties": ["Geospatial analysis", "Saens fo conservation"]
+  },
   "fr": {
     "order": 4,
     "name": "Melanie Johnson",

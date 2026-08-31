@@ -28,6 +28,35 @@
     "featured": true,
     "relatedProjects": ["bina", "advance-queensland"]
   },
+  "pis": {
+    "order": 6,
+    "title": "Monitorim wata fo Tina Hydro",
+    "slug": "tina",
+    "summary": "Monitorim wata an sediment fo Tina River Hydro Development Project.",
+    "location": "Tina River, Solomon Aelan",
+    "timeframe": "2025 - Distaem",
+    "disciplines": ["Monitorim wata", "Monitorim sediment"],
+    "heroImage": "/src/assets/images/fluvio/project-tina.jpeg",
+    "heroAlt": "Monitorim wata fo Tina Hydro",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-tina-station.png",
+        "alt": "A real-time monitoring station deployed on the Tina River",
+        "caption": "A real time monitoring station deployed on the Tina River."
+      }
+    ],
+    "challenge": [
+      "Tina River Hydro Development Project hemi needim olketa energy calculation wea stanap long sediment load, flow rating, an mean flow."
+    ],
+    "approach": [
+      "Fluvio hemi finisim monitoring blong wata an sediment wetem olketa computer vision stream gauging sistem, olketa real-time station fo level blong wata, olketa real-time station fo kwaliti blong wata, sediment analysis, an manual gauging."
+    ],
+    "outcome": [
+      "Mifala developim olketa spesol solusen fo pawa an communication, fo mekem sua sistem hemi waka gud long wanfala ples wea farawe an had."
+    ],
+    "featured": true,
+    "relatedProjects": ["bina", "advance-queensland"]
+  },
   "fr": {
     "order": 6,
     "title": "Surveillance hydrologique de Tina Hydro",

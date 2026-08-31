@@ -8,6 +8,15 @@
     "portraitAlt": "Simon Albert",
     "specialties": ["Climate, water, and society"]
   },
+  "pis": {
+    "order": 1,
+    "name": "Simon Albert",
+    "role": "Director blong Innovation an Strategy",
+    "bio": "Simon hemi wanfala world lider long saed blong iusim olketa niufala monitoring wei, fo luksavve hao klaemet, wata an pipol olketa waka tugeta. Hemi barava laekem pipol an teknoloji, an hemi biliv tufala samting ia nao bae ki fo winim olketa hevi blong taem bihaen.",
+    "portrait": "/src/assets/images/fluvio/team-simon.png",
+    "portraitAlt": "Simon Albert",
+    "specialties": ["Klaemet, wata an pipol"]
+  },
   "fr": {
     "order": 1,
     "name": "Simon Albert",

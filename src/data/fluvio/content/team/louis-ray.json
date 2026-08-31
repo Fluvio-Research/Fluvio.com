@@ -8,6 +8,15 @@
     "portraitAlt": "Louis Ray",
     "specialties": ["Environmental and sustainability consulting"]
   },
+  "pis": {
+    "order": 5,
+    "name": "Louis Ray",
+    "role": "Senior Saentis blong Enviromen",
+    "bio": "Louis hemi wanfala consultant fo enviromen an sustainability wea barava givim hemseleva long waka blong hem, an hemi finisim gud staka important project. Hemi barava laekem fo joinim tingting abaotem enviromen, pipol an economy tugeta, fo tekem kam gudfala risalt fo olketa local komuniti.",
+    "portrait": "/src/assets/images/fluvio/team-louis.jpeg",
+    "portraitAlt": "Louis Ray",
+    "specialties": ["Consulting fo enviromen an sustainability"]
+  },
   "fr": {
     "order": 5,
     "name": "Louis Ray",

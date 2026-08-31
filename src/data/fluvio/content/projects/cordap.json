@@ -20,6 +20,27 @@
     ],
     "relatedProjects": ["sol-trader-oil-spill"]
   },
+  "pis": {
+    "order": 8,
+    "title": "Clean Reefs: mapem pollution wea hemi muv an jenis",
+    "slug": "cordap",
+    "summary": "Mifala developim wanfala global, open-source tul fo mapem pollution an assessim risk fo olketa coral reef.",
+    "location": "Full wol",
+    "timeframe": "2024 - Distaem",
+    "disciplines": ["Mapem pollution", "Assessment blong risk"],
+    "heroImage": "/src/assets/images/fluvio/project-cordap.jpeg",
+    "heroAlt": "Wanfala sediment plume wea olketa lukim long Solomon Aelan",
+    "challenge": [
+      "Pollution from olketa sos long land hemi bigfala danger fo helt blong olketa reef long full wol, an hemi affectim winim 30% blong olketa coral reef. Bat olketa tul wea stap distaem, staka long olketa had fo kasem o no fitim fo mekem disison."
+    ],
+    "approach": [
+      "CLEAN REEFS project hemi developim wanfala web application wea givim data klosap long real-time abaotem olketa pollution sos, wea pollution hemi kasem, an hao hemi spread."
+    ],
+    "outcome": [
+      "Tul ia bae sapotem conservation waka long graon long Fiji an Solomon Aelan, an bae hemi kamap wanfala tul wea olketa coral reef komuniti long full wol savve iusim tu."
+    ],
+    "relatedProjects": ["sol-trader-oil-spill"]
+  },
   "fr": {
     "order": 8,
     "title": "Clean Reefs : cartographie dynamique de la pollution",

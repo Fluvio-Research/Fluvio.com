@@ -26,6 +26,31 @@
     ],
     "relatedProjects": ["cordap"]
   },
+  "pis": {
+    "order": 7,
+    "title": "Assessment blong damage long enviromen from MV Solomon Trader grounding an oil spill",
+    "slug": "sol-trader-oil-spill",
+    "summary": "Olketa environmental impact assessment fo taem MV Solomon Trader hemi go aground an oil spill.",
+    "location": "Rennell Island, Solomon Aelan",
+    "timeframe": "2019 an 2025",
+    "disciplines": ["Assessment blong impact long enviromen", "Assessment blong ecology"],
+    "heroImage": "/src/assets/images/fluvio/project-sol-trader.jpg",
+    "heroAlt": "Travel go long ples wea ship hemi go aground long Kangava Bay",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-sol-trader-aerial.png",
+        "alt": "Aerial view of the coastal environment"
+      }
+    ],
+    "challenge": [
+      "Bihaen winim 300 tonnes blong heavy fuel oil hemi kapsaet long shallow reef an solwata blong Kagava Bay, wanfala bigfala clean-up operation hemi gohed from start blong March go kasem 26 July 2019."
+    ],
+    "approach": [
+      "Long behalf blong Gavman blong Solomon Aelan, Fluvio hemi duim olketa environmental impact assessment long 2019 an 2025. Insaet long hem: assessment long graon long solwata saed, sediment, olketa samting daon long sea floor, an ecology."
+    ],
+    "outcome": ["Mifala groupim olketa finding fo luksavve hao accident ia hemi affectim enviromen raonem ples ia."],
+    "relatedProjects": ["cordap"]
+  },
   "fr": {
     "order": 7,
     "title": "Échouement du MV Solomon Trader et évaluation des dommages environnementaux de la marée noire",

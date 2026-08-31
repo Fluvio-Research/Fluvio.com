@@ -8,6 +8,15 @@
     "portraitAlt": "Eric Cheung",
     "specialties": ["Computer vision", "Machine learning"]
   },
+  "pis": {
+    "order": 9,
+    "name": "Eric Cheung",
+    "role": "Senior Data Saentis",
+    "bio": "Eric hemi focus long iusim computer vision an machine learning fo tanem olketa foto an video data kamap infomeson wea iumi savve iusim. Hemi enjoyim fo iusim data an teknoloji fo ansarem olketa hevi blong enviromen, an fo mekem monitoring an analysis kamap moa gud.",
+    "portrait": "/src/assets/images/fluvio/team-eric.jpeg",
+    "portraitAlt": "Eric Cheung",
+    "specialties": ["Computer vision", "Machine learning"]
+  },
   "fr": {
     "order": 9,
     "name": "Eric Cheung",

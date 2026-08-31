@@ -27,6 +27,34 @@
     ],
     "relatedProjects": ["monitoring-honiara"]
   },
+  "pis": {
+    "order": 5,
+    "title": "Design blong data management sistem an trening",
+    "slug": "wrd",
+    "summary": "Mifala developim Solomon Islands Water Information System (SIWIS) fo Water Resources Division.",
+    "location": "Honiara, Solomon Aelan",
+    "timeframe": "2025 - 2026",
+    "disciplines": ["Data management", "Hydrology", "Trening"],
+    "partners": ["Water Resources Division"],
+    "heroImage": "/src/assets/images/fluvio/project-wrd-field.jpg",
+    "heroAlt": "Mesarem flow blong wata tugeta wetem Water Resources Division long Mataniko River",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-wrd-workshop.jpg",
+        "alt": "Water data management workshop"
+      }
+    ],
+    "challenge": [
+      "Water Resources Division hemi holem wanfala archive blong old hydrological data wea no stret gud an had fo kasem, an diswan mekem waka blong olketa no ran gud tumas."
+    ],
+    "approach": [
+      "Long wanfala wei wea evriwan tekpat long design, Fluvio developim SIWIS, wanfala niufala pilot data management sistem wea savve gohed fo longtaem. Mifala givim tu trening long GIS, hydrology, hao fo collectim data, hao fo storem data, an data security."
+    ],
+    "outcome": [
+      "SIWIS platform hemi strongim wei blong Water Resources Division fo collectim, storem sef, an analysim gud hydrological data, fo sapotem olketa disison abaotem wata wea stanap long evidens."
+    ],
+    "relatedProjects": ["monitoring-honiara"]
+  },
   "fr": {
     "order": 5,
     "title": "Conception d’un système de gestion des données et formation",

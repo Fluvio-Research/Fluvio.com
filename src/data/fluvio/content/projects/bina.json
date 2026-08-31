@@ -20,6 +20,27 @@
     ],
     "relatedProjects": ["tina", "monitoring-honiara"]
   },
+  "pis": {
+    "order": 2,
+    "title": "Monitorim olketa ples wea maet givim wata",
+    "slug": "bina",
+    "summary": "Mifala collectim hydrological data evritaem fo faendem wanfala wata sos wea strong an savve gohed fo longtaem, fo Bina Harbour Development Project.",
+    "location": "Bina Harbour, Solomon Aelan",
+    "timeframe": "2025 - Distaem",
+    "disciplines": ["Monitorim wata", "Monitorim kwaliti blong wata"],
+    "heroImage": "/src/assets/images/fluvio/project-bina.jpeg",
+    "heroAlt": "Mesarem flow blong wata long Loaloana Stream",
+    "challenge": [
+      "Bina Harbour Development Project hemi needim wanfala wata sos wea klin an strong, fo kasem need blong tuna processing facility blong hem distaem an fo longtaem."
+    ],
+    "approach": [
+      "Olketa engagem Fluvio fo collectim hydrological data fo 12 months no stop, long trifala site. Mifala iusim olketa computer vision stream gauging sistem, olketa real-time station fo monitorim kwaliti blong wata, an manual gauging."
+    ],
+    "outcome": [
+      "Monitoring ia givim data long evri faevfala minute, fo faendem wanfala wata sos wea strong an savve gohed fo longtaem, fo need blong processing plant distaem an long taem bihaen."
+    ],
+    "relatedProjects": ["tina", "monitoring-honiara"]
+  },
   "fr": {
     "order": 2,
     "title": "Surveillance hydrologique de sources d’eau potentielles",

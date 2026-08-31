@@ -1,12 +1,13 @@
 import { getPages, type Pages } from '~/data/fluvio/store.ts';
 import { getPermalink } from '~/utils/permalinks';
 
-export const locales = ['en', 'fr', 'es'] as const;
+export const locales = ['en', 'pis', 'fr', 'es'] as const;
 export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = 'en';
 
 export const localeNames: Record<Locale, string> = {
   en: 'English',
+  pis: 'Pijin',
   fr: 'Français',
   es: 'Español',
 };

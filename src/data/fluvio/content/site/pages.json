@@ -123,6 +123,130 @@
       "action": "Contact Fluvio"
     }
   },
+  "pis": {
+    "slider": {
+      "regionLabel": "Intro blong Fluvio",
+      "slideOf": "long",
+      "previous": "Slaed bifoa",
+      "next": "Neks slaed",
+      "pause": "Stopem",
+      "resume": "Gohed moa",
+      "pauseAria": "Stopem slaed fo no jenis seleva",
+      "resumeAria": "Letem slaed fo jenis seleva moa",
+      "autoplayOff": "Slaed no muv seleva",
+      "autoplayOffAria": "Olketa slaed no jenis seleva bikos setting blong iu talem fo katem daon muvmen",
+      "statusTemplate": "Slaed {current} long {total}: {title}"
+    },
+    "visionPage": {
+      "metaTitle": "Vison",
+      "eyebrow": "Vison",
+      "title": "Olketa wata sistem wea moa helti. Olketa komuniti wea moa strong.",
+      "lede": "Savve an teknoloji savve helpem fo mekem sua wol ia stap gud fo olketa pipol distaem an olketa jenereson bihaen.",
+      "statementTitle": "Fo wanem nao Fluvio hemi stap",
+      "valuesTitle": "Faevfala value nao gaedem waka blong mifala",
+      "valuesIntro": "Olketa value ia soim hao Fluvio developim teknoloji, hao mifala waka wetem olketa partna, an hao mifala sapotem enviromen fo longtaem.",
+      "practiceTitle": "Waka long region, wea hemi stanap strong long ples",
+      "practiceBody": [
+        "Fluvio waka long olketa wata sistem blong Australia an Melanesia. Mifala joinim evidens from graon wetem olketa tul wea fitim kondison blong ples an need blong evriday waka.",
+        "Waka tugeta hemi haf blong evri project. Mifala developim monitoring, data management an trening tugeta wetem olketa pipol wea bae iusim an lukaftarem olketa samting ia."
+      ],
+      "practiceImageAlt": "Wanfala field tim blong Fluvio hemi waka tugeta",
+      "contactEyebrow": "Olketa project an partnasip",
+      "contactTitle": "Waka tugeta wetem mifala fo strongim wata blong iumi fo taem bihaen.",
+      "contactIntro": "Tekem kam long mifala eni hevi blong wata, enviromen o klaemet wea iu waka long hem."
+    },
+    "expertisePage": {
+      "metaTitle": "Savve",
+      "metaDescription": "Savve blong Fluvio long monitorim wata, modelling blong wata, management blong wata risos, carbon assessment an olketa data sistem fo evriday waka.",
+      "eyebrow": "Savve",
+      "title": "Savve abaotem wata wea fitim tru kondison long ples.",
+      "lede": "Dip technical savve long monitoring, modelling an assessment blong enviromen, wea join long waka wea barava kamap tru.",
+      "introTitle": "Sikisfala savve, wanfala waka fo enviromen",
+      "introIntro": "Evri savve eria hemi iusim saens long graon, data an waka tugeta, wetem evidens from olketa project long Australia an Melanesia.",
+      "areasLabel": "Olketa savve eria",
+      "relatedProjects": "Olketa project wea join wetem diswan",
+      "teamTitle": "Staka difren savve waka tugeta.",
+      "teamBody": "Olketa hydrologist, saentis blong enviromen, spatial analyst an data ekspet waka tugeta, start long design blong project, go long waka long field, kasem taem olketa sistem waka evriday.",
+      "teamLink": "Mitim tim blong Fluvio"
+    },
+    "teamPage": {
+      "metaTitle": "Tim",
+      "metaDescription": "Mitim tim blong Fluvio wea waka long hydrology, saens blong enviromen, carbon, spatial analysis an olketa data sistem.",
+      "eyebrow": "Tim",
+      "title": "Staka difren savve. Wanfala waka fo enviromen.",
+      "lede": "Olketa ekspet waka tugeta long saens long graon, olketa enviromen sistem an teknoloji fo iusim long ples.",
+      "heroImageAlt": "Olketa ekspet blong Fluvio waka tugeta long field",
+      "directoryTitle": "Olketa pipol bihaen long waka",
+      "directoryIntro": "Tim ia tekem kam savve from research, indastri an region fo olketa hadfala hevi blong wata, klaemet an enviromen.",
+      "contactTitle": "Tekem kam stretfala mix blong savve fo project blong iu.",
+      "contactIntro": "Talem mifala abaotem sistem, ples o disison wea tim blong iu waka long hem.",
+      "viewProfile": "Lukim profile"
+    },
+    "contactPage": {
+      "metaTitle": "Kontak",
+      "metaDescription": "Startim toktok wetem Fluvio abaotem wanfala project blong wata, enviromen o klaemet.",
+      "eyebrow": "Kontak",
+      "title": "Start wetem ples, hevi an disison.",
+      "lede": "Talem mifala abaotem hevi blong wata, enviromen o klaemet wea tim blong iu waka long hem.",
+      "heroImageAlt": "Lukluk from antap long wanfala reva",
+      "enquiryTitle": "Askem abaotem project",
+      "enquiryBody": "Putum insaet ples blong project, enviromen sistem wea hemi insaet, an disison o need blong waka wea iu laek sapotem.",
+      "enquiryAction": "Startim wanfala project enquiry",
+      "enquirySubject": "Project enquiry fo Fluvio",
+      "enquiryTemplate": "Ples blong project:\n\nEnviromen sistem:\n\nDisison o need blong waka:\n\nStory abaotem project:",
+      "enquiryNote": "Diswan bae openem wanfala draft long email application blong iu. No eni samting hemi go tru long website ia, an site ia no givim aot wanfala public email address.",
+      "socialTitle": "Folom Fluvio",
+      "socialBody": "Lukim olketa update blong kampani an waka wea gohed distaem, long verified kampani page blong Fluvio.",
+      "socialAction": "Fluvio long LinkedIn"
+    },
+    "projectsPage": {
+      "metaTitle": "Olketa Project",
+      "metaDescription": "Lukim olketa project blong Fluvio long monitorim wata, management blong wata risos, assessment blong enviromen an olketa data sistem.",
+      "eyebrow": "Olketa Project",
+      "title": "Savve from graon fo olketa hadfala enviromen sistem.",
+      "lede": "Mifala joinim saens long graon, monitoring teknoloji an olketa data sistem fo helpem komuniti, gavman an indastri fo mekem olketa disison wea moa gud abaotem wata an klaemet.",
+      "featuredLabel": "Spesol project",
+      "listEyebrow": "Samfala waka",
+      "listTitle": "Long olketa catchment, solwata saed an komuniti",
+      "listIntro": "Naenfala project, an evriwan hemi fitim ples blong hem, olketa partna an tru kondison blong waka.",
+      "allProjects": "Evri project",
+      "platformsEyebrow": "Olketa platform",
+      "platformsTitle": "Data blong enviromen, redi fo iusim",
+      "platformsIntro": "Olketa tul wea mifala buildim spesol, olketa tanem monitoring network kamap infomeson wea olketa tim savve luksavve an iusim."
+    },
+    "projectDetail": {
+      "back": "Evri project",
+      "eyebrow": "Project",
+      "challenge": "Hevi",
+      "approach": "Wei blong waka",
+      "outcome": "Risalt",
+      "storyLabel": "Story blong project",
+      "galleryLabel": "Olketa foto blong project",
+      "imageLabel": "foto",
+      "relatedExpertiseEyebrow": "Savve wea join wetem diswan",
+      "relatedExpertiseTitle": "Olketa savve bihaen long waka ia",
+      "relatedProjectsEyebrow": "Gohed fo lukluk",
+      "relatedProjectsTitle": "Olketa project wea join wetem diswan",
+      "contactEyebrow": "Waka wetem mifala",
+      "contactTitle": "Iu needim wanfala project wea fitim enviromen blong iu?",
+      "contactIntro": "Mifala buildim olketa monitoring an disison sistem fo fitim tru ples, tru kondison blong waka, an olketa pipol wea bae iusim."
+    },
+    "project": {
+      "viewProject": "Lukim project",
+      "readProject": "Ridim project",
+      "featuredEyebrow": "Spesol project",
+      "location": "Ples",
+      "timeframe": "Taem",
+      "disciplines": "Olketa savve eria",
+      "partners": "Olketa partna"
+    },
+    "contactPanel": {
+      "eyebrow": "Startim toktok",
+      "title": "Iu garem wanfala hevi blong wata, enviromen o klaemet?",
+      "intro": "Talem mifala wanem nao iu waka long hem. Bae mifala tekem kam stretfala mix blong savve long field waka, saens an teknoloji fo toktok ia.",
+      "action": "Kontaktem Fluvio"
+    }
+  },
   "fr": {
     "slider": {
       "regionLabel": "Présentation de Fluvio",

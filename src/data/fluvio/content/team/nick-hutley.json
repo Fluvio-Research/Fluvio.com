@@ -8,6 +8,15 @@
     "portraitAlt": "Nick Hutley",
     "specialties": ["Optical flow technology"]
   },
+  "pis": {
+    "order": 3,
+    "name": "Nick Hutley",
+    "role": "Director blong Research an Teknoloji",
+    "bio": "Nick hemi lidim waka fo developim optical flow teknoloji, fo openem wanfala niufala taem blong monitorim wata. Hemi biliv ki fo lukaftarem gud olketa natural risos hemi fo putum olketa important data from enviromen go insaet long olketa computer model.",
+    "portrait": "/src/assets/images/fluvio/team-nick.png",
+    "portraitAlt": "Nick Hutley",
+    "specialties": ["Optical flow teknoloji"]
+  },
   "fr": {
     "order": 3,
     "name": "Nick Hutley",

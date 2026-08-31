@@ -11,6 +11,18 @@
     "imageAlt": "Hydrological monitoring in a stream",
     "relatedProjects": ["tina", "bina", "advance-queensland"]
   },
+  "pis": {
+    "order": 1,
+    "title": "Niufala wei fo monitorim wata",
+    "slug": "hydrological-monitoring",
+    "summary": "Mifala developim an iusim wanfala barava niufala sistem fo monitorim wata, wea iusim computer vision.",
+    "description": [
+      "Sistem ia mekem waka hemi moa sef an moa kwik. Hemi iusim olketa sensor wea no tasim wata, an real-time analysis, fo monitorim spid an flow blong olketa reva."
+    ],
+    "image": "/src/assets/images/fluvio/expertise-stream-monitoring.jpg",
+    "imageAlt": "Monitorim wata long wanfala stream",
+    "relatedProjects": ["tina", "bina", "advance-queensland"]
+  },
   "fr": {
     "order": 1,
     "title": "Surveillance hydrologique innovante",

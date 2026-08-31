@@ -20,7 +20,7 @@ editor:
 
 i18n:
   structure: single_file
-  locales: [en, fr, es]
+  locales: [en, pis, fr, es]
   default_locale: en
 
 collections:
@@ -29,8 +29,8 @@ collections:
     label_singular: Project
     description: >-
       The project case studies shown on the Projects page and the homepage.
-      Each project has English, French and Spanish tabs; fill in all three.
-      Fields marked as shared apply to every language automatically.
+      Each project has English, Pijin, French and Spanish tabs; fill in all
+      four. Fields marked as shared apply to every language automatically.
     folder: src/data/fluvio/content/projects
     format: json
     extension: json
@@ -161,7 +161,7 @@ collections:
     label_singular: Team member
     description: >-
       The people on the Team page. Photos should be roughly square. Roles,
-      biographies and specialties need all three language tabs filled in.
+      biographies and specialties need all four language tabs filled in.
     folder: src/data/fluvio/content/team
     format: json
     extension: json

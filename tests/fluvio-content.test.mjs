@@ -169,7 +169,7 @@ test('Fluvio catalogs translate every string for every locale', () => {
     );
 
   const reference = keyPaths(getPages('en')).sort();
-  for (const locale of ['fr', 'es']) {
+  for (const locale of ['pis', 'fr', 'es']) {
     assert.deepEqual(keyPaths(getPages(locale)).sort(), reference);
     assert.notEqual(getPages(locale).visionPage.title, getPages('en').visionPage.title);
   }
@@ -195,13 +195,15 @@ test('Fluvio catalogs translate every string for every locale', () => {
   // Translated locales actually differ from English where language differs.
   assert.notEqual(getProjects('fr')[0].title, getProjects('en')[0].title);
   assert.notEqual(getTeamMembers('es')[0].role, getTeamMembers('en')[0].role);
+  assert.notEqual(getProjects('pis')[0].title, getProjects('en')[0].title);
 });
 
-test('Fluvio locale routes exist for French and Spanish', async () => {
+test('Fluvio locale routes exist for Pijin, French and Spanish', async () => {
   const localePages = ['index', 'vision', 'expertise', 'projects', 'team', 'contact', '[slug]'];
   await Promise.all(localePages.map((page) => access(new URL(`../src/pages/[lang]/${page}.astro`, import.meta.url))));
 
   const langIndex = await readFile(new URL('../src/pages/[lang]/index.astro', import.meta.url), 'utf8');
+  assert.match(langIndex, /params: \{ lang: 'pis' \}/);
   assert.match(langIndex, /params: \{ lang: 'fr' \}/);
   assert.match(langIndex, /params: \{ lang: 'es' \}/);
 });

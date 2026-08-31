@@ -8,6 +8,15 @@
     "portraitAlt": "Mubashir Imran",
     "specialties": ["Data-driven interoperable systems"]
   },
+  "pis": {
+    "order": 7,
+    "name": "Mubashir Imran",
+    "role": "Senior Data Saentis",
+    "bio": "Mubashir hemi barava laekem fo buildim olketa sistem wea waka tugeta an stanap long data, fo joinim pipol wetem data. Hemi strong fo wakem olketa niufala tul wea isi fo iusim, an wea pusum mak blong olketa niufala solusen fo monitorim enviromen an fo waka wetem data.",
+    "portrait": "/src/assets/images/fluvio/team-mubashir.jpg",
+    "portraitAlt": "Mubashir Imran",
+    "specialties": ["Olketa sistem wea stanap long data"]
+  },
   "fr": {
     "order": 7,
     "name": "Mubashir Imran",

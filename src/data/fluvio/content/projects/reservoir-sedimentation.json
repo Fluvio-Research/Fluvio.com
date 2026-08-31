@@ -20,6 +20,27 @@
     ],
     "relatedProjects": ["ghg-emissions-reservoirs"]
   },
+  "pis": {
+    "order": 9,
+    "title": "Study blong sedimentation long reservoir",
+    "slug": "reservoir-sedimentation",
+    "summary": "Mifala faendem an mesarem hao fast sediment hemi buildup insaet long wanfala reservoir.",
+    "location": "Australia",
+    "timeframe": "2024 - 2025",
+    "disciplines": ["Monitorim sedimentation", "Survey long field"],
+    "heroImage": "/src/assets/images/fluvio/project-reservoir-sedimentation.jpeg",
+    "heroAlt": "Tufala sediment core wea olketa collectim from bottom blong lake",
+    "challenge": [
+      "Sedimentation hemi happen oltaem long olketa dam an hemi katem daon capacity blong olketa. Sapos hemi go moa fast, hemi savve mekem olketa hevi long waka blong dam."
+    ],
+    "approach": [
+      "Study ia startim wetem wanfala field survey wetem freefall penetrometer, bihaen wanfala coring survey, olketa sedimentation array long ples seleva, olketa event monitoring node long olketa main ples wea wata ran insaet, an wanfala visual assessment long saed blong wata."
+    ],
+    "outcome": [
+      "Field program ia faendem an mesarem hao fast sedimentation hemi happen, an hemi soim hao sediment hemi muv taem wata long reservoir hemi go daon."
+    ],
+    "relatedProjects": ["ghg-emissions-reservoirs"]
+  },
   "fr": {
     "order": 9,
     "title": "Études de sédimentation des réservoirs",

@@ -11,6 +11,18 @@
     "imageAlt": "Water quality monitoring",
     "relatedProjects": ["monitoring-honiara", "wrd"]
   },
+  "pis": {
+    "order": 5,
+    "title": "Olketa monitoring sistem fo evriday waka",
+    "slug": "operational-monitoring",
+    "summary": "Mifala mekem monitoring blong wata kamap digital, tugeta wetem olketa wata kampani blong gavman.",
+    "description": [
+      "Taem mifala joinim olketa real-time monitoring sistem, cloud database an alert sistem, mifala katem daon taem fo ansarem olketa serious problem long kwaliti blong wata."
+    ],
+    "image": "/src/assets/images/fluvio/project-honiara.jpeg",
+    "imageAlt": "Monitorim kwaliti blong wata",
+    "relatedProjects": ["monitoring-honiara", "wrd"]
+  },
   "fr": {
     "order": 5,
     "title": "Systèmes de surveillance opérationnels",

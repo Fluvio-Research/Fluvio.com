@@ -22,6 +22,29 @@
     "featured": true,
     "relatedProjects": ["wrd", "bina"]
   },
+  "pis": {
+    "order": 3,
+    "title": "Monitorim wata long Greater Honiara",
+    "slug": "monitoring-honiara",
+    "summary": "Monitorim wata an duim olketa catchment investigation fo sapotem wata saplae an sanitation service long Greater Honiara wea strong fo klaemet.",
+    "location": "Honiara, Solomon Aelan",
+    "timeframe": "2022 - Distaem",
+    "disciplines": ["Monitorim wata", "Olketa catchment investigation", "Monitorim kwaliti blong wata"],
+    "partners": ["Solomon Water"],
+    "heroImage": "/src/assets/images/fluvio/project-honiara.jpeg",
+    "heroAlt": "Monitoring blong kwaliti blong wata wea olketa duim oltaem long paep sistem blong Honiara",
+    "challenge": [
+      "55% nomoa long pipol blong Greater Honiara nao kasem public wata saplae sistem, an no kasem 10% nao join long Honiara sewerage network."
+    ],
+    "approach": [
+      "Fluvio hemi duim monitoring blong wata an olketa catchment investigation. Insaet long waka ia: olketa real-time sistem fo monitorim kwaliti blong wata, olketa data dashboard wetem alert, fo mekem olketa monitoring waka wea stap finis olketa ran seleva, an fo go insaet long olketa niufala provisional wata sos."
+    ],
+    "outcome": [
+      "Evri waka ia mifala duim tugeta wetem olketa staff blong Solomon Water, wetem goal fo strongim savve blong local pipol fo sapotem project ia long taem bihaen."
+    ],
+    "featured": true,
+    "relatedProjects": ["wrd", "bina"]
+  },
   "fr": {
     "order": 3,
     "title": "Surveillance hydrologique du Grand Honiara",

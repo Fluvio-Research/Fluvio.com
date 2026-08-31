@@ -8,6 +8,15 @@
     "portraitAlt": "Mandus Boselalu",
     "specialties": ["Environmental and social assessments"]
   },
+  "pis": {
+    "order": 6,
+    "name": "Mandus Boselalu",
+    "role": "Senior Saentis blong Enviromen - Melanesia",
+    "bio": "Mandus hemi lidim olketa environmental an social assessment fo olketa bigfala project long Melanesia fo winim 15 years finis. Hemi stap long Solomon Aelan, an hemi barava laek fo iusim olketa wei blong Fluvio fo helpem olketa hadfala hevi wea olketa rural komuniti feisim.",
+    "portrait": "/src/assets/images/fluvio/team-mandus.jpg",
+    "portraitAlt": "Mandus Boselalu",
+    "specialties": ["Olketa environmental an social assessment"]
+  },
   "fr": {
     "order": 6,
     "name": "Mandus Boselalu",

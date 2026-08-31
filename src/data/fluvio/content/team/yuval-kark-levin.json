@@ -8,6 +8,15 @@
     "portraitAlt": "Yuval Kark-Levin",
     "specialties": ["Environmental sensing"]
   },
+  "pis": {
+    "order": 8,
+    "name": "Yuval Kark-Levin",
+    "role": "Data Saentis",
+    "bio": "Yuval hemi waka fo mekem olketa wei fo sensim enviromen kamap moa gud, an hemi pusum mak blong olketa global dataset an model. Hemi barava laekem fo wakem olketa niufala tul an dataset wea savve kasem olketa hadfala local samting long staka difren enviromen, long level blong full wol.",
+    "portrait": "/src/assets/images/fluvio/team-yuval.jpg",
+    "portraitAlt": "Yuval Kark-Levin",
+    "specialties": ["Sensing blong enviromen"]
+  },
   "fr": {
     "order": 8,
     "name": "Yuval Kark-Levin",

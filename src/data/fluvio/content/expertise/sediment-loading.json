@@ -11,6 +11,18 @@
     "imageAlt": "Reservoir sedimentation field work",
     "relatedProjects": ["tina", "ghg-emissions-reservoirs", "reservoir-sedimentation"]
   },
+  "pis": {
+    "order": 6,
+    "title": "Hao sediment muv, an assessment blong reservoir",
+    "slug": "sediment-loading",
+    "summary": "Mifala monitorim an mapem haomas sediment hemi go insaet long solwata saed.",
+    "description": [
+      "Mifala iusim staka difren tul, olsem nutrient flux incubation, fo tekem sample long ples, fo mesarem size blong olketa particle, an fo duim penetrometer survey."
+    ],
+    "image": "/src/assets/images/fluvio/project-reservoir-sedimentation.jpeg",
+    "imageAlt": "Field waka fo sedimentation long reservoir",
+    "relatedProjects": ["tina", "ghg-emissions-reservoirs", "reservoir-sedimentation"]
+  },
   "fr": {
     "order": 6,
     "title": "Transport sédimentaire et évaluation des réservoirs",

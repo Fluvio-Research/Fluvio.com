@@ -22,6 +22,29 @@
     "featured": true,
     "relatedProjects": ["tina", "bina"]
   },
+  "pis": {
+    "order": 1,
+    "title": "Olketa niufala wata monitoring sistem wea waka seleva",
+    "slug": "advance-queensland",
+    "summary": "Mifala stretem moa wanfala computer vision stream gauging sistem fo hemi kamap wanfala product wea eniwan savve baem.",
+    "location": "Queensland, Australia",
+    "timeframe": "2024 - Distaem",
+    "disciplines": ["Monitorim wata", "Computer vision"],
+    "heroImage": "/src/assets/images/fluvio/project-advance-queensland.jpeg",
+    "heroAlt": "Olketa installim wanfala computer vision sistem fo mesarem flow blong stream",
+    "challenge": [
+      "Fluvio hemi kasem wanfala Advance Queensland grant fo stretem moa computer vision stream gauging sistem (CVSG) blong hem, fo hemi kamap wanfala product wea eniwan savve baem."
+    ],
+    "approach": [
+      "Project ia bae stretem moa camera prototype wea stap finis, fo faendem wanfala wei wea no cost tumas fo mesarem flow an spid blong wata.",
+      "Olketa main step long project ia: fo testem sistem long staka difren reva long Queensland wetem olketa spesol deployment, fo developim wanfala real-time sistem fo monitorim olketa load long kwaliti blong wata, an fo givim wanfala cloud archive sistem fo olketa staff wea waka evriday."
+    ],
+    "outcome": [
+      "Diswan mekem data wea olketa collectim hemi staka moa, an hemi katem daon olketa safety risk wea kam wetem olketa old wei fo mesarem flow taem wata hemi big."
+    ],
+    "featured": true,
+    "relatedProjects": ["tina", "bina"]
+  },
   "fr": {
     "order": 1,
     "title": "Systèmes autonomes de surveillance de l’eau de nouvelle génération",

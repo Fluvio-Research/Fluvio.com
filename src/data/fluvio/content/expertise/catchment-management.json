@@ -11,6 +11,18 @@
     "imageAlt": "Field team at work",
     "relatedProjects": ["monitoring-honiara", "wrd"]
   },
+  "pis": {
+    "order": 3,
+    "title": "Lukaftarem catchment an wata risos",
+    "slug": "catchment-management",
+    "summary": "Mifala waka wetem gavman, komuniti an indastri fo luksavve hao catchment, olketa reva an solwata olketa join tugeta.",
+    "description": [
+      "Mifala waka wetem gavman, komuniti an indastri fo luksavve hao catchment, olketa reva an solwata olketa join tugeta. Mifala tingim tumas fo balancem need blong komuniti wetem gudfala samting fo enviromen."
+    ],
+    "image": "/src/assets/images/fluvio/vision-field-team.jpeg",
+    "imageAlt": "Field tim long waka",
+    "relatedProjects": ["monitoring-honiara", "wrd"]
+  },
   "fr": {
     "order": 3,
     "title": "Gestion des bassins versants et des ressources en eau",

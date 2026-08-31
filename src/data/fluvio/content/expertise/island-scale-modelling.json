@@ -11,6 +11,18 @@
     "imageAlt": "Coastal pollution transport model",
     "relatedProjects": ["cordap"]
   },
+  "pis": {
+    "order": 2,
+    "title": "Modelling fo full aelan an catchment",
+    "slug": "island-scale-modelling",
+    "summary": "Mifala wakem wanfala barava niufala model fo trakem pollution long solwata saed, fo full wol.",
+    "description": [
+      "Niufala tul ia iusim earth observation an cloud computing fo sapotem planning wea joinim land an solwata tugeta, an fo sapotem waka fo stretem bak enviromen."
+    ],
+    "image": "/src/assets/images/fluvio/expertise-coastal-model.png",
+    "imageAlt": "Model blong hao pollution muv long solwata saed",
+    "relatedProjects": ["cordap"]
+  },
   "fr": {
     "order": 2,
     "title": "Modélisation insulaire et de bassins versants",

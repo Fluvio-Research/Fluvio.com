@@ -11,6 +11,18 @@
     "imageAlt": "Coastal environment",
     "relatedProjects": ["sol-trader-oil-spill"]
   },
+  "pis": {
+    "order": 4,
+    "title": "Assessment blong blue carbon an greenhouse gas",
+    "slug": "blue-carbon-assessment",
+    "summary": "Mifala mesarem haomas carbon hemi stap insaet long olketa mangrove an seagrass long Melanesia.",
+    "description": [
+      "Mifala waka wetem komuniti, gavman an olketa regional organisation fo mesarem haomas carbon hemi stap insaet long olketa mangrove an seagrass long Melanesia."
+    ],
+    "image": "/src/assets/images/fluvio/project-sol-trader-aerial.png",
+    "imageAlt": "Enviromen long solwata saed",
+    "relatedProjects": ["sol-trader-oil-spill"]
+  },
   "fr": {
     "order": 4,
     "title": "Carbone bleu et évaluation des gaz à effet de serre",

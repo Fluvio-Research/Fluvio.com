@@ -20,6 +20,27 @@
     ],
     "relatedProjects": ["reservoir-sedimentation"]
   },
+  "pis": {
+    "order": 4,
+    "title": "Greenhouse gas wea kamaot from olketa reservoir",
+    "slug": "ghg-emissions-reservoirs",
+    "summary": "Mifala assessim greenhouse gas wea kamaot from olketa bigfala ples wea wata kavarem.",
+    "location": "Evriwea long Australia",
+    "timeframe": "2024 - Distaem",
+    "disciplines": ["Assessment blong greenhouse gas", "Methane emission"],
+    "heroImage": "/src/assets/images/fluvio/project-ghg-reservoirs.jpg",
+    "heroAlt": "Olketa methane chamber fo mesarem methane wea kamaot olsem bubble",
+    "challenge": [
+      "Olketa freshwater sistem olketa releasem staka greenhouse gas, an methane nao main wan. From diswan, olketa garem bigfala part long emission blong full wol."
+    ],
+    "approach": [
+      "Fluvio hemi finisim olketa detailed assessment wetem IPCC Tier 1 an Tier 2 methodology. An tu, mifala duim spesol waka long field fo verifyim olketa wei fo monitorim degassing an olketa emission daonstream from olketa run-of-river sistem."
+    ],
+    "outcome": [
+      "Fluvio hemi soim strong savve long mesarem methane emission an long iusim olketa assessment framework wea full wol acceptim."
+    ],
+    "relatedProjects": ["reservoir-sedimentation"]
+  },
   "fr": {
     "order": 4,
     "title": "Émissions de gaz à effet de serre des réservoirs",
