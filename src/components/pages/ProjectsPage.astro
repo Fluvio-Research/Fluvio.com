@@ -78,8 +78,11 @@ const metadata = {
         <PlatformFeature
           title={platforms.sense.title}
           description={platforms.sense.description}
-          href="https://sense.fluvio.com.au/"
+          href={platforms.sense.href}
           actionLabel={platforms.sense.action}
+          image={platforms.sense.image}
+          imageAlt={platforms.sense.imageAlt}
+          imageHref={platforms.sense.imageHref}
           index={0}
           locale={locale}
         />
@@ -88,7 +91,25 @@ const metadata = {
         <PlatformFeature
           title={platforms.cascade.title}
           description={platforms.cascade.description}
+          href={platforms.cascade.href}
+          actionLabel={platforms.cascade.action}
+          image={platforms.cascade.image}
+          imageAlt={platforms.cascade.imageAlt}
+          imageHref={platforms.cascade.imageHref}
           index={1}
+          locale={locale}
+        />
+      </div>
+      <div class={reveal}>
+        <PlatformFeature
+          title={platforms.reef.title}
+          description={platforms.reef.description}
+          href={platforms.reef.href}
+          actionLabel={platforms.reef.action}
+          image={platforms.reef.image}
+          imageAlt={platforms.reef.imageAlt}
+          imageHref={platforms.reef.imageHref}
+          index={2}
           locale={locale}
         />
       </div>
@@ -153,8 +174,9 @@ const metadata = {
 
   @media (min-width: 768px) {
     .fluvio-platform-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: clamp(3rem, 8vw, 8rem);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(1.5rem, 3vw, 3.5rem);
+      align-items: start;
     }
   }
 </style>

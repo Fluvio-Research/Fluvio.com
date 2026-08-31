@@ -110,6 +110,17 @@ const slideSchema = z.object({
   imageAlt: text,
 });
 
+const platformSchema = z.object({
+  title: text,
+  description: text,
+  action: text,
+  href: z.string().url(),
+  image: localImage,
+  imageAlt: text,
+  /** Where the screenshot links to (e.g. a live deployment); falls back to `href`. */
+  imageHref: z.string().url().optional(),
+});
+
 const homepageSchema = z.object({
   slides: z.array(slideSchema).min(1).max(8),
   metaDescription: text,
@@ -132,8 +143,9 @@ const homepageSchema = z.object({
   impactBody: z.array(text).min(1),
   platforms: z.object({
     label: text,
-    sense: z.object({ title: text, description: text, action: text }),
-    cascade: z.object({ title: text, description: text }),
+    sense: platformSchema,
+    cascade: platformSchema,
+    reef: platformSchema,
   }),
 });
 

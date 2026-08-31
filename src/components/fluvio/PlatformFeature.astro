@@ -10,24 +10,58 @@ export interface Props {
   actionLabel?: string;
   image?: string;
   imageAlt?: string;
+  /** Where the screenshot links to; falls back to `href`. */
+  imageHref?: string;
   index?: number;
   locale?: Locale;
 }
 
-const { title, description, href, actionLabel, image, imageAlt = '', index, locale = defaultLocale } = Astro.props;
+const {
+  title,
+  description,
+  href,
+  actionLabel,
+  image,
+  imageAlt = '',
+  imageHref,
+  index,
+  locale = defaultLocale,
+} = Astro.props;
 const platformLabel = getHomepage(locale).platforms.label;
+
+const shotHref = imageHref ?? href;
+const shotHost = shotHref?.startsWith('http') ? new URL(shotHref).hostname : undefined;
+const shotSizes = '(min-width: 1280px) 576px, (min-width: 768px) 45vw, calc(100vw - 2rem)';
 ---
 
 <article class="fluvio-platform-feature">
   {
-    image && (
-      <LargeImage
-        src={image}
-        alt={imageAlt}
-        aspect="landscape"
-        sizes="(min-width: 1280px) 576px, (min-width: 768px) 45vw, calc(100vw - 2rem)"
-      />
-    )
+    image &&
+      (shotHref ? (
+        <a class="fluvio-platform-feature__shot" href={shotHref} target="_blank" rel="noopener">
+          <div class="fluvio-platform-feature__chrome" aria-hidden="true">
+            <span class="fluvio-platform-feature__dots">
+              <span />
+              <span />
+              <span />
+            </span>
+            {shotHost && <span class="fluvio-platform-feature__host">{shotHost}</span>}
+            <span class="fluvio-platform-feature__open">↗</span>
+          </div>
+          <LargeImage src={image} alt={imageAlt} aspect="hero" sizes={shotSizes} />
+        </a>
+      ) : (
+        <div class="fluvio-platform-feature__shot">
+          <div class="fluvio-platform-feature__chrome" aria-hidden="true">
+            <span class="fluvio-platform-feature__dots">
+              <span />
+              <span />
+              <span />
+            </span>
+          </div>
+          <LargeImage src={image} alt={imageAlt} aspect="hero" sizes={shotSizes} />
+        </div>
+      ))
   }
   <div class="fluvio-platform-feature__body">
     <p class="fluvio-platform-feature__eyebrow">{platformLabel}{index !== undefined && ` / 0${index + 1}`}</p>
@@ -46,10 +80,113 @@ const platformLabel = getHomepage(locale).platforms.label;
 <style>
   .fluvio-platform-feature {
     display: grid;
+    align-content: start;
     gap: 1.5rem;
     height: 100%;
     padding: clamp(1.5rem, 4vw, 3.25rem) 0;
     border-top: 1px solid rgb(var(--fluvio-ink) / 0.16);
+  }
+
+  /* Live-platform screenshot in a minimal browser frame */
+  .fluvio-platform-feature__shot {
+    display: block;
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid rgb(var(--fluvio-ink) / 0.12);
+    border-radius: 12px;
+    background: rgb(var(--fluvio-paper));
+    box-shadow: 0 10px 30px rgb(var(--fluvio-ink) / 0.1);
+    text-decoration: none;
+  }
+
+  a.fluvio-platform-feature__shot {
+    cursor: pointer;
+  }
+
+  .fluvio-platform-feature__chrome {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    padding: 0.55rem 0.9rem;
+    border-bottom: 1px solid rgb(var(--fluvio-ink) / 0.1);
+    background: rgb(var(--fluvio-ink) / 0.04);
+  }
+
+  .fluvio-platform-feature__dots {
+    display: inline-flex;
+    gap: 0.32rem;
+  }
+
+  .fluvio-platform-feature__dots span {
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 999px;
+    background: rgb(var(--fluvio-ink) / 0.18);
+  }
+
+  .fluvio-platform-feature__host {
+    overflow: hidden;
+    flex: 1;
+    padding: 0.18rem 0.75rem;
+    border-radius: 999px;
+    background: rgb(var(--fluvio-paper));
+    border: 1px solid rgb(var(--fluvio-ink) / 0.08);
+    color: var(--aw-color-text-muted);
+    font-family: var(--aw-font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.04em;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .fluvio-platform-feature__open {
+    color: rgb(var(--fluvio-river));
+    font-size: 0.8rem;
+    line-height: 1;
+  }
+
+  .fluvio-platform-feature__shot :global(.fluvio-image__frame) {
+    border-radius: 0;
+    background: rgb(var(--fluvio-ink) / 0.04);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .fluvio-platform-feature__shot {
+      transition:
+        box-shadow 350ms cubic-bezier(0.22, 1, 0.36, 1),
+        transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    a.fluvio-platform-feature__shot:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 44px rgb(var(--fluvio-ink) / 0.16);
+    }
+  }
+
+  a.fluvio-platform-feature__shot:focus-visible {
+    outline: 2px solid rgb(var(--fluvio-river));
+    outline-offset: 4px;
+  }
+
+  :global(.dark) .fluvio-platform-feature__shot {
+    border-color: rgb(var(--fluvio-paper) / 0.14);
+    background: rgb(var(--fluvio-navy));
+    box-shadow: 0 10px 30px rgb(0 0 0 / 0.35);
+  }
+
+  :global(.dark) .fluvio-platform-feature__chrome {
+    border-bottom-color: rgb(var(--fluvio-paper) / 0.1);
+    background: rgb(var(--fluvio-paper) / 0.06);
+  }
+
+  :global(.dark) .fluvio-platform-feature__dots span {
+    background: rgb(var(--fluvio-paper) / 0.25);
+  }
+
+  :global(.dark) .fluvio-platform-feature__host {
+    background: rgb(var(--fluvio-ink) / 0.4);
+    border-color: rgb(var(--fluvio-paper) / 0.1);
   }
 
   .fluvio-platform-feature__eyebrow {

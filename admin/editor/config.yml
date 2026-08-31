@@ -350,6 +350,16 @@ collections:
                   - { name: title, label: Name, widget: string, i18n: duplicate }
                   - { name: description, label: Description, widget: text, i18n: true }
                   - { name: action, label: 'Link text', widget: string, i18n: true }
+                  - { name: href, label: 'Platform link', widget: string, i18n: duplicate }
+                  - { name: image, label: Screenshot, widget: image, i18n: duplicate }
+                  - { name: imageAlt, label: 'Screenshot description (for screen readers)', widget: text, i18n: true }
+                  - {
+                      name: imageHref,
+                      label: 'Screenshot link (live deployment; leave empty to reuse the platform link)',
+                      widget: string,
+                      i18n: duplicate,
+                      required: false,
+                    }
               - name: cascade
                 label: FluvioCascade
                 widget: object
@@ -357,6 +367,35 @@ collections:
                 fields:
                   - { name: title, label: Name, widget: string, i18n: duplicate }
                   - { name: description, label: Description, widget: text, i18n: true }
+                  - { name: action, label: 'Link text', widget: string, i18n: true }
+                  - { name: href, label: 'Platform link', widget: string, i18n: duplicate }
+                  - { name: image, label: Screenshot, widget: image, i18n: duplicate }
+                  - { name: imageAlt, label: 'Screenshot description (for screen readers)', widget: text, i18n: true }
+                  - {
+                      name: imageHref,
+                      label: 'Screenshot link (live deployment; leave empty to reuse the platform link)',
+                      widget: string,
+                      i18n: duplicate,
+                      required: false,
+                    }
+              - name: reef
+                label: FluvioReef
+                widget: object
+                i18n: true
+                fields:
+                  - { name: title, label: Name, widget: string, i18n: duplicate }
+                  - { name: description, label: Description, widget: text, i18n: true }
+                  - { name: action, label: 'Link text', widget: string, i18n: true }
+                  - { name: href, label: 'Platform link', widget: string, i18n: duplicate }
+                  - { name: image, label: Screenshot, widget: image, i18n: duplicate }
+                  - { name: imageAlt, label: 'Screenshot description (for screen readers)', widget: text, i18n: true }
+                  - {
+                      name: imageHref,
+                      label: 'Screenshot link (live deployment; leave empty to reuse the platform link)',
+                      widget: string,
+                      i18n: duplicate,
+                      required: false,
+                    }
           - { name: teamTitle, label: 'Team section: heading', widget: string, i18n: true }
           - { name: teamIntro, label: 'Team section: intro', widget: text, i18n: true }
           - { name: teamMore, label: 'Team section: link text', widget: string, i18n: true }

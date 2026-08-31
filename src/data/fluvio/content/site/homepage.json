@@ -86,11 +86,26 @@
       "sense": {
         "title": "FluvioSense",
         "description": "A web-based platform to communicate stereo vision and real-time data analytics across flood and water camera networks.",
-        "action": "Visit FluvioSense"
+        "action": "Visit FluvioSense",
+        "href": "https://sense.fluvio.com.au/",
+        "image": "/src/assets/images/fluvio/platform-sense.jpeg",
+        "imageAlt": "The FluvioSense site list with live stream camera feeds and monitoring stations mapped across Queensland."
       },
       "cascade": {
         "title": "FluvioCascade",
-        "description": "A web-based platform that ingests real-time environmental monitoring data to support analysis, reporting and alerts."
+        "description": "A web-based platform that ingests real-time environmental monitoring data to support analysis, reporting and alerts.",
+        "action": "Visit FluvioCascade",
+        "href": "https://data.fluvio.com.au/",
+        "image": "/src/assets/images/fluvio/platform-cascade.png",
+        "imageAlt": "The FluvioCascade water source monitoring dashboard for Bina Harbour, with live turbidity gauges and camera sites on a satellite map."
+      },
+      "reef": {
+        "title": "FluvioReef",
+        "description": "A real-time reef intelligence platform tracking thermal stress, bleaching alerts and reef health across priority coral reef nations.",
+        "action": "Visit FluvioReef",
+        "href": "https://reef.fluvio.com.au/",
+        "image": "/src/assets/images/fluvio/platform-reef.png",
+        "imageAlt": "The CRR Reef Monitor dashboard, built by Fluvio, mapping reef sites, sea surface temperature and bleaching alerts across six priority nations."
       }
     }
   },
@@ -181,11 +196,26 @@
       "sense": {
         "title": "FluvioSense",
         "description": "Une plateforme web qui diffuse la vision st\u00e9r\u00e9oscopique et l\u2019analyse de donn\u00e9es en temps r\u00e9el sur des r\u00e9seaux de cam\u00e9ras de crue et de surveillance de l\u2019eau.",
-        "action": "Visiter FluvioSense"
+        "action": "Visiter FluvioSense",
+        "href": "https://sense.fluvio.com.au/",
+        "image": "/src/assets/images/fluvio/platform-sense.jpeg",
+        "imageAlt": "La liste des sites FluvioSense avec des flux de cam\u00e9ras en direct et des stations de surveillance cartographi\u00e9es dans le Queensland."
       },
       "cascade": {
         "title": "FluvioCascade",
-        "description": "Une plateforme web qui ing\u00e8re des donn\u00e9es de surveillance environnementale en temps r\u00e9el pour l\u2019analyse, les rapports et les alertes."
+        "description": "Une plateforme web qui ing\u00e8re des donn\u00e9es de surveillance environnementale en temps r\u00e9el pour l\u2019analyse, les rapports et les alertes.",
+        "action": "Visiter FluvioCascade",
+        "href": "https://data.fluvio.com.au/",
+        "image": "/src/assets/images/fluvio/platform-cascade.png",
+        "imageAlt": "Le tableau de bord FluvioCascade de surveillance des sources d'eau de Bina Harbour, avec des jauges de turbidit\u00e9 en direct et des sites de cam\u00e9ras sur une carte satellite."
+      },
+      "reef": {
+        "title": "FluvioReef",
+        "description": "Une plateforme d'intelligence r\u00e9cifale en temps r\u00e9el qui suit le stress thermique, les alertes de blanchissement et la sant\u00e9 des r\u00e9cifs dans les nations coralliennes prioritaires.",
+        "action": "Visiter FluvioReef",
+        "href": "https://reef.fluvio.com.au/",
+        "image": "/src/assets/images/fluvio/platform-reef.png",
+        "imageAlt": "Le tableau de bord CRR Reef Monitor, con\u00e7u par Fluvio, cartographiant les sites r\u00e9cifaux, la temp\u00e9rature de surface de la mer et les alertes de blanchissement dans six nations prioritaires."
       }
     }
   },
@@ -276,11 +306,26 @@
       "sense": {
         "title": "FluvioSense",
         "description": "Una plataforma web que comunica visi\u00f3n estereosc\u00f3pica y anal\u00edtica de datos en tiempo real a trav\u00e9s de redes de c\u00e1maras de inundaciones y de agua.",
-        "action": "Visitar FluvioSense"
+        "action": "Visitar FluvioSense",
+        "href": "https://sense.fluvio.com.au/",
+        "image": "/src/assets/images/fluvio/platform-sense.jpeg",
+        "imageAlt": "La lista de sitios de FluvioSense con c\u00e1maras en directo y estaciones de monitoreo cartografiadas en Queensland."
       },
       "cascade": {
         "title": "FluvioCascade",
-        "description": "Una plataforma web que ingiere datos de monitoreo ambiental en tiempo real para respaldar an\u00e1lisis, informes y alertas."
+        "description": "Una plataforma web que ingiere datos de monitoreo ambiental en tiempo real para respaldar an\u00e1lisis, informes y alertas.",
+        "action": "Visitar FluvioCascade",
+        "href": "https://data.fluvio.com.au/",
+        "image": "/src/assets/images/fluvio/platform-cascade.png",
+        "imageAlt": "El panel de monitoreo de fuentes de agua de FluvioCascade para Bina Harbour, con medidores de turbidez en vivo y sitios con c\u00e1maras sobre un mapa satelital."
+      },
+      "reef": {
+        "title": "FluvioReef",
+        "description": "Una plataforma de inteligencia de arrecifes en tiempo real que sigue el estr\u00e9s t\u00e9rmico, las alertas de blanqueamiento y la salud de los arrecifes en las naciones coralinas prioritarias.",
+        "action": "Visitar FluvioReef",
+        "href": "https://reef.fluvio.com.au/",
+        "image": "/src/assets/images/fluvio/platform-reef.png",
+        "imageAlt": "El panel CRR Reef Monitor, creado por Fluvio, que mapea sitios de arrecife, temperatura superficial del mar y alertas de blanqueamiento en seis naciones prioritarias."
       }
     }
   }
