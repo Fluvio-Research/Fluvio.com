@@ -11,7 +11,7 @@
     "imageAlt": "Reservoir sedimentation field work",
     "relatedProjects": ["tina", "ghg-emissions-reservoirs", "reservoir-sedimentation"]
   },
-  "pis": {
+  "pijin": {
     "order": 6,
     "title": "Hao sediment muv, an assessment blong reservoir",
     "slug": "sediment-loading",

@@ -20,7 +20,7 @@
     ],
     "relatedProjects": ["ghg-emissions-reservoirs"]
   },
-  "pis": {
+  "pijin": {
     "order": 9,
     "title": "Study blong sedimentation long reservoir",
     "slug": "reservoir-sedimentation",

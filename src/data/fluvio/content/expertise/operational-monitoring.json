@@ -11,7 +11,7 @@
     "imageAlt": "Water quality monitoring",
     "relatedProjects": ["monitoring-honiara", "wrd"]
   },
-  "pis": {
+  "pijin": {
     "order": 5,
     "title": "Olketa monitoring sistem fo evriday waka",
     "slug": "operational-monitoring",

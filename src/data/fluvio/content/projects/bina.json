@@ -20,7 +20,7 @@
     ],
     "relatedProjects": ["tina", "monitoring-honiara"]
   },
-  "pis": {
+  "pijin": {
     "order": 2,
     "title": "Monitorim olketa ples wea maet givim wata",
     "slug": "bina",

@@ -1,15 +1,24 @@
 import { getPages, type Pages } from '~/data/fluvio/store.ts';
 import { getPermalink } from '~/utils/permalinks';
 
-export const locales = ['en', 'pis', 'fr', 'es'] as const;
+export const locales = ['en', 'pijin', 'fr', 'es'] as const;
 export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = 'en';
 
 export const localeNames: Record<Locale, string> = {
   en: 'English',
-  pis: 'Pijin',
+  pijin: 'Pijin',
   fr: 'Français',
   es: 'Español',
+};
+
+/** BCP-47 language tags for the html lang attribute; Solomon Islands Pijin
+ *  keeps the readable "pijin" slug in URLs but its registered code is "pis". */
+export const langTags: Record<Locale, string> = {
+  en: 'en',
+  pijin: 'pis',
+  fr: 'fr',
+  es: 'es',
 };
 
 /** The full page-string catalog for a locale, served from the content store. */

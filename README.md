@@ -51,7 +51,7 @@ The admin lives in `admin/` and is deliberately not part of the deployed site; i
 Use the admin (`npm run cms`, above), or edit the JSON directly:
 
 1. Add images to `src/assets/images/fluvio/` with descriptive kebab-case names.
-2. Create the record in the matching `src/data/fluvio/content/` folder, filling `en`, `pis`, `fr` and `es`. For projects, `slug` becomes the public route and must never change after publishing; `challenge`, `approach` and `outcome` are arrays of paragraphs, and only verified facts belong in them.
+2. Create the record in the matching `src/data/fluvio/content/` folder, filling `en`, `pijin`, `fr` and `es`. For projects, `slug` becomes the public route and must never change after publishing; `challenge`, `approach` and `outcome` are arrays of paragraphs, and only verified facts belong in them.
 3. Set the `order` field to control display position, and `featured: true` on a project to place it in the homepage selection.
 4. Update the pinned lists in `tests/fluvio-content.test.mjs` (`expectedSlugs`, `expectedTeamNames`, `expectedExpertiseTitles`, and counts).
 5. Run `npm test && npm run check && npm run build`.
@@ -60,10 +60,10 @@ No page changes are needed: every route generates from the content store.
 
 ## Languages and translations
 
-The site ships in English (default, at the root), Solomon Islands Pijin (`/pis/...`), French (`/fr/...`) and Spanish (`/es/...`), with a language dropdown in the header.
+The site ships in English (default, at the root), Solomon Islands Pijin (`/pijin/...`), French (`/fr/...`) and Spanish (`/es/...`), with a language dropdown in the header.
 
 - UI and page copy (headings, ledes, slider slides, labels) live in the content store under `src/data/fluvio/content/site/`, with one section per locale. The store schema requires every string in every locale, so a missing translation fails `npm test` and the build, and a test verifies key-for-key parity. The locale list itself lives in `src/i18n/index.ts` and `src/data/fluvio/store.ts`.
-- Content records carry their own translations: each JSON file in `src/data/fluvio/content/` holds `en`, `pis`, `fr` and `es` sections, validated together by the store's schema.
+- Content records carry their own translations: each JSON file in `src/data/fluvio/content/` holds `en`, `pijin`, `fr` and `es` sections, validated together by the store's schema.
 - Routes, slugs and images are shared across languages; only human-readable text is translated.
 
 ## Updating navigation and metadata

@@ -27,7 +27,7 @@
     ],
     "relatedProjects": ["monitoring-honiara"]
   },
-  "pis": {
+  "pijin": {
     "order": 5,
     "title": "Design blong data management sistem an trening",
     "slug": "wrd",

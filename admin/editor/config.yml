@@ -20,7 +20,7 @@ editor:
 
 i18n:
   structure: single_file
-  locales: [en, pis, fr, es]
+  locales: [en, pijin, fr, es]
   default_locale: en
 
 collections:

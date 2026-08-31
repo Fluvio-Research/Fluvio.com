@@ -26,7 +26,7 @@
     ],
     "relatedProjects": ["cordap"]
   },
-  "pis": {
+  "pijin": {
     "order": 7,
     "title": "Assessment blong damage long enviromen from MV Solomon Trader grounding an oil spill",
     "slug": "sol-trader-oil-spill",

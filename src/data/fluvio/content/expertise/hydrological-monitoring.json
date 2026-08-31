@@ -11,7 +11,7 @@
     "imageAlt": "Hydrological monitoring in a stream",
     "relatedProjects": ["tina", "bina", "advance-queensland"]
   },
-  "pis": {
+  "pijin": {
     "order": 1,
     "title": "Niufala wei fo monitorim wata",
     "slug": "hydrological-monitoring",

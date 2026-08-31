@@ -11,7 +11,7 @@
     "imageAlt": "Coastal pollution transport model",
     "relatedProjects": ["cordap"]
   },
-  "pis": {
+  "pijin": {
     "order": 2,
     "title": "Modelling fo full aelan an catchment",
     "slug": "island-scale-modelling",

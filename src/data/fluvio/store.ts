@@ -12,7 +12,7 @@ import { z } from 'astro/zod';
 
 import type { ExpertiseArea, Project, SiteContent, TeamMember } from './types';
 
-export const contentLocales = ['en', 'pis', 'fr', 'es'] as const;
+export const contentLocales = ['en', 'pijin', 'fr', 'es'] as const;
 export type ContentLocale = (typeof contentLocales)[number];
 
 /* The module may execute from a bundled location at build time, so fall back
@@ -396,7 +396,7 @@ const pagesSchema: z.ZodType<Pages> = z.object({
 });
 
 const localized = <Schema extends z.ZodTypeAny>(schema: Schema) =>
-  z.object({ en: schema, pis: schema, fr: schema, es: schema });
+  z.object({ en: schema, pijin: schema, fr: schema, es: schema });
 
 /* ------------------------------------------------------------------ */
 /* Loading                                                             */
