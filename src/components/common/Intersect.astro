@@ -20,7 +20,10 @@
     private elements: HTMLElement[] = [];
     private thresholds = new WeakMap<Element, number>();
     private animationCounter = 0;
-    private readonly delayBetweenAnimations = 100;
+    private lastRevealTime = 0;
+    private readonly delayBetweenAnimations = 90;
+    private readonly maxStaggerDelay = 360;
+    private readonly staggerBatchWindow = 320;
     private onThemeChange = () => this.removeAnimationDelay();
 
     connectedCallback() {
@@ -86,7 +89,15 @@
                 target.setAttribute('data-animated', 'true');
                 target.style.animationDuration = '';
 
-                const delay = this.animationCounter * this.delayBetweenAnimations;
+                // Stagger only elements revealed together. A fresh batch (no
+                // reveal within the window) restarts from zero, and the delay
+                // is capped so continuous scrolling never queues content
+                // off-screen for seconds at a time.
+                const now = performance.now();
+                if (now - this.lastRevealTime > this.staggerBatchWindow) this.animationCounter = 0;
+                this.lastRevealTime = now;
+
+                const delay = Math.min(this.animationCounter * this.delayBetweenAnimations, this.maxStaggerDelay);
                 this.animationCounter++;
 
                 target.style.transitionDelay = `${delay}ms`;

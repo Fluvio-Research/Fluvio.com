@@ -1,0 +1,42 @@
+---
+// Fades lazy-loaded images in as they finish loading, instead of letting
+// them pop into the page mid-scroll. A single instance is rendered by the
+// layout; the custom-element lifecycle re-runs it on each client-side
+// navigation, mirroring the Intersect controller.
+---
+
+<aw-image-fade aria-hidden="true"></aw-image-fade>
+
+<style>
+  aw-image-fade {
+    display: none;
+  }
+</style>
+
+<script>
+  class AwImageFade extends HTMLElement {
+    connectedCallback() {
+      const images = document.querySelectorAll<HTMLImageElement>('img[loading="lazy"]:not([data-img-fade])');
+
+      images.forEach((img) => {
+        if (img.complete) {
+          img.setAttribute('data-img-fade', 'done');
+          return;
+        }
+
+        img.setAttribute('data-img-fade', '');
+        const settle = () => img.setAttribute('data-img-fade', 'done');
+        img.addEventListener('load', settle, { once: true });
+        img.addEventListener('error', settle, { once: true });
+
+        // The image may have finished between the check above and the
+        // listener registration; settle it right away in that case.
+        if (img.complete) settle();
+      });
+    }
+  }
+
+  if (!customElements.get('aw-image-fade')) {
+    customElements.define('aw-image-fade', AwImageFade);
+  }
+</script>

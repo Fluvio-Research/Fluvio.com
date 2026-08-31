@@ -20,22 +20,26 @@ const metadata = {
   title: c.metaTitle,
   description: c.metaDescription,
 };
+
+const reveal = 'intersect-once motion-safe:opacity-0 motion-safe:intersect:animate-fade';
 ---
 
 <Layout metadata={metadata} locale={locale}>
   <header class="fluvio-team-hero">
     <div class="fluvio-shell fluvio-team-hero__grid">
-      <div>
+      <div class={reveal}>
         <p class="fluvio-eyebrow">{c.eyebrow}</p>
         <h1 class="fluvio-title">{c.title}</h1>
         <p class="fluvio-lede">{c.lede}</p>
       </div>
-      <LargeImage
-        src="~/assets/images/fluvio/vision-field-team.jpeg"
-        alt={c.heroImageAlt}
-        aspect="landscape"
-        priority
-      />
+      <div class={reveal}>
+        <LargeImage
+          src="~/assets/images/fluvio/vision-field-team.jpeg"
+          alt={c.heroImageAlt}
+          aspect="landscape"
+          priority
+        />
+      </div>
     </div>
   </header>
 
@@ -47,13 +51,13 @@ const metadata = {
     labelledby="team-directory-heading"
     class="fluvio-team-directory"
   >
-    <div id="team-directory-heading" class="fluvio-team-heading">
+    <div id="team-directory-heading" class:list={['fluvio-team-heading', reveal]}>
       <SectionHeading title={c.directoryTitle} intro={c.directoryIntro} />
     </div>
     <div class="fluvio-team-grid">
       {
         teamMembers.map((member) => (
-          <div class="fluvio-team-cell">
+          <div class:list={['fluvio-team-cell', reveal]}>
             <TeamProfile member={member} locale={locale} headingLevel="h2" />
           </div>
         ))
@@ -62,7 +66,9 @@ const metadata = {
   </SectionFrame>
 
   <SectionFrame tone="warm">
-    <ContactPanel locale={locale} eyebrow="" title={c.contactTitle} intro={c.contactIntro} />
+    <div class={reveal}>
+      <ContactPanel locale={locale} eyebrow="" title={c.contactTitle} intro={c.contactIntro} />
+    </div>
   </SectionFrame>
 </Layout>
 

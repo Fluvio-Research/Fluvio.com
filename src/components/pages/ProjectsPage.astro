@@ -22,7 +22,7 @@ const projects = getProjects(locale);
 const featuredProject = projects.find(({ slug }) => slug === 'advance-queensland') ?? projects[0];
 const remainingProjects = projects.filter(({ slug }) => slug !== featuredProject.slug);
 
-const reveal = 'intersect-once intersect-quarter motion-safe:intersect:animate-fade';
+const reveal = 'intersect-once motion-safe:opacity-0 motion-safe:intersect:animate-fade';
 
 const metadata = {
   title: c.projectsPage.metaTitle,

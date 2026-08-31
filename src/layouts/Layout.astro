@@ -13,6 +13,7 @@ import Metadata from '~/components/common/Metadata.astro';
 import SiteVerification from '~/components/common/SiteVerification.astro';
 import Analytics from '~/components/common/Analytics.astro';
 import Intersect from '~/components/common/Intersect.astro';
+import ImageFade from '~/components/common/ImageFade.astro';
 import PageBackground from '~/components/fluvio/PageBackground.astro';
 
 // Comment the line below to disable View Transitions
@@ -43,6 +44,16 @@ const { language, textDirection } = I18N;
 
     <!-- Comment the line below to disable View Transitions -->
     <ClientRouter fallback="swap" />
+
+    <!-- Reveal-on-scroll elements start hidden; keep them visible without JS -->
+    <noscript>
+      <style>
+        [class*='intersect'] {
+          opacity: 1 !important;
+          animation: none !important;
+        }
+      </style>
+    </noscript>
   </head>
 
   <body class="relative isolate min-h-[100dvh] overflow-x-clip antialiased text-default bg-page">
@@ -52,5 +63,8 @@ const { language, textDirection } = I18N;
     </div>
 
     <Intersect />
+    <ImageFade />
+
+
   </body>
 </html>

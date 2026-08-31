@@ -20,12 +20,12 @@
   --font-heading: var(--aw-font-heading, ui-sans-serif), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--aw-font-mono, ui-monospace), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-  --animate-fade: fadeInUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-fade: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 
   @keyframes fadeInUp {
     0% {
       opacity: 0;
-      transform: translateY(2rem);
+      transform: translateY(1.25rem);
     }
     100% {
       opacity: 1;
@@ -74,6 +74,29 @@
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
+  }
+}
+
+/*
+ * Lazy-loaded images fade in as they finish loading instead of popping into
+ * the page mid-scroll. The attribute is only ever added by the ImageFade
+ * controller in the layout, so without JavaScript images render as usual.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  img[data-img-fade=''] {
+    opacity: 0;
+  }
+
+  /* An animation (not a transition) so it never fights the transform
+     transition already applied to framed images for the hover zoom. */
+  img[data-img-fade='done'] {
+    animation: fluvio-img-fade-in 0.5s ease;
+  }
+
+  @keyframes fluvio-img-fade-in {
+    from {
+      opacity: 0;
+    }
   }
 }
 
