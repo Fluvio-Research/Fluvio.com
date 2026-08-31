@@ -44,7 +44,8 @@
         "action": "Meet the team",
         "href": "/team",
         "imageAlt": "A Fluvio field team working together",
-        "image": "/src/assets/images/fluvio/vision-field-team.jpeg"
+        "image": "/src/assets/images/fluvio/vision-field-team.jpeg",
+        "video": "/src/assets/images/fluvio/velocity-colors-only-native-1024x576.mp4"
       }
     ],
     "metaDescription": "Water, environmental and climate solutions grounded in field science, monitoring technology and practical delivery.",
@@ -154,7 +155,8 @@
         "action": "Mitim tim blong mifala",
         "href": "/team",
         "imageAlt": "Wanfala field tim blong Fluvio hemi waka tugeta",
-        "image": "/src/assets/images/fluvio/vision-field-team.jpeg"
+        "image": "/src/assets/images/fluvio/vision-field-team.jpeg",
+        "video": "/src/assets/images/fluvio/velocity-colors-only-native-1024x576.mp4"
       }
     ],
     "metaDescription": "Olketa solusen fo wata, enviromen an klaemet wea stanap long saens long graon, monitoring teknoloji an waka wea kamap tru long ples.",
@@ -264,7 +266,8 @@
         "action": "Rencontrer l’équipe",
         "href": "/team",
         "imageAlt": "Une équipe de terrain Fluvio au travail",
-        "image": "/src/assets/images/fluvio/vision-field-team.jpeg"
+        "image": "/src/assets/images/fluvio/vision-field-team.jpeg",
+        "video": "/src/assets/images/fluvio/velocity-colors-only-native-1024x576.mp4"
       }
     ],
     "metaDescription": "Solutions pour l’eau, l’environnement et le climat, fondées sur la science de terrain, les technologies de surveillance et une réalisation concrète.",
@@ -374,7 +377,8 @@
         "action": "Conocer al equipo",
         "href": "/team",
         "imageAlt": "Un equipo de campo de Fluvio trabajando en conjunto",
-        "image": "/src/assets/images/fluvio/vision-field-team.jpeg"
+        "image": "/src/assets/images/fluvio/vision-field-team.jpeg",
+        "video": "/src/assets/images/fluvio/velocity-colors-only-native-1024x576.mp4"
       }
     ],
     "metaDescription": "Soluciones de agua, medio ambiente y clima basadas en ciencia de campo, tecnología de monitoreo y ejecución práctica.",
