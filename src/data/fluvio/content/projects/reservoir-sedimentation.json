@@ -8,15 +8,23 @@
     "timeframe": "2024 - 2025",
     "disciplines": ["Sedimentation monitoring", "Field survey"],
     "heroImage": "/src/assets/images/fluvio/project-reservoir-sedimentation.jpeg",
-    "heroAlt": "Two sediment cores collected from lake beds",
+    "heroAlt": "A field scientist in high-visibility clothing sampling across the exposed mudflats of a drawn-down reservoir",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-reservoir-cores.png",
+        "alt": "Two clear core tubes held upright over a reservoir, each showing a dark band of fine sediment above the lake bed material",
+        "caption": "Two sediment cores collected from lake beds."
+      }
+    ],
     "challenge": [
-      "Sedimentation occurs frequently in dams, decreasing their capacity, and increased rates can result in operational challenges."
+      "Sedimentation, the process of suspended particles settling out of the water column, occurs frequently in dams and decreases their capacity. While it is a natural process, increased rates of sedimentation can result in operational challenges, and sedimentation can be accelerated by the drawdown of water from pumped hydro operations. This project aims to identify and quantify sedimentation rates within the reservoir."
     ],
     "approach": [
-      "The study used an initial field survey with a freefall penetrometer, a follow-up coring survey, in-situ sedimentation arrays, event monitoring nodes at major inflow points, and a visual shoreline assessment."
+      "The study incorporated a sequential approach built upon an initial field survey completed using a freefall penetrometer. These results allowed for relatively rapid mapping of deposition zones across a large spatial area and informed a follow-up coring survey.",
+      "To monitor current sedimentation rates, Fluvio deployed in-situ sedimentation arrays as well as event monitoring nodes in the major inflow points. The field program has been supported by a visual shoreline assessment to define reservoir drawdown sediment dynamics."
     ],
     "outcome": [
-      "The field program identifies and quantifies sedimentation rates and defines reservoir drawdown sediment dynamics."
+      "Together these surveys identify and quantify sedimentation rates across the reservoir and characterise how sediment behaves during drawdown, supporting the long-term management of reservoir capacity."
     ],
     "relatedProjects": ["ghg-emissions-reservoirs"]
   },
@@ -29,15 +37,23 @@
     "timeframe": "2024 - 2025",
     "disciplines": ["Monitorim sedimentation", "Survey long field"],
     "heroImage": "/src/assets/images/fluvio/project-reservoir-sedimentation.jpeg",
-    "heroAlt": "Tufala sediment core wea olketa collectim from bottom blong lake",
+    "heroAlt": "Wanfala field saentis wea werem hae-visibility kaleko hemi tekem sample long olketa mad ples wea kamaot taem wata long reservoir hemi go daon",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-reservoir-cores.png",
+        "alt": "Tufala klia core tube wea olketa holem stanap ovarem wanfala reservoir, an evriwan soim wanfala blak layer blong smol sediment antap long material blong bottom blong lake",
+        "caption": "Tufala sediment core wea olketa collectim from bottom blong lake."
+      }
+    ],
     "challenge": [
-      "Sedimentation hemi happen oltaem long olketa dam an hemi katem daon capacity blong olketa. Sapos hemi go moa fast, hemi savve mekem olketa hevi long waka blong dam."
+      "Sedimentation, hemi taem olketa smol particle wea flot insaet long wata olketa go daon an set long bottom. Hemi happen oltaem long olketa dam an hemi katem daon capacity blong olketa. Nomata hemi wanfala natural process, sapos hemi go moa fast hemi savve mekem olketa hevi long waka blong dam. Sedimentation savve go moa fast tu taem pumped hydro operation hemi pullim wata go daon. Project ia hemi fo faendem an mesarem hao fast sedimentation hemi happen insaet long reservoir."
     ],
     "approach": [
-      "Study ia startim wetem wanfala field survey wetem freefall penetrometer, bihaen wanfala coring survey, olketa sedimentation array long ples seleva, olketa event monitoring node long olketa main ples wea wata ran insaet, an wanfala visual assessment long saed blong wata."
+      "Study ia followim wanfala step-by-step wei. Hemi start wetem wanfala field survey wetem wanfala freefall penetrometer. Olketa risalt ia mekem hemi kwik inaf fo mapem olketa ples wea sediment hemi set long wanfala bigfala eria, an olketa givim direction fo wanfala coring survey wea kam bihaen.",
+      "Fo monitorim hao fast sedimentation hemi happen distaem, Fluvio putim olketa sedimentation array long ples seleva, an olketa event monitoring node long olketa main ples wea wata ran insaet. Wanfala visual assessment long saedsi blong reservoir hemi sapotem field program ia, fo soim hao sediment hemi muv taem wata hemi go daon."
     ],
     "outcome": [
-      "Field program ia faendem an mesarem hao fast sedimentation hemi happen, an hemi soim hao sediment hemi muv taem wata long reservoir hemi go daon."
+      "Tugeta, olketa survey ia faendem an mesarem hao fast sedimentation hemi happen raonem reservoir, an olketa soim hao sediment hemi muv taem wata hemi go daon. Diswan sapotem wei fo manijim capacity blong reservoir fo longtaem."
     ],
     "relatedProjects": ["ghg-emissions-reservoirs"]
   },
@@ -50,15 +66,23 @@
     "timeframe": "2024 - 2025",
     "disciplines": ["Suivi de la sédimentation", "Relevés de terrain"],
     "heroImage": "/src/assets/images/fluvio/project-reservoir-sedimentation.jpeg",
-    "heroAlt": "Deux carottes de sédiments prélevées dans des fonds lacustres",
+    "heroAlt": "Un scientifique de terrain en vêtement haute visibilité prélève un échantillon sur les vasières exposées d’un réservoir abaissé",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-reservoir-cores.png",
+        "alt": "Deux tubes de carottage transparents tenus à la verticale au-dessus d’un réservoir, montrant chacun une bande sombre de sédiments fins au-dessus du matériau du fond",
+        "caption": "Deux carottes de sédiments prélevées dans des fonds lacustres."
+      }
+    ],
     "challenge": [
-      "La sédimentation est fréquente dans les barrages et réduit leur capacité ; son accélération peut engendrer des difficultés opérationnelles."
+      "La sédimentation, processus par lequel les particules en suspension se déposent hors de la colonne d’eau, est fréquente dans les barrages et réduit leur capacité. Bien qu’il s’agisse d’un phénomène naturel, l’accélération des taux de sédimentation peut engendrer des difficultés d’exploitation, et la sédimentation peut être accélérée par les abaissements de plan d’eau liés aux opérations de pompage-turbinage. Ce projet vise à identifier et quantifier les taux de sédimentation au sein du réservoir."
     ],
     "approach": [
-      "L’étude a combiné un relevé de terrain initial au pénétromètre à chute libre, une campagne de carottage complémentaire, des dispositifs de sédimentation in situ, des stations de suivi d’événements aux principaux points d’entrée et une évaluation visuelle des rives."
+      "L’étude a suivi une démarche séquentielle fondée sur un relevé de terrain initial réalisé au pénétromètre à chute libre. Ces résultats ont permis de cartographier assez rapidement les zones de dépôt sur une vaste emprise et ont orienté une campagne de carottage complémentaire.",
+      "Pour suivre les taux de sédimentation actuels, Fluvio a déployé des dispositifs de sédimentation in situ ainsi que des stations de suivi d’événements aux principaux points d’entrée. Le programme de terrain a été complété par une évaluation visuelle des rives afin de caractériser la dynamique sédimentaire lors des abaissements du réservoir."
     ],
     "outcome": [
-      "Le programme de terrain identifie et quantifie les taux de sédimentation et caractérise la dynamique sédimentaire lors des abaissements du réservoir."
+      "Ensemble, ces relevés identifient et quantifient les taux de sédimentation à l’échelle du réservoir et caractérisent le comportement des sédiments lors des abaissements, à l’appui d’une gestion durable de la capacité du réservoir."
     ],
     "relatedProjects": ["ghg-emissions-reservoirs"]
   },
@@ -71,15 +95,23 @@
     "timeframe": "2024 - 2025",
     "disciplines": ["Monitoreo de sedimentación", "Levantamiento de campo"],
     "heroImage": "/src/assets/images/fluvio/project-reservoir-sedimentation.jpeg",
-    "heroAlt": "Dos núcleos de sedimento extraídos de lechos lacustres",
+    "heroAlt": "Un científico de campo con ropa de alta visibilidad toma una muestra en los fangales expuestos de un embalse con el nivel descendido",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-reservoir-cores.png",
+        "alt": "Dos tubos de muestreo transparentes sostenidos en vertical sobre un embalse, cada uno con una banda oscura de sedimento fino sobre el material del lecho",
+        "caption": "Dos núcleos de sedimento extraídos de lechos lacustres."
+      }
+    ],
     "challenge": [
-      "La sedimentación ocurre con frecuencia en las presas y reduce su capacidad; el aumento de las tasas puede generar dificultades operativas."
+      "La sedimentación, el proceso por el cual las partículas en suspensión se depositan fuera de la columna de agua, ocurre con frecuencia en las presas y reduce su capacidad. Aunque es un proceso natural, el aumento de las tasas de sedimentación puede generar dificultades operativas, y la sedimentación puede acelerarse por el descenso del nivel del agua asociado a la operación de centrales de bombeo. Este proyecto busca identificar y cuantificar las tasas de sedimentación dentro del embalse."
     ],
     "approach": [
-      "El estudio combinó un levantamiento de campo inicial con penetrómetro de caída libre, una campaña posterior de extracción de núcleos, arreglos de sedimentación in situ, nodos de monitoreo de eventos en los principales puntos de entrada y una evaluación visual de la línea de costa."
+      "El estudio siguió un enfoque secuencial construido a partir de un levantamiento de campo inicial realizado con un penetrómetro de caída libre. Esos resultados permitieron cartografiar con relativa rapidez las zonas de depósito en una amplia superficie y orientaron una campaña posterior de extracción de núcleos.",
+      "Para monitorear las tasas de sedimentación actuales, Fluvio desplegó arreglos de sedimentación in situ y nodos de monitoreo de eventos en los principales puntos de entrada. El programa de campo se complementó con una evaluación visual de la línea de costa para definir la dinámica de sedimentos durante el descenso del nivel del embalse."
     ],
     "outcome": [
-      "El programa de campo identifica y cuantifica las tasas de sedimentación y define la dinámica de sedimentos durante el descenso del nivel del embalse."
+      "En conjunto, estos levantamientos identifican y cuantifican las tasas de sedimentación en todo el embalse y caracterizan el comportamiento del sedimento durante el descenso del nivel, en apoyo de la gestión a largo plazo de la capacidad del embalse."
     ],
     "relatedProjects": ["ghg-emissions-reservoirs"]
   }

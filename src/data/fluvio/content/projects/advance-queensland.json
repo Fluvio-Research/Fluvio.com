@@ -8,16 +8,23 @@
     "timeframe": "2024 - Current",
     "disciplines": ["Hydrological monitoring", "Computer vision"],
     "heroImage": "/src/assets/images/fluvio/project-advance-queensland.jpeg",
-    "heroAlt": "Installation of a computer vision stream gauging system",
+    "heroAlt": "A technician on a step ladder wiring a camera and solar panel onto a monitoring mast beside a creek",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-advance-queensland-station.jpeg",
+        "alt": "A completed monitoring cabinet and camera overlooking a wide river, labelled Optical Flow River Monitoring System",
+        "caption": "A commissioned computer vision stream gauging station on a Queensland river."
+      }
+    ],
     "challenge": [
-      "Fluvio has secured an Advance Queensland grant to refine its computer vision stream gauging system (CVSG) to become a commercially available product."
+      "Fluvio has secured an Advance Queensland grant to refine its computer vision stream gauging system (CVSG) to become a commercially available product. This project will refine the existing camera prototype to establish a cost-effective method for measuring water flows and velocity. This significantly improves the quantity of data collected and reduces safety risks associated with traditional methods for gauging flow events."
     ],
     "approach": [
-      "This project will refine the existing camera prototype to establish a cost-effective method for measuring water flows and velocity.",
-      "Key milestones include validation across a broad range of waterways in Queensland with targeted deployments, developing a real-time water quality loads monitoring system, and providing a cloud-based archive system for operational personnel."
+      "Key milestones in the project include validation of the system across a broad range of waterways in Queensland with targeted deployments, as well as developing a real-time water quality loads monitoring system. The project will be supported by a user-friendly cloud-based archive system for operational personnel to access configuration, archived imagery and data analytics.",
+      "The scope of works includes validating the system across a broad range of waterways in Queensland through targeted deployments with project partners; developing a user-friendly cloud-based archive system for operational personnel to access configuration, archived imagery and data analytics; and developing standard operating procedures for deployment and maintenance to mitigate health and safety risks for field staff."
     ],
     "outcome": [
-      "This significantly improves the quantity of data collected and reduces safety risks associated with traditional methods for gauging flow events."
+      "The CVSG system will ensure that water resources can be better managed and tracked through local waterways, providing policy makers with the information they require to track and manage water resources within their catchments."
     ],
     "featured": true,
     "relatedProjects": ["tina", "bina"]
@@ -31,16 +38,23 @@
     "timeframe": "2024 - Distaem",
     "disciplines": ["Monitorim wata", "Computer vision"],
     "heroImage": "/src/assets/images/fluvio/project-advance-queensland.jpeg",
-    "heroAlt": "Olketa installim wanfala computer vision sistem fo mesarem flow blong stream",
+    "heroAlt": "Wanfala technician antap long wanfala step ladder hemi waeanap wanfala camera an solar panel long wanfala monitoring mast saedem wanfala krik",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-advance-queensland-station.jpeg",
+        "alt": "Wanfala monitoring cabinet wea finis an wanfala camera wea lukluk daon long wanfala bigfala reva, wetem saen Optical Flow River Monitoring System",
+        "caption": "Wanfala computer vision stream gauging station wea waka finis long wanfala reva long Queensland."
+      }
+    ],
     "challenge": [
-      "Fluvio hemi kasem wanfala Advance Queensland grant fo stretem moa computer vision stream gauging sistem (CVSG) blong hem, fo hemi kamap wanfala product wea eniwan savve baem."
+      "Fluvio hemi kasem wanfala Advance Queensland grant fo stretem moa computer vision stream gauging sistem (CVSG) blong hem, fo hemi kamap wanfala product wea eniwan savve baem. Project ia bae stretem moa camera prototype wea stap finis, fo faendem wanfala wei wea no cost tumas fo mesarem flow an spid blong wata. Diswan mekem data wea olketa collectim hemi staka moa, an hemi katem daon olketa safety risk wea kam wetem olketa old wei fo mesarem flow taem wata hemi big."
     ],
     "approach": [
-      "Project ia bae stretem moa camera prototype wea stap finis, fo faendem wanfala wei wea no cost tumas fo mesarem flow an spid blong wata.",
-      "Olketa main step long project ia: fo testem sistem long staka difren reva long Queensland wetem olketa spesol deployment, fo developim wanfala real-time sistem fo monitorim olketa load long kwaliti blong wata, an fo givim wanfala cloud archive sistem fo olketa staff wea waka evriday."
+      "Olketa main step long project ia: fo testem sistem long staka difren reva long Queensland wetem olketa spesol deployment, an fo developim wanfala real-time sistem fo monitorim olketa load long kwaliti blong wata. Wanfala cloud archive sistem wea isi fo iusim bae sapotem project ia, mekem olketa staff wea waka evriday savve kasem configuration, olketa piksa wea sef finis, an data analytics.",
+      "Insaet long scope blong waka: fo testem sistem long staka difren reva long Queensland tugeta wetem olketa partner blong project; fo developim wanfala cloud archive sistem wea isi fo iusim, mekem olketa staff savve kasem configuration, olketa piksa wea sef finis, an data analytics; an fo raetem olketa standard operating procedure fo putim an lukaftarem olketa sistem, fo katem daon olketa helt an safety risk fo olketa field staff."
     ],
     "outcome": [
-      "Diswan mekem data wea olketa collectim hemi staka moa, an hemi katem daon olketa safety risk wea kam wetem olketa old wei fo mesarem flow taem wata hemi big."
+      "CVSG sistem bae mekem sua olketa savve manijim an trackim wata risosis gud moa long olketa local reva, an givim olketa policy maker information wea olketa needim fo trackim an manijim wata risosis insaet long olketa catchment blong olketa."
     ],
     "featured": true,
     "relatedProjects": ["tina", "bina"]
@@ -54,16 +68,23 @@
     "timeframe": "2024 - En cours",
     "disciplines": ["Surveillance hydrologique", "Vision par ordinateur"],
     "heroImage": "/src/assets/images/fluvio/project-advance-queensland.jpeg",
-    "heroAlt": "Installation d’un système de jaugeage de cours d’eau par vision par ordinateur",
+    "heroAlt": "Un technicien sur un escabeau raccorde une caméra et un panneau solaire sur un mât de surveillance au bord d’un ruisseau",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-advance-queensland-station.jpeg",
+        "alt": "Une armoire de surveillance achevée et sa caméra surplombant une large rivière, portant la mention Optical Flow River Monitoring System",
+        "caption": "Une station de jaugeage par vision par ordinateur mise en service sur une rivière du Queensland."
+      }
+    ],
     "challenge": [
-      "Fluvio a obtenu une subvention Advance Queensland pour perfectionner son système de jaugeage de cours d’eau par vision par ordinateur (CVSG) et en faire un produit commercialisable."
+      "Fluvio a obtenu une subvention Advance Queensland pour perfectionner son système de jaugeage de cours d’eau par vision par ordinateur (CVSG) et en faire un produit commercialisable. Le projet fera évoluer le prototype de caméra existant afin d’établir une méthode économique de mesure des débits et des vitesses d’écoulement. Cette approche améliore considérablement la quantité de données recueillies et réduit les risques de sécurité associés aux méthodes traditionnelles de jaugeage des crues."
     ],
     "approach": [
-      "Ce projet perfectionnera le prototype de caméra existant afin d’établir une méthode économique de mesure des débits et des vitesses d’écoulement.",
-      "Les jalons clés comprennent une validation sur un large éventail de cours d’eau du Queensland avec des déploiements ciblés, le développement d’un système de suivi en temps réel des charges de qualité de l’eau, et la mise à disposition d’un système d’archivage en nuage pour le personnel opérationnel."
+      "Les jalons clés du projet comprennent la validation du système sur un large éventail de cours d’eau du Queensland au moyen de déploiements ciblés, ainsi que le développement d’un système de suivi en temps réel des charges de qualité de l’eau. Le projet s’appuiera sur un système d’archivage en nuage simple d’utilisation, permettant au personnel opérationnel d’accéder à la configuration, aux images archivées et aux analyses de données.",
+      "Le périmètre des travaux comprend la validation du système sur un large éventail de cours d’eau du Queensland par des déploiements ciblés avec les partenaires du projet ; le développement d’un système d’archivage en nuage simple d’utilisation donnant accès à la configuration, aux images archivées et aux analyses de données ; et l’élaboration de procédures d’exploitation normalisées pour le déploiement et la maintenance, afin de réduire les risques pour la santé et la sécurité du personnel de terrain."
     ],
     "outcome": [
-      "Cette approche améliore considérablement la quantité de données recueillies et réduit les risques de sécurité associés aux méthodes traditionnelles de jaugeage des crues."
+      "Le système CVSG permettra de mieux gérer et suivre les ressources en eau des cours d’eau locaux, en fournissant aux décideurs les informations nécessaires au suivi et à la gestion de l’eau dans leurs bassins versants."
     ],
     "featured": true,
     "relatedProjects": ["tina", "bina"]
@@ -77,16 +98,23 @@
     "timeframe": "2024 - Actualidad",
     "disciplines": ["Monitoreo hidrológico", "Visión artificial"],
     "heroImage": "/src/assets/images/fluvio/project-advance-queensland.jpeg",
-    "heroAlt": "Instalación de un sistema de aforo de cauces por visión artificial",
+    "heroAlt": "Un técnico sobre una escalera de tijera conecta una cámara y un panel solar en un mástil de monitoreo junto a un arroyo",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-advance-queensland-station.jpeg",
+        "alt": "Un gabinete de monitoreo terminado y su cámara sobre un río ancho, con la leyenda Optical Flow River Monitoring System",
+        "caption": "Una estación de aforo por visión artificial puesta en servicio en un río de Queensland."
+      }
+    ],
     "challenge": [
-      "Fluvio obtuvo una subvención Advance Queensland para perfeccionar su sistema de aforo de cauces por visión artificial (CVSG) y convertirlo en un producto disponible comercialmente."
+      "Fluvio obtuvo una subvención Advance Queensland para perfeccionar su sistema de aforo de cauces por visión artificial (CVSG) y convertirlo en un producto disponible comercialmente. El proyecto perfeccionará el prototipo de cámara existente para establecer un método rentable de medición de caudales y velocidades del agua. Esto mejora significativamente la cantidad de datos recopilados y reduce los riesgos de seguridad asociados a los métodos tradicionales de aforo durante crecidas."
     ],
     "approach": [
-      "Este proyecto perfeccionará el prototipo de cámara existente para establecer un método rentable de medición de caudales y velocidades del agua.",
-      "Los hitos clave incluyen la validación en una amplia variedad de cauces de Queensland con despliegues dirigidos, el desarrollo de un sistema de monitoreo en tiempo real de cargas de calidad del agua, y la provisión de un sistema de archivo en la nube para el personal operativo."
+      "Los hitos clave del proyecto incluyen la validación del sistema en una amplia variedad de cauces de Queensland mediante despliegues dirigidos, así como el desarrollo de un sistema de monitoreo en tiempo real de cargas de calidad del agua. El proyecto contará con un sistema de archivo en la nube fácil de usar, para que el personal operativo acceda a la configuración, las imágenes archivadas y los análisis de datos.",
+      "El alcance de los trabajos comprende validar el sistema en una amplia variedad de cauces de Queensland mediante despliegues dirigidos junto a los socios del proyecto; desarrollar un sistema de archivo en la nube fácil de usar que dé acceso a la configuración, las imágenes archivadas y los análisis de datos; y elaborar procedimientos operativos estándar de despliegue y mantenimiento para mitigar los riesgos de salud y seguridad del personal de campo."
     ],
     "outcome": [
-      "Esto mejora significativamente la cantidad de datos recopilados y reduce los riesgos de seguridad asociados a los métodos tradicionales de aforo durante crecidas."
+      "El sistema CVSG permitirá gestionar y seguir mejor los recursos hídricos de los cauces locales, brindando a los responsables de políticas la información que necesitan para seguir y gestionar el agua dentro de sus cuencas."
     ],
     "featured": true,
     "relatedProjects": ["tina", "bina"]

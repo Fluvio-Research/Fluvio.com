@@ -8,22 +8,23 @@
     "timeframe": "2025 - Current",
     "disciplines": ["Hydrological monitoring", "Sediment monitoring"],
     "heroImage": "/src/assets/images/fluvio/project-tina.jpeg",
-    "heroAlt": "Hydrological monitoring of Tina Hydro",
+    "heroAlt": "A remote-controlled ADCP boat crossing the Tina River on a tag line while a field technician works from the rocks",
     "gallery": [
       {
         "src": "/src/assets/images/fluvio/project-tina-station.png",
-        "alt": "A real-time monitoring station deployed on the Tina River",
+        "alt": "An open instrument cabinet and camera mast installed on a rock ledge above the Tina River",
         "caption": "A real time monitoring station deployed on the Tina River."
       }
     ],
     "challenge": [
-      "The Tina River Hydro Development Project requires energy calculations based on sediment loads, flow ratings, and mean flow."
+      "The Tina River Hydro Development Project is a national project of the Solomon Islands. This, the first large utility-scale renewable energy project, is designed to increase the amount of renewable energy in the Honiara grid by nearly 70 percent, while reducing reliance on diesel power. As a result, the project aims to transform Honiara’s energy grid to provide affordable, reliable, sustainable and clean electricity to its people and cut reliance on imported fossil fuels, resulting in a significant reduction in greenhouse gas emissions."
     ],
     "approach": [
-      "Fluvio has completed hydrological and sediment monitoring using computer vision stream gauging systems, real-time water level stations, real-time water quality stations, sediment analysis, and manual gauging."
+      "Fluvio has been engaged to support the project by completing hydrological and sediment monitoring in the Tina River. The findings will be used to calculate sediment loads, flow ratings and mean flow for energy calculations.",
+      "This monitoring has been completed using computer vision stream gauging systems, real time water level stations sending one-minute data, real time water quality stations sending ten-minute data, sediment analysis and manual gauging."
     ],
     "outcome": [
-      "Bespoke power and communication solutions have been developed to ensure reliability in a remote and complex environment."
+      "Due to the remote and extreme nature of the site, bespoke power and communication solutions have been developed to ensure reliability in a remote and complex environment."
     ],
     "featured": true,
     "relatedProjects": ["bina", "advance-queensland"]
@@ -37,22 +38,23 @@
     "timeframe": "2025 - Distaem",
     "disciplines": ["Monitorim wata", "Monitorim sediment"],
     "heroImage": "/src/assets/images/fluvio/project-tina.jpeg",
-    "heroAlt": "Monitorim wata fo Tina Hydro",
+    "heroAlt": "Wanfala ADCP bot wea olketa kontrolem long remote hemi krosim Tina River long wanfala tag line, taem wanfala field technician hemi waka long olketa ston",
     "gallery": [
       {
         "src": "/src/assets/images/fluvio/project-tina-station.png",
-        "alt": "A real-time monitoring station deployed on the Tina River",
-        "caption": "A real time monitoring station deployed on the Tina River."
+        "alt": "Wanfala instrument cabinet wea open an wanfala camera mast wea olketa putim antap long wanfala ston ledge ovarem Tina River",
+        "caption": "Wanfala real-time monitoring station wea olketa putim long Tina River."
       }
     ],
     "challenge": [
-      "Tina River Hydro Development Project hemi needim olketa energy calculation wea stanap long sediment load, flow rating, an mean flow."
+      "Tina River Hydro Development Project hemi wanfala national project blong Solomon Aelan. Diswan nao fastaem bigfala utility-scale renewable energy project, an hemi fo mekem renewable energy insaet long Honiara grid go antap klosap 70 pesen, an fo katem daon wei fo dipen long diesel pawa. So project ia hemi laek fo jenisim grid blong Honiara fo givim pipol elektrik wea no dia tumas, wea strong, wea savve gohed fo longtaem an wea klin, an fo katem daon wei fo baem fossil fuel from aotsaed. Diswan bae katem daon bigfala greenhouse gas wea kamaot."
     ],
     "approach": [
-      "Fluvio hemi finisim monitoring blong wata an sediment wetem olketa computer vision stream gauging sistem, olketa real-time station fo level blong wata, olketa real-time station fo kwaliti blong wata, sediment analysis, an manual gauging."
+      "Olketa engagem Fluvio fo sapotem project ia, wetem waka fo monitorim wata an sediment long Tina River. Bae olketa iusim olketa finding ia fo wakem calculation blong sediment load, flow rating an mean flow, fo olketa energy calculation.",
+      "Mifala duim monitoring ia wetem olketa computer vision stream gauging sistem, olketa real-time station fo level blong wata wea sendem data evri wan minit, olketa real-time station fo kwaliti blong wata wea sendem data evri ten minit, sediment analysis, an manual gauging."
     ],
     "outcome": [
-      "Mifala developim olketa spesol solusen fo pawa an communication, fo mekem sua sistem hemi waka gud long wanfala ples wea farawe an had."
+      "From ples ia hemi farawe an had tumas, mifala developim olketa spesol solusen fo pawa an communication, fo mekem sua sistem hemi waka gud long wanfala ples wea farawe an had."
     ],
     "featured": true,
     "relatedProjects": ["bina", "advance-queensland"]
@@ -66,22 +68,23 @@
     "timeframe": "2025 - En cours",
     "disciplines": ["Surveillance hydrologique", "Surveillance des sédiments"],
     "heroImage": "/src/assets/images/fluvio/project-tina.jpeg",
-    "heroAlt": "Surveillance hydrologique de Tina Hydro",
+    "heroAlt": "Un bateau ADCP radiocommandé traverse la rivière Tina le long d’un câble de guidage, tandis qu’un technicien de terrain opère depuis les rochers",
     "gallery": [
       {
         "src": "/src/assets/images/fluvio/project-tina-station.png",
-        "alt": "A real-time monitoring station deployed on the Tina River",
-        "caption": "A real time monitoring station deployed on the Tina River."
+        "alt": "Une armoire d’instrumentation ouverte et un mât de caméra installés sur une corniche rocheuse au-dessus de la rivière Tina",
+        "caption": "Une station de surveillance en temps réel déployée sur la rivière Tina."
       }
     ],
     "challenge": [
-      "Le projet hydroélectrique de la rivière Tina requiert des calculs d’énergie fondés sur les charges sédimentaires, les courbes de tarage et le débit moyen."
+      "Le projet hydroélectrique de la rivière Tina est un projet national des Îles Salomon. Premier grand projet d’énergie renouvelable à l’échelle du réseau, il vise à augmenter de près de 70 % la part d’énergie renouvelable dans le réseau de Honiara tout en réduisant la dépendance à l’électricité produite au diesel. Le projet entend ainsi transformer le réseau électrique de Honiara pour fournir à la population une électricité abordable, fiable, durable et propre, et réduire le recours aux combustibles fossiles importés, ce qui se traduira par une baisse significative des émissions de gaz à effet de serre."
     ],
     "approach": [
-      "Fluvio a réalisé la surveillance hydrologique et sédimentaire à l’aide de systèmes de jaugeage par vision par ordinateur, de stations de niveau d’eau en temps réel, de stations de qualité de l’eau en temps réel, d’analyses sédimentaires et de jaugeages manuels."
+      "Fluvio a été mandaté pour appuyer le projet en réalisant la surveillance hydrologique et sédimentaire de la rivière Tina. Les résultats serviront à calculer les charges sédimentaires, les courbes de tarage et le débit moyen nécessaires aux calculs de production d’énergie.",
+      "Cette surveillance a été réalisée à l’aide de systèmes de jaugeage par vision par ordinateur, de stations de niveau d’eau en temps réel transmettant des données à la minute, de stations de qualité de l’eau en temps réel transmettant des données toutes les dix minutes, d’analyses sédimentaires et de jaugeages manuels."
     ],
     "outcome": [
-      "Des solutions sur mesure d’alimentation et de communication ont été développées pour garantir la fiabilité dans un environnement isolé et complexe."
+      "En raison du caractère isolé et extrême du site, des solutions sur mesure d’alimentation et de communication ont été développées pour garantir la fiabilité dans un environnement isolé et complexe."
     ],
     "featured": true,
     "relatedProjects": ["bina", "advance-queensland"]
@@ -95,22 +98,23 @@
     "timeframe": "2025 - Actualidad",
     "disciplines": ["Monitoreo hidrológico", "Monitoreo de sedimentos"],
     "heroImage": "/src/assets/images/fluvio/project-tina.jpeg",
-    "heroAlt": "Monitoreo hidrológico de Tina Hydro",
+    "heroAlt": "Una embarcación ADCP radiocontrolada cruza el río Tina siguiendo un cable guía, mientras un técnico de campo trabaja desde las rocas",
     "gallery": [
       {
         "src": "/src/assets/images/fluvio/project-tina-station.png",
-        "alt": "A real-time monitoring station deployed on the Tina River",
-        "caption": "A real time monitoring station deployed on the Tina River."
+        "alt": "Un gabinete de instrumentación abierto y un mástil con cámara instalados sobre una repisa rocosa por encima del río Tina",
+        "caption": "Una estación de monitoreo en tiempo real desplegada en el río Tina."
       }
     ],
     "challenge": [
-      "El Proyecto Hidroeléctrico del Río Tina requiere cálculos de energía basados en cargas de sedimentos, curvas de gasto y caudal medio."
+      "El Proyecto Hidroeléctrico del Río Tina es un proyecto nacional de las Islas Salomón. Se trata del primer gran proyecto de energía renovable a escala de red y está diseñado para aumentar en casi un 70 % la energía renovable de la red de Honiara, reduciendo a la vez la dependencia de la generación con diésel. Así, el proyecto busca transformar la red eléctrica de Honiara para brindar a su población electricidad asequible, confiable, sostenible y limpia, y disminuir el uso de combustibles fósiles importados, con una reducción significativa de las emisiones de gases de efecto invernadero."
     ],
     "approach": [
-      "Fluvio ha realizado el monitoreo hidrológico y de sedimentos mediante sistemas de aforo por visión artificial, estaciones de nivel de agua en tiempo real, estaciones de calidad del agua en tiempo real, análisis de sedimentos y aforos manuales."
+      "Fluvio fue contratado para apoyar el proyecto mediante el monitoreo hidrológico y de sedimentos del río Tina. Los resultados se utilizarán para calcular cargas de sedimentos, curvas de gasto y caudal medio con fines de cálculo energético.",
+      "Este monitoreo se ha realizado con sistemas de aforo por visión artificial, estaciones de nivel de agua en tiempo real que envían datos cada minuto, estaciones de calidad del agua en tiempo real que envían datos cada diez minutos, análisis de sedimentos y aforos manuales."
     ],
     "outcome": [
-      "Se han desarrollado soluciones a medida de energía y comunicaciones para garantizar la confiabilidad en un entorno remoto y complejo."
+      "Dado el carácter remoto y extremo del sitio, se han desarrollado soluciones a medida de energía y comunicaciones para garantizar la confiabilidad en un entorno aislado y complejo."
     ],
     "featured": true,
     "relatedProjects": ["bina", "advance-queensland"]

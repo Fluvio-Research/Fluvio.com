@@ -1,5 +1,5 @@
 ---
-import LargeImage from './LargeImage.astro';
+import ExpertiseMedia from './ExpertiseMedia.astro';
 import type { ExpertiseArea } from '~/data/fluvio/types';
 
 export interface Props {
@@ -16,12 +16,7 @@ const Heading = headingLevel;
     items.map((item, index) => (
       <article class="fluvio-expertise-list__item" id={item.slug}>
         <div class="fluvio-expertise-list__image">
-          <LargeImage
-            src={item.image}
-            alt={item.imageAlt}
-            aspect="landscape"
-            sizes="(min-width: 1280px) 704px, (min-width: 768px) 56vw, calc(100vw - 2rem)"
-          />
+          <ExpertiseMedia area={item} sizes="(min-width: 1280px) 704px, (min-width: 768px) 56vw, calc(100vw - 2rem)" />
         </div>
         <div class="fluvio-expertise-list__body">
           <p class="fluvio-expertise-list__number">{String(index + 1).padStart(2, '0')}</p>

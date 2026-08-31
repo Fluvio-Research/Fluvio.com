@@ -8,15 +8,23 @@
     "timeframe": "2025 - Current",
     "disciplines": ["Hydrological monitoring", "Water quality monitoring"],
     "heroImage": "/src/assets/images/fluvio/project-bina.jpeg",
-    "heroAlt": "Flow gauging in the Loaloana Stream",
+    "heroAlt": "A field team walking the gravel bank of a swollen river in heavy tropical rain",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-bina-gauging.png",
+        "alt": "Two people standing waist-deep in a shallow forest stream beside a tethered survey boat and a measuring tape strung across the water",
+        "caption": "Flow gauging in the Loaloana Stream using a combination of manual ADV and moving boat ADCP methods."
+      }
+    ],
     "challenge": [
-      "The Bina Harbour Development Project requires a reliable and clean water source to meet immediate and long-term demand for its tuna processing facility."
+      "The Bina Harbour Development Project aims to transform Bina Harbour, located 25 km south of Auki in Malaita Province, into a world-class tuna processing facility. The establishment of a processing plant represents a significant step forward for the Solomon Islands in capturing greater value from its extensive tuna resources and strengthening long-term economic development. To support this project a reliable and clean water source is required to deliver enough water to meet both immediate and long-term demand."
     ],
     "approach": [
-      "Fluvio has been engaged to collect 12 months of continuous hydrological data at three sites using computer-vision stream-gauging systems, real-time water-quality monitoring stations, and manual gauging."
+      "To support the project, Fluvio has been engaged to collect 12 months of continuous hydrological data to identify a reliable and sustainable water source for the processing plant’s immediate and future operational needs. Monitoring has been undertaken at two sites identified from previous studies and at an additional site proposed by local landowners.",
+      "This work has utilised computer-vision stream-gauging systems, real-time water-quality monitoring stations, and manual gauging, supported by communication and monitoring solutions developed to operate effectively in remote and extreme locations."
     ],
     "outcome": [
-      "The monitoring delivers data at five-minute intervals to identify a reliable and sustainable water source for the processing plant’s immediate and future operational needs."
+      "The monitoring network delivers data at five-minute intervals, building the continuous record needed to confirm a water source able to meet both the immediate and long-term demand of the processing facility."
     ],
     "relatedProjects": ["tina", "monitoring-honiara"]
   },
@@ -29,15 +37,23 @@
     "timeframe": "2025 - Distaem",
     "disciplines": ["Monitorim wata", "Monitorim kwaliti blong wata"],
     "heroImage": "/src/assets/images/fluvio/project-bina.jpeg",
-    "heroAlt": "Mesarem flow blong wata long Loaloana Stream",
+    "heroAlt": "Wanfala field team wakabaot long ston bank blong wanfala reva wea fulap, insaet long bigfala rein",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-bina-gauging.png",
+        "alt": "Tufala man stanap insaet long wata kasem wes long wanfala smol stream insaet long bush, saedem wanfala survey bot wea taedap an wanfala measuring tape wea krosim wata",
+        "caption": "Mesarem flow long Loaloana Stream wetem tufala wei tugeta: manual ADV an moving boat ADCP."
+      }
+    ],
     "challenge": [
-      "Bina Harbour Development Project hemi needim wanfala wata sos wea klin an strong, fo kasem need blong tuna processing facility blong hem distaem an fo longtaem."
+      "Bina Harbour Development Project hemi laek fo jenisim Bina Harbour, wea stap 25 km saot from Auki long Malaita Province, fo kamap wanfala world-class ples fo processim tuna. Fo openem wanfala processing plant hemi wanfala bigfala step fo Solomon Aelan fo kasem moa valu from staka tuna risosis blong hem, an fo strongim economic development fo longtaem. Fo sapotem project ia, hemi needim wanfala wata sos wea strong an klin, wea savve givim inaf wata fo need blong hem distaem an fo longtaem."
     ],
     "approach": [
-      "Olketa engagem Fluvio fo collectim hydrological data fo 12 months no stop, long trifala site. Mifala iusim olketa computer vision stream gauging sistem, olketa real-time station fo monitorim kwaliti blong wata, an manual gauging."
+      "Fo sapotem project ia, olketa engagem Fluvio fo collectim hydrological data fo 12 months no stop, fo faendem wanfala wata sos wea strong an savve gohed fo longtaem, fo need blong processing plant distaem an long taem bihaen. Mifala duim monitoring long tufala site wea olketa faendem long olketa study bifoa, an long wanfala nara site wea olketa local landowner talem.",
+      "Insaet long waka ia mifala iusim olketa computer vision stream gauging sistem, olketa real-time station fo monitorim kwaliti blong wata, an manual gauging. Olketa communication an monitoring solusen wea mifala developim fo waka gud long olketa ples wea farawe an had, olketa sapotem waka ia."
     ],
     "outcome": [
-      "Monitoring ia givim data long evri faevfala minute, fo faendem wanfala wata sos wea strong an savve gohed fo longtaem, fo need blong processing plant distaem an long taem bihaen."
+      "Monitoring network ia givim data long evri faevfala minute. Diswan buildim wanfala record wea gohed no stop, wea nidim fo confirmim wanfala wata sos wea savve kasem need blong processing facility distaem an fo longtaem."
     ],
     "relatedProjects": ["tina", "monitoring-honiara"]
   },
@@ -50,15 +66,23 @@
     "timeframe": "2025 - En cours",
     "disciplines": ["Surveillance hydrologique", "Surveillance de la qualité de l’eau"],
     "heroImage": "/src/assets/images/fluvio/project-bina.jpeg",
-    "heroAlt": "Jaugeage de débit dans le cours d’eau Loaloana",
+    "heroAlt": "Une équipe de terrain progresse sur le banc de galets d’une rivière en crue sous une pluie tropicale battante",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-bina-gauging.png",
+        "alt": "Deux personnes immergées jusqu’à la taille dans un cours d’eau forestier peu profond, à côté d’un bateau de relevé amarré et d’un ruban de mesure tendu en travers de l’eau",
+        "caption": "Jaugeage du débit dans le cours d’eau Loaloana, combinant un ADV manuel et un ADCP sur bateau mobile."
+      }
+    ],
     "challenge": [
-      "Le projet de développement de Bina Harbour requiert une source d’eau fiable et propre pour répondre à la demande immédiate et de long terme de son usine de transformation du thon."
+      "Le projet de développement de Bina Harbour vise à transformer Bina Harbour, situé à 25 km au sud d’Auki dans la province de Malaita, en une usine de transformation du thon de classe mondiale. L’implantation d’une usine constitue une avancée majeure pour les Îles Salomon, qui pourront tirer davantage de valeur de leurs importantes ressources thonières et renforcer leur développement économique à long terme. Le projet requiert pour cela une source d’eau fiable et propre, capable de fournir un volume suffisant pour la demande immédiate comme pour la demande de long terme."
     ],
     "approach": [
-      "Fluvio a été mandaté pour recueillir douze mois de données hydrologiques en continu sur trois sites, à l’aide de systèmes de jaugeage par vision par ordinateur, de stations de surveillance de la qualité de l’eau en temps réel et de jaugeages manuels."
+      "Pour appuyer le projet, Fluvio a été mandaté afin de recueillir douze mois de données hydrologiques en continu et d’identifier une source d’eau fiable et durable répondant aux besoins opérationnels immédiats et futurs de l’usine. La surveillance a été menée sur deux sites identifiés lors d’études antérieures ainsi que sur un site supplémentaire proposé par les propriétaires fonciers coutumiers.",
+      "Ces travaux ont mobilisé des systèmes de jaugeage par vision par ordinateur, des stations de surveillance de la qualité de l’eau en temps réel et des jaugeages manuels, appuyés par des solutions de communication et de surveillance conçues pour fonctionner efficacement dans des sites isolés et extrêmes."
     ],
     "outcome": [
-      "La surveillance fournit des données à intervalles de cinq minutes afin d’identifier une source d’eau fiable et durable pour les besoins opérationnels immédiats et futurs de l’usine de transformation."
+      "Le réseau de surveillance fournit des données à intervalles de cinq minutes et constitue ainsi la chronique continue nécessaire pour confirmer une source d’eau capable de répondre à la demande immédiate et de long terme de l’usine de transformation."
     ],
     "relatedProjects": ["tina", "monitoring-honiara"]
   },
@@ -71,15 +95,23 @@
     "timeframe": "2025 - Actualidad",
     "disciplines": ["Monitoreo hidrológico", "Monitoreo de calidad del agua"],
     "heroImage": "/src/assets/images/fluvio/project-bina.jpeg",
-    "heroAlt": "Aforo de caudal en el arroyo Loaloana",
+    "heroAlt": "Un equipo de campo avanza por el banco de grava de un río crecido bajo una intensa lluvia tropical",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-bina-gauging.png",
+        "alt": "Dos personas sumergidas hasta la cintura en un arroyo boscoso poco profundo, junto a una embarcación de relevamiento amarrada y una cinta métrica tendida sobre el agua",
+        "caption": "Aforo de caudal en el arroyo Loaloana combinando métodos de ADV manual y de ADCP sobre embarcación en movimiento."
+      }
+    ],
     "challenge": [
-      "El proyecto de desarrollo de Bina Harbour requiere una fuente de agua confiable y limpia para satisfacer la demanda inmediata y de largo plazo de su planta procesadora de atún."
+      "El proyecto de desarrollo de Bina Harbour busca transformar Bina Harbour, ubicado 25 km al sur de Auki en la provincia de Malaita, en una planta procesadora de atún de nivel mundial. La instalación de una planta representa un avance importante para las Islas Salomón, que podrán captar mayor valor de sus extensos recursos atuneros y fortalecer su desarrollo económico de largo plazo. Para ello se requiere una fuente de agua confiable y limpia, capaz de entregar el volumen necesario para la demanda inmediata y de largo plazo."
     ],
     "approach": [
-      "Fluvio fue contratado para recopilar doce meses de datos hidrológicos continuos en tres sitios, mediante sistemas de aforo por visión artificial, estaciones de monitoreo de calidad del agua en tiempo real y aforos manuales."
+      "Para apoyar el proyecto, Fluvio fue contratado para recopilar doce meses de datos hidrológicos continuos e identificar una fuente de agua confiable y sostenible para las necesidades operativas inmediatas y futuras de la planta procesadora. El monitoreo se realizó en dos sitios identificados en estudios previos y en un sitio adicional propuesto por los propietarios de tierras locales.",
+      "Este trabajo empleó sistemas de aforo por visión artificial, estaciones de monitoreo de calidad del agua en tiempo real y aforos manuales, respaldados por soluciones de comunicación y monitoreo desarrolladas para operar eficazmente en sitios remotos y extremos."
     ],
     "outcome": [
-      "El monitoreo entrega datos a intervalos de cinco minutos para identificar una fuente de agua confiable y sostenible para las necesidades operativas inmediatas y futuras de la planta procesadora."
+      "La red de monitoreo entrega datos a intervalos de cinco minutos y construye así el registro continuo necesario para confirmar una fuente de agua capaz de satisfacer la demanda inmediata y de largo plazo de la planta procesadora."
     ],
     "relatedProjects": ["tina", "monitoring-honiara"]
   }

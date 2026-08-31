@@ -7,8 +7,9 @@
     "description": [
       "This system improves safety and efficiency by utilising non-contact sensors and real-time analysis to monitor velocity and discharge of river systems."
     ],
-    "image": "/src/assets/images/fluvio/expertise-stream-monitoring.jpg",
-    "imageAlt": "Hydrological monitoring in a stream",
+    "image": "/src/assets/images/fluvio/expertise-velocity-overlay-poster.jpg",
+    "imageAlt": "A computer vision stream gauging camera resolving surface velocity across a river, shown as a colour field with flow arrows and a velocity scale",
+    "video": "/src/assets/images/fluvio/expertise-velocity-overlay.mp4",
     "relatedProjects": ["tina", "bina", "advance-queensland"]
   },
   "pijin": {
@@ -19,8 +20,9 @@
     "description": [
       "Sistem ia mekem waka hemi moa sef an moa kwik. Hemi iusim olketa sensor wea no tasim wata, an real-time analysis, fo monitorim spid an flow blong olketa reva."
     ],
-    "image": "/src/assets/images/fluvio/expertise-stream-monitoring.jpg",
-    "imageAlt": "Monitorim wata long wanfala stream",
+    "image": "/src/assets/images/fluvio/expertise-velocity-overlay-poster.jpg",
+    "imageAlt": "Wanfala computer vision camera hemi mesarem spid blong wata antap long wanfala reva, an hemi soim hem olsem wanfala kala field wetem olketa arrow an wanfala scale blong spid",
+    "video": "/src/assets/images/fluvio/expertise-velocity-overlay.mp4",
     "relatedProjects": ["tina", "bina", "advance-queensland"]
   },
   "fr": {
@@ -31,8 +33,9 @@
     "description": [
       "Ce système améliore la sécurité et l’efficacité grâce à des capteurs sans contact et à une analyse en temps réel pour suivre la vitesse et le débit des cours d’eau."
     ],
-    "image": "/src/assets/images/fluvio/expertise-stream-monitoring.jpg",
-    "imageAlt": "Surveillance hydrologique dans un cours d’eau",
+    "image": "/src/assets/images/fluvio/expertise-velocity-overlay-poster.jpg",
+    "imageAlt": "Une caméra de jaugeage par vision par ordinateur restitue la vitesse de surface d’une rivière sous forme de champ coloré, avec des flèches d’écoulement et une échelle de vitesse",
+    "video": "/src/assets/images/fluvio/expertise-velocity-overlay.mp4",
     "relatedProjects": ["tina", "bina", "advance-queensland"]
   },
   "es": {
@@ -43,8 +46,9 @@
     "description": [
       "Este sistema mejora la seguridad y la eficiencia mediante sensores sin contacto y análisis en tiempo real para monitorear la velocidad y el caudal de los sistemas fluviales."
     ],
-    "image": "/src/assets/images/fluvio/expertise-stream-monitoring.jpg",
-    "imageAlt": "Monitoreo hidrológico en un arroyo",
+    "image": "/src/assets/images/fluvio/expertise-velocity-overlay-poster.jpg",
+    "imageAlt": "Una cámara de aforo por visión artificial resuelve la velocidad superficial de un río, mostrada como un campo de color con flechas de flujo y una escala de velocidad",
+    "video": "/src/assets/images/fluvio/expertise-velocity-overlay.mp4",
     "relatedProjects": ["tina", "bina", "advance-queensland"]
   }
 }

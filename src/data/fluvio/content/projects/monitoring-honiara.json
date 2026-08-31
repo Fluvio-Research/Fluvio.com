@@ -9,12 +9,26 @@
     "disciplines": ["Hydrological monitoring", "Catchment investigations", "Water quality monitoring"],
     "partners": ["Solomon Water"],
     "heroImage": "/src/assets/images/fluvio/project-honiara.jpeg",
-    "heroAlt": "Routine water quality monitoring in the Honiara reticulation network",
+    "heroAlt": "A Solomon Water technician preparing a filtration funnel for a water quality sample in the laboratory",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-honiara-reticulation.jpg",
+        "alt": "A Solomon Water field officer filling sample bottles from a tap over a steel drum",
+        "caption": "Routine water quality monitoring in the Honiara reticulation network."
+      },
+      {
+        "src": "/src/assets/images/fluvio/project-honiara-siwis-dashboard.png",
+        "alt": "A dashboard showing a map of monitoring stations across the Solomon Islands alongside site, river and record counts",
+        "caption": "The Solomon Islands Water Information System, the national hydrological database that holds the monitoring records these programs feed."
+      }
+    ],
     "challenge": [
-      "Only 55% of the greater Honiara population has access to the public water supply system, and less than 10% is connected to the Honiara sewerage network."
+      "Currently, 55% of the greater Honiara population has access to the public water supply system, and less than 10% is connected to the Honiara sewerage network. The remainder rely on rainwater harvesting, shallow wells, urban streams, neighbours, or purchased bottled water. These alternative sources are frequently contaminated, contributing to high rates of waterborne disease, which are further exacerbated by poor hygiene practices and limited access to safe water.",
+      "To address these challenges, the Asian Development Bank is funding the Solomon Islands Urban Water Supply and Sanitation Sector Project, which focuses on delivering sustainable, inclusive and climate-resilient water supply and sanitation services in greater Honiara and the towns of Auki, Gizo, Noro, Munda and Tulagi. The project prioritises investments aligned with the national water and sanitation sector plan, aiming to expand access to piped water and sanitation, particularly for low-income households, reduce reliance on groundwater and rainwater harvesting, and improve the efficiency and resilience of water systems."
     ],
     "approach": [
-      "Fluvio has undertaken hydrological monitoring and catchment investigations, including real-time water quality monitoring systems, operational data dashboards with alerting capabilities, automation of existing monitoring activities, and expansion into provisional water sources."
+      "To support Solomon Water in achieving these goals, Fluvio has been appointed to undertake hydrological monitoring and catchment investigations to identify upstream water sources and potential turbidity risks.",
+      "This work has included deployment and maintenance of real-time water quality monitoring systems, development of operational data dashboards with alerting capabilities, automation of existing monitoring activities and the expansion of monitoring into provisional water sources."
     ],
     "outcome": [
       "All work has been delivered alongside Solomon Water staff with the aim to build local capacity to support the project into the future."
@@ -32,12 +46,26 @@
     "disciplines": ["Monitorim wata", "Olketa catchment investigation", "Monitorim kwaliti blong wata"],
     "partners": ["Solomon Water"],
     "heroImage": "/src/assets/images/fluvio/project-honiara.jpeg",
-    "heroAlt": "Monitoring blong kwaliti blong wata wea olketa duim oltaem long paep sistem blong Honiara",
+    "heroAlt": "Wanfala technician blong Solomon Water hemi redim wanfala filtration funnel fo wanfala sample blong kwaliti blong wata insaet long laboratory",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-honiara-reticulation.jpg",
+        "alt": "Wanfala field officer blong Solomon Water hemi fulimap olketa sample bottle from wanfala tap antap long wanfala steel drum",
+        "caption": "Monitoring blong kwaliti blong wata wea olketa duim oltaem long paep sistem blong Honiara."
+      },
+      {
+        "src": "/src/assets/images/fluvio/project-honiara-siwis-dashboard.png",
+        "alt": "Wanfala dashboard wea soim wanfala map blong olketa monitoring station raonem Solomon Aelan, wetem namba blong olketa site, reva an record",
+        "caption": "Solomon Islands Water Information System, hemi national database blong hydrology wea holem olketa monitoring record wea olketa program ia sendem insaet."
+      }
+    ],
     "challenge": [
-      "55% nomoa long pipol blong Greater Honiara nao kasem public wata saplae sistem, an no kasem 10% nao join long Honiara sewerage network."
+      "Distaem, 55% nomoa long pipol blong Greater Honiara nao kasem public wata saplae sistem, an no kasem 10% nao join long Honiara sewerage network. Olketa nara wan mas dipen long wei fo kasem rein wata, olketa smol well, olketa stream insaet long taon, olketa neiba, o fo baem botol wata. Staka taem olketa nara wata sos ia olketa dirty, an diswan mekem staka sik wea kam from wata. Wei fo no klin gud an fo no kasem sef wata, tufala mekem hem kamap moa nogud.",
+      "Fo stretem olketa hevi ia, Asian Development Bank hemi fundim Solomon Islands Urban Water Supply and Sanitation Sector Project. Project ia hemi fo givim olketa wata saplae an sanitation service wea savve gohed fo longtaem, wea evriwan savve kasem, an wea strong fo klaemet, long Greater Honiara an long olketa taon Auki, Gizo, Noro, Munda an Tulagi. Project ia hemi followim national plan blong wata an sanitation sector. Hemi laek fo mekem moa pipol kasem paep wata an sanitation, spesili olketa famili wea garem smol selen, fo katem daon wei fo dipen long graon wata an rein wata, an fo mekem olketa wata sistem waka gud an strong moa."
     ],
     "approach": [
-      "Fluvio hemi duim monitoring blong wata an olketa catchment investigation. Insaet long waka ia: olketa real-time sistem fo monitorim kwaliti blong wata, olketa data dashboard wetem alert, fo mekem olketa monitoring waka wea stap finis olketa ran seleva, an fo go insaet long olketa niufala provisional wata sos."
+      "Fo sapotem Solomon Water fo kasem olketa goal ia, olketa appointim Fluvio fo duim monitoring blong wata an olketa catchment investigation, fo faendem olketa wata sos antap an olketa risk blong turbidity.",
+      "Insaet long waka ia: fo putim an lukaftarem olketa real-time sistem fo monitorim kwaliti blong wata, fo developim olketa data dashboard wetem alert, fo mekem olketa monitoring waka wea stap finis olketa ran seleva, an fo go insaet long olketa niufala provisional wata sos."
     ],
     "outcome": [
       "Evri waka ia mifala duim tugeta wetem olketa staff blong Solomon Water, wetem goal fo strongim savve blong local pipol fo sapotem project ia long taem bihaen."
@@ -55,12 +83,26 @@
     "disciplines": ["Surveillance hydrologique", "Études de bassins versants", "Surveillance de la qualité de l’eau"],
     "partners": ["Solomon Water"],
     "heroImage": "/src/assets/images/fluvio/project-honiara.jpeg",
-    "heroAlt": "Surveillance de routine de la qualité de l’eau dans le réseau de distribution de Honiara",
+    "heroAlt": "Une technicienne de Solomon Water prépare un entonnoir de filtration pour un échantillon de qualité de l’eau au laboratoire",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-honiara-reticulation.jpg",
+        "alt": "Un agent de terrain de Solomon Water remplit des flacons d’échantillonnage à un robinet posé sur un fût métallique",
+        "caption": "Surveillance de routine de la qualité de l’eau dans le réseau de distribution de Honiara."
+      },
+      {
+        "src": "/src/assets/images/fluvio/project-honiara-siwis-dashboard.png",
+        "alt": "Un tableau de bord affichant une carte des stations de surveillance des Îles Salomon ainsi que le nombre de sites, de rivières et d’enregistrements",
+        "caption": "Le Solomon Islands Water Information System, la base de données hydrologique nationale qui rassemble les enregistrements produits par ces programmes de surveillance."
+      }
+    ],
     "challenge": [
-      "Seulement 55 % de la population du Grand Honiara a accès au réseau public d’eau potable, et moins de 10 % est raccordée au réseau d’assainissement de Honiara."
+      "Aujourd’hui, 55 % de la population du Grand Honiara a accès au réseau public d’eau potable et moins de 10 % est raccordée au réseau d’assainissement de Honiara. Le reste de la population dépend de la récupération d’eau de pluie, de puits peu profonds, de cours d’eau urbains, du voisinage ou d’eau en bouteille achetée. Ces sources alternatives sont fréquemment contaminées et contribuent à des taux élevés de maladies hydriques, aggravés par de mauvaises pratiques d’hygiène et un accès limité à une eau sûre.",
+      "Pour répondre à ces difficultés, la Banque asiatique de développement finance le Solomon Islands Urban Water Supply and Sanitation Sector Project, qui vise à fournir des services d’eau et d’assainissement durables, inclusifs et résilients au climat dans le Grand Honiara ainsi que dans les villes d’Auki, Gizo, Noro, Munda et Tulagi. Le projet privilégie les investissements alignés sur le plan sectoriel national de l’eau et de l’assainissement, avec pour objectifs d’élargir l’accès à l’eau courante et à l’assainissement, en particulier pour les ménages à faible revenu, de réduire la dépendance aux eaux souterraines et à la récupération d’eau de pluie, et d’améliorer l’efficacité et la résilience des réseaux d’eau."
     ],
     "approach": [
-      "Fluvio a mené des travaux de surveillance hydrologique et d’étude des bassins versants, comprenant des systèmes de surveillance de la qualité de l’eau en temps réel, des tableaux de bord opérationnels avec alertes, l’automatisation des activités de surveillance existantes et l’extension à des sources d’eau provisoires."
+      "Pour accompagner Solomon Water dans l’atteinte de ces objectifs, Fluvio a été mandaté pour réaliser la surveillance hydrologique et des études de bassins versants afin d’identifier les sources d’eau en amont et les risques potentiels de turbidité.",
+      "Ces travaux ont compris le déploiement et la maintenance de systèmes de surveillance de la qualité de l’eau en temps réel, le développement de tableaux de bord opérationnels dotés d’alertes, l’automatisation des activités de surveillance existantes et l’extension de la surveillance à des sources d’eau provisoires."
     ],
     "outcome": [
       "L’ensemble des travaux a été réalisé aux côtés du personnel de Solomon Water, dans l’objectif de renforcer les compétences locales pour porter le projet dans la durée."
@@ -78,12 +120,26 @@
     "disciplines": ["Monitoreo hidrológico", "Investigaciones de cuencas", "Monitoreo de calidad del agua"],
     "partners": ["Solomon Water"],
     "heroImage": "/src/assets/images/fluvio/project-honiara.jpeg",
-    "heroAlt": "Monitoreo de rutina de la calidad del agua en la red de distribución de Honiara",
+    "heroAlt": "Una técnica de Solomon Water prepara un embudo de filtración para una muestra de calidad del agua en el laboratorio",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-honiara-reticulation.jpg",
+        "alt": "Un funcionario de campo de Solomon Water llena frascos de muestreo desde un grifo montado sobre un tambor metálico",
+        "caption": "Monitoreo de rutina de la calidad del agua en la red de distribución de Honiara."
+      },
+      {
+        "src": "/src/assets/images/fluvio/project-honiara-siwis-dashboard.png",
+        "alt": "Un tablero que muestra un mapa de estaciones de monitoreo en las Islas Salomón junto con los recuentos de sitios, ríos y registros",
+        "caption": "El Solomon Islands Water Information System, la base de datos hidrológica nacional que reúne los registros de monitoreo que alimentan estos programas."
+      }
+    ],
     "challenge": [
-      "Solo el 55 % de la población del Gran Honiara tiene acceso al sistema público de abastecimiento de agua, y menos del 10 % está conectada a la red de alcantarillado de Honiara."
+      "Actualmente, el 55 % de la población del Gran Honiara tiene acceso al sistema público de abastecimiento de agua y menos del 10 % está conectada a la red de alcantarillado de Honiara. El resto depende de la captación de agua de lluvia, pozos poco profundos, arroyos urbanos, vecinos o agua embotellada comprada. Estas fuentes alternativas están contaminadas con frecuencia y contribuyen a altas tasas de enfermedades transmitidas por el agua, agravadas por prácticas de higiene deficientes y un acceso limitado a agua segura.",
+      "Para hacer frente a estos desafíos, el Banco Asiático de Desarrollo financia el Solomon Islands Urban Water Supply and Sanitation Sector Project, centrado en prestar servicios de agua y saneamiento sostenibles, inclusivos y resilientes al clima en el Gran Honiara y en las localidades de Auki, Gizo, Noro, Munda y Tulagi. El proyecto prioriza inversiones alineadas con el plan sectorial nacional de agua y saneamiento, con el fin de ampliar el acceso al agua por tubería y al saneamiento, en particular para los hogares de bajos ingresos, reducir la dependencia del agua subterránea y de la captación de lluvia, y mejorar la eficiencia y la resiliencia de los sistemas de agua."
     ],
     "approach": [
-      "Fluvio ha realizado monitoreo hidrológico e investigaciones de cuencas, incluidos sistemas de monitoreo de calidad del agua en tiempo real, tableros de datos operativos con alertas, la automatización de las actividades de monitoreo existentes y la ampliación hacia fuentes de agua provisionales."
+      "Para apoyar a Solomon Water en el logro de estos objetivos, Fluvio fue designado para realizar monitoreo hidrológico e investigaciones de cuencas que permitan identificar fuentes de agua aguas arriba y posibles riesgos de turbidez.",
+      "Este trabajo ha incluido el despliegue y mantenimiento de sistemas de monitoreo de calidad del agua en tiempo real, el desarrollo de tableros de datos operativos con capacidad de alerta, la automatización de las actividades de monitoreo existentes y la ampliación del monitoreo hacia fuentes de agua provisionales."
     ],
     "outcome": [
       "Todo el trabajo se ha realizado junto al personal de Solomon Water, con el objetivo de desarrollar capacidades locales que sostengan el proyecto en el futuro."

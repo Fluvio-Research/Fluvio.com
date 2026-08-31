@@ -9,21 +9,23 @@
     "disciplines": ["Data management", "Hydrology", "Training"],
     "partners": ["Water Resources Division"],
     "heroImage": "/src/assets/images/fluvio/project-wrd-field.jpg",
-    "heroAlt": "Flow gauging with the Water Resources Division on the Mataniko River",
+    "heroAlt": "Water Resources Division staff standing in a shallow stream around a wading rod, taking a current meter reading",
     "gallery": [
       {
         "src": "/src/assets/images/fluvio/project-wrd-workshop.jpg",
-        "alt": "Water data management workshop"
+        "alt": "A trainee follows a remote-controlled survey boat on a tablet while colleagues guide it across a river on a tag line",
+        "caption": "Hands-on gauging practice with the Water Resources Division using a remote-controlled ADCP."
       }
     ],
     "challenge": [
-      "The Water Resources Division maintained a largely unstructured and inaccessible archive of historical hydrological data, limiting its operational effectiveness."
+      "The Water Resources Division (WRD), operating under the Ministry of Mines, Energy, and Rural Electrification, is responsible for the collection, management, and dissemination of hydrological data throughout the Solomon Islands. Up until this project, WRD maintained a largely unstructured and inaccessible archive of historical hydrological data. While WRD continued to complete ongoing data collection programs, the absence of a data management system significantly limited its operational effectiveness."
     ],
     "approach": [
-      "Through a participatory co-designed approach, Fluvio developed SIWIS, an innovative and sustainable pilot data management system, and delivered training on GIS, hydrology, data collection, data storage, and data security."
+      "Through a participatory co-designed approach, Fluvio has developed an innovative and sustainable pilot data management system, SIWIS (Solomon Islands Water Information System), for WRD. The project has been supported by dedicated training to support the collection and use of hydrological data.",
+      "The project has included the development and design of a bespoke data management system; training across topics including GIS, hydrology, data collection, data storage and data security; the development of data collection, dissemination and management strategies; and a cost benefit analysis of data management solutions."
     ],
     "outcome": [
-      "The SIWIS platform enhances the Water Resources Division’s ability to collect, securely store, and meaningfully analyse hydrological data to support evidence-based water management decisions."
+      "The SIWIS platform enhances WRD’s ability to collect, securely store, and meaningfully analyse hydrological data to support evidence-based water management decisions."
     ],
     "relatedProjects": ["monitoring-honiara"]
   },
@@ -37,21 +39,23 @@
     "disciplines": ["Data management", "Hydrology", "Trening"],
     "partners": ["Water Resources Division"],
     "heroImage": "/src/assets/images/fluvio/project-wrd-field.jpg",
-    "heroAlt": "Mesarem flow blong wata tugeta wetem Water Resources Division long Mataniko River",
+    "heroAlt": "Olketa staff blong Water Resources Division stanap insaet long wanfala smol stream raonem wanfala wading rod, an tekem reading long wanfala current meter",
     "gallery": [
       {
         "src": "/src/assets/images/fluvio/project-wrd-workshop.jpg",
-        "alt": "Water data management workshop"
+        "alt": "Wanfala trainee hemi lukluk long wanfala tablet fo followim wanfala survey bot wea olketa kontrolem long remote, taem olketa wantok blong hem pullim hem krosim reva long wanfala tag line",
+        "caption": "Trening long field wetem Water Resources Division fo mesarem flow wetem wanfala ADCP wea olketa kontrolem long remote."
       }
     ],
     "challenge": [
-      "Water Resources Division hemi holem wanfala archive blong old hydrological data wea no stret gud an had fo kasem, an diswan mekem waka blong olketa no ran gud tumas."
+      "Water Resources Division (WRD), wea stap andanit long Ministry of Mines, Energy, and Rural Electrification, hemi responsible fo collectim, manijim an sharem hydrological data raonem full Solomon Aelan. Bifoa project ia, WRD holem wanfala archive blong old hydrological data wea no stret gud an had fo kasem. Nomata WRD gohed fo duim olketa program fo collectim data, from no eni data management sistem hemi stap, waka blong olketa no ran gud tumas."
     ],
     "approach": [
-      "Long wanfala wei wea evriwan tekpat long design, Fluvio developim SIWIS, wanfala niufala pilot data management sistem wea savve gohed fo longtaem. Mifala givim tu trening long GIS, hydrology, hao fo collectim data, hao fo storem data, an data security."
+      "Long wanfala wei wea evriwan tekpat long design, Fluvio developim SIWIS (Solomon Islands Water Information System) fo WRD, wanfala niufala pilot data management sistem wea savve gohed fo longtaem. Project ia garem tu spesol trening fo sapotem wei fo collectim an iusim hydrological data.",
+      "Insaet long project ia: fo developim an designim wanfala spesol data management sistem; trening long olketa topik olsem GIS, hydrology, hao fo collectim data, hao fo storem data an data security; fo developim olketa strategy fo collectim, sharem an manijim data; an wanfala cost benefit analysis blong olketa data management solusen."
     ],
     "outcome": [
-      "SIWIS platform hemi strongim wei blong Water Resources Division fo collectim, storem sef, an analysim gud hydrological data, fo sapotem olketa disison abaotem wata wea stanap long evidens."
+      "SIWIS platform hemi strongim wei blong WRD fo collectim, storem sef, an analysim gud hydrological data, fo sapotem olketa disison abaotem wata wea stanap long evidens."
     ],
     "relatedProjects": ["monitoring-honiara"]
   },
@@ -65,21 +69,23 @@
     "disciplines": ["Gestion des données", "Hydrologie", "Formation"],
     "partners": ["Water Resources Division"],
     "heroImage": "/src/assets/images/fluvio/project-wrd-field.jpg",
-    "heroAlt": "Jaugeage de débit avec la Water Resources Division sur la rivière Mataniko",
+    "heroAlt": "Des agents de la Water Resources Division, debout dans un cours d’eau peu profond autour d’une perche de jaugeage, relèvent une mesure au moulinet",
     "gallery": [
       {
         "src": "/src/assets/images/fluvio/project-wrd-workshop.jpg",
-        "alt": "Water data management workshop"
+        "alt": "Une stagiaire suit sur une tablette un bateau de relevé radiocommandé pendant que ses collègues le guident en travers de la rivière le long d’un câble",
+        "caption": "Formation pratique au jaugeage avec la Water Resources Division, à l’aide d’un ADCP radiocommandé."
       }
     ],
     "challenge": [
-      "La Water Resources Division conservait des archives de données hydrologiques historiques largement non structurées et difficiles d’accès, ce qui limitait son efficacité opérationnelle."
+      "La Water Resources Division (WRD), qui relève du Ministry of Mines, Energy, and Rural Electrification, est chargée de la collecte, de la gestion et de la diffusion des données hydrologiques dans l’ensemble des Îles Salomon. Jusqu’à ce projet, la WRD conservait des archives de données hydrologiques historiques largement non structurées et difficiles d’accès. Alors même qu’elle poursuivait ses programmes de collecte, l’absence de système de gestion des données limitait fortement son efficacité opérationnelle."
     ],
     "approach": [
-      "Par une démarche participative de co-conception, Fluvio a développé SIWIS, un système pilote de gestion des données innovant et durable, et dispensé des formations en SIG, hydrologie, collecte, stockage et sécurité des données."
+      "Par une démarche participative de co-conception, Fluvio a développé pour la WRD un système pilote de gestion des données innovant et durable, SIWIS (Solomon Islands Water Information System). Le projet s’est accompagné de formations dédiées à la collecte et à l’utilisation des données hydrologiques.",
+      "Le projet a comporté la conception et le développement d’un système de gestion des données sur mesure ; des formations portant notamment sur les SIG, l’hydrologie, la collecte, le stockage et la sécurité des données ; l’élaboration de stratégies de collecte, de diffusion et de gestion des données ; ainsi qu’une analyse coûts-bénéfices des solutions de gestion des données."
     ],
     "outcome": [
-      "La plateforme SIWIS renforce la capacité de la Water Resources Division à collecter, stocker en toute sécurité et analyser utilement les données hydrologiques, à l’appui de décisions de gestion de l’eau fondées sur les faits."
+      "La plateforme SIWIS renforce la capacité de la WRD à collecter, stocker en toute sécurité et analyser utilement les données hydrologiques, à l’appui de décisions de gestion de l’eau fondées sur les faits."
     ],
     "relatedProjects": ["monitoring-honiara"]
   },
@@ -93,21 +99,23 @@
     "disciplines": ["Gestión de datos", "Hidrología", "Capacitación"],
     "partners": ["Water Resources Division"],
     "heroImage": "/src/assets/images/fluvio/project-wrd-field.jpg",
-    "heroAlt": "Aforo de caudal con la Water Resources Division en el río Mataniko",
+    "heroAlt": "Personal de la Water Resources Division, de pie en un arroyo poco profundo alrededor de una barra de vadeo, toma una lectura con el molinete",
     "gallery": [
       {
         "src": "/src/assets/images/fluvio/project-wrd-workshop.jpg",
-        "alt": "Water data management workshop"
+        "alt": "Una participante sigue en una tableta una embarcación de relevamiento radiocontrolada mientras sus colegas la guían a través del río con un cable",
+        "caption": "Práctica de aforo en campo con la Water Resources Division, utilizando un ADCP radiocontrolado."
       }
     ],
     "challenge": [
-      "La Water Resources Division mantenía un archivo de datos hidrológicos históricos mayormente desestructurado e inaccesible, lo que limitaba su eficacia operativa."
+      "La Water Resources Division (WRD), dependiente del Ministry of Mines, Energy, and Rural Electrification, es responsable de la recopilación, gestión y difusión de datos hidrológicos en todas las Islas Salomón. Hasta este proyecto, la WRD mantenía un archivo de datos hidrológicos históricos mayormente desestructurado e inaccesible. Aunque continuaba con sus programas de recopilación de datos, la ausencia de un sistema de gestión limitaba de forma significativa su eficacia operativa."
     ],
     "approach": [
-      "Mediante un enfoque participativo de codiseño, Fluvio desarrolló SIWIS, un sistema piloto de gestión de datos innovador y sostenible, e impartió capacitación en SIG, hidrología, recopilación, almacenamiento y seguridad de datos."
+      "Mediante un enfoque participativo de codiseño, Fluvio desarrolló para la WRD un sistema piloto de gestión de datos innovador y sostenible, SIWIS (Solomon Islands Water Information System). El proyecto se acompañó de capacitación específica para apoyar la recopilación y el uso de datos hidrológicos.",
+      "El proyecto incluyó el diseño y desarrollo de un sistema de gestión de datos a medida; capacitación en temas como SIG, hidrología, recopilación de datos, almacenamiento y seguridad de la información; el desarrollo de estrategias de recopilación, difusión y gestión de datos; y un análisis costo-beneficio de las soluciones de gestión de datos."
     ],
     "outcome": [
-      "La plataforma SIWIS mejora la capacidad de la Water Resources Division para recopilar, almacenar de forma segura y analizar de manera significativa los datos hidrológicos, en apoyo de decisiones de gestión del agua basadas en evidencia."
+      "La plataforma SIWIS mejora la capacidad de la WRD para recopilar, almacenar de forma segura y analizar de manera significativa los datos hidrológicos, en apoyo de decisiones de gestión del agua basadas en evidencia."
     ],
     "relatedProjects": ["monitoring-honiara"]
   }

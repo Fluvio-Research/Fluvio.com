@@ -76,6 +76,8 @@ const expertiseSchema = z.object({
   description: paragraphs,
   image: localImage,
   imageAlt: text,
+  /** Optional demonstration clip; the image stays as poster and fallback. */
+  video: localVideo.optional(),
   relatedProjects: z.array(z.string()),
 });
 

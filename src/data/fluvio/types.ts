@@ -48,5 +48,6 @@ export interface ExpertiseArea {
   description: string[];
   image: string;
   imageAlt: string;
+  video?: string;
   relatedProjects: string[];
 }

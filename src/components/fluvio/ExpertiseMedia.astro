@@ -1,0 +1,84 @@
+---
+/**
+ * The illustration for one expertise area: a looping demonstration clip when
+ * the record carries a video, otherwise the still photograph. The clip is
+ * letterboxed rather than cropped so overlays baked into the frame (scale
+ * bars, legends) stay readable, and it only plays once it scrolls into view.
+ */
+import LargeImage from './LargeImage.astro';
+import type { ExpertiseArea } from '~/data/fluvio/types';
+import { findImage, findVideo } from '~/utils/images';
+
+export interface Props {
+  area: ExpertiseArea;
+  sizes?: string;
+}
+
+const { area, sizes } = Astro.props;
+const videoUrl = findVideo(area.video);
+const poster = videoUrl ? await findImage(area.image) : null;
+const posterUrl = poster && typeof poster === 'object' && 'src' in poster ? poster.src : undefined;
+---
+
+{
+  videoUrl ? (
+    <div class="fluvio-expertise-media">
+      <video
+        class="fluvio-expertise-media__video"
+        src={videoUrl}
+        poster={posterUrl}
+        muted
+        loop
+        playsinline
+        preload="none"
+        aria-label={area.imageAlt}
+      />
+    </div>
+  ) : (
+    <LargeImage src={area.image} alt={area.imageAlt} aspect="landscape" sizes={sizes} />
+  )
+}
+
+<style>
+  .fluvio-expertise-media {
+    overflow: hidden;
+    width: 100%;
+    /* The clip's own frame, so the burnt-in colour scale is never cropped. */
+    aspect-ratio: 1024 / 726;
+    border-radius: 10px;
+    background: rgb(var(--fluvio-ink) / 0.9);
+  }
+
+  .fluvio-expertise-media__video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+</style>
+
+<script>
+  /* Play only while on screen, and never when the visitor asks for less
+     motion: the poster frame already carries the information. */
+  const videos = document.querySelectorAll<HTMLVideoElement>('.fluvio-expertise-media__video');
+  if (videos.length) {
+    const stillPreferred = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    if (stillPreferred.matches) {
+      videos.forEach((video) => video.setAttribute('controls', ''));
+    } else {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const video = entry.target as HTMLVideoElement;
+            if (entry.isIntersecting) video.play().catch(() => video.setAttribute('controls', ''));
+            else video.pause();
+          });
+        },
+        { rootMargin: '0px 0px -20% 0px' }
+      );
+
+      videos.forEach((video) => observer.observe(video));
+    }
+  }
+</script>

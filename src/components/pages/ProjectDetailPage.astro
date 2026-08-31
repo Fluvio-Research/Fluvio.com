@@ -2,6 +2,7 @@
 import ContactPanel from '~/components/fluvio/ContactPanel.astro';
 import ExpertiseList from '~/components/fluvio/ExpertiseList.astro';
 import LargeImage from '~/components/fluvio/LargeImage.astro';
+import ProjectGallery from '~/components/fluvio/ProjectGallery.astro';
 import ProjectListItem from '~/components/fluvio/ProjectListItem.astro';
 import ProjectMeta from '~/components/fluvio/ProjectMeta.astro';
 import SectionHeading from '~/components/fluvio/SectionHeading.astro';
@@ -88,15 +89,7 @@ const storySections = [
       project.gallery && project.gallery.length > 0 && (
         <section class="fluvio-project-gallery" aria-label={c.galleryLabel}>
           <div class="fluvio-project-shell fluvio-project-shell--wide">
-            {project.gallery.map((image) => (
-              <LargeImage
-                src={image.src}
-                alt={image.alt}
-                caption={image.caption}
-                aspect="landscape"
-                sizes="(min-width: 1440px) 1408px, (min-width: 768px) calc(100vw - 4rem), calc(100vw - 2rem)"
-              />
-            ))}
+            <ProjectGallery images={project.gallery} />
           </div>
         </section>
       )
@@ -239,11 +232,6 @@ const storySections = [
 
   .fluvio-project-gallery {
     padding: clamp(3rem, 8vw, 7rem) 0;
-  }
-
-  .fluvio-project-gallery .fluvio-project-shell {
-    display: grid;
-    gap: 2rem;
   }
 
   .fluvio-project-related {

@@ -1,5 +1,5 @@
 ---
-import LargeImage from '~/components/fluvio/LargeImage.astro';
+import ExpertiseMedia from '~/components/fluvio/ExpertiseMedia.astro';
 import SectionFrame from '~/components/fluvio/SectionFrame.astro';
 import SectionHeading from '~/components/fluvio/SectionHeading.astro';
 import { getExpertiseAreas, getProjects } from '~/data/fluvio/localized';
@@ -59,7 +59,7 @@ const relatedProjects = new Map(
       {
         expertiseAreas.map((area) => (
           <article class:list={['fluvio-expertise-area', reveal]} id={area.slug}>
-            <LargeImage src={area.image} alt={area.imageAlt} aspect="landscape" />
+            <ExpertiseMedia area={area} />
             <div class="fluvio-expertise-area__body">
               <h2>{area.title}</h2>
               <p class="fluvio-expertise-area__summary">{area.summary}</p>

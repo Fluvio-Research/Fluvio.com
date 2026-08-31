@@ -8,15 +8,22 @@
     "timeframe": "2024 - Current",
     "disciplines": ["Pollution mapping", "Risk assessment"],
     "heroImage": "/src/assets/images/fluvio/project-cordap.jpeg",
-    "heroAlt": "A sediment plume seen in the Solomon Islands",
+    "heroAlt": "A brown sediment plume spreading from a river mouth into clear coastal water in the Solomon Islands",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-cordap-map.png",
+        "alt": "A map of a tropical coastline with catchment boundaries, a river network coloured by pollutant load and reef habitat outlined offshore",
+        "caption": "Modelled land-based pollution loads mapped against catchments and adjacent reef habitat."
+      }
+    ],
     "challenge": [
-      "Pollution from land-based sources poses a significant threat to reef health globally, affecting over 30% of coral reefs, while available tools are largely inaccessible or unsuitable for decision-making."
+      "With nearly one billion people living within 100 km of coral reefs, pollution from land-based sources, such as sediments, excessive amounts of nutrients, and wastewater, poses a significant threat to reef health globally, affecting over 30% of coral reefs. Effective pollution management has therefore become essential for coral reef conservation. Yet the tools available for reef practitioners are still largely inaccessible or unsuitable for decision-making."
     ],
     "approach": [
-      "The CLEAN REEFS project is developing a web-based application that provides near-real-time data on pollution sources, exposure, and dispersal patterns."
+      "The CLEAN REEFS project seeks to close this gap by developing a global, open-source pollution mapping and risk assessment tool, which will enable coral reef managers, scientists, and citizen scientists to identify and address pollution risks across coral ecosystems. Through an intuitive, web-based application, CLEAN REEFS will provide near-real-time data on pollution sources, exposure, and dispersal patterns. This tool will enhance local conservation planning by aiding the identification of high-risk areas, pollution sources, and possible mitigation strategies, ultimately improving coral restoration outcomes."
     ],
     "outcome": [
-      "The tool will support on-the-ground conservation in Fiji and the Solomon Islands and create a globally adaptable tool for coral reef communities worldwide."
+      "CLEAN REEFS will work on two scales: supporting on-the-ground conservation in Fiji and the Solomon Islands, and creating a globally adaptable tool that benefits coral reef communities worldwide."
     ],
     "relatedProjects": ["sol-trader-oil-spill"]
   },
@@ -29,15 +36,22 @@
     "timeframe": "2024 - Distaem",
     "disciplines": ["Mapem pollution", "Assessment blong risk"],
     "heroImage": "/src/assets/images/fluvio/project-cordap.jpeg",
-    "heroAlt": "Wanfala sediment plume wea olketa lukim long Solomon Aelan",
+    "heroAlt": "Wanfala braon sediment plume hemi spread kamaot from maot blong wanfala reva go insaet long klia solwata long Solomon Aelan",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-cordap-map.png",
+        "alt": "Wanfala map blong wanfala tropical saedsi wetem olketa catchment boundary, wanfala reva network wea garem kala followim load blong pollution, an olketa reef habitat wea olketa maakem long solwata",
+        "caption": "Olketa pollution load from land wea olketa modelim, an olketa mapem hem againstim olketa catchment an olketa reef habitat klosap."
+      }
+    ],
     "challenge": [
-      "Pollution from olketa sos long land hemi bigfala danger fo helt blong olketa reef long full wol, an hemi affectim winim 30% blong olketa coral reef. Bat olketa tul wea stap distaem, staka long olketa had fo kasem o no fitim fo mekem disison."
+      "Klosap wan billion pipol nao stap insaet long 100 km from olketa coral reef. Pollution wea kam from land, olsem sediment, tumas nutrient, an westwata, hemi bigfala danger fo helt blong olketa reef long full wol, an hemi affectim winim 30% blong olketa coral reef. From diswan, fo manijim pollution gud hemi barava important fo lukaftarem olketa coral reef. Bat olketa tul wea stap fo olketa wea waka long reef, staka long olketa had fo kasem o no fitim fo mekem disison."
     ],
     "approach": [
-      "CLEAN REEFS project hemi developim wanfala web application wea givim data klosap long real-time abaotem olketa pollution sos, wea pollution hemi kasem, an hao hemi spread."
+      "CLEAN REEFS project hemi laek fo fulimap gap ia, taem hemi developim wanfala global, open-source tul fo mapem pollution an assessim risk. Tul ia bae helpem olketa manager blong coral reef, olketa saentis, an olketa citizen scientist fo faendem an stretem olketa risk blong pollution long olketa coral ecosystem. Long wanfala web application wea isi fo iusim, CLEAN REEFS bae givim data klosap long real-time abaotem olketa pollution sos, wea pollution hemi kasem, an hao hemi spread. Tul ia bae strongim planning fo conservation long local level, taem hemi helpem olketa fo faendem olketa hae-risk eria, olketa pollution sos, an olketa wei fo katem daon pollution. Long en, diswan bae mekem coral restoration hemi kamaot gud moa."
     ],
     "outcome": [
-      "Tul ia bae sapotem conservation waka long graon long Fiji an Solomon Aelan, an bae hemi kamap wanfala tul wea olketa coral reef komuniti long full wol savve iusim tu."
+      "CLEAN REEFS bae waka long tufala scale: fo sapotem conservation waka long graon long Fiji an Solomon Aelan, an fo wakem wanfala tul wea olketa savve adaptim long full wol, wea bae helpem olketa coral reef komuniti evriwea."
     ],
     "relatedProjects": ["sol-trader-oil-spill"]
   },
@@ -50,15 +64,22 @@
     "timeframe": "2024 - En cours",
     "disciplines": ["Cartographie de la pollution", "Évaluation des risques"],
     "heroImage": "/src/assets/images/fluvio/project-cordap.jpeg",
-    "heroAlt": "Un panache sédimentaire observé aux Îles Salomon",
+    "heroAlt": "Un panache sédimentaire brun s’étend depuis l’embouchure d’une rivière dans les eaux côtières claires des Îles Salomon",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-cordap-map.png",
+        "alt": "Une carte d’un littoral tropical avec les limites des bassins versants, un réseau hydrographique coloré selon la charge polluante et les habitats récifaux délimités au large",
+        "caption": "Charges de pollution d’origine terrestre modélisées et cartographiées en regard des bassins versants et des habitats récifaux adjacents."
+      }
+    ],
     "challenge": [
-      "La pollution d’origine terrestre constitue une menace majeure pour la santé des récifs à l’échelle mondiale, affectant plus de 30 % des récifs coralliens, alors que les outils disponibles restent largement inaccessibles ou inadaptés à la prise de décision."
+      "Près d’un milliard de personnes vivent à moins de 100 km d’un récif corallien. La pollution d’origine terrestre, qu’il s’agisse de sédiments, d’excès de nutriments ou d’eaux usées, constitue une menace majeure pour la santé des récifs à l’échelle mondiale et affecte plus de 30 % des récifs coralliens. Une gestion efficace de la pollution est donc devenue essentielle à leur conservation. Pourtant, les outils dont disposent les praticiens des récifs restent largement inaccessibles ou inadaptés à la prise de décision."
     ],
     "approach": [
-      "Le projet CLEAN REEFS développe une application web fournissant des données en quasi temps réel sur les sources de pollution, l’exposition et les schémas de dispersion."
+      "Le projet CLEAN REEFS entend combler cette lacune en développant un outil mondial et open source de cartographie de la pollution et d’évaluation des risques, qui permettra aux gestionnaires de récifs, aux scientifiques et aux scientifiques citoyens d’identifier et de traiter les risques de pollution dans les écosystèmes coralliens. À travers une application web intuitive, CLEAN REEFS fournira des données en quasi temps réel sur les sources de pollution, l’exposition et les schémas de dispersion. L’outil renforcera la planification locale de la conservation en aidant à repérer les zones à haut risque, les sources de pollution et les stratégies d’atténuation envisageables, améliorant in fine les résultats de la restauration corallienne."
     ],
     "outcome": [
-      "L’outil appuiera la conservation de terrain aux Fidji et aux Îles Salomon et constituera un outil adaptable à l’échelle mondiale pour les communautés des récifs coralliens."
+      "CLEAN REEFS agira à deux échelles : soutenir la conservation de terrain aux Fidji et aux Îles Salomon, et créer un outil adaptable à l’échelle mondiale au bénéfice des communautés des récifs coralliens partout dans le monde."
     ],
     "relatedProjects": ["sol-trader-oil-spill"]
   },
@@ -71,15 +92,22 @@
     "timeframe": "2024 - Actualidad",
     "disciplines": ["Cartografía de la contaminación", "Evaluación de riesgos"],
     "heroImage": "/src/assets/images/fluvio/project-cordap.jpeg",
-    "heroAlt": "Una pluma de sedimentos observada en las Islas Salomón",
+    "heroAlt": "Una pluma de sedimentos marrón se extiende desde la desembocadura de un río hacia las aguas costeras claras de las Islas Salomón",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-cordap-map.png",
+        "alt": "Un mapa de un litoral tropical con los límites de las cuencas, una red fluvial coloreada según la carga contaminante y los hábitats arrecifales delineados mar adentro",
+        "caption": "Cargas de contaminación de origen terrestre modeladas y cartografiadas frente a las cuencas y los hábitats arrecifales adyacentes."
+      }
+    ],
     "challenge": [
-      "La contaminación de origen terrestre representa una amenaza importante para la salud de los arrecifes a nivel mundial, afectando a más del 30 % de los arrecifes de coral, mientras que las herramientas disponibles son en gran medida inaccesibles o inadecuadas para la toma de decisiones."
+      "Con cerca de mil millones de personas viviendo a menos de 100 km de arrecifes de coral, la contaminación de origen terrestre, como sedimentos, exceso de nutrientes y aguas residuales, representa una amenaza importante para la salud de los arrecifes a nivel mundial y afecta a más del 30 % de los arrecifes de coral. Una gestión eficaz de la contaminación se ha vuelto por tanto esencial para su conservación. Sin embargo, las herramientas disponibles para quienes trabajan en los arrecifes siguen siendo en gran medida inaccesibles o inadecuadas para la toma de decisiones."
     ],
     "approach": [
-      "El proyecto CLEAN REEFS está desarrollando una aplicación web que proporciona datos casi en tiempo real sobre fuentes de contaminación, exposición y patrones de dispersión."
+      "El proyecto CLEAN REEFS busca cerrar esta brecha desarrollando una herramienta global y de código abierto de cartografía de la contaminación y evaluación de riesgos, que permitirá a gestores de arrecifes, científicos y ciencia ciudadana identificar y abordar los riesgos de contaminación en los ecosistemas coralinos. Mediante una aplicación web intuitiva, CLEAN REEFS proporcionará datos casi en tiempo real sobre fuentes de contaminación, exposición y patrones de dispersión. La herramienta reforzará la planificación local de la conservación al facilitar la identificación de zonas de alto riesgo, fuentes de contaminación y posibles estrategias de mitigación, mejorando en última instancia los resultados de la restauración de corales."
     ],
     "outcome": [
-      "La herramienta apoyará la conservación sobre el terreno en Fiyi y las Islas Salomón y creará una herramienta adaptable globalmente para las comunidades de arrecifes de coral de todo el mundo."
+      "CLEAN REEFS trabajará en dos escalas: apoyar la conservación sobre el terreno en Fiyi y las Islas Salomón, y crear una herramienta adaptable globalmente en beneficio de las comunidades de arrecifes de coral de todo el mundo."
     ],
     "relatedProjects": ["sol-trader-oil-spill"]
   }

@@ -19,8 +19,10 @@ const c = t(locale);
 const { platforms } = getHomepage(locale);
 const projects = getProjects(locale);
 
-const featuredProject = projects.find(({ slug }) => slug === 'advance-queensland') ?? projects[0];
-const remainingProjects = projects.filter(({ slug }) => slug !== featuredProject.slug);
+/* The store returns projects in editor-controlled display order, so the first
+ * record leads the page. Editors change the hero by changing display order,
+ * never by editing this component. */
+const [featuredProject, ...remainingProjects] = projects;
 
 const reveal = 'intersect-once motion-safe:opacity-0 motion-safe:intersect:animate-fade';
 

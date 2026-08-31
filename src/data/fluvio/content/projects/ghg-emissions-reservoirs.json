@@ -8,15 +8,23 @@
     "timeframe": "2024 - Current",
     "disciplines": ["Greenhouse gas assessment", "Methane emissions"],
     "heroImage": "/src/assets/images/fluvio/project-ghg-reservoirs.jpg",
-    "heroAlt": "Methane chambers measuring ebullitive emission rates",
+    "heroAlt": "Floating methane chambers strung across a flooded reservoir with drowned trees standing in the water",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-ghg-methane-chambers.jpg",
+        "alt": "White floating chambers and a marker line on a still reservoir, with a small yellow survey boat moored nearby",
+        "caption": "Methane chambers measuring ebullitive emission rates."
+      }
+    ],
     "challenge": [
       "Freshwater systems emit substantial volumes of greenhouse gases, particularly methane, and therefore contribute meaningfully to global emissions."
     ],
     "approach": [
-      "Fluvio has completed detailed assessments using IPCC Tier 1 and Tier 2 methodologies, alongside targeted work on field-based verification approaches for monitoring degassing pathways and downstream emissions from run-of-river systems."
+      "To better understand these dynamics, Fluvio has completed detailed assessments of greenhouse gas emissions associated with extensive flooded land assets. These assessments were conducted using IPCC Tier 1 and Tier 2 methodologies.",
+      "In addition, Fluvio undertook targeted work to improve understanding of methane emissions from run-of-river systems, with a focus on developing field-based verification approaches for monitoring degassing pathways and downstream emissions."
     ],
     "outcome": [
-      "Fluvio has demonstrated strong expertise in quantifying methane emissions and applying globally recognised assessment frameworks."
+      "Through delivering multiple greenhouse gas assessments of flooded land, Fluvio has demonstrated strong expertise in quantifying methane emissions and applying globally recognised assessment frameworks."
     ],
     "relatedProjects": ["reservoir-sedimentation"]
   },
@@ -29,15 +37,23 @@
     "timeframe": "2024 - Distaem",
     "disciplines": ["Assessment blong greenhouse gas", "Methane emission"],
     "heroImage": "/src/assets/images/fluvio/project-ghg-reservoirs.jpg",
-    "heroAlt": "Olketa methane chamber fo mesarem methane wea kamaot olsem bubble",
+    "heroAlt": "Olketa methane chamber wea flotim long wanfala reservoir wea wata kavarem, wetem olketa tree wea daed stanap insaet long wata",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-ghg-methane-chambers.jpg",
+        "alt": "Olketa waet chamber wea flotim an wanfala marker line long wanfala kwaet reservoir, wetem wanfala smol yellow survey bot klosap",
+        "caption": "Olketa methane chamber wea mesarem hao fast methane hemi kamaot olsem bubble."
+      }
+    ],
     "challenge": [
       "Olketa freshwater sistem olketa releasem staka greenhouse gas, an methane nao main wan. From diswan, olketa garem bigfala part long emission blong full wol."
     ],
     "approach": [
-      "Fluvio hemi finisim olketa detailed assessment wetem IPCC Tier 1 an Tier 2 methodology. An tu, mifala duim spesol waka long field fo verifyim olketa wei fo monitorim degassing an olketa emission daonstream from olketa run-of-river sistem."
+      "Fo luksavve gud moa long diswan, Fluvio hemi finisim olketa detailed assessment blong greenhouse gas wea kamaot from olketa bigfala ples wea wata kavarem. Mifala duim olketa assessment ia wetem IPCC Tier 1 an Tier 2 methodology.",
+      "An tu, mifala duim spesol waka fo luksavve gud moa long methane wea kamaot from olketa run-of-river sistem. Main samting hia nao fo developim olketa wei long field fo verifyim an monitorim wea gas hemi kamaot an olketa emission wea go daonstream."
     ],
     "outcome": [
-      "Fluvio hemi soim strong savve long mesarem methane emission an long iusim olketa assessment framework wea full wol acceptim."
+      "Taem mifala duim staka assessment blong greenhouse gas long olketa ples wea wata kavarem, Fluvio hemi soim strong savve long mesarem methane emission an long iusim olketa assessment framework wea full wol acceptim."
     ],
     "relatedProjects": ["reservoir-sedimentation"]
   },
@@ -50,15 +66,23 @@
     "timeframe": "2024 - En cours",
     "disciplines": ["Évaluation des gaz à effet de serre", "Émissions de méthane"],
     "heroImage": "/src/assets/images/fluvio/project-ghg-reservoirs.jpg",
-    "heroAlt": "Chambres à méthane mesurant les taux d’émission par ébullition",
+    "heroAlt": "Des chambres à méthane flottantes alignées sur un réservoir en eau, parmi des arbres noyés encore debout",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-ghg-methane-chambers.jpg",
+        "alt": "Des chambres flottantes blanches et une ligne de balisage sur un réservoir immobile, avec un petit bateau de relevé jaune amarré à proximité",
+        "caption": "Chambres à méthane mesurant les taux d’émission par ébullition."
+      }
+    ],
     "challenge": [
       "Les systèmes d’eau douce émettent des volumes importants de gaz à effet de serre, en particulier du méthane, et contribuent donc de manière significative aux émissions mondiales."
     ],
     "approach": [
-      "Fluvio a réalisé des évaluations détaillées selon les méthodologies GIEC de niveaux 1 et 2, ainsi que des travaux ciblés sur des approches de vérification de terrain pour le suivi des voies de dégazage et des émissions en aval des systèmes au fil de l’eau."
+      "Pour mieux comprendre ces dynamiques, Fluvio a réalisé des évaluations détaillées des émissions de gaz à effet de serre associées à de vastes terres inondées. Ces évaluations ont été menées selon les méthodologies GIEC de niveaux 1 et 2.",
+      "Fluvio a en outre conduit des travaux ciblés pour mieux comprendre les émissions de méthane des systèmes au fil de l’eau, en développant des approches de vérification de terrain permettant de suivre les voies de dégazage et les émissions en aval."
     ],
     "outcome": [
-      "Fluvio a démontré une solide expertise dans la quantification des émissions de méthane et l’application de cadres d’évaluation mondialement reconnus."
+      "En réalisant plusieurs évaluations des gaz à effet de serre de terres inondées, Fluvio a démontré une solide expertise dans la quantification des émissions de méthane et l’application de cadres d’évaluation mondialement reconnus."
     ],
     "relatedProjects": ["reservoir-sedimentation"]
   },
@@ -71,15 +95,23 @@
     "timeframe": "2024 - Actualidad",
     "disciplines": ["Evaluación de gases de efecto invernadero", "Emisiones de metano"],
     "heroImage": "/src/assets/images/fluvio/project-ghg-reservoirs.jpg",
-    "heroAlt": "Cámaras de metano midiendo tasas de emisión ebullitiva",
+    "heroAlt": "Cámaras de metano flotantes alineadas sobre un embalse inundado, entre árboles muertos que siguen en pie dentro del agua",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-ghg-methane-chambers.jpg",
+        "alt": "Cámaras flotantes blancas y una línea de boyas sobre un embalse en calma, con una pequeña embarcación amarilla de relevamiento amarrada cerca",
+        "caption": "Cámaras de metano midiendo tasas de emisión ebullitiva."
+      }
+    ],
     "challenge": [
       "Los sistemas de agua dulce emiten volúmenes sustanciales de gases de efecto invernadero, en particular metano, y por lo tanto contribuyen de manera significativa a las emisiones globales."
     ],
     "approach": [
-      "Fluvio ha completado evaluaciones detalladas con las metodologías IPCC de Nivel 1 y Nivel 2, junto con trabajo dirigido a enfoques de verificación en campo para monitorear las vías de desgasificación y las emisiones aguas abajo en sistemas de pasada."
+      "Para comprender mejor esta dinámica, Fluvio ha completado evaluaciones detalladas de las emisiones de gases de efecto invernadero asociadas a extensas superficies de tierras inundadas. Estas evaluaciones se realizaron con las metodologías IPCC de Nivel 1 y Nivel 2.",
+      "Además, Fluvio llevó a cabo trabajos dirigidos a comprender mejor las emisiones de metano de los sistemas de pasada, centrados en desarrollar enfoques de verificación en campo para monitorear las vías de desgasificación y las emisiones aguas abajo."
     ],
     "outcome": [
-      "Fluvio ha demostrado una sólida experiencia en la cuantificación de emisiones de metano y en la aplicación de marcos de evaluación reconocidos mundialmente."
+      "Al entregar múltiples evaluaciones de gases de efecto invernadero de tierras inundadas, Fluvio ha demostrado una sólida experiencia en la cuantificación de emisiones de metano y en la aplicación de marcos de evaluación reconocidos mundialmente."
     ],
     "relatedProjects": ["reservoir-sedimentation"]
   }
