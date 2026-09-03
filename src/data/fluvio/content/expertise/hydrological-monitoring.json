@@ -1,11 +1,17 @@
 {
   "en": {
     "order": 1,
-    "title": "Innovative hydrological monitoring",
     "slug": "hydrological-monitoring",
+    "title": "Innovative hydrological monitoring",
     "summary": "Developing and applying a cutting-edge hydrological monitoring system using computer vision.",
     "description": [
       "This system improves safety and efficiency by utilising non-contact sensors and real-time analysis to monitor velocity and discharge of river systems."
+    ],
+    "highlights": [
+      "Computer vision stream gauging, developed and applied in the field",
+      "Non-contact sensors: no instruments in the flow",
+      "Real-time analysis of velocity and discharge",
+      "Safer, more efficient monitoring of river systems"
     ],
     "image": "/src/assets/images/fluvio/expertise-velocity-overlay-poster.jpg",
     "imageAlt": "A computer vision stream gauging camera resolving surface velocity across a river, shown as a colour field with flow arrows and a velocity scale",
@@ -14,11 +20,17 @@
   },
   "pijin": {
     "order": 1,
-    "title": "Niufala wei fo monitorim wata",
     "slug": "hydrological-monitoring",
+    "title": "Niufala wei fo monitorim wata",
     "summary": "Mifala developim an iusim wanfala barava niufala sistem fo monitorim wata, wea iusim computer vision.",
     "description": [
       "Sistem ia mekem waka hemi moa sef an moa kwik. Hemi iusim olketa sensor wea no tasim wata, an real-time analysis, fo monitorim spid an flow blong olketa reva."
+    ],
+    "highlights": [
+      "Computer vision stream gauging, wea mifala developim an iusim long field",
+      "Olketa sensor wea no tasim wata: no eni instrument insaet long flow",
+      "Real-time analysis blong spid an flow blong wata",
+      "Monitoring blong olketa reva sistem wea moa sef an moa kwik"
     ],
     "image": "/src/assets/images/fluvio/expertise-velocity-overlay-poster.jpg",
     "imageAlt": "Wanfala computer vision camera hemi mesarem spid blong wata antap long wanfala reva, an hemi soim hem olsem wanfala kala field wetem olketa arrow an wanfala scale blong spid",
@@ -27,11 +39,17 @@
   },
   "fr": {
     "order": 1,
-    "title": "Surveillance hydrologique innovante",
     "slug": "hydrological-monitoring",
+    "title": "Surveillance hydrologique innovante",
     "summary": "Développer et appliquer un système de surveillance hydrologique de pointe fondé sur la vision par ordinateur.",
     "description": [
       "Ce système améliore la sécurité et l’efficacité grâce à des capteurs sans contact et à une analyse en temps réel pour suivre la vitesse et le débit des cours d’eau."
+    ],
+    "highlights": [
+      "Jaugeage par vision par ordinateur, développé et appliqué sur le terrain",
+      "Capteurs sans contact : aucun instrument dans l’écoulement",
+      "Analyse en temps réel de la vitesse et du débit",
+      "Une surveillance des cours d’eau plus sûre et plus efficace"
     ],
     "image": "/src/assets/images/fluvio/expertise-velocity-overlay-poster.jpg",
     "imageAlt": "Une caméra de jaugeage par vision par ordinateur restitue la vitesse de surface d’une rivière sous forme de champ coloré, avec des flèches d’écoulement et une échelle de vitesse",
@@ -40,11 +58,17 @@
   },
   "es": {
     "order": 1,
-    "title": "Monitoreo hidrológico innovador",
     "slug": "hydrological-monitoring",
+    "title": "Monitoreo hidrológico innovador",
     "summary": "Desarrollar y aplicar un sistema de monitoreo hidrológico de vanguardia basado en visión artificial.",
     "description": [
       "Este sistema mejora la seguridad y la eficiencia mediante sensores sin contacto y análisis en tiempo real para monitorear la velocidad y el caudal de los sistemas fluviales."
+    ],
+    "highlights": [
+      "Aforo de corrientes por visión artificial, desarrollado y aplicado en campo",
+      "Sensores sin contacto: ningún instrumento dentro del flujo",
+      "Análisis en tiempo real de velocidad y caudal",
+      "Monitoreo de sistemas fluviales más seguro y eficiente"
     ],
     "image": "/src/assets/images/fluvio/expertise-velocity-overlay-poster.jpg",
     "imageAlt": "Una cámara de aforo por visión artificial resuelve la velocidad superficial de un río, mostrada como un campo de color con flechas de flujo y una escala de velocidad",

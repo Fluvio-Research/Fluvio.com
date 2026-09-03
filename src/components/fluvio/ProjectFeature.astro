@@ -1,8 +1,15 @@
 ---
+/**
+ * The lead project on a page: a wide photograph, then title, summary, call
+ * to action and the project facts. The photograph morphs into the project
+ * page hero through its view-transition name.
+ */
+import ArrowLink from './ArrowLink.astro';
 import LargeImage from './LargeImage.astro';
 import ProjectMeta from './ProjectMeta.astro';
+import { projectHref } from '~/data/fluvio/routes';
 import type { Project } from '~/data/fluvio/types';
-import { defaultLocale, localeHref, t, type Locale } from '~/i18n';
+import { defaultLocale, t, type Locale } from '~/i18n';
 
 export interface Props {
   project: Project;
@@ -14,43 +21,43 @@ export interface Props {
 const { project, priority = false, locale = defaultLocale } = Astro.props;
 const strings = t(locale).project;
 const { eyebrow = strings.featuredEyebrow } = Astro.props;
-const projectHref = localeHref(`/${project.slug}`, locale);
+const href = projectHref(project.slug, locale);
 ---
 
 <article class="fluvio-project-feature">
-  <div class="fluvio-project-feature__image">
+  <a class="fluvio-project-feature__image" href={href} tabindex="-1" aria-hidden="true">
     <LargeImage
       src={project.heroImage}
       alt={project.heroAlt}
       aspect="hero"
+      radius="lg"
       priority={priority}
       sizes="(min-width: 1280px) 1280px, (min-width: 768px) calc(100vw - 4rem), calc(100vw - 2rem)"
+      transitionName={`project-${project.slug}`}
     />
-  </div>
+  </a>
   <div class="fluvio-project-feature__body">
     <div>
-      <p class="fluvio-project-feature__eyebrow">{eyebrow}</p>
-      <h2>{project.title}</h2>
+      {eyebrow && <p class="fluvio-project-feature__eyebrow">{eyebrow}</p>}
+      <h2><a href={href}>{project.title}</a></h2>
     </div>
     <div class="fluvio-project-feature__summary">
       <p>{project.summary}</p>
-      <a class="fluvio-project-feature__link" href={projectHref}
-        >{strings.viewProject} <span aria-hidden="true">↗</span></a
-      >
+      <ArrowLink href={href} variant="pill">{strings.viewProject}</ArrowLink>
     </div>
   </div>
-  <ProjectMeta project={project} compact />
+  <ProjectMeta project={project} locale={locale} compact />
 </article>
 
 <style>
   .fluvio-project-feature {
     display: grid;
-    gap: 1.5rem;
+    gap: 1.75rem;
   }
 
   .fluvio-project-feature__image {
     display: block;
-    border-radius: 6px;
+    border-radius: 20px;
   }
 
   .fluvio-project-feature__body {
@@ -68,44 +75,48 @@ const projectHref = localeHref(`/${project.slug}`, locale);
     text-transform: uppercase;
   }
 
+  :global(.dark) .fluvio-project-feature__eyebrow {
+    color: rgb(125 186 188);
+  }
+
   h2 {
     margin: 0;
     max-width: 20ch;
     font-family: var(--aw-font-heading);
-    font-size: clamp(2rem, 4.2vw, 4.5rem);
-    font-weight: 520;
-    letter-spacing: -0.045em;
-    line-height: 1;
+    font-size: clamp(1.9rem, 4vw, 4rem);
+    font-weight: 560;
+    letter-spacing: -0.03em;
+    line-height: 1.02;
+    text-wrap: balance;
+  }
+
+  h2 a {
+    color: var(--aw-color-text-heading);
+    text-decoration: none;
+  }
+
+  h2 a:hover {
+    color: rgb(var(--fluvio-river));
+  }
+
+  .fluvio-project-feature__summary {
+    display: grid;
+    gap: 1.4rem;
+    justify-items: start;
   }
 
   .fluvio-project-feature__summary p {
-    margin: 0 0 1.25rem;
+    margin: 0;
     max-width: 48ch;
     color: var(--aw-color-text-muted);
     font-size: 1.05rem;
     line-height: 1.7;
   }
 
-  .fluvio-project-feature__link {
-    display: inline-flex;
-    gap: 0.45rem;
-    align-items: center;
-    border-bottom: 1px solid currentColor;
-    color: rgb(var(--fluvio-river));
-    font-size: 0.9rem;
-    font-weight: 650;
-    text-decoration: none;
-  }
-
-  .fluvio-project-feature__link:hover,
-  .fluvio-project-feature__link:focus-visible {
-    color: rgb(var(--fluvio-river));
-  }
-
-  .fluvio-project-feature__link:focus-visible {
-    border-radius: 4px;
-    outline: 2px solid rgb(var(--fluvio-river));
-    outline-offset: 4px;
+  @media (prefers-reduced-motion: no-preference) {
+    h2 a {
+      transition: color 220ms ease;
+    }
   }
 
   @media (min-width: 768px) {

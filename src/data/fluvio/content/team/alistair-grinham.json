@@ -6,7 +6,8 @@
     "bio": "Alistair is an internationally recognised expert in carbon and sediment dynamics across terrestrial and aquatic environments. He seeks to support the global energy transition and better understanding the impact of extreme events on natural and built environments.",
     "portrait": "/src/assets/images/fluvio/team-alistair.png",
     "portraitAlt": "Alistair Grinham",
-    "specialties": ["Carbon and sediment dynamics"]
+    "specialties": ["Carbon and sediment dynamics"],
+    "expertise": ["blue-carbon-assessment", "sediment-loading"]
   },
   "pijin": {
     "order": 2,
@@ -15,7 +16,8 @@
     "bio": "Alistair hemi wanfala ekspet wea olketa savve long hem long full wol, long saed blong carbon an sediment long graon an long wata. Hemi laek sapotem jenis blong energy long full wol, an fo luksavve moa gud hao olketa bigfala disaster olketa affectim enviromen an olketa samting wea pipol buildim.",
     "portrait": "/src/assets/images/fluvio/team-alistair.png",
     "portraitAlt": "Alistair Grinham",
-    "specialties": ["Carbon an sediment"]
+    "specialties": ["Carbon an sediment"],
+    "expertise": ["blue-carbon-assessment", "sediment-loading"]
   },
   "fr": {
     "order": 2,
@@ -24,7 +26,8 @@
     "bio": "Alistair est un expert internationalement reconnu de la dynamique du carbone et des sédiments dans les milieux terrestres et aquatiques. Il s’attache à soutenir la transition énergétique mondiale et à mieux comprendre l’impact des événements extrêmes sur les milieux naturels et bâtis.",
     "portrait": "/src/assets/images/fluvio/team-alistair.png",
     "portraitAlt": "Alistair Grinham",
-    "specialties": ["Dynamique du carbone et des sédiments"]
+    "specialties": ["Dynamique du carbone et des sédiments"],
+    "expertise": ["blue-carbon-assessment", "sediment-loading"]
   },
   "es": {
     "order": 2,
@@ -33,6 +36,7 @@
     "bio": "Alistair es un experto reconocido internacionalmente en la dinámica del carbono y los sedimentos en entornos terrestres y acuáticos. Busca apoyar la transición energética global y comprender mejor el impacto de los eventos extremos en los entornos naturales y construidos.",
     "portrait": "/src/assets/images/fluvio/team-alistair.png",
     "portraitAlt": "Alistair Grinham",
-    "specialties": ["Dinámica del carbono y los sedimentos"]
+    "specialties": ["Dinámica del carbono y los sedimentos"],
+    "expertise": ["blue-carbon-assessment", "sediment-loading"]
   }
 }

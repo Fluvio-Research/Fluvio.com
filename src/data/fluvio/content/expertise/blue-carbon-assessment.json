@@ -1,50 +1,74 @@
 {
   "en": {
     "order": 4,
-    "title": "Blue carbon and greenhouse gas assessment",
     "slug": "blue-carbon-assessment",
+    "title": "Blue carbon and greenhouse gas assessment",
     "summary": "Quantifying carbon stocks within mangrove and seagrass ecosystems across Melanesia.",
     "description": [
       "Working with community, government and regional bodies to quantify carbon stocks within mangrove and seagrass ecosystems across Melanesia."
     ],
-    "image": "/src/assets/images/fluvio/project-sol-trader-aerial.png",
-    "imageAlt": "Coastal environment",
+    "highlights": [
+      "Carbon stocks quantified in mangrove and seagrass ecosystems",
+      "Greenhouse gas emissions assessed for flooded land assets",
+      "Partnerships with community, government and regional bodies",
+      "Field programs across Melanesia"
+    ],
+    "image": "/src/assets/images/fluvio/expertise-blue-carbon-mangroves.jpg",
+    "imageAlt": "A field partner paddling a canoe through a clear mangrove channel",
     "relatedProjects": ["sol-trader-oil-spill"]
   },
   "pijin": {
     "order": 4,
-    "title": "Assessment blong blue carbon an greenhouse gas",
     "slug": "blue-carbon-assessment",
+    "title": "Assessment blong blue carbon an greenhouse gas",
     "summary": "Mifala mesarem haomas carbon hemi stap insaet long olketa mangrove an seagrass long Melanesia.",
     "description": [
       "Mifala waka wetem komuniti, gavman an olketa regional organisation fo mesarem haomas carbon hemi stap insaet long olketa mangrove an seagrass long Melanesia."
     ],
-    "image": "/src/assets/images/fluvio/project-sol-trader-aerial.png",
-    "imageAlt": "Enviromen long solwata saed",
+    "highlights": [
+      "Mesarem carbon stock insaet long olketa mangrove an seagrass ekosistem",
+      "Assessment blong greenhouse gas emission from olketa land wea wata kavarem",
+      "Partnasip wetem komuniti, gavman an olketa regional bodi",
+      "Olketa field program raonem Melanesia"
+    ],
+    "image": "/src/assets/images/fluvio/expertise-blue-carbon-mangroves.jpg",
+    "imageAlt": "Wanfala field patna hemi padolem wanfala kanu tru long wanfala klia mangrove channel",
     "relatedProjects": ["sol-trader-oil-spill"]
   },
   "fr": {
     "order": 4,
-    "title": "Carbone bleu et évaluation des gaz à effet de serre",
     "slug": "blue-carbon-assessment",
+    "title": "Carbone bleu et évaluation des gaz à effet de serre",
     "summary": "Quantifier les stocks de carbone des écosystèmes de mangroves et d’herbiers marins de Mélanésie.",
     "description": [
       "Nous travaillons avec les communautés, les gouvernements et les organismes régionaux pour quantifier les stocks de carbone des écosystèmes de mangroves et d’herbiers marins à travers la Mélanésie."
     ],
-    "image": "/src/assets/images/fluvio/project-sol-trader-aerial.png",
-    "imageAlt": "Environnement côtier",
+    "highlights": [
+      "Stocks de carbone quantifiés dans les mangroves et les herbiers marins",
+      "Émissions de gaz à effet de serre évaluées pour les terres inondées",
+      "Des partenariats avec les communautés, les gouvernements et les organismes régionaux",
+      "Des programmes de terrain à travers la Mélanésie"
+    ],
+    "image": "/src/assets/images/fluvio/expertise-blue-carbon-mangroves.jpg",
+    "imageAlt": "Un partenaire de terrain pagayant en pirogue dans un chenal de mangrove aux eaux claires",
     "relatedProjects": ["sol-trader-oil-spill"]
   },
   "es": {
     "order": 4,
-    "title": "Carbono azul y evaluación de gases de efecto invernadero",
     "slug": "blue-carbon-assessment",
+    "title": "Carbono azul y evaluación de gases de efecto invernadero",
     "summary": "Cuantificar las reservas de carbono de los ecosistemas de manglares y pastos marinos de Melanesia.",
     "description": [
       "Trabajamos con comunidades, gobiernos y organismos regionales para cuantificar las reservas de carbono de los ecosistemas de manglares y pastos marinos en toda Melanesia."
     ],
-    "image": "/src/assets/images/fluvio/project-sol-trader-aerial.png",
-    "imageAlt": "Entorno costero",
+    "highlights": [
+      "Reservas de carbono cuantificadas en ecosistemas de manglar y pastos marinos",
+      "Emisiones de gases de efecto invernadero evaluadas en tierras inundadas",
+      "Alianzas con comunidades, gobiernos y organismos regionales",
+      "Programas de campo en toda Melanesia"
+    ],
+    "image": "/src/assets/images/fluvio/expertise-blue-carbon-mangroves.jpg",
+    "imageAlt": "Un colaborador de campo remando en canoa por un canal de manglar de aguas claras",
     "relatedProjects": ["sol-trader-oil-spill"]
   }
 }

@@ -1,0 +1,81 @@
+---
+/**
+ * The opening of every index page: an optional breadcrumb trail, eyebrow,
+ * accented title and lede, with a slot for a photograph beside the copy.
+ */
+import Accent from './Accent.astro';
+import Breadcrumbs, { type Crumb } from './Breadcrumbs.astro';
+import { type Locale } from '~/i18n';
+
+export interface Props {
+  locale: Locale;
+  title: string;
+  eyebrow?: string;
+  lede?: string;
+  crumbs?: Crumb[];
+  shell?: 'default' | 'narrow';
+  class?: string;
+}
+
+const { locale, title, eyebrow, lede, crumbs, shell = 'default', class: className, ...rest } = Astro.props;
+const hasAside = Astro.slots.has('aside');
+---
+
+<header {...rest} class:list={['fluvio-page-hero', { 'fluvio-page-hero--split': hasAside }, className]}>
+  <div class:list={['fluvio-shell', { 'fluvio-shell--narrow': shell === 'narrow' }]}>
+    {crumbs && <Breadcrumbs locale={locale} crumbs={crumbs} class="fluvio-page-hero__crumbs" />}
+    <div class="fluvio-page-hero__grid">
+      <div class="fluvio-page-hero__copy">
+        {eyebrow && <p class="fluvio-eyebrow">{eyebrow}</p>}
+        <h1 class="fluvio-title"><Accent text={title} /></h1>
+        {lede && <p class="fluvio-lede">{lede}</p>}
+        <slot name="actions" />
+      </div>
+      {
+        hasAside && (
+          <div class="fluvio-page-hero__aside">
+            <slot name="aside" />
+          </div>
+        )
+      }
+    </div>
+  </div>
+</header>
+
+<style>
+  .fluvio-page-hero {
+    padding: clamp(2.5rem, 6vw, 5rem) 0 clamp(3.5rem, 8vw, 7rem);
+  }
+
+  .fluvio-page-hero__crumbs {
+    margin-bottom: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  .fluvio-page-hero__grid {
+    display: grid;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .fluvio-page-hero__copy :global(h1) {
+    max-width: 14ch;
+  }
+
+  .fluvio-page-hero__copy :global(.fluvio-lede) {
+    max-width: 36rem;
+  }
+
+  .fluvio-page-hero__copy :global(.fluvio-page-hero__actions) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+    margin-top: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .fluvio-page-hero--split .fluvio-page-hero__grid {
+      grid-template-columns: minmax(0, 0.9fr) minmax(22rem, 1.1fr);
+      gap: clamp(3rem, 8vw, 8rem);
+    }
+  }
+</style>

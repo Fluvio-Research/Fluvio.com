@@ -54,9 +54,13 @@ export default defineConfig({
     defaultStrategy: 'viewport',
   },
 
-  // Native Fonts API: self-hosts + subsets + preloads Inter and generates
+  // Native Fonts API: self-hosts + subsets + preloads every face and generates
   // metric-adjusted fallbacks. Injected via <Font /> in Layout.astro and
-  // consumed through the `--font-inter` CSS variable in CustomStyles.astro.
+  // consumed through the `--font-*` CSS variables in CustomStyles.astro.
+  //
+  // Three faces, three jobs: Inter for body and interface text, Bricolage
+  // Grotesque for display headings, and Instrument Serif italic for the single
+  // accented phrase inside a heading (see src/utils/accent.ts).
   fonts: [
     {
       provider: fontProviders.fontsource(),
@@ -66,6 +70,24 @@ export default defineConfig({
       styles: ['normal'],
       subsets: ['latin'],
       fallbacks: ['sans-serif'],
+    },
+    {
+      provider: fontProviders.fontsource(),
+      name: 'Bricolage Grotesque',
+      cssVariable: '--font-bricolage',
+      weights: ['200 800'],
+      styles: ['normal'],
+      subsets: ['latin'],
+      fallbacks: ['sans-serif'],
+    },
+    {
+      provider: fontProviders.fontsource(),
+      name: 'Instrument Serif',
+      cssVariable: '--font-instrument-serif',
+      weights: [400],
+      styles: ['italic', 'normal'],
+      subsets: ['latin'],
+      fallbacks: ['serif'],
     },
   ],
 

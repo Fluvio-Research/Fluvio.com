@@ -1,0 +1,13 @@
+---
+import ExpertiseDetailPage from '~/components/pages/ExpertiseDetailPage.astro';
+import { expertiseAreas } from '~/data/fluvio/expertise';
+import type { ExpertiseArea } from '~/data/fluvio/types';
+
+export function getStaticPaths() {
+  return expertiseAreas.map((area) => ({ params: { slug: area.slug }, props: { area } }));
+}
+
+const { area } = Astro.props as { area: ExpertiseArea };
+---
+
+<ExpertiseDetailPage locale="en" area={area} />

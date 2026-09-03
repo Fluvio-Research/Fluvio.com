@@ -1,11 +1,17 @@
 {
   "en": {
     "order": 2,
-    "title": "Island-scale and catchment modelling",
     "slug": "island-scale-modelling",
+    "title": "Island-scale and catchment modelling",
     "summary": "Creating a pioneering global-scale coastal pollution transport model.",
     "description": [
       "This innovative tool leverages earth observation and cloud computing to support integrated land-sea planning and restoration efforts."
+    ],
+    "highlights": [
+      "A global-scale coastal pollution transport model",
+      "Earth observation and cloud computing at its core",
+      "Support for integrated land-sea planning",
+      "Evidence for restoration efforts"
     ],
     "image": "/src/assets/images/fluvio/expertise-coastal-model.png",
     "imageAlt": "Coastal pollution transport model",
@@ -13,11 +19,17 @@
   },
   "pijin": {
     "order": 2,
-    "title": "Modelling fo full aelan an catchment",
     "slug": "island-scale-modelling",
+    "title": "Modelling fo full aelan an catchment",
     "summary": "Mifala wakem wanfala barava niufala model fo trakem pollution long solwata saed, fo full wol.",
     "description": [
       "Niufala tul ia iusim earth observation an cloud computing fo sapotem planning wea joinim land an solwata tugeta, an fo sapotem waka fo stretem bak enviromen."
+    ],
+    "highlights": [
+      "Wanfala global-scale model fo hao pollution hemi muv long saed blong si",
+      "Earth observation an cloud computing nao stap long hat blong hem",
+      "Sapot fo planning wea joinim land an si tugeta",
+      "Evidens fo olketa waka fo restorem enviromen"
     ],
     "image": "/src/assets/images/fluvio/expertise-coastal-model.png",
     "imageAlt": "Model blong hao pollution muv long solwata saed",
@@ -25,11 +37,17 @@
   },
   "fr": {
     "order": 2,
-    "title": "Modélisation insulaire et de bassins versants",
     "slug": "island-scale-modelling",
+    "title": "Modélisation insulaire et de bassins versants",
     "summary": "Créer un modèle pionnier de transport de la pollution côtière à l’échelle mondiale.",
     "description": [
       "Cet outil innovant s’appuie sur l’observation de la Terre et l’informatique en nuage pour soutenir la planification intégrée terre-mer et les efforts de restauration."
+    ],
+    "highlights": [
+      "Un modèle de transport de la pollution côtière à l’échelle mondiale",
+      "L’observation de la Terre et le cloud computing au cœur de l’outil",
+      "Un appui à la planification intégrée terre-mer",
+      "Des preuves au service des efforts de restauration"
     ],
     "image": "/src/assets/images/fluvio/expertise-coastal-model.png",
     "imageAlt": "Modèle de transport de la pollution côtière",
@@ -37,11 +55,17 @@
   },
   "es": {
     "order": 2,
-    "title": "Modelación a escala insular y de cuencas",
     "slug": "island-scale-modelling",
+    "title": "Modelación a escala insular y de cuencas",
     "summary": "Crear un modelo pionero de transporte de contaminación costera a escala global.",
     "description": [
       "Esta herramienta innovadora aprovecha la observación de la Tierra y la computación en la nube para apoyar la planificación integrada tierra-mar y los esfuerzos de restauración."
+    ],
+    "highlights": [
+      "Un modelo de transporte de contaminación costera a escala global",
+      "Observación de la Tierra y computación en la nube en su núcleo",
+      "Apoyo a la planificación integrada tierra-mar",
+      "Evidencia para los esfuerzos de restauración"
     ],
     "image": "/src/assets/images/fluvio/expertise-coastal-model.png",
     "imageAlt": "Modelo de transporte de contaminación costera",

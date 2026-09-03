@@ -1,0 +1,159 @@
+---
+/**
+ * Destinations as clean rows: an optional index, a title, a supporting
+ * caption and the shared arrow control. Hairline dividers, generous padding
+ * and a soft wash on hover keep it calm; the whole row is the link.
+ */
+import ArrowIcon from './ArrowIcon.astro';
+
+export interface LinkListItem {
+  href: string;
+  title: string;
+  meta?: string;
+  number?: string;
+  external?: boolean;
+}
+
+export interface Props {
+  items: LinkListItem[];
+  tone?: 'default' | 'inverse';
+  class?: string;
+}
+
+const { items, tone = 'default', class: className, ...rest } = Astro.props;
+---
+
+<ul {...rest} class:list={['fluvio-link-list', `fluvio-link-list--${tone}`, className]}>
+  {
+    items.map(({ href, title, meta, number, external = href.startsWith('http') }) => (
+      <li>
+        <a
+          class:list={[
+            'fluvio-link-list__row fluvio-arrow-host',
+            tone === 'inverse' ? 'fluvio-arrow-host--paper' : 'fluvio-arrow-host--river',
+          ]}
+          href={href}
+          {...(external ? { rel: 'noopener noreferrer' } : {})}
+        >
+          {number && <span class="fluvio-link-list__number">{number}</span>}
+          <span class="fluvio-link-list__text">
+            <span class="fluvio-link-list__title">{title}</span>
+            {meta && <span class="fluvio-link-list__meta">{meta}</span>}
+          </span>
+          <ArrowIcon external={external} />
+        </a>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .fluvio-link-list {
+    --row-line: rgb(var(--fluvio-ink) / 0.12);
+    --row-title: var(--aw-color-text-heading);
+    --row-meta: var(--aw-color-text-muted);
+    --row-accent: rgb(var(--fluvio-river));
+    --row-wash: rgb(var(--fluvio-wash) / 0.45);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--row-line);
+  }
+
+  .fluvio-link-list--inverse {
+    --row-line: rgb(255 255 255 / 0.14);
+    --row-title: rgb(var(--fluvio-paper));
+    --row-meta: rgb(var(--fluvio-paper) / 0.62);
+    --row-accent: rgb(var(--fluvio-paper));
+    --row-wash: rgb(255 255 255 / 0.06);
+  }
+
+  :global(.dark) .fluvio-link-list--default {
+    --row-line: rgb(var(--fluvio-mist) / 0.14);
+    --row-accent: rgb(125 186 188);
+    --row-wash: rgb(var(--fluvio-navy) / 0.35);
+  }
+
+  li {
+    border-bottom: 1px solid var(--row-line);
+  }
+
+  .fluvio-link-list__row {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+    margin: 0 -0.75rem;
+    padding: 1rem 0.75rem;
+    border-radius: 12px;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .fluvio-link-list__number {
+    flex: none;
+    min-width: 1.6rem;
+    color: var(--row-accent);
+    font-family: var(--aw-font-mono);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+  }
+
+  .fluvio-link-list__text {
+    display: grid;
+    flex: 1 1 auto;
+    gap: 0.25rem;
+    min-width: 0;
+  }
+
+  .fluvio-link-list__title {
+    color: var(--row-title);
+    font-family: var(--aw-font-heading);
+    font-size: 1.08rem;
+    font-weight: 560;
+    letter-spacing: -0.015em;
+    line-height: 1.3;
+  }
+
+  .fluvio-link-list__meta {
+    color: var(--row-meta);
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .fluvio-link-list__row {
+      transition: background-color 220ms ease;
+    }
+
+    .fluvio-link-list__title {
+      transition: color 220ms ease;
+    }
+  }
+
+  .fluvio-link-list__row:hover,
+  .fluvio-link-list__row:focus-visible {
+    background: var(--row-wash);
+  }
+
+  .fluvio-link-list__row:hover .fluvio-link-list__title {
+    color: var(--row-accent);
+  }
+
+  .fluvio-link-list__row:focus-visible {
+    outline: 2px solid var(--row-accent);
+    outline-offset: 2px;
+  }
+
+  @media (min-width: 768px) {
+    .fluvio-link-list__row {
+      gap: 2rem;
+      margin-inline: -1rem;
+      padding: 1.2rem 1rem;
+    }
+
+    .fluvio-link-list__title {
+      font-size: 1.18rem;
+    }
+  }
+</style>

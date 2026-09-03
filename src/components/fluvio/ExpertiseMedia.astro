@@ -11,10 +11,14 @@ import { findImage, findVideo } from '~/utils/images';
 
 export interface Props {
   area: ExpertiseArea;
+  aspect?: 'hero' | 'wide' | 'landscape' | 'square';
+  radius?: 'none' | 'sm' | 'md' | 'lg';
   sizes?: string;
+  priority?: boolean;
+  transitionName?: string;
 }
 
-const { area, sizes } = Astro.props;
+const { area, aspect = 'landscape', radius = 'md', sizes, priority = false, transitionName } = Astro.props;
 const videoUrl = findVideo(area.video);
 const poster = videoUrl ? await findImage(area.image) : null;
 const posterUrl = poster && typeof poster === 'object' && 'src' in poster ? poster.src : undefined;
@@ -22,31 +26,90 @@ const posterUrl = poster && typeof poster === 'object' && 'src' in poster ? post
 
 {
   videoUrl ? (
-    <div class="fluvio-expertise-media">
-      <video
-        class="fluvio-expertise-media__video"
-        src={videoUrl}
-        poster={posterUrl}
-        muted
-        loop
-        playsinline
-        preload="none"
-        aria-label={area.imageAlt}
-      />
+    <div
+      class:list={[
+        'fluvio-expertise-media',
+        `fluvio-expertise-media--${aspect}`,
+        `fluvio-expertise-media--radius-${radius}`,
+      ]}
+    >
+      {transitionName ? (
+        <div class="fluvio-expertise-media__frame" transition:name={transitionName}>
+          <video
+            class="fluvio-expertise-media__video"
+            src={videoUrl}
+            poster={posterUrl}
+            muted
+            loop
+            playsinline
+            preload={priority ? 'metadata' : 'none'}
+            aria-label={area.imageAlt}
+          />
+        </div>
+      ) : (
+        <div class="fluvio-expertise-media__frame">
+          <video
+            class="fluvio-expertise-media__video"
+            src={videoUrl}
+            poster={posterUrl}
+            muted
+            loop
+            playsinline
+            preload={priority ? 'metadata' : 'none'}
+            aria-label={area.imageAlt}
+          />
+        </div>
+      )}
     </div>
   ) : (
-    <LargeImage src={area.image} alt={area.imageAlt} aspect="landscape" sizes={sizes} />
+    <LargeImage
+      src={area.image}
+      alt={area.imageAlt}
+      aspect={aspect}
+      radius={radius}
+      sizes={sizes}
+      priority={priority}
+      transitionName={transitionName}
+    />
   )
 }
 
 <style>
   .fluvio-expertise-media {
+    width: 100%;
+  }
+
+  .fluvio-expertise-media__frame {
     overflow: hidden;
     width: 100%;
-    /* The clip's own frame, so the burnt-in colour scale is never cropped. */
-    aspect-ratio: 1024 / 726;
-    border-radius: 10px;
-    background: rgb(var(--fluvio-ink) / 0.9);
+    aspect-ratio: 4 / 3;
+    border-radius: 12px;
+    /* Dark ground so the letterboxed clip reads as a deliberate frame. */
+    background: rgb(var(--fluvio-ink) / 0.92);
+  }
+
+  .fluvio-expertise-media--hero .fluvio-expertise-media__frame {
+    aspect-ratio: 16 / 9;
+  }
+
+  .fluvio-expertise-media--wide .fluvio-expertise-media__frame {
+    aspect-ratio: 3 / 2;
+  }
+
+  .fluvio-expertise-media--square .fluvio-expertise-media__frame {
+    aspect-ratio: 1;
+  }
+
+  .fluvio-expertise-media--radius-none .fluvio-expertise-media__frame {
+    border-radius: 0;
+  }
+
+  .fluvio-expertise-media--radius-sm .fluvio-expertise-media__frame {
+    border-radius: 8px;
+  }
+
+  .fluvio-expertise-media--radius-lg .fluvio-expertise-media__frame {
+    border-radius: 20px;
   }
 
   .fluvio-expertise-media__video {

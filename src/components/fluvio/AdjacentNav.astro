@@ -1,0 +1,150 @@
+---
+/**
+ * Previous / next trail at the foot of a detail page so the reader never
+ * dead-ends. Text-forward on purpose: the page above already carried the
+ * photography, so this is a calm pair of large, arrowed cells.
+ */
+import ArrowIcon from './ArrowIcon.astro';
+
+export interface AdjacentItem {
+  href: string;
+  title: string;
+  meta?: string;
+}
+
+export interface Props {
+  label: string;
+  previousLabel: string;
+  nextLabel: string;
+  previous?: AdjacentItem;
+  next?: AdjacentItem;
+}
+
+const { label, previousLabel, nextLabel, previous, next } = Astro.props;
+---
+
+{
+  (previous || next) && (
+    <nav class="fluvio-adjacent" aria-label={label}>
+      {previous && (
+        <a
+          class="fluvio-adjacent__cell fluvio-adjacent__cell--previous fluvio-arrow-host fluvio-arrow-host--ink"
+          href={previous.href}
+        >
+          <ArrowIcon direction="back" size="lg" />
+          <span class="fluvio-adjacent__text">
+            <span class="fluvio-label">{previousLabel}</span>
+            <span class="fluvio-adjacent__title">{previous.title}</span>
+            {previous.meta && <span class="fluvio-adjacent__meta">{previous.meta}</span>}
+          </span>
+        </a>
+      )}
+      {next && (
+        <a
+          class="fluvio-adjacent__cell fluvio-adjacent__cell--next fluvio-arrow-host fluvio-arrow-host--ink"
+          href={next.href}
+        >
+          <span class="fluvio-adjacent__text">
+            <span class="fluvio-label">{nextLabel}</span>
+            <span class="fluvio-adjacent__title">{next.title}</span>
+            {next.meta && <span class="fluvio-adjacent__meta">{next.meta}</span>}
+          </span>
+          <ArrowIcon size="lg" />
+        </a>
+      )}
+    </nav>
+  )
+}
+
+<style>
+  .fluvio-adjacent {
+    display: grid;
+    border-top: 1px solid rgb(var(--fluvio-ink) / 0.14);
+    border-bottom: 1px solid rgb(var(--fluvio-ink) / 0.14);
+  }
+
+  .fluvio-adjacent__cell {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+    padding: clamp(1.5rem, 4vw, 2.75rem) 0;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .fluvio-adjacent__cell + .fluvio-adjacent__cell {
+    border-top: 1px solid rgb(var(--fluvio-ink) / 0.14);
+  }
+
+  .fluvio-adjacent__cell--next {
+    justify-content: flex-end;
+    text-align: right;
+  }
+
+  .fluvio-adjacent__text {
+    display: grid;
+    gap: 0.4rem;
+    min-width: 0;
+  }
+
+  .fluvio-adjacent__title {
+    color: var(--aw-color-text-heading);
+    font-family: var(--aw-font-heading);
+    font-size: clamp(1.25rem, 2.4vw, 2rem);
+    font-weight: 560;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    text-wrap: balance;
+  }
+
+  .fluvio-adjacent__meta {
+    color: var(--aw-color-text-muted);
+    font-size: 0.85rem;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .fluvio-adjacent__title {
+      transition: color 220ms ease;
+    }
+  }
+
+  .fluvio-adjacent__cell:hover .fluvio-adjacent__title {
+    color: rgb(var(--fluvio-river));
+  }
+
+  :global(.dark) .fluvio-adjacent,
+  :global(.dark) .fluvio-adjacent__cell + .fluvio-adjacent__cell {
+    border-color: rgb(var(--fluvio-mist) / 0.14);
+  }
+
+  :global(.dark) .fluvio-adjacent__cell:hover .fluvio-adjacent__title {
+    color: rgb(125 186 188);
+  }
+
+  @media (min-width: 768px) {
+    .fluvio-adjacent {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .fluvio-adjacent__cell + .fluvio-adjacent__cell {
+      border-top: 0;
+      border-left: 1px solid rgb(var(--fluvio-ink) / 0.14);
+    }
+
+    :global(.dark) .fluvio-adjacent__cell + .fluvio-adjacent__cell {
+      border-left-color: rgb(var(--fluvio-mist) / 0.14);
+    }
+
+    .fluvio-adjacent__cell--previous {
+      padding-right: clamp(1.5rem, 4vw, 3rem);
+    }
+
+    .fluvio-adjacent__cell--next {
+      padding-left: clamp(1.5rem, 4vw, 3rem);
+    }
+
+    .fluvio-adjacent__cell:only-child {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

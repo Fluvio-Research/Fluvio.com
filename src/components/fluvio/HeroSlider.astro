@@ -1,6 +1,9 @@
 ---
+import Accent from './Accent.astro';
+import ArrowLink from './ArrowLink.astro';
 import LargeImage from './LargeImage.astro';
 import { getHomepage } from '~/data/fluvio/store.ts';
+import { plainText } from '~/utils/accent';
 import { findVideo } from '~/utils/images';
 import { defaultLocale, localeHref, t, type Locale } from '~/i18n';
 
@@ -15,7 +18,7 @@ const strings = t(locale).slider;
 const slides = getHomepage(locale).slides;
 
 /** Autoplay cycle length; the CSS countdown reads the same value. */
-const INTERVAL_MS = 6000;
+const INTERVAL_MS = 3000;
 /** Upper bound for a video slide; it advances earlier when the video ends. */
 const VIDEO_MAX_MS = 30000;
 
@@ -69,11 +72,13 @@ const videoUrls = slides.map((slide) => findVideo(slide.video));
           <div class="fluvio-hero__copy">
             <div class="fluvio-shell fluvio-hero__content">
               <p class="fluvio-hero__eyebrow">{slide.eyebrow}</p>
-              <h1>{slide.title}</h1>
+              <h1>
+                <Accent text={slide.title} />
+              </h1>
               <p class="fluvio-hero__description">{slide.description}</p>
-              <a class="fluvio-hero__link" href={localeHref(slide.href, locale)}>
-                {slide.action} <span aria-hidden="true">→</span>
-              </a>
+              <ArrowLink class="fluvio-hero__link" href={localeHref(slide.href, locale)} variant="ghost" tone="paper">
+                {slide.action}
+              </ArrowLink>
             </div>
           </div>
         </article>
@@ -96,10 +101,32 @@ const videoUrls = slides.map((slide) => findVideo(slide.video));
           <span data-hero-playback-label>{strings.pause}</span>
         </button>
         <button type="button" aria-label={strings.previous} data-hero-previous>
-          <span aria-hidden="true">←</span>
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M19 12H5"></path>
+            <path d="m11 18-6-6 6-6"></path>
+          </svg>
         </button>
         <button type="button" aria-label={strings.next} data-hero-next>
-          <span aria-hidden="true">→</span>
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M5 12h14"></path>
+            <path d="m13 6 6 6-6 6"></path>
+          </svg>
         </button>
       </div>
     </div>
@@ -110,7 +137,7 @@ const videoUrls = slides.map((slide) => findVideo(slide.video));
       strings.statusTemplate
         .replace('{current}', '1')
         .replace('{total}', String(slides.length))
-        .replace('{title}', slides[0].title)
+        .replace('{title}', plainText(slides[0].title))
     }
   </p>
 </fluvio-hero-slider>
@@ -231,7 +258,7 @@ const videoUrls = slides.map((slide) => findVideo(slide.video));
 
     private delayForActiveSlide(): number {
       const video = this.videoFor(this.activeIndex);
-      if (!video) return Number(this.dataset.interval) || 6000;
+      if (!video) return Number(this.dataset.interval) || 3000;
       const max = Number(this.dataset.videoInterval) || 30000;
       const duration = video.duration;
       if (Number.isFinite(duration) && duration > 0) return Math.min(Math.round(duration * 1000) + 400, max);
@@ -445,9 +472,9 @@ const videoUrls = slides.map((slide) => findVideo(slide.video));
     max-width: 15ch;
     color: rgb(var(--fluvio-paper));
     font-family: var(--aw-font-heading);
-    font-size: clamp(2.6rem, 6vw, 5.75rem);
-    font-weight: 500;
-    letter-spacing: -0.045em;
+    font-size: clamp(2.5rem, 5.6vw, 5.4rem);
+    font-weight: 540;
+    letter-spacing: -0.03em;
     line-height: 1;
     text-wrap: balance;
   }
@@ -461,35 +488,8 @@ const videoUrls = slides.map((slide) => findVideo(slide.video));
   }
 
   .fluvio-hero__link {
-    display: inline-flex;
-    gap: 0.6rem;
-    align-items: center;
     margin-top: clamp(1.75rem, 3vw, 2.5rem);
-    padding: 0.85rem 1.6rem;
-    border: 1px solid rgb(255 255 255 / 0.45);
-    border-radius: 999px;
-    background: rgb(255 255 255 / 0.1);
     backdrop-filter: blur(10px);
-    color: rgb(var(--fluvio-paper));
-    font-size: 0.92rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition:
-      background-color 250ms ease,
-      border-color 250ms ease;
-  }
-
-  .fluvio-hero__link:hover {
-    border-color: rgb(255 255 255 / 0.75);
-    background: rgb(255 255 255 / 0.22);
-  }
-
-  .fluvio-hero__link > span[aria-hidden] {
-    transition: transform 250ms cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  .fluvio-hero__link:hover > span[aria-hidden] {
-    transform: translateX(0.3rem);
   }
 
   /* Copy rises softly as each slide becomes active. */
@@ -566,10 +566,10 @@ const videoUrls = slides.map((slide) => findVideo(slide.video));
     transition: width 350ms ease;
   }
 
-  /* Autoplay countdown: the bar fills across each 8 second cycle. */
+  /* Autoplay countdown: the bar fills across each cycle (INTERVAL_MS, or the video's length). */
   @media (prefers-reduced-motion: no-preference) {
     .fluvio-hero.is-playing .fluvio-hero__progress span {
-      animation: fluvio-hero-countdown var(--hero-interval, 6s) linear both;
+      animation: fluvio-hero-countdown var(--hero-interval, 3s) linear both;
     }
   }
 
@@ -603,6 +603,11 @@ const videoUrls = slides.map((slide) => findVideo(slide.video));
     transition:
       background-color 250ms ease,
       border-color 250ms ease;
+  }
+
+  button svg {
+    width: 1rem;
+    height: 1rem;
   }
 
   button:hover:not(:disabled) {

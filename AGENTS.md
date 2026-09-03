@@ -109,6 +109,12 @@ Fonts are handled by Astro's native **Fonts API**, configured in `astro.config.t
 
 Astro's native CSP is intentionally **not** enabled in this version: it is incompatible with `<ClientRouter />` view transitions (shipped on by default) and would break the arbitrary third-party scripts a template user typically adds. CSP is deferred to AstroWind v2, where the component model (and optional SSR) make it clean and opt-in.
 
+## Fluvio specifics
+
+- Content is JSON in `src/data/fluvio/content/`, validated by `src/data/fluvio/store.ts`; cross-references resolve in `relations.ts`; URLs come from `routes.ts`. Read `README.md` before adding records or fields.
+- Calls to action use `ArrowLink` / `LinkList` (never a unicode arrow); cards use one stretched link; headings may carry `*accent*` markup rendered by `Accent.astro`.
+- The private `Webiste-CMS` repository's `editor/config.yml` mirrors the content schema; update it alongside any schema change.
+
 ## Verification Checklist
 
 After changes, always verify:

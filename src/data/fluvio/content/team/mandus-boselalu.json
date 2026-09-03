@@ -6,7 +6,9 @@
     "bio": "Mandus has over 15 years' experience leading environmental and social assessments for large projects in Melanesia. Based in Solomon Islands, Mandus is motivated to apply Fluvio's integrated approaches to the complex issues facing rural communities.",
     "portrait": "/src/assets/images/fluvio/team-mandus.jpg",
     "portraitAlt": "Mandus Boselalu",
-    "specialties": ["Environmental and social assessments"]
+    "specialties": ["Environmental and social assessments"],
+    "location": "Solomon Islands",
+    "expertise": ["catchment-management", "blue-carbon-assessment"]
   },
   "pijin": {
     "order": 6,
@@ -15,7 +17,9 @@
     "bio": "Mandus hemi lidim olketa environmental an social assessment fo olketa bigfala project long Melanesia fo winim 15 years finis. Hemi stap long Solomon Aelan, an hemi barava laek fo iusim olketa wei blong Fluvio fo helpem olketa hadfala hevi wea olketa rural komuniti feisim.",
     "portrait": "/src/assets/images/fluvio/team-mandus.jpg",
     "portraitAlt": "Mandus Boselalu",
-    "specialties": ["Olketa environmental an social assessment"]
+    "specialties": ["Olketa environmental an social assessment"],
+    "location": "Solomon Aelan",
+    "expertise": ["catchment-management", "blue-carbon-assessment"]
   },
   "fr": {
     "order": 6,
@@ -24,7 +28,9 @@
     "bio": "Mandus cumule plus de quinze ans d’expérience à la tête d’évaluations environnementales et sociales de grands projets en Mélanésie. Basé aux Îles Salomon, il souhaite appliquer les approches intégrées de Fluvio aux enjeux complexes des communautés rurales.",
     "portrait": "/src/assets/images/fluvio/team-mandus.jpg",
     "portraitAlt": "Mandus Boselalu",
-    "specialties": ["Évaluations environnementales et sociales"]
+    "specialties": ["Évaluations environnementales et sociales"],
+    "location": "Îles Salomon",
+    "expertise": ["catchment-management", "blue-carbon-assessment"]
   },
   "es": {
     "order": 6,
@@ -33,6 +39,8 @@
     "bio": "Mandus tiene más de 15 años de experiencia liderando evaluaciones ambientales y sociales de grandes proyectos en Melanesia. Radicado en las Islas Salomón, está motivado por aplicar los enfoques integrados de Fluvio a los problemas complejos que enfrentan las comunidades rurales.",
     "portrait": "/src/assets/images/fluvio/team-mandus.jpg",
     "portraitAlt": "Mandus Boselalu",
-    "specialties": ["Evaluaciones ambientales y sociales"]
+    "specialties": ["Evaluaciones ambientales y sociales"],
+    "location": "Islas Salomón",
+    "expertise": ["catchment-management", "blue-carbon-assessment"]
   }
 }

@@ -1,0 +1,46 @@
+---
+/**
+ * The drawn arrow in a circular control that every call to action shares.
+ * Styling lives in tailwind.css (`.fluvio-arrow-icon`) so links, list rows
+ * and whole cards can host it: give the interactive ancestor the
+ * `fluvio-arrow-host` class and the circle fills on hover.
+ */
+export interface Props {
+  external?: boolean;
+  direction?: 'forward' | 'back';
+  size?: 'sm' | 'md' | 'lg';
+  class?: string;
+}
+
+const { external = false, direction = 'forward', size = 'md', class: className } = Astro.props;
+---
+
+<span class:list={['fluvio-arrow-icon', `fluvio-arrow-icon--${size}`, className]} aria-hidden="true">
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    {
+      external ? (
+        <>
+          <path d="M7 17 17 7" />
+          <path d="M8 7h9v9" />
+        </>
+      ) : direction === 'back' ? (
+        <>
+          <path d="M19 12H5" />
+          <path d="m11 18-6-6 6-6" />
+        </>
+      ) : (
+        <>
+          <path d="M5 12h14" />
+          <path d="m13 6 6 6-6 6" />
+        </>
+      )
+    }
+  </svg>
+</span>

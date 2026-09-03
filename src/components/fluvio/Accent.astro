@@ -1,0 +1,15 @@
+---
+/**
+ * Renders heading text that may carry `*accent*` markup (see
+ * src/utils/accent.ts): the marked phrase is set in the serif accent face.
+ */
+import { splitAccent } from '~/utils/accent';
+
+export interface Props {
+  text: string;
+}
+
+const segments = splitAccent(Astro.props.text);
+---
+
+{segments.map(({ text, accent }) => (accent ? <em class="fluvio-accent">{text}</em> : <Fragment>{text}</Fragment>))}

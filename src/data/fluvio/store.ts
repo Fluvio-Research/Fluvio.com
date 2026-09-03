@@ -5,7 +5,7 @@
  * the build and the test suite rather than shipping.
  */
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
+import { basename, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { z } from 'astro/zod';
@@ -57,28 +57,39 @@ const projectSchema = z.object({
   relatedProjects: z.array(z.string()).optional(),
 });
 
+const slug = z.string().regex(/^[a-z0-9-]+$/);
+
 const teamMemberSchema = z.object({
   order: z.number().int().positive(),
+  /** Route segment; the record's file name when omitted. */
+  slug: slug.optional(),
   name: text,
   role: text.optional(),
   bio: text,
   portrait: localImage,
   portraitAlt: text,
   specialties: z.array(text).min(1),
+  location: text.optional(),
   profileUrl: z.string().url().optional(),
+  /** Expertise areas (by slug) the person practises in. */
+  expertise: z.array(slug).optional(),
+  /** Projects (by slug) the person is named on. */
+  projects: z.array(slug).optional(),
 });
 
 const expertiseSchema = z.object({
   order: z.number().int().positive(),
-  slug: z.string().regex(/^[a-z0-9-]+$/),
+  slug,
   title: text,
   summary: text,
   description: paragraphs,
+  /** Short capability statements listed on the area's own page. */
+  highlights: z.array(text).optional(),
   image: localImage,
   imageAlt: text,
   /** Optional demonstration clip; the image stays as poster and fallback. */
   video: localVideo.optional(),
-  relatedProjects: z.array(z.string()),
+  relatedProjects: z.array(slug),
 });
 
 const siteSchema = z.object({
@@ -134,6 +145,10 @@ const platformSchema = z.object({
 const homepageSchema = z.object({
   slides: z.array(slideSchema).min(1).max(8),
   metaDescription: text,
+  /** Screen-reader label for the discipline ticker under the slider. */
+  disciplinesLabel: text,
+  /** Labels for the content-derived counts in the impact band. */
+  glance: z.object({ eyebrow: text, projects: text, expertise: text, team: text, platforms: text }),
   capabilitiesLabel: text,
   capabilities: z.array(z.object({ title: text, description: text })).length(3),
   expertiseEyebrow: text,
@@ -162,6 +177,11 @@ const homepageSchema = z.object({
 export type Homepage = z.infer<typeof homepageSchema>;
 
 export interface Pages {
+  common: {
+    skipToContent: string;
+    breadcrumbLabel: string;
+    home: string;
+  };
   slider: {
     regionLabel: string;
     slideOf: string;
@@ -200,9 +220,48 @@ export interface Pages {
     introIntro: string;
     areasLabel: string;
     relatedProjects: string;
+    viewArea: string;
+    projectCountOne: string;
+    projectCountTemplate: string;
     teamTitle: string;
     teamBody: string;
     teamLink: string;
+  };
+  expertiseDetail: {
+    eyebrow: string;
+    back: string;
+    areaOf: string;
+    highlightsTitle: string;
+    projectsEyebrow: string;
+    projectsTitle: string;
+    teamEyebrow: string;
+    teamTitle: string;
+    otherEyebrow: string;
+    otherTitle: string;
+    previous: string;
+    next: string;
+    contactEyebrow: string;
+    contactTitle: string;
+    contactIntro: string;
+  };
+  teamDetail: {
+    eyebrow: string;
+    back: string;
+    memberOf: string;
+    specialtiesTitle: string;
+    locationLabel: string;
+    externalProfile: string;
+    expertiseEyebrow: string;
+    expertiseTitle: string;
+    projectsEyebrow: string;
+    projectsTitle: string;
+    colleaguesEyebrow: string;
+    colleaguesTitle: string;
+    previous: string;
+    next: string;
+    contactEyebrow: string;
+    contactTitle: string;
+    contactIntro: string;
   };
   teamPage: {
     metaTitle: string;
@@ -245,6 +304,8 @@ export interface Pages {
     listTitle: string;
     listIntro: string;
     allProjects: string;
+    filterLabel: string;
+    filterAll: string;
     platformsEyebrow: string;
     platformsTitle: string;
     platformsIntro: string;
@@ -256,8 +317,12 @@ export interface Pages {
     approach: string;
     outcome: string;
     storyLabel: string;
+    contents: string;
+    factsLabel: string;
     galleryLabel: string;
     imageLabel: string;
+    previousProject: string;
+    nextProject: string;
     relatedExpertiseEyebrow: string;
     relatedExpertiseTitle: string;
     relatedProjectsEyebrow: string;
@@ -284,6 +349,11 @@ export interface Pages {
 }
 
 const pagesSchema: z.ZodType<Pages> = z.object({
+  common: z.object({
+    skipToContent: text,
+    breadcrumbLabel: text,
+    home: text,
+  }),
   slider: z.object({
     regionLabel: text,
     slideOf: text,
@@ -322,9 +392,48 @@ const pagesSchema: z.ZodType<Pages> = z.object({
     introIntro: text,
     areasLabel: text,
     relatedProjects: text,
+    viewArea: text,
+    projectCountOne: text,
+    projectCountTemplate: text,
     teamTitle: text,
     teamBody: text,
     teamLink: text,
+  }),
+  expertiseDetail: z.object({
+    eyebrow: text,
+    back: text,
+    areaOf: text,
+    highlightsTitle: text,
+    projectsEyebrow: text,
+    projectsTitle: text,
+    teamEyebrow: text,
+    teamTitle: text,
+    otherEyebrow: text,
+    otherTitle: text,
+    previous: text,
+    next: text,
+    contactEyebrow: text,
+    contactTitle: text,
+    contactIntro: text,
+  }),
+  teamDetail: z.object({
+    eyebrow: text,
+    back: text,
+    memberOf: text,
+    specialtiesTitle: text,
+    locationLabel: text,
+    externalProfile: text,
+    expertiseEyebrow: text,
+    expertiseTitle: text,
+    projectsEyebrow: text,
+    projectsTitle: text,
+    colleaguesEyebrow: text,
+    colleaguesTitle: text,
+    previous: text,
+    next: text,
+    contactEyebrow: text,
+    contactTitle: text,
+    contactIntro: text,
   }),
   teamPage: z.object({
     metaTitle: text,
@@ -367,6 +476,8 @@ const pagesSchema: z.ZodType<Pages> = z.object({
     listTitle: text,
     listIntro: text,
     allProjects: text,
+    filterLabel: text,
+    filterAll: text,
     platformsEyebrow: text,
     platformsTitle: text,
     platformsIntro: text,
@@ -378,8 +489,12 @@ const pagesSchema: z.ZodType<Pages> = z.object({
     approach: text,
     outcome: text,
     storyLabel: text,
+    contents: text,
+    factsLabel: text,
     galleryLabel: text,
     imageLabel: text,
+    previousProject: text,
+    nextProject: text,
     relatedExpertiseEyebrow: text,
     relatedExpertiseTitle: text,
     relatedProjectsEyebrow: text,
@@ -425,12 +540,21 @@ function loadRecord<Schema extends z.ZodTypeAny>(path: string, schema: Schema): 
   return parsed.data as Localized<z.infer<Schema>>;
 }
 
-function loadCollection<Schema extends z.ZodTypeAny>(name: string, schema: Schema): Array<Localized<z.infer<Schema>>> {
+interface CollectionEntry<T> {
+  /** The record's file name without extension, the admin's identifier for it. */
+  id: string;
+  record: Localized<T>;
+}
+
+function loadCollection<Schema extends z.ZodTypeAny>(
+  name: string,
+  schema: Schema
+): Array<CollectionEntry<z.infer<Schema>>> {
   const dir = join(contentDir, name);
-  const records = readdirSync(dir)
+  const entries = readdirSync(dir)
     .filter((file) => file.endsWith('.json'))
-    .map((file) => loadRecord(join(dir, file), schema));
-  return records.sort((a, b) => (a.en as { order: number }).order - (b.en as { order: number }).order);
+    .map((file) => ({ id: basename(file, '.json'), record: loadRecord(join(dir, file), schema) }));
+  return entries.sort((a, b) => (a.record.en as { order: number }).order - (b.record.en as { order: number }).order);
 }
 
 const projectRecords = loadCollection('projects', projectSchema);
@@ -440,6 +564,32 @@ const siteRecord = loadRecord(join(contentDir, 'site', 'content.json'), siteSche
 const navigationRecord = loadRecord(join(contentDir, 'site', 'navigation.json'), navigationSchema);
 const homepageRecord = loadRecord(join(contentDir, 'site', 'homepage.json'), homepageSchema);
 const pagesRecord = loadRecord(join(contentDir, 'site', 'pages.json'), pagesSchema);
+
+/* ------------------------------------------------------------------ */
+/* Cross-reference integrity                                           */
+/* A slug typo in a related list would otherwise silently drop a link. */
+/* ------------------------------------------------------------------ */
+
+const projectSlugs = new Set(projectRecords.map(({ record }) => record.en.slug));
+const expertiseSlugs = new Set(expertiseRecords.map(({ record }) => record.en.slug));
+const teamSlugs = teamRecords.map(({ id, record }) => record.en.slug ?? id);
+
+function assertKnown(kind: string, owner: string, slugs: readonly string[] | undefined, known: Set<string>) {
+  const unknown = (slugs ?? []).filter((candidate) => !known.has(candidate));
+  if (unknown.length) throw new Error(`${owner} references unknown ${kind}: ${unknown.join(', ')}`);
+}
+
+for (const { record } of projectRecords) {
+  assertKnown('projects', `Project "${record.en.slug}"`, record.en.relatedProjects, projectSlugs);
+}
+for (const { record } of expertiseRecords) {
+  assertKnown('projects', `Expertise "${record.en.slug}"`, record.en.relatedProjects, projectSlugs);
+}
+for (const { id, record } of teamRecords) {
+  assertKnown('expertise areas', `Team member "${id}"`, record.en.expertise, expertiseSlugs);
+  assertKnown('projects', `Team member "${id}"`, record.en.projects, projectSlugs);
+}
+if (new Set(teamSlugs).size !== teamSlugs.length) throw new Error('Team member slugs must be unique');
 
 /* ------------------------------------------------------------------ */
 /* Locale projections                                                  */
@@ -455,13 +605,16 @@ function project<T extends { order?: number }>(record: Localized<T>, locale: Con
 }
 
 export const getProjects = (locale: ContentLocale): Project[] =>
-  projectRecords.map((record) => project(record, locale));
+  projectRecords.map(({ record }) => project(record, locale));
 
 export const getTeamMembers = (locale: ContentLocale): TeamMember[] =>
-  teamRecords.map((record) => project(record, locale));
+  teamRecords.map(({ id, record }) => {
+    const member = project(record, locale);
+    return { ...member, slug: member.slug ?? id };
+  });
 
 export const getExpertiseAreas = (locale: ContentLocale): ExpertiseArea[] =>
-  expertiseRecords.map((record) => project(record, locale));
+  expertiseRecords.map(({ record }) => project(record, locale));
 
 export const getSiteContent = (locale: ContentLocale): SiteContent => ({ ...siteRecord.en, ...siteRecord[locale] });
 

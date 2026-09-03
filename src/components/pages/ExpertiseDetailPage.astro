@@ -1,0 +1,309 @@
+---
+import AdjacentNav from '~/components/fluvio/AdjacentNav.astro';
+import Breadcrumbs from '~/components/fluvio/Breadcrumbs.astro';
+import ContactPanel from '~/components/fluvio/ContactPanel.astro';
+import ExpertiseMedia from '~/components/fluvio/ExpertiseMedia.astro';
+import LinkList from '~/components/fluvio/LinkList.astro';
+import ProjectCard from '~/components/fluvio/ProjectCard.astro';
+import SectionFrame from '~/components/fluvio/SectionFrame.astro';
+import SectionHeading from '~/components/fluvio/SectionHeading.astro';
+import TeamCard from '~/components/fluvio/TeamCard.astro';
+import { REVEAL } from '~/components/fluvio/reveal';
+import { getExpertiseAreas } from '~/data/fluvio/localized';
+import { getAdjacent, getProjectsForExpertise, getTeamForExpertise, withoutImages } from '~/data/fluvio/relations';
+import { expertiseHref } from '~/data/fluvio/routes';
+import type { ExpertiseArea } from '~/data/fluvio/types';
+import { localeHref, t, type Locale } from '~/i18n';
+import Layout from '~/layouts/PageLayout.astro';
+
+export interface Props {
+  locale: Locale;
+  area: ExpertiseArea;
+}
+
+const { locale, area } = Astro.props;
+const c = t(locale).expertiseDetail;
+const areas = getExpertiseAreas(locale);
+const projects = withoutImages(getProjectsForExpertise(locale, area), [area.image], (project) => project.heroImage);
+const specialists = getTeamForExpertise(locale, area);
+const adjacent = getAdjacent(areas, area.slug);
+const others = areas.filter((candidate) => candidate.slug !== area.slug);
+
+const metadata = {
+  title: area.title,
+  description: area.summary,
+};
+
+const position = c.areaOf
+  .replace('{current}', String(adjacent.index + 1).padStart(2, '0'))
+  .replace('{total}', String(adjacent.total).padStart(2, '0'));
+---
+
+<Layout metadata={metadata} locale={locale}>
+  <header class="fluvio-area-hero">
+    <div class="fluvio-shell">
+      <Breadcrumbs
+        locale={locale}
+        crumbs={[{ label: c.back, href: localeHref('/expertise', locale) }, { label: area.title }]}
+        class="fluvio-area-hero__crumbs"
+      />
+      <div class="fluvio-area-hero__grid">
+        <div class="fluvio-area-hero__copy">
+          <p class="fluvio-eyebrow">
+            {c.eyebrow}
+            <span class="fluvio-area-hero__position">{position}</span>
+          </p>
+          <h1 class="fluvio-title">{area.title}</h1>
+          <p class="fluvio-lede">{area.summary}</p>
+        </div>
+        <div class="fluvio-area-hero__media">
+          <ExpertiseMedia
+            area={area}
+            aspect="wide"
+            radius="lg"
+            priority
+            sizes="(min-width: 1280px) 760px, (min-width: 768px) 55vw, calc(100vw - 2rem)"
+            transitionName={`expertise-${area.slug}`}
+          />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <SectionFrame tone="paper" rule="ink" motif="contour" labelledby="area-detail-heading">
+    <div class="fluvio-area-detail">
+      <div class:list={['fluvio-area-detail__description', REVEAL]}>
+        <h2 id="area-detail-heading" class="visually-hidden">{area.title}</h2>
+        {area.description.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+      {
+        area.highlights && area.highlights.length > 0 && (
+          <div class:list={['fluvio-area-detail__highlights', REVEAL]}>
+            <h3 class="fluvio-label">{c.highlightsTitle}</h3>
+            <ol>
+              {area.highlights.map((highlight, index) => (
+                <li>
+                  <span class="fluvio-area-detail__index">{String(index + 1).padStart(2, '0')}</span>
+                  <span>{highlight}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        )
+      }
+    </div>
+  </SectionFrame>
+
+  {
+    projects.length > 0 && (
+      <SectionFrame tone="mist" labelledby="area-projects-heading">
+        <div class:list={['fluvio-area-section-heading', REVEAL]}>
+          <SectionHeading id="area-projects-heading" eyebrow={c.projectsEyebrow} title={c.projectsTitle} />
+        </div>
+        <div class="fluvio-area-projects">
+          {projects.map((project) => (
+            <div class={REVEAL}>
+              <ProjectCard project={project} locale={locale} headingLevel="h3" />
+            </div>
+          ))}
+        </div>
+      </SectionFrame>
+    )
+  }
+
+  {
+    specialists.length > 0 && (
+      <SectionFrame tone="paper" motif="wash-right" labelledby="area-team-heading">
+        <div class:list={['fluvio-area-section-heading', REVEAL]}>
+          <SectionHeading id="area-team-heading" eyebrow={c.teamEyebrow} title={c.teamTitle} />
+        </div>
+        <div class="fluvio-area-team">
+          {specialists.map((member) => (
+            <div class={REVEAL}>
+              <TeamCard member={member} locale={locale} headingLevel="h3" />
+            </div>
+          ))}
+        </div>
+      </SectionFrame>
+    )
+  }
+
+  <SectionFrame tone="water" rule="ink" motif="grid" labelledby="area-others-heading">
+    <div class="fluvio-area-others">
+      <div class={REVEAL}>
+        <SectionHeading id="area-others-heading" eyebrow={c.otherEyebrow} title={c.otherTitle} />
+      </div>
+      <div class={REVEAL}>
+        <LinkList
+          items={others.map((other) => ({
+            href: expertiseHref(other.slug, locale),
+            title: other.title,
+            meta: other.summary,
+            number: String(areas.indexOf(other) + 1).padStart(2, '0'),
+          }))}
+        />
+      </div>
+    </div>
+  </SectionFrame>
+
+  <div class="fluvio-shell fluvio-area-adjacent">
+    <AdjacentNav
+      label={c.otherTitle}
+      previousLabel={c.previous}
+      nextLabel={c.next}
+      previous={adjacent.previous && {
+        href: expertiseHref(adjacent.previous.slug, locale),
+        title: adjacent.previous.title,
+      }}
+      next={adjacent.next && { href: expertiseHref(adjacent.next.slug, locale), title: adjacent.next.title }}
+    />
+  </div>
+
+  <SectionFrame tone="warm">
+    <div class={REVEAL}>
+      <ContactPanel locale={locale} eyebrow={c.contactEyebrow} title={c.contactTitle} intro={c.contactIntro} />
+    </div>
+  </SectionFrame>
+</Layout>
+
+<style>
+  .fluvio-area-hero {
+    padding: clamp(2.5rem, 6vw, 5rem) 0 clamp(3.5rem, 8vw, 7rem);
+  }
+
+  .fluvio-area-hero__crumbs {
+    margin-bottom: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  .fluvio-area-hero__grid {
+    display: grid;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .fluvio-area-hero__position {
+    margin-left: 0.75rem;
+    color: var(--aw-color-text-muted);
+  }
+
+  .fluvio-area-hero__copy :global(h1) {
+    max-width: 13ch;
+  }
+
+  .fluvio-area-hero__copy :global(.fluvio-lede) {
+    max-width: 34rem;
+  }
+
+  .fluvio-area-detail {
+    display: grid;
+    gap: 3rem;
+  }
+
+  .fluvio-area-detail__description p {
+    margin: 0 0 1.2rem;
+    max-width: 40rem;
+    color: var(--aw-color-text-default);
+    font-size: clamp(1.15rem, 2vw, 1.5rem);
+    line-height: 1.6;
+    text-wrap: pretty;
+  }
+
+  .fluvio-area-detail__highlights h3 {
+    margin: 0 0 1.25rem;
+  }
+
+  .fluvio-area-detail__highlights ol {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid rgb(var(--fluvio-ink) / 0.14);
+  }
+
+  .fluvio-area-detail__highlights li {
+    display: grid;
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgb(var(--fluvio-ink) / 0.14);
+    color: var(--aw-color-text-heading);
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .fluvio-area-detail__index {
+    color: rgb(var(--fluvio-river));
+    font-family: var(--aw-font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    line-height: 2.2;
+  }
+
+  .fluvio-area-section-heading {
+    margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
+  }
+
+  .fluvio-area-projects,
+  .fluvio-area-team {
+    display: grid;
+    gap: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  .fluvio-area-others {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .fluvio-area-adjacent {
+    padding-top: clamp(3rem, 7vw, 6rem);
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  :global(.dark) .fluvio-area-detail__highlights ol,
+  :global(.dark) .fluvio-area-detail__highlights li {
+    border-color: rgb(var(--fluvio-mist) / 0.15);
+  }
+
+  :global(.dark) .fluvio-area-detail__index {
+    color: rgb(125 186 188);
+  }
+
+  @media (min-width: 768px) {
+    .fluvio-area-hero__grid {
+      grid-template-columns: minmax(0, 0.9fr) minmax(22rem, 1.1fr);
+      gap: clamp(3rem, 8vw, 8rem);
+    }
+
+    .fluvio-area-detail {
+      grid-template-columns: minmax(0, 1.1fr) minmax(20rem, 0.9fr);
+      gap: clamp(3rem, 8vw, 8rem);
+      align-items: start;
+    }
+
+    .fluvio-area-projects {
+      grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    }
+
+    .fluvio-area-team {
+      grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+    }
+
+    .fluvio-area-others {
+      grid-template-columns: minmax(0, 0.8fr) minmax(24rem, 1.2fr);
+      gap: clamp(3rem, 8vw, 8rem);
+      align-items: start;
+    }
+  }
+</style>

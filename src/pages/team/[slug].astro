@@ -1,0 +1,13 @@
+---
+import TeamMemberPage from '~/components/pages/TeamMemberPage.astro';
+import { teamMembers } from '~/data/fluvio/team';
+import type { TeamMember } from '~/data/fluvio/types';
+
+export function getStaticPaths() {
+  return teamMembers.map((member) => ({ params: { slug: member.slug }, props: { member } }));
+}
+
+const { member } = Astro.props as { member: TeamMember };
+---
+
+<TeamMemberPage locale="en" member={member} />

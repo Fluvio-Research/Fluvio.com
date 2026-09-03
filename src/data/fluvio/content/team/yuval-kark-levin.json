@@ -6,7 +6,8 @@
     "bio": "Yuval is advancing environmental sensing techniques and pushing the current boundaries of global datasets and applied models. He is passionate about innovating tools and datasets that capture complex local features across diverse environments at a planetary scale.",
     "portrait": "/src/assets/images/fluvio/team-yuval.jpg",
     "portraitAlt": "Yuval Kark-Levin",
-    "specialties": ["Environmental sensing"]
+    "specialties": ["Environmental sensing"],
+    "expertise": ["island-scale-modelling", "hydrological-monitoring"]
   },
   "pijin": {
     "order": 8,
@@ -15,7 +16,8 @@
     "bio": "Yuval hemi waka fo mekem olketa wei fo sensim enviromen kamap moa gud, an hemi pusum mak blong olketa global dataset an model. Hemi barava laekem fo wakem olketa niufala tul an dataset wea savve kasem olketa hadfala local samting long staka difren enviromen, long level blong full wol.",
     "portrait": "/src/assets/images/fluvio/team-yuval.jpg",
     "portraitAlt": "Yuval Kark-Levin",
-    "specialties": ["Sensing blong enviromen"]
+    "specialties": ["Sensing blong enviromen"],
+    "expertise": ["island-scale-modelling", "hydrological-monitoring"]
   },
   "fr": {
     "order": 8,
@@ -24,7 +26,8 @@
     "bio": "Yuval fait progresser les techniques de détection environnementale et repousse les limites des jeux de données mondiaux et des modèles appliqués. Il se passionne pour la création d’outils et de jeux de données qui capturent des caractéristiques locales complexes à l’échelle planétaire.",
     "portrait": "/src/assets/images/fluvio/team-yuval.jpg",
     "portraitAlt": "Yuval Kark-Levin",
-    "specialties": ["Détection environnementale"]
+    "specialties": ["Détection environnementale"],
+    "expertise": ["island-scale-modelling", "hydrological-monitoring"]
   },
   "es": {
     "order": 8,
@@ -33,6 +36,7 @@
     "bio": "Yuval impulsa las técnicas de detección ambiental y amplía las fronteras actuales de los conjuntos de datos globales y los modelos aplicados. Le apasiona innovar herramientas y conjuntos de datos que capturen características locales complejas en entornos diversos a escala planetaria.",
     "portrait": "/src/assets/images/fluvio/team-yuval.jpg",
     "portraitAlt": "Yuval Kark-Levin",
-    "specialties": ["Detección ambiental"]
+    "specialties": ["Detección ambiental"],
+    "expertise": ["island-scale-modelling", "hydrological-monitoring"]
   }
 }

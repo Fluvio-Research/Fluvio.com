@@ -1,0 +1,216 @@
+---
+/**
+ * An expertise area as a card. `media` shows the area's clip or photograph;
+ * `compact` is text only, for pages whose photography is already on screen
+ * (a project page listing the capabilities behind it). One stretched link.
+ */
+import ArrowIcon from './ArrowIcon.astro';
+import ExpertiseMedia from './ExpertiseMedia.astro';
+import { expertiseHref } from '~/data/fluvio/routes';
+import type { ExpertiseArea } from '~/data/fluvio/types';
+import { defaultLocale, t, type Locale } from '~/i18n';
+
+export interface Props {
+  area: ExpertiseArea;
+  locale?: Locale;
+  index?: number;
+  variant?: 'media' | 'compact';
+  headingLevel?: 'h2' | 'h3';
+  projectCount?: number;
+  priority?: boolean;
+  class?: string;
+}
+
+const {
+  area,
+  locale = defaultLocale,
+  index,
+  variant = 'media',
+  headingLevel: Heading = 'h3',
+  projectCount,
+  priority = false,
+  class: className,
+  ...rest
+} = Astro.props;
+const strings = t(locale).expertisePage;
+const href = expertiseHref(area.slug, locale);
+const number = index === undefined ? undefined : String(index + 1).padStart(2, '0');
+const count =
+  projectCount === undefined
+    ? undefined
+    : projectCount === 1
+      ? strings.projectCountOne
+      : strings.projectCountTemplate.replace('{count}', String(projectCount));
+---
+
+<article
+  {...rest}
+  class:list={['fluvio-expertise-card fluvio-arrow-host', `fluvio-expertise-card--${variant}`, className]}
+  id={variant === 'media' ? area.slug : undefined}
+>
+  {
+    variant === 'media' && (
+      <div class="fluvio-expertise-card__media">
+        <ExpertiseMedia
+          area={area}
+          aspect="wide"
+          radius="lg"
+          priority={priority}
+          sizes="(min-width: 1280px) 640px, (min-width: 768px) 50vw, calc(100vw - 2rem)"
+          transitionName={`expertise-${area.slug}`}
+        />
+      </div>
+    )
+  }
+  <div class="fluvio-expertise-card__body">
+    <p class="fluvio-label fluvio-expertise-card__label">
+      {number && <span>{number}</span>}
+      {count && <span class="fluvio-expertise-card__count">{count}</span>}
+    </p>
+    <Heading class="fluvio-expertise-card__title">
+      <a href={href}>{area.title}</a>
+    </Heading>
+    <p class="fluvio-expertise-card__summary">{area.summary}</p>
+    <span class="fluvio-expertise-card__cta">
+      <span>{strings.viewArea}</span>
+      <ArrowIcon size="sm" />
+    </span>
+  </div>
+</article>
+
+<style>
+  .fluvio-expertise-card {
+    position: relative;
+    display: grid;
+    gap: 1.25rem;
+    align-content: start;
+  }
+
+  .fluvio-expertise-card--compact {
+    gap: 0;
+    padding: 1.6rem 1.5rem 1.5rem;
+    border: 1px solid rgb(var(--fluvio-ink) / 0.12);
+    border-radius: 16px;
+    background: rgb(var(--fluvio-paper) / 0.6);
+  }
+
+  :global(.dark) .fluvio-expertise-card--compact {
+    border-color: rgb(var(--fluvio-mist) / 0.14);
+    background: rgb(var(--fluvio-navy) / 0.22);
+  }
+
+  .fluvio-expertise-card__body {
+    display: grid;
+    gap: 0.7rem;
+    padding-inline: 0.25rem;
+  }
+
+  .fluvio-expertise-card--compact .fluvio-expertise-card__body {
+    padding-inline: 0;
+    height: 100%;
+    align-content: start;
+  }
+
+  .fluvio-expertise-card__label {
+    display: flex;
+    gap: 0.75rem;
+    margin: 0;
+  }
+
+  .fluvio-expertise-card__count {
+    color: var(--aw-color-text-muted);
+  }
+
+  .fluvio-expertise-card__title {
+    margin: 0;
+    font-family: var(--aw-font-heading);
+    font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+    font-weight: 560;
+    letter-spacing: -0.025em;
+    line-height: 1.12;
+    text-wrap: balance;
+  }
+
+  .fluvio-expertise-card--compact .fluvio-expertise-card__title {
+    font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+  }
+
+  .fluvio-expertise-card__title a {
+    color: var(--aw-color-text-heading);
+    text-decoration: none;
+  }
+
+  .fluvio-expertise-card__title a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border-radius: 20px;
+  }
+
+  .fluvio-expertise-card__summary {
+    margin: 0;
+    max-width: 52ch;
+    color: var(--aw-color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  .fluvio-expertise-card--compact .fluvio-expertise-card__summary {
+    font-size: 0.9rem;
+  }
+
+  .fluvio-expertise-card__cta {
+    display: inline-flex;
+    gap: 0.6rem;
+    align-items: center;
+    margin-top: 0.35rem;
+    color: var(--arrow-color);
+    font-size: 0.84rem;
+    font-weight: 600;
+  }
+
+  .fluvio-expertise-card--compact .fluvio-expertise-card__cta {
+    margin-top: 1.25rem;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .fluvio-expertise-card__title a {
+      transition: color 220ms ease;
+    }
+
+    .fluvio-expertise-card--compact {
+      transition:
+        border-color 240ms ease,
+        transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 260ms ease;
+    }
+
+    .fluvio-expertise-card--compact:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 34px rgb(var(--fluvio-ink) / 0.08);
+    }
+  }
+
+  .fluvio-expertise-card--compact:hover {
+    border-color: rgb(var(--fluvio-river) / 0.45);
+  }
+
+  .fluvio-expertise-card:hover .fluvio-expertise-card__title a {
+    color: rgb(var(--fluvio-river));
+  }
+
+  :global(.dark) .fluvio-expertise-card:hover .fluvio-expertise-card__title a {
+    color: rgb(125 186 188);
+  }
+
+  .fluvio-expertise-card:has(a:focus-visible) {
+    border-radius: 20px;
+    outline: 2px solid rgb(var(--fluvio-river));
+    outline-offset: 6px;
+  }
+
+  .fluvio-expertise-card__title a:focus-visible {
+    outline: none;
+  }
+</style>

@@ -1,0 +1,164 @@
+---
+/**
+ * A person in a grid: portrait, name, role, optional biography and the
+ * arrow control, all one stretched link to the profile page. The portrait
+ * morphs into the profile hero through its view-transition name.
+ */
+import ArrowIcon from './ArrowIcon.astro';
+import LargeImage from './LargeImage.astro';
+import { teamMemberHref } from '~/data/fluvio/routes';
+import type { TeamMember } from '~/data/fluvio/types';
+import { defaultLocale, t, type Locale } from '~/i18n';
+
+export interface Props {
+  member: TeamMember;
+  locale?: Locale;
+  variant?: 'default' | 'compact';
+  headingLevel?: 'h2' | 'h3';
+  showBio?: boolean;
+  class?: string;
+}
+
+const {
+  member,
+  locale = defaultLocale,
+  variant = 'default',
+  headingLevel: Heading = 'h3',
+  showBio = false,
+  class: className,
+  ...rest
+} = Astro.props;
+const href = teamMemberHref(member.slug, locale);
+const strings = t(locale).teamPage;
+---
+
+<article {...rest} class:list={['fluvio-team-card fluvio-arrow-host', `fluvio-team-card--${variant}`, className]}>
+  <div class="fluvio-team-card__portrait">
+    <LargeImage
+      src={member.portrait}
+      alt={member.portraitAlt}
+      aspect={variant === 'compact' ? 'square' : 'portrait'}
+      radius="lg"
+      sizes={variant === 'compact'
+        ? '(min-width: 1280px) 220px, (min-width: 768px) 20vw, 40vw'
+        : '(min-width: 1280px) 400px, (min-width: 768px) 30vw, calc(50vw - 1.5rem)'}
+      transitionName={`team-${member.slug}`}
+    />
+  </div>
+  <div class="fluvio-team-card__body">
+    <Heading class="fluvio-team-card__name">
+      <a href={href}>{member.name}</a>
+    </Heading>
+    {member.role && <p class="fluvio-team-card__role">{member.role}</p>}
+    {showBio && <p class="fluvio-team-card__bio">{member.bio}</p>}
+    <span class="fluvio-team-card__cta">
+      <span>{strings.viewProfile}</span>
+      <ArrowIcon size="sm" />
+    </span>
+  </div>
+</article>
+
+<style>
+  .fluvio-team-card {
+    position: relative;
+    display: grid;
+    gap: 1.1rem;
+    align-content: start;
+  }
+
+  .fluvio-team-card__body {
+    display: grid;
+    gap: 0.4rem;
+    padding-inline: 0.25rem;
+  }
+
+  .fluvio-team-card__name {
+    margin: 0;
+    font-family: var(--aw-font-heading);
+    font-size: clamp(1.25rem, 2vw, 1.6rem);
+    font-weight: 560;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+
+  .fluvio-team-card--compact .fluvio-team-card__name {
+    font-size: 1.05rem;
+  }
+
+  .fluvio-team-card__name a {
+    color: var(--aw-color-text-heading);
+    text-decoration: none;
+  }
+
+  .fluvio-team-card__name a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border-radius: 20px;
+  }
+
+  .fluvio-team-card__role {
+    margin: 0;
+    color: rgb(var(--fluvio-river));
+    font-family: var(--aw-font-mono);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  :global(.dark) .fluvio-team-card__role {
+    color: rgb(125 186 188);
+  }
+
+  .fluvio-team-card__bio {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    margin: 0.5rem 0 0;
+    color: var(--aw-color-text-muted);
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+
+  .fluvio-team-card__cta {
+    display: inline-flex;
+    gap: 0.6rem;
+    align-items: center;
+    margin-top: 0.6rem;
+    color: var(--arrow-color);
+    font-size: 0.82rem;
+    font-weight: 600;
+  }
+
+  .fluvio-team-card--compact .fluvio-team-card__cta {
+    display: none;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .fluvio-team-card__name a {
+      transition: color 220ms ease;
+    }
+  }
+
+  .fluvio-team-card:hover .fluvio-team-card__name a {
+    color: rgb(var(--fluvio-river));
+  }
+
+  :global(.dark) .fluvio-team-card:hover .fluvio-team-card__name a {
+    color: rgb(125 186 188);
+  }
+
+  .fluvio-team-card:has(a:focus-visible) {
+    border-radius: 20px;
+    outline: 2px solid rgb(var(--fluvio-river));
+    outline-offset: 6px;
+  }
+
+  .fluvio-team-card__name a:focus-visible {
+    outline: none;
+  }
+</style>

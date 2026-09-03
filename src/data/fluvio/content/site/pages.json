@@ -1,5 +1,10 @@
 {
   "en": {
+    "common": {
+      "skipToContent": "Skip to content",
+      "breadcrumbLabel": "You are here",
+      "home": "Home"
+    },
     "slider": {
       "regionLabel": "Fluvio introduction",
       "slideOf": "of",
@@ -16,7 +21,7 @@
     "visionPage": {
       "metaTitle": "Vision",
       "eyebrow": "Vision",
-      "title": "Healthier water systems. More resilient communities.",
+      "title": "Healthier water systems. *More resilient* communities.",
       "lede": "Knowledge and technology can help secure a thriving planet for current and future generations.",
       "statementTitle": "Why Fluvio exists",
       "valuesTitle": "Five values guide the work",
@@ -26,16 +31,16 @@
         "Fluvio works across Australian and Melanesian water systems, combining field evidence with tools that fit local conditions and operational needs.",
         "Collaboration is part of delivery. Monitoring, data management and training are developed with the people who will use and sustain them."
       ],
-      "practiceImageAlt": "A Fluvio field team working together",
+      "practiceImageAlt": "Training staff wading a river with a remote-controlled gauging boat",
       "contactEyebrow": "Projects and partnerships",
-      "contactTitle": "Work towards a more resilient water future with us.",
+      "contactTitle": "Work towards a more *resilient water future* with us.",
       "contactIntro": "Bring us the water, environmental or climate challenge you are working through."
     },
     "expertisePage": {
       "metaTitle": "Expertise",
       "metaDescription": "Fluvio expertise in hydrological monitoring, water modelling, resource management, carbon assessment and operational data systems.",
       "eyebrow": "Expertise",
-      "title": "Water intelligence built for real conditions.",
+      "title": "Water intelligence built for *real conditions*.",
       "lede": "Technical depth across monitoring, modelling and environmental assessment, connected to practical delivery.",
       "introTitle": "Six capabilities, one connected environmental practice",
       "introIntro": "Each capability draws on field science, data and collaboration, with evidence from projects across Australia and Melanesia.",
@@ -43,28 +48,67 @@
       "relatedProjects": "Related projects",
       "teamTitle": "The capability is multidisciplinary.",
       "teamBody": "Hydrologists, environmental scientists, spatial analysts and data specialists work together from project design through field delivery and operational use.",
-      "teamLink": "Meet the Fluvio team"
+      "teamLink": "Meet the Fluvio team",
+      "viewArea": "Explore this capability",
+      "projectCountOne": "1 project",
+      "projectCountTemplate": "{count} projects"
+    },
+    "expertiseDetail": {
+      "eyebrow": "Expertise",
+      "back": "All expertise",
+      "areaOf": "Area {current} of {total}",
+      "highlightsTitle": "What this covers",
+      "projectsEyebrow": "Evidence",
+      "projectsTitle": "Projects applying this capability",
+      "teamEyebrow": "People",
+      "teamTitle": "Specialists in this area",
+      "otherEyebrow": "Explore",
+      "otherTitle": "Other capability areas",
+      "previous": "Previous area",
+      "next": "Next area",
+      "contactEyebrow": "Work with us",
+      "contactTitle": "Bring this capability *to your project*.",
+      "contactIntro": "Tell us about the place, the system and the decision you need to support."
     },
     "teamPage": {
       "metaTitle": "Team",
       "metaDescription": "Meet the Fluvio team working across hydrology, environmental science, carbon, spatial analysis and data systems.",
       "eyebrow": "Team",
-      "title": "Many disciplines. One environmental practice.",
+      "title": "Many disciplines. *One* environmental practice.",
       "lede": "Specialists working together across field science, environmental systems and applied technology.",
-      "heroImageAlt": "Fluvio specialists working together in the field",
+      "heroImageAlt": "Fluvio team members and partners on a beach beside a survey boat",
       "directoryTitle": "People behind the work",
       "directoryIntro": "The team brings research, industry and regional experience to complex water, climate and environmental challenges.",
-      "contactTitle": "Bring the right mix of expertise to your project.",
+      "contactTitle": "Bring the right mix of expertise *to your project*.",
       "contactIntro": "Tell us about the system, place or decision your team is working through.",
       "viewProfile": "View profile"
+    },
+    "teamDetail": {
+      "eyebrow": "Team",
+      "back": "Whole team",
+      "memberOf": "Member {current} of {total}",
+      "specialtiesTitle": "Specialties",
+      "locationLabel": "Based in",
+      "externalProfile": "Professional profile",
+      "expertiseEyebrow": "Practice",
+      "expertiseTitle": "Areas of practice",
+      "projectsEyebrow": "Evidence",
+      "projectsTitle": "Projects in these areas",
+      "colleaguesEyebrow": "Team",
+      "colleaguesTitle": "Works alongside",
+      "previous": "Previous colleague",
+      "next": "Next colleague",
+      "contactEyebrow": "Work with us",
+      "contactTitle": "Bring the right people *to your project*.",
+      "contactIntro": "Tell us what you are working through and we will bring the right mix of field, science and technology expertise."
     },
     "contactPage": {
       "metaTitle": "Contact",
       "metaDescription": "Start a conversation with Fluvio about a water, environmental or climate project.",
       "eyebrow": "Contact",
-      "title": "Start with the place, problem and decision.",
+      "title": "Start with the place, problem *and decision*.",
       "lede": "Tell us about the water, environmental or climate challenge your team is working through.",
-      "heroImageAlt": "A river landscape viewed from above",
+      "heroImageAlt": "A river running through a steep rocky gorge under cloud",
       "enquiryTitle": "Project enquiry",
       "enquiryBody": "Include the project location, the environmental system involved and the decision or operational need you want to support.",
       "enquiryAction": "Open a project enquiry",
@@ -79,7 +123,7 @@
       "metaTitle": "Projects",
       "metaDescription": "Explore Fluvio projects in hydrological monitoring, water resource management, environmental assessment and applied data systems.",
       "eyebrow": "Projects",
-      "title": "Field intelligence for complex environmental systems.",
+      "title": "Field intelligence for *complex* environmental systems.",
       "lede": "We combine practical field science, monitoring technology and data systems to help communities, governments and industry make better decisions about water and climate.",
       "featuredLabel": "Featured project",
       "listEyebrow": "Selected work",
@@ -88,7 +132,9 @@
       "allProjects": "All projects",
       "platformsEyebrow": "Platforms",
       "platformsTitle": "Environmental data, ready to use",
-      "platformsIntro": "Purpose-built tools turn monitoring networks into information that teams can understand and act on."
+      "platformsIntro": "Purpose-built tools turn monitoring networks into information that teams can understand and act on.",
+      "filterLabel": "Filter by capability",
+      "filterAll": "All projects"
     },
     "projectDetail": {
       "back": "All projects",
@@ -104,8 +150,12 @@
       "relatedProjectsEyebrow": "Continue exploring",
       "relatedProjectsTitle": "Related projects",
       "contactEyebrow": "Work with us",
-      "contactTitle": "Need a project shaped around your environment?",
-      "contactIntro": "We build monitoring and decision systems around real places, practical constraints and the people who use them."
+      "contactTitle": "Need a project shaped *around your environment*?",
+      "contactIntro": "We build monitoring and decision systems around real places, practical constraints and the people who use them.",
+      "contents": "In this case study",
+      "factsLabel": "Project facts",
+      "previousProject": "Previous project",
+      "nextProject": "Next project"
     },
     "project": {
       "viewProject": "View project",
@@ -118,12 +168,17 @@
     },
     "contactPanel": {
       "eyebrow": "Start a conversation",
-      "title": "Have a water, environmental or climate challenge?",
+      "title": "Have a water, environmental or *climate challenge*?",
       "intro": "Tell us what you are working through. We will bring the right mix of field, science and technology expertise to the conversation.",
       "action": "Contact Fluvio"
     }
   },
   "pijin": {
+    "common": {
+      "skipToContent": "Go stret long content",
+      "breadcrumbLabel": "Iu stap long hia",
+      "home": "Hom"
+    },
     "slider": {
       "regionLabel": "Intro blong Fluvio",
       "slideOf": "long",
@@ -140,7 +195,7 @@
     "visionPage": {
       "metaTitle": "Vison",
       "eyebrow": "Vison",
-      "title": "Olketa wata sistem wea moa helti. Olketa komuniti wea moa strong.",
+      "title": "Olketa wata sistem wea moa helti. Olketa komuniti wea *moa strong*.",
       "lede": "Savve an teknoloji savve helpem fo mekem sua wol ia stap gud fo olketa pipol distaem an olketa jenereson bihaen.",
       "statementTitle": "Fo wanem nao Fluvio hemi stap",
       "valuesTitle": "Faevfala value nao gaedem waka blong mifala",
@@ -150,16 +205,16 @@
         "Fluvio waka long olketa wata sistem blong Australia an Melanesia. Mifala joinim evidens from graon wetem olketa tul wea fitim kondison blong ples an need blong evriday waka.",
         "Waka tugeta hemi haf blong evri project. Mifala developim monitoring, data management an trening tugeta wetem olketa pipol wea bae iusim an lukaftarem olketa samting ia."
       ],
-      "practiceImageAlt": "Wanfala field tim blong Fluvio hemi waka tugeta",
+      "practiceImageAlt": "Olketa staff wea trening olketa wokabaot insaet long wanfala reva wetem wanfala remote-control gauging bot",
       "contactEyebrow": "Olketa project an partnasip",
-      "contactTitle": "Waka tugeta wetem mifala fo strongim wata blong iumi fo taem bihaen.",
+      "contactTitle": "Waka wetem mifala fo wanfala *wata fiuja wea moa strong*.",
       "contactIntro": "Tekem kam long mifala eni hevi blong wata, enviromen o klaemet wea iu waka long hem."
     },
     "expertisePage": {
       "metaTitle": "Savve",
       "metaDescription": "Savve blong Fluvio long monitorim wata, modelling blong wata, management blong wata risos, carbon assessment an olketa data sistem fo evriday waka.",
       "eyebrow": "Savve",
-      "title": "Savve abaotem wata wea fitim tru kondison long ples.",
+      "title": "Savve abaotem wata wea fitim *tru kondison* long ples.",
       "lede": "Dip technical savve long monitoring, modelling an assessment blong enviromen, wea join long waka wea barava kamap tru.",
       "introTitle": "Sikisfala savve, wanfala waka fo enviromen",
       "introIntro": "Evri savve eria hemi iusim saens long graon, data an waka tugeta, wetem evidens from olketa project long Australia an Melanesia.",
@@ -167,28 +222,67 @@
       "relatedProjects": "Olketa project wea join wetem diswan",
       "teamTitle": "Staka difren savve waka tugeta.",
       "teamBody": "Olketa hydrologist, saentis blong enviromen, spatial analyst an data ekspet waka tugeta, start long design blong project, go long waka long field, kasem taem olketa sistem waka evriday.",
-      "teamLink": "Mitim tim blong Fluvio"
+      "teamLink": "Mitim tim blong Fluvio",
+      "viewArea": "Lukluk moa long savve ia",
+      "projectCountOne": "1 project",
+      "projectCountTemplate": "{count} project"
+    },
+    "expertiseDetail": {
+      "eyebrow": "Savve",
+      "back": "Evri savve",
+      "areaOf": "Eria {current} long {total}",
+      "highlightsTitle": "Wanem hemi kavarem",
+      "projectsEyebrow": "Pruf",
+      "projectsTitle": "Olketa project wea iusim savve ia",
+      "teamEyebrow": "Pipol",
+      "teamTitle": "Olketa spesialist long eria ia",
+      "otherEyebrow": "Lukluk raon",
+      "otherTitle": "Olketa nara savve eria",
+      "previous": "Eria bifoa",
+      "next": "Nekis eria",
+      "contactEyebrow": "Waka wetem mifala",
+      "contactTitle": "Tekem savve ia *long project blong iu*.",
+      "contactIntro": "Talem mifala abaotem ples, sistem an disison wea iu need fo sapotem."
     },
     "teamPage": {
       "metaTitle": "Tim",
       "metaDescription": "Mitim tim blong Fluvio wea waka long hydrology, saens blong enviromen, carbon, spatial analysis an olketa data sistem.",
       "eyebrow": "Tim",
-      "title": "Staka difren savve. Wanfala waka fo enviromen.",
+      "title": "Staka difren savve. *Wanfala* waka fo enviromen.",
       "lede": "Olketa ekspet waka tugeta long saens long graon, olketa enviromen sistem an teknoloji fo iusim long ples.",
-      "heroImageAlt": "Olketa ekspet blong Fluvio waka tugeta long field",
+      "heroImageAlt": "Olketa memba blong Fluvio tim an olketa patna long wanfala bis klosap long wanfala survey bot",
       "directoryTitle": "Olketa pipol bihaen long waka",
       "directoryIntro": "Tim ia tekem kam savve from research, indastri an region fo olketa hadfala hevi blong wata, klaemet an enviromen.",
-      "contactTitle": "Tekem kam stretfala mix blong savve fo project blong iu.",
+      "contactTitle": "Tekem raet mix blong savve *long project blong iu*.",
       "contactIntro": "Talem mifala abaotem sistem, ples o disison wea tim blong iu waka long hem.",
       "viewProfile": "Lukim profile"
+    },
+    "teamDetail": {
+      "eyebrow": "Tim",
+      "back": "Full tim",
+      "memberOf": "Memba {current} long {total}",
+      "specialtiesTitle": "Olketa spesialti",
+      "locationLabel": "Stap long",
+      "externalProfile": "Profesonal profael",
+      "expertiseEyebrow": "Waka",
+      "expertiseTitle": "Olketa eria blong waka",
+      "projectsEyebrow": "Pruf",
+      "projectsTitle": "Olketa project long olketa eria ia",
+      "colleaguesEyebrow": "Tim",
+      "colleaguesTitle": "Waka tugeta wetem",
+      "previous": "Kolig bifoa",
+      "next": "Nekis kolig",
+      "contactEyebrow": "Waka wetem mifala",
+      "contactTitle": "Tekem olketa raet pipol *long project blong iu*.",
+      "contactIntro": "Talem mifala wanem iu waka long hem, an bae mifala tekem kam raet mix blong field, saens an teknoloji savve."
     },
     "contactPage": {
       "metaTitle": "Kontak",
       "metaDescription": "Startim toktok wetem Fluvio abaotem wanfala project blong wata, enviromen o klaemet.",
       "eyebrow": "Kontak",
-      "title": "Start wetem ples, hevi an disison.",
+      "title": "Start wetem ples, hevi *an disison*.",
       "lede": "Talem mifala abaotem hevi blong wata, enviromen o klaemet wea tim blong iu waka long hem.",
-      "heroImageAlt": "Lukluk from antap long wanfala reva",
+      "heroImageAlt": "Wanfala reva hemi ran tru long wanfala stip gorge wea garem ston, andanit long klaod",
       "enquiryTitle": "Askem abaotem project",
       "enquiryBody": "Putum insaet ples blong project, enviromen sistem wea hemi insaet, an disison o need blong waka wea iu laek sapotem.",
       "enquiryAction": "Startim wanfala project enquiry",
@@ -203,7 +297,7 @@
       "metaTitle": "Olketa Project",
       "metaDescription": "Lukim olketa project blong Fluvio long monitorim wata, management blong wata risos, assessment blong enviromen an olketa data sistem.",
       "eyebrow": "Olketa Project",
-      "title": "Savve from graon fo olketa hadfala enviromen sistem.",
+      "title": "Savve from graon fo olketa *hadfala* enviromen sistem.",
       "lede": "Mifala joinim saens long graon, monitoring teknoloji an olketa data sistem fo helpem komuniti, gavman an indastri fo mekem olketa disison wea moa gud abaotem wata an klaemet.",
       "featuredLabel": "Spesol project",
       "listEyebrow": "Samfala waka",
@@ -212,7 +306,9 @@
       "allProjects": "Evri project",
       "platformsEyebrow": "Olketa platform",
       "platformsTitle": "Data blong enviromen, redi fo iusim",
-      "platformsIntro": "Olketa tul wea mifala buildim spesol, olketa tanem monitoring network kamap infomeson wea olketa tim savve luksavve an iusim."
+      "platformsIntro": "Olketa tul wea mifala buildim spesol, olketa tanem monitoring network kamap infomeson wea olketa tim savve luksavve an iusim.",
+      "filterLabel": "Filtarem long savve eria",
+      "filterAll": "Evri project"
     },
     "projectDetail": {
       "back": "Evri project",
@@ -228,8 +324,12 @@
       "relatedProjectsEyebrow": "Gohed fo lukluk",
       "relatedProjectsTitle": "Olketa project wea join wetem diswan",
       "contactEyebrow": "Waka wetem mifala",
-      "contactTitle": "Iu needim wanfala project wea fitim enviromen blong iu?",
-      "contactIntro": "Mifala buildim olketa monitoring an disison sistem fo fitim tru ples, tru kondison blong waka, an olketa pipol wea bae iusim."
+      "contactTitle": "Iu need wanfala project wea fitim *enviromen blong iu*?",
+      "contactIntro": "Mifala buildim olketa monitoring an disison sistem fo fitim tru ples, tru kondison blong waka, an olketa pipol wea bae iusim.",
+      "contents": "Insaet long project ia",
+      "factsLabel": "Olketa fact blong project",
+      "previousProject": "Project bifoa",
+      "nextProject": "Nekis project"
     },
     "project": {
       "viewProject": "Lukim project",
@@ -242,12 +342,17 @@
     },
     "contactPanel": {
       "eyebrow": "Startim toktok",
-      "title": "Iu garem wanfala hevi blong wata, enviromen o klaemet?",
+      "title": "Iu garem wanfala hevi blong wata, enviromen o *klaemet*?",
       "intro": "Talem mifala wanem nao iu waka long hem. Bae mifala tekem kam stretfala mix blong savve long field waka, saens an teknoloji fo toktok ia.",
       "action": "Kontaktem Fluvio"
     }
   },
   "fr": {
+    "common": {
+      "skipToContent": "Aller au contenu",
+      "breadcrumbLabel": "Vous êtes ici",
+      "home": "Accueil"
+    },
     "slider": {
       "regionLabel": "Présentation de Fluvio",
       "slideOf": "sur",
@@ -264,7 +369,7 @@
     "visionPage": {
       "metaTitle": "Vision",
       "eyebrow": "Vision",
-      "title": "Des systèmes hydriques plus sains. Des communautés plus résilientes.",
+      "title": "Des systèmes hydriques plus sains. Des communautés *plus résilientes*.",
       "lede": "Le savoir et la technologie peuvent garantir une planète florissante aux générations présentes et futures.",
       "statementTitle": "La raison d’être de Fluvio",
       "valuesTitle": "Cinq valeurs guident notre travail",
@@ -274,16 +379,16 @@
         "Fluvio intervient sur les systèmes hydriques d’Australie et de Mélanésie, en associant les observations de terrain à des outils adaptés aux conditions locales et aux besoins opérationnels.",
         "La collaboration fait partie de la réalisation. La surveillance, la gestion des données et la formation sont développées avec les personnes qui les utiliseront et les feront vivre."
       ],
-      "practiceImageAlt": "Une équipe de terrain Fluvio au travail",
+      "practiceImageAlt": "Personnel en formation traversant une rivière avec un bateau de jaugeage télécommandé",
       "contactEyebrow": "Projets et partenariats",
-      "contactTitle": "Œuvrons ensemble pour un avenir de l’eau plus résilient.",
+      "contactTitle": "Construisons ensemble un avenir de l’eau *plus résilient*.",
       "contactIntro": "Confiez-nous le défi hydrique, environnemental ou climatique que vous cherchez à relever."
     },
     "expertisePage": {
       "metaTitle": "Expertise",
       "metaDescription": "L’expertise de Fluvio en surveillance hydrologique, modélisation de l’eau, gestion des ressources, évaluation du carbone et systèmes de données opérationnels.",
       "eyebrow": "Expertise",
-      "title": "Une intelligence de l’eau conçue pour les conditions réelles.",
+      "title": "Une intelligence de l’eau conçue pour *les conditions réelles*.",
       "lede": "Une profondeur technique en surveillance, modélisation et évaluation environnementale, reliée à une réalisation concrète.",
       "introTitle": "Six compétences, une seule pratique environnementale intégrée",
       "introIntro": "Chaque compétence s’appuie sur la science de terrain, les données et la collaboration, avec des références issues de projets menés en Australie et en Mélanésie.",
@@ -291,28 +396,67 @@
       "relatedProjects": "Projets associés",
       "teamTitle": "Une compétence pluridisciplinaire.",
       "teamBody": "Hydrologues, scientifiques de l’environnement, analystes spatiaux et spécialistes des données travaillent ensemble, de la conception du projet à la réalisation sur le terrain et à l’exploitation.",
-      "teamLink": "Rencontrer l’équipe Fluvio"
+      "teamLink": "Rencontrer l’équipe Fluvio",
+      "viewArea": "Découvrir ce domaine",
+      "projectCountOne": "1 projet",
+      "projectCountTemplate": "{count} projets"
+    },
+    "expertiseDetail": {
+      "eyebrow": "Expertise",
+      "back": "Toute l’expertise",
+      "areaOf": "Domaine {current} sur {total}",
+      "highlightsTitle": "Ce que cela couvre",
+      "projectsEyebrow": "Preuves",
+      "projectsTitle": "Projets mettant en œuvre ce domaine",
+      "teamEyebrow": "Personnes",
+      "teamTitle": "Spécialistes de ce domaine",
+      "otherEyebrow": "Explorer",
+      "otherTitle": "Autres domaines d’expertise",
+      "previous": "Domaine précédent",
+      "next": "Domaine suivant",
+      "contactEyebrow": "Travailler avec nous",
+      "contactTitle": "Mettez ce domaine *au service de votre projet*.",
+      "contactIntro": "Parlez-nous du lieu, du système et de la décision que vous devez appuyer."
     },
     "teamPage": {
       "metaTitle": "Équipe",
       "metaDescription": "Rencontrez l’équipe Fluvio : hydrologie, sciences de l’environnement, carbone, analyse spatiale et systèmes de données.",
       "eyebrow": "Équipe",
-      "title": "Des disciplines multiples. Une pratique environnementale.",
+      "title": "Des disciplines multiples. *Une* pratique environnementale.",
       "lede": "Des spécialistes qui unissent science de terrain, systèmes environnementaux et technologies appliquées.",
-      "heroImageAlt": "Des spécialistes Fluvio travaillant ensemble sur le terrain",
+      "heroImageAlt": "Des membres de l’équipe Fluvio et des partenaires sur une plage, à côté d’un bateau de relevé",
       "directoryTitle": "Les personnes derrière le travail",
       "directoryIntro": "L’équipe apporte une expérience issue de la recherche, de l’industrie et du terrain régional à des défis complexes liés à l’eau, au climat et à l’environnement.",
-      "contactTitle": "Réunissez les bonnes expertises pour votre projet.",
+      "contactTitle": "Réunissez la bonne combinaison d’expertise *autour de votre projet*.",
       "contactIntro": "Parlez-nous du système, du lieu ou de la décision sur lesquels votre équipe travaille.",
       "viewProfile": "Voir le profil"
+    },
+    "teamDetail": {
+      "eyebrow": "Équipe",
+      "back": "Toute l’équipe",
+      "memberOf": "Membre {current} sur {total}",
+      "specialtiesTitle": "Spécialités",
+      "locationLabel": "Basé à",
+      "externalProfile": "Profil professionnel",
+      "expertiseEyebrow": "Pratique",
+      "expertiseTitle": "Domaines de pratique",
+      "projectsEyebrow": "Preuves",
+      "projectsTitle": "Projets dans ces domaines",
+      "colleaguesEyebrow": "Équipe",
+      "colleaguesTitle": "Travaille aux côtés de",
+      "previous": "Collègue précédent",
+      "next": "Collègue suivant",
+      "contactEyebrow": "Travailler avec nous",
+      "contactTitle": "Réunissez les bonnes personnes *autour de votre projet*.",
+      "contactIntro": "Dites-nous sur quoi vous travaillez et nous réunirons la bonne combinaison d’expertise de terrain, scientifique et technologique."
     },
     "contactPage": {
       "metaTitle": "Contact",
       "metaDescription": "Engagez la conversation avec Fluvio autour d’un projet lié à l’eau, à l’environnement ou au climat.",
       "eyebrow": "Contact",
-      "title": "Commencez par le lieu, le problème et la décision.",
+      "title": "Commencez par le lieu, le problème *et la décision*.",
       "lede": "Parlez-nous du défi hydrique, environnemental ou climatique que votre équipe cherche à relever.",
-      "heroImageAlt": "Un paysage fluvial vu du ciel",
+      "heroImageAlt": "Une rivière traversant une gorge rocheuse et escarpée sous les nuages",
       "enquiryTitle": "Demande de projet",
       "enquiryBody": "Précisez le lieu du projet, le système environnemental concerné et la décision ou le besoin opérationnel à appuyer.",
       "enquiryAction": "Ouvrir une demande de projet",
@@ -327,7 +471,7 @@
       "metaTitle": "Projets",
       "metaDescription": "Découvrez les projets Fluvio en surveillance hydrologique, gestion des ressources en eau, évaluation environnementale et systèmes de données appliqués.",
       "eyebrow": "Projets",
-      "title": "L’intelligence de terrain pour des systèmes environnementaux complexes.",
+      "title": "L’intelligence de terrain pour des systèmes environnementaux *complexes*.",
       "lede": "Nous associons science de terrain, technologies de surveillance et systèmes de données pour aider les communautés, les gouvernements et l’industrie à mieux décider en matière d’eau et de climat.",
       "featuredLabel": "Projet phare",
       "listEyebrow": "Travaux choisis",
@@ -336,7 +480,9 @@
       "allProjects": "Tous les projets",
       "platformsEyebrow": "Plateformes",
       "platformsTitle": "Des données environnementales prêtes à l’emploi",
-      "platformsIntro": "Des outils dédiés transforment les réseaux de surveillance en informations que les équipes peuvent comprendre et exploiter."
+      "platformsIntro": "Des outils dédiés transforment les réseaux de surveillance en informations que les équipes peuvent comprendre et exploiter.",
+      "filterLabel": "Filtrer par domaine",
+      "filterAll": "Tous les projets"
     },
     "projectDetail": {
       "back": "Tous les projets",
@@ -352,8 +498,12 @@
       "relatedProjectsEyebrow": "Poursuivre l’exploration",
       "relatedProjectsTitle": "Projets associés",
       "contactEyebrow": "Travailler avec nous",
-      "contactTitle": "Besoin d’un projet façonné pour votre environnement ?",
-      "contactIntro": "Nous concevons des systèmes de surveillance et de décision autour de lieux réels, de contraintes concrètes et des personnes qui les utilisent."
+      "contactTitle": "Besoin d’un projet façonné *autour de votre environnement* ?",
+      "contactIntro": "Nous concevons des systèmes de surveillance et de décision autour de lieux réels, de contraintes concrètes et des personnes qui les utilisent.",
+      "contents": "Dans cette étude de cas",
+      "factsLabel": "Repères du projet",
+      "previousProject": "Projet précédent",
+      "nextProject": "Projet suivant"
     },
     "project": {
       "viewProject": "Voir le projet",
@@ -366,12 +516,17 @@
     },
     "contactPanel": {
       "eyebrow": "Engager la conversation",
-      "title": "Un défi lié à l’eau, à l’environnement ou au climat ?",
+      "title": "Un défi lié à l’eau, à l’environnement ou *au climat* ?",
       "intro": "Parlez-nous de ce sur quoi vous travaillez. Nous réunirons les bonnes expertises de terrain, scientifiques et technologiques autour de la conversation.",
       "action": "Contacter Fluvio"
     }
   },
   "es": {
+    "common": {
+      "skipToContent": "Ir al contenido",
+      "breadcrumbLabel": "Estás aquí",
+      "home": "Inicio"
+    },
     "slider": {
       "regionLabel": "Presentación de Fluvio",
       "slideOf": "de",
@@ -388,7 +543,7 @@
     "visionPage": {
       "metaTitle": "Visión",
       "eyebrow": "Visión",
-      "title": "Sistemas hídricos más sanos. Comunidades más resilientes.",
+      "title": "Sistemas hídricos más sanos. Comunidades *más resilientes*.",
       "lede": "El conocimiento y la tecnología pueden asegurar un planeta próspero para las generaciones presentes y futuras.",
       "statementTitle": "La razón de ser de Fluvio",
       "valuesTitle": "Cinco valores guían el trabajo",
@@ -398,16 +553,16 @@
         "Fluvio trabaja en los sistemas hídricos de Australia y Melanesia, combinando la evidencia de campo con herramientas adaptadas a las condiciones locales y a las necesidades operativas.",
         "La colaboración es parte de la ejecución. El monitoreo, la gestión de datos y la capacitación se desarrollan con las personas que los usarán y los mantendrán."
       ],
-      "practiceImageAlt": "Un equipo de campo de Fluvio trabajando en conjunto",
+      "practiceImageAlt": "Personal en formación vadeando un río con una embarcación de aforo teledirigida",
       "contactEyebrow": "Proyectos y alianzas",
-      "contactTitle": "Trabajemos juntos por un futuro hídrico más resiliente.",
+      "contactTitle": "Trabajemos juntos hacia un futuro hídrico *más resiliente*.",
       "contactIntro": "Cuéntenos el desafío hídrico, ambiental o climático en el que está trabajando."
     },
     "expertisePage": {
       "metaTitle": "Especialidades",
       "metaDescription": "La especialización de Fluvio en monitoreo hidrológico, modelación del agua, gestión de recursos, evaluación de carbono y sistemas de datos operativos.",
       "eyebrow": "Especialidades",
-      "title": "Inteligencia del agua construida para condiciones reales.",
+      "title": "Inteligencia del agua construida para *condiciones reales*.",
       "lede": "Profundidad técnica en monitoreo, modelación y evaluación ambiental, conectada con una ejecución práctica.",
       "introTitle": "Seis capacidades, una práctica ambiental integrada",
       "introIntro": "Cada capacidad se apoya en ciencia de campo, datos y colaboración, con evidencia de proyectos en Australia y Melanesia.",
@@ -415,28 +570,67 @@
       "relatedProjects": "Proyectos relacionados",
       "teamTitle": "La capacidad es multidisciplinaria.",
       "teamBody": "Hidrólogos, científicos ambientales, analistas espaciales y especialistas en datos trabajan juntos desde el diseño del proyecto hasta la ejecución en campo y el uso operativo.",
-      "teamLink": "Conocer al equipo de Fluvio"
+      "teamLink": "Conocer al equipo de Fluvio",
+      "viewArea": "Explorar esta especialidad",
+      "projectCountOne": "1 proyecto",
+      "projectCountTemplate": "{count} proyectos"
+    },
+    "expertiseDetail": {
+      "eyebrow": "Especialidad",
+      "back": "Todas las especialidades",
+      "areaOf": "Área {current} de {total}",
+      "highlightsTitle": "Qué abarca",
+      "projectsEyebrow": "Evidencia",
+      "projectsTitle": "Proyectos que aplican esta especialidad",
+      "teamEyebrow": "Personas",
+      "teamTitle": "Especialistas en esta área",
+      "otherEyebrow": "Explorar",
+      "otherTitle": "Otras áreas de especialidad",
+      "previous": "Área anterior",
+      "next": "Siguiente área",
+      "contactEyebrow": "Trabaje con nosotros",
+      "contactTitle": "Lleve esta especialidad *a su proyecto*.",
+      "contactIntro": "Cuéntenos sobre el lugar, el sistema y la decisión que necesita respaldar."
     },
     "teamPage": {
       "metaTitle": "Equipo",
       "metaDescription": "Conozca al equipo de Fluvio: hidrología, ciencias ambientales, carbono, análisis espacial y sistemas de datos.",
       "eyebrow": "Equipo",
-      "title": "Muchas disciplinas. Una sola práctica ambiental.",
+      "title": "Muchas disciplinas. *Una sola* práctica ambiental.",
       "lede": "Especialistas que trabajan juntos en ciencia de campo, sistemas ambientales y tecnología aplicada.",
-      "heroImageAlt": "Especialistas de Fluvio trabajando juntos en el campo",
+      "heroImageAlt": "Integrantes del equipo de Fluvio y socios en una playa junto a una embarcación de levantamiento",
       "directoryTitle": "Las personas detrás del trabajo",
       "directoryIntro": "El equipo aporta experiencia de investigación, industria y trabajo regional a desafíos complejos de agua, clima y medio ambiente.",
-      "contactTitle": "Reúna la combinación adecuada de especialidades para su proyecto.",
+      "contactTitle": "Reúna la combinación adecuada de especialidades *para su proyecto*.",
       "contactIntro": "Cuéntenos el sistema, el lugar o la decisión en la que su equipo está trabajando.",
       "viewProfile": "Ver perfil"
+    },
+    "teamDetail": {
+      "eyebrow": "Equipo",
+      "back": "Todo el equipo",
+      "memberOf": "Integrante {current} de {total}",
+      "specialtiesTitle": "Especialidades",
+      "locationLabel": "Con base en",
+      "externalProfile": "Perfil profesional",
+      "expertiseEyebrow": "Práctica",
+      "expertiseTitle": "Áreas de práctica",
+      "projectsEyebrow": "Evidencia",
+      "projectsTitle": "Proyectos en estas áreas",
+      "colleaguesEyebrow": "Equipo",
+      "colleaguesTitle": "Trabaja junto a",
+      "previous": "Colega anterior",
+      "next": "Siguiente colega",
+      "contactEyebrow": "Trabaje con nosotros",
+      "contactTitle": "Reúna a las personas adecuadas *para su proyecto*.",
+      "contactIntro": "Cuéntenos en qué está trabajando y reuniremos la combinación adecuada de experiencia de campo, científica y tecnológica."
     },
     "contactPage": {
       "metaTitle": "Contacto",
       "metaDescription": "Inicie una conversación con Fluvio sobre un proyecto de agua, medio ambiente o clima.",
       "eyebrow": "Contacto",
-      "title": "Empiece por el lugar, el problema y la decisión.",
+      "title": "Empiece por el lugar, el problema *y la decisión*.",
       "lede": "Cuéntenos el desafío hídrico, ambiental o climático en el que su equipo está trabajando.",
-      "heroImageAlt": "Un paisaje fluvial visto desde arriba",
+      "heroImageAlt": "Un río que atraviesa una garganta rocosa y escarpada bajo las nubes",
       "enquiryTitle": "Consulta de proyecto",
       "enquiryBody": "Incluya la ubicación del proyecto, el sistema ambiental involucrado y la decisión o necesidad operativa que desea respaldar.",
       "enquiryAction": "Abrir una consulta de proyecto",
@@ -451,7 +645,7 @@
       "metaTitle": "Proyectos",
       "metaDescription": "Explore los proyectos de Fluvio en monitoreo hidrológico, gestión de recursos hídricos, evaluación ambiental y sistemas de datos aplicados.",
       "eyebrow": "Proyectos",
-      "title": "Inteligencia de campo para sistemas ambientales complejos.",
+      "title": "Inteligencia de campo para sistemas ambientales *complejos*.",
       "lede": "Combinamos ciencia de campo práctica, tecnología de monitoreo y sistemas de datos para ayudar a comunidades, gobiernos e industria a tomar mejores decisiones sobre el agua y el clima.",
       "featuredLabel": "Proyecto destacado",
       "listEyebrow": "Trabajo seleccionado",
@@ -460,7 +654,9 @@
       "allProjects": "Todos los proyectos",
       "platformsEyebrow": "Plataformas",
       "platformsTitle": "Datos ambientales listos para usar",
-      "platformsIntro": "Herramientas diseñadas a medida convierten las redes de monitoreo en información que los equipos pueden comprender y aprovechar."
+      "platformsIntro": "Herramientas diseñadas a medida convierten las redes de monitoreo en información que los equipos pueden comprender y aprovechar.",
+      "filterLabel": "Filtrar por especialidad",
+      "filterAll": "Todos los proyectos"
     },
     "projectDetail": {
       "back": "Todos los proyectos",
@@ -476,8 +672,12 @@
       "relatedProjectsEyebrow": "Seguir explorando",
       "relatedProjectsTitle": "Proyectos relacionados",
       "contactEyebrow": "Trabaje con nosotros",
-      "contactTitle": "¿Necesita un proyecto a la medida de su entorno?",
-      "contactIntro": "Construimos sistemas de monitoreo y decisión en torno a lugares reales, restricciones prácticas y las personas que los utilizan."
+      "contactTitle": "¿Necesita un proyecto diseñado *en torno a su entorno*?",
+      "contactIntro": "Construimos sistemas de monitoreo y decisión en torno a lugares reales, restricciones prácticas y las personas que los utilizan.",
+      "contents": "En este caso de estudio",
+      "factsLabel": "Datos del proyecto",
+      "previousProject": "Proyecto anterior",
+      "nextProject": "Siguiente proyecto"
     },
     "project": {
       "viewProject": "Ver el proyecto",
@@ -490,7 +690,7 @@
     },
     "contactPanel": {
       "eyebrow": "Iniciar una conversación",
-      "title": "¿Tiene un desafío de agua, medio ambiente o clima?",
+      "title": "¿Tiene un desafío de agua, medio ambiente o *clima*?",
       "intro": "Cuéntenos en qué está trabajando. Reuniremos la combinación adecuada de experiencia de campo, científica y tecnológica para la conversación.",
       "action": "Contactar a Fluvio"
     }

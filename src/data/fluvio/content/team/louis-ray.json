@@ -6,7 +6,8 @@
     "bio": "Louis is a dedicated environmental and sustainability consultant with a strong track record of delivering impactful projects. He is passionate about integrating environmental, social, and economic considerations to create positive outcomes for local communities.",
     "portrait": "/src/assets/images/fluvio/team-louis.jpeg",
     "portraitAlt": "Louis Ray",
-    "specialties": ["Environmental and sustainability consulting"]
+    "specialties": ["Environmental and sustainability consulting"],
+    "expertise": ["catchment-management"]
   },
   "pijin": {
     "order": 5,
@@ -15,7 +16,8 @@
     "bio": "Louis hemi wanfala consultant fo enviromen an sustainability wea barava givim hemseleva long waka blong hem, an hemi finisim gud staka important project. Hemi barava laekem fo joinim tingting abaotem enviromen, pipol an economy tugeta, fo tekem kam gudfala risalt fo olketa local komuniti.",
     "portrait": "/src/assets/images/fluvio/team-louis.jpeg",
     "portraitAlt": "Louis Ray",
-    "specialties": ["Consulting fo enviromen an sustainability"]
+    "specialties": ["Consulting fo enviromen an sustainability"],
+    "expertise": ["catchment-management"]
   },
   "fr": {
     "order": 5,
@@ -24,7 +26,8 @@
     "bio": "Louis est un consultant en environnement et développement durable engagé, fort d’un solide bilan de projets à fort impact. Il a à cœur d’intégrer les dimensions environnementales, sociales et économiques pour créer des retombées positives pour les communautés locales.",
     "portrait": "/src/assets/images/fluvio/team-louis.jpeg",
     "portraitAlt": "Louis Ray",
-    "specialties": ["Conseil en environnement et développement durable"]
+    "specialties": ["Conseil en environnement et développement durable"],
+    "expertise": ["catchment-management"]
   },
   "es": {
     "order": 5,
@@ -33,6 +36,7 @@
     "bio": "Louis es un consultor ambiental y de sostenibilidad dedicado, con una sólida trayectoria de proyectos de gran impacto. Le apasiona integrar consideraciones ambientales, sociales y económicas para crear resultados positivos para las comunidades locales.",
     "portrait": "/src/assets/images/fluvio/team-louis.jpeg",
     "portraitAlt": "Louis Ray",
-    "specialties": ["Consultoría ambiental y de sostenibilidad"]
+    "specialties": ["Consultoría ambiental y de sostenibilidad"],
+    "expertise": ["catchment-management"]
   }
 }

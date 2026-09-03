@@ -28,6 +28,8 @@ const {
   spacing = 'standard',
   shell = 'default',
   class: className,
+  /* Parent scoped styles reach this root through the forwarded data-astro-cid attribute. */
+  ...rest
 } = Astro.props;
 
 const shellClass =
@@ -35,6 +37,7 @@ const shellClass =
 ---
 
 <Tag
+  {...rest}
   id={id}
   aria-labelledby={labelledby}
   aria-label={ariaLabel}

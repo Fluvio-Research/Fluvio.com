@@ -1,0 +1,15 @@
+---
+import ExpertiseDetailPage from '~/components/pages/ExpertiseDetailPage.astro';
+import { getExpertiseAreas } from '~/data/fluvio/localized';
+import type { ExpertiseArea } from '~/data/fluvio/types';
+import { localeRecordStaticPaths, type Locale } from '~/i18n';
+
+export function getStaticPaths() {
+  return localeRecordStaticPaths(getExpertiseAreas, (area) => ({ slug: area.slug }));
+}
+
+const { lang } = Astro.params as { lang: Locale };
+const { record } = Astro.props as { record: ExpertiseArea };
+---
+
+<ExpertiseDetailPage locale={lang} area={record} />

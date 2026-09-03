@@ -6,7 +6,8 @@
     "bio": "Eric is focused on applying computer vision and machine learning to turn visual data into meaningful insights. He enjoys using data and technology to address environmental challenges and improve monitoring and analysis.",
     "portrait": "/src/assets/images/fluvio/team-eric.jpeg",
     "portraitAlt": "Eric Cheung",
-    "specialties": ["Computer vision", "Machine learning"]
+    "specialties": ["Computer vision", "Machine learning"],
+    "expertise": ["hydrological-monitoring"]
   },
   "pijin": {
     "order": 9,
@@ -15,7 +16,8 @@
     "bio": "Eric hemi focus long iusim computer vision an machine learning fo tanem olketa foto an video data kamap infomeson wea iumi savve iusim. Hemi enjoyim fo iusim data an teknoloji fo ansarem olketa hevi blong enviromen, an fo mekem monitoring an analysis kamap moa gud.",
     "portrait": "/src/assets/images/fluvio/team-eric.jpeg",
     "portraitAlt": "Eric Cheung",
-    "specialties": ["Computer vision", "Machine learning"]
+    "specialties": ["Computer vision", "Machine learning"],
+    "expertise": ["hydrological-monitoring"]
   },
   "fr": {
     "order": 9,
@@ -24,7 +26,8 @@
     "bio": "Eric applique la vision par ordinateur et l’apprentissage automatique pour transformer les données visuelles en enseignements utiles. Il aime mettre les données et la technologie au service des défis environnementaux et de l’amélioration de la surveillance et de l’analyse.",
     "portrait": "/src/assets/images/fluvio/team-eric.jpeg",
     "portraitAlt": "Eric Cheung",
-    "specialties": ["Vision par ordinateur", "Apprentissage automatique"]
+    "specialties": ["Vision par ordinateur", "Apprentissage automatique"],
+    "expertise": ["hydrological-monitoring"]
   },
   "es": {
     "order": 9,
@@ -33,6 +36,7 @@
     "bio": "Eric se centra en aplicar la visión artificial y el aprendizaje automático para convertir los datos visuales en información significativa. Disfruta usar los datos y la tecnología para abordar desafíos ambientales y mejorar el monitoreo y el análisis.",
     "portrait": "/src/assets/images/fluvio/team-eric.jpeg",
     "portraitAlt": "Eric Cheung",
-    "specialties": ["Visión artificial", "Aprendizaje automático"]
+    "specialties": ["Visión artificial", "Aprendizaje automático"],
+    "expertise": ["hydrological-monitoring"]
   }
 }

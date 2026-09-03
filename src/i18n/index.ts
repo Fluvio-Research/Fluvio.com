@@ -5,6 +5,28 @@ export const locales = ['en', 'pijin', 'fr', 'es'] as const;
 export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = 'en';
 
+/** Every locale that lives under a path prefix (all but the default). */
+export const secondaryLocales = locales.filter((locale): locale is Exclude<Locale, 'en'> => locale !== defaultLocale);
+
+/**
+ * `getStaticPaths` entries for the `[lang]` routes. Adding a language is a
+ * change to `locales` above; no route file needs editing.
+ */
+export const localeStaticPaths = (): Array<{ params: { lang: Locale } }> =>
+  secondaryLocales.map((lang) => ({ params: { lang } }));
+
+/**
+ * The same, fanned out over the records of each locale: one path per record
+ * per locale, with the localised record passed through as a prop.
+ */
+export const localeRecordStaticPaths = <T>(
+  records: (locale: Locale) => readonly T[],
+  params: (record: T) => Record<string, string>
+): Array<{ params: { lang: Locale } & Record<string, string>; props: { record: T } }> =>
+  secondaryLocales.flatMap((lang) =>
+    records(lang).map((record) => ({ params: { lang, ...params(record) }, props: { record } }))
+  );
+
 export const localeNames: Record<Locale, string> = {
   en: 'English',
   pijin: 'Pijin',

@@ -6,7 +6,8 @@
     "bio": "Mubashir has a passion for building data-driven interoperable systems that bridge the gaps between people and data. He is committed to the innovation of intuitive tools that push the boundaries of new environmental monitoring and data interfacing solutions.",
     "portrait": "/src/assets/images/fluvio/team-mubashir.jpg",
     "portraitAlt": "Mubashir Imran",
-    "specialties": ["Data-driven interoperable systems"]
+    "specialties": ["Data-driven interoperable systems"],
+    "expertise": ["operational-monitoring"]
   },
   "pijin": {
     "order": 7,
@@ -15,7 +16,8 @@
     "bio": "Mubashir hemi barava laekem fo buildim olketa sistem wea waka tugeta an stanap long data, fo joinim pipol wetem data. Hemi strong fo wakem olketa niufala tul wea isi fo iusim, an wea pusum mak blong olketa niufala solusen fo monitorim enviromen an fo waka wetem data.",
     "portrait": "/src/assets/images/fluvio/team-mubashir.jpg",
     "portraitAlt": "Mubashir Imran",
-    "specialties": ["Olketa sistem wea stanap long data"]
+    "specialties": ["Olketa sistem wea stanap long data"],
+    "expertise": ["operational-monitoring"]
   },
   "fr": {
     "order": 7,
@@ -24,7 +26,8 @@
     "bio": "Mubashir se passionne pour la construction de systèmes interopérables pilotés par les données, qui rapprochent les personnes et l’information. Il s’attache à innover des outils intuitifs qui repoussent les limites de la surveillance environnementale et des interfaces de données.",
     "portrait": "/src/assets/images/fluvio/team-mubashir.jpg",
     "portraitAlt": "Mubashir Imran",
-    "specialties": ["Systèmes interopérables pilotés par les données"]
+    "specialties": ["Systèmes interopérables pilotés par les données"],
+    "expertise": ["operational-monitoring"]
   },
   "es": {
     "order": 7,
@@ -33,6 +36,7 @@
     "bio": "A Mubashir le apasiona construir sistemas interoperables impulsados por datos que cierren las brechas entre las personas y la información. Está comprometido con la innovación de herramientas intuitivas que amplíen las fronteras del monitoreo ambiental y las interfaces de datos.",
     "portrait": "/src/assets/images/fluvio/team-mubashir.jpg",
     "portraitAlt": "Mubashir Imran",
-    "specialties": ["Sistemas interoperables impulsados por datos"]
+    "specialties": ["Sistemas interoperables impulsados por datos"],
+    "expertise": ["operational-monitoring"]
   }
 }

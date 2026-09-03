@@ -6,7 +6,8 @@
     "bio": "Melanie is an experienced geospatial analyst, conservation scientist, and drone pilot. Her creative approach improves science communication across a variety of mediums, and she is committed to using her diverse skillset to facilitate positive change.",
     "portrait": "/src/assets/images/fluvio/team-melanie.jpeg",
     "portraitAlt": "Melanie Johnson",
-    "specialties": ["Geospatial analysis", "Conservation science"]
+    "specialties": ["Geospatial analysis", "Conservation science"],
+    "expertise": ["island-scale-modelling", "catchment-management"]
   },
   "pijin": {
     "order": 4,
@@ -15,7 +16,8 @@
     "bio": "Melanie hemi wanfala geospatial analyst, saentis fo conservation, an drone pilot wea garem staka experience. Creative wei blong hem mekem toktok abaotem saens hemi moa klia long staka difren wei, an hemi barava strong fo iusim olketa difren savve blong hem fo helpem gudfala jenis.",
     "portrait": "/src/assets/images/fluvio/team-melanie.jpeg",
     "portraitAlt": "Melanie Johnson",
-    "specialties": ["Geospatial analysis", "Saens fo conservation"]
+    "specialties": ["Geospatial analysis", "Saens fo conservation"],
+    "expertise": ["island-scale-modelling", "catchment-management"]
   },
   "fr": {
     "order": 4,
@@ -24,7 +26,8 @@
     "bio": "Melanie est une analyste géospatiale expérimentée, scientifique de la conservation et télépilote de drone. Son approche créative enrichit la communication scientifique sur des supports variés, et elle met son éventail de compétences au service d’un changement positif.",
     "portrait": "/src/assets/images/fluvio/team-melanie.jpeg",
     "portraitAlt": "Melanie Johnson",
-    "specialties": ["Analyse géospatiale", "Science de la conservation"]
+    "specialties": ["Analyse géospatiale", "Science de la conservation"],
+    "expertise": ["island-scale-modelling", "catchment-management"]
   },
   "es": {
     "order": 4,
@@ -33,6 +36,7 @@
     "bio": "Melanie es una analista geoespacial experimentada, científica de la conservación y piloto de drones. Su enfoque creativo mejora la comunicación científica en diversos medios, y está comprometida con usar su variado conjunto de habilidades para facilitar un cambio positivo.",
     "portrait": "/src/assets/images/fluvio/team-melanie.jpeg",
     "portraitAlt": "Melanie Johnson",
-    "specialties": ["Análisis geoespacial", "Ciencia de la conservación"]
+    "specialties": ["Análisis geoespacial", "Ciencia de la conservación"],
+    "expertise": ["island-scale-modelling", "catchment-management"]
   }
 }

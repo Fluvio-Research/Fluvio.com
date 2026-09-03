@@ -1,0 +1,314 @@
+---
+import AdjacentNav from '~/components/fluvio/AdjacentNav.astro';
+import ArrowLink from '~/components/fluvio/ArrowLink.astro';
+import Breadcrumbs from '~/components/fluvio/Breadcrumbs.astro';
+import ContactPanel from '~/components/fluvio/ContactPanel.astro';
+import ExpertiseCard from '~/components/fluvio/ExpertiseCard.astro';
+import LargeImage from '~/components/fluvio/LargeImage.astro';
+import ProjectCard from '~/components/fluvio/ProjectCard.astro';
+import SectionFrame from '~/components/fluvio/SectionFrame.astro';
+import SectionHeading from '~/components/fluvio/SectionHeading.astro';
+import TeamCard from '~/components/fluvio/TeamCard.astro';
+import { REVEAL } from '~/components/fluvio/reveal';
+import { getTeamMembers } from '~/data/fluvio/localized';
+import { getAdjacent, getExpertiseForMember, getProjectsForMember } from '~/data/fluvio/relations';
+import { teamMemberHref } from '~/data/fluvio/routes';
+import type { TeamMember } from '~/data/fluvio/types';
+import { localeHref, t, type Locale } from '~/i18n';
+import Layout from '~/layouts/PageLayout.astro';
+
+export interface Props {
+  locale: Locale;
+  member: TeamMember;
+}
+
+const { locale, member } = Astro.props;
+const c = t(locale).teamDetail;
+const team = getTeamMembers(locale);
+const expertise = getExpertiseForMember(locale, member);
+const projects = getProjectsForMember(locale, member);
+const colleagues = team.filter((candidate) => candidate.slug !== member.slug);
+const adjacent = getAdjacent(team, member.slug);
+
+const metadata = {
+  title: member.role ? `${member.name}, ${member.role}` : member.name,
+  description: member.bio,
+};
+
+const position = c.memberOf
+  .replace('{current}', String(adjacent.index + 1).padStart(2, '0'))
+  .replace('{total}', String(adjacent.total).padStart(2, '0'));
+---
+
+<Layout metadata={metadata} locale={locale}>
+  <header class="fluvio-person-hero">
+    <div class="fluvio-shell">
+      <Breadcrumbs
+        locale={locale}
+        crumbs={[{ label: c.back, href: localeHref('/team', locale) }, { label: member.name }]}
+        class="fluvio-person-hero__crumbs"
+      />
+      <div class="fluvio-person-hero__grid">
+        <div class="fluvio-person-hero__portrait">
+          <LargeImage
+            src={member.portrait}
+            alt={member.portraitAlt}
+            aspect="portrait"
+            radius="lg"
+            priority
+            sizes="(min-width: 1280px) 480px, (min-width: 768px) 40vw, calc(100vw - 2rem)"
+            transitionName={`team-${member.slug}`}
+          />
+        </div>
+        <div class="fluvio-person-hero__copy">
+          <p class="fluvio-eyebrow">
+            {c.eyebrow}
+            <span class="fluvio-person-hero__position">{position}</span>
+          </p>
+          <h1 class="fluvio-title">{member.name}</h1>
+          {member.role && <p class="fluvio-person-hero__role">{member.role}</p>}
+          <p class="fluvio-lede">{member.bio}</p>
+          <dl class="fluvio-person-hero__facts">
+            <div>
+              <dt class="fluvio-label">{c.specialtiesTitle}</dt>
+              <dd>
+                <ul class="fluvio-person-hero__specialties">
+                  {member.specialties.map((specialty) => <li>{specialty}</li>)}
+                </ul>
+              </dd>
+            </div>
+            {
+              member.location && (
+                <div>
+                  <dt class="fluvio-label">{c.locationLabel}</dt>
+                  <dd>{member.location}</dd>
+                </div>
+              )
+            }
+          </dl>
+          {
+            member.profileUrl && (
+              <ArrowLink
+                href={member.profileUrl}
+                external
+                variant="ghost"
+                tone="ink"
+                class="fluvio-person-hero__profile"
+              >
+                {c.externalProfile}
+              </ArrowLink>
+            )
+          }
+        </div>
+      </div>
+    </div>
+  </header>
+
+  {
+    expertise.length > 0 && (
+      <SectionFrame tone="paper" rule="ink" motif="contour" labelledby="person-expertise-heading">
+        <div class:list={['fluvio-person-section-heading', REVEAL]}>
+          <SectionHeading id="person-expertise-heading" eyebrow={c.expertiseEyebrow} title={c.expertiseTitle} />
+        </div>
+        <div class="fluvio-person-expertise">
+          {expertise.map((area) => (
+            <div class={REVEAL}>
+              <ExpertiseCard area={area} locale={locale} headingLevel="h3" projectCount={area.relatedProjects.length} />
+            </div>
+          ))}
+        </div>
+      </SectionFrame>
+    )
+  }
+
+  {
+    projects.length > 0 && (
+      <SectionFrame tone="mist" labelledby="person-projects-heading">
+        <div class:list={['fluvio-person-section-heading', REVEAL]}>
+          <SectionHeading id="person-projects-heading" eyebrow={c.projectsEyebrow} title={c.projectsTitle} />
+        </div>
+        <div class="fluvio-person-projects">
+          {projects.map((project) => (
+            <div class={REVEAL}>
+              <ProjectCard project={project} locale={locale} headingLevel="h3" />
+            </div>
+          ))}
+        </div>
+      </SectionFrame>
+    )
+  }
+
+  <SectionFrame tone="paper" motif="wash-left" labelledby="person-colleagues-heading">
+    <div class:list={['fluvio-person-section-heading', REVEAL]}>
+      <SectionHeading id="person-colleagues-heading" eyebrow={c.colleaguesEyebrow} title={c.colleaguesTitle} />
+    </div>
+    <div class="fluvio-person-colleagues">
+      {
+        colleagues.map((colleague) => (
+          <div class={REVEAL}>
+            <TeamCard member={colleague} locale={locale} variant="compact" headingLevel="h3" />
+          </div>
+        ))
+      }
+    </div>
+  </SectionFrame>
+
+  <div class="fluvio-shell fluvio-person-adjacent">
+    <AdjacentNav
+      label={c.colleaguesTitle}
+      previousLabel={c.previous}
+      nextLabel={c.next}
+      previous={adjacent.previous && {
+        href: teamMemberHref(adjacent.previous.slug, locale),
+        title: adjacent.previous.name,
+        meta: adjacent.previous.role,
+      }}
+      next={adjacent.next && {
+        href: teamMemberHref(adjacent.next.slug, locale),
+        title: adjacent.next.name,
+        meta: adjacent.next.role,
+      }}
+    />
+  </div>
+
+  <SectionFrame tone="warm">
+    <div class={REVEAL}>
+      <ContactPanel locale={locale} eyebrow={c.contactEyebrow} title={c.contactTitle} intro={c.contactIntro} />
+    </div>
+  </SectionFrame>
+</Layout>
+
+<style>
+  .fluvio-person-hero {
+    padding: clamp(2.5rem, 6vw, 5rem) 0 clamp(3.5rem, 8vw, 7rem);
+  }
+
+  .fluvio-person-hero__crumbs {
+    margin-bottom: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  .fluvio-person-hero__grid {
+    display: grid;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  .fluvio-person-hero__portrait {
+    max-width: 30rem;
+  }
+
+  .fluvio-person-hero__position {
+    margin-left: 0.75rem;
+    color: var(--aw-color-text-muted);
+  }
+
+  .fluvio-person-hero__copy :global(h1) {
+    max-width: 12ch;
+    font-size: clamp(2.6rem, 5.6vw, 5rem);
+  }
+
+  .fluvio-person-hero__role {
+    margin: 1rem 0 0;
+    color: rgb(var(--fluvio-river));
+    font-family: var(--aw-font-mono);
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  :global(.dark) .fluvio-person-hero__role {
+    color: rgb(125 186 188);
+  }
+
+  .fluvio-person-hero__copy :global(.fluvio-lede) {
+    max-width: 38rem;
+    font-size: clamp(1.02rem, 1.6vw, 1.15rem);
+  }
+
+  .fluvio-person-hero__facts {
+    display: grid;
+    gap: 1.5rem;
+    margin: 2.25rem 0 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgb(var(--fluvio-ink) / 0.14);
+  }
+
+  .fluvio-person-hero__facts dt {
+    margin-bottom: 0.6rem;
+  }
+
+  .fluvio-person-hero__facts dd {
+    margin: 0;
+    color: var(--aw-color-text-default);
+    font-size: 0.95rem;
+  }
+
+  .fluvio-person-hero__specialties {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .fluvio-person-hero__specialties li {
+    padding: 0.35rem 0.8rem;
+    border: 1px solid rgb(var(--fluvio-river) / 0.3);
+    border-radius: 999px;
+    background: rgb(var(--fluvio-wash) / 0.35);
+    color: var(--aw-color-text-default);
+    font-size: 0.8rem;
+    font-weight: 560;
+  }
+
+  :global(.dark) .fluvio-person-hero__specialties li {
+    border-color: rgb(125 186 188 / 0.35);
+    background: rgb(var(--fluvio-navy) / 0.4);
+  }
+
+  :global(.dark) .fluvio-person-hero__facts {
+    border-color: rgb(var(--fluvio-mist) / 0.15);
+  }
+
+  .fluvio-person-hero__profile {
+    margin-top: 1.75rem;
+  }
+
+  .fluvio-person-section-heading {
+    margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
+  }
+
+  .fluvio-person-expertise,
+  .fluvio-person-projects {
+    display: grid;
+    gap: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  .fluvio-person-colleagues {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(6.75rem, 1fr));
+    gap: clamp(1rem, 2vw, 1.75rem);
+  }
+
+  .fluvio-person-adjacent {
+    padding-top: clamp(3rem, 7vw, 6rem);
+  }
+
+  @media (min-width: 768px) {
+    .fluvio-person-hero__grid {
+      grid-template-columns: minmax(18rem, 0.8fr) minmax(0, 1.2fr);
+      gap: clamp(3rem, 8vw, 8rem);
+    }
+
+    .fluvio-person-hero__facts {
+      grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    }
+
+    .fluvio-person-expertise,
+    .fluvio-person-projects {
+      grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    }
+  }
+</style>

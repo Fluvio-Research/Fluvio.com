@@ -1,0 +1,109 @@
+---
+/**
+ * The trail above a detail page. The last crumb is the current page and is
+ * not a link; the first is always the localised home.
+ */
+import { localeHref, t, type Locale } from '~/i18n';
+
+export interface Crumb {
+  label: string;
+  href?: string;
+}
+
+export interface Props {
+  locale: Locale;
+  crumbs: Crumb[];
+  tone?: 'default' | 'inverse';
+  class?: string;
+}
+
+const { locale, crumbs, tone = 'default', class: className, ...rest } = Astro.props;
+const strings = t(locale).common;
+const trail: Crumb[] = [{ label: strings.home, href: localeHref('/', locale) }, ...crumbs];
+---
+
+<nav
+  {...rest}
+  class:list={['fluvio-breadcrumbs', `fluvio-breadcrumbs--${tone}`, className]}
+  aria-label={strings.breadcrumbLabel}
+>
+  <ol>
+    {
+      trail.map(({ label, href }, index) => (
+        <li>
+          {index > 0 && (
+            <svg
+              class="fluvio-breadcrumbs__sep"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="m9 6 6 6-6 6" />
+            </svg>
+          )}
+          {href ? <a href={href}>{label}</a> : <span aria-current="page">{label}</span>}
+        </li>
+      ))
+    }
+  </ol>
+</nav>
+
+<style>
+  .fluvio-breadcrumbs {
+    --crumb: var(--aw-color-text-muted);
+    --crumb-current: var(--aw-color-text-heading);
+    --crumb-hover: rgb(var(--fluvio-river));
+    font-size: 0.8rem;
+  }
+
+  .fluvio-breadcrumbs--inverse {
+    --crumb: rgb(var(--fluvio-paper) / 0.7);
+    --crumb-current: rgb(var(--fluvio-paper));
+    --crumb-hover: rgb(var(--fluvio-paper));
+  }
+
+  ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    display: inline-flex;
+    gap: 0.2rem;
+    align-items: center;
+    color: var(--crumb);
+  }
+
+  a {
+    color: var(--crumb);
+    text-decoration: none;
+    transition: color 200ms ease;
+  }
+
+  a:hover {
+    color: var(--crumb-hover);
+  }
+
+  span[aria-current] {
+    overflow: hidden;
+    max-width: 22rem;
+    color: var(--crumb-current);
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .fluvio-breadcrumbs__sep {
+    width: 0.9rem;
+    height: 0.9rem;
+    opacity: 0.55;
+  }
+</style>

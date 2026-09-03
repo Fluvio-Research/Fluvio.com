@@ -1,4 +1,5 @@
 ---
+import ArrowLink from './ArrowLink.astro';
 import LargeImage from './LargeImage.astro';
 import { getHomepage } from '~/data/fluvio/store.ts';
 import { defaultLocale, type Locale } from '~/i18n';
@@ -46,7 +47,18 @@ const shotSizes = '(min-width: 1280px) 576px, (min-width: 768px) 45vw, calc(100v
               <span />
             </span>
             {shotHost && <span class="fluvio-platform-feature__host">{shotHost}</span>}
-            <span class="fluvio-platform-feature__open">↗</span>
+            <svg
+              class="fluvio-platform-feature__open"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M7 17 17 7" />
+              <path d="M8 7h9v9" />
+            </svg>
           </div>
           <LargeImage src={image} alt={imageAlt} aspect="hero" sizes={shotSizes} />
         </a>
@@ -69,9 +81,9 @@ const shotSizes = '(min-width: 1280px) 576px, (min-width: 768px) 45vw, calc(100v
     <p class="fluvio-platform-feature__description">{description}</p>
     {
       href && (
-        <a href={href}>
-          {actionLabel ?? title} <span aria-hidden="true">↗</span>
-        </a>
+        <ArrowLink class="fluvio-platform-feature__link" href={href} external size="sm">
+          {actionLabel ?? title}
+        </ArrowLink>
       )
     }
   </div>
@@ -141,9 +153,9 @@ const shotSizes = '(min-width: 1280px) 576px, (min-width: 768px) 45vw, calc(100v
   }
 
   .fluvio-platform-feature__open {
+    width: 0.85rem;
+    height: 0.85rem;
     color: rgb(var(--fluvio-river));
-    font-size: 0.8rem;
-    line-height: 1;
   }
 
   .fluvio-platform-feature__shot :global(.fluvio-image__frame) {
@@ -203,10 +215,10 @@ const shotSizes = '(min-width: 1280px) 576px, (min-width: 768px) 45vw, calc(100v
     margin: 0;
     color: var(--aw-color-text-heading);
     font-family: var(--aw-font-heading);
-    font-size: clamp(2rem, 4vw, 3.75rem);
-    font-weight: 520;
-    letter-spacing: -0.045em;
-    line-height: 1;
+    font-size: clamp(1.9rem, 3.4vw, 3.1rem);
+    font-weight: 560;
+    letter-spacing: -0.03em;
+    line-height: 1.02;
   }
 
   .fluvio-platform-feature__description {
@@ -216,20 +228,8 @@ const shotSizes = '(min-width: 1280px) 576px, (min-width: 768px) 45vw, calc(100v
     line-height: 1.7;
   }
 
-  a {
-    display: inline-flex;
-    gap: 0.4rem;
+  .fluvio-platform-feature__link {
     margin-top: 1.5rem;
-    border-bottom: 1px solid currentColor;
-    color: rgb(var(--fluvio-river));
-    font-size: 0.88rem;
-    font-weight: 650;
-    text-decoration: none;
-  }
-
-  a:focus-visible {
-    border-radius: 4px;
-    outline: 2px solid rgb(var(--fluvio-river));
   }
 
   :global(.dark) .fluvio-platform-feature {

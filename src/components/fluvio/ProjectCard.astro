@@ -1,0 +1,225 @@
+---
+/**
+ * A project in a grid: photograph, location pin, disciplines, title, summary
+ * and the arrow control. One real link (the title) is stretched over the
+ * whole card so it is a single tab stop; the photo carries a view-transition
+ * name so it morphs into the project page hero.
+ */
+import ArrowIcon from './ArrowIcon.astro';
+import LargeImage from './LargeImage.astro';
+import { projectHref } from '~/data/fluvio/routes';
+import type { Project } from '~/data/fluvio/types';
+import { defaultLocale, t, type Locale } from '~/i18n';
+
+export interface Props {
+  project: Project;
+  locale?: Locale;
+  index?: number;
+  size?: 'default' | 'large';
+  headingLevel?: 'h2' | 'h3';
+  /** Expertise slugs the project belongs to; drives the list filter. */
+  areas?: string[];
+  priority?: boolean;
+  class?: string;
+}
+
+const {
+  project,
+  locale = defaultLocale,
+  index,
+  size = 'default',
+  headingLevel: Heading = 'h3',
+  areas = [],
+  priority = false,
+  class: className,
+  ...rest
+} = Astro.props;
+const strings = t(locale).project;
+const href = projectHref(project.slug, locale);
+const number = index === undefined ? undefined : String(index + 1).padStart(2, '0');
+const sizes =
+  size === 'large'
+    ? '(min-width: 1280px) 760px, (min-width: 768px) 58vw, calc(100vw - 2rem)'
+    : '(min-width: 1280px) 520px, (min-width: 768px) 42vw, calc(100vw - 2rem)';
+---
+
+<article
+  {...rest}
+  class:list={['fluvio-project-card fluvio-arrow-host', `fluvio-project-card--${size}`, className]}
+  data-project={project.slug}
+  data-areas={areas.join(' ')}
+>
+  <div class="fluvio-project-card__media">
+    <LargeImage
+      src={project.heroImage}
+      alt={project.heroAlt}
+      aspect={size === 'large' ? 'wide' : 'landscape'}
+      radius="lg"
+      sizes={sizes}
+      priority={priority}
+      transitionName={`project-${project.slug}`}
+    />
+    {
+      project.location && (
+        <span class="fluvio-project-card__pin">
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M12 21s-6-5.3-6-10a6 6 0 1 1 12 0c0 4.7-6 10-6 10Z" />
+            <circle cx="12" cy="11" r="2" />
+          </svg>
+          {project.location}
+        </span>
+      )
+    }
+  </div>
+  <div class="fluvio-project-card__body">
+    <p class="fluvio-label fluvio-project-card__label">
+      {number && <span class="fluvio-project-card__number">{number}</span>}
+      {project.disciplines.join(' · ')}
+    </p>
+    <Heading class="fluvio-project-card__title">
+      <a href={href}>{project.title}</a>
+    </Heading>
+    <p class="fluvio-project-card__summary">{project.summary}</p>
+    <span class="fluvio-project-card__cta">
+      <span>{strings.viewProject}</span>
+      <ArrowIcon size="sm" />
+    </span>
+  </div>
+</article>
+
+<style>
+  .fluvio-project-card {
+    position: relative;
+    display: grid;
+    gap: 1.25rem;
+    align-content: start;
+  }
+
+  .fluvio-project-card__media {
+    position: relative;
+  }
+
+  .fluvio-project-card__pin {
+    position: absolute;
+    top: 0.9rem;
+    left: 0.9rem;
+    display: inline-flex;
+    gap: 0.35rem;
+    align-items: center;
+    max-width: calc(100% - 1.8rem);
+    padding: 0.38rem 0.75rem 0.38rem 0.6rem;
+    border-radius: 999px;
+    background: rgb(var(--fluvio-ink) / 0.55);
+    backdrop-filter: blur(10px);
+    color: rgb(var(--fluvio-paper));
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .fluvio-project-card__pin svg {
+    flex: none;
+    width: 0.85rem;
+    height: 0.85rem;
+  }
+
+  .fluvio-project-card__body {
+    display: grid;
+    gap: 0.7rem;
+    padding-inline: 0.25rem;
+  }
+
+  .fluvio-project-card__label {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.75rem;
+    margin: 0;
+    color: var(--aw-color-text-muted);
+  }
+
+  .fluvio-project-card__number {
+    color: rgb(var(--fluvio-river));
+  }
+
+  .fluvio-project-card__title {
+    margin: 0;
+    font-family: var(--aw-font-heading);
+    font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+    font-weight: 560;
+    letter-spacing: -0.025em;
+    line-height: 1.12;
+    text-wrap: balance;
+  }
+
+  .fluvio-project-card--large .fluvio-project-card__title {
+    font-size: clamp(1.7rem, 3vw, 2.6rem);
+  }
+
+  .fluvio-project-card__title a {
+    color: var(--aw-color-text-heading);
+    text-decoration: none;
+  }
+
+  /* Stretched link: the whole card is clickable through one tab stop. */
+  .fluvio-project-card__title a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border-radius: 20px;
+  }
+
+  .fluvio-project-card__summary {
+    margin: 0;
+    max-width: 52ch;
+    color: var(--aw-color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  .fluvio-project-card__cta {
+    display: inline-flex;
+    gap: 0.6rem;
+    align-items: center;
+    margin-top: 0.35rem;
+    color: var(--arrow-color);
+    font-size: 0.84rem;
+    font-weight: 600;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .fluvio-project-card__title a {
+      transition: color 220ms ease;
+    }
+  }
+
+  .fluvio-project-card:hover .fluvio-project-card__title a {
+    color: rgb(var(--fluvio-river));
+  }
+
+  :global(.dark) .fluvio-project-card:hover .fluvio-project-card__title a,
+  :global(.dark) .fluvio-project-card__number {
+    color: rgb(125 186 188);
+  }
+
+  .fluvio-project-card:has(a:focus-visible) {
+    border-radius: 20px;
+    outline: 2px solid rgb(var(--fluvio-river));
+    outline-offset: 6px;
+  }
+
+  .fluvio-project-card__title a:focus-visible {
+    outline: none;
+  }
+</style>

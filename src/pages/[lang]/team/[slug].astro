@@ -1,0 +1,15 @@
+---
+import TeamMemberPage from '~/components/pages/TeamMemberPage.astro';
+import { getTeamMembers } from '~/data/fluvio/localized';
+import type { TeamMember } from '~/data/fluvio/types';
+import { localeRecordStaticPaths, type Locale } from '~/i18n';
+
+export function getStaticPaths() {
+  return localeRecordStaticPaths(getTeamMembers, (member) => ({ slug: member.slug }));
+}
+
+const { lang } = Astro.params as { lang: Locale };
+const { record } = Astro.props as { record: TeamMember };
+---
+
+<TeamMemberPage locale={lang} member={record} />

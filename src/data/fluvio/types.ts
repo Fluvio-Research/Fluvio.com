@@ -13,6 +13,12 @@ export interface SiteContent {
   values: Array<{ title: string; description: string }>;
 }
 
+export interface GalleryImage {
+  src: string;
+  alt: string;
+  caption?: string;
+}
+
 export interface Project {
   title: string;
   slug: string;
@@ -23,7 +29,7 @@ export interface Project {
   partners?: string[];
   heroImage: string;
   heroAlt: string;
-  gallery?: Array<{ src: string; alt: string; caption?: string }>;
+  gallery?: GalleryImage[];
   challenge: string[];
   approach: string[];
   outcome: string[];
@@ -32,13 +38,21 @@ export interface Project {
 }
 
 export interface TeamMember {
+  /** Route segment; defaults to the record's file name. */
+  slug: string;
   name: string;
   role?: string;
   bio: string;
   portrait: string;
   portraitAlt: string;
   specialties: string[];
+  /** Where the person is based, when the profile says so. */
+  location?: string;
   profileUrl?: string;
+  /** Expertise areas (by slug) the person practises in. */
+  expertise?: string[];
+  /** Projects (by slug) the person is named on. */
+  projects?: string[];
 }
 
 export interface ExpertiseArea {
@@ -46,6 +60,8 @@ export interface ExpertiseArea {
   slug: string;
   summary: string;
   description: string[];
+  /** Short capability statements listed on the area's own page. */
+  highlights?: string[];
   image: string;
   imageAlt: string;
   video?: string;

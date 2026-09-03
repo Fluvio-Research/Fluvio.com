@@ -1,50 +1,74 @@
 {
   "en": {
     "order": 6,
-    "title": "Sediment transport and reservoir assessment",
     "slug": "sediment-loading",
+    "title": "Sediment transport and reservoir assessment",
     "summary": "Monitoring and mapping sediment loads into coastal environments.",
     "description": [
       "Integrating a diverse set of tools including nutrient flux incubations, physical sampling, particle size and penetrometer surveys."
     ],
-    "image": "/src/assets/images/fluvio/project-reservoir-sedimentation.jpeg",
-    "imageAlt": "Reservoir sedimentation field work",
+    "highlights": [
+      "Sediment loads monitored and mapped into coastal environments",
+      "Nutrient flux incubations and physical sampling",
+      "Particle size and penetrometer surveys",
+      "Reservoir sedimentation rates identified and quantified"
+    ],
+    "image": "/src/assets/images/fluvio/expertise-sediment-survey.jpg",
+    "imageAlt": "A survey crew lowering a yellow instrument buoy from the deck of a boat",
     "relatedProjects": ["tina", "ghg-emissions-reservoirs", "reservoir-sedimentation"]
   },
   "pijin": {
     "order": 6,
-    "title": "Hao sediment muv, an assessment blong reservoir",
     "slug": "sediment-loading",
+    "title": "Hao sediment muv, an assessment blong reservoir",
     "summary": "Mifala monitorim an mapem haomas sediment hemi go insaet long solwata saed.",
     "description": [
       "Mifala iusim staka difren tul, olsem nutrient flux incubation, fo tekem sample long ples, fo mesarem size blong olketa particle, an fo duim penetrometer survey."
     ],
-    "image": "/src/assets/images/fluvio/project-reservoir-sedimentation.jpeg",
-    "imageAlt": "Field waka fo sedimentation long reservoir",
+    "highlights": [
+      "Monitorim an mapem olketa sediment load wea go insaet long olketa coastal enviromen",
+      "Nutrient flux incubation an physical sampling",
+      "Particle size an penetrometer survey",
+      "Faendem an mesarem hao fast sediment hemi buildap insaet long olketa reservoir"
+    ],
+    "image": "/src/assets/images/fluvio/expertise-sediment-survey.jpg",
+    "imageAlt": "Wanfala survey tim olketa daonem wanfala yellow instrument buoy from deck blong wanfala bot",
     "relatedProjects": ["tina", "ghg-emissions-reservoirs", "reservoir-sedimentation"]
   },
   "fr": {
     "order": 6,
-    "title": "Transport sédimentaire et évaluation des réservoirs",
     "slug": "sediment-loading",
+    "title": "Transport sédimentaire et évaluation des réservoirs",
     "summary": "Surveiller et cartographier les charges sédimentaires vers les milieux côtiers.",
     "description": [
       "Nous intégrons un ensemble varié d’outils : incubations de flux de nutriments, échantillonnage physique, granulométrie et relevés au pénétromètre."
     ],
-    "image": "/src/assets/images/fluvio/project-reservoir-sedimentation.jpeg",
-    "imageAlt": "Travaux de terrain sur la sédimentation d’un réservoir",
+    "highlights": [
+      "Charges sédimentaires suivies et cartographiées jusqu’aux milieux côtiers",
+      "Incubations de flux de nutriments et échantillonnage physique",
+      "Relevés granulométriques et au pénétromètre",
+      "Taux de sédimentation des réservoirs identifiés et quantifiés"
+    ],
+    "image": "/src/assets/images/fluvio/expertise-sediment-survey.jpg",
+    "imageAlt": "Une équipe de relevé descendant une bouée instrumentée jaune depuis le pont d’un bateau",
     "relatedProjects": ["tina", "ghg-emissions-reservoirs", "reservoir-sedimentation"]
   },
   "es": {
     "order": 6,
-    "title": "Transporte de sedimentos y evaluación de embalses",
     "slug": "sediment-loading",
+    "title": "Transporte de sedimentos y evaluación de embalses",
     "summary": "Monitorear y cartografiar las cargas de sedimentos hacia los entornos costeros.",
     "description": [
       "Integramos un conjunto diverso de herramientas que incluye incubaciones de flujo de nutrientes, muestreo físico, granulometría y levantamientos con penetrómetro."
     ],
-    "image": "/src/assets/images/fluvio/project-reservoir-sedimentation.jpeg",
-    "imageAlt": "Trabajo de campo sobre sedimentación de un embalse",
+    "highlights": [
+      "Cargas de sedimentos monitoreadas y cartografiadas hacia entornos costeros",
+      "Incubaciones de flujo de nutrientes y muestreo físico",
+      "Levantamientos de tamaño de partícula y penetrómetro",
+      "Tasas de sedimentación de embalses identificadas y cuantificadas"
+    ],
+    "image": "/src/assets/images/fluvio/expertise-sediment-survey.jpg",
+    "imageAlt": "Un equipo de levantamiento bajando una boya instrumentada amarilla desde la cubierta de una embarcación",
     "relatedProjects": ["tina", "ghg-emissions-reservoirs", "reservoir-sedimentation"]
   }
 }

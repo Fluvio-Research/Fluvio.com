@@ -1,50 +1,74 @@
 {
   "en": {
     "order": 3,
-    "title": "Catchment and water resource management",
     "slug": "catchment-management",
+    "title": "Catchment and water resource management",
     "summary": "Understanding catchment-waterway-ocean linkages with government, community and industry.",
     "description": [
       "We work with government, community and industry to understand catchment-waterway-ocean linkages, with a strong focus on balancing community needs and environmental benefits."
     ],
-    "image": "/src/assets/images/fluvio/vision-field-team.jpeg",
-    "imageAlt": "Field team at work",
+    "highlights": [
+      "Catchment, waterway and ocean linkages understood end to end",
+      "Working with government, community and industry",
+      "Community needs balanced with environmental benefits",
+      "Evidence that supports water resource decisions"
+    ],
+    "image": "/src/assets/images/fluvio/expertise-catchment-aerial.jpg",
+    "imageAlt": "Aerial view of a river braiding through a forested catchment towards the coast",
     "relatedProjects": ["monitoring-honiara", "wrd"]
   },
   "pijin": {
     "order": 3,
-    "title": "Lukaftarem catchment an wata risos",
     "slug": "catchment-management",
+    "title": "Lukaftarem catchment an wata risos",
     "summary": "Mifala waka wetem gavman, komuniti an indastri fo luksavve hao catchment, olketa reva an solwata olketa join tugeta.",
     "description": [
       "Mifala waka wetem gavman, komuniti an indastri fo luksavve hao catchment, olketa reva an solwata olketa join tugeta. Mifala tingim tumas fo balancem need blong komuniti wetem gudfala samting fo enviromen."
     ],
-    "image": "/src/assets/images/fluvio/vision-field-team.jpeg",
-    "imageAlt": "Field tim long waka",
+    "highlights": [
+      "Luksavve hao catchment, reva an si olketa join tugeta, from start go kasem en",
+      "Waka tugeta wetem gavman, komuniti an indastri",
+      "Balansem nid blong komuniti wetem gudfala risalt fo enviromen",
+      "Evidens wea sapotem olketa disison abaotem wata risos"
+    ],
+    "image": "/src/assets/images/fluvio/expertise-catchment-aerial.jpg",
+    "imageAlt": "Lukluk from antap long wanfala reva wea hemi ran tru long wanfala catchment wea garem bus, go kasem si",
     "relatedProjects": ["monitoring-honiara", "wrd"]
   },
   "fr": {
     "order": 3,
-    "title": "Gestion des bassins versants et des ressources en eau",
     "slug": "catchment-management",
+    "title": "Gestion des bassins versants et des ressources en eau",
     "summary": "Comprendre les liens bassin versant-cours d’eau-océan avec les pouvoirs publics, les communautés et l’industrie.",
     "description": [
       "Nous travaillons avec les pouvoirs publics, les communautés et l’industrie pour comprendre les liens entre bassins versants, cours d’eau et océan, en veillant à équilibrer les besoins des communautés et les bénéfices environnementaux."
     ],
-    "image": "/src/assets/images/fluvio/vision-field-team.jpeg",
-    "imageAlt": "Équipe de terrain au travail",
+    "highlights": [
+      "Les liens entre bassin versant, cours d’eau et océan compris de bout en bout",
+      "Un travail avec les gouvernements, les communautés et l’industrie",
+      "Les besoins des communautés équilibrés avec les bénéfices environnementaux",
+      "Des preuves à l’appui des décisions sur les ressources en eau"
+    ],
+    "image": "/src/assets/images/fluvio/expertise-catchment-aerial.jpg",
+    "imageAlt": "Vue aérienne d’une rivière serpentant dans un bassin versant boisé jusqu’à la côte",
     "relatedProjects": ["monitoring-honiara", "wrd"]
   },
   "es": {
     "order": 3,
-    "title": "Gestión de cuencas y recursos hídricos",
     "slug": "catchment-management",
+    "title": "Gestión de cuencas y recursos hídricos",
     "summary": "Comprender los vínculos cuenca-cauce-océano junto a gobiernos, comunidades e industria.",
     "description": [
       "Trabajamos con gobiernos, comunidades e industria para comprender los vínculos entre cuencas, cauces y océano, con un fuerte énfasis en equilibrar las necesidades de las comunidades y los beneficios ambientales."
     ],
-    "image": "/src/assets/images/fluvio/vision-field-team.jpeg",
-    "imageAlt": "Equipo de campo en acción",
+    "highlights": [
+      "Vínculos entre cuenca, cauce y océano comprendidos de principio a fin",
+      "Trabajo con gobierno, comunidad e industria",
+      "Necesidades comunitarias equilibradas con beneficios ambientales",
+      "Evidencia que respalda las decisiones sobre recursos hídricos"
+    ],
+    "image": "/src/assets/images/fluvio/expertise-catchment-aerial.jpg",
+    "imageAlt": "Vista aérea de un río que serpentea por una cuenca boscosa hacia la costa",
     "relatedProjects": ["monitoring-honiara", "wrd"]
   }
 }

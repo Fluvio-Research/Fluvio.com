@@ -1,0 +1,158 @@
+---
+/**
+ * The one link treatment for calls to action: a label and the shared arrow
+ * control. `text` underlines on hover, `pill` is a solid button, `ghost` an
+ * outlined one. Tone follows the surface the link sits on.
+ */
+import ArrowIcon from './ArrowIcon.astro';
+
+export interface Props {
+  href: string;
+  variant?: 'text' | 'pill' | 'ghost';
+  tone?: 'river' | 'ink' | 'paper';
+  size?: 'sm' | 'md' | 'lg';
+  direction?: 'forward' | 'back';
+  external?: boolean;
+  class?: string;
+  ariaLabel?: string;
+}
+
+const {
+  href,
+  variant = 'text',
+  tone = 'river',
+  size = 'md',
+  direction = 'forward',
+  external = href.startsWith('http'),
+  class: className,
+  ariaLabel,
+  ...rest
+} = Astro.props;
+---
+
+<a
+  {...rest}
+  class:list={[
+    'fluvio-arrow-link fluvio-arrow-host',
+    `fluvio-arrow-host--${tone}`,
+    `fluvio-arrow-link--${variant}`,
+    `fluvio-arrow-link--${size}`,
+    { 'fluvio-arrow-link--back': direction === 'back' },
+    className,
+  ]}
+  href={href}
+  aria-label={ariaLabel}
+  {...external ? { rel: 'noopener noreferrer' } : {}}
+>
+  {direction === 'back' && <ArrowIcon direction="back" size={size} />}
+  <span class="fluvio-arrow-link__label"><slot /></span>
+  {direction === 'forward' && <ArrowIcon external={external} size={size} />}
+</a>
+
+<style>
+  .fluvio-arrow-link {
+    display: inline-flex;
+    gap: 0.75rem;
+    align-items: center;
+    color: var(--arrow-color);
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    text-decoration: none;
+  }
+
+  .fluvio-arrow-link--sm {
+    gap: 0.6rem;
+    font-size: 0.84rem;
+  }
+
+  .fluvio-arrow-link--md {
+    font-size: 0.92rem;
+  }
+
+  .fluvio-arrow-link--lg {
+    gap: 0.9rem;
+    font-size: 1.02rem;
+  }
+
+  .fluvio-arrow-link__label {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0% 1px;
+  }
+
+  .fluvio-arrow-link--pill,
+  .fluvio-arrow-link--ghost {
+    padding: 0.4rem 0.4rem 0.4rem 1.3rem;
+    border-radius: 999px;
+  }
+
+  .fluvio-arrow-link--back.fluvio-arrow-link--pill,
+  .fluvio-arrow-link--back.fluvio-arrow-link--ghost {
+    padding: 0.4rem 1.3rem 0.4rem 0.4rem;
+  }
+
+  .fluvio-arrow-link--pill {
+    background: var(--arrow-fill);
+    color: var(--arrow-fill-ink);
+  }
+
+  .fluvio-arrow-link--pill :global(.fluvio-arrow-icon) {
+    border-color: transparent;
+    background: rgb(255 255 255 / 0.18);
+    color: inherit;
+  }
+
+  .fluvio-arrow-link--pill:hover :global(.fluvio-arrow-icon) {
+    border-color: transparent;
+    background: rgb(255 255 255 / 0.32);
+    color: inherit;
+  }
+
+  .fluvio-arrow-link--ghost {
+    border: 1px solid var(--arrow-ring);
+  }
+
+  .fluvio-arrow-link--ghost :global(.fluvio-arrow-icon) {
+    border-color: transparent;
+    background: var(--arrow-wash);
+  }
+
+  .fluvio-arrow-link--text:hover .fluvio-arrow-link__label,
+  .fluvio-arrow-link--text:focus-visible .fluvio-arrow-link__label {
+    background-size: 100% 1px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .fluvio-arrow-link__label {
+      transition: background-size 320ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .fluvio-arrow-link--pill,
+    .fluvio-arrow-link--ghost {
+      transition:
+        transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 260ms ease,
+        box-shadow 260ms ease;
+    }
+
+    .fluvio-arrow-link--pill:hover,
+    .fluvio-arrow-link--ghost:hover {
+      transform: translateY(-1px);
+    }
+
+    .fluvio-arrow-link--pill:hover {
+      box-shadow: 0 10px 26px rgb(var(--fluvio-ink) / 0.16);
+    }
+  }
+
+  .fluvio-arrow-link--ghost:hover {
+    border-color: var(--arrow-fill);
+  }
+
+  .fluvio-arrow-link:focus-visible {
+    border-radius: 999px;
+    outline: 2px solid var(--arrow-fill);
+    outline-offset: 4px;
+  }
+</style>

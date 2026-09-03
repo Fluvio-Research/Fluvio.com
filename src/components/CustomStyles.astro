@@ -1,7 +1,8 @@
 ---
-// Inter is self-hosted by Astro's native Fonts API and remains the single
-// sans family for body and display text. Serif and mono stacks are reserved
-// for occasional emphasis and compact labels.
+// All faces are self-hosted by Astro's native Fonts API (astro.config.ts).
+// Inter carries body and interface text, Bricolage Grotesque carries display
+// headings, and Instrument Serif italic marks the one accented phrase inside a
+// heading. The mono stack is reserved for compact labels and readouts.
 //
 // Colour system: warm paper and soft mist lead the backgrounds, navy leads
 // typography and dark chapters, river blue and teal carry water and
@@ -28,8 +29,8 @@
     --fluvio-silt-deep: 138 100 44; /* silt darkened for small text accents */
 
     --aw-font-sans: var(--font-inter);
-    --aw-font-serif: Georgia, 'Times New Roman', serif;
-    --aw-font-heading: var(--font-inter);
+    --aw-font-serif: var(--font-instrument-serif);
+    --aw-font-heading: var(--font-bricolage);
     --aw-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
     --aw-color-primary: rgb(var(--fluvio-river));

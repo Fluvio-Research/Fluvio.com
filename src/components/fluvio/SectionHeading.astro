@@ -1,20 +1,32 @@
 ---
+import Accent from './Accent.astro';
+
 export interface Props {
   eyebrow?: string;
   title: string;
   intro?: string;
   align?: 'left' | 'split';
+  headingLevel?: 'h2' | 'h3';
+  id?: string;
 }
 
-const { eyebrow, title, intro, align = 'left' } = Astro.props;
+const { eyebrow, title, intro, align = 'left', headingLevel: Heading = 'h2', id } = Astro.props;
+const hasAside = Boolean(intro) || Astro.slots.has('action');
 ---
 
 <header class:list={['fluvio-section-heading', `fluvio-section-heading--${align}`]}>
   <div class="fluvio-section-heading__title">
     {eyebrow && <p class="fluvio-section-heading__eyebrow">{eyebrow}</p>}
-    <h2>{title}</h2>
+    <Heading id={id}><Accent text={title} /></Heading>
   </div>
-  {intro && <p class="fluvio-section-heading__intro">{intro}</p>}
+  {
+    hasAside && (
+      <div class="fluvio-section-heading__aside">
+        {intro && <p class="fluvio-section-heading__intro">{intro}</p>}
+        <slot name="action" />
+      </div>
+    )
+  }
 </header>
 
 <style>
@@ -39,23 +51,36 @@ const { eyebrow, title, intro, align = 'left' } = Astro.props;
     text-transform: uppercase;
   }
 
-  h2 {
+  :global(.dark) .fluvio-section-heading__eyebrow {
+    color: rgb(125 186 188);
+  }
+
+  h2,
+  h3 {
     margin: 0;
     max-width: 18ch;
     color: var(--aw-color-text-heading);
     font-family: var(--aw-font-heading);
-    font-size: clamp(2.25rem, 5vw, 4.75rem);
-    font-weight: 520;
-    letter-spacing: -0.045em;
-    line-height: 0.98;
+    font-size: clamp(2.1rem, 4.4vw, 4rem);
+    font-weight: 540;
+    letter-spacing: -0.03em;
+    line-height: 1.02;
+    text-wrap: balance;
+  }
+
+  .fluvio-section-heading__aside {
+    display: grid;
+    gap: 1.25rem;
+    justify-items: start;
   }
 
   .fluvio-section-heading__intro {
     margin: 0;
-    max-width: 62ch;
+    max-width: 58ch;
     color: var(--aw-color-text-muted);
-    font-size: clamp(1rem, 1.7vw, 1.2rem);
+    font-size: clamp(1rem, 1.7vw, 1.15rem);
     line-height: 1.65;
+    text-wrap: pretty;
   }
 
   @media (min-width: 768px) {

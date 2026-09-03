@@ -17,6 +17,7 @@ import {
 import { featuredProjects, getProjectBySlug, projects } from '../src/data/fluvio/projects.ts';
 import { siteContent } from '../src/data/fluvio/site.ts';
 import { teamMembers } from '../src/data/fluvio/team.ts';
+import { plainText, splitAccent } from '../src/utils/accent.ts';
 
 const expectedSlugs = [
   'advance-queensland',
@@ -42,6 +43,18 @@ const expectedTeamNames = [
   'Eric Cheung',
 ];
 
+const expectedTeamSlugs = [
+  'simon-albert',
+  'alistair-grinham',
+  'nick-hutley',
+  'melanie-johnson',
+  'louis-ray',
+  'mandus-boselalu',
+  'mubashir-imran',
+  'yuval-kark-levin',
+  'eric-cheung',
+];
+
 const expectedExpertiseTitles = [
   'Innovative hydrological monitoring',
   'Island-scale and catchment modelling',
@@ -51,9 +64,11 @@ const expectedExpertiseTitles = [
   'Sediment transport and reservoir assessment',
 ];
 
-const config = await readFile(new URL('../src/config.yaml', import.meta.url), 'utf8');
-const navigation = await readFile(new URL('../src/navigation.ts', import.meta.url), 'utf8');
-const homepage = await readFile(new URL('../src/pages/index.astro', import.meta.url), 'utf8');
+const read = (path) => readFile(new URL(`../${path}`, import.meta.url), 'utf8');
+
+const config = await read('src/config.yaml');
+const navigation = await read('src/navigation.ts');
+const homepage = await read('src/pages/index.astro');
 const homepageFrontmatter = homepage.match(/^---\n([\s\S]*?)\n---/)?.[1] ?? '';
 const repositoryRoot = new URL('../', import.meta.url);
 const excludedDirectories = new Set(['.git', '.superpowers', 'dist', 'docs', 'node_modules']);
@@ -80,17 +95,28 @@ async function collectPublicSourceFiles(directory = repositoryRoot) {
 
 const publicSourceFiles = await collectPublicSourceFiles();
 
-const projectExperienceFiles = [
-  'src/components/fluvio/LargeImage.astro',
-  'src/components/fluvio/ExpertiseList.astro',
-  'src/components/fluvio/ProjectFeature.astro',
-  'src/components/fluvio/ProjectListItem.astro',
-  'src/components/fluvio/ProjectMeta.astro',
-  'src/components/fluvio/TeamProfile.astro',
-  'src/components/fluvio/PlatformFeature.astro',
+/* The shared components every content page is built from. */
+const sharedComponentFiles = [
+  'src/components/fluvio/Accent.astro',
+  'src/components/fluvio/AdjacentNav.astro',
+  'src/components/fluvio/ArrowIcon.astro',
+  'src/components/fluvio/ArrowLink.astro',
+  'src/components/fluvio/Breadcrumbs.astro',
   'src/components/fluvio/ContactPanel.astro',
-  'src/pages/projects.astro',
-  'src/pages/[slug].astro',
+  'src/components/fluvio/DisciplineTicker.astro',
+  'src/components/fluvio/ExpertiseCard.astro',
+  'src/components/fluvio/ExpertiseMedia.astro',
+  'src/components/fluvio/LargeImage.astro',
+  'src/components/fluvio/LinkList.astro',
+  'src/components/fluvio/PageHero.astro',
+  'src/components/fluvio/PlatformFeature.astro',
+  'src/components/fluvio/ProjectCard.astro',
+  'src/components/fluvio/ProjectFeature.astro',
+  'src/components/fluvio/ProjectGallery.astro',
+  'src/components/fluvio/ProjectMeta.astro',
+  'src/components/fluvio/SectionFrame.astro',
+  'src/components/fluvio/SectionHeading.astro',
+  'src/components/fluvio/TeamCard.astro',
 ];
 
 const primaryPageFiles = [
@@ -100,6 +126,16 @@ const primaryPageFiles = [
   'src/pages/projects.astro',
   'src/pages/team.astro',
   'src/pages/contact.astro',
+];
+
+/* One route file per record type, in English and under every other locale. */
+const recordRouteFiles = [
+  'src/pages/[slug].astro',
+  'src/pages/expertise/[slug].astro',
+  'src/pages/team/[slug].astro',
+  'src/pages/[lang]/[slug].astro',
+  'src/pages/[lang]/expertise/[slug].astro',
+  'src/pages/[lang]/team/[slug].astro',
 ];
 
 test('Fluvio content has complete project, expertise and team records', () => {
@@ -114,15 +150,49 @@ test('Fluvio content has complete project, expertise and team records', () => {
   }
 });
 
-test('Fluvio team and expertise records use the specified names and labels', () => {
+test('Fluvio team and expertise records use the specified names, slugs and labels', () => {
   assert.deepEqual(
     teamMembers.map(({ name }) => name),
     expectedTeamNames
+  );
+  // Team slugs come from the record file names, so profile URLs are stable.
+  assert.deepEqual(
+    teamMembers.map(({ slug }) => slug),
+    expectedTeamSlugs
   );
   assert.deepEqual(
     expertiseAreas.map(({ title }) => title),
     expectedExpertiseTitles
   );
+});
+
+test('Fluvio cross-references resolve and every area has evidence and people', () => {
+  const projectSlugs = new Set(projects.map(({ slug }) => slug));
+  const areaSlugs = new Set(expertiseAreas.map(({ slug }) => slug));
+
+  for (const area of expertiseAreas) {
+    assert.ok(area.relatedProjects.length > 0, `${area.slug} lists no projects`);
+    for (const slug of area.relatedProjects) assert.ok(projectSlugs.has(slug), `${area.slug} -> ${slug}`);
+    assert.ok(area.highlights?.length >= 3, `${area.slug} needs highlights for its page`);
+    assert.ok(
+      teamMembers.some((member) => member.expertise?.includes(area.slug)),
+      `${area.slug} has no specialists`
+    );
+  }
+  for (const project of projects) {
+    for (const slug of project.relatedProjects ?? []) {
+      assert.ok(projectSlugs.has(slug), `${project.slug} -> ${slug}`);
+      assert.notEqual(slug, project.slug);
+    }
+    assert.ok(
+      expertiseAreas.some((area) => area.relatedProjects.includes(project.slug)),
+      `${project.slug} belongs to no expertise area`
+    );
+  }
+  for (const member of teamMembers) {
+    assert.ok(member.expertise?.length > 0, `${member.slug} has no expertise areas`);
+    for (const slug of member.expertise) assert.ok(areaSlugs.has(slug), `${member.slug} -> ${slug}`);
+  }
 });
 
 test('Fluvio site content provides the homepage and vision contract', () => {
@@ -150,6 +220,45 @@ test('Fluvio project selectors return featured and matching projects', () => {
   assert.equal(getProjectBySlug('missing-project'), undefined);
 });
 
+test('Fluvio heading accents are balanced and strip to plain text', () => {
+  assert.deepEqual(splitAccent('Water *as it moves*.'), [
+    { text: 'Water ', accent: false },
+    { text: 'as it moves', accent: true },
+    { text: '.', accent: false },
+  ]);
+  assert.equal(plainText('Water *as it moves*.'), 'Water as it moves.');
+
+  // Every heading string in every locale either has no markup or exactly one pair.
+  const headings = (locale) => {
+    const pages = getPages(locale);
+    const home = getHomepage(locale);
+    return [
+      ...home.slides.map(({ title }) => title),
+      home.expertiseTitle,
+      home.projectsTitle,
+      home.platformsTitle,
+      home.teamTitle,
+      home.impactTitle,
+      pages.visionPage.title,
+      pages.expertisePage.title,
+      pages.teamPage.title,
+      pages.contactPage.title,
+      pages.projectsPage.title,
+      pages.contactPanel.title,
+      pages.projectDetail.contactTitle,
+      pages.expertiseDetail.contactTitle,
+      pages.teamDetail.contactTitle,
+    ];
+  };
+  for (const locale of contentLocales) {
+    for (const heading of headings(locale)) {
+      const stars = (heading.match(/\*/g) ?? []).length;
+      assert.ok(stars === 0 || stars === 2, `${locale}: unbalanced accent in "${heading}"`);
+      assert.doesNotMatch(plainText(heading), /\*/);
+    }
+  }
+});
+
 test('Fluvio shell uses the brand name and primary navigation', () => {
   assert.match(config, /name:\s*Fluvio/);
   assert.doesNotMatch(config + navigation, /Get template|SaaS|Pricing|AstroWind/);
@@ -172,6 +281,8 @@ test('Fluvio catalogs translate every string for every locale', () => {
   for (const locale of ['pijin', 'fr', 'es']) {
     assert.deepEqual(keyPaths(getPages(locale)).sort(), reference);
     assert.notEqual(getPages(locale).visionPage.title, getPages('en').visionPage.title);
+    assert.notEqual(getPages(locale).teamDetail.expertiseTitle, getPages('en').teamDetail.expertiseTitle);
+    assert.notEqual(getPages(locale).expertiseDetail.highlightsTitle, getPages('en').expertiseDetail.highlightsTitle);
   }
   assert.equal(getHomepage('en').slides.length, 5);
 
@@ -186,26 +297,42 @@ test('Fluvio catalogs translate every string for every locale', () => {
       getTeamMembers(locale).map(({ name }) => name),
       expectedTeamNames
     );
+    assert.deepEqual(
+      getTeamMembers(locale).map(({ slug }) => slug),
+      expectedTeamSlugs
+    );
     assert.equal(getExpertiseAreas(locale).length, 6);
     assert.equal(getSiteContent(locale).values.length, 5);
     for (const key of ['vision', 'expertise', 'projects', 'team', 'contact', 'startProject', 'linkedinUrl']) {
       assert.ok(getNavigation(locale)[key]);
     }
+    for (const area of getExpertiseAreas(locale)) assert.ok(area.highlights?.length >= 3);
   }
   // Translated locales actually differ from English where language differs.
   assert.notEqual(getProjects('fr')[0].title, getProjects('en')[0].title);
   assert.notEqual(getTeamMembers('es')[0].role, getTeamMembers('en')[0].role);
   assert.notEqual(getProjects('pijin')[0].title, getProjects('en')[0].title);
+  assert.notEqual(getExpertiseAreas('fr')[0].highlights[0], getExpertiseAreas('en')[0].highlights[0]);
 });
 
-test('Fluvio locale routes exist for Pijin, French and Spanish', async () => {
-  const localePages = ['index', 'vision', 'expertise', 'projects', 'team', 'contact', '[slug]'];
+test('Fluvio locale routes exist for every page and record type', async () => {
+  const localePages = ['index', 'vision', 'expertise', 'projects', 'team', 'contact'];
   await Promise.all(localePages.map((page) => access(new URL(`../src/pages/[lang]/${page}.astro`, import.meta.url))));
+  await Promise.all(recordRouteFiles.map((path) => access(new URL(`../${path}`, import.meta.url))));
 
-  const langIndex = await readFile(new URL('../src/pages/[lang]/index.astro', import.meta.url), 'utf8');
-  assert.match(langIndex, /params: \{ lang: 'pijin' \}/);
-  assert.match(langIndex, /params: \{ lang: 'fr' \}/);
-  assert.match(langIndex, /params: \{ lang: 'es' \}/);
+  // The locale list lives in src/i18n; route files must not hardcode it.
+  const i18n = await read('src/i18n/index.ts');
+  assert.match(i18n, /export const locales = \['en', 'pijin', 'fr', 'es'\] as const;/);
+  for (const page of localePages) {
+    const source = await read(`src/pages/[lang]/${page}.astro`);
+    assert.match(source, /localeStaticPaths\(\)/);
+    assert.doesNotMatch(source, /'pijin'|'fr'|'es'/);
+  }
+  for (const path of recordRouteFiles.filter((file) => file.startsWith('src/pages/[lang]/'))) {
+    const source = await read(path);
+    assert.match(source, /localeRecordStaticPaths\(/);
+    assert.doesNotMatch(source, /'pijin'|'fr'|'es'/);
+  }
 });
 
 test('Fluvio public sources contain no demonstration copy or routes', async () => {
@@ -218,43 +345,72 @@ test('Fluvio public sources contain no demonstration copy or routes', async () =
   assert.doesNotMatch(navigation, /blog|rss/i);
 });
 
-test('Fluvio project experience provides shared components and static project routes', async () => {
-  await Promise.all(projectExperienceFiles.map((path) => access(new URL(`../${path}`, import.meta.url))));
+test('Fluvio detail pages share components and build links through the route helpers', async () => {
+  await Promise.all(sharedComponentFiles.map((path) => access(new URL(`../${path}`, import.meta.url))));
 
-  const projectRoute = await readFile(new URL('../src/pages/[slug].astro', import.meta.url), 'utf8');
-  const largeImage = await readFile(new URL('../src/components/fluvio/LargeImage.astro', import.meta.url), 'utf8');
-  const projectFeature = await readFile(
-    new URL('../src/components/fluvio/ProjectFeature.astro', import.meta.url),
-    'utf8'
-  );
-  const projectListItem = await readFile(
-    new URL('../src/components/fluvio/ProjectListItem.astro', import.meta.url),
-    'utf8'
-  );
-  const platformFeature = await readFile(
-    new URL('../src/components/fluvio/PlatformFeature.astro', import.meta.url),
-    'utf8'
-  );
+  const projectRoute = await read('src/pages/[slug].astro');
+  const expertiseRoute = await read('src/pages/expertise/[slug].astro');
+  const teamRoute = await read('src/pages/team/[slug].astro');
+  const routes = await read('src/data/fluvio/routes.ts');
+  const largeImage = await read('src/components/fluvio/LargeImage.astro');
+  const projectCard = await read('src/components/fluvio/ProjectCard.astro');
+  const projectFeature = await read('src/components/fluvio/ProjectFeature.astro');
+  const expertiseCard = await read('src/components/fluvio/ExpertiseCard.astro');
+  const teamCard = await read('src/components/fluvio/TeamCard.astro');
+  const platformFeature = await read('src/components/fluvio/PlatformFeature.astro');
+
   assert.match(projectRoute, /export function getStaticPaths\s*\(/);
   assert.match(projectRoute, /import\s*\{\s*projects\s*\}\s*from\s*['"]~\/data\/fluvio\/projects['"]/);
-  assert.match(projectRoute, /projects\.map\s*\(/);
+  assert.match(expertiseRoute, /import\s*\{\s*expertiseAreas\s*\}\s*from\s*['"]~\/data\/fluvio\/expertise['"]/);
+  assert.match(teamRoute, /import\s*\{\s*teamMembers\s*\}\s*from\s*['"]~\/data\/fluvio\/team['"]/);
+
+  // Project URLs stay flat: they predate this site and are linked externally.
+  assert.match(routes, /projectPath = \(slug: string\): string => `\/\$\{slug\}`/);
+  assert.match(routes, /expertisePath = \(slug: string\): string => `\/expertise\/\$\{slug\}`/);
+  assert.match(routes, /teamMemberPath = \(slug: string\): string => `\/team\/\$\{slug\}`/);
+
   assert.match(largeImage, /sizes\?:\s*string/);
-  assert.match(largeImage, /sizes=\{imageSizes\}/);
-  assert.equal(projectFeature.match(/localeHref\(`\/\$\{project\.slug\}`, locale\)/g)?.length, 1);
-  assert.equal(projectListItem.match(/localeHref\(`\/\$\{project\.slug\}`, locale\)/g)?.length, 1);
-  assert.match(projectFeature, /<h2>\{project\.title\}<\/h2>/);
-  assert.match(
-    projectFeature,
-    /<a class="fluvio-project-feature__link" href=\{projectHref\}\s*>\s*\{strings\.viewProject\}/
-  );
-  assert.match(projectListItem, /<h3>\{project\.title\}<\/h3>/);
-  assert.match(
-    projectListItem,
-    /<a class="fluvio-project-item__link" href=\{projectHref\}\s*>\s*\{strings\.readProject\}/
-  );
+  assert.match(largeImage, /transitionName\?:\s*string/);
+  for (const [source, helper] of [
+    [projectCard, 'projectHref(project.slug, locale)'],
+    [projectFeature, 'projectHref(project.slug, locale)'],
+    [expertiseCard, 'expertiseHref(area.slug, locale)'],
+    [teamCard, 'teamMemberHref(member.slug, locale)'],
+  ]) {
+    assert.equal(source.split(helper).length - 1, 1, `${helper} used exactly once`);
+    assert.doesNotMatch(source, /localeHref\(`\//);
+  }
+  assert.match(projectCard, /alt=\{project\.heroAlt\}/);
   assert.match(projectFeature, /alt=\{project\.heroAlt\}/);
-  assert.match(projectListItem, /alt=\{project\.heroAlt\}/);
+  assert.match(projectCard, /\{strings\.viewProject\}/);
+  assert.match(projectFeature, /<h2>\s*<a href=\{href\}>\{project\.title\}<\/a>\s*<\/h2>/);
+  assert.match(teamCard, /transitionName=\{`team-\$\{member\.slug\}`\}/);
+  assert.match(projectCard, /transitionName=\{`project-\$\{project\.slug\}`\}/);
   assert.doesNotMatch(platformFeature, /target=["']_blank["']/);
+
+  // Bare unicode arrows are gone from the interface; the shared arrow control is used instead.
+  const arrowHosts = await Promise.all(
+    ['ContactPanel', 'HeroSlider', 'PlatformFeature', 'ProjectCard', 'TeamCard', 'ExpertiseCard', 'LinkList'].map(
+      (name) => read(`src/components/fluvio/${name}.astro`)
+    )
+  );
+  for (const source of arrowHosts) assert.doesNotMatch(source, /→|↗|←/);
+});
+
+test('Fluvio related content never repeats the photography already on the page', async () => {
+  const { getRelatedProjects, withoutImages, getAdjacent, getProjectsForMember } =
+    await import('../src/data/fluvio/relations.ts');
+  for (const project of projects) {
+    const related = getRelatedProjects('en', project);
+    assert.ok(related.length > 0, `${project.slug} has nothing to continue to`);
+    assert.ok(related.every((candidate) => candidate.slug !== project.slug));
+    const deduped = withoutImages(related, [project.heroImage], (candidate) => candidate.heroImage);
+    assert.ok(deduped.every((candidate) => candidate.heroImage !== project.heroImage));
+  }
+  const adjacent = getAdjacent(projects, projects[0].slug);
+  assert.equal(adjacent.previous.slug, projects.at(-1).slug);
+  assert.equal(adjacent.next.slug, projects[1].slug);
+  for (const member of teamMembers) assert.ok(getProjectsForMember('en', member).length > 0, member.slug);
 });
 
 test('Fluvio primary pages exist without public template content', async () => {
@@ -271,25 +427,32 @@ test('Fluvio primary pages exist without public template content', async () => {
 });
 
 test('Fluvio hero slider exposes five accessible, localised, motion-aware slides', async () => {
-  const slider = await readFile(new URL('../src/components/fluvio/HeroSlider.astro', import.meta.url), 'utf8');
+  const slider = await read('src/components/fluvio/HeroSlider.astro');
 
   const homepage = getHomepage('en');
   for (const image of [
     'home-river.jpg',
-    'project-bina.jpeg',
-    'project-honiara.jpeg',
-    'project-advance-queensland.jpeg',
+    'home-field-river-sensor.jpg',
+    'expertise-siwis-dashboard.jpg',
+    'home-operations-laptop.jpeg',
     'vision-field-team.jpeg',
   ]) {
-    assert.ok(homepage.slides.some((slide) => slide.image.endsWith(image)));
+    assert.ok(
+      homepage.slides.some((slide) => slide.image.endsWith(image)),
+      image
+    );
   }
+  // No slide photograph is reused as a project's lead image.
+  const projectHeroes = new Set(projects.map(({ heroImage }) => heroImage));
+  for (const slide of homepage.slides) assert.ok(!projectHeroes.has(slide.image), slide.image);
+
   assert.equal(homepage.slides.length, 5);
-  assert.equal(homepage.slides[0].title, 'Technology for a more resilient water future.');
+  assert.equal(plainText(homepage.slides[0].title), 'Technology for a more resilient water future.');
   assert.equal(getPages('en').slider.pauseAria, 'Pause automatic slide rotation');
   assert.equal(getPages('en').slider.resumeAria, 'Resume automatic slide rotation');
   assert.equal(getPages('en').slider.previous, 'Previous slide');
   assert.equal(getPages('en').slider.next, 'Next slide');
-  assert.match(slider, /const INTERVAL_MS = 6000;/);
+  assert.match(slider, /const INTERVAL_MS = 3000;/);
   assert.match(slider, /const VIDEO_MAX_MS = 30000;/);
   assert.match(slider, /data-hero-video/);
   assert.match(slider, /aria-live=["']polite["']/);
@@ -297,6 +460,7 @@ test('Fluvio hero slider exposes five accessible, localised, motion-aware slides
   assert.match(slider, /aria-label=\{strings\.previous\}/);
   assert.match(slider, /aria-label=\{strings\.next\}/);
   assert.match(slider, /data-hero-playback/);
+  assert.match(slider, /plainText\(slides\[0\]\.title\)/);
   assert.doesNotMatch(slider, /aria-pressed/);
   assert.match(slider, /ArrowLeft/);
   assert.match(slider, /ArrowRight/);
@@ -305,11 +469,9 @@ test('Fluvio hero slider exposes five accessible, localised, motion-aware slides
 
 test('Fluvio recovery and contact routes use explicit destinations', async () => {
   const [about, services, notFound] = await Promise.all(
-    ['about.astro', 'services.astro', '404.astro'].map((file) =>
-      readFile(new URL(`../src/pages/${file}`, import.meta.url), 'utf8')
-    )
+    ['about.astro', 'services.astro', '404.astro'].map((file) => read(`src/pages/${file}`))
   );
-  const contact = await readFile(new URL('../src/components/pages/ContactPage.astro', import.meta.url), 'utf8');
+  const contact = await read('src/components/pages/ContactPage.astro');
 
   assert.match(about, /Astro\.redirect\(getPermalink\(['"]\/vision['"]\),\s*301\)/);
   assert.match(services, /Astro\.redirect\(getPermalink\(['"]\/expertise['"]\),\s*301\)/);

@@ -1,11 +1,17 @@
 {
   "en": {
     "order": 5,
-    "title": "Operational monitoring systems",
     "slug": "operational-monitoring",
+    "title": "Operational monitoring systems",
     "summary": "Digitising water monitoring with state-owned water utilities.",
     "description": [
       "By integrating real-time monitoring systems, cloud databases and alerting systems we have reduced response times to critical water quality incidents."
+    ],
+    "highlights": [
+      "Real-time monitoring systems integrated with cloud databases",
+      "Alerting that shortens response times to water quality incidents",
+      "Digitised monitoring with state-owned water utilities",
+      "Operational dashboards built with the teams who use them"
     ],
     "image": "/src/assets/images/fluvio/expertise-siwis-dashboard.jpg",
     "imageAlt": "The SIWIS dashboard mapping monitoring stations across Solomon Islands",
@@ -13,11 +19,17 @@
   },
   "pijin": {
     "order": 5,
-    "title": "Olketa monitoring sistem fo evriday waka",
     "slug": "operational-monitoring",
+    "title": "Olketa monitoring sistem fo evriday waka",
     "summary": "Mifala mekem monitoring blong wata kamap digital, tugeta wetem olketa wata kampani blong gavman.",
     "description": [
       "Taem mifala joinim olketa real-time monitoring sistem, cloud database an alert sistem, mifala katem daon taem fo ansarem olketa serious problem long kwaliti blong wata."
+    ],
+    "highlights": [
+      "Olketa real-time monitoring sistem wea join wetem cloud database",
+      "Olketa alert wea mekem respons long olketa kwaliti blong wata insiden hemi moa kwik",
+      "Monitoring wea kamap digital tugeta wetem olketa wata utility blong gavman",
+      "Olketa operational dashboard wea mifala buildim wetem olketa tim wea iusim olketa"
     ],
     "image": "/src/assets/images/fluvio/expertise-siwis-dashboard.jpg",
     "imageAlt": "SIWIS dashboard wea soim olketa monitoring station long map blong Solomon Aelan",
@@ -25,11 +37,17 @@
   },
   "fr": {
     "order": 5,
-    "title": "Systèmes de surveillance opérationnels",
     "slug": "operational-monitoring",
+    "title": "Systèmes de surveillance opérationnels",
     "summary": "Numériser la surveillance de l’eau avec des services d’eau publics.",
     "description": [
       "En intégrant des systèmes de surveillance en temps réel, des bases de données en nuage et des dispositifs d’alerte, nous avons réduit les délais de réponse aux incidents critiques de qualité de l’eau."
+    ],
+    "highlights": [
+      "Des systèmes de surveillance en temps réel intégrés à des bases de données cloud",
+      "Des alertes qui réduisent les délais de réponse aux incidents de qualité de l’eau",
+      "Une surveillance numérisée avec des services publics de l’eau",
+      "Des tableaux de bord opérationnels construits avec les équipes qui les utilisent"
     ],
     "image": "/src/assets/images/fluvio/expertise-siwis-dashboard.jpg",
     "imageAlt": "Le tableau de bord SIWIS cartographiant les stations de suivi aux Îles Salomon",
@@ -37,11 +55,17 @@
   },
   "es": {
     "order": 5,
-    "title": "Sistemas de monitoreo operativos",
     "slug": "operational-monitoring",
+    "title": "Sistemas de monitoreo operativos",
     "summary": "Digitalizar el monitoreo del agua junto a empresas públicas de agua.",
     "description": [
       "Al integrar sistemas de monitoreo en tiempo real, bases de datos en la nube y sistemas de alerta, hemos reducido los tiempos de respuesta ante incidentes críticos de calidad del agua."
+    ],
+    "highlights": [
+      "Sistemas de monitoreo en tiempo real integrados con bases de datos en la nube",
+      "Alertas que acortan los tiempos de respuesta ante incidentes de calidad del agua",
+      "Monitoreo digitalizado con empresas públicas de agua",
+      "Tableros operativos construidos con los equipos que los usan"
     ],
     "image": "/src/assets/images/fluvio/expertise-siwis-dashboard.jpg",
     "imageAlt": "El panel SIWIS que mapea las estaciones de monitoreo en las Islas Salomón",

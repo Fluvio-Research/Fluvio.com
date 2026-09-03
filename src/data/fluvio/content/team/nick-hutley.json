@@ -6,7 +6,8 @@
     "bio": "Nick is leading the development of optical flow technology to usher in a new era of hydrological monitoring. He believes the key to effective natural resource management lies in informing adaptive numerical models with critical environmental data streams.",
     "portrait": "/src/assets/images/fluvio/team-nick.png",
     "portraitAlt": "Nick Hutley",
-    "specialties": ["Optical flow technology"]
+    "specialties": ["Optical flow technology"],
+    "expertise": ["hydrological-monitoring", "island-scale-modelling"]
   },
   "pijin": {
     "order": 3,
@@ -15,7 +16,8 @@
     "bio": "Nick hemi lidim waka fo developim optical flow teknoloji, fo openem wanfala niufala taem blong monitorim wata. Hemi biliv ki fo lukaftarem gud olketa natural risos hemi fo putum olketa important data from enviromen go insaet long olketa computer model.",
     "portrait": "/src/assets/images/fluvio/team-nick.png",
     "portraitAlt": "Nick Hutley",
-    "specialties": ["Optical flow teknoloji"]
+    "specialties": ["Optical flow teknoloji"],
+    "expertise": ["hydrological-monitoring", "island-scale-modelling"]
   },
   "fr": {
     "order": 3,
@@ -24,7 +26,8 @@
     "bio": "Nick pilote le développement de la technologie de flux optique pour ouvrir une nouvelle ère de la surveillance hydrologique. Il est convaincu que la clé d’une gestion efficace des ressources naturelles réside dans l’alimentation de modèles numériques adaptatifs par des flux de données environnementales critiques.",
     "portrait": "/src/assets/images/fluvio/team-nick.png",
     "portraitAlt": "Nick Hutley",
-    "specialties": ["Technologie de flux optique"]
+    "specialties": ["Technologie de flux optique"],
+    "expertise": ["hydrological-monitoring", "island-scale-modelling"]
   },
   "es": {
     "order": 3,
@@ -33,6 +36,7 @@
     "bio": "Nick lidera el desarrollo de la tecnología de flujo óptico para inaugurar una nueva era del monitoreo hidrológico. Cree que la clave de una gestión eficaz de los recursos naturales está en alimentar modelos numéricos adaptativos con flujos de datos ambientales críticos.",
     "portrait": "/src/assets/images/fluvio/team-nick.png",
     "portraitAlt": "Nick Hutley",
-    "specialties": ["Tecnología de flujo óptico"]
+    "specialties": ["Tecnología de flujo óptico"],
+    "expertise": ["hydrological-monitoring", "island-scale-modelling"]
   }
 }

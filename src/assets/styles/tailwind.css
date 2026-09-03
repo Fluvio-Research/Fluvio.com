@@ -157,10 +157,11 @@
   margin: 0;
   color: var(--aw-color-text-heading);
   font-family: var(--aw-font-heading);
-  font-size: clamp(3.2rem, 7vw, 6.5rem);
-  font-weight: 500;
-  letter-spacing: -0.06em;
-  line-height: 0.95;
+  font-size: clamp(2.9rem, 6.6vw, 6rem);
+  font-weight: 560;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+  text-wrap: balance;
 }
 
 /* Section-level display h2 scale */
@@ -168,10 +169,20 @@
   margin: 0;
   color: var(--aw-color-text-heading);
   font-family: var(--aw-font-heading);
-  font-size: clamp(2.4rem, 5vw, 4.75rem);
-  font-weight: 520;
-  letter-spacing: -0.05em;
-  line-height: 1;
+  font-size: clamp(2.2rem, 4.6vw, 4.25rem);
+  font-weight: 540;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+/* The accented phrase inside a heading (see src/utils/accent.ts) */
+.fluvio-accent {
+  font-family: var(--aw-font-serif);
+  font-size: 1.06em;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
 }
 
 /* Intro paragraph under a page title */
@@ -181,9 +192,10 @@
   color: var(--aw-color-text-muted);
   font-size: clamp(1.05rem, 1.8vw, 1.28rem);
   line-height: 1.65;
+  text-wrap: pretty;
 }
 
-/* Arrow text link */
+/* Legacy inline arrow text link; new work uses <ArrowLink /> */
 .fluvio-link {
   display: inline-flex;
   gap: 0.5rem;
@@ -199,15 +211,145 @@
   color: rgb(125 186 188);
 }
 
-/* Every arrow link nudges its glyph on hover */
+/* ------------------------------------------------------------------ */
+/* Arrow control                                                       */
+/* The circular arrow shared by links, list rows and cards. The        */
+/* interactive ancestor carries `fluvio-arrow-host` (plus a tone) so   */
+/* hovering anywhere on it fills the circle and moves the arrow.       */
+/* ------------------------------------------------------------------ */
+
+.fluvio-arrow-host,
+.fluvio-arrow-host--river {
+  --arrow-color: rgb(var(--fluvio-river));
+  --arrow-ring: rgb(var(--fluvio-river) / 0.32);
+  --arrow-wash: rgb(var(--fluvio-river) / 0.1);
+  --arrow-fill: rgb(var(--fluvio-river));
+  --arrow-fill-ink: rgb(var(--fluvio-paper));
+}
+
+.fluvio-arrow-host--ink {
+  --arrow-color: var(--aw-color-text-heading);
+  --arrow-ring: rgb(var(--fluvio-ink) / 0.22);
+  --arrow-wash: rgb(var(--fluvio-ink) / 0.06);
+  --arrow-fill: rgb(var(--fluvio-ink));
+  --arrow-fill-ink: rgb(var(--fluvio-paper));
+}
+
+.fluvio-arrow-host--paper {
+  --arrow-color: rgb(var(--fluvio-paper));
+  --arrow-ring: rgb(255 255 255 / 0.42);
+  --arrow-wash: rgb(255 255 255 / 0.12);
+  --arrow-fill: rgb(var(--fluvio-paper));
+  --arrow-fill-ink: rgb(var(--fluvio-ink));
+}
+
+.dark .fluvio-arrow-host--river {
+  --arrow-color: rgb(125 186 188);
+  --arrow-ring: rgb(125 186 188 / 0.42);
+  --arrow-wash: rgb(125 186 188 / 0.12);
+  --arrow-fill: rgb(125 186 188);
+  --arrow-fill-ink: rgb(var(--fluvio-ink));
+}
+
+.dark .fluvio-arrow-host--ink {
+  --arrow-ring: rgb(var(--fluvio-mist) / 0.26);
+  --arrow-wash: rgb(var(--fluvio-mist) / 0.08);
+  --arrow-fill: rgb(var(--fluvio-mist));
+  --arrow-fill-ink: rgb(var(--fluvio-ink));
+}
+
+.fluvio-arrow-icon {
+  display: grid;
+  flex: none;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border: 1px solid var(--arrow-ring);
+  border-radius: 999px;
+  color: var(--arrow-color);
+}
+
+.fluvio-arrow-icon--sm {
+  width: 1.7rem;
+  height: 1.7rem;
+}
+
+.fluvio-arrow-icon--lg {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.fluvio-arrow-icon svg {
+  width: 50%;
+  height: 50%;
+}
+
+.fluvio-arrow-host:hover .fluvio-arrow-icon,
+.fluvio-arrow-host:focus-visible .fluvio-arrow-icon {
+  border-color: var(--arrow-fill);
+  background: var(--arrow-fill);
+  color: var(--arrow-fill-ink);
+}
+
 @media (prefers-reduced-motion: no-preference) {
-  main a > span[aria-hidden] {
-    display: inline-block;
-    transition: transform 250ms cubic-bezier(0.22, 1, 0.36, 1);
+  .fluvio-arrow-icon {
+    transition:
+      background-color 260ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 260ms cubic-bezier(0.22, 1, 0.36, 1),
+      color 260ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  main a:hover > span[aria-hidden] {
-    transform: translateX(0.3rem);
+  .fluvio-arrow-icon svg {
+    transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .fluvio-arrow-host:hover .fluvio-arrow-icon svg,
+  .fluvio-arrow-host:focus-visible .fluvio-arrow-icon svg {
+    transform: translateX(14%);
+  }
+}
+
+/* Compact mono label used for counts, indices and captions */
+.fluvio-label {
+  color: rgb(var(--fluvio-river));
+  font-family: var(--aw-font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.dark .fluvio-label {
+  color: rgb(125 186 188);
+}
+
+/* Skip link: visually hidden until it receives focus */
+.fluvio-skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  padding: 0.7rem 1.1rem;
+  border-radius: 999px;
+  background: rgb(var(--fluvio-ink));
+  color: rgb(var(--fluvio-paper));
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+
+.fluvio-skip-link:focus-visible {
+  outline: 2px solid rgb(var(--fluvio-river));
+  outline-offset: 2px;
+  transform: none;
+}
+
+/* Continuous ticker track (see DisciplineTicker.astro) */
+@keyframes fluvio-ticker {
+  to {
+    transform: translateX(-50%);
   }
 }
 

@@ -1,4 +1,9 @@
 ---
+/**
+ * Every photograph on the site: a fixed-aspect frame that crops with
+ * object-fit, responsive sources sized for its slot, and an optional
+ * view-transition name so the same photo morphs from a card into a page hero.
+ */
 import Image from '~/components/common/Image.astro';
 
 export interface Props {
@@ -6,32 +11,67 @@ export interface Props {
   alt: string;
   caption?: string;
   priority?: boolean;
-  aspect?: 'hero' | 'landscape' | 'portrait' | 'fill';
+  aspect?: 'hero' | 'wide' | 'landscape' | 'square' | 'portrait' | 'fill';
+  radius?: 'none' | 'sm' | 'md' | 'lg';
   sizes?: string;
+  /** View-transition name; must be unique on the page it appears on. */
+  transitionName?: string;
+  class?: string;
 }
 
-const { src, alt, caption, priority = false, aspect = 'landscape', sizes } = Astro.props;
+const {
+  src,
+  alt,
+  caption,
+  priority = false,
+  aspect = 'landscape',
+  radius = 'md',
+  sizes,
+  transitionName,
+  class: className,
+  ...rest
+} = Astro.props;
+
 const defaultSizes = {
   hero: '(min-width: 1440px) 1408px, (min-width: 768px) calc(100vw - 4rem), calc(100vw - 2rem)',
+  wide: '(min-width: 1280px) 800px, (min-width: 768px) 60vw, calc(100vw - 2rem)',
   landscape: '(min-width: 1280px) 704px, (min-width: 768px) 56vw, calc(100vw - 2rem)',
+  square: '(min-width: 1280px) 420px, (min-width: 768px) 33vw, calc(50vw - 1.5rem)',
   portrait: '(min-width: 1280px) 384px, (min-width: 768px) 40vw, calc(100vw - 2rem)',
   fill: '100vw',
 } satisfies Record<NonNullable<Props['aspect']>, string>;
 const imageSizes = sizes ?? defaultSizes[aspect];
+const widths = [480, 768, 1080, 1440, 1920, 2560];
 ---
 
-<figure class:list={['fluvio-image', `fluvio-image--${aspect}`]}>
-  <div class="fluvio-image__frame">
-    <Image
-      src={src}
-      alt={alt}
-      loading={priority ? 'eager' : 'lazy'}
-      fetchpriority={priority ? 'high' : 'auto'}
-      layout="cover"
-      widths={[480, 768, 1080, 1440, 1920, 2560]}
-      sizes={imageSizes}
-    />
-  </div>
+<figure {...rest} class:list={['fluvio-image', `fluvio-image--${aspect}`, `fluvio-image--radius-${radius}`, className]}>
+  {
+    transitionName ? (
+      <div class="fluvio-image__frame" transition:name={transitionName}>
+        <Image
+          src={src}
+          alt={alt}
+          loading={priority ? 'eager' : 'lazy'}
+          fetchpriority={priority ? 'high' : 'auto'}
+          layout="cover"
+          widths={widths}
+          sizes={imageSizes}
+        />
+      </div>
+    ) : (
+      <div class="fluvio-image__frame">
+        <Image
+          src={src}
+          alt={alt}
+          loading={priority ? 'eager' : 'lazy'}
+          fetchpriority={priority ? 'high' : 'auto'}
+          layout="cover"
+          widths={widths}
+          sizes={imageSizes}
+        />
+      </div>
+    )
+  }
   {caption && <figcaption>{caption}</figcaption>}
 </figure>
 
@@ -43,16 +83,39 @@ const imageSizes = sizes ?? defaultSizes[aspect];
 
   .fluvio-image__frame {
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 12px;
     background: rgb(var(--fluvio-river) / 0.08);
+    /* Keeps the zoomed image inside the rounded corners on every engine. */
+    isolation: isolate;
+    transform: translateZ(0);
+  }
+
+  .fluvio-image--radius-none .fluvio-image__frame {
+    border-radius: 0;
+  }
+
+  .fluvio-image--radius-sm .fluvio-image__frame {
+    border-radius: 8px;
+  }
+
+  .fluvio-image--radius-lg .fluvio-image__frame {
+    border-radius: 20px;
   }
 
   .fluvio-image--hero .fluvio-image__frame {
     aspect-ratio: 16 / 9;
   }
 
+  .fluvio-image--wide .fluvio-image__frame {
+    aspect-ratio: 3 / 2;
+  }
+
   .fluvio-image--landscape .fluvio-image__frame {
     aspect-ratio: 4 / 3;
+  }
+
+  .fluvio-image--square .fluvio-image__frame {
+    aspect-ratio: 1;
   }
 
   .fluvio-image--portrait .fluvio-image__frame {

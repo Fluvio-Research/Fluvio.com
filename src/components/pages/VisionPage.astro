@@ -1,8 +1,11 @@
 ---
+import Accent from '~/components/fluvio/Accent.astro';
 import ContactPanel from '~/components/fluvio/ContactPanel.astro';
 import LargeImage from '~/components/fluvio/LargeImage.astro';
+import PageHero from '~/components/fluvio/PageHero.astro';
 import SectionFrame from '~/components/fluvio/SectionFrame.astro';
 import SectionHeading from '~/components/fluvio/SectionHeading.astro';
+import { REVEAL } from '~/components/fluvio/reveal';
 import { getSiteContent } from '~/data/fluvio/localized';
 import { t, type Locale } from '~/i18n';
 import Layout from '~/layouts/PageLayout.astro';
@@ -19,65 +22,71 @@ const metadata = {
   title: c.metaTitle,
   description: siteContent.vision.description,
 };
-
-const reveal = 'intersect-once motion-safe:opacity-0 motion-safe:intersect:animate-fade';
 ---
 
 <Layout metadata={metadata} locale={locale}>
-  <header class="fluvio-vision-hero">
-    <div class="fluvio-shell fluvio-shell--narrow fluvio-vision-hero__copy">
-      <p class="fluvio-eyebrow">{c.eyebrow}</p>
-      <h1 class="fluvio-title">{c.title}</h1>
-      <p class="fluvio-lede fluvio-vision-hero__lede">{c.lede}</p>
-    </div>
-    <div class="fluvio-shell fluvio-shell--wide">
-      <LargeImage
-        src={siteContent.vision.image}
-        alt={siteContent.vision.imageAlt}
-        aspect="hero"
-        priority
-        sizes="(min-width: 1440px) 1408px, (min-width: 768px) calc(100vw - 4rem), calc(100vw - 2rem)"
-      />
-    </div>
-  </header>
+  <PageHero
+    locale={locale}
+    eyebrow={c.eyebrow}
+    title={c.title}
+    lede={c.lede}
+    shell="narrow"
+    class="fluvio-vision-hero"
+  />
+  <div class="fluvio-shell fluvio-shell--wide fluvio-vision-hero__image">
+    <LargeImage
+      src={siteContent.vision.image}
+      alt={siteContent.vision.imageAlt}
+      aspect="hero"
+      radius="lg"
+      priority
+      sizes="(min-width: 1440px) 1408px, (min-width: 768px) calc(100vw - 4rem), calc(100vw - 2rem)"
+    />
+  </div>
 
   <SectionFrame tone="paper" rule="ink" motif="contour" shell="narrow" labelledby="vision-statement-heading">
-    <div class:list={['fluvio-vision-statement__grid', reveal]}>
-      <h2 id="vision-statement-heading" class="fluvio-display">{c.statementTitle}</h2>
+    <div class:list={['fluvio-vision-statement', REVEAL]}>
+      <h2 id="vision-statement-heading" class="fluvio-display"><Accent text={c.statementTitle} /></h2>
       <p>{siteContent.vision.description}</p>
     </div>
   </SectionFrame>
 
   <SectionFrame tone="mist" shell="narrow" labelledby="vision-values-heading">
-    <div id="vision-values-heading" class:list={['fluvio-vision-section-heading', reveal]}>
-      <SectionHeading title={c.valuesTitle} intro={c.valuesIntro} />
+    <div class:list={['fluvio-vision-section-heading', REVEAL]}>
+      <SectionHeading id="vision-values-heading" title={c.valuesTitle} intro={c.valuesIntro} align="split" />
     </div>
-    <div class="fluvio-vision-values__grid">
+    <ol class="fluvio-vision-values">
       {
-        siteContent.values.map((value) => (
-          <article class={reveal}>
+        siteContent.values.map((value, index) => (
+          <li class={REVEAL}>
+            <span class="fluvio-label">{String(index + 1).padStart(2, '0')}</span>
             <h3>{value.title}</h3>
             <p>{value.description}</p>
-          </article>
+          </li>
         ))
       }
-    </div>
+    </ol>
   </SectionFrame>
 
   <SectionFrame tone="paper" motif="wash-left" shell="narrow" labelledby="vision-practice-heading">
-    <div class="fluvio-vision-practice__grid">
-      <div class={reveal}>
-        <h2 id="vision-practice-heading" class="fluvio-display">{c.practiceTitle}</h2>
+    <div class="fluvio-vision-practice">
+      <div class={REVEAL}>
+        <h2 id="vision-practice-heading" class="fluvio-display"><Accent text={c.practiceTitle} /></h2>
         {c.practiceBody.map((paragraph) => <p>{paragraph}</p>)}
       </div>
-      <div class={reveal}>
-        <LargeImage src="~/assets/images/fluvio/vision-field-team.jpeg" alt={c.practiceImageAlt} aspect="landscape" />
+      <div class={REVEAL}>
+        <LargeImage
+          src="~/assets/images/fluvio/vision-practice-training.jpg"
+          alt={c.practiceImageAlt}
+          aspect="landscape"
+          radius="lg"
+        />
       </div>
     </div>
   </SectionFrame>
 
   <SectionFrame tone="warm" shell="narrow">
-    <div class={reveal}>
+    <div class={REVEAL}>
       <ContactPanel locale={locale} eyebrow={c.contactEyebrow} title={c.contactTitle} intro={c.contactIntro} />
     </div>
   </SectionFrame>
@@ -85,98 +94,97 @@ const reveal = 'intersect-once motion-safe:opacity-0 motion-safe:intersect:anima
 
 <style>
   .fluvio-vision-hero {
-    padding: clamp(3rem, 7vw, 6rem) 0 clamp(4.5rem, 10vw, 9rem);
+    padding-bottom: clamp(2.5rem, 5vw, 4rem);
   }
 
-  .fluvio-vision-hero__copy {
-    margin-bottom: clamp(3rem, 7vw, 6rem);
+  .fluvio-vision-hero__image {
+    padding-bottom: clamp(3.5rem, 8vw, 7rem);
   }
 
-  .fluvio-vision-hero :global(h1) {
-    max-width: 14ch;
-  }
-
-  .fluvio-vision-hero__lede {
-    margin-left: auto;
-  }
-
-  .fluvio-vision-statement__grid {
+  .fluvio-vision-statement {
     display: grid;
     gap: 2rem;
   }
 
-  .fluvio-vision-statement__grid p {
+  .fluvio-vision-statement p {
     margin: 0;
-    color: var(--aw-color-text-muted);
-    font-size: clamp(1.2rem, 2.4vw, 1.65rem);
-    line-height: 1.65;
+    color: var(--aw-color-text-default);
+    font-size: clamp(1.2rem, 2.3vw, 1.6rem);
+    line-height: 1.6;
+    text-wrap: pretty;
   }
 
   .fluvio-vision-section-heading {
-    margin-bottom: clamp(3rem, 7vw, 6rem);
+    margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
   }
 
-  .fluvio-vision-values__grid {
+  .fluvio-vision-values {
     display: grid;
     gap: 0 2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
 
-  .fluvio-vision-values__grid article {
+  .fluvio-vision-values li {
+    display: grid;
+    gap: 0.75rem;
     padding: 2rem 0;
     border-top: 1px solid rgb(var(--fluvio-ink) / 0.16);
   }
 
-  .fluvio-vision-values__grid h3 {
-    margin: 0 0 1rem;
+  .fluvio-vision-values h3 {
+    margin: 0;
     color: var(--aw-color-text-heading);
     font-family: var(--aw-font-heading);
-    font-size: clamp(1.6rem, 3vw, 2.5rem);
-    font-weight: 540;
-    letter-spacing: -0.035em;
+    font-size: clamp(1.5rem, 2.8vw, 2.25rem);
+    font-weight: 560;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
   }
 
-  .fluvio-vision-values__grid p,
-  .fluvio-vision-practice__grid p {
+  .fluvio-vision-values p,
+  .fluvio-vision-practice p {
     margin: 0;
     max-width: 38rem;
     color: var(--aw-color-text-muted);
     line-height: 1.75;
   }
 
-  .fluvio-vision-practice__grid {
+  .fluvio-vision-practice {
     display: grid;
     gap: 2.5rem;
     align-items: center;
   }
 
-  .fluvio-vision-practice__grid h2 {
+  .fluvio-vision-practice h2 {
     margin-bottom: 1.5rem;
   }
 
-  .fluvio-vision-practice__grid p + p {
+  .fluvio-vision-practice p + p {
     margin-top: 1rem;
   }
 
-  :global(.dark) .fluvio-vision-values__grid article {
+  :global(.dark) .fluvio-vision-values li {
     border-color: rgb(var(--fluvio-mist) / 0.16);
   }
 
   @media (min-width: 768px) {
-    .fluvio-vision-statement__grid {
+    .fluvio-vision-statement {
       grid-template-columns: minmax(15rem, 0.6fr) minmax(0, 1.4fr);
       gap: clamp(4rem, 10vw, 10rem);
     }
 
-    .fluvio-vision-values__grid {
+    .fluvio-vision-values {
       grid-template-columns: repeat(2, minmax(0, 1fr));
       column-gap: clamp(3rem, 8vw, 8rem);
     }
 
-    .fluvio-vision-values__grid article:nth-child(5) {
+    .fluvio-vision-values li:nth-child(5) {
       grid-column: 2;
     }
 
-    .fluvio-vision-practice__grid {
+    .fluvio-vision-practice {
       grid-template-columns: minmax(20rem, 0.78fr) minmax(0, 1.22fr);
       gap: clamp(4rem, 10vw, 10rem);
     }

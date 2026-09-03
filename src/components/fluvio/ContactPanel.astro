@@ -1,4 +1,6 @@
 ---
+import Accent from './Accent.astro';
+import ArrowLink from './ArrowLink.astro';
 import { defaultLocale, localeHref, t, type Locale } from '~/i18n';
 
 export interface Props {
@@ -23,25 +25,48 @@ const {
 ---
 
 <section class="fluvio-contact-panel">
-  <div>
-    <p class="fluvio-contact-panel__eyebrow">{eyebrow}</p>
-    <h2>{title}</h2>
+  <div class="fluvio-contact-panel__contour" aria-hidden="true"></div>
+  <div class="fluvio-contact-panel__copy">
+    {eyebrow && <p class="fluvio-contact-panel__eyebrow">{eyebrow}</p>}
+    <h2><Accent text={title} /></h2>
   </div>
   <div class="fluvio-contact-panel__action">
     <p>{intro}</p>
-    <a href={href}>{actionLabel} <span aria-hidden="true">→</span></a>
+    <ArrowLink href={href} variant="pill" tone="paper" size="lg">{actionLabel}</ArrowLink>
   </div>
 </section>
 
 <style>
   .fluvio-contact-panel {
+    position: relative;
     display: grid;
     gap: 2rem;
+    overflow: hidden;
     padding: clamp(2rem, 6vw, 5rem);
-    border-radius: 14px;
+    border-radius: 20px;
     background:
-      radial-gradient(120% 110% at 88% -10%, rgb(var(--fluvio-river) / 0.28), transparent 55%), rgb(var(--fluvio-navy));
+      radial-gradient(120% 110% at 88% -10%, rgb(var(--fluvio-river) / 0.34), transparent 55%),
+      radial-gradient(60% 80% at 0% 100%, rgb(var(--fluvio-teal) / 0.22), transparent 60%), rgb(var(--fluvio-navy));
     color: rgb(var(--fluvio-paper));
+  }
+
+  /* Topographic contours drift in from the corner: the site's hydrology motif. */
+  .fluvio-contact-panel__contour {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-radial-gradient(
+      ellipse 70rem 34rem at 104% 110%,
+      transparent 0 30px,
+      rgb(255 255 255 / 0.06) 31px 32px,
+      transparent 33px 62px
+    );
+    mask-image: linear-gradient(200deg, rgb(0 0 0) 20%, transparent 75%);
+  }
+
+  .fluvio-contact-panel__copy,
+  .fluvio-contact-panel__action {
+    position: relative;
   }
 
   .fluvio-contact-panel__eyebrow {
@@ -59,37 +84,25 @@ const {
     max-width: 17ch;
     color: inherit;
     font-family: var(--aw-font-heading);
-    font-size: clamp(2.2rem, 5vw, 4.75rem);
-    font-weight: 520;
-    letter-spacing: -0.05em;
-    line-height: 0.98;
+    font-size: clamp(2.1rem, 4.6vw, 4.25rem);
+    font-weight: 540;
+    letter-spacing: -0.03em;
+    line-height: 1.02;
+    text-wrap: balance;
   }
 
   .fluvio-contact-panel__action {
+    display: grid;
+    gap: 1.6rem;
     align-self: end;
+    justify-items: start;
   }
 
   .fluvio-contact-panel__action p {
-    margin: 0 0 1.5rem;
-    max-width: 48ch;
-    color: rgb(var(--fluvio-paper) / 0.72);
+    margin: 0;
+    max-width: 46ch;
+    color: rgb(var(--fluvio-paper) / 0.74);
     line-height: 1.7;
-  }
-
-  a {
-    display: inline-flex;
-    gap: 0.5rem;
-    align-items: center;
-    border-bottom: 1px solid currentColor;
-    color: rgb(var(--fluvio-wash));
-    font-weight: 650;
-    text-decoration: none;
-  }
-
-  a:focus-visible {
-    border-radius: 4px;
-    outline: 2px solid rgb(var(--fluvio-wash));
-    outline-offset: 4px;
   }
 
   @media (min-width: 768px) {
@@ -99,11 +112,9 @@ const {
     }
   }
 
-  a:hover {
-    color: rgb(var(--fluvio-paper));
-  }
-
   :global(.dark) .fluvio-contact-panel {
-    background: radial-gradient(120% 110% at 88% -10%, rgb(var(--fluvio-river) / 0.2), transparent 55%), rgb(13 36 55);
+    background:
+      radial-gradient(120% 110% at 88% -10%, rgb(var(--fluvio-river) / 0.24), transparent 55%),
+      radial-gradient(60% 80% at 0% 100%, rgb(var(--fluvio-teal) / 0.16), transparent 60%), rgb(13 36 55);
   }
 </style>

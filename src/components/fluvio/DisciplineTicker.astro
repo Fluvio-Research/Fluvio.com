@@ -1,0 +1,111 @@
+---
+/**
+ * A slow, continuous line of the disciplines drawn from the project records.
+ * The lane holds two copies of the list and slides by half its width, so it
+ * loops without a seam; it pauses on hover and stands still (wrapping as a
+ * plain list) when the visitor prefers reduced motion.
+ */
+export interface Props {
+  items: string[];
+  label: string;
+  tone?: 'default' | 'inverse';
+  class?: string;
+}
+
+const { items, label, tone = 'default', class: className, ...rest } = Astro.props;
+const seconds = Math.max(30, items.length * 4);
+---
+
+<div
+  {...rest}
+  class:list={['fluvio-ticker', `fluvio-ticker--${tone}`, className]}
+  aria-label={label}
+  style={`--ticker-duration: ${seconds}s`}
+>
+  <div class="fluvio-ticker__lane">
+    <ul class="fluvio-ticker__track">
+      {items.map((item) => <li>{item}</li>)}
+    </ul>
+    <ul class="fluvio-ticker__track" aria-hidden="true">
+      {items.map((item) => <li>{item}</li>)}
+    </ul>
+  </div>
+</div>
+
+<style>
+  .fluvio-ticker {
+    --ticker-ink: var(--aw-color-text-heading);
+    --ticker-dot: rgb(var(--fluvio-river));
+    overflow: hidden;
+    mask-image: linear-gradient(90deg, transparent, rgb(0 0 0) 8%, rgb(0 0 0) 92%, transparent);
+  }
+
+  .fluvio-ticker--inverse {
+    --ticker-ink: rgb(var(--fluvio-paper));
+    --ticker-dot: rgb(var(--fluvio-wash));
+  }
+
+  .fluvio-ticker__lane {
+    display: flex;
+    width: max-content;
+  }
+
+  .fluvio-ticker__track {
+    display: flex;
+    flex: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    display: inline-flex;
+    gap: 1.6rem;
+    align-items: center;
+    padding-right: 1.6rem;
+    color: var(--ticker-ink);
+    font-family: var(--aw-font-heading);
+    font-size: clamp(1.15rem, 2vw, 1.6rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+  }
+
+  li::after {
+    content: '';
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 999px;
+    background: var(--ticker-dot);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .fluvio-ticker__lane {
+      animation: fluvio-ticker var(--ticker-duration, 40s) linear infinite;
+    }
+
+    .fluvio-ticker:hover .fluvio-ticker__lane,
+    .fluvio-ticker:focus-within .fluvio-ticker__lane {
+      animation-play-state: paused;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fluvio-ticker {
+      mask-image: none;
+    }
+
+    .fluvio-ticker__lane {
+      width: auto;
+    }
+
+    .fluvio-ticker__track {
+      flex-wrap: wrap;
+      gap: 0.5rem 0;
+    }
+
+    .fluvio-ticker__track[aria-hidden] {
+      display: none;
+    }
+  }
+</style>

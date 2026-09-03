@@ -1,6 +1,10 @@
 ---
+import Accent from '~/components/fluvio/Accent.astro';
+import ArrowLink from '~/components/fluvio/ArrowLink.astro';
 import LargeImage from '~/components/fluvio/LargeImage.astro';
+import PageHero from '~/components/fluvio/PageHero.astro';
 import SectionFrame from '~/components/fluvio/SectionFrame.astro';
+import { REVEAL } from '~/components/fluvio/reveal';
 import { getNavigation } from '~/data/fluvio/store.ts';
 import { t, type Locale } from '~/i18n';
 import Layout from '~/layouts/PageLayout.astro';
@@ -18,32 +22,28 @@ const metadata = {
   description: c.metaDescription,
 };
 
-const reveal = 'intersect-once motion-safe:opacity-0 motion-safe:intersect:animate-fade';
-
 const mailtoHref = `mailto:?subject=${encodeURIComponent(c.enquirySubject)}&body=${encodeURIComponent(c.enquiryTemplate)}`;
 ---
 
 <Layout metadata={metadata} locale={locale}>
-  <header class="fluvio-contact-hero">
-    <div class="fluvio-shell fluvio-contact-hero__grid">
-      <div>
-        <p class="fluvio-eyebrow">{c.eyebrow}</p>
-        <h1 class="fluvio-title">{c.title}</h1>
-        <p class="fluvio-lede">{c.lede}</p>
-      </div>
-      <LargeImage src="~/assets/images/fluvio/home-river.jpg" alt={c.heroImageAlt} aspect="portrait" priority />
-    </div>
-  </header>
+  <PageHero locale={locale} eyebrow={c.eyebrow} title={c.title} lede={c.lede}>
+    <LargeImage
+      slot="aside"
+      src="~/assets/images/fluvio/contact-river-gorge.jpeg"
+      alt={c.heroImageAlt}
+      aspect="wide"
+      radius="lg"
+      priority
+      sizes="(min-width: 1280px) 760px, (min-width: 768px) 55vw, calc(100vw - 2rem)"
+    />
+  </PageHero>
 
   <SectionFrame tone="paper" rule="ink" motif="contour" labelledby="contact-enquiry-heading">
     <div class="fluvio-contact-grid">
-      <h2 id="contact-enquiry-heading" class:list={['fluvio-display', reveal]}>{c.enquiryTitle}</h2>
-      <div class:list={['fluvio-contact-body', reveal]}>
+      <h2 id="contact-enquiry-heading" class:list={['fluvio-display', REVEAL]}><Accent text={c.enquiryTitle} /></h2>
+      <div class:list={['fluvio-contact-body', REVEAL]}>
         <p>{c.enquiryBody}</p>
-        <a class="fluvio-link" href={mailtoHref}>
-          {c.enquiryAction}
-          <span aria-hidden="true">→</span>
-        </a>
+        <ArrowLink href={mailtoHref} variant="pill">{c.enquiryAction}</ArrowLink>
         <p class="fluvio-contact-note">{c.enquiryNote}</p>
       </div>
     </div>
@@ -51,44 +51,29 @@ const mailtoHref = `mailto:?subject=${encodeURIComponent(c.enquirySubject)}&body
 
   <SectionFrame tone="mist" rule="ink" labelledby="contact-social-heading">
     <div class="fluvio-contact-grid">
-      <h2 id="contact-social-heading" class:list={['fluvio-display', reveal]}>{c.socialTitle}</h2>
-      <div class:list={['fluvio-contact-body', reveal]}>
+      <h2 id="contact-social-heading" class:list={['fluvio-display', REVEAL]}><Accent text={c.socialTitle} /></h2>
+      <div class:list={['fluvio-contact-body', REVEAL]}>
         <p>{c.socialBody}</p>
-        <a class="fluvio-link" href={navigation.linkedinUrl} rel="noopener noreferrer">
-          {c.socialAction}
-          <span aria-hidden="true">↗</span>
-        </a>
+        <ArrowLink href={navigation.linkedinUrl} external variant="ghost" tone="ink">{c.socialAction}</ArrowLink>
       </div>
     </div>
   </SectionFrame>
 </Layout>
 
 <style>
-  .fluvio-contact-hero {
-    padding: clamp(3rem, 7vw, 6rem) 0 clamp(5rem, 11vw, 10rem);
-  }
-
-  .fluvio-contact-hero__grid {
-    display: grid;
-    gap: 2rem;
-    align-items: center;
-  }
-
-  .fluvio-contact-hero :global(h1) {
-    max-width: 12ch;
-  }
-
-  .fluvio-contact-hero :global(.fluvio-lede) {
-    max-width: 35rem;
-  }
-
   .fluvio-contact-grid {
     display: grid;
     gap: 2rem;
   }
 
+  .fluvio-contact-body {
+    display: grid;
+    gap: 1.5rem;
+    justify-items: start;
+  }
+
   .fluvio-contact-body > p:first-child {
-    margin: 0 0 1.75rem;
+    margin: 0;
     max-width: 42rem;
     color: var(--aw-color-text-muted);
     font-size: 1.05rem;
@@ -96,7 +81,7 @@ const mailtoHref = `mailto:?subject=${encodeURIComponent(c.enquirySubject)}&body
   }
 
   .fluvio-contact-note {
-    margin: 1.5rem 0 0;
+    margin: 0.25rem 0 0;
     max-width: 42rem;
     color: var(--aw-color-text-muted);
     font-size: 0.82rem;
@@ -104,11 +89,6 @@ const mailtoHref = `mailto:?subject=${encodeURIComponent(c.enquirySubject)}&body
   }
 
   @media (min-width: 768px) {
-    .fluvio-contact-hero__grid {
-      grid-template-columns: minmax(0, 0.86fr) minmax(24rem, 1.14fr);
-      gap: clamp(3rem, 8vw, 8rem);
-    }
-
     .fluvio-contact-grid {
       grid-template-columns: minmax(15rem, 0.65fr) minmax(24rem, 1.35fr);
       gap: clamp(4rem, 10vw, 10rem);
