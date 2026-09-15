@@ -70,7 +70,7 @@ No page changes are needed: every route, including the record's own page in ever
 
 ## Languages and translations
 
-The site ships in English (default, at the root), Solomon Islands Pijin (`/pijin/...`), French (`/fr/...`) and Spanish (`/es/...`), with a language dropdown in the header.
+The site ships in English (default, at the root), Solomon Islands Pijin (`/pijin/...`), French (`/fr/...`) and Spanish (`/es/...`), with a language dropdown in the header. French and Spanish are currently built but hidden from the dropdown (`hiddenLocales` in `src/i18n/index.ts`); remove a locale from that list to offer it again.
 
 - UI and page copy (headings, ledes, slider slides, labels) live in the content store under `src/data/fluvio/content/site/`, with one section per locale. The store schema requires every string in every locale, so a missing translation fails `npm test` and the build, and a test verifies key-for-key parity. The locale list lives in `src/i18n/index.ts` (and the matching `contentLocales` in `src/data/fluvio/store.ts`); the `[lang]` route files take their paths from `localeStaticPaths()` and `localeRecordStaticPaths()` there, so adding a language never touches a route file.
 - Content records carry their own translations: each JSON file in `src/data/fluvio/content/` holds `en`, `pijin`, `fr` and `es` sections, validated together by the store's schema.

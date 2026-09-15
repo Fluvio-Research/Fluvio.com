@@ -5,6 +5,16 @@ export const locales = ['en', 'pijin', 'fr', 'es'] as const;
 export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = 'en';
 
+/**
+ * Locales that are built and reachable by URL but not offered in the language
+ * picker. Their content stays complete and validated; they are simply not
+ * advertised on the site for now.
+ */
+export const hiddenLocales: readonly Locale[] = ['fr', 'es'];
+
+/** The locales a visitor can switch to from the header. */
+export const visibleLocales = locales.filter((locale) => !hiddenLocales.includes(locale));
+
 /** Every locale that lives under a path prefix (all but the default). */
 export const secondaryLocales = locales.filter((locale): locale is Exclude<Locale, 'en'> => locale !== defaultLocale);
 

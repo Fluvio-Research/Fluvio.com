@@ -2,7 +2,7 @@
 import { SITE } from 'astrowind:config';
 
 import { getNavigation } from '~/data/fluvio/store.ts';
-import { localeNames, locales, localizePath, unlocalizedPathname, type Locale } from '~/i18n';
+import { localeNames, localizePath, unlocalizedPathname, visibleLocales, type Locale } from '~/i18n';
 import { getPermalink } from '~/utils/permalinks';
 
 export interface Props {
@@ -11,6 +11,8 @@ export interface Props {
 
 const { locale: current } = Astro.props;
 const path = unlocalizedPathname(Astro.url.pathname, SITE.base || '/');
+/* A hidden locale still lists itself when the visitor is already on it. */
+const options = visibleLocales.includes(current) ? visibleLocales : [...visibleLocales, current];
 ---
 
 <details class="fluvio-lang">
@@ -42,7 +44,7 @@ const path = unlocalizedPathname(Astro.url.pathname, SITE.base || '/');
   </summary>
   <ul>
     {
-      locales.map((locale) => (
+      options.map((locale) => (
         <li>
           <a
             href={getPermalink(localizePath(path, locale))}
