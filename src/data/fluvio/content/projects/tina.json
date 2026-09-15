@@ -14,6 +14,11 @@
         "src": "/src/assets/images/fluvio/project-tina-station.png",
         "alt": "An open instrument cabinet and camera mast installed on a rock ledge above the Tina River",
         "caption": "A real time monitoring station deployed on the Tina River."
+      },
+      {
+        "src": "/src/assets/images/fluvio/project-tina-field-stations.jpg",
+        "alt": "Six scenes from the upper Tina River: drilling a mounting point into bedrock, a tethered ADCP boat on a tag line, a technician wading a rapid, a camera station over brown floodwater, a scientist in the river and the sandstone gorge",
+        "caption": "Installing the monitoring stations in the upper Tina River, Guadalcanal."
       }
     ],
     "challenge": [
@@ -21,10 +26,12 @@
     ],
     "approach": [
       "Fluvio has been engaged to support the project by completing hydrological and sediment monitoring in the Tina River. The findings will be used to calculate sediment loads, flow ratings and mean flow for energy calculations.",
-      "This monitoring has been completed using computer vision stream gauging systems, real time water level stations sending one-minute data, real time water quality stations sending ten-minute data, sediment analysis and manual gauging."
+      "This monitoring has been completed using computer vision stream gauging systems, real time water level stations sending one-minute data, real time water quality stations sending ten-minute data, sediment analysis and manual gauging.",
+      "The stations integrate computer vision stream gauging powered by SonTek’s QC4 system, Xylem EXO water quality sensors and ADCP-based discharge measurements. Despite the remote location, water quality, water level and video-based discharge data are transmitted at high frequency over a hybrid satellite link combining Starlink and Ground Control’s RockBLOCK Pro."
     ],
     "outcome": [
-      "Due to the remote and extreme nature of the site, bespoke power and communication solutions have been developed to ensure reliability in a remote and complex environment."
+      "Due to the remote and extreme nature of the site, bespoke power and communication solutions have been developed to ensure reliability in a remote and complex environment.",
+      "With rapidly changing water levels and rugged terrain, delivering this work safely demands deep experience, meticulous planning, on-the-ground adaptability and, above all, strong local partnerships."
     ],
     "featured": true,
     "relatedProjects": ["bina", "advance-queensland"]
@@ -44,6 +51,11 @@
         "src": "/src/assets/images/fluvio/project-tina-station.png",
         "alt": "Wanfala instrument cabinet wea open an wanfala camera mast wea olketa putim antap long wanfala ston ledge ovarem Tina River",
         "caption": "Wanfala real-time monitoring station wea olketa putim long Tina River."
+      },
+      {
+        "src": "/src/assets/images/fluvio/project-tina-field-stations.jpg",
+        "alt": "Sikisfala pikja from ap long Tina River: drilim wanfala ples long ston fo hangem samting, wanfala ADCP bot long tag line, wanfala teknisen hemi wokabaot long rapid, wanfala camera station antap long braon flood wata, wanfala saentis insaet long riva, an gorge blong sandstone",
+        "caption": "Putim olketa monitoring station ap long Tina River, Guadalcanal."
       }
     ],
     "challenge": [
@@ -51,10 +63,12 @@
     ],
     "approach": [
       "Olketa engagem Fluvio fo sapotem project ia, wetem waka fo monitorim wata an sediment long Tina River. Bae olketa iusim olketa finding ia fo wakem calculation blong sediment load, flow rating an mean flow, fo olketa energy calculation.",
-      "Mifala duim monitoring ia wetem olketa computer vision stream gauging sistem, olketa real-time station fo level blong wata wea sendem data evri wan minit, olketa real-time station fo kwaliti blong wata wea sendem data evri ten minit, sediment analysis, an manual gauging."
+      "Mifala duim monitoring ia wetem olketa computer vision stream gauging sistem, olketa real-time station fo level blong wata wea sendem data evri wan minit, olketa real-time station fo kwaliti blong wata wea sendem data evri ten minit, sediment analysis, an manual gauging.",
+      "Olketa station ia i joinem computer vision stream gauging wea SonTek QC4 sistem hemi ranem, olketa Xylem EXO sensor blong kwaliti blong wata, an mesarem discharge wetem ADCP. Nomata ples hemi farawe tumas, data blong kwaliti blong wata, wata level an discharge from video i go aot plande taem wetem wanfala satellite link wea joinem Starlink an RockBLOCK Pro blong Ground Control."
     ],
     "outcome": [
-      "From ples ia hemi farawe an had tumas, mifala developim olketa spesol solusen fo pawa an communication, fo mekem sua sistem hemi waka gud long wanfala ples wea farawe an had."
+      "From ples ia hemi farawe an had tumas, mifala developim olketa spesol solusen fo pawa an communication, fo mekem sua sistem hemi waka gud long wanfala ples wea farawe an had.",
+      "Wetem wata level wea hemi jenis kwiktaem an graon wea hemi raf, fo duim waka ia sef hemi nidim bigfala save, gudfala plan, fo savve jenis long ples, an, winim evrisamting, strong partnership wetem lokol pipol."
     ],
     "featured": true,
     "relatedProjects": ["bina", "advance-queensland"]
@@ -74,6 +88,11 @@
         "src": "/src/assets/images/fluvio/project-tina-station.png",
         "alt": "Une armoire d’instrumentation ouverte et un mât de caméra installés sur une corniche rocheuse au-dessus de la rivière Tina",
         "caption": "Une station de surveillance en temps réel déployée sur la rivière Tina."
+      },
+      {
+        "src": "/src/assets/images/fluvio/project-tina-field-stations.jpg",
+        "alt": "Six scènes du haut Tina River : forage d’un point d’ancrage dans la roche, un bateau ADCP tenu par un câble, un technicien traversant un rapide, une station caméra au-dessus d’une crue boueuse, un scientifique dans la rivière et la gorge de grès",
+        "caption": "Installation des stations de mesure dans le haut Tina River, Guadalcanal."
       }
     ],
     "challenge": [
@@ -81,10 +100,12 @@
     ],
     "approach": [
       "Fluvio a été mandaté pour appuyer le projet en réalisant la surveillance hydrologique et sédimentaire de la rivière Tina. Les résultats serviront à calculer les charges sédimentaires, les courbes de tarage et le débit moyen nécessaires aux calculs de production d’énergie.",
-      "Cette surveillance a été réalisée à l’aide de systèmes de jaugeage par vision par ordinateur, de stations de niveau d’eau en temps réel transmettant des données à la minute, de stations de qualité de l’eau en temps réel transmettant des données toutes les dix minutes, d’analyses sédimentaires et de jaugeages manuels."
+      "Cette surveillance a été réalisée à l’aide de systèmes de jaugeage par vision par ordinateur, de stations de niveau d’eau en temps réel transmettant des données à la minute, de stations de qualité de l’eau en temps réel transmettant des données toutes les dix minutes, d’analyses sédimentaires et de jaugeages manuels.",
+      "Les stations intègrent un jaugeage par vision par ordinateur reposant sur le système QC4 de SonTek, des capteurs de qualité de l’eau Xylem EXO et des mesures de débit par ADCP. Malgré l’isolement du site, les données de qualité de l’eau, de niveau et de débit vidéo sont transmises à haute fréquence par une liaison satellite hybride associant Starlink et le RockBLOCK Pro de Ground Control."
     ],
     "outcome": [
-      "En raison du caractère isolé et extrême du site, des solutions sur mesure d’alimentation et de communication ont été développées pour garantir la fiabilité dans un environnement isolé et complexe."
+      "En raison du caractère isolé et extrême du site, des solutions sur mesure d’alimentation et de communication ont été développées pour garantir la fiabilité dans un environnement isolé et complexe.",
+      "Face à des niveaux d’eau qui varient rapidement et à un terrain accidenté, mener ce travail en sécurité exige une grande expérience, une planification minutieuse, une capacité d’adaptation sur le terrain et, surtout, de solides partenariats locaux."
     ],
     "featured": true,
     "relatedProjects": ["bina", "advance-queensland"]
@@ -104,6 +125,11 @@
         "src": "/src/assets/images/fluvio/project-tina-station.png",
         "alt": "Un gabinete de instrumentación abierto y un mástil con cámara instalados sobre una repisa rocosa por encima del río Tina",
         "caption": "Una estación de monitoreo en tiempo real desplegada en el río Tina."
+      },
+      {
+        "src": "/src/assets/images/fluvio/project-tina-field-stations.jpg",
+        "alt": "Seis escenas del alto río Tina: perforación de un anclaje en la roca, una embarcación ADCP sujeta con cable, un técnico vadeando un rápido, una estación con cámara sobre una crecida marrón, un científico en el río y la garganta de arenisca",
+        "caption": "Instalación de las estaciones de monitoreo en el alto río Tina, Guadalcanal."
       }
     ],
     "challenge": [
@@ -111,10 +137,12 @@
     ],
     "approach": [
       "Fluvio fue contratado para apoyar el proyecto mediante el monitoreo hidrológico y de sedimentos del río Tina. Los resultados se utilizarán para calcular cargas de sedimentos, curvas de gasto y caudal medio con fines de cálculo energético.",
-      "Este monitoreo se ha realizado con sistemas de aforo por visión artificial, estaciones de nivel de agua en tiempo real que envían datos cada minuto, estaciones de calidad del agua en tiempo real que envían datos cada diez minutos, análisis de sedimentos y aforos manuales."
+      "Este monitoreo se ha realizado con sistemas de aforo por visión artificial, estaciones de nivel de agua en tiempo real que envían datos cada minuto, estaciones de calidad del agua en tiempo real que envían datos cada diez minutos, análisis de sedimentos y aforos manuales.",
+      "Las estaciones integran aforo de corrientes por visión artificial basado en el sistema QC4 de SonTek, sensores de calidad del agua Xylem EXO y mediciones de caudal con ADCP. A pesar de lo remoto del sitio, los datos de calidad del agua, nivel y caudal por video se transmiten con alta frecuencia mediante un enlace satelital híbrido que combina Starlink y el RockBLOCK Pro de Ground Control."
     ],
     "outcome": [
-      "Dado el carácter remoto y extremo del sitio, se han desarrollado soluciones a medida de energía y comunicaciones para garantizar la confiabilidad en un entorno aislado y complejo."
+      "Dado el carácter remoto y extremo del sitio, se han desarrollado soluciones a medida de energía y comunicaciones para garantizar la confiabilidad en un entorno aislado y complejo.",
+      "Con niveles de agua que cambian rápidamente y un terreno escarpado, ejecutar este trabajo con seguridad exige gran experiencia, una planificación meticulosa, capacidad de adaptación en terreno y, sobre todo, alianzas locales sólidas."
     ],
     "featured": true,
     "relatedProjects": ["bina", "advance-queensland"]

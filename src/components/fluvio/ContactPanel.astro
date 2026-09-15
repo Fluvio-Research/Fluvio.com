@@ -64,9 +64,53 @@ const {
     mask-image: linear-gradient(200deg, rgb(0 0 0) 20%, transparent 75%);
   }
 
+  /* Two soft lights drift behind the copy. */
+  .fluvio-contact-panel::before,
+  .fluvio-contact-panel::after {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    width: 34rem;
+    height: 34rem;
+    border-radius: 999px;
+    pointer-events: none;
+    filter: blur(70px);
+    opacity: 0.55;
+  }
+
+  .fluvio-contact-panel::before {
+    top: -18rem;
+    right: -10rem;
+    background: rgb(var(--fluvio-river));
+  }
+
+  .fluvio-contact-panel::after {
+    bottom: -20rem;
+    left: -12rem;
+    background: rgb(var(--fluvio-teal));
+    opacity: 0.35;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .fluvio-contact-panel::before {
+      animation: fluvio-contact-drift 22s ease-in-out infinite alternate;
+    }
+
+    .fluvio-contact-panel::after {
+      animation: fluvio-contact-drift 26s ease-in-out infinite alternate-reverse;
+    }
+  }
+
+  @keyframes fluvio-contact-drift {
+    to {
+      transform: translate3d(-8%, 10%, 0) scale(1.12);
+    }
+  }
+
   .fluvio-contact-panel__copy,
   .fluvio-contact-panel__action {
     position: relative;
+    z-index: 1;
   }
 
   .fluvio-contact-panel__eyebrow {

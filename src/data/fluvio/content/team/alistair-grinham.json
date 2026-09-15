@@ -7,7 +7,8 @@
     "portrait": "/src/assets/images/fluvio/team-alistair.png",
     "portraitAlt": "Alistair Grinham",
     "specialties": ["Carbon and sediment dynamics"],
-    "expertise": ["blue-carbon-assessment", "sediment-loading"]
+    "expertise": ["blue-carbon-assessment", "sediment-loading"],
+    "projects": ["laidley-creek-flood"]
   },
   "pijin": {
     "order": 2,
@@ -17,7 +18,8 @@
     "portrait": "/src/assets/images/fluvio/team-alistair.png",
     "portraitAlt": "Alistair Grinham",
     "specialties": ["Carbon an sediment"],
-    "expertise": ["blue-carbon-assessment", "sediment-loading"]
+    "expertise": ["blue-carbon-assessment", "sediment-loading"],
+    "projects": ["laidley-creek-flood"]
   },
   "fr": {
     "order": 2,
@@ -27,7 +29,8 @@
     "portrait": "/src/assets/images/fluvio/team-alistair.png",
     "portraitAlt": "Alistair Grinham",
     "specialties": ["Dynamique du carbone et des sédiments"],
-    "expertise": ["blue-carbon-assessment", "sediment-loading"]
+    "expertise": ["blue-carbon-assessment", "sediment-loading"],
+    "projects": ["laidley-creek-flood"]
   },
   "es": {
     "order": 2,
@@ -37,6 +40,7 @@
     "portrait": "/src/assets/images/fluvio/team-alistair.png",
     "portraitAlt": "Alistair Grinham",
     "specialties": ["Dinámica del carbono y los sedimentos"],
-    "expertise": ["blue-carbon-assessment", "sediment-loading"]
+    "expertise": ["blue-carbon-assessment", "sediment-loading"],
+    "projects": ["laidley-creek-flood"]
   }
 }

@@ -80,7 +80,7 @@
       "directoryTitle": "People behind the work",
       "directoryIntro": "The team brings research, industry and regional experience to complex water, climate and environmental challenges.",
       "contactTitle": "Bring the right mix of expertise *to your project*.",
-      "contactIntro": "Tell us about the system, place or decision your team is working through.",
+      "contactIntro": "Tell us about the system, place or decision your team needs to support, and we will bring the right combination of field, science and technology expertise.",
       "viewProfile": "View profile"
     },
     "teamDetail": {
@@ -128,13 +128,15 @@
       "featuredLabel": "Featured project",
       "listEyebrow": "Selected work",
       "listTitle": "Across catchments, coastlines and communities",
-      "listIntro": "Nine projects, each shaped by its place, partners and operational realities.",
+      "listIntro": "Eleven projects, each shaped by its place, partners and operational realities.",
       "allProjects": "All projects",
       "platformsEyebrow": "Platforms",
       "platformsTitle": "Environmental data, ready to use",
       "platformsIntro": "Purpose-built tools turn monitoring networks into information that teams can understand and act on.",
       "filterLabel": "Filter by capability",
-      "filterAll": "All projects"
+      "filterAll": "All projects",
+      "showingTemplate": "Showing {shown} of {total} projects",
+      "locationsLabel": "Locations"
     },
     "projectDetail": {
       "back": "All projects",
@@ -155,7 +157,11 @@
       "contents": "In this case study",
       "factsLabel": "Project facts",
       "previousProject": "Previous project",
-      "nextProject": "Next project"
+      "nextProject": "Next project",
+      "galleryOpen": "View larger",
+      "galleryClose": "Close",
+      "galleryPrevious": "Previous image",
+      "galleryNext": "Next image"
     },
     "project": {
       "viewProject": "View project",
@@ -168,8 +174,8 @@
     },
     "contactPanel": {
       "eyebrow": "Start a conversation",
-      "title": "Have a water, environmental or *climate challenge*?",
-      "intro": "Tell us what you are working through. We will bring the right mix of field, science and technology expertise to the conversation.",
+      "title": "Let’s discuss your water, environmental or *climate project*.",
+      "intro": "Tell us about the system, the place and the decisions you need to support. Fluvio brings together field science, monitoring technology and practical delivery to help you get there.",
       "action": "Contact Fluvio"
     }
   },
@@ -254,7 +260,7 @@
       "directoryTitle": "Olketa pipol bihaen long waka",
       "directoryIntro": "Tim ia tekem kam savve from research, indastri an region fo olketa hadfala hevi blong wata, klaemet an enviromen.",
       "contactTitle": "Tekem raet mix blong savve *long project blong iu*.",
-      "contactIntro": "Talem mifala abaotem sistem, ples o disison wea tim blong iu waka long hem.",
+      "contactIntro": "Talem mifala abaotem sistem, ples o disison wea tim blong iu nidim fo sapotim, an bae mifala tekem kam stretfala mix blong savve long field waka, saens an teknoloji.",
       "viewProfile": "Lukim profile"
     },
     "teamDetail": {
@@ -302,13 +308,15 @@
       "featuredLabel": "Spesol project",
       "listEyebrow": "Samfala waka",
       "listTitle": "Long olketa catchment, solwata saed an komuniti",
-      "listIntro": "Naenfala project, an evriwan hemi fitim ples blong hem, olketa partna an tru kondison blong waka.",
+      "listIntro": "Levenfala project, an evriwan hemi fitim ples blong hem, olketa partna an tru kondison blong waka.",
       "allProjects": "Evri project",
       "platformsEyebrow": "Olketa platform",
       "platformsTitle": "Data blong enviromen, redi fo iusim",
       "platformsIntro": "Olketa tul wea mifala buildim spesol, olketa tanem monitoring network kamap infomeson wea olketa tim savve luksavve an iusim.",
       "filterLabel": "Filtarem long savve eria",
-      "filterAll": "Evri project"
+      "filterAll": "Evri project",
+      "showingTemplate": "Soim {shown} long {total} project",
+      "locationsLabel": "Olketa ples"
     },
     "projectDetail": {
       "back": "Evri project",
@@ -329,7 +337,11 @@
       "contents": "Insaet long project ia",
       "factsLabel": "Olketa fact blong project",
       "previousProject": "Project bifoa",
-      "nextProject": "Nekis project"
+      "nextProject": "Nekis project",
+      "galleryOpen": "Lukim moa big",
+      "galleryClose": "Klosim",
+      "galleryPrevious": "Pikja bifoa",
+      "galleryNext": "Nekis pikja"
     },
     "project": {
       "viewProject": "Lukim project",
@@ -342,8 +354,8 @@
     },
     "contactPanel": {
       "eyebrow": "Startim toktok",
-      "title": "Iu garem wanfala hevi blong wata, enviromen o *klaemet*?",
-      "intro": "Talem mifala wanem nao iu waka long hem. Bae mifala tekem kam stretfala mix blong savve long field waka, saens an teknoloji fo toktok ia.",
+      "title": "Kam toktok wetem mifala abaotem project blong iu long wata, enviromen o *klaemet*.",
+      "intro": "Talem mifala abaotem sistem, ples an olketa disison wea iu nidim fo sapotim. Fluvio hemi joinem field saens, teknoloji fo monitoring an gudfala delivery fo helpem iu kasem hem.",
       "action": "Kontaktem Fluvio"
     }
   },
@@ -428,7 +440,7 @@
       "directoryTitle": "Les personnes derrière le travail",
       "directoryIntro": "L’équipe apporte une expérience issue de la recherche, de l’industrie et du terrain régional à des défis complexes liés à l’eau, au climat et à l’environnement.",
       "contactTitle": "Réunissez la bonne combinaison d’expertise *autour de votre projet*.",
-      "contactIntro": "Parlez-nous du système, du lieu ou de la décision sur lesquels votre équipe travaille.",
+      "contactIntro": "Décrivez-nous le système, le territoire ou la décision que votre équipe doit appuyer, et nous réunirons les bonnes expertises de terrain, scientifiques et technologiques.",
       "viewProfile": "Voir le profil"
     },
     "teamDetail": {
@@ -476,13 +488,15 @@
       "featuredLabel": "Projet phare",
       "listEyebrow": "Travaux choisis",
       "listTitle": "Des bassins versants aux littoraux et aux communautés",
-      "listIntro": "Neuf projets, chacun façonné par son territoire, ses partenaires et ses réalités opérationnelles.",
+      "listIntro": "Onze projets, chacun façonné par son territoire, ses partenaires et ses réalités opérationnelles.",
       "allProjects": "Tous les projets",
       "platformsEyebrow": "Plateformes",
       "platformsTitle": "Des données environnementales prêtes à l’emploi",
       "platformsIntro": "Des outils dédiés transforment les réseaux de surveillance en informations que les équipes peuvent comprendre et exploiter.",
       "filterLabel": "Filtrer par domaine",
-      "filterAll": "Tous les projets"
+      "filterAll": "Tous les projets",
+      "showingTemplate": "{shown} projets sur {total} affichés",
+      "locationsLabel": "Lieux"
     },
     "projectDetail": {
       "back": "Tous les projets",
@@ -503,7 +517,11 @@
       "contents": "Dans cette étude de cas",
       "factsLabel": "Repères du projet",
       "previousProject": "Projet précédent",
-      "nextProject": "Projet suivant"
+      "nextProject": "Projet suivant",
+      "galleryOpen": "Agrandir",
+      "galleryClose": "Fermer",
+      "galleryPrevious": "Image précédente",
+      "galleryNext": "Image suivante"
     },
     "project": {
       "viewProject": "Voir le projet",
@@ -516,8 +534,8 @@
     },
     "contactPanel": {
       "eyebrow": "Engager la conversation",
-      "title": "Un défi lié à l’eau, à l’environnement ou *au climat* ?",
-      "intro": "Parlez-nous de ce sur quoi vous travaillez. Nous réunirons les bonnes expertises de terrain, scientifiques et technologiques autour de la conversation.",
+      "title": "Parlons de votre projet lié à l’eau, à l’environnement ou *au climat*.",
+      "intro": "Décrivez-nous le système, le territoire et les décisions à appuyer. Fluvio réunit science de terrain, technologies de surveillance et mise en œuvre concrète pour vous y mener.",
       "action": "Contacter Fluvio"
     }
   },
@@ -602,7 +620,7 @@
       "directoryTitle": "Las personas detrás del trabajo",
       "directoryIntro": "El equipo aporta experiencia de investigación, industria y trabajo regional a desafíos complejos de agua, clima y medio ambiente.",
       "contactTitle": "Reúna la combinación adecuada de especialidades *para su proyecto*.",
-      "contactIntro": "Cuéntenos el sistema, el lugar o la decisión en la que su equipo está trabajando.",
+      "contactIntro": "Cuéntenos el sistema, el lugar o la decisión que su equipo necesita respaldar, y reuniremos la combinación adecuada de experiencia de campo, científica y tecnológica.",
       "viewProfile": "Ver perfil"
     },
     "teamDetail": {
@@ -650,13 +668,15 @@
       "featuredLabel": "Proyecto destacado",
       "listEyebrow": "Trabajo seleccionado",
       "listTitle": "De las cuencas a las costas y las comunidades",
-      "listIntro": "Nueve proyectos, cada uno moldeado por su territorio, sus socios y sus realidades operativas.",
+      "listIntro": "Once proyectos, cada uno moldeado por su territorio, sus socios y sus realidades operativas.",
       "allProjects": "Todos los proyectos",
       "platformsEyebrow": "Plataformas",
       "platformsTitle": "Datos ambientales listos para usar",
       "platformsIntro": "Herramientas diseñadas a medida convierten las redes de monitoreo en información que los equipos pueden comprender y aprovechar.",
       "filterLabel": "Filtrar por especialidad",
-      "filterAll": "Todos los proyectos"
+      "filterAll": "Todos los proyectos",
+      "showingTemplate": "Mostrando {shown} de {total} proyectos",
+      "locationsLabel": "Lugares"
     },
     "projectDetail": {
       "back": "Todos los proyectos",
@@ -677,7 +697,11 @@
       "contents": "En este caso de estudio",
       "factsLabel": "Datos del proyecto",
       "previousProject": "Proyecto anterior",
-      "nextProject": "Siguiente proyecto"
+      "nextProject": "Siguiente proyecto",
+      "galleryOpen": "Ver más grande",
+      "galleryClose": "Cerrar",
+      "galleryPrevious": "Imagen anterior",
+      "galleryNext": "Imagen siguiente"
     },
     "project": {
       "viewProject": "Ver el proyecto",
@@ -690,8 +714,8 @@
     },
     "contactPanel": {
       "eyebrow": "Iniciar una conversación",
-      "title": "¿Tiene un desafío de agua, medio ambiente o *clima*?",
-      "intro": "Cuéntenos en qué está trabajando. Reuniremos la combinación adecuada de experiencia de campo, científica y tecnológica para la conversación.",
+      "title": "Hablemos de su proyecto de agua, medio ambiente o *clima*.",
+      "intro": "Cuéntenos el sistema, el lugar y las decisiones que necesita respaldar. Fluvio reúne ciencia de campo, tecnología de monitoreo y ejecución práctica para ayudarle a lograrlo.",
       "action": "Contactar a Fluvio"
     }
   }

@@ -1,9 +1,10 @@
 ---
 /**
  * The illustration for one expertise area: a looping demonstration clip when
- * the record carries a video, otherwise the still photograph. The clip is
- * letterboxed rather than cropped so overlays baked into the frame (scale
- * bars, legends) stay readable, and it only plays once it scrolls into view.
+ * the record carries a video, otherwise the still photograph. The clip fills
+ * its frame exactly like a photograph (same aspect ratios, radii and hover
+ * zoom as LargeImage), only plays once it scrolls into view, and stays on its
+ * poster frame for visitors who prefer reduced motion.
  */
 import LargeImage from './LargeImage.astro';
 import type { ExpertiseArea } from '~/data/fluvio/types';
@@ -45,6 +46,9 @@ const posterUrl = poster && typeof poster === 'object' && 'src' in poster ? post
             preload={priority ? 'metadata' : 'none'}
             aria-label={area.imageAlt}
           />
+          <span class="fluvio-expertise-media__badge" aria-hidden="true">
+            <span class="fluvio-expertise-media__pulse" />
+          </span>
         </div>
       ) : (
         <div class="fluvio-expertise-media__frame">
@@ -58,6 +62,9 @@ const posterUrl = poster && typeof poster === 'object' && 'src' in poster ? post
             preload={priority ? 'metadata' : 'none'}
             aria-label={area.imageAlt}
           />
+          <span class="fluvio-expertise-media__badge" aria-hidden="true">
+            <span class="fluvio-expertise-media__pulse" />
+          </span>
         </div>
       )}
     </div>
@@ -80,12 +87,14 @@ const posterUrl = poster && typeof poster === 'object' && 'src' in poster ? post
   }
 
   .fluvio-expertise-media__frame {
+    position: relative;
     overflow: hidden;
     width: 100%;
     aspect-ratio: 4 / 3;
     border-radius: 12px;
-    /* Dark ground so the letterboxed clip reads as a deliberate frame. */
-    background: rgb(var(--fluvio-ink) / 0.92);
+    background: rgb(var(--fluvio-river) / 0.08);
+    isolation: isolate;
+    transform: translateZ(0);
   }
 
   .fluvio-expertise-media--hero .fluvio-expertise-media__frame {
@@ -116,7 +125,62 @@ const posterUrl = poster && typeof poster === 'object' && 'src' in poster ? post
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
+  }
+
+  /* A quiet pulse in the corner: this frame is being computed, not filmed. */
+  .fluvio-expertise-media__badge {
+    position: absolute;
+    top: 0.9rem;
+    left: 0.9rem;
+    display: grid;
+    place-items: center;
+    width: 1.6rem;
+    height: 1.6rem;
+    border: 1px solid rgb(255 255 255 / 0.18);
+    border-radius: 999px;
+    background: rgb(var(--fluvio-ink) / 0.5);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+  }
+
+  .fluvio-expertise-media__frame.is-playing .fluvio-expertise-media__badge {
+    opacity: 1;
+  }
+
+  .fluvio-expertise-media__pulse {
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 999px;
+    background: rgb(125 226 200);
+    box-shadow: 0 0 0 0 rgb(125 226 200 / 0.7);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .fluvio-expertise-media__video {
+      transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .fluvio-expertise-media__badge {
+      transition: opacity 400ms ease;
+    }
+
+    .fluvio-expertise-media__pulse {
+      animation: fluvio-media-pulse 1.8s ease-out infinite;
+    }
+
+    @media (hover: hover) {
+      :global(article:has(a):hover) .fluvio-expertise-media__video,
+      :global(a:hover) .fluvio-expertise-media__video {
+        transform: scale(1.035);
+      }
+    }
+  }
+
+  @keyframes fluvio-media-pulse {
+    to {
+      box-shadow: 0 0 0 0.5rem rgb(125 226 200 / 0);
+    }
   }
 </style>
 
@@ -130,6 +194,10 @@ const posterUrl = poster && typeof poster === 'object' && 'src' in poster ? post
     if (stillPreferred.matches) {
       videos.forEach((video) => video.setAttribute('controls', ''));
     } else {
+      videos.forEach((video) => {
+        video.addEventListener('playing', () => video.parentElement?.classList.add('is-playing'));
+        video.addEventListener('pause', () => video.parentElement?.classList.remove('is-playing'));
+      });
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -138,7 +206,7 @@ const posterUrl = poster && typeof poster === 'object' && 'src' in poster ? post
             else video.pause();
           });
         },
-        { rootMargin: '0px 0px -20% 0px' }
+        { rootMargin: '0px 0px -10% 0px' }
       );
 
       videos.forEach((video) => observer.observe(video));

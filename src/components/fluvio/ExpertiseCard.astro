@@ -1,8 +1,10 @@
 ---
 /**
- * An expertise area as a card. `media` shows the area's clip or photograph;
- * `compact` is text only, for pages whose photography is already on screen
- * (a project page listing the capabilities behind it). One stretched link.
+ * An expertise area as a card. `media` is a surface card: the area's clip or
+ * photograph on top, then index, title, summary and a footer with the
+ * project count and the arrow control. `compact` is text only, for pages
+ * whose photography is already on screen (a project page listing the
+ * capabilities behind it). One stretched link.
  */
 import ArrowIcon from './ArrowIcon.astro';
 import ExpertiseMedia from './ExpertiseMedia.astro';
@@ -54,61 +56,123 @@ const count =
         <ExpertiseMedia
           area={area}
           aspect="wide"
-          radius="lg"
+          radius="none"
           priority={priority}
           sizes="(min-width: 1280px) 640px, (min-width: 768px) 50vw, calc(100vw - 2rem)"
           transitionName={`expertise-${area.slug}`}
         />
+        {number && <span class="fluvio-expertise-card__number">{number}</span>}
       </div>
     )
   }
   <div class="fluvio-expertise-card__body">
-    <p class="fluvio-label fluvio-expertise-card__label">
-      {number && <span>{number}</span>}
-      {count && <span class="fluvio-expertise-card__count">{count}</span>}
-    </p>
+    {
+      variant === 'compact' && (
+        <p class="fluvio-label fluvio-expertise-card__label">
+          {number && <span>{number}</span>}
+          {count && <span class="fluvio-expertise-card__count">{count}</span>}
+        </p>
+      )
+    }
     <Heading class="fluvio-expertise-card__title">
       <a href={href}>{area.title}</a>
     </Heading>
     <p class="fluvio-expertise-card__summary">{area.summary}</p>
-    <span class="fluvio-expertise-card__cta">
-      <span>{strings.viewArea}</span>
-      <ArrowIcon size="sm" />
-    </span>
+    <div class="fluvio-expertise-card__foot">
+      {variant === 'media' && count && <span class="fluvio-expertise-card__count">{count}</span>}
+      <span class="fluvio-expertise-card__cta">
+        <span>{strings.viewArea}</span>
+        <ArrowIcon size="sm" />
+      </span>
+    </div>
   </div>
 </article>
 
 <style>
   .fluvio-expertise-card {
+    --card-radius: 22px;
+    --card-line: rgb(var(--fluvio-ink) / 0.1);
+    --card-surface: rgb(var(--fluvio-paper) / 0.72);
     position: relative;
     display: grid;
-    gap: 1.25rem;
     align-content: start;
+    height: 100%;
+  }
+
+  :global(.dark) .fluvio-expertise-card {
+    --card-line: rgb(var(--fluvio-mist) / 0.12);
+    --card-surface: rgb(var(--fluvio-navy) / 0.28);
+  }
+
+  .fluvio-expertise-card--media {
+    grid-template-rows: auto 1fr;
+    overflow: hidden;
+    border: 1px solid var(--card-line);
+    border-radius: var(--card-radius);
+    background: var(--card-surface);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 1px 0 rgb(255 255 255 / 0.5) inset;
+  }
+
+  :global(.dark) .fluvio-expertise-card--media {
+    box-shadow: none;
   }
 
   .fluvio-expertise-card--compact {
-    gap: 0;
+    --card-radius: 16px;
     padding: 1.6rem 1.5rem 1.5rem;
-    border: 1px solid rgb(var(--fluvio-ink) / 0.12);
-    border-radius: 16px;
+    border: 1px solid var(--card-line);
+    border-radius: var(--card-radius);
     background: rgb(var(--fluvio-paper) / 0.6);
   }
 
   :global(.dark) .fluvio-expertise-card--compact {
-    border-color: rgb(var(--fluvio-mist) / 0.14);
     background: rgb(var(--fluvio-navy) / 0.22);
+  }
+
+  .fluvio-expertise-card__media {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .fluvio-expertise-card__media :global(.fluvio-image__frame),
+  .fluvio-expertise-card__media :global(.fluvio-expertise-media__frame) {
+    border-radius: 0;
+  }
+
+  .fluvio-expertise-card__number {
+    position: absolute;
+    top: 0.9rem;
+    right: 0.9rem;
+    z-index: 2;
+    padding: 0.38rem 0.7rem;
+    border: 1px solid rgb(255 255 255 / 0.16);
+    border-radius: 999px;
+    background: rgb(var(--fluvio-ink) / 0.48);
+    backdrop-filter: blur(12px);
+    color: rgb(var(--fluvio-paper));
+    font-family: var(--aw-font-mono);
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    pointer-events: none;
   }
 
   .fluvio-expertise-card__body {
     display: grid;
     gap: 0.7rem;
-    padding-inline: 0.25rem;
+    align-content: start;
+    height: 100%;
+    padding: 1.35rem 1.4rem 1.35rem;
+  }
+
+  .fluvio-expertise-card--media .fluvio-expertise-card__body {
+    grid-template-rows: auto 1fr auto;
   }
 
   .fluvio-expertise-card--compact .fluvio-expertise-card__body {
-    padding-inline: 0;
-    height: 100%;
-    align-content: start;
+    padding: 0;
   }
 
   .fluvio-expertise-card__label {
@@ -119,6 +183,11 @@ const count =
 
   .fluvio-expertise-card__count {
     color: var(--aw-color-text-muted);
+    font-family: var(--aw-font-mono);
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
   }
 
   .fluvio-expertise-card__title {
@@ -144,8 +213,8 @@ const count =
     content: '';
     position: absolute;
     inset: 0;
-    z-index: 1;
-    border-radius: 20px;
+    z-index: 3;
+    border-radius: var(--card-radius);
   }
 
   .fluvio-expertise-card__summary {
@@ -160,18 +229,31 @@ const count =
     font-size: 0.9rem;
   }
 
+  .fluvio-expertise-card__foot {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+  }
+
+  .fluvio-expertise-card--media .fluvio-expertise-card__foot {
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--card-line);
+  }
+
+  .fluvio-expertise-card--compact .fluvio-expertise-card__foot {
+    margin-top: 1.25rem;
+  }
+
   .fluvio-expertise-card__cta {
     display: inline-flex;
     gap: 0.6rem;
     align-items: center;
-    margin-top: 0.35rem;
+    margin-left: auto;
     color: var(--arrow-color);
     font-size: 0.84rem;
     font-weight: 600;
-  }
-
-  .fluvio-expertise-card--compact .fluvio-expertise-card__cta {
-    margin-top: 1.25rem;
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -179,20 +261,34 @@ const count =
       transition: color 220ms ease;
     }
 
+    .fluvio-expertise-card--media,
     .fluvio-expertise-card--compact {
       transition:
         border-color 240ms ease,
-        transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
-        box-shadow 260ms ease;
+        transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 420ms cubic-bezier(0.22, 1, 0.36, 1);
     }
 
-    .fluvio-expertise-card--compact:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 34px rgb(var(--fluvio-ink) / 0.08);
+    @media (hover: hover) {
+      .fluvio-expertise-card--media:hover {
+        transform: translateY(-5px);
+        box-shadow:
+          0 1px 0 rgb(255 255 255 / 0.5) inset,
+          0 24px 48px -18px rgb(var(--fluvio-ink) / 0.28);
+      }
+
+      .fluvio-expertise-card--compact:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 34px rgb(var(--fluvio-ink) / 0.08);
+      }
+
+      :global(.dark) .fluvio-expertise-card--media:hover {
+        box-shadow: 0 24px 48px -18px rgb(0 0 0 / 0.6);
+      }
     }
   }
 
-  .fluvio-expertise-card--compact:hover {
+  .fluvio-expertise-card:hover {
     border-color: rgb(var(--fluvio-river) / 0.45);
   }
 
@@ -205,9 +301,8 @@ const count =
   }
 
   .fluvio-expertise-card:has(a:focus-visible) {
-    border-radius: 20px;
     outline: 2px solid rgb(var(--fluvio-river));
-    outline-offset: 6px;
+    outline-offset: 4px;
   }
 
   .fluvio-expertise-card__title a:focus-visible {

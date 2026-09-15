@@ -1,8 +1,10 @@
 ---
 /**
  * A person in a grid: portrait, name, role, optional biography and the
- * arrow control, all one stretched link to the profile page. The portrait
- * morphs into the profile hero through its view-transition name.
+ * arrow control, all one stretched link to the profile page. The default
+ * variant is a surface card; `compact` is a bare portrait with a name for
+ * the wall of faces on the homepage. The portrait morphs into the profile
+ * hero through its view-transition name.
  */
 import ArrowIcon from './ArrowIcon.astro';
 import LargeImage from './LargeImage.astro';
@@ -38,12 +40,13 @@ const strings = t(locale).teamPage;
       src={member.portrait}
       alt={member.portraitAlt}
       aspect={variant === 'compact' ? 'square' : 'portrait'}
-      radius="lg"
+      radius={variant === 'compact' ? 'lg' : 'none'}
       sizes={variant === 'compact'
         ? '(min-width: 1280px) 220px, (min-width: 768px) 20vw, 40vw'
         : '(min-width: 1280px) 400px, (min-width: 768px) 30vw, calc(50vw - 1.5rem)'}
       transitionName={`team-${member.slug}`}
     />
+    {member.location && variant === 'default' && <span class="fluvio-team-card__location">{member.location}</span>}
   </div>
   <div class="fluvio-team-card__body">
     <Heading class="fluvio-team-card__name">
@@ -60,16 +63,71 @@ const strings = t(locale).teamPage;
 
 <style>
   .fluvio-team-card {
+    --card-radius: 22px;
+    --card-line: rgb(var(--fluvio-ink) / 0.1);
+    --card-surface: rgb(var(--fluvio-paper) / 0.72);
     position: relative;
     display: grid;
     gap: 1.1rem;
     align-content: start;
+    height: 100%;
+  }
+
+  :global(.dark) .fluvio-team-card {
+    --card-line: rgb(var(--fluvio-mist) / 0.12);
+    --card-surface: rgb(var(--fluvio-navy) / 0.28);
+  }
+
+  .fluvio-team-card--default {
+    grid-template-rows: auto 1fr;
+    gap: 0;
+    overflow: hidden;
+    border: 1px solid var(--card-line);
+    border-radius: var(--card-radius);
+    background: var(--card-surface);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 1px 0 rgb(255 255 255 / 0.5) inset;
+  }
+
+  :global(.dark) .fluvio-team-card--default {
+    box-shadow: none;
+  }
+
+  .fluvio-team-card__portrait {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .fluvio-team-card--default .fluvio-team-card__portrait :global(.fluvio-image__frame) {
+    border-radius: 0;
+  }
+
+  .fluvio-team-card__location {
+    position: absolute;
+    top: 0.9rem;
+    left: 0.9rem;
+    z-index: 2;
+    padding: 0.35rem 0.7rem;
+    border: 1px solid rgb(255 255 255 / 0.16);
+    border-radius: 999px;
+    background: rgb(var(--fluvio-ink) / 0.48);
+    backdrop-filter: blur(12px);
+    color: rgb(var(--fluvio-paper));
+    font-size: 0.7rem;
+    font-weight: 600;
+    pointer-events: none;
   }
 
   .fluvio-team-card__body {
     display: grid;
     gap: 0.4rem;
+    align-content: start;
     padding-inline: 0.25rem;
+  }
+
+  .fluvio-team-card--default .fluvio-team-card__body {
+    padding: 1.25rem 1.35rem 1.3rem;
   }
 
   .fluvio-team-card__name {
@@ -94,8 +152,8 @@ const strings = t(locale).teamPage;
     content: '';
     position: absolute;
     inset: 0;
-    z-index: 1;
-    border-radius: 20px;
+    z-index: 3;
+    border-radius: var(--card-radius);
   }
 
   .fluvio-team-card__role {
@@ -128,7 +186,7 @@ const strings = t(locale).teamPage;
     display: inline-flex;
     gap: 0.6rem;
     align-items: center;
-    margin-top: 0.6rem;
+    margin-top: 0.9rem;
     color: var(--arrow-color);
     font-size: 0.82rem;
     font-weight: 600;
@@ -142,6 +200,30 @@ const strings = t(locale).teamPage;
     .fluvio-team-card__name a {
       transition: color 220ms ease;
     }
+
+    .fluvio-team-card--default {
+      transition:
+        border-color 240ms ease,
+        transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 420ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    @media (hover: hover) {
+      .fluvio-team-card--default:hover {
+        transform: translateY(-5px);
+        box-shadow:
+          0 1px 0 rgb(255 255 255 / 0.5) inset,
+          0 24px 48px -18px rgb(var(--fluvio-ink) / 0.28);
+      }
+
+      :global(.dark) .fluvio-team-card--default:hover {
+        box-shadow: 0 24px 48px -18px rgb(0 0 0 / 0.6);
+      }
+    }
+  }
+
+  .fluvio-team-card--default:hover {
+    border-color: rgb(var(--fluvio-river) / 0.45);
   }
 
   .fluvio-team-card:hover .fluvio-team-card__name a {
@@ -153,9 +235,9 @@ const strings = t(locale).teamPage;
   }
 
   .fluvio-team-card:has(a:focus-visible) {
-    border-radius: 20px;
+    border-radius: var(--card-radius);
     outline: 2px solid rgb(var(--fluvio-river));
-    outline-offset: 6px;
+    outline-offset: 4px;
   }
 
   .fluvio-team-card__name a:focus-visible {

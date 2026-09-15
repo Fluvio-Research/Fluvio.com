@@ -7,7 +7,8 @@
     "portrait": "/src/assets/images/fluvio/team-nick.png",
     "portraitAlt": "Nick Hutley",
     "specialties": ["Optical flow technology"],
-    "expertise": ["hydrological-monitoring", "island-scale-modelling"]
+    "expertise": ["hydrological-monitoring", "island-scale-modelling"],
+    "projects": ["cordap", "laidley-creek-flood"]
   },
   "pijin": {
     "order": 3,
@@ -17,7 +18,8 @@
     "portrait": "/src/assets/images/fluvio/team-nick.png",
     "portraitAlt": "Nick Hutley",
     "specialties": ["Optical flow teknoloji"],
-    "expertise": ["hydrological-monitoring", "island-scale-modelling"]
+    "expertise": ["hydrological-monitoring", "island-scale-modelling"],
+    "projects": ["cordap", "laidley-creek-flood"]
   },
   "fr": {
     "order": 3,
@@ -27,7 +29,8 @@
     "portrait": "/src/assets/images/fluvio/team-nick.png",
     "portraitAlt": "Nick Hutley",
     "specialties": ["Technologie de flux optique"],
-    "expertise": ["hydrological-monitoring", "island-scale-modelling"]
+    "expertise": ["hydrological-monitoring", "island-scale-modelling"],
+    "projects": ["cordap", "laidley-creek-flood"]
   },
   "es": {
     "order": 3,
@@ -37,6 +40,7 @@
     "portrait": "/src/assets/images/fluvio/team-nick.png",
     "portraitAlt": "Nick Hutley",
     "specialties": ["Tecnología de flujo óptico"],
-    "expertise": ["hydrological-monitoring", "island-scale-modelling"]
+    "expertise": ["hydrological-monitoring", "island-scale-modelling"],
+    "projects": ["cordap", "laidley-creek-flood"]
   }
 }

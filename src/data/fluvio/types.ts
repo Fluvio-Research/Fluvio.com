@@ -29,6 +29,8 @@ export interface Project {
   partners?: string[];
   heroImage: string;
   heroAlt: string;
+  /** Optional clip that plays over the lead photograph on the project page. */
+  video?: string;
   gallery?: GalleryImage[];
   challenge: string[];
   approach: string[];

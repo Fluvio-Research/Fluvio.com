@@ -3,10 +3,12 @@ import ContactPanel from '~/components/fluvio/ContactPanel.astro';
 import PageHero from '~/components/fluvio/PageHero.astro';
 import PlatformFeature from '~/components/fluvio/PlatformFeature.astro';
 import ProjectCard from '~/components/fluvio/ProjectCard.astro';
+import ProjectFeature from '~/components/fluvio/ProjectFeature.astro';
 import SectionFrame from '~/components/fluvio/SectionFrame.astro';
 import SectionHeading from '~/components/fluvio/SectionHeading.astro';
 import { REVEAL } from '~/components/fluvio/reveal';
 import { getExpertiseAreas, getProjects } from '~/data/fluvio/localized';
+import { getLocations } from '~/data/fluvio/relations';
 import { getHomepage } from '~/data/fluvio/store.ts';
 import { t, type Locale } from '~/i18n';
 import Layout from '~/layouts/PageLayout.astro';
@@ -16,61 +18,95 @@ export interface Props {
 }
 
 const { locale } = Astro.props;
-const c = t(locale);
-const { platforms } = getHomepage(locale);
+const c = t(locale).projectsPage;
+const { platforms, glance } = getHomepage(locale);
 const projects = getProjects(locale);
 const areas = getExpertiseAreas(locale);
+const locations = getLocations(locale);
+const [lead, ...rest] = projects;
 
 /* Each project's expertise areas, for the capability filter. */
 const areasFor = (slug: string) => areas.filter((area) => area.relatedProjects.includes(slug)).map((area) => area.slug);
+const countFor = (slug: string) => projects.filter((project) => areasFor(project.slug).includes(slug)).length;
+
+const showing = (shown: number) =>
+  c.showingTemplate.replace('{shown}', String(shown)).replace('{total}', String(projects.length));
 
 const metadata = {
-  title: c.projectsPage.metaTitle,
-  description: c.projectsPage.metaDescription,
+  title: c.metaTitle,
+  description: c.metaDescription,
 };
 ---
 
 <Layout metadata={metadata} locale={locale}>
-  <PageHero locale={locale} eyebrow={c.projectsPage.eyebrow} title={c.projectsPage.title} lede={c.projectsPage.lede} />
+  {
+    /* The lead project is featured above the list and counted by the filter;
+      the grid holds the rest so no photograph appears twice on the page. */
+  }
+  <PageHero locale={locale} eyebrow={c.eyebrow} title={c.title} lede={c.lede}>
+    <div slot="actions" class="fluvio-projects-hero__facts" aria-label={c.allProjects}>
+      <span><strong>{String(projects.length).padStart(2, '0')}</strong>{glance.projects}</span>
+      <span><strong>{String(areas.length).padStart(2, '0')}</strong>{glance.expertise}</span>
+      <span><strong>{String(locations.length).padStart(2, '0')}</strong>{c.locationsLabel}</span>
+    </div>
+  </PageHero>
+
+  {
+    lead && (
+      <div class="fluvio-shell fluvio-projects-lead">
+        <div class={REVEAL}>
+          <ProjectFeature project={lead} locale={locale} eyebrow={c.featuredLabel} priority />
+        </div>
+      </div>
+    )
+  }
 
   <SectionFrame tone="paper" rule="ink" motif="contour" labelledby="project-list-heading">
     <div class:list={['fluvio-projects-heading', REVEAL]}>
       <SectionHeading
         id="project-list-heading"
-        eyebrow={c.projectsPage.listEyebrow}
-        title={c.projectsPage.listTitle}
-        intro={c.projectsPage.listIntro}
+        eyebrow={c.listEyebrow}
+        title={c.listTitle}
+        intro={c.listIntro}
         align="split"
       />
     </div>
 
-    <fluvio-project-filter class={REVEAL}>
-      <div class="fluvio-projects-filter" role="group" aria-label={c.projectsPage.filterLabel}>
-        <span class="fluvio-label fluvio-projects-filter__label">{c.projectsPage.filterLabel}</span>
+    <fluvio-project-filter class={REVEAL} data-lead-areas={lead ? areasFor(lead.slug).join(' ') : ''}>
+      <div class="fluvio-projects-filter" role="group" aria-label={c.filterLabel}>
+        <div class="fluvio-projects-filter__row">
+          <span class="fluvio-label fluvio-projects-filter__label">{c.filterLabel}</span>
+          <p class="fluvio-projects-filter__count" aria-live="polite" data-project-count>
+            {showing(projects.length)}
+          </p>
+        </div>
         <div class="fluvio-projects-filter__options">
-          <button type="button" data-filter="" aria-pressed="true">{c.projectsPage.filterAll}</button>
+          <button type="button" data-filter="" aria-pressed="true">
+            <span>{c.filterAll}</span>
+            <span class="fluvio-projects-filter__badge">{projects.length}</span>
+          </button>
           {
             areas.map((area) => (
               <button type="button" data-filter={area.slug} aria-pressed="false">
-                {area.title}
+                <span>{area.title}</span>
+                <span class="fluvio-projects-filter__badge">{countFor(area.slug)}</span>
               </button>
             ))
           }
         </div>
       </div>
 
-      <div class="fluvio-projects-grid" aria-label={c.projectsPage.allProjects} data-project-grid>
+      <div class="fluvio-projects-grid" aria-label={c.allProjects} data-project-grid>
         {
-          projects.map((project, index) => (
-            <div class:list={[REVEAL, { 'fluvio-projects-grid__lead': index === 0 }]} data-project-cell>
+          rest.map((project, index) => (
+            <div class:list={[REVEAL, 'fluvio-projects-grid__cell']} data-project-cell>
               <ProjectCard
                 project={project}
                 locale={locale}
                 index={index}
-                size={index === 0 ? 'large' : 'default'}
                 headingLevel="h3"
                 areas={areasFor(project.slug)}
-                priority={index === 0}
+                priority={index < 3}
               />
             </div>
           ))
@@ -83,9 +119,9 @@ const metadata = {
     <div class:list={['fluvio-projects-heading', REVEAL]}>
       <SectionHeading
         id="platforms-heading"
-        eyebrow={c.projectsPage.platformsEyebrow}
-        title={c.projectsPage.platformsTitle}
-        intro={c.projectsPage.platformsIntro}
+        eyebrow={c.platformsEyebrow}
+        title={c.platformsTitle}
+        intro={c.platformsIntro}
         align="split"
       />
     </div>
@@ -101,6 +137,8 @@ const metadata = {
               image={platform.image}
               imageAlt={platform.imageAlt}
               imageHref={platform.imageHref}
+              highlights={platform.highlights}
+              screens={platform.screens}
               index={index}
               locale={locale}
             />
@@ -120,24 +158,48 @@ const metadata = {
 <script>
   /* Progressive enhancement: without JavaScript every project is listed. With
      it, the capability buttons narrow the grid to projects tagged with that
-     expertise area (the tags come from the content store). */
+     expertise area (the tags come from the content store). Where the browser
+     supports same-document view transitions, the cards glide to their new
+     places; elsewhere they simply appear. */
   class FluvioProjectFilter extends HTMLElement {
     private buttons: HTMLButtonElement[] = [];
+    private template = '';
+    private total = 0;
+    private leadAreas: string[] = [];
 
     connectedCallback() {
       this.buttons = Array.from(this.querySelectorAll<HTMLButtonElement>('[data-filter]'));
-      this.buttons.forEach((button) => button.addEventListener('click', () => this.apply(button.dataset.filter ?? '')));
+      const count = this.querySelector<HTMLElement>('[data-project-count]');
+      this.leadAreas = (this.dataset.leadAreas ?? '').split(' ').filter(Boolean);
+      this.total = this.querySelectorAll('[data-project-cell]').length + (this.dataset.leadAreas === undefined ? 0 : 1);
+      this.template = count?.textContent?.trim().replace(String(this.total), '{shown}') ?? '';
+      this.buttons.forEach((button) =>
+        button.addEventListener('click', () => this.select(button.dataset.filter ?? ''))
+      );
+    }
+
+    private select(area: string) {
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const doc = document as Document & { startViewTransition?: (update: () => void) => unknown };
+      if (!reduced && typeof doc.startViewTransition === 'function') doc.startViewTransition(() => this.apply(area));
+      else this.apply(area);
     }
 
     private apply(area: string) {
       this.buttons.forEach((button) =>
         button.setAttribute('aria-pressed', String((button.dataset.filter ?? '') === area))
       );
+      /* The featured project above the list counts when it matches. */
+      let shown = this.dataset.leadAreas === undefined ? 0 : !area || this.leadAreas.includes(area) ? 1 : 0;
       this.querySelectorAll<HTMLElement>('[data-project-cell]').forEach((cell) => {
         const card = cell.querySelector<HTMLElement>('[data-areas]');
         const areas = (card?.dataset.areas ?? '').split(' ').filter(Boolean);
-        cell.hidden = Boolean(area) && !areas.includes(area);
+        const hide = Boolean(area) && !areas.includes(area);
+        cell.hidden = hide;
+        if (!hide) shown++;
       });
+      const count = this.querySelector<HTMLElement>('[data-project-count]');
+      if (count && this.template) count.textContent = this.template.replace('{shown}', String(shown));
     }
   }
 
@@ -145,6 +207,38 @@ const metadata = {
 </script>
 
 <style>
+  .fluvio-projects-hero__facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 2.25rem;
+    margin-top: 2.25rem;
+  }
+
+  .fluvio-projects-hero__facts span {
+    display: inline-flex;
+    gap: 0.6rem;
+    align-items: baseline;
+    color: var(--aw-color-text-muted);
+    font-family: var(--aw-font-mono);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .fluvio-projects-hero__facts strong {
+    color: var(--aw-color-text-heading);
+    font-family: var(--aw-font-heading);
+    font-size: 1.6rem;
+    font-weight: 540;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
+  .fluvio-projects-lead {
+    padding-bottom: clamp(3.5rem, 8vw, 7rem);
+  }
+
   .fluvio-projects-heading {
     margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
   }
@@ -155,12 +249,27 @@ const metadata = {
 
   .fluvio-projects-filter {
     display: grid;
-    gap: 0.9rem;
+    gap: 1rem;
     margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .fluvio-projects-filter__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    align-items: baseline;
+    justify-content: space-between;
   }
 
   .fluvio-projects-filter__label {
     color: var(--aw-color-text-muted);
+  }
+
+  .fluvio-projects-filter__count {
+    margin: 0;
+    color: var(--aw-color-text-muted);
+    font-size: 0.82rem;
+    font-variant-numeric: tabular-nums;
   }
 
   .fluvio-projects-filter__options {
@@ -170,15 +279,33 @@ const metadata = {
   }
 
   .fluvio-projects-filter button {
-    padding: 0.5rem 0.95rem;
+    display: inline-flex;
+    gap: 0.55rem;
+    align-items: center;
+    padding: 0.5rem 0.55rem 0.5rem 0.95rem;
     border: 1px solid rgb(var(--fluvio-ink) / 0.16);
     border-radius: 999px;
-    background: transparent;
+    background: rgb(var(--fluvio-paper) / 0.6);
     color: var(--aw-color-text-default);
     cursor: pointer;
     font-size: 0.82rem;
     font-weight: 560;
     line-height: 1.2;
+  }
+
+  .fluvio-projects-filter__badge {
+    display: inline-grid;
+    place-items: center;
+    min-width: 1.45rem;
+    height: 1.45rem;
+    padding-inline: 0.35rem;
+    border-radius: 999px;
+    background: rgb(var(--fluvio-ink) / 0.07);
+    color: var(--aw-color-text-muted);
+    font-family: var(--aw-font-mono);
+    font-size: 0.64rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
   }
 
   .fluvio-projects-filter button[aria-pressed='true'] {
@@ -187,12 +314,22 @@ const metadata = {
     color: rgb(var(--fluvio-paper));
   }
 
+  .fluvio-projects-filter button[aria-pressed='true'] .fluvio-projects-filter__badge {
+    background: rgb(255 255 255 / 0.16);
+    color: rgb(var(--fluvio-paper));
+  }
+
   @media (prefers-reduced-motion: no-preference) {
     .fluvio-projects-filter button {
       transition:
-        background-color 200ms ease,
-        border-color 200ms ease,
-        color 200ms ease;
+        background-color 220ms ease,
+        border-color 220ms ease,
+        color 220ms ease,
+        transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .fluvio-projects-filter button:active {
+      transform: scale(0.97);
     }
   }
 
@@ -203,6 +340,11 @@ const metadata = {
 
   :global(.dark) .fluvio-projects-filter button {
     border-color: rgb(var(--fluvio-mist) / 0.2);
+    background: rgb(var(--fluvio-navy) / 0.25);
+  }
+
+  :global(.dark) .fluvio-projects-filter__badge {
+    background: rgb(var(--fluvio-mist) / 0.1);
   }
 
   :global(.dark) .fluvio-projects-filter button[aria-pressed='true'] {
@@ -211,9 +353,16 @@ const metadata = {
     color: rgb(var(--fluvio-ink));
   }
 
+  :global(.dark) .fluvio-projects-filter button[aria-pressed='true'] .fluvio-projects-filter__badge {
+    background: rgb(var(--fluvio-ink) / 0.12);
+    color: rgb(var(--fluvio-ink));
+  }
+
   .fluvio-projects-grid {
     display: grid;
-    gap: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 3vw, 2.5rem);
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+    gap: clamp(1.25rem, 2.5vw, 2rem);
+    align-items: stretch;
   }
 
   .fluvio-projects-grid > [hidden] {
@@ -231,14 +380,6 @@ const metadata = {
   }
 
   @media (min-width: 768px) {
-    .fluvio-projects-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .fluvio-projects-grid__lead {
-      grid-column: 1 / -1;
-    }
-
     .fluvio-platform-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: clamp(1.5rem, 3vw, 3.5rem);

@@ -1,8 +1,10 @@
 ---
 /**
- * The lead project on a page: a wide photograph, then title, summary, call
- * to action and the project facts. The photograph morphs into the project
- * page hero through its view-transition name.
+ * The lead project on a page: a wide photograph with the title, summary and
+ * call to action set in a frosted panel over its lower edge on desktop (and
+ * below it on small screens), then the project facts as a strip. The
+ * photograph morphs into the project page hero through its view-transition
+ * name.
  */
 import ArrowLink from './ArrowLink.astro';
 import LargeImage from './LargeImage.astro';
@@ -25,25 +27,43 @@ const href = projectHref(project.slug, locale);
 ---
 
 <article class="fluvio-project-feature">
-  <a class="fluvio-project-feature__image" href={href} tabindex="-1" aria-hidden="true">
-    <LargeImage
-      src={project.heroImage}
-      alt={project.heroAlt}
-      aspect="hero"
-      radius="lg"
-      priority={priority}
-      sizes="(min-width: 1280px) 1280px, (min-width: 768px) calc(100vw - 4rem), calc(100vw - 2rem)"
-      transitionName={`project-${project.slug}`}
-    />
-  </a>
-  <div class="fluvio-project-feature__body">
-    <div>
+  <div class="fluvio-project-feature__stage">
+    <a class="fluvio-project-feature__image" href={href} tabindex="-1" aria-hidden="true">
+      <LargeImage
+        src={project.heroImage}
+        alt={project.heroAlt}
+        aspect="hero"
+        radius="lg"
+        priority={priority}
+        sizes="(min-width: 1280px) 1280px, (min-width: 768px) calc(100vw - 4rem), calc(100vw - 2rem)"
+        transitionName={`project-${project.slug}`}
+      />
+      <span class="fluvio-project-feature__scrim"></span>
+    </a>
+    <div class="fluvio-project-feature__panel">
       {eyebrow && <p class="fluvio-project-feature__eyebrow">{eyebrow}</p>}
+      {
+        project.location && (
+          <p class="fluvio-project-feature__location">
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M12 21s-6-5.3-6-10a6 6 0 1 1 12 0c0 4.7-6 10-6 10Z" />
+              <circle cx="12" cy="11" r="2" />
+            </svg>
+            {project.location}
+          </p>
+        )
+      }
       <h2><a href={href}>{project.title}</a></h2>
-    </div>
-    <div class="fluvio-project-feature__summary">
-      <p>{project.summary}</p>
-      <ArrowLink href={href} variant="pill">{strings.viewProject}</ArrowLink>
+      <p class="fluvio-project-feature__summary">{project.summary}</p>
+      <ArrowLink href={href} variant="pill" tone="paper">{strings.viewProject}</ArrowLink>
     </div>
   </div>
   <ProjectMeta project={project} locale={locale} compact />
@@ -52,27 +72,70 @@ const href = projectHref(project.slug, locale);
 <style>
   .fluvio-project-feature {
     display: grid;
-    gap: 1.75rem;
+    gap: 1.5rem;
   }
 
-  .fluvio-project-feature__image {
-    display: block;
-    border-radius: 20px;
-  }
-
-  .fluvio-project-feature__body {
+  .fluvio-project-feature__stage {
+    position: relative;
     display: grid;
     gap: 1.25rem;
   }
 
-  .fluvio-project-feature__eyebrow {
-    margin: 0 0 0.75rem;
-    color: rgb(var(--fluvio-river));
+  .fluvio-project-feature__image {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 20px;
+    isolation: isolate;
+  }
+
+  .fluvio-project-feature__scrim {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+      200deg,
+      rgb(var(--fluvio-ink) / 0.08) 0%,
+      transparent 40%,
+      rgb(var(--fluvio-ink) / 0.55) 100%
+    );
+  }
+
+  .fluvio-project-feature__panel {
+    display: grid;
+    gap: 0.9rem;
+    justify-items: start;
+  }
+
+  .fluvio-project-feature__eyebrow,
+  .fluvio-project-feature__location {
+    margin: 0;
     font-family: var(--aw-font-mono);
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
+  }
+
+  .fluvio-project-feature__eyebrow {
+    color: rgb(var(--fluvio-river));
+  }
+
+  .fluvio-project-feature__location {
+    display: inline-flex;
+    gap: 0.4rem;
+    align-items: center;
+    color: var(--aw-color-text-muted);
+    text-transform: none;
+    letter-spacing: 0.02em;
+    font-family: var(--aw-font-sans);
+    font-size: 0.8rem;
+  }
+
+  .fluvio-project-feature__location svg {
+    width: 0.9rem;
+    height: 0.9rem;
   }
 
   :global(.dark) .fluvio-project-feature__eyebrow {
@@ -81,9 +144,9 @@ const href = projectHref(project.slug, locale);
 
   h2 {
     margin: 0;
-    max-width: 20ch;
+    max-width: 18ch;
     font-family: var(--aw-font-heading);
-    font-size: clamp(1.9rem, 4vw, 4rem);
+    font-size: clamp(1.9rem, 4vw, 3.6rem);
     font-weight: 560;
     letter-spacing: -0.03em;
     line-height: 1.02;
@@ -100,17 +163,23 @@ const href = projectHref(project.slug, locale);
   }
 
   .fluvio-project-feature__summary {
-    display: grid;
-    gap: 1.4rem;
-    justify-items: start;
+    margin: 0;
+    max-width: 44ch;
+    color: var(--aw-color-text-muted);
+    font-size: 1.02rem;
+    line-height: 1.65;
+    text-wrap: pretty;
   }
 
-  .fluvio-project-feature__summary p {
-    margin: 0;
-    max-width: 48ch;
-    color: var(--aw-color-text-muted);
-    font-size: 1.05rem;
-    line-height: 1.7;
+  /* On mobile the pill sits on paper, so it takes the ink tone. */
+  .fluvio-project-feature__panel :global(.fluvio-arrow-link--pill) {
+    --arrow-fill: rgb(var(--fluvio-ink));
+    --arrow-fill-ink: rgb(var(--fluvio-paper));
+  }
+
+  :global(.dark) .fluvio-project-feature__panel :global(.fluvio-arrow-link--pill) {
+    --arrow-fill: rgb(var(--fluvio-mist));
+    --arrow-fill-ink: rgb(var(--fluvio-ink));
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -119,11 +188,68 @@ const href = projectHref(project.slug, locale);
     }
   }
 
-  @media (min-width: 768px) {
-    .fluvio-project-feature__body {
-      grid-template-columns: minmax(0, 1.4fr) minmax(18rem, 0.6fr);
-      align-items: end;
-      gap: clamp(3rem, 8vw, 8rem);
+  @media (min-width: 900px) {
+    .fluvio-project-feature__stage {
+      display: block;
+    }
+
+    /* Frosted panel over the lower-left of the photograph. */
+    .fluvio-project-feature__panel {
+      position: absolute;
+      bottom: clamp(1.25rem, 3vw, 2.25rem);
+      left: clamp(1.25rem, 3vw, 2.25rem);
+      z-index: 2;
+      max-width: min(38rem, calc(100% - 2 * clamp(1.25rem, 3vw, 2.25rem)));
+      padding: clamp(1.4rem, 2.6vw, 2.25rem);
+      border: 1px solid rgb(255 255 255 / 0.14);
+      border-radius: 20px;
+      background: rgb(var(--fluvio-ink) / 0.5);
+      backdrop-filter: blur(18px) saturate(1.2);
+      box-shadow: 0 24px 60px -20px rgb(var(--fluvio-ink) / 0.6);
+      color: rgb(var(--fluvio-paper));
+    }
+
+    .fluvio-project-feature__eyebrow {
+      color: rgb(var(--fluvio-wash));
+    }
+
+    .fluvio-project-feature__location {
+      color: rgb(var(--fluvio-paper) / 0.75);
+    }
+
+    h2 a {
+      color: rgb(var(--fluvio-paper));
+    }
+
+    h2 a:hover {
+      color: rgb(var(--fluvio-wash));
+    }
+
+    .fluvio-project-feature__summary {
+      color: rgb(var(--fluvio-paper) / 0.84);
+    }
+
+    .fluvio-project-feature__panel :global(.fluvio-arrow-link--pill) {
+      --arrow-fill: rgb(var(--fluvio-paper));
+      --arrow-fill-ink: rgb(var(--fluvio-ink));
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .fluvio-project-feature__panel {
+        animation: fluvio-feature-rise 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+        animation-delay: 160ms;
+      }
+    }
+  }
+
+  @keyframes fluvio-feature-rise {
+    from {
+      opacity: 0;
+      transform: translateY(1rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 </style>

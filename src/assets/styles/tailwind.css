@@ -20,16 +20,21 @@
   --font-heading: var(--aw-font-heading, ui-sans-serif), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--aw-font-mono, ui-monospace), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-  --animate-fade: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-fade: fadeInUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
 
   @keyframes fadeInUp {
     0% {
       opacity: 0;
-      transform: translateY(1.25rem);
+      transform: translateY(1.5rem) scale(0.985);
+      filter: blur(6px);
+    }
+    60% {
+      filter: blur(0);
     }
     100% {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0) scale(1);
+      filter: blur(0);
     }
   }
 }
@@ -367,13 +372,42 @@
 /* Subtle photographic zoom on interactive cards */
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
   :where(article:has(a), a):hover :where(.fluvio-image__frame) img {
-    transform: scale(1.035);
+    transform: scale(1.04);
   }
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .fluvio-image__frame img {
-    transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+/*
+ * Photographs inside a revealed block arrive a beat after the block itself,
+ * scaling down from a slightly enlarged crop: the reveal settles instead of
+ * popping. Only under motion-safe, only with JavaScript (the attribute is
+ * added by the Intersect controller), and only once.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  [class*='intersect'][no-intersect] .fluvio-image__frame img,
+  [class*='intersect'][no-intersect] .fluvio-expertise-media__video {
+    transform: scale(1.08);
+  }
+
+  [class*='intersect']:not([no-intersect]) .fluvio-image__frame img,
+  [class*='intersect']:not([no-intersect]) .fluvio-expertise-media__video {
+    transition:
+      transform 1400ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 500ms ease;
+  }
+}
+
+/* Native view transitions: cross-fade the page, keep named elements morphing. */
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 320ms;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
   }
 }
 

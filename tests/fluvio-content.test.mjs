@@ -29,6 +29,8 @@ const expectedSlugs = [
   'sol-trader-oil-spill',
   'cordap',
   'reservoir-sedimentation',
+  'laidley-creek-flood',
+  'moreton-bay-sediment-monitoring',
 ];
 
 const expectedTeamNames = [
@@ -140,7 +142,7 @@ const recordRouteFiles = [
 
 test('Fluvio content has complete project, expertise and team records', () => {
   assert.deepEqual(projects.map(({ slug }) => slug).sort(), expectedSlugs.sort());
-  assert.equal(new Set(projects.map(({ slug }) => slug)).size, 9);
+  assert.equal(new Set(projects.map(({ slug }) => slug)).size, 11);
   assert.equal(expertiseAreas.length, 6);
   assert.equal(teamMembers.length, 9);
   for (const item of [...projects, ...expertiseAreas, ...teamMembers]) {

@@ -49,6 +49,8 @@ const projectSchema = z.object({
   partners: z.array(text).optional(),
   heroImage: localImage,
   heroAlt: text,
+  /** Optional clip that plays over the lead photograph on the project page. */
+  video: localVideo.optional(),
   gallery: z.array(z.object({ src: localImage, alt: text, caption: text.optional() })).optional(),
   challenge: paragraphs,
   approach: paragraphs,
@@ -140,6 +142,13 @@ const platformSchema = z.object({
   imageAlt: text,
   /** Where the screenshot links to (e.g. a live deployment); falls back to `href`. */
   imageHref: z.string().url().optional(),
+  /** Short feature statements listed under the description. */
+  highlights: z.array(text).max(6).optional(),
+  /** Further screenshots shown beneath the main one. */
+  screens: z
+    .array(z.object({ image: localImage, imageAlt: text }))
+    .max(4)
+    .optional(),
 });
 
 const homepageSchema = z.object({
@@ -306,6 +315,10 @@ export interface Pages {
     allProjects: string;
     filterLabel: string;
     filterAll: string;
+    /** "{shown}" and "{total}" are replaced with the filtered and full counts. */
+    showingTemplate: string;
+    /** Label for the count of distinct project locations. */
+    locationsLabel: string;
     platformsEyebrow: string;
     platformsTitle: string;
     platformsIntro: string;
@@ -317,6 +330,10 @@ export interface Pages {
     approach: string;
     outcome: string;
     storyLabel: string;
+    galleryOpen: string;
+    galleryClose: string;
+    galleryPrevious: string;
+    galleryNext: string;
     contents: string;
     factsLabel: string;
     galleryLabel: string;
@@ -478,6 +495,8 @@ const pagesSchema: z.ZodType<Pages> = z.object({
     allProjects: text,
     filterLabel: text,
     filterAll: text,
+    showingTemplate: text,
+    locationsLabel: text,
     platformsEyebrow: text,
     platformsTitle: text,
     platformsIntro: text,
@@ -493,6 +512,10 @@ const pagesSchema: z.ZodType<Pages> = z.object({
     factsLabel: text,
     galleryLabel: text,
     imageLabel: text,
+    galleryOpen: text,
+    galleryClose: text,
+    galleryPrevious: text,
+    galleryNext: text,
     previousProject: text,
     nextProject: text,
     relatedExpertiseEyebrow: text,

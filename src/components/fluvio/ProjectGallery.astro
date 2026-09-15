@@ -1,9 +1,10 @@
 ---
 /**
- * Supporting photographs for a project.
+ * Supporting photographs for a project, each opening full-size in a native
+ * dialog lightbox with previous / next and keyboard control.
  *
  * Client photography arrives at wildly different sizes: some frames are
- * 2560px wide, others are 370px because that is all the original upload was.
+ * 2560px wide, others are 800px because that is all the original upload was.
  * Each figure therefore keeps its own aspect ratio (so nothing is cropped)
  * and is never displayed wider than the pixels actually available (so nothing
  * is upscaled into mush). Small images sit centred at their natural size,
@@ -15,9 +16,10 @@ import { findImage } from '~/utils/images';
 
 export interface Props {
   images: NonNullable<Project['gallery']>;
+  labels: { open: string; close: string; previous: string; next: string; gallery: string };
 }
 
-const { images } = Astro.props;
+const { images, labels } = Astro.props;
 
 /** A tall frame would otherwise eat a whole screen, so portraits are capped by
  *  height rather than width and the width follows from the aspect ratio. */
@@ -36,33 +38,177 @@ const resolved = await Promise.all(
 );
 ---
 
-<div class="fluvio-project-gallery__grid">
-  {
-    resolved.map(({ src, alt, caption, width, height, displayWidth }) => (
-      <figure
-        class="fluvio-project-gallery__figure"
-        style={displayWidth ? `--intrinsic-width: ${displayWidth}px` : undefined}
-      >
-        <div
-          class="fluvio-project-gallery__frame"
-          style={width && height ? `aspect-ratio: ${width} / ${height}` : undefined}
+<fluvio-gallery>
+  <div class="fluvio-project-gallery__grid">
+    {
+      resolved.map(({ src, alt, caption, width, height, displayWidth }, index) => (
+        <figure
+          class="fluvio-project-gallery__figure"
+          style={displayWidth ? `--intrinsic-width: ${displayWidth}px` : undefined}
         >
-          <Image
-            src={src}
-            alt={alt}
-            loading="lazy"
-            layout="cover"
-            widths={[480, 768, 1080, 1440, 1920, 2560]}
-            sizes="(min-width: 1024px) 44rem, calc(100vw - 2rem)"
-          />
-        </div>
-        {caption && <figcaption>{caption}</figcaption>}
-      </figure>
-    ))
+          <button
+            class="fluvio-project-gallery__open"
+            type="button"
+            data-gallery-open={index}
+            aria-label={`${labels.open}: ${alt}`}
+          >
+            <span
+              class="fluvio-project-gallery__frame"
+              style={width && height ? `aspect-ratio: ${width} / ${height}` : undefined}
+            >
+              <Image
+                src={src}
+                alt={alt}
+                loading="lazy"
+                layout="cover"
+                widths={[480, 768, 1080, 1440, 1920, 2560]}
+                sizes="(min-width: 1024px) 44rem, calc(100vw - 2rem)"
+              />
+            </span>
+            <span class="fluvio-project-gallery__zoom" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M15 3h6v6" />
+                <path d="M9 21H3v-6" />
+                <path d="M21 3l-7 7" />
+                <path d="M3 21l7-7" />
+              </svg>
+            </span>
+          </button>
+          {caption && <figcaption>{caption}</figcaption>}
+        </figure>
+      ))
+    }
+  </div>
+
+  <dialog class="fluvio-lightbox" aria-label={labels.gallery} data-gallery-dialog>
+    <div class="fluvio-lightbox__stage">
+      {
+        resolved.map(({ src, alt, caption }, index) => (
+          <figure class="fluvio-lightbox__slide" data-gallery-slide hidden={index !== 0}>
+            <Image src={src} alt={alt} loading="lazy" layout="cover" widths={[1080, 1440, 1920, 2560]} sizes="100vw" />
+            <figcaption>{caption ?? alt}</figcaption>
+          </figure>
+        ))
+      }
+    </div>
+    <div class="fluvio-lightbox__bar">
+      <span class="fluvio-lightbox__counter" aria-hidden="true">
+        <span data-gallery-current>1</span>
+        <span>/</span>
+        <span>{resolved.length}</span>
+      </span>
+      <div class="fluvio-lightbox__buttons">
+        {
+          resolved.length > 1 && (
+            <>
+              <button type="button" aria-label={labels.previous} data-gallery-previous>
+                <svg
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M19 12H5" />
+                  <path d="m11 18-6-6 6-6" />
+                </svg>
+              </button>
+              <button type="button" aria-label={labels.next} data-gallery-next>
+                <svg
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12h14" />
+                  <path d="m13 6 6 6-6 6" />
+                </svg>
+              </button>
+            </>
+          )
+        }
+        <button type="button" aria-label={labels.close} data-gallery-close>
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M18 6 6 18"></path>
+            <path d="m6 6 12 12"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </dialog>
+</fluvio-gallery>
+
+<script>
+  class FluvioGallery extends HTMLElement {
+    private dialog: HTMLDialogElement | null = null;
+    private slides: HTMLElement[] = [];
+    private index = 0;
+
+    connectedCallback() {
+      this.dialog = this.querySelector<HTMLDialogElement>('[data-gallery-dialog]');
+      this.slides = Array.from(this.querySelectorAll<HTMLElement>('[data-gallery-slide]'));
+      if (!this.dialog || typeof this.dialog.showModal !== 'function') return;
+
+      this.querySelectorAll<HTMLButtonElement>('[data-gallery-open]').forEach((button) =>
+        button.addEventListener('click', () => this.open(Number(button.dataset.galleryOpen) || 0))
+      );
+      this.querySelector('[data-gallery-close]')?.addEventListener('click', () => this.dialog?.close());
+      this.querySelector('[data-gallery-previous]')?.addEventListener('click', () => this.show(this.index - 1));
+      this.querySelector('[data-gallery-next]')?.addEventListener('click', () => this.show(this.index + 1));
+      const dialog = this.dialog;
+      dialog.addEventListener('click', (event) => {
+        if (event.target === dialog) dialog.close();
+      });
+      dialog.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowLeft') this.show(this.index - 1);
+        if (event.key === 'ArrowRight') this.show(this.index + 1);
+      });
+      dialog.addEventListener('close', () => document.documentElement.classList.remove('fluvio-lightbox-open'));
+    }
+
+    private open(index: number) {
+      this.show(index);
+      document.documentElement.classList.add('fluvio-lightbox-open');
+      this.dialog?.showModal();
+    }
+
+    private show(index: number) {
+      if (!this.slides.length) return;
+      this.index = (index + this.slides.length) % this.slides.length;
+      this.slides.forEach((slide, slideIndex) => (slide.hidden = slideIndex !== this.index));
+      const current = this.querySelector<HTMLElement>('[data-gallery-current]');
+      if (current) current.textContent = String(this.index + 1);
+    }
   }
-</div>
+
+  if (!customElements.get('fluvio-gallery')) customElements.define('fluvio-gallery', FluvioGallery);
+</script>
 
 <style>
+  fluvio-gallery {
+    display: block;
+  }
+
   .fluvio-project-gallery__grid {
     display: flex;
     flex-wrap: wrap;
@@ -77,11 +223,85 @@ const resolved = await Promise.all(
     max-width: min(100%, var(--intrinsic-width, 100%));
   }
 
+  .fluvio-project-gallery__open {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    border-radius: 14px;
+    background: none;
+    cursor: zoom-in;
+    text-align: left;
+  }
+
   .fluvio-project-gallery__frame {
+    display: block;
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 14px;
     background: rgb(var(--fluvio-river) / 0.08);
     aspect-ratio: 4 / 3;
+    isolation: isolate;
+    transform: translateZ(0);
+  }
+
+  .fluvio-project-gallery__frame :global(img) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .fluvio-project-gallery__zoom {
+    position: absolute;
+    right: 0.85rem;
+    bottom: 0.85rem;
+    display: grid;
+    place-items: center;
+    width: 2.1rem;
+    height: 2.1rem;
+    border: 1px solid rgb(255 255 255 / 0.2);
+    border-radius: 999px;
+    background: rgb(var(--fluvio-ink) / 0.5);
+    backdrop-filter: blur(10px);
+    color: rgb(var(--fluvio-paper));
+    opacity: 0;
+  }
+
+  .fluvio-project-gallery__zoom svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .fluvio-project-gallery__frame :global(img) {
+      transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .fluvio-project-gallery__zoom {
+      transform: translateY(0.35rem);
+      transition:
+        opacity 260ms ease,
+        transform 360ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+  }
+
+  .fluvio-project-gallery__open:hover :global(img),
+  .fluvio-project-gallery__open:focus-visible :global(img) {
+    transform: scale(1.04);
+  }
+
+  .fluvio-project-gallery__open:hover .fluvio-project-gallery__zoom,
+  .fluvio-project-gallery__open:focus-visible .fluvio-project-gallery__zoom {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (pointer: coarse) {
+    .fluvio-project-gallery__zoom {
+      opacity: 1;
+      transform: none;
+    }
   }
 
   figcaption {
@@ -90,5 +310,149 @@ const resolved = await Promise.all(
     font-family: var(--aw-font-mono);
     font-size: 0.72rem;
     line-height: 1.5;
+  }
+
+  /* Lightbox */
+  .fluvio-lightbox {
+    width: min(100vw, 100%);
+    max-width: none;
+    height: 100dvh;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: rgb(var(--fluvio-paper));
+  }
+
+  .fluvio-lightbox::backdrop {
+    background: rgb(var(--fluvio-ink) / 0.9);
+    backdrop-filter: blur(14px);
+  }
+
+  .fluvio-lightbox__stage {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100dvh;
+    padding: 4.5rem 1rem 5.5rem;
+    box-sizing: border-box;
+  }
+
+  .fluvio-lightbox__slide {
+    display: grid;
+    gap: 0.9rem;
+    justify-items: center;
+    margin: 0;
+    max-width: min(100%, 90rem);
+  }
+
+  .fluvio-lightbox__slide :global(img) {
+    display: block;
+    width: auto !important;
+    height: auto !important;
+    max-width: 100% !important;
+    max-height: calc(100dvh - 11rem) !important;
+    border-radius: 12px;
+    object-fit: contain !important;
+    box-shadow: 0 30px 80px rgb(0 0 0 / 0.5);
+  }
+
+  .fluvio-lightbox__slide figcaption {
+    max-width: 60ch;
+    color: rgb(var(--fluvio-paper) / 0.78);
+    text-align: center;
+  }
+
+  .fluvio-lightbox__bar {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem clamp(1rem, 4vw, 2.5rem) max(1rem, env(safe-area-inset-bottom));
+  }
+
+  .fluvio-lightbox__counter {
+    display: inline-flex;
+    gap: 0.4rem;
+    color: rgb(var(--fluvio-paper) / 0.7);
+    font-family: var(--aw-font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .fluvio-lightbox__buttons {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .fluvio-lightbox__buttons button {
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+    border: 1px solid rgb(255 255 255 / 0.22);
+    border-radius: 999px;
+    background: rgb(255 255 255 / 0.08);
+    color: rgb(var(--fluvio-paper));
+    cursor: pointer;
+  }
+
+  .fluvio-lightbox__buttons button:hover {
+    background: rgb(255 255 255 / 0.18);
+  }
+
+  .fluvio-lightbox__buttons button:focus-visible {
+    outline: 2px solid rgb(var(--fluvio-paper));
+    outline-offset: 3px;
+  }
+
+  .fluvio-lightbox__buttons svg {
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .fluvio-lightbox[open] {
+      animation: fluvio-lightbox-in 320ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .fluvio-lightbox[open]::backdrop {
+      animation: fluvio-lightbox-fade 320ms ease;
+    }
+
+    .fluvio-lightbox__buttons button {
+      transition:
+        background-color 200ms ease,
+        transform 200ms ease;
+    }
+
+    .fluvio-lightbox__buttons button:active {
+      transform: scale(0.94);
+    }
+  }
+
+  @keyframes fluvio-lightbox-in {
+    from {
+      opacity: 0;
+      transform: scale(0.97);
+    }
+  }
+
+  @keyframes fluvio-lightbox-fade {
+    from {
+      opacity: 0;
+    }
+  }
+
+  :global(html.fluvio-lightbox-open) {
+    overflow: hidden;
   }
 </style>

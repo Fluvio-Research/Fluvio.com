@@ -1,27 +1,29 @@
 ---
 /**
- * Site-wide hydrological and technology atmosphere, drawn from the Fluvio
- * logo mark: a mineral-blue sensor-network pattern, topographic contour
- * fields and soft river/silt colour washes. Every layer is fixed behind the
- * content, pointer-safe and static under reduced motion.
+ * Site-wide hydrological atmosphere: soft river and silt colour washes, a
+ * topographic contour field, and a quiet surface current drawn on a canvas.
+ * A sparse set of tracer particles drifts along a slowly meandering flow and
+ * leaves faint streamlines, the way surface velocity is traced in Fluvio's
+ * own optical-flow analysis. The cursor is a stone in that current: the flow
+ * parts around it and runs a little faster past it, warming from river blue
+ * towards silt where it does. Everything sits fixed behind the content and
+ * is pointer-safe; under reduced motion one still field is drawn and the
+ * cursor does nothing.
  */
-import networkPattern from '~/assets/patterns/fluvio-network.svg';
-
 export interface Props {
   variant?: 'default' | 'quiet' | 'deep';
 }
 
 const { variant = 'default' } = Astro.props;
-const networkPatternUrl = `url("${networkPattern.src}")`;
 ---
 
 <fluvio-page-background aria-hidden="true">
   <div class:list={['fluvio-atmosphere', `fluvio-atmosphere--${variant}`]}>
-    <div class="fluvio-atmosphere__network"></div>
+    <canvas class="fluvio-atmosphere__flow" data-flow></canvas>
   </div>
 </fluvio-page-background>
 
-<style define:vars={{ 'fluvio-network-pattern': networkPatternUrl }}>
+<style>
   fluvio-page-background {
     --fluvio-pointer-x: 0px;
     --fluvio-pointer-y: 0px;
@@ -37,8 +39,7 @@ const networkPatternUrl = `url("${networkPattern.src}")`;
   }
 
   .fluvio-atmosphere::before,
-  .fluvio-atmosphere::after,
-  .fluvio-atmosphere__network {
+  .fluvio-atmosphere::after {
     position: absolute;
     inset: -12%;
     content: '';
@@ -67,14 +68,13 @@ const networkPatternUrl = `url("${networkPattern.src}")`;
     opacity: 0.5;
   }
 
-  /* Sensor-network pattern from the logo mark, kept to outer gutters. */
-  .fluvio-atmosphere__network {
-    background-image: var(--fluvio-network-pattern);
-    background-size: 300px 300px;
-    mask-image:
-      radial-gradient(60rem 52rem at 98% 0%, rgb(0 0 0) 0%, transparent 72%),
-      radial-gradient(52rem 46rem at 0% 96%, rgb(0 0 0 / 0.9) 0%, transparent 70%);
-    opacity: 0.32;
+  /* The surface current, drawn by the script below. */
+  .fluvio-atmosphere__flow {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
   }
 
   .fluvio-atmosphere--quiet::before {
@@ -85,8 +85,8 @@ const networkPatternUrl = `url("${networkPattern.src}")`;
     opacity: 0.36;
   }
 
-  .fluvio-atmosphere--quiet .fluvio-atmosphere__network {
-    opacity: 0.2;
+  .fluvio-atmosphere--quiet .fluvio-atmosphere__flow {
+    opacity: 0.35;
   }
 
   .fluvio-atmosphere--deep::before {
@@ -113,8 +113,8 @@ const networkPatternUrl = `url("${networkPattern.src}")`;
     opacity: 0.3;
   }
 
-  :global(.dark) .fluvio-atmosphere__network {
-    opacity: 0.22;
+  :global(.dark) .fluvio-atmosphere__flow {
+    opacity: 0.4;
   }
 
   @media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
@@ -124,10 +124,6 @@ const networkPatternUrl = `url("${networkPattern.src}")`;
 
     .fluvio-atmosphere::after {
       animation: fluvio-contour-drift 32s ease-in-out infinite alternate;
-    }
-
-    .fluvio-atmosphere__network {
-      animation: fluvio-network-drift 40s ease-in-out infinite alternate;
     }
   }
 
@@ -143,16 +139,9 @@ const networkPatternUrl = `url("${networkPattern.src}")`;
     }
   }
 
-  @keyframes fluvio-network-drift {
-    to {
-      transform: translate3d(calc(var(--fluvio-pointer-x) + 1.25%), calc(var(--fluvio-pointer-y) + 1.5%), 0);
-    }
-  }
-
   @media (prefers-reduced-motion: reduce) {
     .fluvio-atmosphere::before,
-    .fluvio-atmosphere::after,
-    .fluvio-atmosphere__network {
+    .fluvio-atmosphere::after {
       animation: none !important;
       transform: none !important;
       transition: none !important;
@@ -161,12 +150,48 @@ const networkPatternUrl = `url("${networkPattern.src}")`;
 </style>
 
 <script>
+  interface Tracer {
+    x: number;
+    y: number;
+    px: number;
+    py: number;
+    life: number;
+    ttl: number;
+  }
+
+  /* Tuning, in CSS pixels and seconds. Sparse on purpose: this is weather,
+     not a feature. */
+  const AREA_PER_TRACER = 26000;
+  const MIN_TRACERS = 28;
+  const MAX_TRACERS = 80;
+  const BASE_SPEED = 22; // px per second along the current
+  const STONE_RADIUS = 160; // how far the cursor bends the current
+  const FADE_PER_SECOND = 0.9; // trail persistence: lower keeps longer lines
+
+  /* Palette stops: calm water (river blue) to fast water (silt), in rgb. */
+  const CALM = { light: [72, 128, 156], dark: [128, 186, 205] };
+  const FAST = { light: [188, 138, 72], dark: [222, 178, 110] };
+
   class FluvioPageBackground extends HTMLElement {
     private media?: MediaQueryList;
     private abortController?: AbortController;
     private frame = 0;
     private pointerX = 0;
     private pointerY = 0;
+
+    /* Current state */
+    private canvas: HTMLCanvasElement | null = null;
+    private context: CanvasRenderingContext2D | null = null;
+    private tracers: Tracer[] = [];
+    private width = 0;
+    private height = 0;
+    private dpr = 1;
+    private raf = 0;
+    private last = 0;
+    private time = 0;
+    private cursor = { x: 0, y: 0, active: false };
+    private stillPreferred = false;
+    private flowAbort?: AbortController;
 
     private updatePointer = () => {
       this.style.setProperty('--fluvio-pointer-x', `${this.pointerX}px`);
@@ -201,16 +226,229 @@ const networkPatternUrl = `url("${networkPattern.src}")`;
       });
     };
 
+    /* ---- The current ---- */
+
+    /**
+     * Velocity at a point: a gentle left-to-right river whose heading
+     * meanders through layered sine fields that drift with time, plus the
+     * cursor as a stone the water parts around and speeds up past. Returns
+     * px/s and a 0..1 "how fast" figure for colour.
+     */
+    private velocityAt(x: number, y: number): [number, number, number] {
+      const t = this.time;
+      const nx = x / this.width;
+      const ny = y / this.height;
+      const swing =
+        Math.sin(nx * 6.1 + t * 0.18) * 0.55 +
+        Math.cos(ny * 4.3 - t * 0.12 + nx * 2.2) * 0.45 +
+        Math.sin((nx + ny) * 3.7 + t * 0.07) * 0.25;
+      const heading = swing * 0.9;
+      /* Fastest mid-stream, like a real channel. */
+      const channel = 0.55 + 0.45 * Math.sin(ny * Math.PI) * (0.75 + 0.25 * Math.sin(nx * 5 + t * 0.1));
+      let vx = Math.cos(heading) * BASE_SPEED * channel;
+      let vy = Math.sin(heading) * BASE_SPEED * channel;
+      let fast = channel - 0.55;
+
+      if (this.cursor.active) {
+        const dx = x - this.cursor.x;
+        const dy = y - this.cursor.y;
+        const d = Math.hypot(dx, dy);
+        if (d < STONE_RADIUS && d > 0.001) {
+          const k = 1 - d / STONE_RADIUS;
+          const push = k * k * 80;
+          const swirl = Math.sign(dy || 1) * k * 45;
+          vx += (dx / d) * push + (-dy / d) * swirl;
+          vy += (dy / d) * push + (dx / d) * swirl;
+          fast += k;
+        }
+      }
+      return [vx, vy, Math.max(0, Math.min(1, fast))];
+    }
+
+    private resize = () => {
+      if (!this.canvas || !this.context) return;
+      this.width = window.innerWidth;
+      this.height = window.innerHeight;
+      this.dpr = Math.min(window.devicePixelRatio || 1, 2);
+      this.canvas.width = Math.round(this.width * this.dpr);
+      this.canvas.height = Math.round(this.height * this.dpr);
+      this.context.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
+      this.context.lineCap = 'round';
+
+      const wanted = Math.max(
+        MIN_TRACERS,
+        Math.min(MAX_TRACERS, Math.round((this.width * this.height) / AREA_PER_TRACER))
+      );
+      while (this.tracers.length < wanted) this.tracers.push(this.spawn(true));
+      this.tracers.length = wanted;
+      if (this.stillPreferred) this.drawStill();
+    };
+
+    private spawn(anywhere = false): Tracer {
+      const x = anywhere ? Math.random() * this.width : Math.random() < 0.7 ? -8 : Math.random() * this.width;
+      const y = Math.random() * this.height;
+      const ttl = 8 + Math.random() * 12;
+      return { x, y, px: x, py: y, life: anywhere ? Math.random() * ttl : 0, ttl };
+    }
+
+    private colour(fast: number, alpha: number) {
+      const dark = document.documentElement.classList.contains('dark');
+      const a = dark ? CALM.dark : CALM.light;
+      const b = dark ? FAST.dark : FAST.light;
+      const r = Math.round(a[0] + (b[0] - a[0]) * fast);
+      const g = Math.round(a[1] + (b[1] - a[1]) * fast);
+      const bl = Math.round(a[2] + (b[2] - a[2]) * fast);
+      return `rgb(${r} ${g} ${bl} / ${alpha.toFixed(3)})`;
+    }
+
+    private step(dt: number) {
+      const ctx = this.context;
+      if (!ctx) return;
+      this.time += dt;
+
+      /* Let the older trail fade without touching the page underneath. */
+      ctx.globalCompositeOperation = 'destination-out';
+      ctx.fillStyle = `rgb(0 0 0 / ${Math.min(1, FADE_PER_SECOND * dt).toFixed(3)})`;
+      ctx.fillRect(0, 0, this.width, this.height);
+      ctx.globalCompositeOperation = 'source-over';
+
+      for (const tracer of this.tracers) {
+        const [vx, vy, fast] = this.velocityAt(tracer.x, tracer.y);
+        tracer.px = tracer.x;
+        tracer.py = tracer.y;
+        tracer.x += vx * dt;
+        tracer.y += vy * dt;
+        tracer.life += dt;
+
+        const off = tracer.x < -12 || tracer.x > this.width + 12 || tracer.y < -12 || tracer.y > this.height + 12;
+        if (off || tracer.life > tracer.ttl) {
+          Object.assign(tracer, this.spawn());
+          continue;
+        }
+
+        /* Ease in and out over the tracer's life so no line ever pops. */
+        const fade = Math.min(1, tracer.life / 1.5, (tracer.ttl - tracer.life) / 2);
+        ctx.strokeStyle = this.colour(fast, 0.5 * fade);
+        ctx.lineWidth = 1 + fast * 0.8;
+        ctx.beginPath();
+        ctx.moveTo(tracer.px, tracer.py);
+        ctx.lineTo(tracer.x, tracer.y);
+        ctx.stroke();
+      }
+    }
+
+    /* Reduced motion: one still field of short streamlines, no cursor. */
+    private drawStill() {
+      const ctx = this.context;
+      if (!ctx) return;
+      ctx.clearRect(0, 0, this.width, this.height);
+      this.cursor.active = false;
+      for (const tracer of this.tracers) {
+        let x = tracer.x;
+        let y = tracer.y;
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        let fast = 0;
+        for (let i = 0; i < 24; i++) {
+          const [vx, vy, f] = this.velocityAt(x, y);
+          x += vx * 0.12;
+          y += vy * 0.12;
+          fast = f;
+          ctx.lineTo(x, y);
+        }
+        ctx.strokeStyle = this.colour(fast, 0.3);
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+    }
+
+    private tick = (now: number) => {
+      const dt = Math.min(0.05, (now - (this.last || now)) / 1000);
+      this.last = now;
+      this.step(dt);
+      this.raf = window.requestAnimationFrame(this.tick);
+    };
+
+    private start() {
+      if (this.raf || this.stillPreferred || document.hidden) return;
+      this.last = 0;
+      this.raf = window.requestAnimationFrame(this.tick);
+    }
+
+    private stop() {
+      if (this.raf) window.cancelAnimationFrame(this.raf);
+      this.raf = 0;
+    }
+
+    private setupFlow() {
+      this.canvas = this.querySelector<HTMLCanvasElement>('[data-flow]');
+      this.context = this.canvas?.getContext('2d', { alpha: true }) ?? null;
+      if (!this.canvas || !this.context) return;
+
+      const still = window.matchMedia('(prefers-reduced-motion: reduce)');
+      this.stillPreferred = still.matches;
+      this.flowAbort = new AbortController();
+      const { signal } = this.flowAbort;
+
+      this.resize();
+      window.addEventListener('resize', this.resize, { passive: true, signal });
+
+      still.addEventListener(
+        'change',
+        () => {
+          this.stillPreferred = still.matches;
+          if (this.stillPreferred) {
+            this.stop();
+            this.drawStill();
+          } else this.start();
+        },
+        { signal }
+      );
+
+      document.addEventListener('visibilitychange', () => (document.hidden ? this.stop() : this.start()), { signal });
+
+      /* Only a fine pointer becomes a stone in the current. */
+      const fine = window.matchMedia('(pointer: fine)');
+      document.addEventListener(
+        'pointermove',
+        (event) => {
+          if (this.stillPreferred || !fine.matches) return;
+          this.cursor.x = event.clientX;
+          this.cursor.y = event.clientY;
+          this.cursor.active = true;
+        },
+        { passive: true, signal }
+      );
+      document.addEventListener('pointerleave', () => (this.cursor.active = false), { signal });
+      window.addEventListener('blur', () => (this.cursor.active = false), { signal });
+
+      /* Clear on theme toggle so the two palettes never mix. */
+      document.addEventListener(
+        'aw:theme-change',
+        () => {
+          this.context?.clearRect(0, 0, this.width, this.height);
+          if (this.stillPreferred) this.drawStill();
+        },
+        { signal }
+      );
+
+      if (this.stillPreferred) this.drawStill();
+      else this.start();
+    }
+
     connectedCallback() {
       this.media = window.matchMedia(
         '(min-width: 768px) and (pointer: fine) and (prefers-reduced-motion: no-preference)'
       );
       this.media.addEventListener('change', this.syncPointerTracking);
       this.syncPointerTracking();
+      this.setupFlow();
     }
 
     disconnectedCallback() {
       this.abortController?.abort();
+      this.flowAbort?.abort();
+      this.stop();
       this.media?.removeEventListener('change', this.syncPointerTracking);
       if (this.frame) window.cancelAnimationFrame(this.frame);
     }

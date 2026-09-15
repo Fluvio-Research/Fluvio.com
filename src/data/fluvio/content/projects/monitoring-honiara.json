@@ -20,6 +20,16 @@
         "src": "/src/assets/images/fluvio/project-honiara-reticulation.jpg",
         "alt": "A Solomon Water field officer filling sample bottles from a tap over a steel drum",
         "caption": "Routine water quality monitoring in the Honiara reticulation network."
+      },
+      {
+        "src": "/src/assets/images/fluvio/project-honiara-karst-catchment.jpg",
+        "alt": "A river winding through forested hills, scientists reading an instrument in a stream, a survey team gathered inside a limestone cave, a man paddling a dugout canoe and red dye tracer spreading across a stream",
+        "caption": "Tracing water and sediment through the karst catchment above Honiara with community elders, dye tracing and computer vision."
+      },
+      {
+        "src": "/src/assets/images/fluvio/project-honiara-pwwa.jpg",
+        "alt": "Mandus Boselalu presenting to a conference room, Solomon Water staff measuring turbidity in a stream, a technician at a weir and delegates talking at the conference",
+        "caption": "Presenting real-time turbidity monitoring with Solomon Water at the Pacific Water and Wastewater Association conference, Honiara, 2025."
       }
     ],
     "challenge": [
@@ -28,10 +38,12 @@
     ],
     "approach": [
       "To support Solomon Water in achieving these goals, Fluvio has been appointed to undertake hydrological monitoring and catchment investigations to identify upstream water sources and potential turbidity risks.",
-      "This work has included deployment and maintenance of real-time water quality monitoring systems, development of operational data dashboards with alerting capabilities, automation of existing monitoring activities and the expansion of monitoring into provisional water sources."
+      "This work has included deployment and maintenance of real-time water quality monitoring systems, development of operational data dashboards with alerting capabilities, automation of existing monitoring activities and the expansion of monitoring into provisional water sources.",
+      "Honiara’s water supply is drawn from a complex karst catchment peppered with sinkholes and springs, where logging pressures are introducing significant sediment loads. Solving this hydrological puzzle combined traditional knowledge from community elders with computer vision, dye tracing and real-time data, including a cultural ceremony that allowed the team to enter the sacred underground river network and take the measurements needed to track sediment flows."
     ],
     "outcome": [
-      "All work has been delivered alongside Solomon Water staff with the aim to build local capacity to support the project into the future."
+      "All work has been delivered alongside Solomon Water staff with the aim to build local capacity to support the project into the future.",
+      "Solomon Water previously relied on manual turbidity checks, which are especially challenging during floods or at night. Real-time monitoring stations and a mobile app now record turbidity every ten minutes and transmit it to a cloud dashboard, enabling faster response times and more informed decisions. Mandus Boselalu, Fluvio’s Solomon Islands country manager, presented the work at the Pacific Water and Wastewater Association conference in Honiara in 2025."
     ],
     "featured": true,
     "relatedProjects": ["wrd", "bina"]
@@ -57,6 +69,16 @@
         "src": "/src/assets/images/fluvio/project-honiara-reticulation.jpg",
         "alt": "Wanfala field officer blong Solomon Water hemi fulimap olketa sample bottle from wanfala tap antap long wanfala steel drum",
         "caption": "Monitoring blong kwaliti blong wata wea olketa duim oltaem long paep sistem blong Honiara."
+      },
+      {
+        "src": "/src/assets/images/fluvio/project-honiara-karst-catchment.jpg",
+        "alt": "Wanfala riva wea hemi go raon long olketa bus hil, olketa saentis i ridim wanfala instrument long krik, wanfala survey tim insaet long wanfala laemston kev, wanfala man hemi padolem kanu, an red dye hemi spred long wanfala krik",
+        "caption": "Folom wata an sediment tru long karst catchment antap long Honiara wetem olketa elder blong komuniti, dye tracing an computer vision."
+      },
+      {
+        "src": "/src/assets/images/fluvio/project-honiara-pwwa.jpg",
+        "alt": "Mandus Boselalu hemi presentim long wanfala conference rum, olketa staf blong Solomon Water i mesarem turbidity long krik, wanfala teknisen long wanfala weir, an olketa delegate i toktok long conference",
+        "caption": "Presentim real-time turbidity monitoring wetem Solomon Water long Pacific Water and Wastewater Association conference, Honiara, 2025."
       }
     ],
     "challenge": [
@@ -65,10 +87,12 @@
     ],
     "approach": [
       "Fo sapotem Solomon Water fo kasem olketa goal ia, olketa appointim Fluvio fo duim monitoring blong wata an olketa catchment investigation, fo faendem olketa wata sos antap an olketa risk blong turbidity.",
-      "Insaet long waka ia: fo putim an lukaftarem olketa real-time sistem fo monitorim kwaliti blong wata, fo developim olketa data dashboard wetem alert, fo mekem olketa monitoring waka wea stap finis olketa ran seleva, an fo go insaet long olketa niufala provisional wata sos."
+      "Insaet long waka ia: fo putim an lukaftarem olketa real-time sistem fo monitorim kwaliti blong wata, fo developim olketa data dashboard wetem alert, fo mekem olketa monitoring waka wea stap finis olketa ran seleva, an fo go insaet long olketa niufala provisional wata sos.",
+      "Wata blong Honiara hemi kam from wanfala karst catchment wea hemi fulap wetem olketa sinkhole an spring, an waka blong katem tri hemi putim bigfala sediment load insaet long sistem. Fo solvem hydrological puzzle ia, tim hemi joinem save blong olketa elder long komuniti wetem computer vision, dye tracing an real-time data. Wanfala kastom seremoni hemi letem tim fo go insaet long tabu riva anda graon fo tekem olketa mesarem wea olketa nidim fo folom sediment."
     ],
     "outcome": [
-      "Evri waka ia mifala duim tugeta wetem olketa staff blong Solomon Water, wetem goal fo strongim savve blong local pipol fo sapotem project ia long taem bihaen."
+      "Evri waka ia mifala duim tugeta wetem olketa staff blong Solomon Water, wetem goal fo strongim savve blong local pipol fo sapotem project ia long taem bihaen.",
+      "Bifoa, Solomon Water hemi depen long manual jek blong turbidity, wea hemi had tumas taem flood o long naet. Distaem olketa real-time monitoring station an wanfala mobile app i rekodem turbidity evri ten minit an sendem go long wanfala cloud dashboard, so olketa savve ansa kwiktaem an mekem disison wetem moa save. Mandus Boselalu, country manager blong Fluvio long Solomon Aelan, hemi presentim waka ia long Pacific Water and Wastewater Association conference long Honiara long 2025."
     ],
     "featured": true,
     "relatedProjects": ["wrd", "bina"]
@@ -94,6 +118,16 @@
         "src": "/src/assets/images/fluvio/project-honiara-reticulation.jpg",
         "alt": "Un agent de terrain de Solomon Water remplit des flacons d’échantillonnage à un robinet posé sur un fût métallique",
         "caption": "Surveillance de routine de la qualité de l’eau dans le réseau de distribution de Honiara."
+      },
+      {
+        "src": "/src/assets/images/fluvio/project-honiara-karst-catchment.jpg",
+        "alt": "Une rivière serpentant entre des collines boisées, des scientifiques lisant un instrument dans un cours d’eau, une équipe réunie dans une grotte calcaire, un homme pagayant en pirogue et un traceur rouge se diffusant dans un ruisseau",
+        "caption": "Suivre l’eau et les sédiments dans le bassin karstique au-dessus de Honiara avec les anciens, le traçage par colorant et la vision par ordinateur."
+      },
+      {
+        "src": "/src/assets/images/fluvio/project-honiara-pwwa.jpg",
+        "alt": "Mandus Boselalu présentant devant une salle de conférence, du personnel de Solomon Water mesurant la turbidité dans un cours d’eau, un technicien à un déversoir et des délégués en discussion",
+        "caption": "Présentation du suivi de turbidité en temps réel avec Solomon Water à la conférence de la Pacific Water and Wastewater Association, Honiara, 2025."
       }
     ],
     "challenge": [
@@ -102,10 +136,12 @@
     ],
     "approach": [
       "Pour accompagner Solomon Water dans l’atteinte de ces objectifs, Fluvio a été mandaté pour réaliser la surveillance hydrologique et des études de bassins versants afin d’identifier les sources d’eau en amont et les risques potentiels de turbidité.",
-      "Ces travaux ont compris le déploiement et la maintenance de systèmes de surveillance de la qualité de l’eau en temps réel, le développement de tableaux de bord opérationnels dotés d’alertes, l’automatisation des activités de surveillance existantes et l’extension de la surveillance à des sources d’eau provisoires."
+      "Ces travaux ont compris le déploiement et la maintenance de systèmes de surveillance de la qualité de l’eau en temps réel, le développement de tableaux de bord opérationnels dotés d’alertes, l’automatisation des activités de surveillance existantes et l’extension de la surveillance à des sources d’eau provisoires.",
+      "L’eau de Honiara provient d’un bassin karstique complexe parsemé de dolines et de sources, où la pression de l’exploitation forestière introduit des charges sédimentaires importantes. Résoudre ce casse-tête hydrologique a combiné le savoir traditionnel des anciens avec la vision par ordinateur, le traçage par colorant et les données en temps réel, y compris une cérémonie coutumière qui a permis à l’équipe d’entrer dans le réseau de rivières souterraines sacré pour y effectuer les mesures nécessaires au suivi des sédiments."
     ],
     "outcome": [
-      "L’ensemble des travaux a été réalisé aux côtés du personnel de Solomon Water, dans l’objectif de renforcer les compétences locales pour porter le projet dans la durée."
+      "L’ensemble des travaux a été réalisé aux côtés du personnel de Solomon Water, dans l’objectif de renforcer les compétences locales pour porter le projet dans la durée.",
+      "Solomon Water s’appuyait auparavant sur des contrôles manuels de turbidité, particulièrement difficiles en période de crue ou de nuit. Des stations de mesure en temps réel et une application mobile enregistrent désormais la turbidité toutes les dix minutes et la transmettent à un tableau de bord en ligne, ce qui accélère les réactions et éclaire les décisions. Mandus Boselalu, responsable pays de Fluvio aux Îles Salomon, a présenté ce travail à la conférence de la Pacific Water and Wastewater Association à Honiara en 2025."
     ],
     "featured": true,
     "relatedProjects": ["wrd", "bina"]
@@ -131,6 +167,16 @@
         "src": "/src/assets/images/fluvio/project-honiara-reticulation.jpg",
         "alt": "Un funcionario de campo de Solomon Water llena frascos de muestreo desde un grifo montado sobre un tambor metálico",
         "caption": "Monitoreo de rutina de la calidad del agua en la red de distribución de Honiara."
+      },
+      {
+        "src": "/src/assets/images/fluvio/project-honiara-karst-catchment.jpg",
+        "alt": "Un río serpenteando entre colinas boscosas, científicos leyendo un instrumento en un arroyo, un equipo reunido dentro de una cueva de caliza, un hombre remando en una canoa y un trazador rojo extendiéndose por un arroyo",
+        "caption": "Rastreando agua y sedimentos por la cuenca kárstica sobre Honiara con los ancianos de la comunidad, trazado con colorante y visión artificial."
+      },
+      {
+        "src": "/src/assets/images/fluvio/project-honiara-pwwa.jpg",
+        "alt": "Mandus Boselalu presentando ante una sala de conferencias, personal de Solomon Water midiendo la turbidez en un arroyo, un técnico en un vertedero y delegados conversando en la conferencia",
+        "caption": "Presentación del monitoreo de turbidez en tiempo real con Solomon Water en la conferencia de la Pacific Water and Wastewater Association, Honiara, 2025."
       }
     ],
     "challenge": [
@@ -139,10 +185,12 @@
     ],
     "approach": [
       "Para apoyar a Solomon Water en el logro de estos objetivos, Fluvio fue designado para realizar monitoreo hidrológico e investigaciones de cuencas que permitan identificar fuentes de agua aguas arriba y posibles riesgos de turbidez.",
-      "Este trabajo ha incluido el despliegue y mantenimiento de sistemas de monitoreo de calidad del agua en tiempo real, el desarrollo de tableros de datos operativos con capacidad de alerta, la automatización de las actividades de monitoreo existentes y la ampliación del monitoreo hacia fuentes de agua provisionales."
+      "Este trabajo ha incluido el despliegue y mantenimiento de sistemas de monitoreo de calidad del agua en tiempo real, el desarrollo de tableros de datos operativos con capacidad de alerta, la automatización de las actividades de monitoreo existentes y la ampliación del monitoreo hacia fuentes de agua provisionales.",
+      "El agua de Honiara procede de una compleja cuenca kárstica salpicada de dolinas y manantiales, donde la presión de la tala está introduciendo cargas de sedimentos importantes. Resolver este rompecabezas hidrológico combinó el conocimiento tradicional de los ancianos de la comunidad con visión artificial, trazado con colorante y datos en tiempo real, incluida una ceremonia cultural que permitió al equipo entrar en la red sagrada de ríos subterráneos y tomar las mediciones necesarias para rastrear los flujos de sedimentos."
     ],
     "outcome": [
-      "Todo el trabajo se ha realizado junto al personal de Solomon Water, con el objetivo de desarrollar capacidades locales que sostengan el proyecto en el futuro."
+      "Todo el trabajo se ha realizado junto al personal de Solomon Water, con el objetivo de desarrollar capacidades locales que sostengan el proyecto en el futuro.",
+      "Solomon Water dependía antes de comprobaciones manuales de turbidez, especialmente difíciles durante las crecidas o de noche. Ahora, estaciones de monitoreo en tiempo real y una aplicación móvil registran la turbidez cada diez minutos y la transmiten a un panel en la nube, lo que permite respuestas más rápidas y decisiones mejor informadas. Mandus Boselalu, gerente de país de Fluvio en las Islas Salomón, presentó el trabajo en la conferencia de la Pacific Water and Wastewater Association en Honiara en 2025."
     ],
     "featured": true,
     "relatedProjects": ["wrd", "bina"]

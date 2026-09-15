@@ -41,6 +41,9 @@ const hasAside = Boolean(intro) || Astro.slots.has('action');
   }
 
   .fluvio-section-heading__eyebrow {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
     margin: 0 0 0.875rem;
     color: rgb(var(--fluvio-river));
     font-family: var(--aw-font-mono);
@@ -53,6 +56,27 @@ const hasAside = Boolean(intro) || Astro.slots.has('action');
 
   :global(.dark) .fluvio-section-heading__eyebrow {
     color: rgb(125 186 188);
+  }
+
+  /* A short rule that draws in as the heading reveals. Without JavaScript the
+     reveal attribute never exists, so the rule is simply there. */
+  .fluvio-section-heading__eyebrow::before {
+    content: '';
+    flex: none;
+    width: 1.5rem;
+    height: 1px;
+    background: currentColor;
+    transform-origin: left;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    :global([class*='intersect'][no-intersect]) .fluvio-section-heading__eyebrow::before {
+      transform: scaleX(0);
+    }
+
+    :global([class*='intersect']:not([no-intersect])) .fluvio-section-heading__eyebrow::before {
+      transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1) 250ms;
+    }
   }
 
   h2,

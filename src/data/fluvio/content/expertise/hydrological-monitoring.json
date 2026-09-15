@@ -13,10 +13,10 @@
       "Real-time analysis of velocity and discharge",
       "Safer, more efficient monitoring of river systems"
     ],
-    "image": "/src/assets/images/fluvio/expertise-velocity-overlay-poster.jpg",
-    "imageAlt": "A computer vision stream gauging camera resolving surface velocity across a river, shown as a colour field with flow arrows and a velocity scale",
-    "video": "/src/assets/images/fluvio/expertise-velocity-overlay.mp4",
-    "relatedProjects": ["tina", "bina", "advance-queensland"]
+    "image": "/src/assets/images/fluvio/expertise-velocity-map-poster.jpg",
+    "imageAlt": "Surface velocity across a flooded river resolved by computer vision, drawn as a colour field from blue for slow water to red for the fastest flow",
+    "video": "/src/assets/images/fluvio/expertise-velocity-map.mp4",
+    "relatedProjects": ["tina", "bina", "advance-queensland", "laidley-creek-flood"]
   },
   "pijin": {
     "order": 1,
@@ -32,10 +32,10 @@
       "Real-time analysis blong spid an flow blong wata",
       "Monitoring blong olketa reva sistem wea moa sef an moa kwik"
     ],
-    "image": "/src/assets/images/fluvio/expertise-velocity-overlay-poster.jpg",
-    "imageAlt": "Wanfala computer vision camera hemi mesarem spid blong wata antap long wanfala reva, an hemi soim hem olsem wanfala kala field wetem olketa arrow an wanfala scale blong spid",
-    "video": "/src/assets/images/fluvio/expertise-velocity-overlay.mp4",
-    "relatedProjects": ["tina", "bina", "advance-queensland"]
+    "image": "/src/assets/images/fluvio/expertise-velocity-map-poster.jpg",
+    "imageAlt": "Spid blong wata antap long wanfala reva wea flood, wea computer vision hemi mesarem, an soim olsem wanfala kala field: blue fo slou wata an red fo wata wea ran kwiktaem",
+    "video": "/src/assets/images/fluvio/expertise-velocity-map.mp4",
+    "relatedProjects": ["tina", "bina", "advance-queensland", "laidley-creek-flood"]
   },
   "fr": {
     "order": 1,
@@ -51,10 +51,10 @@
       "Analyse en temps réel de la vitesse et du débit",
       "Une surveillance des cours d’eau plus sûre et plus efficace"
     ],
-    "image": "/src/assets/images/fluvio/expertise-velocity-overlay-poster.jpg",
-    "imageAlt": "Une caméra de jaugeage par vision par ordinateur restitue la vitesse de surface d’une rivière sous forme de champ coloré, avec des flèches d’écoulement et une échelle de vitesse",
-    "video": "/src/assets/images/fluvio/expertise-velocity-overlay.mp4",
-    "relatedProjects": ["tina", "bina", "advance-queensland"]
+    "image": "/src/assets/images/fluvio/expertise-velocity-map-poster.jpg",
+    "imageAlt": "La vitesse de surface d’une rivière en crue, restituée par vision par ordinateur sous forme de champ coloré, du bleu pour les eaux lentes au rouge pour l’écoulement le plus rapide",
+    "video": "/src/assets/images/fluvio/expertise-velocity-map.mp4",
+    "relatedProjects": ["tina", "bina", "advance-queensland", "laidley-creek-flood"]
   },
   "es": {
     "order": 1,
@@ -70,9 +70,9 @@
       "Análisis en tiempo real de velocidad y caudal",
       "Monitoreo de sistemas fluviales más seguro y eficiente"
     ],
-    "image": "/src/assets/images/fluvio/expertise-velocity-overlay-poster.jpg",
-    "imageAlt": "Una cámara de aforo por visión artificial resuelve la velocidad superficial de un río, mostrada como un campo de color con flechas de flujo y una escala de velocidad",
-    "video": "/src/assets/images/fluvio/expertise-velocity-overlay.mp4",
-    "relatedProjects": ["tina", "bina", "advance-queensland"]
+    "image": "/src/assets/images/fluvio/expertise-velocity-map-poster.jpg",
+    "imageAlt": "La velocidad superficial de un río en crecida, resuelta por visión artificial y dibujada como un campo de color, del azul para el agua lenta al rojo para el flujo más rápido",
+    "video": "/src/assets/images/fluvio/expertise-velocity-map.mp4",
+    "relatedProjects": ["tina", "bina", "advance-queensland", "laidley-creek-flood"]
   }
 }

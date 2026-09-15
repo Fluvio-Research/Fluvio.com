@@ -1,0 +1,94 @@
+{
+  "en": {
+    "order": 11,
+    "title": "Long-term sediment monitoring in Moreton Bay",
+    "slug": "moreton-bay-sediment-monitoring",
+    "summary": "Tracking sediment change across 223 sites in a dynamic coastal bay with FS-Nomad, Fluvio's integrated field data system.",
+    "location": "Moreton Bay, Queensland, Australia",
+    "timeframe": "2026",
+    "disciplines": ["Sediment monitoring", "Water quality monitoring", "Field survey"],
+    "heroImage": "/src/assets/images/fluvio/project-moreton-bay-nomad.jpg",
+    "heroAlt": "A field scientist lowering a water quality sensor from a boat in Moreton Bay, a map of survey tracks across the bay, a drowned tree standing in still water, and the FS-Nomad field console app on a tablet",
+    "challenge": [
+      "Moreton Bay is a dynamic coastal system where sediments shift with weather, tides and catchment inflows. Fluvio maintains a long-term monitoring program across 223 sites to track those changes. A survey of that scale demands efficient, robust field systems: as modelling and remote sensing advance, it is easy to overlook the high-resolution field data those tools depend on, especially in coastal waters."
+    ],
+    "approach": [
+      "As part of its FluvioSense technology suite, Fluvio developed FS-Nomad to integrate field data streams. A compact logging and power unit and a dedicated mobile app let the team configure and operate a wide range of water quality instruments and auxiliary sensors directly from a phone or tablet, all housed in an easily transportable case.",
+      "During this deployment the system combined a Xylem EXO water quality sensor, benthic imagery from an underwater camera, a Cruzpro depth sounder and an Emlid RS3 GPS receiver into a single timestamped record, logged at two-second intervals across every survey transect."
+    ],
+    "outcome": [
+      "Even under rapidly changing conditions, the system delivered stable, spatially rich datasets, enabling high-frequency, fine-scale mapping of coastal variability across the survey transects.",
+      "FS-Nomad is now being extended with wind measurements to resolve localised wind fields and a methane analyser for continuous atmospheric monitoring during surveys."
+    ],
+    "relatedProjects": ["reservoir-sedimentation", "ghg-emissions-reservoirs"]
+  },
+  "pijin": {
+    "order": 11,
+    "title": "Longfala taem monitoring blong sediment long Moreton Bay",
+    "slug": "moreton-bay-sediment-monitoring",
+    "summary": "Lukaotem hao sediment hemi jenis long 223 ples insaet long wanfala bei wea hemi jenis evritaem, wetem FS-Nomad, sistem blong Fluvio fo joinem field data.",
+    "location": "Moreton Bay, Queensland, Australia",
+    "timeframe": "2026",
+    "disciplines": ["Monitorim sediment", "Monitorim kwaliti blong wata", "Field survey"],
+    "heroImage": "/src/assets/images/fluvio/project-moreton-bay-nomad.jpg",
+    "heroAlt": "Wanfala saentis hemi daonim wanfala sensor blong kwaliti blong wata from bot long Moreton Bay, wanfala map blong olketa survey track long bei, wanfala dae tri wea standap long kwaet wata, an FS-Nomad field console app long wanfala tablet",
+    "challenge": [
+      "Moreton Bay hemi wanfala kos sistem wea hemi jenis evritaem: sediment hemi muv folom weta, taed an wata wea kam daon from catchment. Fluvio hemi ranem wanfala longfala taem monitoring program long 223 ples fo lukaotem olketa jenis ia. Wanfala survey wea hemi big olsem hemi nidim olketa field sistem wea i kwik an strong: taem modelling an remote sensing i go ahed, hemi isi fo fogetem hae-resolution field data wea olketa tul ia i depen long hem, espeseli long kos wata."
+    ],
+    "approach": [
+      "Insaet long FluvioSense teknoloji blong hem, Fluvio hemi developim FS-Nomad fo joinem olketa field data stream. Wanfala smol logging an paoa unit an wanfala mobile app i letem tim fo setim ap an ranem plande difren instrument blong kwaliti blong wata an olketa nara sensor stret from fon o tablet, an evrisamting i stap insaet long wanfala kes wea hemi isi fo karem.",
+      "Long waka ia sistem hemi joinem wanfala Xylem EXO sensor blong kwaliti blong wata, pikja blong botom blong si from wanfala andawata camera, wanfala Cruzpro depth sounder an wanfala Emlid RS3 GPS receiver i kam wanfala rekod wetem taem long hem, wea hemi rekodem evri tu seken long evri survey transect."
+    ],
+    "outcome": [
+      "Nomata kondison hemi jenis kwiktaem, sistem hemi givim data wea hemi stedi an fulap long spatial detail, so tim i savve mapim hao kos hemi jenis long hae frequency an smol skel long olketa survey transect.",
+      "Distaem Fluvio hemi adem moa samting long FS-Nomad: mesarem win fo savve olketa smol win field, an wanfala methane analyser fo monitorim ea evritaem long survey."
+    ],
+    "relatedProjects": ["reservoir-sedimentation", "ghg-emissions-reservoirs"]
+  },
+  "fr": {
+    "order": 11,
+    "title": "Suivi à long terme des sédiments dans la baie de Moreton",
+    "slug": "moreton-bay-sediment-monitoring",
+    "summary": "Suivre l’évolution des sédiments sur 223 sites d’une baie côtière dynamique avec FS-Nomad, le système intégré de données de terrain de Fluvio.",
+    "location": "Baie de Moreton, Queensland, Australie",
+    "timeframe": "2026",
+    "disciplines": ["Suivi des sédiments", "Surveillance de la qualité de l’eau", "Relevés de terrain"],
+    "heroImage": "/src/assets/images/fluvio/project-moreton-bay-nomad.jpg",
+    "heroAlt": "Un scientifique descend un capteur de qualité de l’eau depuis un bateau dans la baie de Moreton, une carte des transects de relevé dans la baie, un arbre mort dressé dans une eau calme et l’application de terrain FS-Nomad sur une tablette",
+    "challenge": [
+      "La baie de Moreton est un système côtier dynamique où les sédiments se déplacent au gré de la météo, des marées et des apports des bassins versants. Fluvio y maintient un programme de suivi à long terme sur 223 sites pour documenter ces changements. Un relevé de cette ampleur exige des systèmes de terrain efficaces et robustes : à mesure que la modélisation et la télédétection progressent, on oublie facilement les données de terrain haute résolution dont ces outils dépendent, surtout en milieu côtier."
+    ],
+    "approach": [
+      "Dans le cadre de sa gamme technologique FluvioSense, Fluvio a développé FS-Nomad pour intégrer les flux de données de terrain. Une unité compacte d’enregistrement et d’alimentation et une application mobile dédiée permettent à l’équipe de configurer et de piloter une large gamme d’instruments de qualité de l’eau et de capteurs auxiliaires directement depuis un téléphone ou une tablette, le tout logé dans une valise facile à transporter.",
+      "Lors de ce déploiement, le système a combiné un capteur de qualité de l’eau Xylem EXO, des images du fond issues d’une caméra sous-marine, un sondeur Cruzpro et un récepteur GPS Emlid RS3 en un seul enregistrement horodaté, à intervalles de deux secondes sur chaque transect."
+    ],
+    "outcome": [
+      "Même dans des conditions changeant rapidement, le système a fourni des jeux de données stables et riches spatialement, permettant une cartographie haute fréquence et à fine échelle de la variabilité côtière le long des transects.",
+      "FS-Nomad est désormais enrichi de mesures de vent pour résoudre les champs de vent locaux et d’un analyseur de méthane pour un suivi atmosphérique continu pendant les relevés."
+    ],
+    "relatedProjects": ["reservoir-sedimentation", "ghg-emissions-reservoirs"]
+  },
+  "es": {
+    "order": 11,
+    "title": "Monitoreo de sedimentos a largo plazo en la bahía de Moreton",
+    "slug": "moreton-bay-sediment-monitoring",
+    "summary": "Seguimiento de los cambios en los sedimentos en 223 sitios de una bahía costera dinámica con FS-Nomad, el sistema integrado de datos de campo de Fluvio.",
+    "location": "Bahía de Moreton, Queensland, Australia",
+    "timeframe": "2026",
+    "disciplines": ["Monitoreo de sedimentos", "Monitoreo de calidad del agua", "Levantamiento de campo"],
+    "heroImage": "/src/assets/images/fluvio/project-moreton-bay-nomad.jpg",
+    "heroAlt": "Un científico baja un sensor de calidad del agua desde una embarcación en la bahía de Moreton, un mapa de los transectos de muestreo en la bahía, un árbol muerto en pie sobre aguas tranquilas y la aplicación de campo FS-Nomad en una tableta",
+    "challenge": [
+      "La bahía de Moreton es un sistema costero dinámico donde los sedimentos se desplazan con el clima, las mareas y los aportes de las cuencas. Fluvio mantiene un programa de monitoreo a largo plazo en 223 sitios para registrar esos cambios. Un levantamiento de esa escala exige sistemas de campo eficientes y robustos: a medida que avanzan la modelación y la teledetección, es fácil pasar por alto los datos de campo de alta resolución de los que dependen esas herramientas, sobre todo en aguas costeras."
+    ],
+    "approach": [
+      "Como parte de su conjunto tecnológico FluvioSense, Fluvio desarrolló FS-Nomad para integrar los flujos de datos de campo. Una unidad compacta de registro y alimentación y una aplicación móvil dedicada permiten al equipo configurar y operar una amplia gama de instrumentos de calidad del agua y sensores auxiliares directamente desde un teléfono o una tableta, todo alojado en un maletín fácil de transportar.",
+      "Durante este despliegue, el sistema combinó un sensor de calidad del agua Xylem EXO, imágenes del fondo de una cámara submarina, una ecosonda Cruzpro y un receptor GPS Emlid RS3 en un único registro con marca de tiempo, tomado cada dos segundos a lo largo de cada transecto."
+    ],
+    "outcome": [
+      "Incluso en condiciones que cambiaban con rapidez, el sistema entregó conjuntos de datos estables y espacialmente ricos, permitiendo un mapeo de alta frecuencia y escala fina de la variabilidad costera a lo largo de los transectos.",
+      "FS-Nomad se está ampliando ahora con mediciones de viento para resolver campos de viento locales y un analizador de metano para el monitoreo atmosférico continuo durante los levantamientos."
+    ],
+    "relatedProjects": ["reservoir-sedimentation", "ghg-emissions-reservoirs"]
+  }
+}

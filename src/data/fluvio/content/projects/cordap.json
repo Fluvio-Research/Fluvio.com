@@ -14,6 +14,11 @@
         "src": "/src/assets/images/fluvio/project-cordap-map.png",
         "alt": "A map of a tropical coastline with catchment boundaries, a river network coloured by pollutant load and reef habitat outlined offshore",
         "caption": "Modelled land-based pollution loads mapped against catchments and adjacent reef habitat."
+      },
+      {
+        "src": "/src/assets/images/fluvio/project-cordap-coasted.jpg",
+        "alt": "Nicholas Hutley at the International Coral Reef Symposium, a conference audience watching a watershed discharge map, and the CoaSTED coastal sediment exposure map with its Global Pollution Watch beta branding",
+        "caption": "CoaSTED coastal sediment source exposure tracking, presented at the International Coral Reef Society symposium for the Global Pollution Watch beta release."
       }
     ],
     "challenge": [
@@ -23,9 +28,11 @@
       "The CLEAN REEFS project seeks to close this gap by developing a global, open-source pollution mapping and risk assessment tool, which will enable coral reef managers, scientists, and citizen scientists to identify and address pollution risks across coral ecosystems. Through an intuitive, web-based application, CLEAN REEFS will provide near-real-time data on pollution sources, exposure, and dispersal patterns. This tool will enhance local conservation planning by aiding the identification of high-risk areas, pollution sources, and possible mitigation strategies, ultimately improving coral restoration outcomes."
     ],
     "outcome": [
-      "CLEAN REEFS will work on two scales: supporting on-the-ground conservation in Fiji and the Solomon Islands, and creating a globally adaptable tool that benefits coral reef communities worldwide."
+      "CLEAN REEFS will work on two scales: supporting on-the-ground conservation in Fiji and the Solomon Islands, and creating a globally adaptable tool that benefits coral reef communities worldwide.",
+      "Fluvio’s CoaSTED (Coastal Sediment Source Exposure Tracking) model underpins the Global Pollution Watch tool, developed with Dr Amelia Wenger of The University of Queensland, the Wildlife Conservation Society and Sparkgeo. CoaSTED rapidly calculates the distributed exposure of thousands of pollution source points worldwide from frequency-distribution inputs that represent coastal dynamics at annual scales from 2000 to 2020. Dr Nicholas Hutley presented the model at the International Coral Reef Society symposium in 2026, where the Global Pollution Watch beta was released."
     ],
-    "relatedProjects": ["sol-trader-oil-spill"]
+    "relatedProjects": ["sol-trader-oil-spill"],
+    "partners": ["The University of Queensland", "Wildlife Conservation Society", "Sparkgeo", "G20 CORDAP"]
   },
   "pijin": {
     "order": 8,
@@ -42,6 +49,11 @@
         "src": "/src/assets/images/fluvio/project-cordap-map.png",
         "alt": "Wanfala map blong wanfala tropical saedsi wetem olketa catchment boundary, wanfala reva network wea garem kala followim load blong pollution, an olketa reef habitat wea olketa maakem long solwata",
         "caption": "Olketa pollution load from land wea olketa modelim, an olketa mapem hem againstim olketa catchment an olketa reef habitat klosap."
+      },
+      {
+        "src": "/src/assets/images/fluvio/project-cordap-coasted.jpg",
+        "alt": "Nicholas Hutley long International Coral Reef Symposium, olketa pipol long conference i lukluk long wanfala map blong discharge blong watershed, an CoaSTED map blong sediment exposure long kos wetem Global Pollution Watch beta lebol",
+        "caption": "CoaSTED, fo folom hao sediment from land i afektim kos, wea olketa presentim long International Coral Reef Society symposium taem Global Pollution Watch beta hemi kam aot."
       }
     ],
     "challenge": [
@@ -51,9 +63,11 @@
       "CLEAN REEFS project hemi laek fo fulimap gap ia, taem hemi developim wanfala global, open-source tul fo mapem pollution an assessim risk. Tul ia bae helpem olketa manager blong coral reef, olketa saentis, an olketa citizen scientist fo faendem an stretem olketa risk blong pollution long olketa coral ecosystem. Long wanfala web application wea isi fo iusim, CLEAN REEFS bae givim data klosap long real-time abaotem olketa pollution sos, wea pollution hemi kasem, an hao hemi spread. Tul ia bae strongim planning fo conservation long local level, taem hemi helpem olketa fo faendem olketa hae-risk eria, olketa pollution sos, an olketa wei fo katem daon pollution. Long en, diswan bae mekem coral restoration hemi kamaot gud moa."
     ],
     "outcome": [
-      "CLEAN REEFS bae waka long tufala scale: fo sapotem conservation waka long graon long Fiji an Solomon Aelan, an fo wakem wanfala tul wea olketa savve adaptim long full wol, wea bae helpem olketa coral reef komuniti evriwea."
+      "CLEAN REEFS bae waka long tufala scale: fo sapotem conservation waka long graon long Fiji an Solomon Aelan, an fo wakem wanfala tul wea olketa savve adaptim long full wol, wea bae helpem olketa coral reef komuniti evriwea.",
+      "CoaSTED model blong Fluvio (Coastal Sediment Source Exposure Tracking) hemi as blong Global Pollution Watch tul, wea olketa bildim wetem Dr Amelia Wenger blong The University of Queensland, Wildlife Conservation Society an Sparkgeo. CoaSTED hemi kwiktaem kaontem hao plande taosen pollution source raon long wol i afektim kos, from frequency-distribution input wea soim hao kos hemi muv evri yia from 2000 kasem 2020. Dr Nicholas Hutley hemi presentim model ia long International Coral Reef Society symposium long 2026, wea nao olketa rilisim Global Pollution Watch beta."
     ],
-    "relatedProjects": ["sol-trader-oil-spill"]
+    "relatedProjects": ["sol-trader-oil-spill"],
+    "partners": ["The University of Queensland", "Wildlife Conservation Society", "Sparkgeo", "G20 CORDAP"]
   },
   "fr": {
     "order": 8,
@@ -70,6 +84,11 @@
         "src": "/src/assets/images/fluvio/project-cordap-map.png",
         "alt": "Une carte d’un littoral tropical avec les limites des bassins versants, un réseau hydrographique coloré selon la charge polluante et les habitats récifaux délimités au large",
         "caption": "Charges de pollution d’origine terrestre modélisées et cartographiées en regard des bassins versants et des habitats récifaux adjacents."
+      },
+      {
+        "src": "/src/assets/images/fluvio/project-cordap-coasted.jpg",
+        "alt": "Nicholas Hutley au symposium international sur les récifs coralliens, un public de conférence devant une carte de décharge de bassin versant, et la carte CoaSTED d’exposition aux sédiments côtiers avec l’identité bêta de Global Pollution Watch",
+        "caption": "CoaSTED, suivi de l’exposition aux sources de sédiments côtiers, présenté au symposium de l’International Coral Reef Society pour le lancement de la bêta de Global Pollution Watch."
       }
     ],
     "challenge": [
@@ -79,9 +98,11 @@
       "Le projet CLEAN REEFS entend combler cette lacune en développant un outil mondial et open source de cartographie de la pollution et d’évaluation des risques, qui permettra aux gestionnaires de récifs, aux scientifiques et aux scientifiques citoyens d’identifier et de traiter les risques de pollution dans les écosystèmes coralliens. À travers une application web intuitive, CLEAN REEFS fournira des données en quasi temps réel sur les sources de pollution, l’exposition et les schémas de dispersion. L’outil renforcera la planification locale de la conservation en aidant à repérer les zones à haut risque, les sources de pollution et les stratégies d’atténuation envisageables, améliorant in fine les résultats de la restauration corallienne."
     ],
     "outcome": [
-      "CLEAN REEFS agira à deux échelles : soutenir la conservation de terrain aux Fidji et aux Îles Salomon, et créer un outil adaptable à l’échelle mondiale au bénéfice des communautés des récifs coralliens partout dans le monde."
+      "CLEAN REEFS agira à deux échelles : soutenir la conservation de terrain aux Fidji et aux Îles Salomon, et créer un outil adaptable à l’échelle mondiale au bénéfice des communautés des récifs coralliens partout dans le monde.",
+      "Le modèle CoaSTED (Coastal Sediment Source Exposure Tracking) de Fluvio est au cœur de l’outil Global Pollution Watch, développé avec la Dre Amelia Wenger de l’Université du Queensland, la Wildlife Conservation Society et Sparkgeo. CoaSTED calcule rapidement l’exposition distribuée de milliers de sources de pollution dans le monde à partir de distributions de fréquence représentant la dynamique côtière à l’échelle annuelle de 2000 à 2020. Le Dr Nicholas Hutley a présenté le modèle au symposium de l’International Coral Reef Society en 2026, où la version bêta de Global Pollution Watch a été lancée."
     ],
-    "relatedProjects": ["sol-trader-oil-spill"]
+    "relatedProjects": ["sol-trader-oil-spill"],
+    "partners": ["The University of Queensland", "Wildlife Conservation Society", "Sparkgeo", "G20 CORDAP"]
   },
   "es": {
     "order": 8,
@@ -98,6 +119,11 @@
         "src": "/src/assets/images/fluvio/project-cordap-map.png",
         "alt": "Un mapa de un litoral tropical con los límites de las cuencas, una red fluvial coloreada según la carga contaminante y los hábitats arrecifales delineados mar adentro",
         "caption": "Cargas de contaminación de origen terrestre modeladas y cartografiadas frente a las cuencas y los hábitats arrecifales adyacentes."
+      },
+      {
+        "src": "/src/assets/images/fluvio/project-cordap-coasted.jpg",
+        "alt": "Nicholas Hutley en el simposio internacional de arrecifes de coral, el público de la conferencia ante un mapa de descarga de cuencas y el mapa CoaSTED de exposición a sedimentos costeros con la identidad beta de Global Pollution Watch",
+        "caption": "CoaSTED, seguimiento de la exposición a fuentes de sedimentos costeros, presentado en el simposio de la International Coral Reef Society para el lanzamiento beta de Global Pollution Watch."
       }
     ],
     "challenge": [
@@ -107,8 +133,10 @@
       "El proyecto CLEAN REEFS busca cerrar esta brecha desarrollando una herramienta global y de código abierto de cartografía de la contaminación y evaluación de riesgos, que permitirá a gestores de arrecifes, científicos y ciencia ciudadana identificar y abordar los riesgos de contaminación en los ecosistemas coralinos. Mediante una aplicación web intuitiva, CLEAN REEFS proporcionará datos casi en tiempo real sobre fuentes de contaminación, exposición y patrones de dispersión. La herramienta reforzará la planificación local de la conservación al facilitar la identificación de zonas de alto riesgo, fuentes de contaminación y posibles estrategias de mitigación, mejorando en última instancia los resultados de la restauración de corales."
     ],
     "outcome": [
-      "CLEAN REEFS trabajará en dos escalas: apoyar la conservación sobre el terreno en Fiyi y las Islas Salomón, y crear una herramienta adaptable globalmente en beneficio de las comunidades de arrecifes de coral de todo el mundo."
+      "CLEAN REEFS trabajará en dos escalas: apoyar la conservación sobre el terreno en Fiyi y las Islas Salomón, y crear una herramienta adaptable globalmente en beneficio de las comunidades de arrecifes de coral de todo el mundo.",
+      "El modelo CoaSTED (Coastal Sediment Source Exposure Tracking) de Fluvio sustenta la herramienta Global Pollution Watch, desarrollada con la Dra. Amelia Wenger de la Universidad de Queensland, la Wildlife Conservation Society y Sparkgeo. CoaSTED calcula con rapidez la exposición distribuida de miles de fuentes de contaminación en todo el mundo a partir de distribuciones de frecuencia que representan la dinámica costera a escala anual entre 2000 y 2020. El Dr. Nicholas Hutley presentó el modelo en el simposio de la International Coral Reef Society en 2026, donde se lanzó la versión beta de Global Pollution Watch."
     ],
-    "relatedProjects": ["sol-trader-oil-spill"]
+    "relatedProjects": ["sol-trader-oil-spill"],
+    "partners": ["The University of Queensland", "Wildlife Conservation Society", "Sparkgeo", "G20 CORDAP"]
   }
 }

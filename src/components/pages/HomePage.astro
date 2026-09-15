@@ -168,6 +168,8 @@ const glance = [
               image={platform.image}
               imageAlt={platform.imageAlt}
               imageHref={platform.imageHref}
+              highlights={platform.highlights}
+              screens={platform.screens}
               index={index}
               locale={locale}
             />
@@ -212,13 +214,44 @@ const glance = [
       {
         glance.map(({ value, label }) => (
           <div>
-            <dd>{String(value).padStart(2, '0')}</dd>
+            <dd data-count={value}>{String(value).padStart(2, '0')}</dd>
             <dt>{label}</dt>
           </div>
         ))
       }
     </dl>
   </SectionFrame>
+
+  <script>
+    /* The numbers in the impact band count up from zero the first time they
+       scroll into view; visitors who prefer reduced motion see them at rest. */
+    const counters = document.querySelectorAll<HTMLElement>('[data-count]');
+    if (counters.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const run = (element: HTMLElement) => {
+        const target = Number(element.dataset.count ?? 0);
+        const start = performance.now();
+        const duration = 1100;
+        const tick = (now: number) => {
+          const progress = Math.min(1, (now - start) / duration);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          element.textContent = String(Math.round(target * eased)).padStart(2, '0');
+          if (progress < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      };
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            run(entry.target as HTMLElement);
+            observer.unobserve(entry.target);
+          });
+        },
+        { threshold: 0.6 }
+      );
+      counters.forEach((counter) => observer.observe(counter));
+    }
+  </script>
 
   {/* 7. Warm closing handoff. */}
   <SectionFrame tone="warm">
@@ -289,9 +322,31 @@ const glance = [
     grid-template-columns: auto minmax(0, 1fr) auto;
     gap: 1.25rem;
     align-items: center;
-    padding: 1.25rem 0;
+    margin-inline: -0.75rem;
+    padding: 1.25rem 0.75rem;
+    border-radius: 14px;
     color: inherit;
     text-decoration: none;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .fluvio-home-index__row {
+      transition:
+        background-color 260ms ease,
+        padding-left 360ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .fluvio-home-index__row:hover {
+      padding-left: 1.1rem;
+    }
+  }
+
+  .fluvio-home-index__row:hover {
+    background: rgb(var(--fluvio-wash) / 0.45);
+  }
+
+  :global(.dark) .fluvio-home-index__row:hover {
+    background: rgb(var(--fluvio-navy) / 0.35);
   }
 
   .fluvio-home-index__number {
@@ -518,7 +573,8 @@ const glance = [
     }
 
     .fluvio-home-project-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+      align-items: stretch;
     }
 
     .fluvio-home-platform-grid {

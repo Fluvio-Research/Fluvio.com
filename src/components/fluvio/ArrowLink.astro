@@ -142,7 +142,9 @@ const {
     }
 
     .fluvio-arrow-link--pill:hover {
-      box-shadow: 0 10px 26px rgb(var(--fluvio-ink) / 0.16);
+      box-shadow:
+        0 10px 26px rgb(var(--fluvio-ink) / 0.16),
+        0 0 0 6px color-mix(in oklab, var(--arrow-fill) 18%, transparent);
     }
   }
 

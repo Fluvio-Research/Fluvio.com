@@ -26,15 +26,15 @@ Run `npm test`, `npm run check` and `npm run build` after every content or code 
 
 All Fluvio content is localized JSON in `src/data/fluvio/content/`, one file per record with `en`, `fr` and `es` sections side by side:
 
-| Location                       | Owns                                                      |
-| ------------------------------ | --------------------------------------------------------- |
-| `content/projects/*.json`      | The project case studies (`/<slug>`)                      |
-| `content/team/*.json`          | The team profiles (`/team/<file name>`)                   |
-| `content/expertise/*.json`     | The expertise areas (`/expertise/<slug>`)                 |
-| `content/site/content.json`    | Site name, tagline, vision statement and values           |
-| `content/site/homepage.json`   | Hero slides, homepage section copy, platform descriptions |
-| `content/site/pages.json`      | Every other page's headings, labels and shared strings    |
-| `content/site/navigation.json` | Header menu labels, footer labels and the LinkedIn link   |
+| Location                       | Owns                                                                                                                 |
+| ------------------------------ | -------------------------------------------------------------------------------------------------------------------- |
+| `content/projects/*.json`      | The project case studies (`/<slug>`)                                                                                 |
+| `content/team/*.json`          | The team profiles (`/team/<file name>`)                                                                              |
+| `content/expertise/*.json`     | The expertise areas (`/expertise/<slug>`)                                                                            |
+| `content/site/content.json`    | Site name, tagline, vision statement and values                                                                      |
+| `content/site/homepage.json`   | Hero slides, homepage section copy, platform descriptions (each platform may carry `highlights` and extra `screens`) |
+| `content/site/pages.json`      | Every other page's headings, labels and shared strings                                                               |
+| `content/site/navigation.json` | Header menu labels, footer labels and the LinkedIn link                                                              |
 
 `src/data/fluvio/store.ts` loads these files, validates every record in every locale against a zod schema (an invalid record, or a related-slug typo, fails `npm test` and the build), and exposes the typed accessors the pages use. `types.ts` holds the interfaces, `relations.ts` resolves the cross-references between projects, expertise areas and people (related projects, specialists per area, previous/next trails), and `routes.ts` is the single place that knows the URL of each record type. Images live in `src/assets/images/fluvio/` and are referenced with the `~/assets/images/fluvio/...` alias.
 
@@ -61,7 +61,7 @@ The content admin lives in the private `Fluvio-Research/Webiste-CMS` repository,
 Use the admin (`npm run cms`, above), or edit the JSON directly:
 
 1. Add images to `src/assets/images/fluvio/` with descriptive kebab-case names. Give each record its own lead photo; the archive in `../Old/images/` has more originals than the site currently uses.
-2. Create the record in the matching `src/data/fluvio/content/` folder, filling `en`, `pijin`, `fr` and `es`. For projects and expertise areas, `slug` becomes the public route and must never change after publishing; a team member's route is the record's file name (an optional `slug` field overrides it). `challenge`, `approach` and `outcome` are arrays of paragraphs, and only verified facts belong in them. Expertise areas take three to five `highlights`; team members list their `expertise` area slugs.
+2. Create the record in the matching `src/data/fluvio/content/` folder, filling `en`, `pijin`, `fr` and `es`. For projects and expertise areas, `slug` becomes the public route and must never change after publishing; a team member's route is the record's file name (an optional `slug` field overrides it). `challenge`, `approach` and `outcome` are arrays of paragraphs, and only verified facts belong in them. Expertise areas take three to five `highlights`; team members list their `expertise` area slugs. A project or expertise area may carry an optional `video` (an `.mp4` or `.webm` in `src/assets/images/fluvio/`, silent, 12 MB at most): on a project it plays over the lead photograph at the top of the project page, on an expertise area it replaces the photograph wherever the area is illustrated. The photograph stays as the poster, for lists and for visitors who prefer reduced motion.
 3. Set the `order` field to control display position, and `featured: true` on a project to place it in the homepage selection.
 4. Update the pinned lists in `tests/fluvio-content.test.mjs` (`expectedSlugs`, `expectedTeamNames`, `expectedTeamSlugs`, `expectedExpertiseTitles`, and counts).
 5. Run `npm test && npm run check && npm run build`.

@@ -15,7 +15,7 @@
     ],
     "image": "/src/assets/images/fluvio/expertise-siwis-dashboard.jpg",
     "imageAlt": "The SIWIS dashboard mapping monitoring stations across Solomon Islands",
-    "relatedProjects": ["monitoring-honiara", "wrd"]
+    "relatedProjects": ["monitoring-honiara", "wrd", "moreton-bay-sediment-monitoring"]
   },
   "pijin": {
     "order": 5,
@@ -33,7 +33,7 @@
     ],
     "image": "/src/assets/images/fluvio/expertise-siwis-dashboard.jpg",
     "imageAlt": "SIWIS dashboard wea soim olketa monitoring station long map blong Solomon Aelan",
-    "relatedProjects": ["monitoring-honiara", "wrd"]
+    "relatedProjects": ["monitoring-honiara", "wrd", "moreton-bay-sediment-monitoring"]
   },
   "fr": {
     "order": 5,
@@ -51,7 +51,7 @@
     ],
     "image": "/src/assets/images/fluvio/expertise-siwis-dashboard.jpg",
     "imageAlt": "Le tableau de bord SIWIS cartographiant les stations de suivi aux Îles Salomon",
-    "relatedProjects": ["monitoring-honiara", "wrd"]
+    "relatedProjects": ["monitoring-honiara", "wrd", "moreton-bay-sediment-monitoring"]
   },
   "es": {
     "order": 5,
@@ -69,6 +69,6 @@
     ],
     "image": "/src/assets/images/fluvio/expertise-siwis-dashboard.jpg",
     "imageAlt": "El panel SIWIS que mapea las estaciones de monitoreo en las Islas Salomón",
-    "relatedProjects": ["monitoring-honiara", "wrd"]
+    "relatedProjects": ["monitoring-honiara", "wrd", "moreton-bay-sediment-monitoring"]
   }
 }

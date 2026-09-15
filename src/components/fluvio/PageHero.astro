@@ -1,7 +1,9 @@
 ---
 /**
  * The opening of every index page: an optional breadcrumb trail, eyebrow,
- * accented title and lede, with a slot for a photograph beside the copy.
+ * accented title and lede, with a slot for a photograph beside the copy. The
+ * copy rises in on arrival, line by line, and the photograph settles from a
+ * slightly enlarged crop.
  */
 import Accent from './Accent.astro';
 import Breadcrumbs, { type Crumb } from './Breadcrumbs.astro';
@@ -70,6 +72,54 @@ const hasAside = Astro.slots.has('aside');
     flex-wrap: wrap;
     gap: 0.75rem 1rem;
     margin-top: 2rem;
+  }
+
+  /* Arrival: eyebrow, title, lede and actions rise one after another. */
+  @media (prefers-reduced-motion: no-preference) {
+    .fluvio-page-hero__copy > :global(*) {
+      animation: fluvio-hero-rise 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .fluvio-page-hero__copy > :global(:nth-child(2)) {
+      animation-delay: 80ms;
+    }
+
+    .fluvio-page-hero__copy > :global(:nth-child(3)) {
+      animation-delay: 170ms;
+    }
+
+    .fluvio-page-hero__copy > :global(:nth-child(n + 4)) {
+      animation-delay: 260ms;
+    }
+
+    .fluvio-page-hero__aside {
+      animation: fluvio-hero-settle 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-delay: 120ms;
+    }
+  }
+
+  @keyframes fluvio-hero-rise {
+    from {
+      opacity: 0;
+      transform: translateY(1.1rem);
+      filter: blur(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  @keyframes fluvio-hero-settle {
+    from {
+      opacity: 0;
+      transform: translateY(0.75rem) scale(0.985);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
   }
 
   @media (min-width: 768px) {

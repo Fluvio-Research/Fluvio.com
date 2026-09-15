@@ -15,7 +15,13 @@
     ],
     "image": "/src/assets/images/fluvio/expertise-sediment-survey.jpg",
     "imageAlt": "A survey crew lowering a yellow instrument buoy from the deck of a boat",
-    "relatedProjects": ["tina", "ghg-emissions-reservoirs", "reservoir-sedimentation"]
+    "relatedProjects": [
+      "tina",
+      "ghg-emissions-reservoirs",
+      "reservoir-sedimentation",
+      "laidley-creek-flood",
+      "moreton-bay-sediment-monitoring"
+    ]
   },
   "pijin": {
     "order": 6,
@@ -33,7 +39,13 @@
     ],
     "image": "/src/assets/images/fluvio/expertise-sediment-survey.jpg",
     "imageAlt": "Wanfala survey tim olketa daonem wanfala yellow instrument buoy from deck blong wanfala bot",
-    "relatedProjects": ["tina", "ghg-emissions-reservoirs", "reservoir-sedimentation"]
+    "relatedProjects": [
+      "tina",
+      "ghg-emissions-reservoirs",
+      "reservoir-sedimentation",
+      "laidley-creek-flood",
+      "moreton-bay-sediment-monitoring"
+    ]
   },
   "fr": {
     "order": 6,
@@ -51,7 +63,13 @@
     ],
     "image": "/src/assets/images/fluvio/expertise-sediment-survey.jpg",
     "imageAlt": "Une équipe de relevé descendant une bouée instrumentée jaune depuis le pont d’un bateau",
-    "relatedProjects": ["tina", "ghg-emissions-reservoirs", "reservoir-sedimentation"]
+    "relatedProjects": [
+      "tina",
+      "ghg-emissions-reservoirs",
+      "reservoir-sedimentation",
+      "laidley-creek-flood",
+      "moreton-bay-sediment-monitoring"
+    ]
   },
   "es": {
     "order": 6,
@@ -69,6 +87,12 @@
     ],
     "image": "/src/assets/images/fluvio/expertise-sediment-survey.jpg",
     "imageAlt": "Un equipo de levantamiento bajando una boya instrumentada amarilla desde la cubierta de una embarcación",
-    "relatedProjects": ["tina", "ghg-emissions-reservoirs", "reservoir-sedimentation"]
+    "relatedProjects": [
+      "tina",
+      "ghg-emissions-reservoirs",
+      "reservoir-sedimentation",
+      "laidley-creek-flood",
+      "moreton-bay-sediment-monitoring"
+    ]
   }
 }

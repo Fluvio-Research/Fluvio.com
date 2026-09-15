@@ -94,11 +94,28 @@
       "label": "Platform",
       "sense": {
         "title": "FluvioSense",
-        "description": "A web-based platform to communicate stereo vision and real-time data analytics across flood and water camera networks.",
+        "description": "The FluvioSense stream vision platform: computer vision stream gauging cameras, real-time water quality nodes and flood cameras on one live map, with discharge, level, velocity and rating curves for every site.",
         "action": "Visit FluvioSense",
         "href": "https://sense.fluvio.com.au/",
         "image": "/src/assets/images/fluvio/platform-sense.jpeg",
-        "imageAlt": "The FluvioSense site list with live stream camera feeds and monitoring stations mapped across Queensland."
+        "imageAlt": "The FluvioSense site list with live stream camera feeds and monitoring stations mapped across Queensland.",
+        "highlights": [
+          "Live site map with online, recent and offline status, and Bureau of Meteorology river, catchment and gauge layers",
+          "Discharge, water level and velocity time series, rating curves, cross-sections and velocity heat maps",
+          "Video, stills and time-lapse from every camera, stepped frame by frame through the record",
+          "Device telemetry for every station: battery, solar input, temperature and connectivity",
+          "FlowSENSE, FloodSENSE and NodeSENSE dashboards with alerts, data export and group administration"
+        ],
+        "screens": [
+          {
+            "image": "/src/assets/images/fluvio/platform-sense-map.jpg",
+            "imageAlt": "FluvioSense in light mode: online camera sites with live discharge beside a terrain map of the Brisbane River, with active sites, total flow and peak flow in the header"
+          },
+          {
+            "image": "/src/assets/images/fluvio/platform-sense-layers.jpg",
+            "imageAlt": "The FluvioSense map layers panel with Bureau of Meteorology catchment, flood watch and gauge overlays beside the Tina River camera sites"
+          }
+        ]
       },
       "cascade": {
         "title": "FluvioCascade",
@@ -106,15 +123,36 @@
         "action": "Visit FluvioCascade",
         "href": "https://data.fluvio.com.au/",
         "image": "/src/assets/images/fluvio/platform-cascade.png",
-        "imageAlt": "The FluvioCascade water source monitoring dashboard for Bina Harbour, with live turbidity gauges and camera sites on a satellite map."
+        "imageAlt": "The FluvioCascade water source monitoring dashboard for Bina Harbour, with live turbidity gauges and camera sites on a satellite map.",
+        "highlights": [
+          "Ingests real-time water quality and water level data from remote monitoring stations",
+          "Operational dashboards with alerting, built alongside utilities such as Solomon Water",
+          "Analysis and reporting for catchment and water source investigations"
+        ]
       },
       "reef": {
         "title": "FluvioReef",
-        "description": "A real-time reef intelligence platform tracking thermal stress, bleaching alerts and reef health across priority coral reef nations.",
+        "description": "The CRR Reef Monitor, built by Fluvio for the Coral Reef Rescue Initiative: NOAA Coral Reef Watch thermal stress, bleaching alerts and reef health for priority reef sites across six nations, updated daily.",
         "action": "Visit FluvioReef",
         "href": "https://reef.fluvio.com.au/",
-        "image": "/src/assets/images/fluvio/platform-reef.png",
-        "imageAlt": "The CRR Reef Monitor dashboard, built by Fluvio, mapping reef sites, sea surface temperature and bleaching alerts across six priority nations."
+        "image": "/src/assets/images/fluvio/platform-reef-summary.jpg",
+        "imageAlt": "The CRR Reef Monitor in dark mode: the site detail panel for the Philippines, with sea surface temperature, degree heating weeks and alert status over a map of the priority reef area",
+        "highlights": [
+          "Sea surface temperature, degree heating weeks and bleaching alert level for every reef site, updated daily from NOAA Coral Reef Watch",
+          "A detail panel for each site with summary statistics and temperature, coral cover, fish, bleaching, mangroves and water quality tabs",
+          "Map layers from the Allen Coral Atlas, 50Reefs priority reef boundaries and Global Mangrove Watch",
+          "Light and dark themes, country and reef filters, and CSV export of every site"
+        ],
+        "screens": [
+          {
+            "image": "/src/assets/images/fluvio/platform-reef-temperature.jpg",
+            "imageAlt": "The temperature tab of the reef detail panel: 182 daily observations of sea surface temperature and degree heating weeks charted against the bleaching thresholds"
+          },
+          {
+            "image": "/src/assets/images/fluvio/platform-reef-landing.jpg",
+            "imageAlt": "The CRR Reef Monitor landing page: monitored sites, priority nations and active alerts counted above the Explore Dashboard button"
+          }
+        ]
       }
     }
   },
@@ -213,11 +251,28 @@
       "label": "Platform",
       "sense": {
         "title": "FluvioSense",
-        "description": "Wanfala platform long web fo soim stereo vision an real-time data analytics from olketa camera network fo flood an wata.",
+        "description": "FluvioSense stream vision platform: olketa computer vision camera fo mesarem flow, olketa real-time node blong kwaliti blong wata an olketa flood camera long wanfala live map, wetem discharge, level, spid an rating curve fo evri ples.",
         "action": "Go long FluvioSense",
         "href": "https://sense.fluvio.com.au/",
         "image": "/src/assets/images/fluvio/platform-sense.jpeg",
-        "imageAlt": "Site list blong FluvioSense wetem olketa live camera feed an olketa monitoring station long map blong Queensland."
+        "imageAlt": "Site list blong FluvioSense wetem olketa live camera feed an olketa monitoring station long map blong Queensland.",
+        "highlights": [
+          "Live map blong olketa ples wea soim online, recent an offline, wetem olketa Bureau of Meteorology layer fo riva, catchment an gauge",
+          "Time series blong discharge, wata level an spid, rating curve, cross-section an velocity heat map",
+          "Video, pikja an time-lapse from evri camera, wea iu savve go frame bae frame tru long rekod",
+          "Telemetry blong evri station: battery, sola paoa, temperature an connection",
+          "FlowSENSE, FloodSENSE an NodeSENSE dashboard wetem alert, data export an group admin"
+        ],
+        "screens": [
+          {
+            "image": "/src/assets/images/fluvio/platform-sense-map.jpg",
+            "imageAlt": "FluvioSense long light mode: olketa online camera site wetem live discharge saed long wanfala terrain map blong Brisbane River, wetem active site, total flow an peak flow antap"
+          },
+          {
+            "image": "/src/assets/images/fluvio/platform-sense-layers.jpg",
+            "imageAlt": "Map layers panel blong FluvioSense wetem olketa Bureau of Meteorology overlay fo catchment, flood watch an gauge saed long olketa Tina River camera site"
+          }
+        ]
       },
       "cascade": {
         "title": "FluvioCascade",
@@ -225,15 +280,36 @@
         "action": "Go long FluvioCascade",
         "href": "https://data.fluvio.com.au/",
         "image": "/src/assets/images/fluvio/platform-cascade.png",
-        "imageAlt": "Dashboard blong FluvioCascade fo monitorim wata sos blong Bina Harbour, wetem olketa live turbidity gauge an camera site long satellite map."
+        "imageAlt": "Dashboard blong FluvioCascade fo monitorim wata sos blong Bina Harbour, wetem olketa live turbidity gauge an camera site long satellite map.",
+        "highlights": [
+          "Hemi tekem real-time data blong kwaliti blong wata an wata level from olketa monitoring station wea stap farawe",
+          "Olketa operational dashboard wetem alert, wea olketa bildim tugeta wetem olketa utility olsem Solomon Water",
+          "Analysis an report fo catchment an wata sos investigation"
+        ]
       },
       "reef": {
         "title": "FluvioReef",
-        "description": "Wanfala real-time platform fo savve abaotem reef, wea trakem thermal stress, olketa bleaching alert an helt blong reef long olketa main coral reef kantri.",
+        "description": "CRR Reef Monitor, wea Fluvio bildim fo Coral Reef Rescue Initiative: NOAA Coral Reef Watch thermal stress, bleaching alert an reef helt fo olketa impoten reef ples long sikisfala kantri, wea hemi update evri dei.",
         "action": "Go long FluvioReef",
         "href": "https://reef.fluvio.com.au/",
-        "image": "/src/assets/images/fluvio/platform-reef.png",
-        "imageAlt": "CRR Reef Monitor dashboard wea Fluvio buildim, hemi mapem olketa reef site, temperature blong solwata antap, an olketa bleaching alert long sikisfala main kantri."
+        "image": "/src/assets/images/fluvio/platform-reef-summary.jpg",
+        "imageAlt": "CRR Reef Monitor long dark mode: detail panel fo Philippines, wetem sea surface temperature, degree heating weeks an alert status antap long map blong reef eria",
+        "highlights": [
+          "Sea surface temperature, degree heating weeks an bleaching alert level fo evri reef ples, wea NOAA Coral Reef Watch hemi update evri dei",
+          "Wanfala detail panel fo evri ples wetem summary statistics an olketa tab fo temperature, coral cover, fis, bleaching, mangrove an kwaliti blong wata",
+          "Olketa map layer from Allen Coral Atlas, 50Reefs priority reef boundary an Global Mangrove Watch",
+          "Light an dark theme, filter fo kantri an reef, an CSV export blong evri ples"
+        ],
+        "screens": [
+          {
+            "image": "/src/assets/images/fluvio/platform-reef-temperature.jpg",
+            "imageAlt": "Temperature tab blong reef detail panel: 182 dei blong sea surface temperature an degree heating weeks long chart wetem olketa bleaching threshold"
+          },
+          {
+            "image": "/src/assets/images/fluvio/platform-reef-landing.jpg",
+            "imageAlt": "Landing page blong CRR Reef Monitor: namba blong olketa monitored site, priority nation an active alert antap long Explore Dashboard baton"
+          }
+        ]
       }
     }
   },
@@ -332,11 +408,28 @@
       "label": "Plateforme",
       "sense": {
         "title": "FluvioSense",
-        "description": "Une plateforme web qui diffuse la vision stéréoscopique et l’analyse de données en temps réel sur des réseaux de caméras de crue et de surveillance de l’eau.",
+        "description": "La plateforme de vision fluviale FluvioSense : caméras de jaugeage par vision par ordinateur, nœuds de qualité de l’eau en temps réel et caméras de crue sur une seule carte en direct, avec débit, niveau, vitesse et courbes de tarage pour chaque site.",
         "action": "Visiter FluvioSense",
         "href": "https://sense.fluvio.com.au/",
         "image": "/src/assets/images/fluvio/platform-sense.jpeg",
-        "imageAlt": "La liste des sites FluvioSense avec des flux de caméras en direct et des stations de surveillance cartographiées dans le Queensland."
+        "imageAlt": "La liste des sites FluvioSense avec des flux de caméras en direct et des stations de surveillance cartographiées dans le Queensland.",
+        "highlights": [
+          "Carte en direct des sites (en ligne, récents, hors ligne) avec les couches rivières, bassins et stations du Bureau of Meteorology",
+          "Séries temporelles de débit, de niveau et de vitesse, courbes de tarage, sections en travers et cartes de chaleur de vitesse",
+          "Vidéo, images fixes et accéléré de chaque caméra, parcourus image par image dans l’historique",
+          "Télémétrie de chaque station : batterie, apport solaire, température et connectivité",
+          "Tableaux de bord FlowSENSE, FloodSENSE et NodeSENSE avec alertes, export des données et administration par groupe"
+        ],
+        "screens": [
+          {
+            "image": "/src/assets/images/fluvio/platform-sense-map.jpg",
+            "imageAlt": "FluvioSense en mode clair : des sites caméra en ligne avec leur débit en direct à côté d’une carte topographique de la Brisbane River, avec sites actifs, débit total et débit de pointe en en-tête"
+          },
+          {
+            "image": "/src/assets/images/fluvio/platform-sense-layers.jpg",
+            "imageAlt": "Le panneau des couches cartographiques de FluvioSense avec les bassins, zones de veille de crue et stations du Bureau of Meteorology à côté des sites caméra de la Tina River"
+          }
+        ]
       },
       "cascade": {
         "title": "FluvioCascade",
@@ -344,15 +437,36 @@
         "action": "Visiter FluvioCascade",
         "href": "https://data.fluvio.com.au/",
         "image": "/src/assets/images/fluvio/platform-cascade.png",
-        "imageAlt": "Le tableau de bord FluvioCascade de surveillance des sources d'eau de Bina Harbour, avec des jauges de turbidité en direct et des sites de caméras sur une carte satellite."
+        "imageAlt": "Le tableau de bord FluvioCascade de surveillance des sources d'eau de Bina Harbour, avec des jauges de turbidité en direct et des sites de caméras sur une carte satellite.",
+        "highlights": [
+          "Ingère en temps réel les données de qualité et de niveau d’eau des stations de mesure isolées",
+          "Tableaux de bord opérationnels avec alertes, construits avec des opérateurs comme Solomon Water",
+          "Analyse et rapports pour les études de bassins versants et de ressources en eau"
+        ]
       },
       "reef": {
         "title": "FluvioReef",
-        "description": "Une plateforme d'intelligence récifale en temps réel qui suit le stress thermique, les alertes de blanchissement et la santé des récifs dans les nations coralliennes prioritaires.",
+        "description": "Le CRR Reef Monitor, développé par Fluvio pour la Coral Reef Rescue Initiative : stress thermique NOAA Coral Reef Watch, alertes de blanchissement et santé des récifs prioritaires de six pays, mis à jour chaque jour.",
         "action": "Visiter FluvioReef",
         "href": "https://reef.fluvio.com.au/",
-        "image": "/src/assets/images/fluvio/platform-reef.png",
-        "imageAlt": "Le tableau de bord CRR Reef Monitor, conçu par Fluvio, cartographiant les sites récifaux, la température de surface de la mer et les alertes de blanchissement dans six nations prioritaires."
+        "image": "/src/assets/images/fluvio/platform-reef-summary.jpg",
+        "imageAlt": "Le CRR Reef Monitor en mode sombre : le panneau de détail du site des Philippines, avec température de surface, semaines de chauffe cumulées et niveau d’alerte au-dessus de la carte de la zone récifale prioritaire",
+        "highlights": [
+          "Température de surface, semaines de chauffe cumulées et niveau d’alerte de blanchissement pour chaque site, mis à jour chaque jour depuis NOAA Coral Reef Watch",
+          "Un panneau de détail par site avec statistiques de synthèse et onglets température, couverture corallienne, poissons, blanchissement, mangroves et qualité de l’eau",
+          "Couches cartographiques de l’Allen Coral Atlas, des périmètres prioritaires 50Reefs et de Global Mangrove Watch",
+          "Thèmes clair et sombre, filtres par pays et par récif, export CSV de tous les sites"
+        ],
+        "screens": [
+          {
+            "image": "/src/assets/images/fluvio/platform-reef-temperature.jpg",
+            "imageAlt": "L’onglet température du panneau de détail : 182 observations quotidiennes de température de surface et de semaines de chauffe, tracées face aux seuils de blanchissement"
+          },
+          {
+            "image": "/src/assets/images/fluvio/platform-reef-landing.jpg",
+            "imageAlt": "La page d’accueil du CRR Reef Monitor : sites surveillés, pays prioritaires et alertes actives comptés au-dessus du bouton Explore Dashboard"
+          }
+        ]
       }
     }
   },
@@ -451,11 +565,28 @@
       "label": "Plataforma",
       "sense": {
         "title": "FluvioSense",
-        "description": "Una plataforma web que comunica visión estereoscópica y analítica de datos en tiempo real a través de redes de cámaras de inundaciones y de agua.",
+        "description": "La plataforma de visión fluvial FluvioSense: cámaras de aforo por visión artificial, nodos de calidad del agua en tiempo real y cámaras de inundación en un solo mapa en vivo, con caudal, nivel, velocidad y curvas de gasto para cada sitio.",
         "action": "Visitar FluvioSense",
         "href": "https://sense.fluvio.com.au/",
         "image": "/src/assets/images/fluvio/platform-sense.jpeg",
-        "imageAlt": "La lista de sitios de FluvioSense con cámaras en directo y estaciones de monitoreo cartografiadas en Queensland."
+        "imageAlt": "La lista de sitios de FluvioSense con cámaras en directo y estaciones de monitoreo cartografiadas en Queensland.",
+        "highlights": [
+          "Mapa en vivo de los sitios (en línea, recientes, fuera de línea) con capas de ríos, cuencas y estaciones del Bureau of Meteorology",
+          "Series temporales de caudal, nivel y velocidad, curvas de gasto, secciones transversales y mapas de calor de velocidad",
+          "Video, imágenes fijas y time-lapse de cada cámara, recorridos cuadro a cuadro por el registro",
+          "Telemetría de cada estación: batería, aporte solar, temperatura y conectividad",
+          "Paneles FlowSENSE, FloodSENSE y NodeSENSE con alertas, exportación de datos y administración por grupos"
+        ],
+        "screens": [
+          {
+            "image": "/src/assets/images/fluvio/platform-sense-map.jpg",
+            "imageAlt": "FluvioSense en modo claro: sitios con cámara en línea y su caudal en vivo junto a un mapa topográfico del río Brisbane, con sitios activos, caudal total y caudal pico en el encabezado"
+          },
+          {
+            "image": "/src/assets/images/fluvio/platform-sense-layers.jpg",
+            "imageAlt": "El panel de capas del mapa de FluvioSense con cuencas, zonas de vigilancia de inundaciones y estaciones del Bureau of Meteorology junto a los sitios con cámara del río Tina"
+          }
+        ]
       },
       "cascade": {
         "title": "FluvioCascade",
@@ -463,15 +594,36 @@
         "action": "Visitar FluvioCascade",
         "href": "https://data.fluvio.com.au/",
         "image": "/src/assets/images/fluvio/platform-cascade.png",
-        "imageAlt": "El panel de monitoreo de fuentes de agua de FluvioCascade para Bina Harbour, con medidores de turbidez en vivo y sitios con cámaras sobre un mapa satelital."
+        "imageAlt": "El panel de monitoreo de fuentes de agua de FluvioCascade para Bina Harbour, con medidores de turbidez en vivo y sitios con cámaras sobre un mapa satelital.",
+        "highlights": [
+          "Ingesta en tiempo real de datos de calidad y nivel del agua desde estaciones de monitoreo remotas",
+          "Paneles operativos con alertas, construidos junto a operadores como Solomon Water",
+          "Análisis e informes para investigaciones de cuencas y fuentes de agua"
+        ]
       },
       "reef": {
         "title": "FluvioReef",
-        "description": "Una plataforma de inteligencia de arrecifes en tiempo real que sigue el estrés térmico, las alertas de blanqueamiento y la salud de los arrecifes en las naciones coralinas prioritarias.",
+        "description": "El CRR Reef Monitor, desarrollado por Fluvio para la Coral Reef Rescue Initiative: estrés térmico de NOAA Coral Reef Watch, alertas de blanqueamiento y salud de los arrecifes prioritarios de seis países, actualizado a diario.",
         "action": "Visitar FluvioReef",
         "href": "https://reef.fluvio.com.au/",
-        "image": "/src/assets/images/fluvio/platform-reef.png",
-        "imageAlt": "El panel CRR Reef Monitor, creado por Fluvio, que mapea sitios de arrecife, temperatura superficial del mar y alertas de blanqueamiento en seis naciones prioritarias."
+        "image": "/src/assets/images/fluvio/platform-reef-summary.jpg",
+        "imageAlt": "El CRR Reef Monitor en modo oscuro: el panel de detalle del sitio de Filipinas, con temperatura superficial del mar, semanas de calentamiento acumuladas y estado de alerta sobre el mapa del área de arrecife prioritaria",
+        "highlights": [
+          "Temperatura superficial del mar, semanas de calentamiento acumuladas y nivel de alerta de blanqueamiento para cada sitio, actualizados a diario desde NOAA Coral Reef Watch",
+          "Un panel de detalle por sitio con estadísticas resumidas y pestañas de temperatura, cobertura de coral, peces, blanqueamiento, manglares y calidad del agua",
+          "Capas de mapa del Allen Coral Atlas, los límites de arrecifes prioritarios de 50Reefs y Global Mangrove Watch",
+          "Temas claro y oscuro, filtros por país y arrecife, y exportación CSV de todos los sitios"
+        ],
+        "screens": [
+          {
+            "image": "/src/assets/images/fluvio/platform-reef-temperature.jpg",
+            "imageAlt": "La pestaña de temperatura del panel de detalle: 182 observaciones diarias de temperatura superficial y semanas de calentamiento, graficadas frente a los umbrales de blanqueamiento"
+          },
+          {
+            "image": "/src/assets/images/fluvio/platform-reef-landing.jpg",
+            "imageAlt": "La página de inicio del CRR Reef Monitor: sitios monitoreados, países prioritarios y alertas activas contados sobre el botón Explore Dashboard"
+          }
+        ]
       }
     }
   }

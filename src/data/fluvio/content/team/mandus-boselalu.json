@@ -8,7 +8,8 @@
     "portraitAlt": "Mandus Boselalu",
     "specialties": ["Environmental and social assessments"],
     "location": "Solomon Islands",
-    "expertise": ["catchment-management", "blue-carbon-assessment"]
+    "expertise": ["catchment-management", "blue-carbon-assessment"],
+    "projects": ["monitoring-honiara"]
   },
   "pijin": {
     "order": 6,
@@ -19,7 +20,8 @@
     "portraitAlt": "Mandus Boselalu",
     "specialties": ["Olketa environmental an social assessment"],
     "location": "Solomon Aelan",
-    "expertise": ["catchment-management", "blue-carbon-assessment"]
+    "expertise": ["catchment-management", "blue-carbon-assessment"],
+    "projects": ["monitoring-honiara"]
   },
   "fr": {
     "order": 6,
@@ -30,7 +32,8 @@
     "portraitAlt": "Mandus Boselalu",
     "specialties": ["Évaluations environnementales et sociales"],
     "location": "Îles Salomon",
-    "expertise": ["catchment-management", "blue-carbon-assessment"]
+    "expertise": ["catchment-management", "blue-carbon-assessment"],
+    "projects": ["monitoring-honiara"]
   },
   "es": {
     "order": 6,
@@ -41,6 +44,7 @@
     "portraitAlt": "Mandus Boselalu",
     "specialties": ["Evaluaciones ambientales y sociales"],
     "location": "Islas Salomón",
-    "expertise": ["catchment-management", "blue-carbon-assessment"]
+    "expertise": ["catchment-management", "blue-carbon-assessment"],
+    "projects": ["monitoring-honiara"]
   }
 }

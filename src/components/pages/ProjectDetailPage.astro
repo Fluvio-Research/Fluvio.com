@@ -16,6 +16,7 @@ import { projectHref } from '~/data/fluvio/routes';
 import type { Project } from '~/data/fluvio/types';
 import { localeHref, t, type Locale } from '~/i18n';
 import Layout from '~/layouts/PageLayout.astro';
+import { findVideo } from '~/utils/images';
 
 export interface Props {
   locale: Locale;
@@ -31,6 +32,7 @@ const relatedExpertise = getExpertiseForProject(locale, project);
 const usedImages = [project.heroImage, ...(project.gallery ?? []).map(({ src }) => src)];
 const relatedProjects = withoutImages(getRelatedProjects(locale, project), usedImages, (item) => item.heroImage);
 const adjacent = getAdjacent(projects, project.slug);
+const videoUrl = findVideo(project.video);
 
 const metadata = {
   title: project.title,
@@ -47,8 +49,9 @@ const position = `${String(adjacent.index + 1).padStart(2, '0')} / ${String(adja
 
 <Layout metadata={metadata} locale={locale}>
   <article class="fluvio-project">
-    <header class="fluvio-project-hero">
-      <div class="fluvio-project-hero__media">
+    <div class="fluvio-project__progress" aria-hidden="true"></div>
+    <header class:list={['fluvio-project-hero', { 'fluvio-project-hero--video': Boolean(videoUrl) }]}>
+      <fluvio-project-hero class="fluvio-project-hero__media">
         <LargeImage
           src={project.heroImage}
           alt={project.heroAlt}
@@ -57,7 +60,22 @@ const position = `${String(adjacent.index + 1).padStart(2, '0')} / ${String(adja
           sizes="100vw"
           transitionName={`project-${project.slug}`}
         />
-      </div>
+        {
+          videoUrl && (
+            <video
+              class="fluvio-project-hero__video"
+              data-project-video
+              src={videoUrl}
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              aria-hidden="true"
+              tabindex="-1"
+            />
+          )
+        }
+      </fluvio-project-hero>
       <div class="fluvio-project-hero__scrim" aria-hidden="true"></div>
       <div class="fluvio-shell fluvio-project-hero__copy">
         <Breadcrumbs
@@ -72,6 +90,9 @@ const position = `${String(adjacent.index + 1).padStart(2, '0')} / ${String(adja
           </p>
           <h1>{project.title}</h1>
           <p class="fluvio-project-hero__summary">{project.summary}</p>
+          <ul class="fluvio-project-hero__tags" aria-label={t(locale).project.disciplines}>
+            {project.disciplines.map((discipline) => <li>{discipline}</li>)}
+          </ul>
         </div>
       </div>
     </header>
@@ -81,14 +102,14 @@ const position = `${String(adjacent.index + 1).padStart(2, '0')} / ${String(adja
     </div>
 
     <SectionFrame tone="paper" motif="contour" ariaLabel={c.storyLabel} class="fluvio-project-story">
-      <div class="fluvio-project-story__grid">
+      <fluvio-project-rail class="fluvio-project-story__grid">
         <aside class="fluvio-project-story__rail">
           <p class="fluvio-label">{c.contents}</p>
           <ol>
             {
               story.map((section) => (
                 <li>
-                  <a href={`#${section.id}`}>
+                  <a href={`#${section.id}`} data-rail-link={section.id}>
                     <span class="fluvio-project-story__rail-number">{section.number}</span>
                     <span>{section.title}</span>
                   </a>
@@ -100,7 +121,7 @@ const position = `${String(adjacent.index + 1).padStart(2, '0')} / ${String(adja
         <div class="fluvio-project-story__sections">
           {
             story.map((section) => (
-              <section id={section.id} class:list={['fluvio-project-story__section', REVEAL]}>
+              <section id={section.id} class:list={['fluvio-project-story__section', REVEAL]} data-rail-section>
                 <p class="fluvio-project-story__number" aria-hidden="true">
                   {section.number}
                 </p>
@@ -114,14 +135,23 @@ const position = `${String(adjacent.index + 1).padStart(2, '0')} / ${String(adja
             ))
           }
         </div>
-      </div>
+      </fluvio-project-rail>
     </SectionFrame>
 
     {
       project.gallery && project.gallery.length > 0 && (
         <SectionFrame tone="mist" spacing="standard" shell="wide" ariaLabel={c.galleryLabel}>
           <div class={REVEAL}>
-            <ProjectGallery images={project.gallery} />
+            <ProjectGallery
+              images={project.gallery}
+              labels={{
+                open: c.galleryOpen,
+                close: c.galleryClose,
+                previous: c.galleryPrevious,
+                next: c.galleryNext,
+                gallery: c.galleryLabel,
+              }}
+            />
           </div>
         </SectionFrame>
       )
@@ -195,13 +225,105 @@ const position = `${String(adjacent.index + 1).padStart(2, '0')} / ${String(adja
   </article>
 </Layout>
 
+<script>
+  /* The hero clip plays silently over the photograph once it can, pauses when
+     the hero scrolls away, and never starts for visitors who prefer reduced
+     motion: the photograph is the page for them. */
+  class FluvioProjectHero extends HTMLElement {
+    private observer?: IntersectionObserver;
+
+    connectedCallback() {
+      const video = this.querySelector<HTMLVideoElement>('[data-project-video]');
+      if (!video || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      video.addEventListener('playing', () => this.classList.add('is-playing'));
+      this.observer = new IntersectionObserver(
+        (entries) =>
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) video.play().catch(() => {});
+            else video.pause();
+          }),
+        { threshold: 0.05 }
+      );
+      this.observer.observe(this);
+    }
+
+    disconnectedCallback() {
+      this.observer?.disconnect();
+    }
+  }
+
+  /* The contents rail follows the reader: the chapter in view is marked. */
+  class FluvioProjectRail extends HTMLElement {
+    private observer?: IntersectionObserver;
+
+    connectedCallback() {
+      const links = Array.from(this.querySelectorAll<HTMLAnchorElement>('[data-rail-link]'));
+      const sections = Array.from(this.querySelectorAll<HTMLElement>('[data-rail-section]'));
+      if (!links.length || !sections.length) return;
+      this.observer = new IntersectionObserver(
+        (entries) => {
+          const visible = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+          if (!visible) return;
+          links.forEach((link) => {
+            const active = link.dataset.railLink === visible.target.id;
+            if (active) link.setAttribute('aria-current', 'location');
+            else link.removeAttribute('aria-current');
+          });
+        },
+        { rootMargin: '-30% 0px -50% 0px', threshold: [0, 0.25, 0.5, 1] }
+      );
+      sections.forEach((section) => this.observer?.observe(section));
+    }
+
+    disconnectedCallback() {
+      this.observer?.disconnect();
+    }
+  }
+
+  if (!customElements.get('fluvio-project-hero')) customElements.define('fluvio-project-hero', FluvioProjectHero);
+  if (!customElements.get('fluvio-project-rail')) customElements.define('fluvio-project-rail', FluvioProjectRail);
+</script>
+
 <style>
-  /* Cinematic opening: the photograph carries the title. */
+  /* Reading progress: a hairline of river blue that fills as the reader
+     scrolls, driven by the scroll position itself where supported. */
+  .fluvio-project__progress {
+    display: none;
+  }
+
+  @supports (animation-timeline: scroll()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .fluvio-project__progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 50;
+        display: block;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, rgb(var(--fluvio-river)), rgb(var(--fluvio-teal)));
+        transform: scaleX(0);
+        transform-origin: left;
+        animation: fluvio-progress linear both;
+        animation-timeline: scroll(root);
+      }
+    }
+  }
+
+  @keyframes fluvio-progress {
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  /* Cinematic opening: the photograph (or clip) carries the title. */
   .fluvio-project-hero {
     position: relative;
     display: flex;
     align-items: flex-end;
-    min-height: clamp(30rem, 80vh, 48rem);
+    min-height: clamp(32rem, 84vh, 52rem);
     overflow: hidden;
     color: rgb(var(--fluvio-paper));
   }
@@ -209,6 +331,42 @@ const position = `${String(adjacent.index + 1).padStart(2, '0')} / ${String(adja
   .fluvio-project-hero__media {
     position: absolute;
     inset: 0;
+    display: block;
+  }
+
+  .fluvio-project-hero__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+  }
+
+  .fluvio-project-hero__media.is-playing .fluvio-project-hero__video {
+    opacity: 1;
+  }
+
+  /* Scroll-driven parallax where the browser supports it: the photograph
+     drifts up at a third of the scroll speed as the hero leaves the screen. */
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .fluvio-project-hero__media {
+        inset: -18% 0 0;
+        animation: fluvio-hero-parallax linear both;
+        animation-timeline: view();
+        animation-range: exit 0% exit 100%;
+      }
+    }
+  }
+
+  @keyframes fluvio-hero-parallax {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(18%);
+    }
   }
 
   .fluvio-project-hero__scrim {
@@ -219,7 +377,7 @@ const position = `${String(adjacent.index + 1).padStart(2, '0')} / ${String(adja
       linear-gradient(180deg, rgb(var(--fluvio-ink) / 0.5) 0%, rgb(var(--fluvio-ink) / 0) 30%),
       linear-gradient(
         8deg,
-        rgb(var(--fluvio-ink) / 0.86) 0%,
+        rgb(var(--fluvio-ink) / 0.88) 0%,
         rgb(var(--fluvio-ink) / 0.55) 38%,
         rgb(var(--fluvio-ink) / 0.05) 72%
       );
@@ -277,8 +435,33 @@ const position = `${String(adjacent.index + 1).padStart(2, '0')} / ${String(adja
     text-wrap: pretty;
   }
 
+  .fluvio-project-hero__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin: 0.25rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .fluvio-project-hero__tags li {
+    padding: 0.35rem 0.75rem;
+    border: 1px solid rgb(255 255 255 / 0.26);
+    border-radius: 999px;
+    background: rgb(255 255 255 / 0.1);
+    backdrop-filter: blur(8px);
+    color: rgb(var(--fluvio-paper));
+    font-size: 0.72rem;
+    font-weight: 560;
+    letter-spacing: 0.02em;
+  }
+
   /* Copy rises softly on arrival. */
   @media (prefers-reduced-motion: no-preference) {
+    .fluvio-project-hero__video {
+      transition: opacity 1200ms ease;
+    }
+
     .fluvio-project-hero__text > * {
       animation: fluvio-project-rise 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
     }
@@ -289,6 +472,10 @@ const position = `${String(adjacent.index + 1).padStart(2, '0')} / ${String(adja
 
     .fluvio-project-hero__text > :nth-child(3) {
       animation-delay: 180ms;
+    }
+
+    .fluvio-project-hero__text > :nth-child(4) {
+      animation-delay: 270ms;
     }
   }
 
@@ -303,13 +490,32 @@ const position = `${String(adjacent.index + 1).padStart(2, '0')} / ${String(adja
     }
   }
 
+  /* Facts: a strip of quiet cards lifted over the hero's bottom edge. */
   .fluvio-project-facts {
-    padding: clamp(2rem, 4vw, 3rem) 0 0;
+    position: relative;
+    z-index: 1;
+    margin-top: clamp(-1.75rem, -3vw, -2.5rem);
   }
 
   .fluvio-project-facts :global(.fluvio-project-meta) {
-    padding-top: 0;
+    gap: 0.75rem;
+    padding: 0;
     border-top: 0;
+  }
+
+  .fluvio-project-facts :global(.fluvio-project-meta > div) {
+    padding: 1.1rem 1.25rem;
+    border: 1px solid rgb(var(--fluvio-ink) / 0.1);
+    border-radius: 16px;
+    background: rgb(var(--fluvio-paper) / 0.82);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 18px 40px -24px rgb(var(--fluvio-ink) / 0.35);
+  }
+
+  :global(.dark) .fluvio-project-facts :global(.fluvio-project-meta > div) {
+    border-color: rgb(var(--fluvio-mist) / 0.12);
+    background: rgb(var(--fluvio-navy) / 0.55);
+    box-shadow: 0 18px 40px -24px rgb(0 0 0 / 0.6);
   }
 
   /* Story: a sticky rail and three numbered chapters. */
@@ -420,12 +626,13 @@ const position = `${String(adjacent.index + 1).padStart(2, '0')} / ${String(adja
     }
 
     .fluvio-project-story__rail a {
+      position: relative;
       display: flex;
       gap: 0.9rem;
       align-items: baseline;
       padding: 0.55rem 0;
       border-bottom: 1px solid rgb(var(--fluvio-ink) / 0.12);
-      color: var(--aw-color-text-heading);
+      color: var(--aw-color-text-muted);
       font-family: var(--aw-font-heading);
       font-size: 1.1rem;
       font-weight: 560;
@@ -434,8 +641,32 @@ const position = `${String(adjacent.index + 1).padStart(2, '0')} / ${String(adja
       transition: color 200ms ease;
     }
 
-    .fluvio-project-story__rail a:hover {
-      color: rgb(var(--fluvio-river));
+    /* The chapter being read fills its rule in river blue. */
+    .fluvio-project-story__rail a::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: -1px;
+      left: 0;
+      height: 1px;
+      background: rgb(var(--fluvio-river));
+      transform: scaleX(0);
+      transform-origin: left;
+    }
+
+    .fluvio-project-story__rail a:hover,
+    .fluvio-project-story__rail a[aria-current] {
+      color: var(--aw-color-text-heading);
+    }
+
+    .fluvio-project-story__rail a[aria-current]::after {
+      transform: scaleX(1);
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .fluvio-project-story__rail a::after {
+        transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+      }
     }
 
     .fluvio-project-story__rail-number {
@@ -471,7 +702,8 @@ const position = `${String(adjacent.index + 1).padStart(2, '0')} / ${String(adja
 
     /* Two or three related projects share one row; never an orphan card. */
     .fluvio-project-related__projects {
-      grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+      align-items: stretch;
     }
   }
 </style>

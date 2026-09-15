@@ -1,0 +1,134 @@
+{
+  "en": {
+    "order": 10,
+    "title": "Flood event monitoring at Laidley Creek",
+    "slug": "laidley-creek-flood",
+    "summary": "Measuring velocity and sampling water quality through a record overnight flood to turn concentrations into sediment and nutrient loads.",
+    "location": "Laidley Creek, Queensland, Australia",
+    "timeframe": "2024",
+    "disciplines": ["Flood monitoring", "Water quality sampling", "Sediment and nutrient loads"],
+    "partners": ["Port of Brisbane", "Urban Utilities", "Xylem ANZ", "SonTek", "Water Queensland"],
+    "heroImage": "/src/assets/images/fluvio/project-laidley-creek.jpg",
+    "heroAlt": "A monitoring unit and camera mounted on a bridge rail above a brown flooded creek, with the surface velocity field it measured drawn beside it in colour",
+    "video": "/src/assets/images/fluvio/project-laidley-flood.mp4",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-laidley-flood-sampling.jpg",
+        "alt": "Six scenes from the flood: a field scientist lowering a sampler from a bridge, two sample bottles three hours apart, debris against a bridge rail, a sensor over floodwater, rows of labelled sample jars, and a velocity field over the creek",
+        "caption": "Two sample bottles taken three hours apart show how quickly the creek changed as the flood moved through."
+      }
+    ],
+    "challenge": [
+      "In January 2024 a record flood moved through the Laidley Creek catchment overnight. Water levels at Laidley Creek at Mulgowie reached 9.63 m, the highest since records began in the 1960s. Peak flows are exactly when data must be collected to understand the impact these events have on downstream communities and receiving waters, yet they are also the hardest and least safe conditions to measure in."
+    ],
+    "approach": [
+      "Alistair Grinham and the Fluvio team measured velocity and sampled water quality from midnight, before evacuating to higher ground at 4 am. Optical flow technology captured thousands of discharge measurements without placing an instrument in the water, turning the concentration data from the samples into the all-important load estimate.",
+      "Two sample bottles taken three hours apart show how dynamic these systems are: what began as clear water became a dense sediment load within hours as the flood peak passed."
+    ],
+    "outcome": [
+      "Understanding sediment and nutrient concentrations during events like this is critical to assessing the effectiveness of the streambank restoration work under way in the area and to guiding future efforts.",
+      "Being in the right place at the right time to capture a historic event was possible through strong collaboration with Port of Brisbane, Urban Utilities, Xylem ANZ, SonTek and Water Queensland."
+    ],
+    "relatedProjects": ["advance-queensland", "tina"]
+  },
+  "pijin": {
+    "order": 10,
+    "title": "Monitorim flood long Laidley Creek",
+    "slug": "laidley-creek-flood",
+    "summary": "Mesarem spid blong wata an tekem sampol blong kwaliti blong wata long wanfala big flood long naet, fo tanem concentration i kam load blong sediment an nutrient.",
+    "location": "Laidley Creek, Queensland, Australia",
+    "timeframe": "2024",
+    "disciplines": ["Monitorim flood", "Sampol blong kwaliti blong wata", "Load blong sediment an nutrient"],
+    "partners": ["Port of Brisbane", "Urban Utilities", "Xylem ANZ", "SonTek", "Water Queensland"],
+    "heroImage": "/src/assets/images/fluvio/project-laidley-creek.jpg",
+    "heroAlt": "Wanfala monitoring unit an camera wea hang long rail blong brij antap long wanfala braon flood wata, an long saed hemi soim kala field blong spid blong wata wea hemi mesarem",
+    "video": "/src/assets/images/fluvio/project-laidley-flood.mp4",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-laidley-flood-sampling.jpg",
+        "alt": "Sikisfala pikja blong flood: wanfala saentis hemi daonim sampler from brij, tufala sampol botol wea olketa tekem tri aoa difren, rabis wea pusim rail blong brij, wanfala sensor antap long flood wata, olketa sampol ja wetem lebol, an wanfala kala field blong spid antap long krik",
+        "caption": "Tufala sampol botol wea olketa tekem tri aoa difren i soim hao kwiktaem krik hemi jenis taem flood hemi go pas."
+      }
+    ],
+    "challenge": [
+      "Long January 2024 wanfala big flood, wea hemi bigfala winim eni flood bifoa, hemi go daon long Laidley Creek catchment long naet. Wata level long Laidley Creek long Mulgowie hemi kasem 9.63 m, hae winim eni rekod from 1960s kam. Taem flow hemi hae tumas nao hemi taem fo kolektem data, sapos iumi laek savve gud hao olketa flood olsem i afektim olketa komuniti daon long riva an wata wea hemi go insaet. Bat hemi taem tu wea hemi had an no sef fo mesarem."
+    ],
+    "approach": [
+      "Alistair Grinham an tim blong Fluvio i mesarem spid blong wata an tekem sampol blong kwaliti blong wata from midnaet, bifoa olketa go ap long hae graon long 4 klok long moning. Optical flow teknoloji hemi kolektem plande taosen mesarem blong discharge, nating fo putim eni instrument insaet long wata, an hemi tanem concentration data from olketa sampol i kam load estimate wea hemi barava impoten.",
+      "Tufala sampol botol wea olketa tekem tri aoa difren i soim hao kwiktaem olketa sistem ia i jenis: wata wea hemi klia long stat hemi kam fulap wetem sediment insaet samfala aoa nomoa, taem pik blong flood hemi go pas."
+    ],
+    "outcome": [
+      "Fo savve gud concentration blong sediment an nutrient taem olketa flood olsem i hapen, hemi barava impoten fo jekem sapos waka blong fiksim saed blong olketa krik long eria ia hemi waka gud, an fo givim rod long olketa waka bihaen.",
+      "Fo stap long stret ples long stret taem fo kasem wanfala flood olsem, hemi kam tru from gudfala waka tugeta wetem Port of Brisbane, Urban Utilities, Xylem ANZ, SonTek an Water Queensland."
+    ],
+    "relatedProjects": ["advance-queensland", "tina"]
+  },
+  "fr": {
+    "order": 10,
+    "title": "Suivi d’une crue à Laidley Creek",
+    "slug": "laidley-creek-flood",
+    "summary": "Mesurer les vitesses et échantillonner la qualité de l’eau pendant une crue nocturne record, pour convertir des concentrations en charges de sédiments et de nutriments.",
+    "location": "Laidley Creek, Queensland, Australie",
+    "timeframe": "2024",
+    "disciplines": [
+      "Suivi des crues",
+      "Échantillonnage de la qualité de l’eau",
+      "Charges de sédiments et de nutriments"
+    ],
+    "partners": ["Port of Brisbane", "Urban Utilities", "Xylem ANZ", "SonTek", "Water Queensland"],
+    "heroImage": "/src/assets/images/fluvio/project-laidley-creek.jpg",
+    "heroAlt": "Une unité de mesure et une caméra fixées à la rambarde d’un pont au-dessus d’un cours d’eau en crue, avec le champ de vitesse de surface mesuré représenté en couleur à côté",
+    "video": "/src/assets/images/fluvio/project-laidley-flood.mp4",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-laidley-flood-sampling.jpg",
+        "alt": "Six scènes de la crue : un scientifique descend un échantillonneur depuis un pont, deux flacons prélevés à trois heures d’intervalle, des débris contre une rambarde, un capteur au-dessus de l’eau, des rangées de flacons étiquetés et un champ de vitesse sur le cours d’eau",
+        "caption": "Deux flacons prélevés à trois heures d’intervalle montrent la rapidité avec laquelle le cours d’eau a changé au passage de la crue."
+      }
+    ],
+    "challenge": [
+      "En janvier 2024, une crue record a traversé le bassin de Laidley Creek en une nuit. Le niveau de Laidley Creek à Mulgowie a atteint 9,63 m, le plus haut depuis le début des relevés dans les années 1960. Les débits de pointe sont précisément le moment où il faut collecter des données pour comprendre l’impact de ces événements sur les communautés en aval et les milieux récepteurs, mais ce sont aussi les conditions les plus difficiles et les moins sûres pour mesurer."
+    ],
+    "approach": [
+      "Alistair Grinham et l’équipe Fluvio ont mesuré les vitesses et échantillonné la qualité de l’eau à partir de minuit, avant d’évacuer vers des terrains plus élevés à 4 h du matin. La technologie de flux optique a permis de collecter des milliers de mesures de débit sans placer d’instrument dans l’eau, et de convertir les concentrations mesurées sur les échantillons en une estimation de charge, la donnée essentielle.",
+      "Deux flacons prélevés à trois heures d’intervalle montrent à quel point ces systèmes sont dynamiques : une eau d’abord claire s’est chargée en sédiments en quelques heures au passage du pic de crue."
+    ],
+    "outcome": [
+      "Connaître les concentrations de sédiments et de nutriments pendant de tels événements est essentiel pour évaluer l’efficacité des travaux de restauration des berges en cours dans la région et orienter les efforts futurs.",
+      "Être au bon endroit au bon moment pour documenter un événement historique a été possible grâce à une collaboration étroite avec Port of Brisbane, Urban Utilities, Xylem ANZ, SonTek et Water Queensland."
+    ],
+    "relatedProjects": ["advance-queensland", "tina"]
+  },
+  "es": {
+    "order": 10,
+    "title": "Monitoreo de una crecida en Laidley Creek",
+    "slug": "laidley-creek-flood",
+    "summary": "Medir velocidades y muestrear la calidad del agua durante una crecida nocturna récord, para convertir concentraciones en cargas de sedimentos y nutrientes.",
+    "location": "Laidley Creek, Queensland, Australia",
+    "timeframe": "2024",
+    "disciplines": ["Monitoreo de crecidas", "Muestreo de calidad del agua", "Cargas de sedimentos y nutrientes"],
+    "partners": ["Port of Brisbane", "Urban Utilities", "Xylem ANZ", "SonTek", "Water Queensland"],
+    "heroImage": "/src/assets/images/fluvio/project-laidley-creek.jpg",
+    "heroAlt": "Una unidad de monitoreo y una cámara montadas en la baranda de un puente sobre un arroyo desbordado de agua marrón, con el campo de velocidad superficial medido dibujado en color a un lado",
+    "video": "/src/assets/images/fluvio/project-laidley-flood.mp4",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-laidley-flood-sampling.jpg",
+        "alt": "Seis escenas de la crecida: un científico baja un muestreador desde un puente, dos botellas de muestra tomadas con tres horas de diferencia, restos contra una baranda, un sensor sobre el agua, filas de frascos etiquetados y un campo de velocidad sobre el arroyo",
+        "caption": "Dos botellas de muestra tomadas con tres horas de diferencia muestran lo rápido que cambió el arroyo al pasar la crecida."
+      }
+    ],
+    "challenge": [
+      "En enero de 2024 una crecida récord atravesó la cuenca de Laidley Creek en una sola noche. El nivel de Laidley Creek en Mulgowie alcanzó 9,63 m, el más alto desde que comenzaron los registros en la década de 1960. Los caudales pico son precisamente el momento en que hay que recopilar datos para entender el impacto de estos eventos en las comunidades aguas abajo y en las aguas receptoras, pero también son las condiciones más difíciles y menos seguras para medir."
+    ],
+    "approach": [
+      "Alistair Grinham y el equipo de Fluvio midieron velocidades y muestrearon la calidad del agua desde la medianoche, antes de evacuar a terreno más alto a las 4 de la madrugada. La tecnología de flujo óptico captó miles de mediciones de caudal sin colocar ningún instrumento en el agua, convirtiendo los datos de concentración de las muestras en la estimación de carga, el dato esencial.",
+      "Dos botellas de muestra tomadas con tres horas de diferencia muestran lo dinámicos que son estos sistemas: un agua inicialmente clara se cargó de sedimentos en pocas horas al pasar el pico de la crecida."
+    ],
+    "outcome": [
+      "Conocer las concentraciones de sedimentos y nutrientes durante eventos como este es fundamental para evaluar la eficacia de los trabajos de restauración de riberas en curso en la zona y orientar los esfuerzos futuros.",
+      "Estar en el lugar correcto en el momento correcto para registrar un evento histórico fue posible gracias a la estrecha colaboración con Port of Brisbane, Urban Utilities, Xylem ANZ, SonTek y Water Queensland."
+    ],
+    "relatedProjects": ["advance-queensland", "tina"]
+  }
+}
