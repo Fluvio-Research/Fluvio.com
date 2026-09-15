@@ -153,6 +153,18 @@
             "imageAlt": "The CRR Reef Monitor landing page: monitored sites, priority nations and active alerts counted above the Explore Dashboard button"
           }
         ]
+      },
+      "siwis": {
+        "title": "SIWIS",
+        "description": "The Solomon Islands Water Information System, developed by Fluvio with the Water Resources Division: the national platform to collect, securely store, map and analyse hydrological data in support of evidence-based water management.",
+        "imageAlt": "The SIWIS home screen: monitoring stations mapped across the Solomon Islands, total sites, rivers and data records, and charts of sites by station type and province, with a Pijin welcome beneath the English one",
+        "highlights": [
+          "Co-designed with the Water Resources Division through a participatory approach",
+          "Collects, securely stores and analyses hydrological data from more than 150 waterway, groundwater and weather stations",
+          "Data, map, station and real-time explorers, with rating, approval and monitoring-group management tools",
+          "Bilingual English and Pijin interface, delivered with training in GIS, hydrology, data collection, storage and security"
+        ],
+        "image": "/src/assets/images/fluvio/platform-siwis.jpg"
       }
     }
   },
@@ -310,6 +322,18 @@
             "imageAlt": "Landing page blong CRR Reef Monitor: namba blong olketa monitored site, priority nation an active alert antap long Explore Dashboard baton"
           }
         ]
+      },
+      "siwis": {
+        "title": "SIWIS",
+        "description": "Solomon Islands Water Information System, wea Fluvio hemi developim tugeta wetem Water Resources Division: nasonol platform fo kolektem, sef fo holem, mapim an analysim hydrological data fo sapotim disison abaotem wata wea hemi stanap long evidens.",
+        "imageAlt": "Hom skrin blong SIWIS: olketa monitoring station long map blong Solomon Aelan, namba blong olketa site, riva an data record, an olketa chart blong site folom station type an provins, wetem wanfala welkam long Pijin anda long English wan",
+        "highlights": [
+          "Olketa disaenem tugeta wetem Water Resources Division long wanfala wei wea evriwan i tekpat",
+          "Hemi kolektem, sef fo holem an analysim hydrological data from winim 150 station long olketa riva, graon wata an weta",
+          "Explorer fo data, map, station an real-time data, wetem tul fo manejim rating, approval an monitoring group",
+          "Interface long English an Pijin, wea olketa delivam wetem trening long GIS, hydrology, kolektem data, holem data an data security"
+        ],
+        "image": "/src/assets/images/fluvio/platform-siwis.jpg"
       }
     }
   },
@@ -467,6 +491,18 @@
             "imageAlt": "La page d’accueil du CRR Reef Monitor : sites surveillés, pays prioritaires et alertes actives comptés au-dessus du bouton Explore Dashboard"
           }
         ]
+      },
+      "siwis": {
+        "title": "SIWIS",
+        "description": "Le Solomon Islands Water Information System, développé par Fluvio avec la Water Resources Division : la plateforme nationale pour collecter, stocker en sécurité, cartographier et analyser les données hydrologiques à l’appui d’une gestion de l’eau fondée sur les données.",
+        "imageAlt": "L’écran d’accueil de SIWIS : les stations de mesure cartographiées sur les Îles Salomon, le total des sites, rivières et enregistrements, et des graphiques des sites par type de station et par province, avec un message d’accueil en pijin sous celui en anglais",
+        "highlights": [
+          "Conçu en co-design avec la Water Resources Division selon une approche participative",
+          "Collecte, stocke en sécurité et analyse les données hydrologiques de plus de 150 stations de cours d’eau, d’eaux souterraines et météorologiques",
+          "Explorateurs de données, de cartes, de stations et de temps réel, avec des outils de gestion des courbes de tarage, des approbations et des groupes de suivi",
+          "Interface bilingue anglais et pijin, livrée avec des formations en SIG, hydrologie, collecte, stockage et sécurité des données"
+        ],
+        "image": "/src/assets/images/fluvio/platform-siwis.jpg"
       }
     }
   },
@@ -624,6 +660,18 @@
             "imageAlt": "La página de inicio del CRR Reef Monitor: sitios monitoreados, países prioritarios y alertas activas contados sobre el botón Explore Dashboard"
           }
         ]
+      },
+      "siwis": {
+        "title": "SIWIS",
+        "description": "El Solomon Islands Water Information System, desarrollado por Fluvio con la Water Resources Division: la plataforma nacional para recopilar, almacenar de forma segura, mapear y analizar datos hidrológicos en apoyo de una gestión del agua basada en evidencia.",
+        "imageAlt": "La pantalla de inicio de SIWIS: estaciones de monitoreo mapeadas en las Islas Salomón, el total de sitios, ríos y registros de datos, y gráficos de sitios por tipo de estación y provincia, con una bienvenida en pijin bajo la inglesa",
+        "highlights": [
+          "Codiseñado con la Water Resources Division mediante un enfoque participativo",
+          "Recopila, almacena de forma segura y analiza datos hidrológicos de más de 150 estaciones de cursos de agua, aguas subterráneas y meteorológicas",
+          "Exploradores de datos, mapas, estaciones y tiempo real, con herramientas de gestión de curvas de gasto, aprobaciones y grupos de monitoreo",
+          "Interfaz bilingüe en inglés y pijin, entregada con formación en SIG, hidrología, recopilación, almacenamiento y seguridad de datos"
+        ],
+        "image": "/src/assets/images/fluvio/platform-siwis.jpg"
       }
     }
   }

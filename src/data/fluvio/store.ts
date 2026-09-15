@@ -136,8 +136,9 @@ const slideSchema = z.object({
 const platformSchema = z.object({
   title: text,
   description: text,
-  action: text,
-  href: z.string().url(),
+  /** Link text; a platform without a public address has neither. */
+  action: text.optional(),
+  href: z.string().url().optional(),
   image: localImage,
   imageAlt: text,
   /** Where the screenshot links to (e.g. a live deployment); falls back to `href`. */
@@ -180,6 +181,7 @@ const homepageSchema = z.object({
     sense: platformSchema,
     cascade: platformSchema,
     reef: platformSchema,
+    siwis: platformSchema,
   }),
 });
 
