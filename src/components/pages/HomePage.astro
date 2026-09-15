@@ -42,6 +42,8 @@ const metadata = {
 
 const expertiseAreas = getExpertiseAreas(locale);
 const team = getTeamMembers(locale);
+/* The directors lead the display order; only they appear on the homepage. */
+const leadership = team.slice(0, 3);
 const [leadProject, ...moreFeatured] = getFeaturedProjects(locale);
 const disciplines = getDisciplines(locale);
 const locations = getLocations(locale);
@@ -179,7 +181,7 @@ const glance = [
     </div>
   </SectionFrame>
 
-  {/* 5. The whole team, at a glance. */}
+  {/* 5. The leadership; the full team lives on its own page. */}
   <SectionFrame tone="paper" spacing="wide" labelledby="home-team-heading">
     <div class:list={['fluvio-home-heading', REVEAL]}>
       <SectionHeading id="home-team-heading" title={home.teamTitle} intro={home.teamIntro} align="split">
@@ -188,9 +190,9 @@ const glance = [
     </div>
     <div class="fluvio-home-team-grid">
       {
-        team.map((member) => (
+        leadership.map((member) => (
           <div class={REVEAL}>
-            <TeamCard member={member} locale={locale} variant="compact" />
+            <TeamCard member={member} locale={locale} />
           </div>
         ))
       }
@@ -481,12 +483,12 @@ const glance = [
     gap: 2rem;
   }
 
-  /* A wall of faces: the whole team fits one row at desktop widths and
-     wraps as it grows. */
+  /* Three leadership cards share a row; they stack on narrow screens. */
   .fluvio-home-team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(6.75rem, 1fr));
-    gap: clamp(1rem, 2vw, 1.75rem);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    gap: clamp(1.25rem, 2.5vw, 2rem);
+    align-items: stretch;
   }
 
   /* Impact */
