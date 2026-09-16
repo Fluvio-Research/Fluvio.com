@@ -131,12 +131,12 @@
         ],
         "screens": [
           {
-            "image": "/src/assets/images/fluvio/platform-cascade-springs.jpg",
-            "imageAlt": "A FluvioCascade turbidity dashboard: live gauges for four Honiara springs at SIWA and their turbidity traces over two days"
+            "image": "/src/assets/images/fluvio/platform-cascade-explorers.jpg",
+            "imageAlt": "FluvioCascade explorers for a monitoring station: turbidity against its alert thresholds, rainfall since 9 am and conductivity over seven days"
           },
           {
-            "image": "/src/assets/images/fluvio/platform-cascade-turbidity.jpg",
-            "imageAlt": "A FluvioCascade turbidity chart with alert bands and two gauges reading the latest values"
+            "image": "/src/assets/images/fluvio/platform-cascade-station.jpg",
+            "imageAlt": "FluvioCascade station details: water temperature, battery voltage gauges, solar radiation and internal temperature over seven days"
           }
         ]
       },
@@ -320,12 +320,12 @@
         ],
         "screens": [
           {
-            "image": "/src/assets/images/fluvio/platform-cascade-springs.jpg",
-            "imageAlt": "Wanfala FluvioCascade turbidity dashboard: live gauge fo fofala spring blong Honiara long SIWA an turbidity laen blong olketa fo tufala dei"
+            "image": "/src/assets/images/fluvio/platform-cascade-explorers.jpg",
+            "imageAlt": "Olketa FluvioCascade explorer fo wanfala monitoring station: turbidity wetem olketa alert threshold, ren from 9 klok long moning an conductivity fo sevenfala dei"
           },
           {
-            "image": "/src/assets/images/fluvio/platform-cascade-turbidity.jpg",
-            "imageAlt": "Wanfala FluvioCascade turbidity chart wetem olketa alert band an tufala gauge wea soim latest value"
+            "image": "/src/assets/images/fluvio/platform-cascade-station.jpg",
+            "imageAlt": "FluvioCascade station details: temperature blong wata, olketa gauge blong battery voltage, sola radiation an insaet temperature fo sevenfala dei"
           }
         ]
       },
@@ -509,12 +509,12 @@
         ],
         "screens": [
           {
-            "image": "/src/assets/images/fluvio/platform-cascade-springs.jpg",
-            "imageAlt": "Un tableau de bord de turbidité FluvioCascade : jauges en direct de quatre sources de Honiara à SIWA et leurs courbes de turbidité sur deux jours"
+            "image": "/src/assets/images/fluvio/platform-cascade-explorers.jpg",
+            "imageAlt": "Les explorateurs FluvioCascade d’une station : turbidité face à ses seuils d’alerte, pluie depuis 9 h et conductivité sur sept jours"
           },
           {
-            "image": "/src/assets/images/fluvio/platform-cascade-turbidity.jpg",
-            "imageAlt": "Un graphique de turbidité FluvioCascade avec ses bandes d’alerte et deux jauges affichant les dernières valeurs"
+            "image": "/src/assets/images/fluvio/platform-cascade-station.jpg",
+            "imageAlt": "Détails de station FluvioCascade : température de l’eau, jauges de tension batterie, rayonnement solaire et température interne sur sept jours"
           }
         ]
       },
@@ -698,12 +698,12 @@
         ],
         "screens": [
           {
-            "image": "/src/assets/images/fluvio/platform-cascade-springs.jpg",
-            "imageAlt": "Un panel de turbidez de FluvioCascade: indicadores en vivo de cuatro manantiales de Honiara en SIWA y sus curvas de turbidez durante dos días"
+            "image": "/src/assets/images/fluvio/platform-cascade-explorers.jpg",
+            "imageAlt": "Los exploradores de FluvioCascade para una estación: turbidez frente a sus umbrales de alerta, lluvia desde las 9 h y conductividad durante siete días"
           },
           {
-            "image": "/src/assets/images/fluvio/platform-cascade-turbidity.jpg",
-            "imageAlt": "Un gráfico de turbidez de FluvioCascade con bandas de alerta y dos indicadores con los últimos valores"
+            "image": "/src/assets/images/fluvio/platform-cascade-station.jpg",
+            "imageAlt": "Detalles de estación en FluvioCascade: temperatura del agua, indicadores de voltaje de batería, radiación solar y temperatura interna durante siete días"
           }
         ]
       },
