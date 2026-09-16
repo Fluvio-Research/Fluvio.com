@@ -128,6 +128,16 @@
           "Ingests real-time water quality and water level data from remote monitoring stations",
           "Operational dashboards with alerting, built alongside utilities such as Solomon Water",
           "Analysis and reporting for catchment and water source investigations"
+        ],
+        "screens": [
+          {
+            "image": "/src/assets/images/fluvio/platform-cascade-springs.jpg",
+            "imageAlt": "A FluvioCascade turbidity dashboard: live gauges for four Honiara springs at SIWA and their turbidity traces over two days"
+          },
+          {
+            "image": "/src/assets/images/fluvio/platform-cascade-turbidity.jpg",
+            "imageAlt": "A FluvioCascade turbidity chart with alert bands and two gauges reading the latest values"
+          }
         ]
       },
       "reef": {
@@ -164,7 +174,17 @@
           "Data, map, station and real-time explorers, with rating, approval and monitoring-group management tools",
           "Bilingual English and Pijin interface, delivered with training in GIS, hydrology, data collection, storage and security"
         ],
-        "image": "/src/assets/images/fluvio/platform-siwis.jpg"
+        "image": "/src/assets/images/fluvio/platform-siwis.jpg",
+        "screens": [
+          {
+            "image": "/src/assets/images/fluvio/platform-siwis-map.jpg",
+            "imageAlt": "The SIWIS station map: named river, weather and groundwater stations across Guadalcanal and Malaita"
+          },
+          {
+            "image": "/src/assets/images/fluvio/platform-siwis-stats.jpg",
+            "imageAlt": "SIWIS statistics: total sites, rivers and data records, sites by station type and sites by province"
+          }
+        ]
       }
     }
   },
@@ -297,6 +317,16 @@
           "Hemi tekem real-time data blong kwaliti blong wata an wata level from olketa monitoring station wea stap farawe",
           "Olketa operational dashboard wetem alert, wea olketa bildim tugeta wetem olketa utility olsem Solomon Water",
           "Analysis an report fo catchment an wata sos investigation"
+        ],
+        "screens": [
+          {
+            "image": "/src/assets/images/fluvio/platform-cascade-springs.jpg",
+            "imageAlt": "Wanfala FluvioCascade turbidity dashboard: live gauge fo fofala spring blong Honiara long SIWA an turbidity laen blong olketa fo tufala dei"
+          },
+          {
+            "image": "/src/assets/images/fluvio/platform-cascade-turbidity.jpg",
+            "imageAlt": "Wanfala FluvioCascade turbidity chart wetem olketa alert band an tufala gauge wea soim latest value"
+          }
         ]
       },
       "reef": {
@@ -333,7 +363,17 @@
           "Explorer fo data, map, station an real-time data, wetem tul fo manejim rating, approval an monitoring group",
           "Interface long English an Pijin, wea olketa delivam wetem trening long GIS, hydrology, kolektem data, holem data an data security"
         ],
-        "image": "/src/assets/images/fluvio/platform-siwis.jpg"
+        "image": "/src/assets/images/fluvio/platform-siwis.jpg",
+        "screens": [
+          {
+            "image": "/src/assets/images/fluvio/platform-siwis-map.jpg",
+            "imageAlt": "Station map blong SIWIS: olketa riva, weta an graon wata station wetem nem blong olketa long Guadalcanal an Malaita"
+          },
+          {
+            "image": "/src/assets/images/fluvio/platform-siwis-stats.jpg",
+            "imageAlt": "Statistics blong SIWIS: namba blong site, riva an data record, site folom station type an site folom provins"
+          }
+        ]
       }
     }
   },
@@ -466,6 +506,16 @@
           "Ingère en temps réel les données de qualité et de niveau d’eau des stations de mesure isolées",
           "Tableaux de bord opérationnels avec alertes, construits avec des opérateurs comme Solomon Water",
           "Analyse et rapports pour les études de bassins versants et de ressources en eau"
+        ],
+        "screens": [
+          {
+            "image": "/src/assets/images/fluvio/platform-cascade-springs.jpg",
+            "imageAlt": "Un tableau de bord de turbidité FluvioCascade : jauges en direct de quatre sources de Honiara à SIWA et leurs courbes de turbidité sur deux jours"
+          },
+          {
+            "image": "/src/assets/images/fluvio/platform-cascade-turbidity.jpg",
+            "imageAlt": "Un graphique de turbidité FluvioCascade avec ses bandes d’alerte et deux jauges affichant les dernières valeurs"
+          }
         ]
       },
       "reef": {
@@ -502,7 +552,17 @@
           "Explorateurs de données, de cartes, de stations et de temps réel, avec des outils de gestion des courbes de tarage, des approbations et des groupes de suivi",
           "Interface bilingue anglais et pijin, livrée avec des formations en SIG, hydrologie, collecte, stockage et sécurité des données"
         ],
-        "image": "/src/assets/images/fluvio/platform-siwis.jpg"
+        "image": "/src/assets/images/fluvio/platform-siwis.jpg",
+        "screens": [
+          {
+            "image": "/src/assets/images/fluvio/platform-siwis-map.jpg",
+            "imageAlt": "La carte des stations SIWIS : stations fluviales, météorologiques et d’eaux souterraines nommées sur Guadalcanal et Malaita"
+          },
+          {
+            "image": "/src/assets/images/fluvio/platform-siwis-stats.jpg",
+            "imageAlt": "Statistiques SIWIS : total des sites, rivières et enregistrements, sites par type de station et par province"
+          }
+        ]
       }
     }
   },
@@ -635,6 +695,16 @@
           "Ingesta en tiempo real de datos de calidad y nivel del agua desde estaciones de monitoreo remotas",
           "Paneles operativos con alertas, construidos junto a operadores como Solomon Water",
           "Análisis e informes para investigaciones de cuencas y fuentes de agua"
+        ],
+        "screens": [
+          {
+            "image": "/src/assets/images/fluvio/platform-cascade-springs.jpg",
+            "imageAlt": "Un panel de turbidez de FluvioCascade: indicadores en vivo de cuatro manantiales de Honiara en SIWA y sus curvas de turbidez durante dos días"
+          },
+          {
+            "image": "/src/assets/images/fluvio/platform-cascade-turbidity.jpg",
+            "imageAlt": "Un gráfico de turbidez de FluvioCascade con bandas de alerta y dos indicadores con los últimos valores"
+          }
         ]
       },
       "reef": {
@@ -671,7 +741,17 @@
           "Exploradores de datos, mapas, estaciones y tiempo real, con herramientas de gestión de curvas de gasto, aprobaciones y grupos de monitoreo",
           "Interfaz bilingüe en inglés y pijin, entregada con formación en SIG, hidrología, recopilación, almacenamiento y seguridad de datos"
         ],
-        "image": "/src/assets/images/fluvio/platform-siwis.jpg"
+        "image": "/src/assets/images/fluvio/platform-siwis.jpg",
+        "screens": [
+          {
+            "image": "/src/assets/images/fluvio/platform-siwis-map.jpg",
+            "imageAlt": "El mapa de estaciones de SIWIS: estaciones fluviales, meteorológicas y de aguas subterráneas con nombre en Guadalcanal y Malaita"
+          },
+          {
+            "image": "/src/assets/images/fluvio/platform-siwis-stats.jpg",
+            "imageAlt": "Estadísticas de SIWIS: total de sitios, ríos y registros de datos, sitios por tipo de estación y por provincia"
+          }
+        ]
       }
     }
   }
