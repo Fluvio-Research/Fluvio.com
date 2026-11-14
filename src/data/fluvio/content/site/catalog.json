@@ -81,8 +81,8 @@
           "Detection of people, vehicles and debris",
           "Water-level context and alerts"
         ],
-        "image": "/src/assets/images/fluvio/floodsense-panorama.jpg",
-        "imageAlt": "FloodSense segmentation of floodwater and a road at Panorama Creek",
+        "image": "/src/assets/images/fluvio/floodsense-dashboard.jpg",
+        "imageAlt": "FloodSense dashboard showing flood cameras and monitoring sites",
         "href": "/flood-camera-intelligence"
       },
       {
@@ -95,8 +95,8 @@
           "Battery, solar and connectivity status",
           "Shared site management and data export"
         ],
-        "image": "/src/assets/images/fluvio/platform-sense.jpeg",
-        "imageAlt": "FluvioSense overview showing connected monitoring sites",
+        "image": "/src/assets/images/fluvio/nodesense-dashboard.jpg",
+        "imageAlt": "NodeSense dashboard showing sensor readings and connected sites",
         "href": "/expertise/operational-monitoring"
       }
     ]
@@ -179,8 +179,8 @@
           "Luksave long pipol, trak an debris",
           "Data blong wata level an alert"
         ],
-        "image": "/src/assets/images/fluvio/floodsense-panorama.jpg",
-        "imageAlt": "FloodSense segmentation blong floodwata an road long Panorama Creek",
+        "image": "/src/assets/images/fluvio/floodsense-dashboard.jpg",
+        "imageAlt": "FloodSense dashboard wit flood kamera an monitoring site",
         "href": "/flood-camera-intelligence"
       },
       {
@@ -193,8 +193,8 @@
           "Battery, solar an connection status",
           "Site management an data export"
         ],
-        "image": "/src/assets/images/fluvio/platform-sense.jpeg",
-        "imageAlt": "FluvioSense overview blong olketa monitoring site",
+        "image": "/src/assets/images/fluvio/nodesense-dashboard.jpg",
+        "imageAlt": "NodeSense dashboard wit sensor reading an olketa connected site",
         "href": "/expertise/operational-monitoring"
       }
     ]
@@ -277,8 +277,8 @@
           "Détection des personnes, véhicules et débris",
           "Niveaux d’eau et alertes"
         ],
-        "image": "/src/assets/images/fluvio/floodsense-panorama.jpg",
-        "imageAlt": "Segmentation FloodSense de l’eau et de la route à Panorama Creek",
+        "image": "/src/assets/images/fluvio/floodsense-dashboard.jpg",
+        "imageAlt": "Tableau de bord FloodSense avec caméras de crue et sites de suivi",
         "href": "/flood-camera-intelligence"
       },
       {
@@ -291,8 +291,8 @@
           "Batterie, solaire et connectivité",
           "Gestion des sites et export des données"
         ],
-        "image": "/src/assets/images/fluvio/platform-sense.jpeg",
-        "imageAlt": "Vue FluvioSense des sites connectés",
+        "image": "/src/assets/images/fluvio/nodesense-dashboard.jpg",
+        "imageAlt": "Tableau de bord NodeSense avec mesures des capteurs et sites connectés",
         "href": "/expertise/operational-monitoring"
       }
     ]
@@ -375,8 +375,8 @@
           "Detección de personas, vehículos y escombros",
           "Niveles de agua y alertas"
         ],
-        "image": "/src/assets/images/fluvio/floodsense-panorama.jpg",
-        "imageAlt": "Segmentación FloodSense del agua y la carretera en Panorama Creek",
+        "image": "/src/assets/images/fluvio/floodsense-dashboard.jpg",
+        "imageAlt": "Panel FloodSense con cámaras de inundaciones y sitios de monitoreo",
         "href": "/flood-camera-intelligence"
       },
       {
@@ -385,8 +385,8 @@
         "title": "Conectar su red de monitoreo.",
         "description": "Integre nodos de calidad del agua y estaciones en FluvioSense. Consulte observaciones, estado de los sitios, telemetría y exportaciones.",
         "highlights": ["Nodos de calidad del agua", "Batería, solar y conectividad", "Gestión de sitios y exportación"],
-        "image": "/src/assets/images/fluvio/platform-sense.jpeg",
-        "imageAlt": "Vista FluvioSense de los sitios conectados",
+        "image": "/src/assets/images/fluvio/nodesense-dashboard.jpg",
+        "imageAlt": "Panel NodeSense con lecturas de sensores y sitios conectados",
         "href": "/expertise/operational-monitoring"
       }
     ]
