@@ -30,8 +30,50 @@ sudo cp /tmp/fluvio-enquiry-upload/{package.json,package-lock.json,handler.mjs,s
 sudo install -m 600 /tmp/fluvio-enquiry-upload/enquiry.env /etc/fluvio-enquiry.env
 rm -rf /tmp/fluvio-enquiry-upload
 cd /opt/fluvio-enquiry
-sudo npm ci --omit=dev --ignore-scripts
-NODE_BIN="$(command -v node)"
+# sudo drops user PATH (including nvm). Keep an isolated runtime outside /home
+# so DynamicUser + ProtectHome can execute it reliably.
+if ! command -v node >/dev/null || ! command -v npm >/dev/null; then
+  if [ -s "$HOME/.nvm/nvm.sh" ]; then
+    set +u
+    . "$HOME/.nvm/nvm.sh"
+    set -u
+  fi
+fi
+RUNTIME=/opt/fluvio-enquiry-runtime
+if command -v node >/dev/null && command -v npm >/dev/null; then
+  NODE_SOURCE="$(readlink -f "$(command -v node)")"
+  NPM_CLI="$(readlink -f "$(command -v npm)")"
+  NPM_ROOT="$(dirname "$(dirname "$NPM_CLI")")"
+  test -f "$NPM_ROOT/bin/npm-cli.js"
+  sudo mkdir -p "$RUNTIME/bin" "$RUNTIME/lib/node_modules"
+  sudo cp "$NODE_SOURCE" "$RUNTIME/bin/node"
+  sudo cp -R "$NPM_ROOT" "$RUNTIME/lib/node_modules/npm"
+else
+  # Use an isolated, checksum-verified Node release if this host has no runtime.
+  case "$(uname -m)" in
+    x86_64) NODE_ARCH=x64 ;;
+    aarch64|arm64) NODE_ARCH=arm64 ;;
+    *) echo 'Unsupported server architecture'; exit 1 ;;
+  esac
+  NODE_VERSION=v22.22.3
+  NODE_ARCHIVE="node-$NODE_VERSION-linux-$NODE_ARCH.tar.xz"
+  RUNTIME_TMP="$(mktemp -d)"
+  (
+    cd "$RUNTIME_TMP"
+    curl -fsSLO "https://nodejs.org/dist/$NODE_VERSION/$NODE_ARCHIVE"
+    curl -fsSLO "https://nodejs.org/dist/$NODE_VERSION/SHASUMS256.txt"
+    awk -v archive="$NODE_ARCHIVE" '$2 == archive { print }' SHASUMS256.txt > checksum.txt
+    test -s checksum.txt
+    sha256sum -c checksum.txt
+    sudo mkdir -p "$RUNTIME"
+    sudo tar -xJf "$NODE_ARCHIVE" --strip-components=1 -C "$RUNTIME"
+  )
+  rm -rf "$RUNTIME_TMP"
+fi
+NODE_BIN="$RUNTIME/bin/node"
+sudo "$NODE_BIN" -e 'if (+process.versions.node.split(".")[0] < 18) process.exit(1)'
+sudo env PATH="$RUNTIME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" \
+  "$NODE_BIN" "$RUNTIME/lib/node_modules/npm/bin/npm-cli.js" ci --omit=dev --ignore-scripts
 sudo tee /etc/systemd/system/fluvio-enquiry.service >/dev/null <<SERVICE
 [Unit]
 Description=Fluvio website enquiries
