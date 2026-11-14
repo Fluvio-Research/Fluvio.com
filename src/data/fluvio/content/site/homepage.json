@@ -142,11 +142,11 @@
       },
       "reef": {
         "title": "FluvioReef",
-        "description": "The CRR Reef Monitor, built by Fluvio for the Coral Reef Rescue Initiative: NOAA Coral Reef Watch thermal stress, bleaching alerts and reef health for priority reef sites across six nations, updated daily.",
+        "description": "Fluvio Reef Monitor: NOAA Coral Reef Watch thermal stress, bleaching alerts and reef health for priority reef sites across six nations, updated daily.",
         "action": "Visit FluvioReef",
         "href": "https://reef.fluvio.com.au/",
         "image": "/src/assets/images/fluvio/platform-reef-summary.jpg",
-        "imageAlt": "The CRR Reef Monitor in dark mode: the site detail panel for the Philippines, with sea surface temperature, degree heating weeks and alert status over a map of the priority reef area",
+        "imageAlt": "The Fluvio Reef Monitor in light mode: the site detail panel for the Philippines, with sea surface temperature, degree heating weeks and alert status over a map of the priority reef area",
         "highlights": [
           "Sea surface temperature, degree heating weeks and bleaching alert level for every reef site, updated daily from NOAA Coral Reef Watch",
           "A detail panel for each site with summary statistics and temperature, coral cover, fish, bleaching, mangroves and water quality tabs",
@@ -156,11 +156,11 @@
         "screens": [
           {
             "image": "/src/assets/images/fluvio/platform-reef-temperature.jpg",
-            "imageAlt": "The temperature tab of the reef detail panel: 182 daily observations of sea surface temperature and degree heating weeks charted against the bleaching thresholds"
+            "imageAlt": "The temperature tab of the reef detail panel: Daily observations of sea surface temperature and degree heating weeks charted against the bleaching thresholds"
           },
           {
             "image": "/src/assets/images/fluvio/platform-reef-landing.jpg",
-            "imageAlt": "The CRR Reef Monitor landing page: monitored sites, priority nations and active alerts counted above the Explore Dashboard button"
+            "imageAlt": "The Fluvio Reef Monitor landing page: monitored sites, priority nations and active alerts counted above the Explore Dashboard button"
           }
         ]
       },
@@ -331,11 +331,11 @@
       },
       "reef": {
         "title": "FluvioReef",
-        "description": "CRR Reef Monitor, wea Fluvio bildim fo Coral Reef Rescue Initiative: NOAA Coral Reef Watch thermal stress, bleaching alert an reef helt fo olketa impoten reef ples long sikisfala kantri, wea hemi update evri dei.",
+        "description": "Fluvio Reef Monitor: NOAA Coral Reef Watch thermal stress, bleaching alert an reef helt fo olketa impoten reef ples long sikisfala kantri, wea hemi update evri dei.",
         "action": "Go long FluvioReef",
         "href": "https://reef.fluvio.com.au/",
         "image": "/src/assets/images/fluvio/platform-reef-summary.jpg",
-        "imageAlt": "CRR Reef Monitor long dark mode: detail panel fo Philippines, wetem sea surface temperature, degree heating weeks an alert status antap long map blong reef eria",
+        "imageAlt": "Fluvio Reef Monitor long light mode: detail panel fo Philippines, wetem sea surface temperature, degree heating weeks an alert status antap long map blong reef eria",
         "highlights": [
           "Sea surface temperature, degree heating weeks an bleaching alert level fo evri reef ples, wea NOAA Coral Reef Watch hemi update evri dei",
           "Wanfala detail panel fo evri ples wetem summary statistics an olketa tab fo temperature, coral cover, fis, bleaching, mangrove an kwaliti blong wata",
@@ -345,11 +345,11 @@
         "screens": [
           {
             "image": "/src/assets/images/fluvio/platform-reef-temperature.jpg",
-            "imageAlt": "Temperature tab blong reef detail panel: 182 dei blong sea surface temperature an degree heating weeks long chart wetem olketa bleaching threshold"
+            "imageAlt": "Temperature tab blong reef detail panel: 242 dei blong sea surface temperature an degree heating weeks long chart wetem olketa bleaching threshold"
           },
           {
             "image": "/src/assets/images/fluvio/platform-reef-landing.jpg",
-            "imageAlt": "Landing page blong CRR Reef Monitor: namba blong olketa monitored site, priority nation an active alert antap long Explore Dashboard baton"
+            "imageAlt": "Landing page blong Fluvio Reef Monitor: namba blong olketa monitored site, priority nation an active alert antap long Explore Dashboard baton"
           }
         ]
       },
@@ -520,11 +520,11 @@
       },
       "reef": {
         "title": "FluvioReef",
-        "description": "Le CRR Reef Monitor, développé par Fluvio pour la Coral Reef Rescue Initiative : stress thermique NOAA Coral Reef Watch, alertes de blanchissement et santé des récifs prioritaires de six pays, mis à jour chaque jour.",
+        "description": "Fluvio Reef Monitor : stress thermique NOAA Coral Reef Watch, alertes de blanchissement et santé des récifs prioritaires de six pays, mis à jour chaque jour.",
         "action": "Visiter FluvioReef",
         "href": "https://reef.fluvio.com.au/",
         "image": "/src/assets/images/fluvio/platform-reef-summary.jpg",
-        "imageAlt": "Le CRR Reef Monitor en mode sombre : le panneau de détail du site des Philippines, avec température de surface, semaines de chauffe cumulées et niveau d’alerte au-dessus de la carte de la zone récifale prioritaire",
+        "imageAlt": "Le Fluvio Reef Monitor en mode clair : le panneau de détail du site des Philippines, avec température de surface, semaines de chauffe cumulées et niveau d’alerte au-dessus de la carte de la zone récifale prioritaire",
         "highlights": [
           "Température de surface, semaines de chauffe cumulées et niveau d’alerte de blanchissement pour chaque site, mis à jour chaque jour depuis NOAA Coral Reef Watch",
           "Un panneau de détail par site avec statistiques de synthèse et onglets température, couverture corallienne, poissons, blanchissement, mangroves et qualité de l’eau",
@@ -534,11 +534,11 @@
         "screens": [
           {
             "image": "/src/assets/images/fluvio/platform-reef-temperature.jpg",
-            "imageAlt": "L’onglet température du panneau de détail : 182 observations quotidiennes de température de surface et de semaines de chauffe, tracées face aux seuils de blanchissement"
+            "imageAlt": "L’onglet température du panneau de détail : 242 observations quotidiennes de température de surface et de semaines de chauffe, tracées face aux seuils de blanchissement"
           },
           {
             "image": "/src/assets/images/fluvio/platform-reef-landing.jpg",
-            "imageAlt": "La page d’accueil du CRR Reef Monitor : sites surveillés, pays prioritaires et alertes actives comptés au-dessus du bouton Explore Dashboard"
+            "imageAlt": "La page d’accueil du Fluvio Reef Monitor : sites surveillés, pays prioritaires et alertes actives comptés au-dessus du bouton Explore Dashboard"
           }
         ]
       },
@@ -709,11 +709,11 @@
       },
       "reef": {
         "title": "FluvioReef",
-        "description": "El CRR Reef Monitor, desarrollado por Fluvio para la Coral Reef Rescue Initiative: estrés térmico de NOAA Coral Reef Watch, alertas de blanqueamiento y salud de los arrecifes prioritarios de seis países, actualizado a diario.",
+        "description": "Fluvio Reef Monitor: estrés térmico de NOAA Coral Reef Watch, alertas de blanqueamiento y salud de los arrecifes prioritarios de seis países, actualizado a diario.",
         "action": "Visitar FluvioReef",
         "href": "https://reef.fluvio.com.au/",
         "image": "/src/assets/images/fluvio/platform-reef-summary.jpg",
-        "imageAlt": "El CRR Reef Monitor en modo oscuro: el panel de detalle del sitio de Filipinas, con temperatura superficial del mar, semanas de calentamiento acumuladas y estado de alerta sobre el mapa del área de arrecife prioritaria",
+        "imageAlt": "El Fluvio Reef Monitor en modo claro: el panel de detalle del sitio de Filipinas, con temperatura superficial del mar, semanas de calentamiento acumuladas y estado de alerta sobre el mapa del área de arrecife prioritaria",
         "highlights": [
           "Temperatura superficial del mar, semanas de calentamiento acumuladas y nivel de alerta de blanqueamiento para cada sitio, actualizados a diario desde NOAA Coral Reef Watch",
           "Un panel de detalle por sitio con estadísticas resumidas y pestañas de temperatura, cobertura de coral, peces, blanqueamiento, manglares y calidad del agua",
@@ -723,11 +723,11 @@
         "screens": [
           {
             "image": "/src/assets/images/fluvio/platform-reef-temperature.jpg",
-            "imageAlt": "La pestaña de temperatura del panel de detalle: 182 observaciones diarias de temperatura superficial y semanas de calentamiento, graficadas frente a los umbrales de blanqueamiento"
+            "imageAlt": "La pestaña de temperatura del panel de detalle: 242 observaciones diarias de temperatura superficial y semanas de calentamiento, graficadas frente a los umbrales de blanqueamiento"
           },
           {
             "image": "/src/assets/images/fluvio/platform-reef-landing.jpg",
-            "imageAlt": "La página de inicio del CRR Reef Monitor: sitios monitoreados, países prioritarios y alertas activas contados sobre el botón Explore Dashboard"
+            "imageAlt": "La página de inicio del Fluvio Reef Monitor: sitios monitoreados, países prioritarios y alertas activas contados sobre el botón Explore Dashboard"
           }
         ]
       },

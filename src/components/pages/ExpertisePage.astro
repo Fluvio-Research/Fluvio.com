@@ -3,7 +3,8 @@ import ArrowLink from '~/components/fluvio/ArrowLink.astro';
 import Accent from '~/components/fluvio/Accent.astro';
 import ContactPanel from '~/components/fluvio/ContactPanel.astro';
 import ExpertiseCard from '~/components/fluvio/ExpertiseCard.astro';
-import PageHero from '~/components/fluvio/PageHero.astro';
+import OverviewHero from '~/components/fluvio/OverviewHero.astro';
+import { expertiseHref } from '~/data/fluvio/routes';
 import SectionFrame from '~/components/fluvio/SectionFrame.astro';
 import SectionHeading from '~/components/fluvio/SectionHeading.astro';
 import { REVEAL } from '~/components/fluvio/reveal';
@@ -26,7 +27,26 @@ const metadata = {
 ---
 
 <Layout metadata={metadata} locale={locale}>
-  <PageHero locale={locale} eyebrow={c.eyebrow} title={c.title} lede={c.lede} />
+  <OverviewHero
+    eyebrow={c.eyebrow}
+    title={c.title}
+    intro={c.lede}
+    label={c.areasLabel}
+    items={expertiseAreas.map((area) => ({
+      name: area.title,
+      href: expertiseHref(area.slug, locale),
+      icon: (
+        {
+          'hydrological-monitoring': 'tabler:ripple',
+          'catchment-management': 'tabler:trees',
+          'island-scale-modelling': 'tabler:map',
+          'sediment-loading': 'tabler:droplets',
+          'blue-carbon-assessment': 'tabler:leaf',
+          'operational-monitoring': 'tabler:activity',
+        } as Record<string, string>
+      )[area.slug],
+    }))}
+  />
 
   <SectionFrame tone="paper" rule="ink" motif="contour" ariaLabel={c.areasLabel} class="fluvio-expertise-areas">
     <div class:list={['fluvio-expertise-heading', REVEAL]}>

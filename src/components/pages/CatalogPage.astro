@@ -1,6 +1,6 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import PageHero from '~/components/fluvio/PageHero.astro';
+import OverviewHero from '~/components/fluvio/OverviewHero.astro';
 import SectionFrame from '~/components/fluvio/SectionFrame.astro';
 import LargeImage from '~/components/fluvio/LargeImage.astro';
 import ArrowLink from '~/components/fluvio/ArrowLink.astro';
@@ -23,21 +23,19 @@ const items = c[kind];
 ---
 
 <Layout locale={locale} metadata={{ title: label, description: intro }}>
-  <PageHero locale={locale} eyebrow={`FluvioSense / ${label}`} title={title} lede={intro}>
-    <nav slot="actions" class="catalog-jump" aria-label={label}>
-      {items.map((item) => <a href={`#${item.slug}`}>{item.name}</a>)}
-    </nav>
-    <div slot="aside" class="catalog-cover">
-      <LargeImage
-        src={products
-          ? '/src/assets/images/fluvio/fs-halo-deployment.jpg'
-          : '/src/assets/images/fluvio/platform-sense-layers.jpg'}
-        alt={products ? c.products[1].imageAlt : c.systems[0].imageAlt}
-        aspect={products ? 'portrait' : 'landscape'}
-        priority
-      />
-    </div>
-  </PageHero>
+  <OverviewHero
+    eyebrow={`FluvioSense / ${label}`}
+    title={title}
+    intro={intro}
+    label={label}
+    items={items.map((item, index) => ({
+      name: item.name,
+      href: `#${item.slug}`,
+      image: products ? item.image : undefined,
+      contain: products && index < 2,
+      icon: ['tabler:ripple', 'tabler:alert-triangle', 'tabler:network'][index],
+    }))}
+  />
   {
     items.map((item, index) => (
       <SectionFrame tone={index === 1 ? 'water' : 'paper'} rule="ink" labelledby={`${item.slug}-heading`}>
@@ -90,27 +88,6 @@ const items = c[kind];
   <SectionFrame tone="warm"><ContactPanel locale={locale} /></SectionFrame>
 </Layout>
 <style>
-  .catalog-jump {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-top: 2rem;
-  }
-  .catalog-jump a {
-    padding: 0.7rem 1.1rem;
-    border: 1px solid rgb(var(--fluvio-ink) / 0.25);
-    border-radius: 99px;
-    font-size: 0.85rem;
-  }
-  .catalog-jump a:hover,
-  .catalog-jump a:focus-visible {
-    background: rgb(var(--fluvio-river));
-    color: white;
-  }
-  .catalog-cover {
-    border-radius: 24px;
-    overflow: hidden;
-  }
   .catalog-feature__media--device {
     background: linear-gradient(145deg, #e7eeeb, #b5cdc7);
     border-radius: 24px;

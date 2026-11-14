@@ -1,0 +1,177 @@
+---
+import { Icon } from 'astro-icon/components';
+import Accent from './Accent.astro';
+import ArrowIcon from './ArrowIcon.astro';
+import LargeImage from './LargeImage.astro';
+
+export interface Props {
+  eyebrow: string;
+  title: string;
+  intro: string;
+  label: string;
+  items: { name: string; href: string; image?: string; icon?: string; contain?: boolean }[];
+}
+const { eyebrow, title, intro, label, items } = Astro.props;
+---
+
+<header class="overview-hero">
+  <div class="fluvio-shell">
+    <div class="overview-hero__heading">
+      <p class="fluvio-eyebrow">{eyebrow}</p>
+      <h1><Accent text={title} /></h1>
+      <p class="overview-hero__intro">{intro}</p>
+    </div>
+    <nav aria-label={label} class:list={['overview-grid', { 'overview-grid--six': items.length > 3 }]}>
+      {
+        items.map((item) => (
+          <a href={item.href} class="overview-card fluvio-arrow-host">
+            {item.image ? (
+              <div class:list={['overview-card__image', { 'overview-card__image--contain': item.contain }]}>
+                <LargeImage
+                  src={item.image}
+                  alt=""
+                  aspect="fill"
+                  radius="none"
+                  priority
+                  sizes="(min-width: 768px) 30vw, 40vw"
+                />
+              </div>
+            ) : (
+              <span class="overview-card__icon">
+                <Icon name={item.icon ?? 'tabler:ripple'} />
+              </span>
+            )}
+            <span class="overview-card__label">
+              <>
+                <span>{item.name}</span>
+                <ArrowIcon size="sm" />
+              </>
+            </span>
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</header>
+<style>
+  .overview-hero {
+    padding: clamp(1.5rem, 3vw, 3rem) 0 clamp(2rem, 4vw, 4rem);
+  }
+  .overview-hero__heading {
+    max-width: 58rem;
+    margin-bottom: 1.75rem;
+  }
+  h1 {
+    font-family: var(--aw-font-heading);
+    font-size: clamp(2rem, 3.4vw, 3.4rem);
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+    margin: 0.65rem 0 0.8rem;
+    text-wrap: balance;
+  }
+  .overview-hero__intro {
+    max-width: 48rem;
+    color: var(--aw-color-text-muted);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  .overview-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid rgb(var(--fluvio-ink) / 0.15);
+    border-radius: 18px;
+    background: rgb(var(--fluvio-paper) / 0.6);
+    text-decoration: none;
+  }
+  .overview-card__image {
+    height: clamp(8rem, 13vw, 12rem);
+    background: linear-gradient(145deg, #e7eeeb, #b5cdc7);
+  }
+  .overview-hero .overview-card__image--contain :global(img) {
+    object-fit: contain !important;
+    padding: 0.85rem;
+  }
+  .overview-card__icon {
+    display: grid;
+    place-items: center;
+    width: 3.25rem;
+    height: 3.25rem;
+    margin: 1.25rem 1.25rem 0.25rem;
+    border-radius: 50%;
+    color: var(--aw-color-primary);
+    background: rgb(var(--fluvio-river) / 0.1);
+  }
+  .overview-card__icon :global(svg) {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+  .overview-card__label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    margin-top: auto;
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  .overview-card__label :global(.fluvio-arrow-icon) {
+    flex-shrink: 0;
+  }
+  .overview-grid--six .overview-card__label {
+    font-size: 1rem;
+  }
+  .overview-card:hover,
+  .overview-card:focus-visible {
+    border-color: var(--aw-color-primary);
+    background: rgb(var(--fluvio-river) / 0.08);
+  }
+  .overview-card:focus-visible {
+    outline: 2px solid rgb(var(--fluvio-river));
+    outline-offset: 4px;
+  }
+  :global(.dark) .overview-card {
+    background: rgb(var(--fluvio-navy) / 0.4);
+    border-color: rgb(var(--fluvio-mist) / 0.2);
+  }
+  :global(.dark) .overview-card:hover,
+  :global(.dark) .overview-card:focus-visible {
+    border-color: var(--aw-color-primary);
+  }
+  @media (max-width: 600px) {
+    .overview-grid {
+      gap: 0.6rem;
+    }
+    .overview-card__label {
+      padding: 0.75rem 0.5rem;
+      font-size: 0.9rem;
+      flex-wrap: wrap;
+    }
+    .overview-card__label :global(.fluvio-arrow-icon) {
+      display: none;
+    }
+    .overview-card__image {
+      height: 6rem;
+    }
+    .overview-hero .overview-card__image--contain :global(img) {
+      padding: 0.3rem;
+    }
+    .overview-card__icon {
+      margin: 0.9rem 0.5rem 0.1rem;
+    }
+    .overview-grid--six {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .overview-grid--six .overview-card__label {
+      font-size: 0.9rem;
+    }
+  }
+</style>
