@@ -93,7 +93,7 @@ git push origin main
 
 The deploy script uses the `GrafanaFluvio` SSH alias and reads the existing SIWIS email defaults from `../../SIWIS-Custom-Forms/server.js`. Environment variables `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, and `SUPPORT_TO_EMAIL` override those defaults. Credentials are transferred to a root-only environment file on the server, never bundled in the website. SMTP login is verified on service startup. No test email is sent by deployment.
 
-The isolated service listens on localhost:3311. The script adds only `/api/website-enquiry` to the existing data.fluvio.com.au nginx host, backs up changed nginx files, validates configuration and reloads nginx. It does not redeploy SIWIS or change its data services. Run `node --test server/enquiry/handler.test.mjs` for backend validation tests. Verify a real enquiry manually after deployment.
+The isolated service listens on localhost:3311. The script adds only `/api/website-enquiry` to the existing data.fluvio.com.au nginx host, backs up changed nginx files, validates configuration and reloads nginx. It does not redeploy SIWIS or change its data services. The service uses Python 3 standard-library HTTPS/SMTP support and requires no Node runtime or npm packages on the server. Run `python3 -m unittest discover -s server/enquiry -p 'test_*.py'` for backend validation tests. Verify a real enquiry manually after deployment.
 
 ## Routes
 

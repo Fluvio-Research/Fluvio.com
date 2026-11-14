@@ -22,72 +22,30 @@ p=Path(sys.argv[2]);p.touch(mode=0o600)
 p.write_text('\n'.join(k+'="'+v.replace('\\','\\\\').replace('"','\\"')+'"' for k,v in settings.items())+'\n')
 PY
 ssh "$TARGET" 'mkdir -p /tmp/fluvio-enquiry-upload && chmod 700 /tmp/fluvio-enquiry-upload'
-scp "$ROOT"/server/enquiry/{package.json,package-lock.json,handler.mjs,server.mjs} "$TEMP_DIR/enquiry.env" "$TARGET:/tmp/fluvio-enquiry-upload/"
+scp "$ROOT"/server/enquiry/server.py "$TEMP_DIR/enquiry.env" "$TARGET:/tmp/fluvio-enquiry-upload/"
 ssh "$TARGET" 'bash -s' <<'REMOTE'
 set -euo pipefail
 sudo mkdir -p /opt/fluvio-enquiry
-sudo cp /tmp/fluvio-enquiry-upload/{package.json,package-lock.json,handler.mjs,server.mjs} /opt/fluvio-enquiry/
+sudo cp /tmp/fluvio-enquiry-upload/server.py /opt/fluvio-enquiry/
 sudo install -m 600 /tmp/fluvio-enquiry-upload/enquiry.env /etc/fluvio-enquiry.env
 rm -rf /tmp/fluvio-enquiry-upload
 cd /opt/fluvio-enquiry
-# sudo drops user PATH (including nvm). Keep an isolated runtime outside /home
-# so DynamicUser + ProtectHome can execute it reliably.
-if ! command -v node >/dev/null || ! command -v npm >/dev/null; then
-  if [ -s "$HOME/.nvm/nvm.sh" ]; then
-    set +u
-    . "$HOME/.nvm/nvm.sh"
-    set -u
-  fi
-fi
-RUNTIME=/opt/fluvio-enquiry-runtime
-if command -v node >/dev/null && command -v npm >/dev/null; then
-  NODE_SOURCE="$(readlink -f "$(command -v node)")"
-  NPM_CLI="$(readlink -f "$(command -v npm)")"
-  NPM_ROOT="$(dirname "$(dirname "$NPM_CLI")")"
-  test -f "$NPM_ROOT/bin/npm-cli.js"
-  sudo mkdir -p "$RUNTIME/bin" "$RUNTIME/lib/node_modules"
-  sudo cp "$NODE_SOURCE" "$RUNTIME/bin/node"
-  sudo cp -R "$NPM_ROOT" "$RUNTIME/lib/node_modules/npm"
-else
-  # Use an isolated, checksum-verified Node release if this host has no runtime.
-  case "$(uname -m)" in
-    x86_64) NODE_ARCH=x64 ;;
-    aarch64|arm64) NODE_ARCH=arm64 ;;
-    *) echo 'Unsupported server architecture'; exit 1 ;;
-  esac
-  NODE_VERSION=v22.22.3
-  NODE_ARCHIVE="node-$NODE_VERSION-linux-$NODE_ARCH.tar.xz"
-  RUNTIME_TMP="$(mktemp -d)"
-  (
-    cd "$RUNTIME_TMP"
-    curl -fsSLO "https://nodejs.org/dist/$NODE_VERSION/$NODE_ARCHIVE"
-    curl -fsSLO "https://nodejs.org/dist/$NODE_VERSION/SHASUMS256.txt"
-    awk -v archive="$NODE_ARCHIVE" '$2 == archive { print }' SHASUMS256.txt > checksum.txt
-    test -s checksum.txt
-    sha256sum -c checksum.txt
-    sudo mkdir -p "$RUNTIME"
-    sudo tar -xJf "$NODE_ARCHIVE" --strip-components=1 -C "$RUNTIME"
-  )
-  rm -rf "$RUNTIME_TMP"
-fi
-NODE_BIN="$RUNTIME/bin/node"
-sudo "$NODE_BIN" -e 'if (+process.versions.node.split(".")[0] < 18) process.exit(1)'
-sudo env PATH="$RUNTIME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" \
-  "$NODE_BIN" "$RUNTIME/lib/node_modules/npm/bin/npm-cli.js" ci --omit=dev --ignore-scripts
+PYTHON_BIN="$(command -v python3)"
+"$PYTHON_BIN" -c 'import sys, ssl, smtplib; assert sys.version_info >= (3, 6), "Python 3.6+ required"'
 sudo tee /etc/systemd/system/fluvio-enquiry.service >/dev/null <<SERVICE
 [Unit]
 Description=Fluvio website enquiries
 After=network-online.target
 [Service]
 Type=simple
-DynamicUser=yes
+User=nobody
 WorkingDirectory=/opt/fluvio-enquiry
 EnvironmentFile=/etc/fluvio-enquiry.env
-ExecStart=$NODE_BIN /opt/fluvio-enquiry/server.mjs
+ExecStart=$PYTHON_BIN /opt/fluvio-enquiry/server.py
 Restart=on-failure
 RestartSec=5
 NoNewPrivileges=yes
-ProtectSystem=strict
+ProtectSystem=full
 ProtectHome=yes
 PrivateTmp=yes
 [Install]
@@ -96,7 +54,7 @@ SERVICE
 sudo systemctl daemon-reload
 sudo systemctl enable fluvio-enquiry
 sudo systemctl restart fluvio-enquiry
-for attempt in $(seq 1 20); do
+for attempt in $(seq 1 40); do
  if curl -fsS http://127.0.0.1:3311/health >/dev/null; then break; fi
  sleep 1
 done
