@@ -121,22 +121,22 @@
         "title": "FluvioPulse",
         "description": "A web-based platform that ingests real-time environmental monitoring data to support analysis, reporting and alerts.",
         "action": "Visit FluvioPulse",
-        "href": "https://data.fluvio.com.au/",
+        "href": "https://pulse.fluvio.com.au/",
         "image": "/src/assets/images/fluvio/platform-cascade.png",
-        "imageAlt": "The FluvioPulse water source monitoring dashboard for Bina Harbour, with live turbidity gauges and camera sites on a satellite map.",
+        "imageAlt": "FluvioPulse source monitoring with anonymous sites and illustrative data",
         "highlights": [
           "Ingests real-time water quality and water level data from remote monitoring stations",
-          "Operational dashboards with alerting, built alongside utilities such as Solomon Water",
+          "Operational dashboards with alerting for water utilities and monitoring networks",
           "Analysis and reporting for catchment and water source investigations"
         ],
         "screens": [
           {
             "image": "/src/assets/images/fluvio/platform-cascade-explorers.jpg",
-            "imageAlt": "FluvioPulse explorers for a monitoring station: turbidity against its alert thresholds, rainfall since 9 am and conductivity over seven days"
+            "imageAlt": "Illustrative turbidity trends for anonymous monitoring sites"
           },
           {
             "image": "/src/assets/images/fluvio/platform-cascade-station.jpg",
-            "imageAlt": "FluvioPulse station details: water temperature, battery voltage gauges, solar radiation and internal temperature over seven days"
+            "imageAlt": "Illustrative battery-voltage trends for anonymous monitoring sites"
           }
         ]
       },
@@ -310,22 +310,22 @@
         "title": "FluvioPulse",
         "description": "Wanfala platform long web wea tekem insaet real-time data from monitoring blong enviromen, fo sapotem analysis, report an alert.",
         "action": "Go long FluvioPulse",
-        "href": "https://data.fluvio.com.au/",
+        "href": "https://pulse.fluvio.com.au/",
         "image": "/src/assets/images/fluvio/platform-cascade.png",
-        "imageAlt": "Dashboard blong FluvioPulse fo monitorim wata sos blong Bina Harbour, wetem olketa live turbidity gauge an camera site long satellite map.",
+        "imageAlt": "FluvioPulse source monitoring wit olketa anonymous site an example data",
         "highlights": [
           "Hemi tekem real-time data blong kwaliti blong wata an wata level from olketa monitoring station wea stap farawe",
-          "Olketa operational dashboard wetem alert, wea olketa bildim tugeta wetem olketa utility olsem Solomon Water",
+          "Operational dashboard wit alert fo wata utility an monitoring network",
           "Analysis an report fo catchment an wata sos investigation"
         ],
         "screens": [
           {
             "image": "/src/assets/images/fluvio/platform-cascade-explorers.jpg",
-            "imageAlt": "Olketa FluvioPulse explorer fo wanfala monitoring station: turbidity wetem olketa alert threshold, ren from 9 klok long moning an conductivity fo sevenfala dei"
+            "imageAlt": "Example turbidity trend fo olketa anonymous monitoring site"
           },
           {
             "image": "/src/assets/images/fluvio/platform-cascade-station.jpg",
-            "imageAlt": "FluvioPulse station details: temperature blong wata, olketa gauge blong battery voltage, sola radiation an insaet temperature fo sevenfala dei"
+            "imageAlt": "Example battery voltage trend fo olketa anonymous monitoring site"
           }
         ]
       },
@@ -499,22 +499,22 @@
         "title": "FluvioPulse",
         "description": "Une plateforme web qui ingère des données de surveillance environnementale en temps réel pour l’analyse, les rapports et les alertes.",
         "action": "Visiter FluvioPulse",
-        "href": "https://data.fluvio.com.au/",
+        "href": "https://pulse.fluvio.com.au/",
         "image": "/src/assets/images/fluvio/platform-cascade.png",
-        "imageAlt": "Le tableau de bord FluvioPulse de surveillance des sources d'eau de Bina Harbour, avec des jauges de turbidité en direct et des sites de caméras sur une carte satellite.",
+        "imageAlt": "Surveillance des sources FluvioPulse avec sites anonymes et données illustratives",
         "highlights": [
           "Ingère en temps réel les données de qualité et de niveau d’eau des stations de mesure isolées",
-          "Tableaux de bord opérationnels avec alertes, construits avec des opérateurs comme Solomon Water",
+          "Tableaux de bord opérationnels avec alertes pour les services d’eau et les réseaux de suivi",
           "Analyse et rapports pour les études de bassins versants et de ressources en eau"
         ],
         "screens": [
           {
             "image": "/src/assets/images/fluvio/platform-cascade-explorers.jpg",
-            "imageAlt": "Les explorateurs FluvioPulse d’une station : turbidité face à ses seuils d’alerte, pluie depuis 9 h et conductivité sur sept jours"
+            "imageAlt": "Tendances illustratives de turbidité pour des sites anonymes"
           },
           {
             "image": "/src/assets/images/fluvio/platform-cascade-station.jpg",
-            "imageAlt": "Détails de station FluvioPulse : température de l’eau, jauges de tension batterie, rayonnement solaire et température interne sur sept jours"
+            "imageAlt": "Tendances illustratives de tension des batteries pour des sites anonymes"
           }
         ]
       },
@@ -688,22 +688,22 @@
         "title": "FluvioPulse",
         "description": "Una plataforma web que ingiere datos de monitoreo ambiental en tiempo real para respaldar análisis, informes y alertas.",
         "action": "Visitar FluvioPulse",
-        "href": "https://data.fluvio.com.au/",
+        "href": "https://pulse.fluvio.com.au/",
         "image": "/src/assets/images/fluvio/platform-cascade.png",
-        "imageAlt": "El panel de monitoreo de fuentes de agua de FluvioPulse para Bina Harbour, con medidores de turbidez en vivo y sitios con cámaras sobre un mapa satelital.",
+        "imageAlt": "Monitoreo de fuentes FluvioPulse con sitios anónimos y datos ilustrativos",
         "highlights": [
           "Ingesta en tiempo real de datos de calidad y nivel del agua desde estaciones de monitoreo remotas",
-          "Paneles operativos con alertas, construidos junto a operadores como Solomon Water",
+          "Paneles operativos con alertas para servicios de agua y redes de monitoreo",
           "Análisis e informes para investigaciones de cuencas y fuentes de agua"
         ],
         "screens": [
           {
             "image": "/src/assets/images/fluvio/platform-cascade-explorers.jpg",
-            "imageAlt": "Los exploradores de FluvioPulse para una estación: turbidez frente a sus umbrales de alerta, lluvia desde las 9 h y conductividad durante siete días"
+            "imageAlt": "Tendencias ilustrativas de turbidez en sitios anónimos"
           },
           {
             "image": "/src/assets/images/fluvio/platform-cascade-station.jpg",
-            "imageAlt": "Detalles de estación en FluvioPulse: temperatura del agua, indicadores de voltaje de batería, radiación solar y temperatura interna durante siete días"
+            "imageAlt": "Tendencias ilustrativas del voltaje de baterías en sitios anónimos"
           }
         ]
       },

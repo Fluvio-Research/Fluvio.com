@@ -270,6 +270,11 @@ const [stageA, stageB] = stages[(index ?? 0) % stages.length];
     background: rgb(var(--fluvio-ink));
   }
 
+  /* Keep dashboard labels and branding inside the screenshot frame. */
+  .fluvio-platform-feature__stage :global(img) {
+    object-fit: contain !important;
+  }
+
   /* A glass sheen across the screen. */
   .fluvio-platform-feature__sheen {
     position: absolute;
