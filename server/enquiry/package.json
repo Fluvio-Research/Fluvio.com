@@ -1,0 +1,8 @@
+{
+  "name": "fluvio-website-enquiry",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "nodemailer": "^8.0.1"
+  }
+}

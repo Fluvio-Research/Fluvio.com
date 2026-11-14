@@ -482,7 +482,9 @@ test('Fluvio recovery and contact routes use explicit destinations', async () =>
   assert.match(services, /Astro\.redirect\(getPermalink\(['"]\/expertise['"]\),\s*301\)/);
   for (const href of ['/', '/expertise', '/projects'])
     assert.match(notFound, new RegExp(`getPermalink\\('${href}'\\)`));
-  assert.match(contact, /mailto:\?subject=/);
+  assert.match(contact, /<EnquiryForm locale=\{locale\}/);
+  const enquiry = await read('src/components/fluvio/EnquiryForm.astro');
+  assert.match(enquiry, /mailto:info@fluvio\.com\.au/);
   assert.equal(getNavigation('en').linkedinUrl, 'https://www.linkedin.com/company/fluvioptyltd/');
   assert.match(contact, /navigation\.linkedinUrl/);
   assert.doesNotMatch(

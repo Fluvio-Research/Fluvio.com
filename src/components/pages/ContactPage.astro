@@ -1,4 +1,5 @@
 ---
+import EnquiryForm from '~/components/fluvio/EnquiryForm.astro';
 import Accent from '~/components/fluvio/Accent.astro';
 import ArrowLink from '~/components/fluvio/ArrowLink.astro';
 import LargeImage from '~/components/fluvio/LargeImage.astro';
@@ -21,8 +22,6 @@ const metadata = {
   title: c.metaTitle,
   description: c.metaDescription,
 };
-
-const mailtoHref = `mailto:?subject=${encodeURIComponent(c.enquirySubject)}&body=${encodeURIComponent(c.enquiryTemplate)}`;
 ---
 
 <Layout metadata={metadata} locale={locale}>
@@ -43,8 +42,7 @@ const mailtoHref = `mailto:?subject=${encodeURIComponent(c.enquirySubject)}&body
       <h2 id="contact-enquiry-heading" class:list={['fluvio-display', REVEAL]}><Accent text={c.enquiryTitle} /></h2>
       <div class:list={['fluvio-contact-body', REVEAL]}>
         <p>{c.enquiryBody}</p>
-        <ArrowLink href={mailtoHref} variant="pill">{c.enquiryAction}</ArrowLink>
-        <p class="fluvio-contact-note">{c.enquiryNote}</p>
+        <EnquiryForm locale={locale} />
       </div>
     </div>
   </SectionFrame>

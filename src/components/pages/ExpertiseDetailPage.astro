@@ -1,4 +1,5 @@
 ---
+import FluxFeature from '~/components/fluvio/FluxFeature.astro';
 import AdjacentNav from '~/components/fluvio/AdjacentNav.astro';
 import Breadcrumbs from '~/components/fluvio/Breadcrumbs.astro';
 import ContactPanel from '~/components/fluvio/ContactPanel.astro';
@@ -164,6 +165,7 @@ const position = c.areaOf
       <ContactPanel locale={locale} eyebrow={c.contactEyebrow} title={c.contactTitle} intro={c.contactIntro} />
     </div>
   </SectionFrame>
+  {area.slug === 'blue-carbon-assessment' && <FluxFeature locale={locale} />}
 </Layout>
 
 <style>

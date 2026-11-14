@@ -82,14 +82,18 @@ The site ships in English (default, at the root), Solomon Islands Pijin (`/pijin
 - Site name, default SEO metadata, Open Graph image and theme: `src/config.yaml`.
 - Per-page titles and descriptions: the `metadata` object passed to `PageLayout` in each file under `src/pages/`.
 
-## Contact endpoint (future work)
+## Contact enquiries
 
-The Contact page (`src/pages/contact.astro` and `src/components/fluvio/ContactPanel.astro`) currently opens a clearly described, unaddressed email draft because the archive contains no verified public business address. To wire up a real endpoint later:
+The contact page submits to `https://data.fluvio.com.au/api/website-enquiry` and offers `info@fluvio.com.au` as an email fallback. Deploy the backend before publishing the frontend:
 
-1. Obtain a verified recipient address or a form-handling endpoint from Fluvio.
-2. Replace the draft action in `ContactPanel.astro` with either a `mailto:` link to the verified address or a `POST` form to the verified endpoint.
-3. Do not add attachment uploads, privacy promises or response-time promises unless Fluvio has confirmed them.
-4. Update the contact assertions in `tests/fluvio-content.test.mjs` to match the new behaviour.
+```bash
+bash scripts/deploy-enquiry.sh
+git push origin main
+```
+
+The deploy script uses the `GrafanaFluvio` SSH alias and reads the existing SIWIS email defaults from `../../SIWIS-Custom-Forms/server.js`. Environment variables `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, and `SUPPORT_TO_EMAIL` override those defaults. Credentials are transferred to a root-only environment file on the server, never bundled in the website. SMTP login is verified on service startup. No test email is sent by deployment.
+
+The isolated service listens on localhost:3311. The script adds only `/api/website-enquiry` to the existing data.fluvio.com.au nginx host, backs up changed nginx files, validates configuration and reloads nginx. It does not redeploy SIWIS or change its data services. Run `node --test server/enquiry/handler.test.mjs` for backend validation tests. Verify a real enquiry manually after deployment.
 
 ## Routes
 

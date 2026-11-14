@@ -1,0 +1,197 @@
+---
+import type { Locale } from '~/i18n';
+export interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const copy = {
+  en: [
+    'Name',
+    'Email',
+    'Organisation (optional)',
+    'Project location (optional)',
+    'Tell us about your project',
+    'Send enquiry',
+    'Sending…',
+    'Thank you. Your enquiry has been sent to Fluvio.',
+    'We could not send your enquiry. Your text is still here. Please try again or email info@fluvio.com.au.',
+    'Your details and message will be emailed to Fluvio so we can respond to your enquiry.',
+    'Prefer email?',
+  ],
+  pijin: [
+    'Nem',
+    'Email',
+    'Organisation (sapos iu laek)',
+    'Ples blong project (sapos iu laek)',
+    'Talem mifala abaot project blong iu',
+    'Sendem enquiry',
+    'Hem sendem…',
+    'Tagio. Enquiry blong iu hem go finis long Fluvio.',
+    'Mifala no savve sendem enquiry. Text blong iu stap yet. Traem moa o email info@fluvio.com.au.',
+    'Details an message blong iu bae go long Fluvio long email fo mifala savve ansarem enquiry blong iu.',
+    'Iu laek email?',
+  ],
+  fr: [
+    'Nom',
+    'E-mail',
+    'Organisation (facultatif)',
+    'Lieu du projet (facultatif)',
+    'Parlez-nous de votre projet',
+    'Envoyer la demande',
+    'Envoi…',
+    'Merci. Votre demande a été envoyée à Fluvio.',
+    'Envoi impossible. Votre texte est conservé. Réessayez ou écrivez à info@fluvio.com.au.',
+    'Vos coordonnées et votre message seront envoyés par e-mail à Fluvio pour répondre à votre demande.',
+    'Vous préférez un e-mail ?',
+  ],
+  es: [
+    'Nombre',
+    'Correo electrónico',
+    'Organización (opcional)',
+    'Ubicación del proyecto (opcional)',
+    'Cuéntenos sobre su proyecto',
+    'Enviar consulta',
+    'Enviando…',
+    'Gracias. Su consulta se ha enviado a Fluvio.',
+    'No se pudo enviar la consulta. Su texto se conserva. Inténtelo de nuevo o escriba a info@fluvio.com.au.',
+    'Sus datos y su mensaje se enviarán por correo a Fluvio para responder a su consulta.',
+    '¿Prefiere el correo?',
+  ],
+}[locale];
+---
+
+<form class="enquiry-form" data-enquiry-form data-sending={copy[6]} data-success={copy[7]} data-error={copy[8]}>
+  <div class="enquiry-fields">
+    <label>{copy[0]}<input name="name" autocomplete="name" maxlength="100" required /></label>
+    <label>{copy[1]}<input name="email" type="email" autocomplete="email" maxlength="254" required /></label>
+    <label>{copy[2]}<input name="organisation" autocomplete="organization" maxlength="150" /></label>
+    <label>{copy[3]}<input name="location" maxlength="200" /></label>
+  </div>
+  <label>{copy[4]}<textarea name="message" rows="6" minlength="10" maxlength="4000" required></textarea></label>
+  <div class="enquiry-trap" aria-hidden="true">
+    <label>Website<input name="website" tabindex="-1" autocomplete="off" /></label>
+  </div>
+  <p class="enquiry-note">{copy[9]}</p>
+  <button type="submit" disabled>{copy[5]}</button>
+  <p class="enquiry-status" role="status" aria-live="polite" tabindex="-1"></p>
+  <p>{copy[10]} <a href="mailto:info@fluvio.com.au">info@fluvio.com.au</a></p>
+  <noscript
+    ><p>Please email <a href="mailto:info@fluvio.com.au">info@fluvio.com.au</a> to send your enquiry.</p></noscript
+  >
+</form>
+<script>
+  function setupEnquiry() {
+    document.querySelectorAll<HTMLFormElement>('[data-enquiry-form]').forEach((form) => {
+      if (form.dataset.ready) return;
+      form.dataset.ready = 'true';
+      const button = form.querySelector<HTMLButtonElement>('button')!;
+      const status = form.querySelector<HTMLParagraphElement>('[role="status"]')!;
+      button.disabled = false;
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        if (button.disabled || !form.reportValidity()) return;
+        const label = button.textContent;
+        button.disabled = true;
+        button.textContent = form.dataset.sending!;
+        status.textContent = '';
+        const controller = new AbortController();
+        const timeout = window.setTimeout(() => controller.abort(), 30000);
+        try {
+          const response = await fetch('https://data.fluvio.com.au/api/website-enquiry', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(Object.fromEntries(new FormData(form))),
+            signal: controller.signal,
+          });
+          const result = await response.json();
+          if (!response.ok || result.success !== true) throw new Error('Send failed');
+          status.textContent = form.dataset.success!;
+          form.reset();
+        } catch {
+          status.textContent = form.dataset.error!;
+        } finally {
+          window.clearTimeout(timeout);
+          button.disabled = false;
+          button.textContent = label;
+          status.focus();
+        }
+      });
+    });
+  }
+  setupEnquiry();
+  document.addEventListener('astro:page-load', setupEnquiry);
+</script>
+<style>
+  .enquiry-form {
+    width: 100%;
+    display: grid;
+    gap: 1.2rem;
+  }
+  .enquiry-fields {
+    display: grid;
+    gap: 1.2rem;
+  }
+  label {
+    display: grid;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  input,
+  textarea {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border: 1px solid rgb(var(--fluvio-ink) / 0.3);
+    border-radius: 10px;
+    background: var(--aw-color-bg-page);
+    color: var(--aw-color-text-default);
+    font: inherit;
+  }
+  textarea {
+    resize: vertical;
+  }
+  input:focus-visible,
+  textarea:focus-visible,
+  button:focus-visible {
+    outline: 3px solid rgb(var(--fluvio-river));
+    outline-offset: 3px;
+  }
+  button {
+    justify-self: start;
+    border-radius: 99px;
+    padding: 1rem 1.7rem;
+    color: white;
+    background: rgb(var(--fluvio-river));
+    font-weight: 600;
+  }
+  button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+  }
+  a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .enquiry-note {
+    font-size: 0.85rem;
+    color: var(--aw-color-text-muted);
+  }
+  .enquiry-status:empty {
+    display: none;
+  }
+  .enquiry-status {
+    line-height: 1.6;
+  }
+  .enquiry-trap {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+  @media (min-width: 600px) {
+    .enquiry-fields {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

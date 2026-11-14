@@ -45,9 +45,14 @@
         "name": "FS-Flux",
         "title": "Make methane measurement routine.",
         "description": "A floating chamber developed for long-term methane measurements in reservoirs, wetlands, canals and settling ponds. Built to make sustained emissions monitoring more practical.",
-        "highlights": ["Direct methane measurements", "Long-term deployment", "Designed for water body assets"],
-        "image": "/src/assets/images/fluvio/project-ghg-methane-chambers.jpg",
-        "imageAlt": "Methane monitoring chambers deployed on a reservoir; field application",
+        "highlights": [
+          "Autonomous measurement over weeks to months",
+          "Measures diffusive and bubbling emissions",
+          "Solar-powered for long deployments",
+          "Optional satellite communications for remote data access"
+        ],
+        "image": "/src/assets/images/fluvio/fs-flux-deployment.jpg",
+        "imageAlt": "FS-Flux floating methane chamber deployed on a pond",
         "href": "/ghg-emissions-reservoirs"
       }
     ],
@@ -138,9 +143,14 @@
         "name": "FS-Flux",
         "title": "Mesarem methane olsem evriday waka.",
         "description": "Wanfala chamber wea flot, fo mesarem methane long olketa reservoir, wetland, canal an settling pond long taem.",
-        "highlights": ["Mesarem methane stret", "Deployment fo longtaem", "Fo olketa ples wea wata stap"],
-        "image": "/src/assets/images/fluvio/project-ghg-methane-chambers.jpg",
-        "imageAlt": "Olketa methane chamber long reservoir; field waka",
+        "highlights": [
+          "Measurem hemseleva fo olketa wik go kasem olketa manis",
+          "Measurem methane wea diffuse an wea kamap long bubble",
+          "Solar power fo longfala deployment",
+          "Satellite communication sapos nidim remote data access"
+        ],
+        "image": "/src/assets/images/fluvio/fs-flux-deployment.jpg",
+        "imageAlt": "FS-Flux methane chamber wea float long pond",
         "href": "/ghg-emissions-reservoirs"
       }
     ],
@@ -235,9 +245,14 @@
         "name": "FS-Flux",
         "title": "Mesurer le méthane au quotidien.",
         "description": "Une chambre flottante conçue pour mesurer le méthane sur la durée dans les réservoirs, zones humides, canaux et bassins de décantation.",
-        "highlights": ["Mesures directes du méthane", "Déploiement de longue durée", "Conçu pour les plans d’eau"],
-        "image": "/src/assets/images/fluvio/project-ghg-methane-chambers.jpg",
-        "imageAlt": "Chambres de mesure du méthane sur un réservoir ; application de terrain",
+        "highlights": [
+          "Mesures autonomes pendant des semaines à des mois",
+          "Mesure des émissions diffuses et par bullage",
+          "Alimentation solaire pour les déploiements prolongés",
+          "Communication satellite en option pour l’accès distant aux données"
+        ],
+        "image": "/src/assets/images/fluvio/fs-flux-deployment.jpg",
+        "imageAlt": "Chambre flottante de mesure du méthane FS-Flux sur un étang",
         "href": "/ghg-emissions-reservoirs"
       }
     ],
@@ -328,9 +343,14 @@
         "name": "FS-Flux",
         "title": "Medir el metano de forma habitual.",
         "description": "Una cámara flotante para medir metano a largo plazo en embalses, humedales, canales y estanques de sedimentación.",
-        "highlights": ["Medición directa del metano", "Despliegue a largo plazo", "Diseñado para cuerpos de agua"],
-        "image": "/src/assets/images/fluvio/project-ghg-methane-chambers.jpg",
-        "imageAlt": "Cámaras de metano en un embalse; aplicación de campo",
+        "highlights": [
+          "Medición autónoma durante semanas o meses",
+          "Mide emisiones difusivas y por burbujeo",
+          "Energía solar para despliegues prolongados",
+          "Comunicaciones por satélite opcionales para acceso remoto a datos"
+        ],
+        "image": "/src/assets/images/fluvio/fs-flux-deployment.jpg",
+        "imageAlt": "Cámara flotante de metano FS-Flux desplegada en un estanque",
         "href": "/ghg-emissions-reservoirs"
       }
     ],

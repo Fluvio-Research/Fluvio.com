@@ -38,3 +38,7 @@ The existing site's six capability groups already encompass the older page's hyd
 ## Validation and environment
 
 The implementation is in an isolated checkout because the original website folder is outside this chat’s writable project. Original working files were preserved. The new site builds without network font requests by bundling the same existing WOFF2 faces. Browser layout verification remains blocked because the local preview server cannot start under this session’s restrictions.
+
+## FS-Flux materials supplied by Simon, 14 November 2026
+
+Downloaded `Linkedin Post.pptx` and `FS_Flux_Brochure.docx` supplied by the user. Product photography extracted from PowerPoint image1/image2, field video from media2 (silent web derivative, 1280px). Brochure retained unchanged as a Word download. Brochure supports weeks-to-months autonomous operation, diffusive and bubbling emissions, solar power and optional satellite communications. No numerical performance claims added.

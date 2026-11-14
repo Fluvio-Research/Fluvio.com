@@ -114,7 +114,7 @@
       "enquiryAction": "Open a project enquiry",
       "enquirySubject": "Project enquiry for Fluvio",
       "enquiryTemplate": "Project location:\n\nEnvironmental system:\n\nDecision or operational need:\n\nProject context:",
-      "enquiryNote": "This opens a draft in your email application. Nothing is submitted through this website, and the archived site does not provide a public direct email address.",
+      "enquiryNote": "Send your project enquiry to Fluvio using the form below, or email info@fluvio.com.au.",
       "socialTitle": "Follow Fluvio",
       "socialBody": "See company updates and current work through the verified Fluvio company page.",
       "socialAction": "Fluvio on LinkedIn"
@@ -294,7 +294,7 @@
       "enquiryAction": "Startim wanfala project enquiry",
       "enquirySubject": "Project enquiry fo Fluvio",
       "enquiryTemplate": "Ples blong project:\n\nEnviromen sistem:\n\nDisison o need blong waka:\n\nStory abaotem project:",
-      "enquiryNote": "Diswan bae openem wanfala draft long email application blong iu. No eni samting hemi go tru long website ia, an site ia no givim aot wanfala public email address.",
+      "enquiryNote": "Sendem project enquiry long Fluvio wetem form daon, o email info@fluvio.com.au.",
       "socialTitle": "Folom Fluvio",
       "socialBody": "Lukim olketa update blong kampani an waka wea gohed distaem, long verified kampani page blong Fluvio.",
       "socialAction": "Fluvio long LinkedIn"
@@ -474,7 +474,7 @@
       "enquiryAction": "Ouvrir une demande de projet",
       "enquirySubject": "Demande de projet pour Fluvio",
       "enquiryTemplate": "Lieu du projet :\n\nSystème environnemental :\n\nDécision ou besoin opérationnel :\n\nContexte du projet :",
-      "enquiryNote": "Ce lien ouvre un brouillon dans votre application de messagerie. Rien n’est transmis par ce site, et le site archivé ne fournit pas d’adresse électronique publique directe.",
+      "enquiryNote": "Envoyez votre demande à Fluvio via le formulaire ci-dessous ou à info@fluvio.com.au.",
       "socialTitle": "Suivre Fluvio",
       "socialBody": "Retrouvez l’actualité de l’entreprise et ses travaux en cours sur la page officielle de Fluvio.",
       "socialAction": "Fluvio sur LinkedIn"
@@ -654,7 +654,7 @@
       "enquiryAction": "Abrir una consulta de proyecto",
       "enquirySubject": "Consulta de proyecto para Fluvio",
       "enquiryTemplate": "Ubicación del proyecto:\n\nSistema ambiental:\n\nDecisión o necesidad operativa:\n\nContexto del proyecto:",
-      "enquiryNote": "Esto abre un borrador en su aplicación de correo. Nada se envía a través de este sitio, y el sitio archivado no proporciona una dirección de correo pública directa.",
+      "enquiryNote": "Envíe su consulta a Fluvio con el formulario o a info@fluvio.com.au.",
       "socialTitle": "Seguir a Fluvio",
       "socialBody": "Vea las novedades de la empresa y el trabajo en curso en la página oficial de Fluvio.",
       "socialAction": "Fluvio en LinkedIn"

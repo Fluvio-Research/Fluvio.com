@@ -4,6 +4,7 @@ import PageHero from '~/components/fluvio/PageHero.astro';
 import SectionFrame from '~/components/fluvio/SectionFrame.astro';
 import LargeImage from '~/components/fluvio/LargeImage.astro';
 import ArrowLink from '~/components/fluvio/ArrowLink.astro';
+import FluxMedia from '~/components/fluvio/FluxMedia.astro';
 import FloodDemo from '~/components/fluvio/FloodDemo.astro';
 import ContactPanel from '~/components/fluvio/ContactPanel.astro';
 import { getCatalog } from '~/data/fluvio/store.ts';
@@ -70,6 +71,7 @@ const items = c[kind];
             </div>
           </div>
         </article>
+        {products && item.slug === 'fs-flux' && <FluxMedia locale={locale} />}
       </SectionFrame>
     ))
   }

@@ -1,0 +1,21 @@
+---
+import SectionFrame from './SectionFrame.astro';
+import FluxMedia from './FluxMedia.astro';
+import ArrowLink from './ArrowLink.astro';
+import { getCatalog } from '~/data/fluvio/store.ts';
+import { localeHref, type Locale } from '~/i18n';
+export interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const c = getCatalog(locale);
+const flux = c.products.find((item) => item.slug === 'fs-flux')!;
+---
+
+<SectionFrame tone="mist" labelledby="related-flux-heading">
+  <p class="fluvio-label">FluvioSense / {c.productsLabel}</p>
+  <h2 id="related-flux-heading" class="fluvio-display">FS-Flux</h2>
+  <p class="fluvio-lede">{flux.description}</p>
+  <ArrowLink href={localeHref('/products#fs-flux', locale)}>{c.productsAction}</ArrowLink>
+  <FluxMedia locale={locale} />
+</SectionFrame>
