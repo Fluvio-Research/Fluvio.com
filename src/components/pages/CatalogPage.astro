@@ -31,9 +31,8 @@ const items = c[kind];
     items={items.map((item, index) => ({
       name: item.name,
       href: `#${item.slug}`,
-      image: products ? item.image : undefined,
+      image: item.image,
       contain: products && index < 2,
-      icon: ['tabler:ripple', 'tabler:alert-triangle', 'tabler:network'][index],
     }))}
   />
   {
