@@ -2,32 +2,13 @@
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 TARGET="${FLUVIO_SSH_HOST:-GrafanaFluvio}"
-SOURCE="${SIWIS_SOURCE:-$ROOT/../../SIWIS-Custom-Forms/server.js}"
-TEMP_DIR="$(mktemp -d)"
-trap 'rm -rf "$TEMP_DIR"' EXIT
-# Read the same email settings as SIWIS without printing or committing secrets.
-python3 - "$SOURCE" "$TEMP_DIR/enquiry.env" <<'PY'
-import os,re,sys
-from pathlib import Path
-source=Path(sys.argv[1]).read_text()
-settings={}
-for key in ['SMTP_HOST','SMTP_PORT','SMTP_USER','SMTP_PASS','SUPPORT_TO_EMAIL']:
- value=os.environ.get(key)
- if not value:
-  match=re.search(r'process\.env\.'+key+r"\s*\|\|\s*'([^']*)'",source)
-  if not match: raise SystemExit('Set '+key+' in your environment before deploying')
-  value=match.group(1)
- settings[key]=value
-p=Path(sys.argv[2]);p.touch(mode=0o600)
-p.write_text('\n'.join(k+'="'+v.replace('\\','\\\\').replace('"','\\"')+'"' for k,v in settings.items())+'\n')
-PY
-ssh "$TARGET" 'mkdir -p /tmp/fluvio-enquiry-upload && chmod 700 /tmp/fluvio-enquiry-upload'
-scp "$ROOT"/server/enquiry/server.py "$TEMP_DIR/enquiry.env" "$TARGET:/tmp/fluvio-enquiry-upload/"
+ssh "$TARGET" 'sudo systemctl stop fluvio-enquiry; mkdir -p /tmp/fluvio-enquiry-upload && chmod 700 /tmp/fluvio-enquiry-upload'
+scp "$ROOT"/server/enquiry/{server.py,import_grafana_smtp.py} "$TARGET:/tmp/fluvio-enquiry-upload/"
 ssh "$TARGET" 'bash -s' <<'REMOTE'
 set -euo pipefail
 sudo mkdir -p /opt/fluvio-enquiry
 sudo cp /tmp/fluvio-enquiry-upload/server.py /opt/fluvio-enquiry/
-sudo install -m 600 /tmp/fluvio-enquiry-upload/enquiry.env /etc/fluvio-enquiry.env
+sudo python3 /tmp/fluvio-enquiry-upload/import_grafana_smtp.py
 rm -rf /tmp/fluvio-enquiry-upload
 cd /opt/fluvio-enquiry
 PYTHON_BIN="$(command -v python3)"
@@ -44,6 +25,7 @@ EnvironmentFile=/etc/fluvio-enquiry.env
 ExecStart=$PYTHON_BIN /opt/fluvio-enquiry/server.py
 Restart=on-failure
 RestartSec=5
+RestartPreventExitStatus=78
 NoNewPrivileges=yes
 ProtectSystem=full
 ProtectHome=yes
@@ -55,10 +37,11 @@ sudo systemctl daemon-reload
 sudo systemctl enable fluvio-enquiry
 sudo systemctl restart fluvio-enquiry
 for attempt in $(seq 1 40); do
- if curl -fsS http://127.0.0.1:3311/health >/dev/null; then break; fi
+ if curl -fsS http://127.0.0.1:3311/health >/dev/null 2>&1; then break; fi
+ if sudo systemctl is-failed --quiet fluvio-enquiry; then break; fi
  sleep 1
 done
-curl -fsS http://127.0.0.1:3311/health >/dev/null || { echo 'SMTP verification or service startup failed. Check sudo journalctl -u fluvio-enquiry'; exit 1; }
+curl -fsS http://127.0.0.1:3311/health >/dev/null || { echo 'Email service did not start; diagnostics:'; sudo journalctl -u fluvio-enquiry -n 8 --no-pager; exit 1; }
 sudo python3 - <<'PY'
 import subprocess,re,time
 from pathlib import Path

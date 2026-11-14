@@ -42,7 +42,8 @@ def connect_smtp():
             client.close()
             raise
     try:
-        client.login(os.environ['SMTP_USER'], os.environ['SMTP_PASS'])
+        if os.environ.get('SMTP_USER'):
+            client.login(os.environ['SMTP_USER'], os.environ['SMTP_PASS'])
     except Exception:
         client.close()
         raise
@@ -50,7 +51,7 @@ def connect_smtp():
 
 def build_message(value):
     message = EmailMessage()
-    message['From'] = os.environ['SMTP_USER']
+    message['From'] = os.environ.get('SMTP_FROM') or os.environ['SMTP_USER']
     message['To'] = os.environ.get('SUPPORT_TO_EMAIL', 'info@fluvio.com.au')
     message['Reply-To'] = value['email']
     message['Subject'] = 'Fluvio website: project enquiry'
@@ -153,5 +154,6 @@ if __name__ == '__main__':
         with connect_smtp() as smtp:
             smtp.noop()
     except Exception as error:
-        raise SystemExit('SMTP verification failed: ' + type(error).__name__)
+        print('SMTP verification failed: ' + type(error).__name__, flush=True)
+        raise SystemExit(78)
     Server(('127.0.0.1', 3311), Handler).serve_forever()
