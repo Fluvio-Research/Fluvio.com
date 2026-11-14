@@ -1,12 +1,15 @@
-import { getNavigation, getSiteContent } from '~/data/fluvio/store.ts';
+import { getCatalog, getNavigation, getSiteContent } from '~/data/fluvio/store.ts';
 import { localeHref, type Locale } from '~/i18n';
 
 export const getHeaderData = (locale: Locale) => {
   const nav = getNavigation(locale);
+  const catalog = getCatalog(locale);
   return {
     links: [
       { text: nav.vision, href: localeHref('/vision', locale) },
       { text: nav.expertise, href: localeHref('/expertise', locale) },
+      { text: catalog.productsLabel, href: localeHref('/products', locale) },
+      { text: catalog.systemsLabel, href: localeHref('/systems', locale) },
       { text: nav.projects, href: localeHref('/projects', locale) },
       { text: nav.team, href: localeHref('/team', locale) },
       { text: nav.contact, href: localeHref('/contact', locale) },
@@ -17,6 +20,7 @@ export const getHeaderData = (locale: Locale) => {
 
 export const getFooterData = (locale: Locale) => {
   const nav = getNavigation(locale);
+  const catalog = getCatalog(locale);
   return {
     description: getSiteContent(locale).summary,
     links: [
@@ -25,6 +29,8 @@ export const getFooterData = (locale: Locale) => {
         links: [
           { text: nav.vision, href: localeHref('/vision', locale) },
           { text: nav.expertise, href: localeHref('/expertise', locale) },
+          { text: catalog.productsLabel, href: localeHref('/products', locale) },
+          { text: catalog.systemsLabel, href: localeHref('/systems', locale) },
           { text: nav.projects, href: localeHref('/projects', locale) },
         ],
       },

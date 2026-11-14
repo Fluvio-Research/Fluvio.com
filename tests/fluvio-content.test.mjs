@@ -8,6 +8,7 @@ import {
   contentLocales,
   getExpertiseAreas,
   getHomepage,
+  getCatalog,
   getNavigation,
   getPages,
   getProjects,
@@ -20,6 +21,7 @@ import { teamMembers } from '../src/data/fluvio/team.ts';
 import { plainText, splitAccent } from '../src/utils/accent.ts';
 
 const expectedSlugs = [
+  'flood-camera-intelligence',
   'advance-queensland',
   'bina',
   'monitoring-honiara',
@@ -142,7 +144,7 @@ const recordRouteFiles = [
 
 test('Fluvio content has complete project, expertise and team records', () => {
   assert.deepEqual(projects.map(({ slug }) => slug).sort(), expectedSlugs.sort());
-  assert.equal(new Set(projects.map(({ slug }) => slug)).size, 11);
+  assert.equal(new Set(projects.map(({ slug }) => slug)).size, 12);
   assert.equal(expertiseAreas.length, 6);
   assert.equal(teamMembers.length, 9);
   for (const item of [...projects, ...expertiseAreas, ...teamMembers]) {
@@ -216,6 +218,7 @@ test('Fluvio project selectors return featured and matching projects', () => {
   assert.deepEqual(featuredProjects.map(({ slug }) => slug).sort(), [
     'advance-queensland',
     'monitoring-honiara',
+    'moreton-bay-sediment-monitoring',
     'tina',
   ]);
   assert.equal(getProjectBySlug('tina')?.title, 'Hydrological monitoring of Tina Hydro');
@@ -318,7 +321,7 @@ test('Fluvio catalogs translate every string for every locale', () => {
 });
 
 test('Fluvio locale routes exist for every page and record type', async () => {
-  const localePages = ['index', 'vision', 'expertise', 'projects', 'team', 'contact'];
+  const localePages = ['index', 'vision', 'expertise', 'projects', 'team', 'contact', 'products', 'systems'];
   await Promise.all(localePages.map((page) => access(new URL(`../src/pages/[lang]/${page}.astro`, import.meta.url))));
   await Promise.all(recordRouteFiles.map((path) => access(new URL(`../${path}`, import.meta.url))));
 
@@ -435,7 +438,7 @@ test('Fluvio hero slider exposes five accessible, localised, motion-aware slides
   for (const image of [
     'home-river.jpg',
     'home-field-river-sensor.jpg',
-    'expertise-siwis-dashboard.jpg',
+    'project-bina-local-knowledge.jpg',
     'home-operations-laptop.jpeg',
     'vision-field-team.jpeg',
   ]) {
@@ -486,4 +489,32 @@ test('Fluvio recovery and contact routes use explicit destinations', async () =>
     contact + getPages('en').contactPage.enquiryNote,
     /within \d+ hours|attachment upload|server submission/i
   );
+});
+
+test('Product and system catalog assets and destinations exist in every locale', async () => {
+  const slugs = new Set(projects.map((p) => '/' + p.slug));
+  expertiseAreas.forEach((a) => slugs.add('/expertise/' + a.slug));
+  for (const locale of contentLocales) {
+    const catalog = getCatalog(locale);
+    assert.deepEqual(
+      catalog.products.map((p) => p.slug),
+      ['fs-spot', 'fs-halo', 'fs-flux']
+    );
+    assert.deepEqual(
+      catalog.systems.map((p) => p.slug),
+      ['flowsense', 'floodsense', 'nodesense']
+    );
+    for (const item of [...catalog.products, ...catalog.systems]) {
+      assert.ok(slugs.has(item.href), item.href);
+      await access(new URL('..' + item.image, import.meta.url));
+    }
+    if (locale !== 'en') assert.notEqual(catalog.demoTitle, getCatalog('en').demoTitle);
+    assert.equal(getHomepage(locale).platforms.cascade.title, 'FluvioPulse');
+  }
+  const home = await read('src/components/pages/HomePage.astro');
+  assert.doesNotMatch(home, /home.platforms.siwis/);
+  const demo = await read('src/components/fluvio/FloodDemo.astro');
+  assert.match(demo, /preload="none"/);
+  assert.match(demo, /controls/);
+  assert.doesNotMatch(demo, /autoplay/);
 });

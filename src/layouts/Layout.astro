@@ -1,7 +1,7 @@
 ---
 import '~/assets/styles/tailwind.css';
 
-import { Font } from 'astro:assets';
+import LocalFonts from '~/components/common/LocalFonts.astro';
 
 import { I18N } from 'astrowind:config';
 
@@ -37,9 +37,7 @@ const langTag = locale ? (langTags[locale as Locale] ?? locale) : language;
   <head>
     <CommonMeta />
     <Favicons />
-    <Font cssVariable="--font-inter" preload />
-    <Font cssVariable="--font-bricolage" preload />
-    <Font cssVariable="--font-instrument-serif" preload />
+    <LocalFonts />
     <CustomStyles />
     <ApplyColorMode />
     <Metadata {...metadata} />

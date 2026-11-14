@@ -1,0 +1,82 @@
+---
+import Accent from './Accent.astro';
+import ArrowLink from './ArrowLink.astro';
+import { getCatalog } from '~/data/fluvio/store.ts';
+import { localeHref, type Locale } from '~/i18n';
+import { findVideo, findImage } from '~/utils/images';
+export interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const c = getCatalog(locale);
+const poster = await findImage('/src/assets/images/fluvio/floodsense-linkedin-poster.jpg');
+const posterUrl = poster && typeof poster === 'object' && 'src' in poster ? poster.src : undefined;
+const video = findVideo('/src/assets/images/fluvio/floodsense-linkedin.mp4');
+---
+
+<div class="flood-demo">
+  <div class="flood-demo__copy">
+    <p class="fluvio-eyebrow">FluvioSense / FloodSense</p>
+    <h2 class="fluvio-display"><Accent text={c.demoTitle} /></h2>
+    <p class="fluvio-lede">{c.demoDescription}</p>
+    <ArrowLink href={localeHref('/systems#floodsense', locale)}>{c.systemsAction}</ArrowLink>
+  </div>
+  <figure class="flood-demo__media">
+    <video src={video} poster={posterUrl} controls playsinline preload="none" aria-label={c.videoLabel}></video>
+    <figcaption>
+      <span>{c.videoLabel}</span><a
+        href="https://www.linkedin.com/feed/update/urn:li:activity:7521391511112953856/"
+        target="_blank"
+        rel="noopener noreferrer">{c.sourceLabel}</a
+      >
+    </figcaption>
+  </figure>
+</div>
+<style>
+  .flood-demo {
+    display: grid;
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: center;
+  }
+  .flood-demo__copy h2 {
+    max-width: 14ch;
+    font-size: clamp(2.4rem, 4.8vw, 4.8rem);
+    line-height: 1.05;
+    margin: 1.5rem 0;
+  }
+  .flood-demo__copy .fluvio-lede {
+    font-size: 1.05rem;
+    max-width: 42ch;
+    margin-bottom: 2rem;
+  }
+  .flood-demo__media {
+    margin: 0;
+  }
+  video {
+    width: 100%;
+    aspect-ratio: 736/720;
+    display: block;
+    background: #071f2a;
+    border: 1px solid rgb(255 255 255 / 0.15);
+    border-radius: 18px;
+    box-shadow: 0 24px 70px rgb(0 0 0 / 0.2);
+  }
+  figcaption {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.7rem;
+    padding: 1rem 0.2rem 0;
+    font-size: 0.7rem;
+    opacity: 0.8;
+  }
+  figcaption a {
+    text-decoration: underline;
+    text-underline-offset: 0.25rem;
+  }
+  @media (min-width: 900px) {
+    .flood-demo {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

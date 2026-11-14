@@ -16,7 +16,7 @@
     "image": "/src/assets/images/fluvio/expertise-velocity-map-poster.jpg",
     "imageAlt": "Surface velocity across a flooded river resolved by computer vision, drawn as a colour field from blue for slow water to red for the fastest flow",
     "video": "/src/assets/images/fluvio/expertise-velocity-map.mp4",
-    "relatedProjects": ["tina", "bina", "advance-queensland", "laidley-creek-flood"]
+    "relatedProjects": ["tina", "bina", "advance-queensland", "laidley-creek-flood", "flood-camera-intelligence"]
   },
   "pijin": {
     "order": 1,
@@ -35,7 +35,7 @@
     "image": "/src/assets/images/fluvio/expertise-velocity-map-poster.jpg",
     "imageAlt": "Spid blong wata antap long wanfala reva wea flood, wea computer vision hemi mesarem, an soim olsem wanfala kala field: blue fo slou wata an red fo wata wea ran kwiktaem",
     "video": "/src/assets/images/fluvio/expertise-velocity-map.mp4",
-    "relatedProjects": ["tina", "bina", "advance-queensland", "laidley-creek-flood"]
+    "relatedProjects": ["tina", "bina", "advance-queensland", "laidley-creek-flood", "flood-camera-intelligence"]
   },
   "fr": {
     "order": 1,
@@ -54,7 +54,7 @@
     "image": "/src/assets/images/fluvio/expertise-velocity-map-poster.jpg",
     "imageAlt": "La vitesse de surface d’une rivière en crue, restituée par vision par ordinateur sous forme de champ coloré, du bleu pour les eaux lentes au rouge pour l’écoulement le plus rapide",
     "video": "/src/assets/images/fluvio/expertise-velocity-map.mp4",
-    "relatedProjects": ["tina", "bina", "advance-queensland", "laidley-creek-flood"]
+    "relatedProjects": ["tina", "bina", "advance-queensland", "laidley-creek-flood", "flood-camera-intelligence"]
   },
   "es": {
     "order": 1,
@@ -73,6 +73,6 @@
     "image": "/src/assets/images/fluvio/expertise-velocity-map-poster.jpg",
     "imageAlt": "La velocidad superficial de un río en crecida, resuelta por visión artificial y dibujada como un campo de color, del azul para el agua lenta al rojo para el flujo más rápido",
     "video": "/src/assets/images/fluvio/expertise-velocity-map.mp4",
-    "relatedProjects": ["tina", "bina", "advance-queensland", "laidley-creek-flood"]
+    "relatedProjects": ["tina", "bina", "advance-queensland", "laidley-creek-flood", "flood-camera-intelligence"]
   }
 }

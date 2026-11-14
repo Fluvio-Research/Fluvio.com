@@ -1,4 +1,5 @@
 ---
+import TechnologyShowcase from '~/components/fluvio/TechnologyShowcase.astro';
 import ArrowIcon from '~/components/fluvio/ArrowIcon.astro';
 import ArrowLink from '~/components/fluvio/ArrowLink.astro';
 import Accent from '~/components/fluvio/Accent.astro';
@@ -47,7 +48,7 @@ const leadership = team.slice(0, 3);
 const [leadProject, ...moreFeatured] = getFeaturedProjects(locale);
 const disciplines = getDisciplines(locale);
 const locations = getLocations(locale);
-const platforms = [home.platforms.sense, home.platforms.cascade, home.platforms.reef, home.platforms.siwis];
+const platforms = [home.platforms.sense, home.platforms.cascade, home.platforms.reef];
 
 /* Counts come from the content store, so they stay honest as records are added. */
 const glance = [
@@ -60,6 +61,7 @@ const glance = [
 
 <Layout metadata={metadata} locale={locale}>
   <HeroSlider locale={locale} />
+  <TechnologyShowcase locale={locale} />
 
   {/* 1. Platforms lead: the live systems Fluvio builds and runs. */}
   <SectionFrame tone="water" rule="ink" motif="grid" labelledby="home-platforms-heading" class="fluvio-home-platforms">

@@ -1,6 +1,7 @@
 ---
 import AdjacentNav from '~/components/fluvio/AdjacentNav.astro';
 import Breadcrumbs from '~/components/fluvio/Breadcrumbs.astro';
+import FloodDemo from '~/components/fluvio/FloodDemo.astro';
 import ContactPanel from '~/components/fluvio/ContactPanel.astro';
 import ExpertiseCard from '~/components/fluvio/ExpertiseCard.astro';
 import LargeImage from '~/components/fluvio/LargeImage.astro';
@@ -96,6 +97,13 @@ const position = `${String(adjacent.index + 1).padStart(2, '0')} / ${String(adja
         </div>
       </div>
     </header>
+    {
+      project.slug === 'flood-camera-intelligence' && (
+        <SectionFrame tone="navy">
+          <FloodDemo locale={locale} />
+        </SectionFrame>
+      )
+    }
 
     <div class="fluvio-shell fluvio-project-facts" aria-label={c.factsLabel}>
       <ProjectMeta project={project} locale={locale} />

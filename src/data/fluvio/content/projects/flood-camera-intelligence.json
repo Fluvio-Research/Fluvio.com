@@ -1,0 +1,86 @@
+{
+  "en": {
+    "order": 12,
+    "slug": "flood-camera-intelligence",
+    "title": "Flood camera intelligence",
+    "summary": "Getting more information from existing flood cameras.",
+    "location": "Queensland, Australia",
+    "disciplines": ["Flood monitoring", "Computer vision"],
+    "heroImage": "/src/assets/images/fluvio/floodsense-panorama.jpg",
+    "heroAlt": "FloodSense segmentation of floodwater and a road at Panorama Creek",
+    "challenge": [
+      "Flood cameras provide valuable imagery, but changing road conditions can be difficult to interpret across a monitoring network."
+    ],
+    "approach": [
+      "Fluvio extended its computer vision work into FloodSense, identifying road inundation, vehicles in floodwater, people and debris. Imagery is brought together with water-level data in a shared dashboard."
+    ],
+    "outcome": [
+      "The demonstration shows how existing camera feeds can support flood preparedness, response and recovery. Fluvio welcomes councils interested in exploring the approach."
+    ],
+    "featured": false,
+    "relatedProjects": ["laidley-creek-flood", "advance-queensland"]
+  },
+  "pijin": {
+    "order": 12,
+    "slug": "flood-camera-intelligence",
+    "title": "Intelligence from olketa flood camera",
+    "summary": "Kasem moa infomeson from olketa flood camera wea stap finis.",
+    "location": "Queensland, Australia",
+    "disciplines": ["Flood monitoring", "Computer vision"],
+    "heroImage": "/src/assets/images/fluvio/floodsense-panorama.jpg",
+    "heroAlt": "FloodSense segmentation blong floodwata an road long Panorama Creek",
+    "challenge": [
+      "Olketa flood camera givim gud piksa, bat taem road condition change hemi had fo luksave long full network."
+    ],
+    "approach": [
+      "Fluvio developim FloodSense fo luksave long road wea wata kavarem, trak long floodwata, pipol an debris. Dashboard joinim piksa wetem wata-level data."
+    ],
+    "outcome": [
+      "Demonstration ia soim hao olketa camera wea stap finis savve helpem flood preparedness, response an recovery. Fluvio welkam olketa council wea laek explorem sistem."
+    ],
+    "featured": false,
+    "relatedProjects": ["laidley-creek-flood", "advance-queensland"]
+  },
+  "fr": {
+    "order": 12,
+    "slug": "flood-camera-intelligence",
+    "title": "Intelligence des caméras de crue",
+    "summary": "Tirer davantage des caméras de crue existantes.",
+    "location": "Queensland, Australie",
+    "disciplines": ["Suivi des crues", "Vision par ordinateur"],
+    "heroImage": "/src/assets/images/fluvio/floodsense-panorama.jpg",
+    "heroAlt": "Segmentation FloodSense de l’eau et de la route à Panorama Creek",
+    "challenge": [
+      "Les caméras fournissent des images utiles, mais il peut être difficile de suivre les changements des routes sur tout un réseau."
+    ],
+    "approach": [
+      "Fluvio a développé FloodSense pour identifier routes inondées, véhicules dans l’eau, personnes et débris. Un tableau de bord associe les images aux niveaux d’eau."
+    ],
+    "outcome": [
+      "La démonstration illustre l’apport des caméras à la préparation, à la réponse et au rétablissement après une crue. Fluvio invite les collectivités à explorer cette approche."
+    ],
+    "featured": false,
+    "relatedProjects": ["laidley-creek-flood", "advance-queensland"]
+  },
+  "es": {
+    "order": 12,
+    "slug": "flood-camera-intelligence",
+    "title": "Inteligencia de cámaras de inundación",
+    "summary": "Obtener más información de las cámaras existentes.",
+    "location": "Queensland, Australia",
+    "disciplines": ["Monitoreo de inundaciones", "Visión artificial"],
+    "heroImage": "/src/assets/images/fluvio/floodsense-panorama.jpg",
+    "heroAlt": "Segmentación FloodSense del agua y la carretera en Panorama Creek",
+    "challenge": [
+      "Las cámaras ofrecen imágenes valiosas, pero interpretar cambios de carreteras en una red puede resultar difícil."
+    ],
+    "approach": [
+      "Fluvio desarrolló FloodSense para identificar carreteras anegadas, vehículos en el agua, personas y escombros. Un panel combina imágenes y niveles de agua."
+    ],
+    "outcome": [
+      "La demostración muestra cómo las cámaras existentes pueden apoyar la preparación, respuesta y recuperación. Fluvio invita a los municipios a explorar este enfoque."
+    ],
+    "featured": false,
+    "relatedProjects": ["laidley-creek-flood", "advance-queensland"]
+  }
+}

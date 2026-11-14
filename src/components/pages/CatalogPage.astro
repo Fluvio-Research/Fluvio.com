@@ -1,0 +1,167 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import PageHero from '~/components/fluvio/PageHero.astro';
+import SectionFrame from '~/components/fluvio/SectionFrame.astro';
+import LargeImage from '~/components/fluvio/LargeImage.astro';
+import ArrowLink from '~/components/fluvio/ArrowLink.astro';
+import FloodDemo from '~/components/fluvio/FloodDemo.astro';
+import ContactPanel from '~/components/fluvio/ContactPanel.astro';
+import { getCatalog } from '~/data/fluvio/store.ts';
+import { localeHref, type Locale } from '~/i18n';
+export interface Props {
+  locale: Locale;
+  kind: 'products' | 'systems';
+}
+const { locale, kind } = Astro.props;
+const c = getCatalog(locale);
+const products = kind === 'products';
+const title = products ? c.productsTitle : c.systemsTitle;
+const intro = products ? c.productsIntro : c.systemsIntro;
+const label = products ? c.productsLabel : c.systemsLabel;
+const items = c[kind];
+---
+
+<Layout locale={locale} metadata={{ title: label, description: intro }}>
+  <PageHero locale={locale} eyebrow={`FluvioSense / ${label}`} title={title} lede={intro}>
+    <nav slot="actions" class="catalog-jump" aria-label={label}>
+      {items.map((item) => <a href={`#${item.slug}`}>{item.name}</a>)}
+    </nav>
+    <div slot="aside" class="catalog-cover">
+      <LargeImage
+        src={products
+          ? '/src/assets/images/fluvio/fs-halo-deployment.jpg'
+          : '/src/assets/images/fluvio/platform-sense-layers.jpg'}
+        alt={products ? c.products[1].imageAlt : c.systems[0].imageAlt}
+        aspect={products ? 'portrait' : 'landscape'}
+        priority
+      />
+    </div>
+  </PageHero>
+  {
+    items.map((item, index) => (
+      <SectionFrame tone={index === 1 ? 'water' : 'paper'} rule="ink" labelledby={`${item.slug}-heading`}>
+        <article id={item.slug} class:list={['catalog-feature', { 'catalog-feature--reverse': index % 2 === 1 }]}>
+          <div class:list={['catalog-feature__media', { 'catalog-feature__media--device': products && index < 2 }]}>
+            <LargeImage
+              src={item.image}
+              alt={item.imageAlt}
+              aspect="landscape"
+              radius="lg"
+              sizes="(min-width:900px) 50vw, 95vw"
+            />
+          </div>
+          <div class="catalog-feature__copy">
+            <p class="fluvio-label">
+              0{index + 1} / {label}
+            </p>
+            <h2 id={`${item.slug}-heading`}>{item.name}</h2>
+            <>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </>
+            <ul>
+              {item.highlights.map((highlight) => (
+                <li>{highlight}</li>
+              ))}
+            </ul>
+            <div class="catalog-actions">
+              <ArrowLink href={localeHref('/contact', locale)}>{c.contactLabel}</ArrowLink>
+              <ArrowLink href={localeHref(item.href, locale)}>{c.fieldAction}</ArrowLink>
+            </div>
+          </div>
+        </article>
+      </SectionFrame>
+    ))
+  }
+  {
+    !products && (
+      <SectionFrame tone="navy">
+        <FloodDemo locale={locale} />
+      </SectionFrame>
+    )
+  }
+  <SectionFrame tone="mist"
+    ><ArrowLink href={localeHref(products ? '/systems' : '/products', locale)}
+      >{products ? c.systemsAction : c.productsAction}</ArrowLink
+    ></SectionFrame
+  >
+  <SectionFrame tone="warm"><ContactPanel locale={locale} /></SectionFrame>
+</Layout>
+<style>
+  .catalog-jump {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+  .catalog-jump a {
+    padding: 0.7rem 1.1rem;
+    border: 1px solid rgb(var(--fluvio-ink) / 0.25);
+    border-radius: 99px;
+    font-size: 0.85rem;
+  }
+  .catalog-jump a:hover,
+  .catalog-jump a:focus-visible {
+    background: rgb(var(--fluvio-river));
+    color: white;
+  }
+  .catalog-cover {
+    border-radius: 24px;
+    overflow: hidden;
+  }
+  .catalog-feature__media--device {
+    background: linear-gradient(145deg, #e7eeeb, #b5cdc7);
+    border-radius: 24px;
+  }
+  .catalog-feature__media--device :global(img) {
+    object-fit: contain;
+    padding: 2rem;
+  }
+  .catalog-feature {
+    display: grid;
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: center;
+    scroll-margin-top: 7rem;
+  }
+  .catalog-feature__copy h2 {
+    font-family: var(--aw-font-heading);
+    font-size: clamp(3rem, 5vw, 5rem);
+    letter-spacing: -0.05em;
+    line-height: 1;
+    margin: 1rem 0;
+  }
+  .catalog-feature__copy h3 {
+    font-family: var(--aw-font-heading);
+    font-size: 1.4rem;
+    line-height: 1.25;
+    margin: 1.5rem 0 1rem;
+  }
+  .catalog-feature__copy p:not(.fluvio-label) {
+    color: var(--aw-color-text-muted);
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 1.75rem 0;
+  }
+  li {
+    border-top: 1px solid rgb(var(--fluvio-ink) / 0.15);
+    padding: 0.8rem 0;
+    font-size: 0.9rem;
+  }
+  .catalog-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+  }
+  @media (min-width: 900px) {
+    .catalog-feature {
+      grid-template-columns: 1.1fr 1fr;
+    }
+    .catalog-feature--reverse .catalog-feature__media {
+      order: 2;
+    }
+  }
+</style>

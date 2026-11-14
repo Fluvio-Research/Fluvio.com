@@ -1,0 +1,374 @@
+{
+  "en": {
+    "productsLabel": "Products",
+    "systemsLabel": "Systems",
+    "productsTitle": "Built for the *real world*.",
+    "systemsTitle": "One platform. A clearer view of *your water systems*.",
+    "productsIntro": "Autonomous instruments developed by Fluvio, informed by fieldwork across Australia and Melanesia.",
+    "systemsIntro": "FlowSense, FloodSense and NodeSense bring field observations into FluvioSense for analysis and operational decisions.",
+    "contactLabel": "Discuss your monitoring needs",
+    "systemsAction": "Explore systems",
+    "productsAction": "Explore products",
+    "fieldAction": "See it in the field",
+    "videoLabel": "Watch the FloodSense demonstration",
+    "demoTitle": "A camera can show you water. *FloodSense helps you understand it*.",
+    "demoDescription": "Computer vision identifies floodwater, inundated roads, vehicles, people and debris. The same dashboard brings imagery together with water-level data.",
+    "sourceLabel": "Source: Fluvio on LinkedIn",
+    "selectLabel": "Select a system",
+    "products": [
+      {
+        "slug": "fs-spot",
+        "name": "FS-Spot",
+        "title": "Small footprint. Continuous insight.",
+        "description": "A compact optical gauging system for creeks and narrow waterways. Portable or fixed deployments measure surface velocity and discharge without placing instruments in the flow.",
+        "highlights": [
+          "Compact, 0.5 kg instrument",
+          "Surface velocity and discharge",
+          "Cellular or Ethernet; satellite option"
+        ],
+        "image": "/src/assets/images/fluvio/fs-spot.png",
+        "imageAlt": "FS-Spot camera mounted on a tripod",
+        "href": "/bina"
+      },
+      {
+        "slug": "fs-halo",
+        "name": "FS-Halo",
+        "title": "A wider view of changing rivers.",
+        "description": "Long-range optical monitoring for large rivers and wide channels. Automatic water detection adjusts camera tilt and zoom as conditions change, with enhanced night-time performance.",
+        "highlights": ["32× optical zoom", "Monitoring at distances up to 500 m", "Automatic water detection"],
+        "image": "/src/assets/images/fluvio/fs-halo.png",
+        "imageAlt": "FS-Halo multi-camera optical monitoring instrument",
+        "href": "/tina"
+      },
+      {
+        "slug": "fs-flux",
+        "name": "FS-Flux",
+        "title": "Make methane measurement routine.",
+        "description": "A floating chamber developed for long-term methane measurements in reservoirs, wetlands, canals and settling ponds. Built to make sustained emissions monitoring more practical.",
+        "highlights": ["Direct methane measurements", "Long-term deployment", "Designed for water body assets"],
+        "image": "/src/assets/images/fluvio/project-ghg-methane-chambers.jpg",
+        "imageAlt": "Methane monitoring chambers deployed on a reservoir; field application",
+        "href": "/ghg-emissions-reservoirs"
+      }
+    ],
+    "systems": [
+      {
+        "slug": "flowsense",
+        "name": "FlowSense",
+        "title": "Understand how your river flows.",
+        "description": "Explore discharge, water level and velocity alongside rating curves, cross-sections and camera records. Optical observations build a clearer picture of changing river conditions.",
+        "highlights": [
+          "Discharge and velocity time series",
+          "Rating curves and cross-sections",
+          "Camera footage and site history"
+        ],
+        "image": "/src/assets/images/fluvio/platform-sense-map.jpg",
+        "imageAlt": "FlowSense site map and stream monitoring dashboard",
+        "href": "/expertise/hydrological-monitoring"
+      },
+      {
+        "slug": "floodsense",
+        "name": "FloodSense",
+        "title": "See the risk as conditions change.",
+        "description": "Analyse existing flood cameras in near real time to identify road inundation, vehicles in floodwater and people in water. Combine imagery with water levels to inform response and recovery.",
+        "highlights": [
+          "Road and floodwater segmentation",
+          "Detection of people, vehicles and debris",
+          "Water-level context and alerts"
+        ],
+        "image": "/src/assets/images/fluvio/floodsense-panorama.jpg",
+        "imageAlt": "FloodSense segmentation of floodwater and a road at Panorama Creek",
+        "href": "/flood-camera-intelligence"
+      },
+      {
+        "slug": "nodesense",
+        "name": "NodeSense",
+        "title": "Keep your monitoring network connected.",
+        "description": "Bring water-quality nodes and monitoring stations into the shared FluvioSense environment. Explore observations with site status, device telemetry and data export.",
+        "highlights": [
+          "Water-quality monitoring nodes",
+          "Battery, solar and connectivity status",
+          "Shared site management and data export"
+        ],
+        "image": "/src/assets/images/fluvio/platform-sense.jpeg",
+        "imageAlt": "FluvioSense overview showing connected monitoring sites",
+        "href": "/expertise/operational-monitoring"
+      }
+    ]
+  },
+  "pijin": {
+    "productsLabel": "Olketa prodak",
+    "systemsLabel": "Olketa sistem",
+    "productsTitle": "Mifala buildim fo *real waka*.",
+    "systemsTitle": "Wan platform. Luksave moa klia long *olketa wata sistem*.",
+    "productsIntro": "Olketa instrument wea Fluvio developim from field waka long Australia an Melanesia.",
+    "systemsIntro": "FlowSense, FloodSense an NodeSense joinim data long field insaet FluvioSense fo analysis an olketa disison.",
+    "contactLabel": "Tok wetem mifala abaot monitoring",
+    "systemsAction": "Lukim olketa sistem",
+    "productsAction": "Lukim olketa prodak",
+    "fieldAction": "Lukim long field",
+    "videoLabel": "Wajem FloodSense demonstration",
+    "demoTitle": "Camera hemi soim wata. *FloodSense helpem iu minim*.",
+    "demoDescription": "Computer vision luksave long floodwata, road wea wata kavarem, olketa trak, pipol an debris. Dashboard joinim olketa piksa wetem data blong wata level.",
+    "sourceLabel": "Source: Fluvio long LinkedIn",
+    "selectLabel": "Chusim wanfala sistem",
+    "products": [
+      {
+        "slug": "fs-spot",
+        "name": "FS-Spot",
+        "title": "Smol instrument. Data oltaem.",
+        "description": "Kompak optical gauging sistem fo olketa krik an smol watawei. Iu savve muvarem o putim long wanfala ples fo mesarem spid an flow blong wata.",
+        "highlights": ["Kompak instrument, 0.5 kg", "Spid an flow blong wata", "Cellular o Ethernet; satellite option"],
+        "image": "/src/assets/images/fluvio/fs-spot.png",
+        "imageAlt": "FS-Spot camera long tripod",
+        "href": "/bina"
+      },
+      {
+        "slug": "fs-halo",
+        "name": "FS-Halo",
+        "title": "Lukim moa long olketa big reva.",
+        "description": "Optical monitoring fo olketa big reva. Sistem luksave long wata an changem tilt an zoom blong camera taem wata hemi change, wetem moa gud performance long naet.",
+        "highlights": ["32× optical zoom", "Monitoring kasem 500 m", "Luksave long wata otomatik"],
+        "image": "/src/assets/images/fluvio/fs-halo.png",
+        "imageAlt": "FS-Halo optical monitoring instrument",
+        "href": "/tina"
+      },
+      {
+        "slug": "fs-flux",
+        "name": "FS-Flux",
+        "title": "Mesarem methane olsem evriday waka.",
+        "description": "Wanfala chamber wea flot, fo mesarem methane long olketa reservoir, wetland, canal an settling pond long taem.",
+        "highlights": ["Mesarem methane stret", "Deployment fo longtaem", "Fo olketa ples wea wata stap"],
+        "image": "/src/assets/images/fluvio/project-ghg-methane-chambers.jpg",
+        "imageAlt": "Olketa methane chamber long reservoir; field waka",
+        "href": "/ghg-emissions-reservoirs"
+      }
+    ],
+    "systems": [
+      {
+        "slug": "flowsense",
+        "name": "FlowSense",
+        "title": "Minim hao reva hemi ran.",
+        "description": "Lukim flow, wata level an spid wetem rating curve, cross-section an olketa camera record.",
+        "highlights": [
+          "Taem series blong flow an spid",
+          "Rating curve an cross-section",
+          "Camera video an histori blong site"
+        ],
+        "image": "/src/assets/images/fluvio/platform-sense-map.jpg",
+        "imageAlt": "FlowSense map an stream dashboard",
+        "href": "/expertise/hydrological-monitoring"
+      },
+      {
+        "slug": "floodsense",
+        "name": "FloodSense",
+        "title": "Luksave long risk taem wata change.",
+        "description": "Analysim olketa flood camera klosap long real time fo luksave long road wea wata kavarem, trak insaet floodwata an pipol long wata.",
+        "highlights": [
+          "Segmentation blong road an floodwata",
+          "Luksave long pipol, trak an debris",
+          "Data blong wata level an alert"
+        ],
+        "image": "/src/assets/images/fluvio/floodsense-panorama.jpg",
+        "imageAlt": "FloodSense segmentation blong floodwata an road long Panorama Creek",
+        "href": "/flood-camera-intelligence"
+      },
+      {
+        "slug": "nodesense",
+        "name": "NodeSense",
+        "title": "Joinim olketa monitoring station.",
+        "description": "Bringim olketa water-quality node an monitoring station insaet FluvioSense. Lukim data wetem site status an device telemetry.",
+        "highlights": [
+          "Olketa node fo kwaliti blong wata",
+          "Battery, solar an connection status",
+          "Site management an data export"
+        ],
+        "image": "/src/assets/images/fluvio/platform-sense.jpeg",
+        "imageAlt": "FluvioSense overview blong olketa monitoring site",
+        "href": "/expertise/operational-monitoring"
+      }
+    ]
+  },
+  "fr": {
+    "productsLabel": "Produits",
+    "systemsLabel": "Systèmes",
+    "productsTitle": "Conçus pour *le terrain*.",
+    "systemsTitle": "Une plateforme. Une vision plus claire de *vos systèmes aquatiques*.",
+    "productsIntro": "Des instruments autonomes développés par Fluvio, nourris par le travail de terrain en Australie et en Mélanésie.",
+    "systemsIntro": "FlowSense, FloodSense et NodeSense rassemblent les observations de terrain dans FluvioSense pour l’analyse et les décisions opérationnelles.",
+    "contactLabel": "Parlons de vos besoins de suivi",
+    "systemsAction": "Explorer les systèmes",
+    "productsAction": "Explorer les produits",
+    "fieldAction": "Voir sur le terrain",
+    "videoLabel": "Voir la démonstration FloodSense",
+    "demoTitle": "Une caméra montre l’eau. *FloodSense aide à la comprendre*.",
+    "demoDescription": "La vision par ordinateur repère les eaux de crue, routes inondées, véhicules, personnes et débris. Le tableau de bord associe les images aux données de niveau d’eau.",
+    "sourceLabel": "Source : Fluvio sur LinkedIn",
+    "selectLabel": "Choisir un système",
+    "products": [
+      {
+        "slug": "fs-spot",
+        "name": "FS-Spot",
+        "title": "Format compact. Suivi continu.",
+        "description": "Un système de jaugeage optique compact pour les ruisseaux et cours d’eau étroits. Portable ou fixe, il mesure la vitesse de surface et le débit sans instrument dans l’écoulement.",
+        "highlights": [
+          "Instrument compact de 0,5 kg",
+          "Vitesse de surface et débit",
+          "Cellulaire ou Ethernet ; option satellite"
+        ],
+        "image": "/src/assets/images/fluvio/fs-spot.png",
+        "imageAlt": "Caméra FS-Spot montée sur un trépied",
+        "href": "/bina"
+      },
+      {
+        "slug": "fs-halo",
+        "name": "FS-Halo",
+        "title": "Une vue élargie des rivières.",
+        "description": "Le suivi optique à longue portée des grandes rivières. La détection automatique de l’eau ajuste l’inclinaison et le zoom, avec des performances nocturnes améliorées.",
+        "highlights": ["Zoom optique 32×", "Suivi jusqu’à 500 m", "Détection automatique de l’eau"],
+        "image": "/src/assets/images/fluvio/fs-halo.png",
+        "imageAlt": "Instrument de suivi optique mult caméra FS-Halo",
+        "href": "/tina"
+      },
+      {
+        "slug": "fs-flux",
+        "name": "FS-Flux",
+        "title": "Mesurer le méthane au quotidien.",
+        "description": "Une chambre flottante conçue pour mesurer le méthane sur la durée dans les réservoirs, zones humides, canaux et bassins de décantation.",
+        "highlights": ["Mesures directes du méthane", "Déploiement de longue durée", "Conçu pour les plans d’eau"],
+        "image": "/src/assets/images/fluvio/project-ghg-methane-chambers.jpg",
+        "imageAlt": "Chambres de mesure du méthane sur un réservoir ; application de terrain",
+        "href": "/ghg-emissions-reservoirs"
+      }
+    ],
+    "systems": [
+      {
+        "slug": "flowsense",
+        "name": "FlowSense",
+        "title": "Comprendre l’écoulement de votre rivière.",
+        "description": "Explorez débit, niveau et vitesse avec les courbes de tarage, profils en travers et archives vidéo pour mieux comprendre les variations de la rivière.",
+        "highlights": ["Séries de débit et de vitesse", "Courbes de tarage et profils", "Images et historique du site"],
+        "image": "/src/assets/images/fluvio/platform-sense-map.jpg",
+        "imageAlt": "Carte des sites et tableau de bord FlowSense",
+        "href": "/expertise/hydrological-monitoring"
+      },
+      {
+        "slug": "floodsense",
+        "name": "FloodSense",
+        "title": "Voir le risque évoluer.",
+        "description": "Analysez les caméras de crue en quasi-temps réel pour repérer routes inondées, véhicules et personnes dans l’eau. Associez images et niveaux d’eau pour guider la réponse.",
+        "highlights": [
+          "Segmentation des routes et crues",
+          "Détection des personnes, véhicules et débris",
+          "Niveaux d’eau et alertes"
+        ],
+        "image": "/src/assets/images/fluvio/floodsense-panorama.jpg",
+        "imageAlt": "Segmentation FloodSense de l’eau et de la route à Panorama Creek",
+        "href": "/flood-camera-intelligence"
+      },
+      {
+        "slug": "nodesense",
+        "name": "NodeSense",
+        "title": "Relier votre réseau de suivi.",
+        "description": "Rassemblez les nœuds de qualité de l’eau et les stations dans FluvioSense. Consultez observations, état des sites, télémétrie et exports.",
+        "highlights": [
+          "Nœuds de qualité de l’eau",
+          "Batterie, solaire et connectivité",
+          "Gestion des sites et export des données"
+        ],
+        "image": "/src/assets/images/fluvio/platform-sense.jpeg",
+        "imageAlt": "Vue FluvioSense des sites connectés",
+        "href": "/expertise/operational-monitoring"
+      }
+    ]
+  },
+  "es": {
+    "productsLabel": "Productos",
+    "systemsLabel": "Sistemas",
+    "productsTitle": "Diseñados para *el trabajo de campo*.",
+    "systemsTitle": "Una plataforma. Una visión más clara de *sus sistemas de agua*.",
+    "productsIntro": "Instrumentos autónomos desarrollados por Fluvio a partir del trabajo de campo en Australia y Melanesia.",
+    "systemsIntro": "FlowSense, FloodSense y NodeSense reúnen observaciones de campo en FluvioSense para el análisis y las decisiones operativas.",
+    "contactLabel": "Hablemos de sus necesidades",
+    "systemsAction": "Explorar sistemas",
+    "productsAction": "Explorar productos",
+    "fieldAction": "Ver en el campo",
+    "videoLabel": "Ver la demostración FloodSense",
+    "demoTitle": "Una cámara muestra el agua. *FloodSense ayuda a comprenderla*.",
+    "demoDescription": "La visión artificial identifica inundaciones, carreteras anegadas, vehículos, personas y escombros. El panel combina imágenes y datos del nivel del agua.",
+    "sourceLabel": "Fuente: Fluvio en LinkedIn",
+    "selectLabel": "Elegir un sistema",
+    "products": [
+      {
+        "slug": "fs-spot",
+        "name": "FS-Spot",
+        "title": "Formato compacto. Seguimiento continuo.",
+        "description": "Un sistema de aforo óptico compacto para arroyos y cauces estrechos. Portátil o fijo, mide velocidad superficial y caudal sin colocar instrumentos en el agua.",
+        "highlights": [
+          "Instrumento compacto de 0,5 kg",
+          "Velocidad superficial y caudal",
+          "Celular o Ethernet; opción satélite"
+        ],
+        "image": "/src/assets/images/fluvio/fs-spot.png",
+        "imageAlt": "Cámara FS-Spot sobre un trípode",
+        "href": "/bina"
+      },
+      {
+        "slug": "fs-halo",
+        "name": "FS-Halo",
+        "title": "Una visión más amplia de los ríos.",
+        "description": "Monitoreo óptico de largo alcance para ríos y canales anchos. La detección automática del agua ajusta la inclinación y el zoom, con mejor rendimiento nocturno.",
+        "highlights": ["Zoom óptico 32×", "Monitoreo hasta 500 m", "Detección automática del agua"],
+        "image": "/src/assets/images/fluvio/fs-halo.png",
+        "imageAlt": "Instrumento óptico multicámara FS-Halo",
+        "href": "/tina"
+      },
+      {
+        "slug": "fs-flux",
+        "name": "FS-Flux",
+        "title": "Medir el metano de forma habitual.",
+        "description": "Una cámara flotante para medir metano a largo plazo en embalses, humedales, canales y estanques de sedimentación.",
+        "highlights": ["Medición directa del metano", "Despliegue a largo plazo", "Diseñado para cuerpos de agua"],
+        "image": "/src/assets/images/fluvio/project-ghg-methane-chambers.jpg",
+        "imageAlt": "Cámaras de metano en un embalse; aplicación de campo",
+        "href": "/ghg-emissions-reservoirs"
+      }
+    ],
+    "systems": [
+      {
+        "slug": "flowsense",
+        "name": "FlowSense",
+        "title": "Comprender el flujo de su río.",
+        "description": "Explore caudal, nivel y velocidad junto con curvas de aforo, secciones transversales e imágenes para comprender los cambios del río.",
+        "highlights": ["Series de caudal y velocidad", "Curvas de aforo y secciones", "Imágenes e historial del sitio"],
+        "image": "/src/assets/images/fluvio/platform-sense-map.jpg",
+        "imageAlt": "Mapa y panel de monitoreo FlowSense",
+        "href": "/expertise/hydrological-monitoring"
+      },
+      {
+        "slug": "floodsense",
+        "name": "FloodSense",
+        "title": "Ver el riesgo mientras cambia.",
+        "description": "Analice cámaras de inundación casi en tiempo real para identificar carreteras anegadas, vehículos y personas en el agua. Combine imágenes y niveles para apoyar la respuesta.",
+        "highlights": [
+          "Segmentación de carreteras y agua",
+          "Detección de personas, vehículos y escombros",
+          "Niveles de agua y alertas"
+        ],
+        "image": "/src/assets/images/fluvio/floodsense-panorama.jpg",
+        "imageAlt": "Segmentación FloodSense del agua y la carretera en Panorama Creek",
+        "href": "/flood-camera-intelligence"
+      },
+      {
+        "slug": "nodesense",
+        "name": "NodeSense",
+        "title": "Conectar su red de monitoreo.",
+        "description": "Integre nodos de calidad del agua y estaciones en FluvioSense. Consulte observaciones, estado de los sitios, telemetría y exportaciones.",
+        "highlights": ["Nodos de calidad del agua", "Batería, solar y conectividad", "Gestión de sitios y exportación"],
+        "image": "/src/assets/images/fluvio/platform-sense.jpeg",
+        "imageAlt": "Vista FluvioSense de los sitios conectados",
+        "href": "/expertise/operational-monitoring"
+      }
+    ]
+  }
+}

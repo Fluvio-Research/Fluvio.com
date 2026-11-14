@@ -25,15 +25,15 @@
         "description": "Tools and knowledge shaped with communities, government, industry and regional partners.",
         "action": "See our projects",
         "href": "/projects",
-        "imageAlt": "The SIWIS dashboard mapping monitoring stations across Solomon Islands",
-        "image": "/src/assets/images/fluvio/expertise-siwis-dashboard.jpg"
+        "imageAlt": "Fieldwork with local communities in Bina Harbour",
+        "image": "/src/assets/images/fluvio/project-bina-local-knowledge.jpg"
       },
       {
         "eyebrow": "Operational platforms",
         "title": "From sensors to decisions *in real time*.",
-        "description": "FluvioSense and FluvioCascade turn live monitoring networks into analysis, reporting and alerts.",
+        "description": "FluvioSense and FluvioPulse turn live monitoring networks into analysis, reporting and alerts.",
         "action": "Discover the platforms",
-        "href": "/projects#platforms-heading",
+        "href": "/systems",
         "imageAlt": "An operator checking live monitoring data on a laptop beside a water channel",
         "image": "/src/assets/images/fluvio/home-operations-laptop.jpeg"
       },
@@ -118,12 +118,12 @@
         ]
       },
       "cascade": {
-        "title": "FluvioCascade",
+        "title": "FluvioPulse",
         "description": "A web-based platform that ingests real-time environmental monitoring data to support analysis, reporting and alerts.",
-        "action": "Visit FluvioCascade",
+        "action": "Visit FluvioPulse",
         "href": "https://data.fluvio.com.au/",
         "image": "/src/assets/images/fluvio/platform-cascade.png",
-        "imageAlt": "The FluvioCascade water source monitoring dashboard for Bina Harbour, with live turbidity gauges and camera sites on a satellite map.",
+        "imageAlt": "The FluvioPulse water source monitoring dashboard for Bina Harbour, with live turbidity gauges and camera sites on a satellite map.",
         "highlights": [
           "Ingests real-time water quality and water level data from remote monitoring stations",
           "Operational dashboards with alerting, built alongside utilities such as Solomon Water",
@@ -132,11 +132,11 @@
         "screens": [
           {
             "image": "/src/assets/images/fluvio/platform-cascade-explorers.jpg",
-            "imageAlt": "FluvioCascade explorers for a monitoring station: turbidity against its alert thresholds, rainfall since 9 am and conductivity over seven days"
+            "imageAlt": "FluvioPulse explorers for a monitoring station: turbidity against its alert thresholds, rainfall since 9 am and conductivity over seven days"
           },
           {
             "image": "/src/assets/images/fluvio/platform-cascade-station.jpg",
-            "imageAlt": "FluvioCascade station details: water temperature, battery voltage gauges, solar radiation and internal temperature over seven days"
+            "imageAlt": "FluvioPulse station details: water temperature, battery voltage gauges, solar radiation and internal temperature over seven days"
           }
         ]
       },
@@ -214,15 +214,15 @@
         "description": "Olketa tul an savve wea mifala wakem tugeta wetem komuniti, gavman, indastri an olketa partna long region.",
         "action": "Lukim olketa project blong mifala",
         "href": "/projects",
-        "imageAlt": "SIWIS dashboard wea soim olketa monitoring station long map blong Solomon Aelan",
-        "image": "/src/assets/images/fluvio/expertise-siwis-dashboard.jpg"
+        "imageAlt": "Field waka wetem olketa lokol komuniti long Bina Harbour",
+        "image": "/src/assets/images/fluvio/project-bina-local-knowledge.jpg"
       },
       {
         "eyebrow": "Olketa platform fo waka",
         "title": "From olketa sensor go kasem olketa disison *long real-time*.",
-        "description": "FluvioSense an FluvioCascade tanem olketa live monitoring network kamap analysis, report an alert.",
+        "description": "FluvioSense an FluvioPulse tanem olketa live monitoring network kamap analysis, report an alert.",
         "action": "Lukim olketa platform",
-        "href": "/projects#platforms-heading",
+        "href": "/systems",
         "imageAlt": "Wanfala operator hemi sekem live monitoring data long wanfala laptop saed long wanfala wata channel",
         "image": "/src/assets/images/fluvio/home-operations-laptop.jpeg"
       },
@@ -307,12 +307,12 @@
         ]
       },
       "cascade": {
-        "title": "FluvioCascade",
+        "title": "FluvioPulse",
         "description": "Wanfala platform long web wea tekem insaet real-time data from monitoring blong enviromen, fo sapotem analysis, report an alert.",
-        "action": "Go long FluvioCascade",
+        "action": "Go long FluvioPulse",
         "href": "https://data.fluvio.com.au/",
         "image": "/src/assets/images/fluvio/platform-cascade.png",
-        "imageAlt": "Dashboard blong FluvioCascade fo monitorim wata sos blong Bina Harbour, wetem olketa live turbidity gauge an camera site long satellite map.",
+        "imageAlt": "Dashboard blong FluvioPulse fo monitorim wata sos blong Bina Harbour, wetem olketa live turbidity gauge an camera site long satellite map.",
         "highlights": [
           "Hemi tekem real-time data blong kwaliti blong wata an wata level from olketa monitoring station wea stap farawe",
           "Olketa operational dashboard wetem alert, wea olketa bildim tugeta wetem olketa utility olsem Solomon Water",
@@ -321,11 +321,11 @@
         "screens": [
           {
             "image": "/src/assets/images/fluvio/platform-cascade-explorers.jpg",
-            "imageAlt": "Olketa FluvioCascade explorer fo wanfala monitoring station: turbidity wetem olketa alert threshold, ren from 9 klok long moning an conductivity fo sevenfala dei"
+            "imageAlt": "Olketa FluvioPulse explorer fo wanfala monitoring station: turbidity wetem olketa alert threshold, ren from 9 klok long moning an conductivity fo sevenfala dei"
           },
           {
             "image": "/src/assets/images/fluvio/platform-cascade-station.jpg",
-            "imageAlt": "FluvioCascade station details: temperature blong wata, olketa gauge blong battery voltage, sola radiation an insaet temperature fo sevenfala dei"
+            "imageAlt": "FluvioPulse station details: temperature blong wata, olketa gauge blong battery voltage, sola radiation an insaet temperature fo sevenfala dei"
           }
         ]
       },
@@ -403,15 +403,15 @@
         "description": "Des outils et des savoirs construits avec les communautés, les pouvoirs publics, l’industrie et les partenaires régionaux.",
         "action": "Voir nos projets",
         "href": "/projects",
-        "imageAlt": "Le tableau de bord SIWIS cartographiant les stations de suivi aux Îles Salomon",
-        "image": "/src/assets/images/fluvio/expertise-siwis-dashboard.jpg"
+        "imageAlt": "Travail de terrain avec les communautés de Bina Harbour",
+        "image": "/src/assets/images/fluvio/project-bina-local-knowledge.jpg"
       },
       {
         "eyebrow": "Plateformes opérationnelles",
         "title": "Des capteurs aux décisions, *en temps réel*.",
-        "description": "FluvioSense et FluvioCascade transforment les réseaux de surveillance en analyses, rapports et alertes.",
+        "description": "FluvioSense et FluvioPulse transforment les réseaux de surveillance en analyses, rapports et alertes.",
         "action": "Découvrir les plateformes",
-        "href": "/projects#platforms-heading",
+        "href": "/systems",
         "imageAlt": "Un opérateur consultant des données de surveillance en direct sur un ordinateur portable, au bord d’un canal",
         "image": "/src/assets/images/fluvio/home-operations-laptop.jpeg"
       },
@@ -496,12 +496,12 @@
         ]
       },
       "cascade": {
-        "title": "FluvioCascade",
+        "title": "FluvioPulse",
         "description": "Une plateforme web qui ingère des données de surveillance environnementale en temps réel pour l’analyse, les rapports et les alertes.",
-        "action": "Visiter FluvioCascade",
+        "action": "Visiter FluvioPulse",
         "href": "https://data.fluvio.com.au/",
         "image": "/src/assets/images/fluvio/platform-cascade.png",
-        "imageAlt": "Le tableau de bord FluvioCascade de surveillance des sources d'eau de Bina Harbour, avec des jauges de turbidité en direct et des sites de caméras sur une carte satellite.",
+        "imageAlt": "Le tableau de bord FluvioPulse de surveillance des sources d'eau de Bina Harbour, avec des jauges de turbidité en direct et des sites de caméras sur une carte satellite.",
         "highlights": [
           "Ingère en temps réel les données de qualité et de niveau d’eau des stations de mesure isolées",
           "Tableaux de bord opérationnels avec alertes, construits avec des opérateurs comme Solomon Water",
@@ -510,11 +510,11 @@
         "screens": [
           {
             "image": "/src/assets/images/fluvio/platform-cascade-explorers.jpg",
-            "imageAlt": "Les explorateurs FluvioCascade d’une station : turbidité face à ses seuils d’alerte, pluie depuis 9 h et conductivité sur sept jours"
+            "imageAlt": "Les explorateurs FluvioPulse d’une station : turbidité face à ses seuils d’alerte, pluie depuis 9 h et conductivité sur sept jours"
           },
           {
             "image": "/src/assets/images/fluvio/platform-cascade-station.jpg",
-            "imageAlt": "Détails de station FluvioCascade : température de l’eau, jauges de tension batterie, rayonnement solaire et température interne sur sept jours"
+            "imageAlt": "Détails de station FluvioPulse : température de l’eau, jauges de tension batterie, rayonnement solaire et température interne sur sept jours"
           }
         ]
       },
@@ -592,15 +592,15 @@
         "description": "Herramientas y conocimiento desarrollados con comunidades, gobiernos, industria y socios regionales.",
         "action": "Ver nuestros proyectos",
         "href": "/projects",
-        "imageAlt": "El panel SIWIS que mapea las estaciones de monitoreo en las Islas Salomón",
-        "image": "/src/assets/images/fluvio/expertise-siwis-dashboard.jpg"
+        "imageAlt": "Trabajo de campo con comunidades en Bina Harbour",
+        "image": "/src/assets/images/fluvio/project-bina-local-knowledge.jpg"
       },
       {
         "eyebrow": "Plataformas operativas",
         "title": "De los sensores a las decisiones, *en tiempo real*.",
-        "description": "FluvioSense y FluvioCascade convierten las redes de monitoreo en análisis, informes y alertas.",
+        "description": "FluvioSense y FluvioPulse convierten las redes de monitoreo en análisis, informes y alertas.",
         "action": "Descubrir las plataformas",
-        "href": "/projects#platforms-heading",
+        "href": "/systems",
         "imageAlt": "Un operador revisando datos de monitoreo en vivo en un portátil junto a un canal de agua",
         "image": "/src/assets/images/fluvio/home-operations-laptop.jpeg"
       },
@@ -685,12 +685,12 @@
         ]
       },
       "cascade": {
-        "title": "FluvioCascade",
+        "title": "FluvioPulse",
         "description": "Una plataforma web que ingiere datos de monitoreo ambiental en tiempo real para respaldar análisis, informes y alertas.",
-        "action": "Visitar FluvioCascade",
+        "action": "Visitar FluvioPulse",
         "href": "https://data.fluvio.com.au/",
         "image": "/src/assets/images/fluvio/platform-cascade.png",
-        "imageAlt": "El panel de monitoreo de fuentes de agua de FluvioCascade para Bina Harbour, con medidores de turbidez en vivo y sitios con cámaras sobre un mapa satelital.",
+        "imageAlt": "El panel de monitoreo de fuentes de agua de FluvioPulse para Bina Harbour, con medidores de turbidez en vivo y sitios con cámaras sobre un mapa satelital.",
         "highlights": [
           "Ingesta en tiempo real de datos de calidad y nivel del agua desde estaciones de monitoreo remotas",
           "Paneles operativos con alertas, construidos junto a operadores como Solomon Water",
@@ -699,11 +699,11 @@
         "screens": [
           {
             "image": "/src/assets/images/fluvio/platform-cascade-explorers.jpg",
-            "imageAlt": "Los exploradores de FluvioCascade para una estación: turbidez frente a sus umbrales de alerta, lluvia desde las 9 h y conductividad durante siete días"
+            "imageAlt": "Los exploradores de FluvioPulse para una estación: turbidez frente a sus umbrales de alerta, lluvia desde las 9 h y conductividad durante siete días"
           },
           {
             "image": "/src/assets/images/fluvio/platform-cascade-station.jpg",
-            "imageAlt": "Detalles de estación en FluvioCascade: temperatura del agua, indicadores de voltaje de batería, radiación solar y temperatura interna durante siete días"
+            "imageAlt": "Detalles de estación en FluvioPulse: temperatura del agua, indicadores de voltaje de batería, radiación solar y temperatura interna durante siete días"
           }
         ]
       },

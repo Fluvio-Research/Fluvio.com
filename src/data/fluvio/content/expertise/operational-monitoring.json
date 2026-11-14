@@ -13,8 +13,8 @@
       "Digitised monitoring with state-owned water utilities",
       "Operational dashboards built with the teams who use them"
     ],
-    "image": "/src/assets/images/fluvio/expertise-siwis-dashboard.jpg",
-    "imageAlt": "The SIWIS dashboard mapping monitoring stations across Solomon Islands",
+    "image": "/src/assets/images/fluvio/platform-sense.jpeg",
+    "imageAlt": "FluvioSense overview showing connected monitoring sites",
     "relatedProjects": ["monitoring-honiara", "wrd", "moreton-bay-sediment-monitoring"]
   },
   "pijin": {
@@ -31,8 +31,8 @@
       "Monitoring wea kamap digital tugeta wetem olketa wata utility blong gavman",
       "Olketa operational dashboard wea mifala buildim wetem olketa tim wea iusim olketa"
     ],
-    "image": "/src/assets/images/fluvio/expertise-siwis-dashboard.jpg",
-    "imageAlt": "SIWIS dashboard wea soim olketa monitoring station long map blong Solomon Aelan",
+    "image": "/src/assets/images/fluvio/platform-sense.jpeg",
+    "imageAlt": "FluvioSense overview blong olketa monitoring site",
     "relatedProjects": ["monitoring-honiara", "wrd", "moreton-bay-sediment-monitoring"]
   },
   "fr": {
@@ -49,8 +49,8 @@
       "Une surveillance numérisée avec des services publics de l’eau",
       "Des tableaux de bord opérationnels construits avec les équipes qui les utilisent"
     ],
-    "image": "/src/assets/images/fluvio/expertise-siwis-dashboard.jpg",
-    "imageAlt": "Le tableau de bord SIWIS cartographiant les stations de suivi aux Îles Salomon",
+    "image": "/src/assets/images/fluvio/platform-sense.jpeg",
+    "imageAlt": "Vue FluvioSense des sites connectés",
     "relatedProjects": ["monitoring-honiara", "wrd", "moreton-bay-sediment-monitoring"]
   },
   "es": {
@@ -67,8 +67,8 @@
       "Monitoreo digitalizado con empresas públicas de agua",
       "Tableros operativos construidos con los equipos que los usan"
     ],
-    "image": "/src/assets/images/fluvio/expertise-siwis-dashboard.jpg",
-    "imageAlt": "El panel SIWIS que mapea las estaciones de monitoreo en las Islas Salomón",
+    "image": "/src/assets/images/fluvio/platform-sense.jpeg",
+    "imageAlt": "Vista FluvioSense de los sitios conectados",
     "relatedProjects": ["monitoring-honiara", "wrd", "moreton-bay-sediment-monitoring"]
   }
 }

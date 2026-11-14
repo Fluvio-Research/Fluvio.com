@@ -20,7 +20,8 @@
       "Even under rapidly changing conditions, the system delivered stable, spatially rich datasets, enabling high-frequency, fine-scale mapping of coastal variability across the survey transects.",
       "FS-Nomad is now being extended with wind measurements to resolve localised wind fields and a methane analyser for continuous atmospheric monitoring during surveys."
     ],
-    "relatedProjects": ["reservoir-sedimentation", "ghg-emissions-reservoirs"]
+    "relatedProjects": ["reservoir-sedimentation", "ghg-emissions-reservoirs"],
+    "featured": true
   },
   "pijin": {
     "order": 11,
@@ -43,7 +44,8 @@
       "Nomata kondison hemi jenis kwiktaem, sistem hemi givim data wea hemi stedi an fulap long spatial detail, so tim i savve mapim hao kos hemi jenis long hae frequency an smol skel long olketa survey transect.",
       "Distaem Fluvio hemi adem moa samting long FS-Nomad: mesarem win fo savve olketa smol win field, an wanfala methane analyser fo monitorim ea evritaem long survey."
     ],
-    "relatedProjects": ["reservoir-sedimentation", "ghg-emissions-reservoirs"]
+    "relatedProjects": ["reservoir-sedimentation", "ghg-emissions-reservoirs"],
+    "featured": true
   },
   "fr": {
     "order": 11,
@@ -66,7 +68,8 @@
       "Même dans des conditions changeant rapidement, le système a fourni des jeux de données stables et riches spatialement, permettant une cartographie haute fréquence et à fine échelle de la variabilité côtière le long des transects.",
       "FS-Nomad est désormais enrichi de mesures de vent pour résoudre les champs de vent locaux et d’un analyseur de méthane pour un suivi atmosphérique continu pendant les relevés."
     ],
-    "relatedProjects": ["reservoir-sedimentation", "ghg-emissions-reservoirs"]
+    "relatedProjects": ["reservoir-sedimentation", "ghg-emissions-reservoirs"],
+    "featured": true
   },
   "es": {
     "order": 11,
@@ -89,6 +92,7 @@
       "Incluso en condiciones que cambiaban con rapidez, el sistema entregó conjuntos de datos estables y espacialmente ricos, permitiendo un mapeo de alta frecuencia y escala fina de la variabilidad costera a lo largo de los transectos.",
       "FS-Nomad se está ampliando ahora con mediciones de viento para resolver campos de viento locales y un analizador de metano para el monitoreo atmosférico continuo durante los levantamientos."
     ],
-    "relatedProjects": ["reservoir-sedimentation", "ghg-emissions-reservoirs"]
+    "relatedProjects": ["reservoir-sedimentation", "ghg-emissions-reservoirs"],
+    "featured": true
   }
 }

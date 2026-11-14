@@ -1,0 +1,116 @@
+---
+import SectionFrame from './SectionFrame.astro';
+import SectionHeading from './SectionHeading.astro';
+import LargeImage from './LargeImage.astro';
+import ArrowLink from './ArrowLink.astro';
+import FloodDemo from './FloodDemo.astro';
+import { getCatalog } from '~/data/fluvio/store.ts';
+import { localeHref, type Locale } from '~/i18n';
+export interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const c = getCatalog(locale);
+---
+
+<SectionFrame tone="navy" rule="coral" ariaLabel={c.videoLabel}>
+  <FloodDemo locale={locale} />
+</SectionFrame>
+<SectionFrame tone="mist" labelledby="hardware-heading">
+  <SectionHeading
+    id="hardware-heading"
+    eyebrow={c.productsLabel}
+    title={c.productsTitle}
+    intro={c.productsIntro}
+    align="split"
+  >
+    <ArrowLink slot="action" href={localeHref('/products', locale)}>{c.productsAction}</ArrowLink>
+  </SectionHeading>
+  <div class="hardware-grid">
+    {
+      c.products.map((item, index) => (
+        <article>
+          <div class:list={['hardware-grid__image', { 'hardware-grid__image--device': index < 2 }]}>
+            <LargeImage
+              src={item.image}
+              alt={item.imageAlt}
+              aspect="landscape"
+              radius="none"
+              sizes="(min-width:900px) 30vw, 90vw"
+            />
+          </div>
+          <div class="hardware-grid__body">
+            <span class="fluvio-label">0{index + 1} / FLUVIO SENSE</span>
+            <>
+              <h3>
+                <a href={localeHref(`/products#${item.slug}`, locale)}>{item.name}</a>
+              </h3>
+              <p>{item.title}</p>
+            </>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</SectionFrame>
+<style>
+  .hardware-grid {
+    display: grid;
+    gap: 1.25rem;
+    margin-top: 3rem;
+  }
+  article {
+    position: relative;
+    background: var(--aw-color-bg-page);
+    border: 1px solid rgb(var(--fluvio-ink) / 0.12);
+    border-radius: 18px;
+    overflow: hidden;
+  }
+  .hardware-grid__image {
+    background: linear-gradient(140deg, #e8eeeb, #cadbd6);
+    overflow: hidden;
+  }
+  .hardware-grid__image--device :global(img) {
+    object-fit: contain;
+    padding: 1.5rem;
+  }
+  .hardware-grid__body {
+    padding: 1.8rem;
+  }
+  h3 {
+    font-family: var(--aw-font-heading);
+    font-size: 2rem;
+    margin: 0.65rem 0 0.5rem;
+    letter-spacing: -0.04em;
+  }
+  h3 a::after {
+    position: absolute;
+    inset: 0;
+    content: '';
+  }
+  h3 a:focus-visible::after {
+    outline: 3px solid rgb(var(--fluvio-river));
+    outline-offset: -4px;
+    border-radius: 18px;
+  }
+  p {
+    color: var(--aw-color-text-muted);
+    margin: 0;
+  }
+  @media (min-width: 900px) {
+    .hardware-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    article {
+      transition:
+        transform 250ms ease,
+        box-shadow 250ms ease;
+    }
+    article:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 45px rgb(0 0 0 / 0.1);
+    }
+  }
+</style>

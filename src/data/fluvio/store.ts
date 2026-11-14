@@ -582,6 +582,39 @@ function loadCollection<Schema extends z.ZodTypeAny>(
   return entries.sort((a, b) => (a.record.en as { order: number }).order - (b.record.en as { order: number }).order);
 }
 
+const catalogItemSchema = z.object({
+  slug,
+  name: text,
+  title: text,
+  description: text,
+  highlights: z.array(text).min(1),
+  image: localImage,
+  imageAlt: text,
+  href: text,
+});
+const catalogSchema = z.object({
+  productsLabel: text,
+  systemsLabel: text,
+  productsTitle: text,
+  systemsTitle: text,
+  productsIntro: text,
+  systemsIntro: text,
+  contactLabel: text,
+  systemsAction: text,
+  productsAction: text,
+  fieldAction: text,
+  videoLabel: text,
+  demoTitle: text,
+  demoDescription: text,
+  sourceLabel: text,
+  selectLabel: text,
+  products: z.array(catalogItemSchema).length(3),
+  systems: z.array(catalogItemSchema).length(3),
+});
+export type CatalogItem = z.infer<typeof catalogItemSchema>;
+const catalogRecord = loadRecord(join(contentDir, 'site', 'catalog.json'), catalogSchema);
+export const getCatalog = (locale: ContentLocale) => catalogRecord[locale];
+
 const projectRecords = loadCollection('projects', projectSchema);
 const teamRecords = loadCollection('team', teamMemberSchema);
 const expertiseRecords = loadCollection('expertise', expertiseSchema);

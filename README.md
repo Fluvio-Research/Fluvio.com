@@ -97,7 +97,7 @@ Public routes: `/`, `/vision`, `/expertise`, `/projects`, `/team`, `/contact`, o
 
 ## Design system
 
-- Type: Inter for body and interface text, Bricolage Grotesque for display headings, Instrument Serif italic for the accented phrase inside a heading. All three are self-hosted and preloaded by Astro's Fonts API (`astro.config.ts`).
+- Type: Inter for body and interface text, Bricolage Grotesque for display headings, Instrument Serif italic for the accented phrase inside a heading. All three are bundled in `src/assets/fonts/` and self-hosted by `LocalFonts.astro`, with no external font requests at build time.
 - Shared components live in `src/components/fluvio/`: `ArrowLink`, `ArrowIcon` and `LinkList` are the only call-to-action treatments (no bare arrow glyphs); `ProjectCard`, `ExpertiseCard` and `TeamCard` are the record cards (one stretched link each); `PageHero`, `Breadcrumbs`, `AdjacentNav` and `SectionFrame` frame every page; `DisciplineTicker` is built from the project disciplines.
 - Photographs morph between a card and the page they open through Astro view transitions (`transitionName` on `LargeImage`).
 
@@ -108,3 +108,7 @@ Public routes: `/`, `/vision`, `/expertise`, `/projects`, `/team`, `/contact`, o
 ## Acknowledgements
 
 Based on the open-source [AstroWind](https://github.com/arthelokyo/astrowind) template by onWidget, used under the MIT licence (see `LICENSE.md`).
+
+## Products and Systems
+
+`content/site/catalog.json` owns the localized Products and Systems pages. The content store validates three products and three systems, with local imagery and related project or expertise links. The companion CMS configuration exposes this catalog. See `docs/media-sources.md` for source provenance and collection notes.
