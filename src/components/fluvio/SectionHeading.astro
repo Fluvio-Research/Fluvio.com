@@ -87,8 +87,8 @@ const hasAside = Boolean(intro) || Astro.slots.has('action');
     font-family: var(--aw-font-heading);
     font-size: var(--fluvio-section-size);
     font-weight: var(--fluvio-section-weight);
-    letter-spacing: -0.025em;
-    line-height: 1.02;
+    letter-spacing: var(--fluvio-heading-tracking);
+    line-height: var(--fluvio-heading-leading);
     text-wrap: balance;
   }
 
@@ -109,9 +109,9 @@ const hasAside = Boolean(intro) || Astro.slots.has('action');
 
   @media (min-width: 768px) {
     .fluvio-section-heading--split {
-      grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.65fr);
-      align-items: end;
-      gap: clamp(3rem, 8vw, 8rem);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: start;
+      gap: var(--fluvio-column-gap);
     }
   }
 </style>

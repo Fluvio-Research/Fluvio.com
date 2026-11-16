@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon/components';
+import LinkedInMark from '~/components/common/LinkedInMark.astro';
 import Logo from '~/components/Logo.astro';
 import { defaultLocale, localeHref, type Locale } from '~/i18n';
 
@@ -13,24 +13,38 @@ export interface Props {
 const { description, linkedin, copyright, locale = defaultLocale } = Astro.props;
 ---
 
-<footer class="border-t border-[rgb(var(--fluvio-ink)/0.12)] dark:border-[rgb(var(--fluvio-paper)/0.12)]">
+<footer class="site-footer">
   <div class="fluvio-shell footer-inner">
     <a class="footer-brand" href={localeHref('/', locale)}><Logo /></a>
     <p class="footer-description">{description}</p>
     <p class="footer-copyright">{copyright}</p>
     <a class="footer-social" href={linkedin.href} aria-label={linkedin.label} target="_blank" rel="noopener noreferrer">
-      <Icon name="tabler:brand-linkedin" class="w-5 h-5" aria-hidden="true" />
+      <LinkedInMark />
     </a>
   </div>
 </footer>
 
 <style>
+  .site-footer {
+    position: relative;
+    background: var(--fluvio-footer-surface);
+    color: rgb(var(--fluvio-paper));
+    border-top: 1px solid rgb(154 205 220 / 0.35);
+  }
+  .site-footer::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgb(125 186 188), rgb(195 154 91), transparent);
+  }
+
   .footer-inner {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: center;
     gap: 0.4rem 1rem;
-    padding-block: 1.15rem;
+    padding-block: clamp(1.75rem, 3vw, 2.5rem);
   }
 
   .footer-brand {
@@ -39,14 +53,15 @@ const { description, linkedin, copyright, locale = defaultLocale } = Astro.props
 
   .footer-brand :global(img) {
     width: auto;
-    height: 2rem;
+    height: 2.5rem;
+    filter: grayscale(1) brightness(0) invert(1);
   }
 
   .footer-description,
   .footer-copyright {
     grid-column: 1 / -1;
     margin: 0;
-    color: var(--aw-color-text-muted);
+    color: rgb(205 224 231);
     font-size: 0.875rem;
     line-height: 1.5;
   }
@@ -58,17 +73,19 @@ const { description, linkedin, copyright, locale = defaultLocale } = Astro.props
     width: 2.75rem;
     height: 2.75rem;
     place-items: center;
-    color: var(--aw-color-text-muted);
-    border-radius: 0.35rem;
+    color: rgb(205 224 231);
+    border-radius: 50%;
+    border: 1px solid rgb(205 224 231 / 0.3);
+    background: rgb(255 255 255 / 0.06);
   }
 
   .footer-social:hover {
-    color: var(--aw-color-primary);
-    background: rgb(var(--fluvio-river) / 0.08);
+    color: white;
+    background: rgb(125 186 188 / 0.25);
   }
 
   .footer-inner a:focus-visible {
-    outline: 2px solid var(--aw-color-primary);
+    outline: 2px solid rgb(154 205 220);
     outline-offset: 3px;
   }
 

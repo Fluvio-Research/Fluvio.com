@@ -67,7 +67,7 @@ const c = getCatalog(locale);
     overflow: hidden;
   }
   .hardware-grid__image {
-    background: linear-gradient(140deg, #e8eeeb, #cadbd6);
+    background: var(--fluvio-device-surface);
     overflow: hidden;
   }
   .hardware-grid__image--device :global(img) {
@@ -79,9 +79,10 @@ const c = getCatalog(locale);
   }
   h3 {
     font-family: var(--aw-font-heading);
-    font-size: 2rem;
+    font-size: var(--fluvio-card-size);
+    font-weight: var(--fluvio-section-weight);
     margin: 0.65rem 0 0.5rem;
-    letter-spacing: -0.025em;
+    letter-spacing: var(--fluvio-heading-tracking);
   }
   h3 a::after {
     position: absolute;

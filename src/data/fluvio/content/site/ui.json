@@ -22,10 +22,10 @@
       "submit": "Send enquiry",
       "sending": "Sending…",
       "success": "Thank you. Your enquiry has been sent to Fluvio.",
-      "error": "We could not send your enquiry. Your text is still here. Please try again or email info@fluvio.com.au.",
+      "error": "We could not send your enquiry. Your text is still here. Please try again.",
       "note": "Your details and message will be emailed to Fluvio so we can respond to your enquiry.",
       "emailOption": "Prefer email?",
-      "emailOnly": "Email your enquiry to"
+      "emailOnly": "Please enable JavaScript to send an enquiry."
     },
     "header": {
       "language": "English",
@@ -71,10 +71,10 @@
       "submit": "Sendem enquiry",
       "sending": "Hem sendem…",
       "success": "Tagio. Enquiry blong iu hem go finis long Fluvio.",
-      "error": "Mifala no savve sendem enquiry. Text blong iu stap yet. Traem moa o email info@fluvio.com.au.",
+      "error": "Mifala no savve sendem enquiry. Text blong iu stap yet. Traem moa.",
       "note": "Details an message blong iu bae go long Fluvio long email fo mifala savve ansarem enquiry blong iu.",
       "emailOption": "Iu laek email?",
-      "emailOnly": "Sendem kwestin blong iu long"
+      "emailOnly": "Plis enablem JavaScript fo sendem enquiry."
     },
     "header": {
       "language": "Pijin",
@@ -120,10 +120,10 @@
       "submit": "Enviar consulta",
       "sending": "Enviando…",
       "success": "Gracias. Tu consulta se ha enviado a Fluvio.",
-      "error": "No se pudo enviar la consulta. Tu texto se conserva. Inténtalo de nuevo o escribe a info@fluvio.com.au.",
+      "error": "No se pudo enviar la consulta. Tu texto se conserva. Inténtalo de nuevo.",
       "note": "Tus datos y tu mensaje se enviarán por correo a Fluvio para responder a tu consulta.",
       "emailOption": "¿Prefieres el correo?",
-      "emailOnly": "Envía tu consulta por correo a"
+      "emailOnly": "Activa JavaScript para enviar una consulta."
     },
     "header": {
       "language": "Español",
@@ -169,10 +169,10 @@
       "submit": "Envoyer la demande",
       "sending": "Envoi…",
       "success": "Merci. Votre demande a été envoyée à Fluvio.",
-      "error": "Envoi impossible. Votre texte est conservé. Réessayez ou écrivez à info@fluvio.com.au.",
+      "error": "Envoi impossible. Votre texte est conservé. Réessayez.",
       "note": "Vos coordonnées et votre message seront envoyés par e-mail à Fluvio pour répondre à votre demande.",
       "emailOption": "Vous préférez un e-mail ?",
-      "emailOnly": "Envoyez votre demande par e-mail à"
+      "emailOnly": "Activez JavaScript pour envoyer une demande."
     },
     "header": {
       "language": "Français",
@@ -218,10 +218,10 @@
       "submit": "Anfrage senden",
       "sending": "Wird gesendet …",
       "success": "Vielen Dank. Ihre Anfrage wurde an Fluvio gesendet.",
-      "error": "Ihre Anfrage konnte nicht gesendet werden. Ihr Text bleibt erhalten. Versuchen Sie es erneut oder schreiben Sie an info@fluvio.com.au.",
+      "error": "Ihre Anfrage konnte nicht gesendet werden. Ihr Text bleibt erhalten. Versuchen Sie es erneut.",
       "note": "Ihre Angaben und Ihre Nachricht werden per E-Mail an Fluvio gesendet, damit wir Ihre Anfrage beantworten können.",
       "emailOption": "Lieber per E-Mail?",
-      "emailOnly": "Senden Sie Ihre Anfrage per E-Mail an"
+      "emailOnly": "Aktivieren Sie JavaScript, um eine Anfrage zu senden."
     },
     "header": {
       "language": "Deutsch",

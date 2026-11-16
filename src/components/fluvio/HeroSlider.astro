@@ -477,7 +477,7 @@ const videoUrls = slides.map((slide) => findVideo(slide.video));
     font-family: var(--aw-font-heading);
     font-size: var(--fluvio-title-size);
     font-weight: var(--fluvio-title-weight);
-    letter-spacing: -0.025em;
+    letter-spacing: var(--fluvio-heading-tracking);
     line-height: 1.12;
     text-wrap: balance;
   }
@@ -486,12 +486,12 @@ const videoUrls = slides.map((slide) => findVideo(slide.video));
     margin: clamp(1.25rem, 2.5vw, 2rem) 0 0;
     max-width: 34rem;
     color: rgb(226 236 242 / 0.92);
-    font-size: clamp(1rem, 1.5vw, 1.18rem);
+    font-size: var(--fluvio-lede-size);
     line-height: 1.65;
   }
 
   .fluvio-hero__description em {
-    font-style: italic;
+    font-style: normal;
   }
 
   .fluvio-hero__link {

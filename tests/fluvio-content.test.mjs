@@ -427,8 +427,8 @@ test('Fluvio hero slider exposes five accessible, localised, motion-aware slides
   for (const image of [
     'home-river.jpg',
     'home-field-river-sensor.jpg',
-    'project-bina-local-knowledge.jpg',
-    'home-operations-laptop.jpeg',
+    'home-collaboration-install.jpg',
+    'home-operations-workshop-softened.jpg',
     'vision-field-team.jpeg',
   ]) {
     assert.ok(
@@ -473,7 +473,7 @@ test('Fluvio recovery and contact routes use explicit destinations', async () =>
     assert.match(notFound, new RegExp(`getPermalink\\('${href}'\\)`));
   assert.match(contact, /<EnquiryForm locale=\{locale\}/);
   const enquiry = await read('src/components/fluvio/EnquiryForm.astro');
-  assert.match(enquiry, /mailto:info@fluvio\.com\.au/);
+  assert.doesNotMatch(enquiry, /info@fluvio\.com\.au|mailto:/);
   assert.equal(getNavigation('en').linkedinUrl, 'https://www.linkedin.com/company/fluvioptyltd/');
   assert.match(contact, /navigation\.linkedinUrl/);
   assert.doesNotMatch(

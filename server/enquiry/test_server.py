@@ -2,7 +2,7 @@ import json
 import os
 import unittest
 from unittest.mock import patch
-from server import Enquiry, validate, build_message
+from server import Enquiry, validate, build_message, verify_captcha
 
 VALID = dict(name='Test Visitor', email='test@example.com', message='A river monitoring enquiry.')
 ORIGIN = 'https://fluvio-research.github.io'
@@ -44,3 +44,28 @@ class Tests(unittest.TestCase):
         self.assertEqual(service.submit(ORIGIN,'ip',raw),(429,False))
         now[0]=3601
         self.assertEqual(service.submit(ORIGIN,'ip',raw),(200,True))
+
+    @patch.dict(os.environ, {'RECAPTCHA_ENABLED': 'true', 'RECAPTCHA_PROJECT_ID': 'project', 'RECAPTCHA_SITE_KEY': 'site', 'RECAPTCHA_API_KEY': 'server-only'})
+    def test_captcha_assessment(self):
+        from unittest.mock import MagicMock
+        valid = {'tokenProperties': {'valid': True, 'hostname': 'fluvio-research.github.io', 'action': 'enquiry'}, 'riskAnalysis': {'score': 0.9}}
+        with patch('server.urlopen') as remote:
+            def result(data):
+                response = MagicMock()
+                response.read.return_value = json.dumps(data).encode()
+                remote.return_value.__enter__.return_value = response
+            result(valid)
+            self.assertTrue(verify_captcha('token', ORIGIN, 'ip'))
+            for field, value in [('valid', False), ('hostname', 'evil.example'), ('action', 'login')]:
+                changed = dict(valid, tokenProperties=dict(valid['tokenProperties'], **{field: value}))
+                result(changed)
+                self.assertFalse(verify_captcha('token', ORIGIN, 'ip'))
+            result(dict(valid, riskAnalysis={'score': 0.1}))
+            self.assertFalse(verify_captcha('token', ORIGIN, 'ip'))
+            remote.side_effect = TimeoutError()
+            self.assertFalse(verify_captcha('token', ORIGIN, 'ip'))
+        self.assertFalse(verify_captcha(None, ORIGIN, 'ip'))
+        with patch('server.verify_captcha', return_value=False):
+            sent = []
+            self.assertEqual(Enquiry(send=sent.append).submit(ORIGIN, 'ip', json.dumps(VALID).encode()), (403, False))
+            self.assertFalse(sent)

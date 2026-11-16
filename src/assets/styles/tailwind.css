@@ -39,6 +39,35 @@
   }
 }
 
+@layer base {
+  body {
+    font-family: var(--aw-font-sans);
+    line-height: var(--fluvio-body-leading);
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--aw-font-heading);
+    font-style: normal;
+    font-weight: var(--fluvio-section-weight);
+    letter-spacing: var(--fluvio-heading-tracking);
+    line-height: var(--fluvio-heading-leading);
+  }
+  h1 {
+    font-weight: var(--fluvio-title-weight);
+    line-height: var(--fluvio-title-leading);
+  }
+  button,
+  input,
+  select,
+  textarea {
+    font-family: var(--aw-font-sans);
+  }
+}
+
 @utility bg-page {
   background-color: var(--aw-color-bg-page);
 }
@@ -157,19 +186,6 @@
   color: rgb(125 186 188);
 }
 
-:root {
-  --fluvio-section-compact: clamp(1.75rem, 3.8vw, 3rem);
-  --fluvio-section-standard: clamp(2.75rem, 5.5vw, 5rem);
-  --fluvio-section-wide: clamp(3.5rem, 7vw, 6rem);
-  --fluvio-heading-gap: clamp(1.5rem, 3vw, 2.75rem);
-  --fluvio-column-gap: clamp(1.5rem, 4vw, 4rem);
-  --fluvio-title-weight: 700;
-  --fluvio-section-weight: 650;
-  --fluvio-title-size: clamp(2rem, 3.6vw, 3.5rem);
-  --fluvio-section-size: clamp(1.65rem, 2.8vw, 2.6rem);
-  --fluvio-feature-size: clamp(1.45rem, 2.2vw, 2rem);
-  --fluvio-card-size: clamp(1.2rem, 1.7vw, 1.5rem);
-}
 main em,
 main i {
   font-style: normal;
@@ -182,7 +198,7 @@ main i {
   font-family: var(--aw-font-heading);
   font-size: var(--fluvio-title-size);
   font-weight: var(--fluvio-title-weight);
-  letter-spacing: -0.025em;
+  letter-spacing: var(--fluvio-heading-tracking);
   line-height: 1.12;
   text-wrap: balance;
 }
@@ -194,7 +210,7 @@ main i {
   font-family: var(--aw-font-heading);
   font-size: var(--fluvio-section-size);
   font-weight: var(--fluvio-section-weight);
-  letter-spacing: -0.025em;
+  letter-spacing: var(--fluvio-heading-tracking);
   line-height: 1.16;
   text-wrap: balance;
 }
@@ -213,7 +229,7 @@ main i {
   margin: 1.25rem 0 0;
   max-width: 100%;
   color: var(--aw-color-text-muted);
-  font-size: clamp(1.05rem, 1.8vw, 1.28rem);
+  font-size: var(--fluvio-lede-size);
   line-height: 1.65;
   text-wrap: pretty;
 }

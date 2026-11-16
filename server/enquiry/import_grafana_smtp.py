@@ -59,10 +59,13 @@ def main():
     if any('\n' in value or '\r' in value for value in settings.values()):
         raise ValueError('Unexpected newline in SMTP configuration')
     target = '/etc/fluvio-enquiry.env'
+    preserved = [line for line in Path(target).read_text().splitlines() if re.match(r'^RECAPTCHA_[A-Z_]+=', line)] if Path(target).exists() else []
     fd = os.open(target, os.O_WRONLY | os.O_CREAT | os.O_TRUNC, 0o600)
     os.fchmod(fd, 0o600)
     with os.fdopen(fd, 'w') as out:
         out.write('\n'.join(key + '="' + value.replace('\\', '\\\\').replace('"', '\\"') + '"' for key, value in settings.items()) + '\n')
+        if preserved:
+            out.write('\n'.join(preserved) + '\n')
     print('Imported active Grafana SMTP settings. No credentials displayed.')
 
 if __name__ == '__main__':

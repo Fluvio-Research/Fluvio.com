@@ -32,6 +32,8 @@ jobs:
 
       - name: Build site
         uses: withastro/action@v3
+        env:
+          PUBLIC_RECAPTCHA_SITE_KEY: ${{ vars.PUBLIC_RECAPTCHA_SITE_KEY }}
         with:
           node-version: 22
 

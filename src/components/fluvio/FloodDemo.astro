@@ -1,5 +1,6 @@
 ---
 import Accent from './Accent.astro';
+import LinkedInMark from '~/components/common/LinkedInMark.astro';
 import ArrowLink from './ArrowLink.astro';
 import { getCatalog } from '~/data/fluvio/store.ts';
 import { localeHref, type Locale } from '~/i18n';
@@ -27,7 +28,7 @@ const video = findVideo('/src/assets/images/fluvio/floodsense-linkedin.mp4');
       <span>{c.videoLabel}</span><a
         href="https://www.linkedin.com/feed/update/urn:li:activity:7521391511112953856/"
         target="_blank"
-        rel="noopener noreferrer">{c.sourceLabel}</a
+        rel="noopener noreferrer"><LinkedInMark /> {c.sourceLabel}</a
       >
     </figcaption>
   </figure>
@@ -56,7 +57,7 @@ const video = findVideo('/src/assets/images/fluvio/floodsense-linkedin.mp4');
     width: 100%;
     aspect-ratio: 736/720;
     display: block;
-    background: #071f2a;
+    background: var(--fluvio-media-surface);
     border: 1px solid rgb(255 255 255 / 0.15);
     border-radius: 18px;
     box-shadow: 0 24px 70px rgb(0 0 0 / 0.2);

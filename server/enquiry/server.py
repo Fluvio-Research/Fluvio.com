@@ -6,6 +6,8 @@ import smtplib
 import ssl
 import threading
 import time
+from urllib.request import Request, urlopen
+from urllib.parse import quote, urlparse
 from email.message import EmailMessage
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from socketserver import ThreadingMixIn
@@ -26,6 +28,33 @@ def validate(data):
     if not re.fullmatch(r'[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+', clean['email']):
         return None
     return clean if len(clean['message']) >= 10 else None
+
+def verify_captcha(token, origin, ip):
+    # Enable only after both the public website key and server credentials are configured.
+    if os.environ.get('RECAPTCHA_ENABLED') != 'true':
+        return True
+    project = os.environ.get('RECAPTCHA_PROJECT_ID')
+    key = os.environ.get('RECAPTCHA_SITE_KEY')
+    api_key = os.environ.get('RECAPTCHA_API_KEY')
+    if not all([project, key, api_key]) or not isinstance(token, str) or not 0 < len(token) <= 8192:
+        return False
+    request = Request(
+        'https://recaptchaenterprise.googleapis.com/v1/projects/' + quote(project, safe='') + '/assessments',
+        data=json.dumps({'event': {'token': token, 'siteKey': key, 'expectedAction': 'enquiry', 'userIpAddress': ip}}).encode(),
+        headers={'Content-Type': 'application/json', 'X-Goog-Api-Key': api_key}, method='POST')
+    try:
+        with urlopen(request, timeout=8) as response:
+            assessment = json.load(response)
+        properties = assessment.get('tokenProperties', {})
+        score = assessment.get('riskAnalysis', {}).get('score')
+        return (properties.get('valid') is True
+                and properties.get('hostname') == urlparse(origin).hostname
+                and properties.get('action') == 'enquiry'
+                and isinstance(score, (int, float)) and not isinstance(score, bool)
+                and score >= float(os.environ.get('RECAPTCHA_MIN_SCORE', '0.5')))
+    except Exception:
+        # Fail closed; never log tokens, keys or submitted personal details.
+        return False
 
 def connect_smtp():
     port = int(os.environ.get('SMTP_PORT', '587'))
@@ -84,11 +113,14 @@ class Enquiry:
         if len(raw) > 16384:
             return 413, False
         try:
-            value = validate(json.loads(raw.decode('utf-8')))
+            data = json.loads(raw.decode('utf-8'))
+            value = validate(data)
         except (ValueError, UnicodeError):
             value = None
         if value is None:
             return 400, False
+        if not verify_captcha(data.get('recaptchaToken'), origin, ip):
+            return 403, False
         try:
             self.send(value)
         except Exception as error:

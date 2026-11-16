@@ -29,7 +29,7 @@ const views = [
     href: '/expertise',
     action: home.expertiseMore,
     kind: 'field',
-    images: ['project-bina-gauging.png', 'project-ghg-reservoirs.jpg', 'team-field-boat.jpg'].map(
+    images: ['project-bina-gauging.png', 'home-expertise-camera-scan.png', 'team-field-boat.jpg'].map(
       (name) => imageBase + name
     ),
   },
@@ -157,7 +157,8 @@ const views = [
     margin: 0;
     font-family: var(--aw-font-heading);
     font-size: var(--fluvio-section-size);
-    letter-spacing: -0.025em;
+    font-weight: var(--fluvio-section-weight);
+    letter-spacing: var(--fluvio-heading-tracking);
     line-height: 1;
   }
   .view-copy p {
@@ -289,7 +290,7 @@ const views = [
     }
   }
   .overview-view--dashboard .visual-stage :global(.image-control) {
-    border: 3px solid #263748;
+    border: 3px solid var(--fluvio-screen-border);
     width: 65%;
     height: 60%;
     left: 0;
@@ -310,6 +311,10 @@ const views = [
     left: 36%;
     transform: rotate(6deg);
   }
+  .overview-view--field .image-control:nth-child(2) :global(img) {
+    object-position: 72% center;
+  }
+
   .overview-view--dashboard .visual-stage :global(img) {
     object-position: top center;
   }
@@ -351,9 +356,9 @@ const views = [
     height: auto !important;
     aspect-ratio: 16 / 9;
     top: 25% !important;
-    border: 2px solid #c4d5df;
+    border: 2px solid var(--fluvio-screen-border);
     border-radius: 12px;
-    background: #f5f8fb;
+    background: var(--fluvio-screen-surface);
     box-shadow: 0 18px 35px rgb(10 35 50 / 0.18);
   }
   .overview-view--dashboard .visual-stage :global(img) {

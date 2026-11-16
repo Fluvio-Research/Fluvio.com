@@ -120,3 +120,11 @@ Based on the open-source [AstroWind](https://github.com/arthelokyo/astrowind) te
 ## Products and Systems
 
 `content/site/catalog.json` owns the localized Products and Systems pages. The content store validates three products and three systems, with local imagery and related project or expertise links. The companion CMS configuration exposes this catalog. See `docs/media-sources.md` for source provenance and collection notes.
+
+### Google reCAPTCHA Enterprise
+
+The contact form supports a score-based website key. The approved public site key is configured in `EnquiryForm.astro`; `PUBLIC_RECAPTCHA_SITE_KEY` can override it at build time (including the GitHub Actions build environment). Register the production and GitHub Pages hostnames on the key. Google scripts load only when submitting the contact form.
+
+On the enquiry server, configure `RECAPTCHA_ENABLED=true`, `RECAPTCHA_PROJECT_ID`, `RECAPTCHA_SITE_KEY`, and `RECAPTCHA_API_KEY` in the root-only service environment. Restrict the API key to the reCAPTCHA Enterprise API and server IP. Never put the API key in a PUBLIC variable or commit it. Restart the enquiry service after configuration. The backend checks token validity, action, requesting hostname and score (default minimum 0.5; `RECAPTCHA_MIN_SCORE` overrides it). Failed or unavailable assessments reject the submission without sending email. Existing rate limiting and honeypot checks remain.
+
+Deploy the frontend site key before enabling server enforcement. CAPTCHA is inactive until configured on both sides; Google CLI login alone is not a reCAPTCHA key. Localhost is not an allowed origin for the live email service; use a separate test service and key for end-to-end development. Do not use test keys in production.

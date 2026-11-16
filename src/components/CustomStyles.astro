@@ -18,6 +18,34 @@
     --fluvio-silt: 195 154 91;
     --fluvio-coral: 217 118 91;
 
+    /* Shared surfaces used by homepage, product cards and media galleries. */
+    --fluvio-device-surface: linear-gradient(145deg, rgb(var(--fluvio-mist)), rgb(var(--fluvio-wash)));
+    --fluvio-screen-border: rgb(var(--fluvio-navy) / 0.25);
+    --fluvio-screen-surface: rgb(var(--fluvio-mist));
+    --fluvio-media-surface: rgb(var(--fluvio-ink));
+
+    /* One responsive typography and spacing scale for every page. */
+    --fluvio-section-compact: clamp(1.75rem, 3.8vw, 3rem);
+    --fluvio-section-standard: clamp(2.75rem, 5.5vw, 5rem);
+    --fluvio-section-wide: clamp(3.5rem, 7vw, 6rem);
+    --fluvio-heading-gap: clamp(1.5rem, 3vw, 2.75rem);
+    --fluvio-column-gap: clamp(1.5rem, 4vw, 4rem);
+    --fluvio-title-weight: 700;
+    --fluvio-section-weight: 650;
+    --fluvio-title-size: clamp(2rem, 3.6vw, 3.5rem);
+    --fluvio-section-size: clamp(1.65rem, 2.8vw, 2.6rem);
+    --fluvio-feature-size: clamp(1.45rem, 2.2vw, 2rem);
+    --fluvio-card-size: clamp(1.2rem, 1.7vw, 1.5rem);
+    --fluvio-heading-tracking: -0.025em;
+    --fluvio-title-leading: 1.12;
+    --fluvio-heading-leading: 1.16;
+    --fluvio-lede-size: clamp(1rem, 1.5vw, 1.18rem);
+    --fluvio-body-leading: 1.65;
+
+    /* Shared site chrome: river-tinted navigation and a deep-water footer. */
+    --fluvio-header-surface: linear-gradient(110deg, rgb(220 235 240), rgb(239 246 246) 58%, rgb(220 235 232));
+    --fluvio-footer-surface: linear-gradient(120deg, rgb(14 36 49), rgb(23 59 72) 70%, rgb(27 73 79));
+
     /* Derived supporting tones */
     --fluvio-wash: 219 233 238; /* pale river wash for fields and selection */
     --fluvio-slate: 71 88 101; /* accessible muted text on paper */
@@ -45,6 +73,10 @@
   }
 
   .dark {
+    --fluvio-header-surface: linear-gradient(110deg, rgb(17 38 50), rgb(22 48 60));
+    --fluvio-device-surface: linear-gradient(145deg, rgb(var(--fluvio-navy) / 0.5), rgb(var(--fluvio-wash)));
+    --fluvio-screen-border: rgb(var(--fluvio-mist) / 0.25);
+    --fluvio-screen-surface: rgb(var(--fluvio-ink));
     --fluvio-wash: 36 74 100; /* deep navy wash for dark fields */
     --fluvio-slate: 156 176 190; /* accessible muted text on ink */
     --fluvio-silt-deep: 214 178 122; /* silt lightened for dark-theme accents */

@@ -121,7 +121,7 @@ const labels = getUi(locale).header;
 
   .site-header {
     --header-border: rgb(var(--fluvio-ink) / 0.12);
-    --header-surface: rgb(var(--fluvio-paper) / 0.96);
+    --header-surface: var(--fluvio-header-surface);
     --header-hover: rgb(var(--fluvio-river) / 0.1);
     --header-accent: rgb(var(--fluvio-river));
     --menu-surface: rgb(var(--fluvio-paper));
@@ -130,13 +130,13 @@ const labels = getUi(locale).header;
     color: var(--aw-color-text-heading);
     background: var(--header-surface);
     border-bottom: 1px solid var(--header-border);
-    box-shadow: 0 8px 28px rgb(17 45 51 / 0.08);
+    box-shadow: 0 4px 24px rgb(17 45 51 / 0.12);
     backdrop-filter: blur(16px) saturate(1.2);
   }
 
   :global(.dark) .site-header {
     --header-border: rgb(var(--fluvio-mist) / 0.18);
-    --header-surface: rgb(19 32 42 / 0.96);
+    --header-surface: var(--fluvio-header-surface);
     --header-hover: rgb(125 186 188 / 0.16);
     --header-accent: rgb(150 214 209);
     --menu-surface: rgb(var(--fluvio-ink));

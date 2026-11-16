@@ -90,8 +90,9 @@ const { eyebrow, title, intro, label, items, titleLogo } = Astro.props;
   h1 {
     font-family: var(--aw-font-heading);
     font-size: var(--fluvio-title-size);
-    line-height: 1.08;
-    letter-spacing: -0.025em;
+    font-weight: var(--fluvio-title-weight);
+    line-height: var(--fluvio-title-leading);
+    letter-spacing: var(--fluvio-heading-tracking);
     margin: 0.65rem 0 0.8rem;
     text-wrap: balance;
   }
@@ -122,7 +123,7 @@ const { eyebrow, title, intro, label, items, titleLogo } = Astro.props;
   }
   .overview-card__image {
     height: clamp(8rem, 13vw, 12rem);
-    background: linear-gradient(145deg, #e7eeeb, #b5cdc7);
+    background: var(--fluvio-device-surface);
   }
   .overview-hero .overview-card__image--contain :global(img) {
     object-fit: contain !important;

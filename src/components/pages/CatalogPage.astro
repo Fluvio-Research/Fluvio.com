@@ -145,7 +145,7 @@ const systemPlatforms = [
   }
 
   .catalog-feature__media--device {
-    background: linear-gradient(145deg, #e7eeeb, #b5cdc7);
+    background: var(--fluvio-device-surface);
     border-radius: 24px;
   }
   .catalog-feature__media--device :global(img) {
@@ -160,14 +160,15 @@ const systemPlatforms = [
   }
   .catalog-feature__copy h2 {
     font-family: var(--aw-font-heading);
-    font-size: var(--fluvio-title-size);
-    letter-spacing: -0.025em;
-    line-height: 1;
+    font-size: var(--fluvio-section-size);
+    font-weight: var(--fluvio-section-weight);
+    letter-spacing: var(--fluvio-heading-tracking);
+    line-height: var(--fluvio-heading-leading);
     margin: 1rem 0;
   }
   .catalog-feature__copy h3 {
     font-family: var(--aw-font-heading);
-    font-size: 1.4rem;
+    font-size: var(--fluvio-feature-size);
     line-height: 1.25;
     margin: 1.5rem 0 1rem;
   }

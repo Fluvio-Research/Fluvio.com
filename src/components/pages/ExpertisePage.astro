@@ -94,7 +94,7 @@ const metadata = {
 
   .fluvio-expertise-grid {
     display: grid;
-    gap: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 3vw, 2.5rem);
+    gap: var(--fluvio-column-gap);
   }
 
   .fluvio-expertise-team {
@@ -116,23 +116,17 @@ const metadata = {
 
   @media (min-width: 768px) {
     .fluvio-expertise-grid {
-      grid-template-columns: repeat(12, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    /* A 7 / 5 rhythm so the grid reads as a composition, not a table. */
     .fluvio-expertise-grid__cell {
-      grid-column: span 7;
-    }
-
-    .fluvio-expertise-grid__cell:nth-child(4n + 2),
-    .fluvio-expertise-grid__cell:nth-child(4n + 3) {
-      grid-column: span 5;
+      min-width: 0;
     }
 
     .fluvio-expertise-team {
       grid-template-columns: minmax(0, 0.9fr) minmax(24rem, 1.1fr);
-      gap: clamp(4rem, 10vw, 10rem);
-      align-items: end;
+      gap: var(--fluvio-column-gap);
+      align-items: start;
     }
   }
 </style>
