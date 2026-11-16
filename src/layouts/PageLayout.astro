@@ -26,6 +26,6 @@ const { metadata, locale = defaultLocale } = Astro.props;
     <slot />
   </main>
   <slot name="footer">
-    <Footer {...getFooterData(locale)} />
+    <Footer {...getFooterData(locale)} locale={locale} />
   </slot>
 </Layout>

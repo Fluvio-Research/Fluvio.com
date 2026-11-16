@@ -138,5 +138,40 @@
     ],
     "relatedProjects": ["sol-trader-oil-spill"],
     "partners": ["The University of Queensland", "Wildlife Conservation Society", "Sparkgeo", "G20 CORDAP"]
+  },
+  "de": {
+    "order": 8,
+    "title": "Clean Reefs: dynamische Kartierung von Schadstoffbelastungen",
+    "slug": "cordap",
+    "summary": "Entwicklung eines globalen Open-Source-Werkzeugs zur Kartierung von Schadstoffbelastungen und Risikobewertung für Korallenriffe.",
+    "location": "Weltweit",
+    "timeframe": "Seit 2024",
+    "disciplines": ["Kartierung von Schadstoffbelastungen", "Risikobewertung"],
+    "heroImage": "/src/assets/images/fluvio/project-cordap.jpeg",
+    "heroAlt": "Eine braune Sedimentfahne breitet sich von einer Flussmündung in das klare Küstenwasser der Salomonen aus",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-cordap-map.png",
+        "alt": "Karte einer tropischen Küste mit Einzugsgebietsgrenzen, einem nach Schadstofffracht eingefärbten Flussnetz und markierten Rifflebensräumen",
+        "caption": "Modellierte Schadstofffrachten vom Land, dargestellt mit Einzugsgebieten und benachbarten Rifflebensräumen."
+      },
+      {
+        "src": "/src/assets/images/fluvio/project-cordap-coasted.jpg",
+        "alt": "Nicholas Hutley beim International Coral Reef Symposium, das Publikum vor einer Abflusskarte und die CoaSTED-Karte zur Sedimentbelastung mit dem Logo der Betaversion von Global Pollution Watch",
+        "caption": "CoaSTED wurde beim Symposium der International Coral Reef Society zur Veröffentlichung der Betaversion von Global Pollution Watch vorgestellt."
+      }
+    ],
+    "challenge": [
+      "Fast eine Milliarde Menschen leben im Umkreis von 100 km eines Korallenriffs. Sedimente, übermäßige Nährstoffeinträge und Abwasser vom Land gefährden weltweit über 30 % der Korallenriffe. Ein wirksames Management dieser Belastungen ist für den Riffschutz entscheidend. Viele vorhandene Werkzeuge sind für die Verantwortlichen schwer zugänglich oder eignen sich nur bedingt für Entscheidungen."
+    ],
+    "approach": [
+      "CLEAN REEFS entwickelt ein globales Open-Source-Werkzeug, mit dem Riffschutzteams, Forschende und Bürgerwissenschaftler Schadstoffrisiken in Korallenökosystemen erkennen und angehen können. Die Webanwendung soll Daten zu Quellen, Belastung und Ausbreitung nahezu in Echtzeit liefern. Damit lassen sich Risikogebiete, Quellen und mögliche Gegenmaßnahmen ermitteln und lokale Schutz- und Wiederherstellungsmaßnahmen gezielter planen."
+    ],
+    "outcome": [
+      "CLEAN REEFS unterstützt praktische Schutzmaßnahmen in Fidschi und auf den Salomonen und entwickelt zugleich ein weltweit einsetzbares Werkzeug für Menschen, die Korallenriffe schützen.",
+      "Das Fluvio-Modell CoaSTED (Coastal Sediment Source Exposure Tracking) bildet die Grundlage von Global Pollution Watch, das mit Dr. Amelia Wenger von der University of Queensland, der Wildlife Conservation Society und Sparkgeo entwickelt wurde. CoaSTED berechnet die räumliche Belastung durch Tausende Schadstoffquellen weltweit anhand von Häufigkeitsverteilungen, die die Küstendynamik auf Jahresbasis von 2000 bis 2020 abbilden. Dr. Nicholas Hutley stellte das Modell 2026 beim Symposium der International Coral Reef Society zur Veröffentlichung der Betaversion vor."
+    ],
+    "relatedProjects": ["sol-trader-oil-spill"],
+    "partners": ["The University of Queensland", "Wildlife Conservation Society", "Sparkgeo", "G20 CORDAP"]
   }
 }

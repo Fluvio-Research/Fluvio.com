@@ -38,5 +38,15 @@
     "portraitAlt": "Simon Albert",
     "specialties": ["Clima, agua y sociedad"],
     "expertise": ["hydrological-monitoring", "catchment-management"]
+  },
+  "de": {
+    "order": 1,
+    "name": "Simon Albert",
+    "role": "Leitung Innovation und Strategie",
+    "bio": "Simon ist international führend beim Einsatz neuer Messmethoden, um die Wechselwirkungen zwischen Klima, Wasser und Gesellschaft zu verstehen. Er setzt auf Menschen und Technologie, um künftige Herausforderungen zu bewältigen.",
+    "portrait": "/src/assets/images/fluvio/team-simon.png",
+    "portraitAlt": "Simon Albert",
+    "specialties": ["Klima, Wasser und Gesellschaft"],
+    "expertise": ["hydrological-monitoring", "catchment-management"]
   }
 }

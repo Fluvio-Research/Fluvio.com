@@ -146,5 +146,42 @@
       "Durante su primer año, la red registró todo el espectro de condiciones, desde crecidas provocadas por ciclones hasta el periodo seco prolongado e inusual asociado a El Niño, aportando evidencia clave sobre la disponibilidad de agua, la resiliencia de la cuenca y la fiabilidad del suministro a largo plazo."
     ],
     "relatedProjects": ["tina", "monitoring-honiara"]
+  },
+  "de": {
+    "order": 2,
+    "title": "Hydrologische Überwachung potenzieller Wasserquellen",
+    "slug": "bina",
+    "summary": "Kontinuierliche hydrologische Messungen zur Ermittlung einer zuverlässigen und nachhaltigen Wasserquelle für das Entwicklungsprojekt Bina Harbour.",
+    "location": "Bina Harbour, Salomonen",
+    "timeframe": "Seit 2025",
+    "disciplines": ["Hydrologische Überwachung", "Überwachung der Wasserqualität"],
+    "heroImage": "/src/assets/images/fluvio/project-bina.jpeg",
+    "heroAlt": "Ein Feldteam geht bei starkem Tropenregen am Kiesufer eines angeschwollenen Flusses entlang",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-bina-gauging.png",
+        "alt": "Zwei Personen stehen hüfttief in einem Waldbach neben einem gesicherten Messboot und einem über das Wasser gespannten Maßband",
+        "caption": "Abflussmessung im Loaloana Stream mit einem manuellen ADV und einem auf einem Boot eingesetzten ADCP."
+      },
+      {
+        "src": "/src/assets/images/fluvio/project-bina-local-knowledge.jpg",
+        "alt": "Gemeindemitglieder und das Fluvio-Team an Karstquellen und einem Waldbach mit einer über dem Wasser montierten FS-Spot-Messkamera",
+        "caption": "Lokales Wissen bestimmte, wo die FS-Spot-Messstationen installiert wurden."
+      }
+    ],
+    "challenge": [
+      "Das Entwicklungsprojekt Bina Harbour soll den Hafen 25 km südlich von Auki in der Provinz Malaita zu einem international führenden Standort für die Thunfischverarbeitung machen. Die Anlage soll den Salomonen helfen, einen größeren Teil der Wertschöpfung aus ihren Thunfischbeständen im Land zu halten und die langfristige Wirtschaftsentwicklung zu stärken. Dafür wird eine zuverlässige, saubere Wasserquelle benötigt, die den unmittelbaren und langfristigen Bedarf deckt."
+    ],
+    "approach": [
+      "Fluvio begann mit Gesprächen mit Gemeindeältesten und der Bevölkerung. Sie teilten ihr Wissen über Quellen, Bäche, saisonale Abflussmuster und die Wasserverfügbarkeit. In den Karstlandschaften der Salomonen fließt Wasser häufig unterirdisch. Herkömmliche hydrologische Modelle bilden diese Wege nur begrenzt ab. Die über Generationen gesammelten Beobachtungen halfen, geeignete Untersuchungs- und Messstandorte zu finden.",
+      "Zur Überprüfung und Quantifizierung dieser Erkenntnisse setzte Fluvio das selbst entwickelte autonome optische Messsystem FluvioSense-Spot (FS-Spot) ein. Es wird mit Solarstrom betrieben, über Satellit angebunden und misst Fließgeschwindigkeit und Abfluss berührungslos. Es erstellt eigenständig Wasserstands-Abfluss-Beziehungen und ergänzt manuelle akustische Messungen.",
+      "Fluvio wurde beauftragt, zwölf Monate lang hydrologische Daten zu erfassen, um eine zuverlässige und nachhaltige Wasserquelle für den aktuellen und künftigen Betrieb der Anlage zu bestimmen. Zwei Messstandorte wurden in früheren Studien identifiziert, ein dritter wurde von lokalen Landbesitzern vorgeschlagen.",
+      "Zum Einsatz kamen bildgestützte Abflussmessungen, Echtzeitmessstationen für die Wasserqualität und manuelle Messungen. Kommunikations- und Überwachungslösungen wurden für abgelegene Standorte mit extremen Bedingungen entwickelt."
+    ],
+    "outcome": [
+      "Das Messnetz liefert alle fünf Minuten Daten. Diese durchgehende Messreihe dient dazu, eine Wasserquelle zu bestätigen, die sowohl den unmittelbaren als auch den langfristigen Bedarf der Anlage decken kann.",
+      "Im ersten Jahr erfasste das Netz sowohl zyklonbedingte Hochwasser als auch die lange, ungewöhnliche Trockenheit während El Niño. Die Daten geben Aufschluss über Wasserverfügbarkeit, Belastbarkeit des Einzugsgebiets und langfristige Versorgungssicherheit."
+    ],
+    "relatedProjects": ["tina", "monitoring-honiara"]
   }
 }

@@ -16,31 +16,32 @@
         "description": "Non-contact monitoring and real-time analysis turn complex conditions into useful evidence.",
         "action": "Explore expertise",
         "href": "/expertise",
-        "imageAlt": "A solar-powered monitoring sensor mounted beside a calm river",
+        "imageAlt": "River-monitoring camera with a flow velocity heatmap",
         "image": "/src/assets/images/fluvio/home-field-river-sensor.jpg"
       },
       {
         "eyebrow": "Collaborative delivery",
-        "title": "Build capability *with the people* who use it.",
-        "description": "Tools and knowledge shaped with communities, government, industry and regional partners.",
+        "title": "Build capability together.",
+        "description": "Tools and knowledge shaped with communities, government, industry and regional partners",
         "action": "See our projects",
         "href": "/projects",
-        "imageAlt": "Fieldwork with local communities in Bina Harbour",
-        "image": "/src/assets/images/fluvio/project-bina-local-knowledge.jpg"
+        "imageAlt": "Field team installing solar-powered monitoring equipment",
+        "image": "/src/assets/images/fluvio/home-collaboration-install.jpg",
+        "emphasizeDescription": true
       },
       {
-        "eyebrow": "Operational platforms",
+        "eyebrow": "Operational systems",
         "title": "From sensors to decisions *in real time*.",
         "description": "FluvioSense and FluvioPulse turn live monitoring networks into analysis, reporting and alerts.",
-        "action": "Discover the platforms",
+        "action": "Discover the systems",
         "href": "/systems",
-        "imageAlt": "An operator checking live monitoring data on a laptop beside a water channel",
-        "image": "/src/assets/images/fluvio/home-operations-laptop.jpeg"
+        "imageAlt": "An operator using a tablet while colleagues measure river conditions",
+        "image": "/src/assets/images/fluvio/home-operations-workshop-softened.jpg"
       },
       {
         "eyebrow": "People and place",
         "title": "Science, engineering and local knowledge, *together*.",
-        "description": "Specialists in hydrology, carbon, data and delivery working across Australia and Melanesia.",
+        "description": "Specialists in hydrology, carbon, data and delivery working across the Asia-Pacific.",
         "action": "Meet the team",
         "href": "/team",
         "imageAlt": "Floodwater moving through riverbank trees",
@@ -55,7 +56,7 @@
       "projects": "Projects",
       "expertise": "Capability areas",
       "team": "Specialists",
-      "platforms": "Live platforms"
+      "platforms": "Live systems"
     },
     "capabilitiesLabel": "Core capabilities",
     "capabilities": [
@@ -81,23 +82,23 @@
     "projectsFeatured": "Featured work",
     "projectsMore": "Explore every project",
     "platformsTitle": "Monitoring data, *made operational*",
-    "platformsIntro": "Purpose-built platforms connect environmental observations with analysis, reporting and action.",
+    "platformsIntro": "Purpose-built systems connect environmental observations with analysis, reporting and action.",
     "teamTitle": "Science, technology and delivery *in one team*",
     "teamIntro": "Fluvio brings together specialists in hydrology, carbon, environmental science, spatial analysis and data systems.",
     "teamMore": "Meet the full team",
-    "impactTitle": "Built with partners across *Australia and Melanesia*.",
+    "impactTitle": "Built with partners across *the Asia-Pacific*.",
     "impactBody": [
       "Our work spans Queensland, Australian reservoirs, Honiara, the Tina River, Bina Harbour and Rennell Island. Programs are shaped with government, utilities, communities and regional organisations.",
       "Delivery includes field monitoring, operational data systems, training and environmental assessment, with a focus on lasting local capability."
     ],
     "platforms": {
-      "label": "Platform",
+      "label": "System",
       "sense": {
         "title": "FluvioSense",
-        "description": "The FluvioSense stream vision platform: computer vision stream gauging cameras, real-time water quality nodes and flood cameras on one live map, with discharge, level, velocity and rating curves for every site.",
+        "description": "The FluvioSense stream vision system: computer vision stream gauging cameras, real-time water quality nodes and flood cameras on one live map, with discharge, level, velocity and rating curves for every site.",
         "action": "Visit FluvioSense",
         "href": "https://sense.fluvio.com.au/",
-        "image": "/src/assets/images/fluvio/platform-sense.jpeg",
+        "image": "/src/assets/images/fluvio/system-sense-light.jpg",
         "imageAlt": "The FluvioSense site list with live stream camera feeds and monitoring stations mapped across Queensland.",
         "highlights": [
           "Live site map with online, recent and offline status, and Bureau of Meteorology river, catchment and gauge layers",
@@ -119,10 +120,10 @@
       },
       "cascade": {
         "title": "FluvioPulse",
-        "description": "A web-based platform that ingests real-time environmental monitoring data to support analysis, reporting and alerts.",
+        "description": "A web-based system that ingests real-time environmental monitoring data to support analysis, reporting and alerts.",
         "action": "Visit FluvioPulse",
         "href": "https://pulse.fluvio.com.au/",
-        "image": "/src/assets/images/fluvio/platform-cascade.png",
+        "image": "/src/assets/images/fluvio/system-pulse-demo-light.png",
         "imageAlt": "FluvioPulse source monitoring with anonymous sites and illustrative data",
         "highlights": [
           "Ingests real-time water quality and water level data from remote monitoring stations",
@@ -145,7 +146,7 @@
         "description": "Fluvio Reef Monitor: NOAA Coral Reef Watch thermal stress, bleaching alerts and reef health for priority reef sites across six nations, updated daily.",
         "action": "Visit FluvioReef",
         "href": "https://reef.fluvio.com.au/",
-        "image": "/src/assets/images/fluvio/platform-reef-summary.jpg",
+        "image": "/src/assets/images/fluvio/system-reef-light.jpg",
         "imageAlt": "The Fluvio Reef Monitor in light mode: the site detail panel for the Philippines, with sea surface temperature, degree heating weeks and alert status over a map of the priority reef area",
         "highlights": [
           "Sea surface temperature, degree heating weeks and bleaching alert level for every reef site, updated daily from NOAA Coral Reef Watch",
@@ -166,7 +167,7 @@
       },
       "siwis": {
         "title": "SIWIS",
-        "description": "The Solomon Islands Water Information System, developed by Fluvio with the Water Resources Division: the national platform to collect, securely store, map and analyse hydrological data in support of evidence-based water management.",
+        "description": "The Solomon Islands Water Information System, developed by Fluvio with the Water Resources Division: the national system to collect, securely store, map and analyse hydrological data in support of evidence-based water management.",
         "imageAlt": "The SIWIS home screen: monitoring stations mapped across the Solomon Islands, total sites, rivers and data records, and charts of sites by station type and province, with a Pijin welcome beneath the English one",
         "highlights": [
           "Co-designed with the Water Resources Division through a participatory approach",
@@ -205,31 +206,32 @@
         "description": "Monitoring wea no needim fo tasim wata, an real-time analysis, savve tanem olketa hadfala kondison kamap evidens wea iu savve iusim.",
         "action": "Lukim savve blong mifala",
         "href": "/expertise",
-        "imageAlt": "Wanfala monitoring sensor wea ran long sola, hemi stap saed long wanfala kwaet reva",
+        "imageAlt": "Kamera blong monitarem riva wetem map blong spid blong wata",
         "image": "/src/assets/images/fluvio/home-field-river-sensor.jpg"
       },
       {
         "eyebrow": "Waka tugeta",
-        "title": "Buildim savve *wetem olketa pipol* wea bae iusim hem.",
-        "description": "Olketa tul an savve wea mifala wakem tugeta wetem komuniti, gavman, indastri an olketa partna long region.",
+        "title": "Yumi buildim savve tugeta.",
+        "description": "Olketa tul an savve wea yumi wakem wetem olketa komuniti, gavman, indastri an olketa patna long region",
         "action": "Lukim olketa project blong mifala",
         "href": "/projects",
-        "imageAlt": "Field waka wetem olketa lokol komuniti long Bina Harbour",
-        "image": "/src/assets/images/fluvio/project-bina-local-knowledge.jpg"
+        "imageAlt": "Tim i putim monitoring equipment wea yusim solar power",
+        "image": "/src/assets/images/fluvio/home-collaboration-install.jpg",
+        "emphasizeDescription": true
       },
       {
-        "eyebrow": "Olketa platform fo waka",
+        "eyebrow": "Olketa sistem fo waka",
         "title": "From olketa sensor go kasem olketa disison *long real-time*.",
         "description": "FluvioSense an FluvioPulse tanem olketa live monitoring network kamap analysis, report an alert.",
-        "action": "Lukim olketa platform",
+        "action": "Lukim olketa sistem",
         "href": "/systems",
-        "imageAlt": "Wanfala operator hemi sekem live monitoring data long wanfala laptop saed long wanfala wata channel",
-        "image": "/src/assets/images/fluvio/home-operations-laptop.jpeg"
+        "imageAlt": "Wan operator i yusim tablet taem olketa narawan mesarem riva",
+        "image": "/src/assets/images/fluvio/home-operations-workshop-softened.jpg"
       },
       {
         "eyebrow": "Pipol an ples",
         "title": "Saens, engineering an savve blong ples, olketa *waka tugeta*.",
-        "description": "Olketa ekspet long hydrology, carbon, data an fo deliverim waka, olketa waka long Australia an Melanesia.",
+        "description": "Olketa ekspet long hydrology, carbon, data an fo deliverim waka, olketa waka long Asia-Pacific.",
         "action": "Mitim tim blong mifala",
         "href": "/team",
         "imageAlt": "Flad wata hemi ran tru long olketa tri long saed blong reva",
@@ -244,7 +246,7 @@
       "projects": "Olketa project",
       "expertise": "Olketa savve eria",
       "team": "Olketa spesialist",
-      "platforms": "Olketa live platform"
+      "platforms": "Olketa live sistem"
     },
     "capabilitiesLabel": "Olketa main savve",
     "capabilities": [
@@ -270,23 +272,23 @@
     "projectsFeatured": "Spesol waka",
     "projectsMore": "Lukim evri project",
     "platformsTitle": "Monitoring data wea *redi fo waka*",
-    "platformsIntro": "Olketa platform wea mifala buildim spesol, olketa joinim samting wea mifala lukim long enviromen wetem analysis, report an aksen.",
+    "platformsIntro": "Olketa sistem wea mifala buildim spesol, olketa joinim samting wea mifala lukim long enviromen wetem analysis, report an aksen.",
     "teamTitle": "Saens, teknoloji an waka delivery insaet long *wanfala tim*",
     "teamIntro": "Fluvio tekem kam tugeta olketa ekspet long hydrology, carbon, saens blong enviromen, spatial analysis an olketa data sistem.",
     "teamMore": "Mitim ful tim",
-    "impactTitle": "Mifala buildim wetem olketa partna long *Australia an Melanesia*.",
+    "impactTitle": "Mifala buildim wetem olketa partna long *Asia-Pacific*.",
     "impactBody": [
       "Waka blong mifala kavarem Queensland, olketa reservoir long Australia, Honiara, Tina River, Bina Harbour an Rennell Island. Mifala wakem olketa program tugeta wetem gavman, olketa kampani blong wata an pawa, komuniti an olketa organisation long region.",
       "Insaet long waka ia: monitoring long field, olketa data sistem fo evriday waka, trening an assessment blong enviromen. Mifala tingim tumas fo strongim savve blong local pipol fo longtaem."
     ],
     "platforms": {
-      "label": "Platform",
+      "label": "Sistem",
       "sense": {
         "title": "FluvioSense",
-        "description": "FluvioSense stream vision platform: olketa computer vision camera fo mesarem flow, olketa real-time node blong kwaliti blong wata an olketa flood camera long wanfala live map, wetem discharge, level, spid an rating curve fo evri ples.",
+        "description": "FluvioSense stream vision sistem: olketa computer vision camera fo mesarem flow, olketa real-time node blong kwaliti blong wata an olketa flood camera long wanfala live map, wetem discharge, level, spid an rating curve fo evri ples.",
         "action": "Go long FluvioSense",
         "href": "https://sense.fluvio.com.au/",
-        "image": "/src/assets/images/fluvio/platform-sense.jpeg",
+        "image": "/src/assets/images/fluvio/system-sense-light.jpg",
         "imageAlt": "Site list blong FluvioSense wetem olketa live camera feed an olketa monitoring station long map blong Queensland.",
         "highlights": [
           "Live map blong olketa ples wea soim online, recent an offline, wetem olketa Bureau of Meteorology layer fo riva, catchment an gauge",
@@ -308,10 +310,10 @@
       },
       "cascade": {
         "title": "FluvioPulse",
-        "description": "Wanfala platform long web wea tekem insaet real-time data from monitoring blong enviromen, fo sapotem analysis, report an alert.",
+        "description": "Wanfala sistem long web wea tekem insaet real-time data from monitoring blong enviromen, fo sapotem analysis, report an alert.",
         "action": "Go long FluvioPulse",
         "href": "https://pulse.fluvio.com.au/",
-        "image": "/src/assets/images/fluvio/platform-cascade.png",
+        "image": "/src/assets/images/fluvio/system-pulse-demo-light.png",
         "imageAlt": "FluvioPulse source monitoring wit olketa anonymous site an example data",
         "highlights": [
           "Hemi tekem real-time data blong kwaliti blong wata an wata level from olketa monitoring station wea stap farawe",
@@ -334,7 +336,7 @@
         "description": "Fluvio Reef Monitor: NOAA Coral Reef Watch thermal stress, bleaching alert an reef helt fo olketa impoten reef ples long sikisfala kantri, wea hemi update evri dei.",
         "action": "Go long FluvioReef",
         "href": "https://reef.fluvio.com.au/",
-        "image": "/src/assets/images/fluvio/platform-reef-summary.jpg",
+        "image": "/src/assets/images/fluvio/system-reef-light.jpg",
         "imageAlt": "Fluvio Reef Monitor long light mode: detail panel fo Philippines, wetem sea surface temperature, degree heating weeks an alert status antap long map blong reef eria",
         "highlights": [
           "Sea surface temperature, degree heating weeks an bleaching alert level fo evri reef ples, wea NOAA Coral Reef Watch hemi update evri dei",
@@ -355,7 +357,7 @@
       },
       "siwis": {
         "title": "SIWIS",
-        "description": "Solomon Islands Water Information System, wea Fluvio hemi developim tugeta wetem Water Resources Division: nasonol platform fo kolektem, sef fo holem, mapim an analysim hydrological data fo sapotim disison abaotem wata wea hemi stanap long evidens.",
+        "description": "Solomon Islands Water Information System, wea Fluvio hemi developim tugeta wetem Water Resources Division: nasonol sistem fo kolektem, sef fo holem, mapim an analysim hydrological data fo sapotim disison abaotem wata wea hemi stanap long evidens.",
         "imageAlt": "Hom skrin blong SIWIS: olketa monitoring station long map blong Solomon Aelan, namba blong olketa site, riva an data record, an olketa chart blong site folom station type an provins, wetem wanfala welkam long Pijin anda long English wan",
         "highlights": [
           "Olketa disaenem tugeta wetem Water Resources Division long wanfala wei wea evriwan i tekpat",
@@ -394,31 +396,32 @@
         "description": "La surveillance sans contact et l’analyse en temps réel transforment des conditions complexes en données exploitables.",
         "action": "Découvrir nos expertises",
         "href": "/expertise",
-        "imageAlt": "Un capteur de surveillance à énergie solaire installé au bord d’une rivière calme",
+        "imageAlt": "Caméra de suivi de rivière avec une carte de vitesse de l’eau",
         "image": "/src/assets/images/fluvio/home-field-river-sensor.jpg"
       },
       {
         "eyebrow": "Réalisation collaborative",
-        "title": "Développer les compétences *avec celles et ceux* qui les utilisent.",
-        "description": "Des outils et des savoirs construits avec les communautés, les pouvoirs publics, l’industrie et les partenaires régionaux.",
+        "title": "Développons ensemble nos capacités.",
+        "description": "Des outils et des savoirs élaborés avec les communautés, les pouvoirs publics, l’industrie et les partenaires régionaux",
         "action": "Voir nos projets",
         "href": "/projects",
-        "imageAlt": "Travail de terrain avec les communautés de Bina Harbour",
-        "image": "/src/assets/images/fluvio/project-bina-local-knowledge.jpg"
+        "imageAlt": "Équipe de terrain installant un équipement de surveillance solaire",
+        "image": "/src/assets/images/fluvio/home-collaboration-install.jpg",
+        "emphasizeDescription": true
       },
       {
-        "eyebrow": "Plateformes opérationnelles",
+        "eyebrow": "Systèmes opérationnels",
         "title": "Des capteurs aux décisions, *en temps réel*.",
         "description": "FluvioSense et FluvioPulse transforment les réseaux de surveillance en analyses, rapports et alertes.",
-        "action": "Découvrir les plateformes",
+        "action": "Découvrir les systèmes",
         "href": "/systems",
-        "imageAlt": "Un opérateur consultant des données de surveillance en direct sur un ordinateur portable, au bord d’un canal",
-        "image": "/src/assets/images/fluvio/home-operations-laptop.jpeg"
+        "imageAlt": "Un opérateur utilise une tablette pendant que ses collègues mesurent les conditions de la rivière",
+        "image": "/src/assets/images/fluvio/home-operations-workshop-softened.jpg"
       },
       {
         "eyebrow": "Les personnes et les lieux",
         "title": "Science, ingénierie et savoirs locaux, *réunis*.",
-        "description": "Des spécialistes en hydrologie, carbone, données et réalisation, à l’œuvre en Australie et en Mélanésie.",
+        "description": "Des spécialistes en hydrologie, carbone, données et réalisation, à l’œuvre en Asie-Pacifique.",
         "action": "Rencontrer l’équipe",
         "href": "/team",
         "imageAlt": "Des eaux de crue traversant les arbres d’une berge",
@@ -433,7 +436,7 @@
       "projects": "Projets",
       "expertise": "Domaines d’expertise",
       "team": "Spécialistes",
-      "platforms": "Plateformes en service"
+      "platforms": "Systèmes en service"
     },
     "capabilitiesLabel": "Compétences clés",
     "capabilities": [
@@ -459,23 +462,23 @@
     "projectsFeatured": "Projet phare",
     "projectsMore": "Explorer tous les projets",
     "platformsTitle": "Des données de surveillance *rendues opérationnelles*",
-    "platformsIntro": "Des plateformes dédiées relient les observations environnementales à l’analyse, aux rapports et à l’action.",
+    "platformsIntro": "Des systèmes dédiés relient les observations environnementales à l’analyse, aux rapports et à l’action.",
     "teamTitle": "Science, technologie et réalisation au sein d’une *même équipe*",
     "teamIntro": "Fluvio réunit des spécialistes en hydrologie, carbone, sciences de l’environnement, analyse spatiale et systèmes de données.",
     "teamMore": "Rencontrer toute l’équipe",
-    "impactTitle": "Construit avec des partenaires en *Australie et en Mélanésie*.",
+    "impactTitle": "Construit avec des partenaires en *Asie-Pacifique*.",
     "impactBody": [
       "Nos travaux couvrent le Queensland, des réservoirs australiens, Honiara, la rivière Tina, Bina Harbour et l’île Rennell. Les programmes sont élaborés avec les gouvernements, les services d’eau, les communautés et les organisations régionales.",
       "La réalisation comprend la surveillance de terrain, les systèmes de données opérationnels, la formation et l’évaluation environnementale, avec un souci de compétences locales durables."
     ],
     "platforms": {
-      "label": "Plateforme",
+      "label": "Système",
       "sense": {
         "title": "FluvioSense",
-        "description": "La plateforme de vision fluviale FluvioSense : caméras de jaugeage par vision par ordinateur, nœuds de qualité de l’eau en temps réel et caméras de crue sur une seule carte en direct, avec débit, niveau, vitesse et courbes de tarage pour chaque site.",
+        "description": "Le système de vision fluviale FluvioSense : caméras de jaugeage par vision par ordinateur, nœuds de qualité de l’eau en temps réel et caméras de crue sur une seule carte en direct, avec débit, niveau, vitesse et courbes de tarage pour chaque site.",
         "action": "Visiter FluvioSense",
         "href": "https://sense.fluvio.com.au/",
-        "image": "/src/assets/images/fluvio/platform-sense.jpeg",
+        "image": "/src/assets/images/fluvio/system-sense-light.jpg",
         "imageAlt": "La liste des sites FluvioSense avec des flux de caméras en direct et des stations de surveillance cartographiées dans le Queensland.",
         "highlights": [
           "Carte en direct des sites (en ligne, récents, hors ligne) avec les couches rivières, bassins et stations du Bureau of Meteorology",
@@ -497,10 +500,10 @@
       },
       "cascade": {
         "title": "FluvioPulse",
-        "description": "Une plateforme web qui ingère des données de surveillance environnementale en temps réel pour l’analyse, les rapports et les alertes.",
+        "description": "Un système web qui ingère des données de surveillance environnementale en temps réel pour l’analyse, les rapports et les alertes.",
         "action": "Visiter FluvioPulse",
         "href": "https://pulse.fluvio.com.au/",
-        "image": "/src/assets/images/fluvio/platform-cascade.png",
+        "image": "/src/assets/images/fluvio/system-pulse-demo-light.png",
         "imageAlt": "Surveillance des sources FluvioPulse avec sites anonymes et données illustratives",
         "highlights": [
           "Ingère en temps réel les données de qualité et de niveau d’eau des stations de mesure isolées",
@@ -523,7 +526,7 @@
         "description": "Fluvio Reef Monitor : stress thermique NOAA Coral Reef Watch, alertes de blanchissement et santé des récifs prioritaires de six pays, mis à jour chaque jour.",
         "action": "Visiter FluvioReef",
         "href": "https://reef.fluvio.com.au/",
-        "image": "/src/assets/images/fluvio/platform-reef-summary.jpg",
+        "image": "/src/assets/images/fluvio/system-reef-light.jpg",
         "imageAlt": "Le Fluvio Reef Monitor en mode clair : le panneau de détail du site des Philippines, avec température de surface, semaines de chauffe cumulées et niveau d’alerte au-dessus de la carte de la zone récifale prioritaire",
         "highlights": [
           "Température de surface, semaines de chauffe cumulées et niveau d’alerte de blanchissement pour chaque site, mis à jour chaque jour depuis NOAA Coral Reef Watch",
@@ -544,7 +547,7 @@
       },
       "siwis": {
         "title": "SIWIS",
-        "description": "Le Solomon Islands Water Information System, développé par Fluvio avec la Water Resources Division : la plateforme nationale pour collecter, stocker en sécurité, cartographier et analyser les données hydrologiques à l’appui d’une gestion de l’eau fondée sur les données.",
+        "description": "Le Solomon Islands Water Information System, développé par Fluvio avec la Water Resources Division : le système national pour collecter, stocker en sécurité, cartographier et analyser les données hydrologiques à l’appui d’une gestion de l’eau fondée sur les données.",
         "imageAlt": "L’écran d’accueil de SIWIS : les stations de mesure cartographiées sur les Îles Salomon, le total des sites, rivières et enregistrements, et des graphiques des sites par type de station et par province, avec un message d’accueil en pijin sous celui en anglais",
         "highlights": [
           "Conçu en co-design avec la Water Resources Division selon une approche participative",
@@ -583,31 +586,32 @@
         "description": "El monitoreo sin contacto y el análisis en tiempo real convierten condiciones complejas en evidencia útil.",
         "action": "Explorar especialidades",
         "href": "/expertise",
-        "imageAlt": "Un sensor de monitoreo alimentado por energía solar instalado junto a un río tranquilo",
+        "imageAlt": "Cámara de monitoreo fluvial con un mapa de velocidad del agua",
         "image": "/src/assets/images/fluvio/home-field-river-sensor.jpg"
       },
       {
         "eyebrow": "Ejecución colaborativa",
-        "title": "Construir capacidades *con quienes* las utilizan.",
-        "description": "Herramientas y conocimiento desarrollados con comunidades, gobiernos, industria y socios regionales.",
+        "title": "Desarrollemos capacidades juntos.",
+        "description": "Herramientas y conocimientos desarrollados con comunidades, gobiernos, la industria y socios regionales",
         "action": "Ver nuestros proyectos",
         "href": "/projects",
-        "imageAlt": "Trabajo de campo con comunidades en Bina Harbour",
-        "image": "/src/assets/images/fluvio/project-bina-local-knowledge.jpg"
+        "imageAlt": "Equipo de campo instalando equipos de monitoreo con energía solar",
+        "image": "/src/assets/images/fluvio/home-collaboration-install.jpg",
+        "emphasizeDescription": true
       },
       {
-        "eyebrow": "Plataformas operativas",
+        "eyebrow": "Sistemas operativos",
         "title": "De los sensores a las decisiones, *en tiempo real*.",
         "description": "FluvioSense y FluvioPulse convierten las redes de monitoreo en análisis, informes y alertas.",
-        "action": "Descubrir las plataformas",
+        "action": "Descubrir los sistemas",
         "href": "/systems",
-        "imageAlt": "Un operador revisando datos de monitoreo en vivo en un portátil junto a un canal de agua",
-        "image": "/src/assets/images/fluvio/home-operations-laptop.jpeg"
+        "imageAlt": "Un operador utiliza una tableta mientras sus compañeros miden las condiciones del río",
+        "image": "/src/assets/images/fluvio/home-operations-workshop-softened.jpg"
       },
       {
         "eyebrow": "Personas y territorio",
         "title": "Ciencia, ingeniería y conocimiento local, *unidos*.",
-        "description": "Especialistas en hidrología, carbono, datos y ejecución trabajando en Australia y Melanesia.",
+        "description": "Especialistas en hidrología, carbono, datos y ejecución trabajando en Asia-Pacífico.",
         "action": "Conocer al equipo",
         "href": "/team",
         "imageAlt": "Aguas de crecida atravesando los árboles de una ribera",
@@ -622,7 +626,7 @@
       "projects": "Proyectos",
       "expertise": "Áreas de especialidad",
       "team": "Especialistas",
-      "platforms": "Plataformas en servicio"
+      "platforms": "Sistemas en servicio"
     },
     "capabilitiesLabel": "Capacidades principales",
     "capabilities": [
@@ -648,23 +652,23 @@
     "projectsFeatured": "Trabajo destacado",
     "projectsMore": "Explorar todos los proyectos",
     "platformsTitle": "Datos de monitoreo, *listos para operar*",
-    "platformsIntro": "Plataformas diseñadas a medida conectan las observaciones ambientales con el análisis, los informes y la acción.",
+    "platformsIntro": "Sistemas diseñados a medida conectan las observaciones ambientales con el análisis, los informes y la acción.",
     "teamTitle": "Ciencia, tecnología y ejecución en *un solo equipo*",
     "teamIntro": "Fluvio reúne a especialistas en hidrología, carbono, ciencias ambientales, análisis espacial y sistemas de datos.",
     "teamMore": "Conocer a todo el equipo",
-    "impactTitle": "Construido con socios en *Australia y Melanesia*.",
+    "impactTitle": "Construido con socios en *Asia-Pacífico*.",
     "impactBody": [
       "Nuestro trabajo abarca Queensland, embalses australianos, Honiara, el río Tina, Bina Harbour y la isla Rennell. Los programas se diseñan con gobiernos, empresas de agua, comunidades y organizaciones regionales.",
       "La ejecución incluye monitoreo de campo, sistemas de datos operativos, capacitación y evaluación ambiental, con énfasis en capacidades locales duraderas."
     ],
     "platforms": {
-      "label": "Plataforma",
+      "label": "Sistema",
       "sense": {
         "title": "FluvioSense",
-        "description": "La plataforma de visión fluvial FluvioSense: cámaras de aforo por visión artificial, nodos de calidad del agua en tiempo real y cámaras de inundación en un solo mapa en vivo, con caudal, nivel, velocidad y curvas de gasto para cada sitio.",
+        "description": "El sistema de visión fluvial FluvioSense: cámaras de aforo por visión artificial, nodos de calidad del agua en tiempo real y cámaras de inundación en un solo mapa en vivo, con caudal, nivel, velocidad y curvas de gasto para cada sitio.",
         "action": "Visitar FluvioSense",
         "href": "https://sense.fluvio.com.au/",
-        "image": "/src/assets/images/fluvio/platform-sense.jpeg",
+        "image": "/src/assets/images/fluvio/system-sense-light.jpg",
         "imageAlt": "La lista de sitios de FluvioSense con cámaras en directo y estaciones de monitoreo cartografiadas en Queensland.",
         "highlights": [
           "Mapa en vivo de los sitios (en línea, recientes, fuera de línea) con capas de ríos, cuencas y estaciones del Bureau of Meteorology",
@@ -686,10 +690,10 @@
       },
       "cascade": {
         "title": "FluvioPulse",
-        "description": "Una plataforma web que ingiere datos de monitoreo ambiental en tiempo real para respaldar análisis, informes y alertas.",
+        "description": "Un sistema web que ingiere datos de monitoreo ambiental en tiempo real para respaldar análisis, informes y alertas.",
         "action": "Visitar FluvioPulse",
         "href": "https://pulse.fluvio.com.au/",
-        "image": "/src/assets/images/fluvio/platform-cascade.png",
+        "image": "/src/assets/images/fluvio/system-pulse-demo-light.png",
         "imageAlt": "Monitoreo de fuentes FluvioPulse con sitios anónimos y datos ilustrativos",
         "highlights": [
           "Ingesta en tiempo real de datos de calidad y nivel del agua desde estaciones de monitoreo remotas",
@@ -712,7 +716,7 @@
         "description": "Fluvio Reef Monitor: estrés térmico de NOAA Coral Reef Watch, alertas de blanqueamiento y salud de los arrecifes prioritarios de seis países, actualizado a diario.",
         "action": "Visitar FluvioReef",
         "href": "https://reef.fluvio.com.au/",
-        "image": "/src/assets/images/fluvio/platform-reef-summary.jpg",
+        "image": "/src/assets/images/fluvio/system-reef-light.jpg",
         "imageAlt": "El Fluvio Reef Monitor en modo claro: el panel de detalle del sitio de Filipinas, con temperatura superficial del mar, semanas de calentamiento acumuladas y estado de alerta sobre el mapa del área de arrecife prioritaria",
         "highlights": [
           "Temperatura superficial del mar, semanas de calentamiento acumuladas y nivel de alerta de blanqueamiento para cada sitio, actualizados a diario desde NOAA Coral Reef Watch",
@@ -733,7 +737,7 @@
       },
       "siwis": {
         "title": "SIWIS",
-        "description": "El Solomon Islands Water Information System, desarrollado por Fluvio con la Water Resources Division: la plataforma nacional para recopilar, almacenar de forma segura, mapear y analizar datos hidrológicos en apoyo de una gestión del agua basada en evidencia.",
+        "description": "El Solomon Islands Water Information System, desarrollado por Fluvio con la Water Resources Division: el sistema nacional para recopilar, almacenar de forma segura, mapear y analizar datos hidrológicos en apoyo de una gestión del agua basada en evidencia.",
         "imageAlt": "La pantalla de inicio de SIWIS: estaciones de monitoreo mapeadas en las Islas Salomón, el total de sitios, ríos y registros de datos, y gráficos de sitios por tipo de estación y provincia, con una bienvenida en pijin bajo la inglesa",
         "highlights": [
           "Codiseñado con la Water Resources Division mediante un enfoque participativo",
@@ -750,6 +754,196 @@
           {
             "image": "/src/assets/images/fluvio/platform-siwis-stats.jpg",
             "imageAlt": "Estadísticas de SIWIS: total de sitios, ríos y registros de datos, sitios por tipo de estación y por provincia"
+          }
+        ]
+      }
+    }
+  },
+  "de": {
+    "slides": [
+      {
+        "eyebrow": "Wasser und Klima",
+        "title": "Technologie für eine *resiliente* Wasserzukunft.",
+        "description": "Feldforschung, Sensorik und Datensysteme für fundierte Entscheidungen in der Umweltpraxis.",
+        "action": "Unsere Vision",
+        "href": "/vision",
+        "imageAlt": "Ein Fluss schlängelt sich durch eine bewaldete Landschaft",
+        "image": "/src/assets/images/fluvio/home-river.jpg"
+      },
+      {
+        "eyebrow": "Messungen vor Ort",
+        "title": "Gewässer beobachten, *während sie sich verändern*.",
+        "description": "Berührungslose Messungen und Echtzeitanalysen liefern verwertbare Erkenntnisse bei komplexen Bedingungen.",
+        "action": "Fachgebiete entdecken",
+        "href": "/expertise",
+        "imageAlt": "Flussüberwachungskamera mit einer Fließgeschwindigkeitskarte",
+        "image": "/src/assets/images/fluvio/home-field-river-sensor.jpg"
+      },
+      {
+        "eyebrow": "Zusammenarbeit vor Ort",
+        "title": "Gemeinsam Kompetenzen aufbauen.",
+        "description": "Werkzeuge und Wissen aus der Zusammenarbeit mit lokalen Gemeinschaften, Behörden, der Wirtschaft und regionalen Partnern",
+        "action": "Unsere Projekte ansehen",
+        "href": "/projects",
+        "imageAlt": "Feldteam bei der Installation solarbetriebener Messgeräte",
+        "image": "/src/assets/images/fluvio/home-collaboration-install.jpg",
+        "emphasizeDescription": true
+      },
+      {
+        "eyebrow": "Systeme für den Betrieb",
+        "title": "Vom Sensor zur Entscheidung *in Echtzeit*.",
+        "description": "Mit FluvioSense und FluvioPulse lassen sich laufende Messungen auswerten, Berichte erstellen und Warnungen auslösen.",
+        "action": "Systeme entdecken",
+        "href": "/systems",
+        "imageAlt": "Ein Mitarbeiter nutzt ein Tablet, während Kollegen die Flussbedingungen messen",
+        "image": "/src/assets/images/fluvio/home-operations-workshop-softened.jpg"
+      },
+      {
+        "eyebrow": "Menschen und Regionen",
+        "title": "Wissenschaft, Technik und lokales Wissen *vereint*.",
+        "description": "Fachleute für Hydrologie, Kohlenstoff, Daten und Projektumsetzung arbeiten in der Asien-Pazifik-Region.",
+        "action": "Das Team kennenlernen",
+        "href": "/team",
+        "imageAlt": "Hochwasser strömt zwischen Bäumen am Flussufer",
+        "image": "/src/assets/images/fluvio/vision-field-team.jpeg",
+        "video": "/src/assets/images/fluvio/velocity-colors-only-native-1024x576.mp4"
+      }
+    ],
+    "metaDescription": "Lösungen für Wasser, Umwelt und Klima auf Grundlage von Feldforschung, Messtechnik und praktischer Erfahrung.",
+    "disciplinesLabel": "Unsere Arbeitsgebiete",
+    "glance": {
+      "eyebrow": "Auf einen Blick",
+      "projects": "Projekte",
+      "expertise": "Fachgebiete",
+      "team": "Fachleute",
+      "platforms": "Aktive Systeme"
+    },
+    "capabilitiesLabel": "Kernkompetenzen",
+    "capabilities": [
+      {
+        "title": "Mess- und Überwachungssysteme",
+        "description": "Berührungslose Sensorik, Echtzeit-Messnetze für Wasserqualität und Werkzeuge für den laufenden Betrieb."
+      },
+      {
+        "title": "Gewässermodellierung",
+        "description": "Modelle für Einzugsgebiete, Schadstoffausbreitung an Küsten und Wasserressourcen auf Grundlage von Umweltdaten."
+      },
+      {
+        "title": "Projektumsetzung",
+        "description": "Feldprogramme und praktische Systeme, gemeinsam mit Auftraggebern, lokalen Gemeinschaften und Betriebsteams entwickelt."
+      }
+    ],
+    "expertiseEyebrow": "Fachgebiete",
+    "expertiseTitle": "Von Feldmessungen *zu fundierten Entscheidungen*",
+    "expertiseIntro": "Unser Team verbindet Wasserforschung, Umweltüberwachung und Datensysteme passend zu den Anforderungen vor Ort.",
+    "expertiseMore": "Alle sechs Fachgebiete ansehen",
+    "projectsTitle": "Ausgewählte Projekte",
+    "projectsIntro": "Aktuelle Arbeiten zur hydrologischen Überwachung, Wasserversorgung und klimaresilienten Infrastruktur.",
+    "projectsFeatured": "Ausgewählte Arbeiten",
+    "projectsMore": "Alle Projekte entdecken",
+    "platformsTitle": "Messdaten *für den laufenden Betrieb*",
+    "platformsIntro": "Spezialisierte Systeme verbinden Umweltbeobachtungen mit Analysen, Berichten und konkreten Maßnahmen.",
+    "teamTitle": "Fluvio vereint Wissenschaft, Technik und Umsetzung *in einem Team*",
+    "teamIntro": "Bei Fluvio arbeiten Fachleute für Hydrologie, Kohlenstoff, Umweltwissenschaften, Geodaten und Datensysteme zusammen.",
+    "teamMore": "Das ganze Team kennenlernen",
+    "impactTitle": "Gemeinsam mit Partnern in *der Asien-Pazifik-Region* entwickelt.",
+    "impactBody": [
+      "Wir arbeiten in Queensland, an australischen Stauseen, in Honiara, am Tina River, in Bina Harbour und auf Rennell. Die Programme entstehen mit Behörden, Versorgungsbetrieben, lokalen Gemeinschaften und regionalen Organisationen.",
+      "Zu unserer Arbeit gehören Feldmessungen, Datensysteme für den Betrieb, Schulungen und Umweltbewertungen. Dabei bauen wir langfristig Kapazitäten vor Ort auf."
+    ],
+    "platforms": {
+      "label": "System",
+      "sense": {
+        "title": "FluvioSense",
+        "description": "FluvioSense zeigt optische Abflussmessstationen, Echtzeit-Sensoren für Wasserqualität und Hochwasserkameras auf einer gemeinsamen Karte. Für jeden Standort sind Abfluss, Wasserstand, Fließgeschwindigkeit und Abflusskurven abrufbar.",
+        "action": "FluvioSense öffnen",
+        "href": "https://sense.fluvio.com.au/",
+        "image": "/src/assets/images/fluvio/system-sense-light.jpg",
+        "imageAlt": "FluvioSense-Standortliste mit Livebildern und Karte der Messstationen in Queensland",
+        "highlights": [
+          "Livekarte mit Verbindungsstatus sowie Fluss-, Einzugsgebiets- und Pegeldaten des Bureau of Meteorology",
+          "Zeitreihen für Abfluss, Wasserstand und Fließgeschwindigkeit, Abflusskurven, Querprofile und farbige Strömungskarten",
+          "Videos, Einzelbilder und Zeitraffer jeder Kamera mit einzelbildweiser Navigation",
+          "Gerätedaten je Station zu Batterie, Solarleistung, Temperatur und Verbindung",
+          "Dashboards für FlowSense, FloodSense und NodeSense mit Warnmeldungen, Datenexport und Gruppenverwaltung"
+        ],
+        "screens": [
+          {
+            "image": "/src/assets/images/fluvio/platform-sense-map.jpg",
+            "imageAlt": "FluvioSense im hellen Design mit aktiven Kamerastandorten, aktuellen Abflüssen und einer Geländekarte des Brisbane River"
+          },
+          {
+            "image": "/src/assets/images/fluvio/platform-sense-layers.jpg",
+            "imageAlt": "Kartenebenen für Einzugsgebiete, Hochwasserwarnungen und Pegel des Bureau of Meteorology neben den Kamerastandorten am Tina River"
+          }
+        ]
+      },
+      "cascade": {
+        "title": "FluvioPulse",
+        "description": "Websystem, das Umweltdaten in Echtzeit erfasst und für Auswertungen, Berichte und Warnmeldungen bereitstellt.",
+        "action": "FluvioPulse öffnen",
+        "href": "https://pulse.fluvio.com.au/",
+        "image": "/src/assets/images/fluvio/system-pulse-demo-light.png",
+        "imageAlt": "FluvioPulse-Überwachung von Wasserquellen mit anonymisierten Standorten und Beispieldaten",
+        "highlights": [
+          "Übernimmt aktuelle Daten zu Wasserqualität und Wasserstand von abgelegenen Messstationen",
+          "Betriebsdashboards mit Warnmeldungen für Wasserversorger und Messnetze",
+          "Auswertungen und Berichte für Untersuchungen von Einzugsgebieten und Wasserquellen"
+        ],
+        "screens": [
+          {
+            "image": "/src/assets/images/fluvio/platform-cascade-explorers.jpg",
+            "imageAlt": "Beispielhafte Trübungsverläufe für anonymisierte Messstandorte"
+          },
+          {
+            "image": "/src/assets/images/fluvio/platform-cascade-station.jpg",
+            "imageAlt": "Beispielhafte Batteriespannungsverläufe für anonymisierte Messstandorte"
+          }
+        ]
+      },
+      "reef": {
+        "title": "FluvioReef",
+        "description": "Der Fluvio Reef Monitor zeigt täglich aktualisierte Daten zu Hitzestress, Korallenbleiche und Riffgesundheit an prioritären Riffstandorten in sechs Ländern, darunter Daten von NOAA Coral Reef Watch.",
+        "action": "FluvioReef öffnen",
+        "href": "https://reef.fluvio.com.au/",
+        "image": "/src/assets/images/fluvio/system-reef-light.jpg",
+        "imageAlt": "Fluvio Reef Monitor im hellen Design mit Karte eines Riffgebiets auf den Philippinen, Meeresoberflächentemperatur, Hitzebelastung und Warnstufe",
+        "highlights": [
+          "Meeresoberflächentemperatur, Hitzebelastung (Degree Heating Weeks) und Bleichwarnstufe für jedes Riff, täglich aktualisiert aus NOAA Coral Reef Watch",
+          "Standortdetails mit Kennzahlen und Ansichten für Temperatur, Korallenbedeckung, Fische, Korallenbleiche, Mangroven und Wasserqualität",
+          "Kartenebenen aus dem Allen Coral Atlas, prioritäre Riffgrenzen von 50Reefs und Daten von Global Mangrove Watch",
+          "Helles und dunkles Design, Filter für Länder und Riffe sowie CSV-Export aller Standorte"
+        ],
+        "screens": [
+          {
+            "image": "/src/assets/images/fluvio/platform-reef-temperature.jpg",
+            "imageAlt": "Temperaturansicht mit täglichen Oberflächentemperaturen und Hitzebelastung im Vergleich zu den Schwellenwerten für Korallenbleiche"
+          },
+          {
+            "image": "/src/assets/images/fluvio/platform-reef-landing.jpg",
+            "imageAlt": "Startseite des Fluvio Reef Monitor mit Zahlen zu Messstandorten, Schwerpunktländern und aktiven Warnmeldungen"
+          }
+        ]
+      },
+      "siwis": {
+        "title": "SIWIS",
+        "description": "Fluvio entwickelte das Wasserinformationssystem der Salomonen mit der Water Resources Division. Das nationale System dient der Erfassung, sicheren Speicherung, Kartierung und Analyse hydrologischer Daten für die Wasserbewirtschaftung.",
+        "imageAlt": "SIWIS-Startseite mit landesweiter Stationskarte, Standort-, Fluss- und Datensatzstatistiken sowie einer Begrüßung auf Englisch und Pijin",
+        "highlights": [
+          "Gemeinsam mit der Water Resources Division entwickelt",
+          "Erfasst, speichert und analysiert hydrologische Daten von mehr als 150 Gewässer-, Grundwasser- und Wetterstationen",
+          "Ansichten für Daten, Karten, Stationen und Echtzeitwerte sowie Werkzeuge für Abflusskurven, Freigaben und Gruppenverwaltung",
+          "Oberfläche in Englisch und Pijin, ergänzt durch Schulungen in GIS, Hydrologie, Datenerhebung, Speicherung und Datensicherheit"
+        ],
+        "image": "/src/assets/images/fluvio/platform-siwis.jpg",
+        "screens": [
+          {
+            "image": "/src/assets/images/fluvio/platform-siwis-map.jpg",
+            "imageAlt": "SIWIS-Karte mit benannten Fluss-, Wetter- und Grundwasserstationen auf Guadalcanal und Malaita"
+          },
+          {
+            "image": "/src/assets/images/fluvio/platform-siwis-stats.jpg",
+            "imageAlt": "SIWIS-Statistik zu Standorten, Flüssen, Datensätzen und Stationsarten nach Provinz"
           }
         ]
       }

@@ -333,7 +333,7 @@ const position = `${String(adjacent.index + 1).padStart(2, '0')} / ${String(adja
     position: relative;
     display: flex;
     align-items: flex-end;
-    min-height: clamp(32rem, 84vh, 52rem);
+    min-height: clamp(27rem, 72svh, 43rem);
     overflow: hidden;
     color: rgb(var(--fluvio-paper));
   }
@@ -400,7 +400,7 @@ const position = `${String(adjacent.index + 1).padStart(2, '0')} / ${String(adja
     justify-content: space-between;
     gap: 3rem;
     min-height: inherit;
-    padding: clamp(6rem, 12vh, 8rem) 0 clamp(2.5rem, 6vw, 4.5rem);
+    padding-block: var(--fluvio-section-standard) var(--fluvio-section-compact);
   }
 
   .fluvio-project-hero__text {
@@ -413,10 +413,10 @@ const position = `${String(adjacent.index + 1).padStart(2, '0')} / ${String(adja
     gap: 1rem;
     margin: 0;
     color: rgb(var(--fluvio-wash));
-    font-family: var(--aw-font-mono);
-    font-size: 0.7rem;
+    font-family: var(--aw-font-sans);
+    font-size: 0.75rem;
     font-weight: 600;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
   }
 
@@ -426,12 +426,12 @@ const position = `${String(adjacent.index + 1).padStart(2, '0')} / ${String(adja
 
   h1 {
     margin: 0;
-    max-width: 16ch;
+    max-width: 100%;
     color: inherit;
     font-family: var(--aw-font-heading);
-    font-size: clamp(2.4rem, 5.6vw, 5.2rem);
-    font-weight: 540;
-    letter-spacing: -0.03em;
+    font-size: var(--fluvio-title-size);
+    font-weight: var(--fluvio-section-weight);
+    letter-spacing: -0.025em;
     line-height: 0.98;
     text-wrap: balance;
   }
@@ -553,19 +553,19 @@ const position = `${String(adjacent.index + 1).padStart(2, '0')} / ${String(adja
   .fluvio-project-story__number {
     margin: 0;
     color: rgb(var(--fluvio-river));
-    font-family: var(--aw-font-mono);
-    font-size: 0.7rem;
+    font-family: var(--aw-font-sans);
+    font-size: 0.75rem;
     font-weight: 600;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.06em;
   }
 
   .fluvio-project-story__section h2 {
     margin: 0;
     color: var(--aw-color-text-heading);
     font-family: var(--aw-font-heading);
-    font-size: clamp(1.9rem, 3.6vw, 3.4rem);
-    font-weight: 540;
-    letter-spacing: -0.03em;
+    font-size: var(--fluvio-section-size);
+    font-weight: var(--fluvio-section-weight);
+    letter-spacing: -0.025em;
     line-height: 1.02;
   }
 
@@ -587,12 +587,12 @@ const position = `${String(adjacent.index + 1).padStart(2, '0')} / ${String(adja
     color: var(--aw-color-text-heading);
     font-family: var(--aw-font-heading);
     font-size: 3.2em;
-    font-weight: 560;
+    font-weight: var(--fluvio-section-weight);
     line-height: 0.82;
   }
 
   .fluvio-project-related__heading {
-    margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
+    margin-bottom: var(--fluvio-heading-gap);
   }
 
   .fluvio-project-related__expertise,
@@ -602,7 +602,7 @@ const position = `${String(adjacent.index + 1).padStart(2, '0')} / ${String(adja
   }
 
   .fluvio-project-adjacent {
-    padding: clamp(3rem, 7vw, 6rem) 0 0;
+    padding-top: var(--fluvio-section-compact);
   }
 
   :global(.dark) .fluvio-project-story__section {
@@ -645,7 +645,7 @@ const position = `${String(adjacent.index + 1).padStart(2, '0')} / ${String(adja
       color: var(--aw-color-text-muted);
       font-family: var(--aw-font-heading);
       font-size: 1.1rem;
-      font-weight: 560;
+      font-weight: var(--fluvio-section-weight);
       letter-spacing: -0.015em;
       text-decoration: none;
       transition: color 200ms ease;
@@ -681,10 +681,10 @@ const position = `${String(adjacent.index + 1).padStart(2, '0')} / ${String(adja
 
     .fluvio-project-story__rail-number {
       color: rgb(var(--fluvio-river));
-      font-family: var(--aw-font-mono);
-      font-size: 0.68rem;
+      font-family: var(--aw-font-sans);
+      font-size: 0.75rem;
       font-weight: 600;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.06em;
     }
 
     :global(.dark) .fluvio-project-story__rail a {

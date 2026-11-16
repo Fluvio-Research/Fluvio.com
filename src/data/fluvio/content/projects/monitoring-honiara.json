@@ -194,5 +194,58 @@
     ],
     "featured": true,
     "relatedProjects": ["wrd", "bina"]
+  },
+  "de": {
+    "order": 3,
+    "title": "Hydrologische Überwachung im Großraum Honiara",
+    "slug": "monitoring-honiara",
+    "summary": "Hydrologische Messungen und Untersuchungen der Einzugsgebiete für eine klimaresiliente Wasser- und Abwasserversorgung im Großraum Honiara.",
+    "location": "Honiara, Salomonen",
+    "timeframe": "Seit 2022",
+    "disciplines": [
+      "Hydrologische Überwachung",
+      "Untersuchungen von Einzugsgebieten",
+      "Überwachung der Wasserqualität"
+    ],
+    "partners": ["Solomon Water"],
+    "heroImage": "/src/assets/images/fluvio/project-honiara-siwis-dashboard.png",
+    "heroAlt": "Dashboard des Wasserinformationssystems der Salomonen mit landesweiter Messstationskarte und Zahlen zu Standorten, Flüssen und Datensätzen",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-honiara.jpeg",
+        "alt": "Ein Techniker von Solomon Water bereitet im Labor einen Filtertrichter für eine Wasserprobe vor",
+        "caption": "Laboranalyse von Wasserproben mit Mitarbeitenden von Solomon Water."
+      },
+      {
+        "src": "/src/assets/images/fluvio/project-honiara-reticulation.jpg",
+        "alt": "Ein Mitarbeiter von Solomon Water füllt Probenflaschen an einem Hahn über einem Stahlfass",
+        "caption": "Regelmäßige Kontrollen der Wasserqualität im Trinkwasserverteilnetz von Honiara."
+      },
+      {
+        "src": "/src/assets/images/fluvio/project-honiara-karst-catchment.jpg",
+        "alt": "Ein Fluss zwischen bewaldeten Hügeln, Forschende an einem Messgerät im Bach, ein Team in einer Kalksteinhöhle, ein Mann im Einbaum und roter Markierfarbstoff im Bach",
+        "caption": "Wasser- und Sedimentwege im Karsteinzugsgebiet oberhalb von Honiara wurden mit Gemeindeältesten, Farbstoffmarkierung und computergestützter Bildauswertung untersucht."
+      },
+      {
+        "src": "/src/assets/images/fluvio/project-honiara-pwwa.jpg",
+        "alt": "Mandus Boselalu bei einem Vortrag, Mitarbeitende von Solomon Water bei der Trübungsmessung, ein Techniker an einem Wehr und Gespräche auf der Konferenz",
+        "caption": "Vorstellung der Echtzeit-Trübungsmessung mit Solomon Water auf der Konferenz der Pacific Water and Wastewater Association 2025 in Honiara."
+      }
+    ],
+    "challenge": [
+      "55 % der Bevölkerung im Großraum Honiara haben Zugang zum öffentlichen Trinkwassernetz, und weniger als 10 % sind an das Abwassernetz angeschlossen. Die übrigen Haushalte nutzen Regenwasser, flache Brunnen, Stadtbäche, Wasser von Nachbarn oder gekauftes Flaschenwasser. Viele dieser alternativen Quellen sind verunreinigt. Dadurch verbreiten sich wasserbedingte Krankheiten, begünstigt durch unzureichende Hygiene und den eingeschränkten Zugang zu sauberem Wasser.",
+      "Die Asiatische Entwicklungsbank finanziert ein Projekt für eine nachhaltige, inklusive und klimaresiliente Wasser- und Abwasserversorgung im Großraum Honiara sowie in Auki, Gizo, Noro, Munda und Tulagi. Die Investitionen richten sich nach dem nationalen Sektorplan. Sie sollen insbesondere Haushalten mit geringem Einkommen Zugang zu Leitungswasser und Sanitärversorgung ermöglichen, die Abhängigkeit von Grund- und Regenwasser verringern und die Systeme effizienter und widerstandsfähiger machen."
+    ],
+    "approach": [
+      "Fluvio wurde beauftragt, Solomon Water mit hydrologischer Überwachung und Untersuchungen in Einzugsgebieten zu unterstützen, um oberhalb gelegene Wasserquellen und mögliche Trübungsrisiken zu ermitteln.",
+      "Die Arbeiten umfassten Installation und Wartung von Echtzeit-Messsystemen, Betriebsdashboards mit Warnmeldungen, die Automatisierung bestehender Messungen und die Ausweitung der Überwachung auf potenzielle Wasserquellen.",
+      "Honiaras Wasserversorgung stammt aus einem komplexen Karsteinzugsgebiet mit Dolinen und Quellen, in das der Holzeinschlag erhebliche Sedimentfrachten einträgt. Das Team verband das Wissen der Gemeindeältesten mit Bildauswertung, Farbstoffmarkierung und Echtzeitdaten. Eine traditionelle Zeremonie ermöglichte den Zugang zum heiligen unterirdischen Flussnetz, um dort Sedimentwege zu vermessen."
+    ],
+    "outcome": [
+      "Alle Arbeiten wurden mit Mitarbeitenden von Solomon Water durchgeführt, um vor Ort die Kompetenzen für den langfristigen Betrieb aufzubauen.",
+      "Solomon Water war zuvor auf manuelle Trübungsmessungen angewiesen, die bei Hochwasser oder nachts besonders schwierig sind. Messstationen und eine mobile App erfassen die Trübung nun alle zehn Minuten und übertragen sie an ein Cloud-Dashboard. Das ermöglicht schnellere Reaktionen und fundiertere Entscheidungen. Mandus Boselalu, Fluvios Landesleiter für die Salomonen, stellte die Arbeit 2025 auf der Konferenz der Pacific Water and Wastewater Association in Honiara vor."
+    ],
+    "featured": true,
+    "relatedProjects": ["wrd", "bina"]
   }
 }

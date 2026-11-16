@@ -82,5 +82,26 @@
     ],
     "featured": false,
     "relatedProjects": ["laidley-creek-flood", "advance-queensland"]
+  },
+  "de": {
+    "order": 12,
+    "slug": "flood-camera-intelligence",
+    "title": "Bildauswertung für Hochwasserkameras",
+    "summary": "Mehr Informationen aus vorhandenen Hochwasserkameras gewinnen.",
+    "location": "Queensland, Australien",
+    "disciplines": ["Hochwasserüberwachung", "Computergestützte Bildauswertung"],
+    "heroImage": "/src/assets/images/fluvio/floodsense-panorama.jpg",
+    "heroAlt": "FloodSense segmentiert Hochwasser und einen Straßenabschnitt am Panorama Creek",
+    "challenge": [
+      "Hochwasserkameras liefern wertvolle Aufnahmen. In einem vernetzten Kamerasystem können sich ändernde Straßenzustände jedoch schwer zu beurteilen sein."
+    ],
+    "approach": [
+      "Fluvio hat seine bildgestützte Auswertung zu FloodSense weiterentwickelt. Das System erkennt überflutete Straßen, Fahrzeuge im Wasser, Personen und Treibgut. Ein gemeinsames Dashboard verbindet Kamerabilder mit Wasserstandsdaten."
+    ],
+    "outcome": [
+      "Die Demonstration zeigt, wie vorhandene Kameras die Hochwasservorsorge, den Einsatz und die Wiederherstellung unterstützen können. Interessierte Kommunen können sich an Fluvio wenden."
+    ],
+    "featured": false,
+    "relatedProjects": ["laidley-creek-flood", "advance-queensland"]
   }
 }

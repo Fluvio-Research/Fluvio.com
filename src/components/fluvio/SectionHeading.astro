@@ -33,7 +33,7 @@ const hasAside = Boolean(intro) || Astro.slots.has('action');
   .fluvio-section-heading {
     display: grid;
     gap: 1.25rem;
-    max-width: 58rem;
+    max-width: 100%;
   }
 
   .fluvio-section-heading--split {
@@ -46,10 +46,10 @@ const hasAside = Boolean(intro) || Astro.slots.has('action');
     align-items: center;
     margin: 0 0 0.875rem;
     color: rgb(var(--fluvio-river));
-    font-family: var(--aw-font-mono);
-    font-size: 0.7rem;
+    font-family: var(--aw-font-sans);
+    font-size: 0.75rem;
     font-weight: 600;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.06em;
     line-height: 1.3;
     text-transform: uppercase;
   }
@@ -82,12 +82,12 @@ const hasAside = Boolean(intro) || Astro.slots.has('action');
   h2,
   h3 {
     margin: 0;
-    max-width: 18ch;
+    max-width: 100%;
     color: var(--aw-color-text-heading);
     font-family: var(--aw-font-heading);
-    font-size: clamp(2.1rem, 4.4vw, 4rem);
-    font-weight: 540;
-    letter-spacing: -0.03em;
+    font-size: var(--fluvio-section-size);
+    font-weight: var(--fluvio-section-weight);
+    letter-spacing: -0.025em;
     line-height: 1.02;
     text-wrap: balance;
   }
@@ -100,7 +100,7 @@ const hasAside = Boolean(intro) || Astro.slots.has('action');
 
   .fluvio-section-heading__intro {
     margin: 0;
-    max-width: 58ch;
+    max-width: 100%;
     color: var(--aw-color-text-muted);
     font-size: clamp(1rem, 1.7vw, 1.15rem);
     line-height: 1.65;

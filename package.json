@@ -20,7 +20,9 @@
     "check:prettier": "prettier --check .",
     "fix": "npm run fix:eslint && npm run fix:prettier",
     "fix:eslint": "eslint --fix .",
-    "fix:prettier": "prettier -w ."
+    "fix:prettier": "prettier -w .",
+    "content:export": "node scripts/website-copy.mjs export",
+    "content:import": "node scripts/website-copy.mjs import"
   },
   "dependencies": {
     "@astro-community/astro-embed-twitter": "^0.5.11",

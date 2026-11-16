@@ -42,5 +42,16 @@
     "specialties": ["Dinámica del carbono y los sedimentos"],
     "expertise": ["blue-carbon-assessment", "sediment-loading"],
     "projects": ["laidley-creek-flood"]
+  },
+  "de": {
+    "order": 2,
+    "name": "Alistair Grinham",
+    "role": "Leitung Nachhaltigkeit und Industrie",
+    "bio": "Alistair ist ein international anerkannter Experte für Kohlenstoff- und Sedimentdynamik in Land- und Gewässerökosystemen. Er möchte die globale Energiewende unterstützen und die Auswirkungen von Extremereignissen auf natürliche und bebaute Gebiete besser verstehen.",
+    "portrait": "/src/assets/images/fluvio/team-alistair.png",
+    "portraitAlt": "Alistair Grinham",
+    "specialties": ["Kohlenstoff- und Sedimentdynamik"],
+    "expertise": ["blue-carbon-assessment", "sediment-loading"],
+    "projects": ["laidley-creek-flood"]
   }
 }

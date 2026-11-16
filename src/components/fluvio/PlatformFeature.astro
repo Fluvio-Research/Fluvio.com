@@ -127,7 +127,7 @@ const [stageA, stageB] = stages[(index ?? 0) % stages.length];
     }
     {
       href && (
-        <ArrowLink class="fluvio-platform-feature__link" href={href} external size="sm">
+        <ArrowLink class="fluvio-platform-feature__link" href={href} external={href.startsWith('http')} size="sm">
           {actionLabel ?? title}
         </ArrowLink>
       )
@@ -141,7 +141,7 @@ const [stageA, stageB] = stages[(index ?? 0) % stages.length];
     align-content: start;
     gap: 1.5rem;
     height: 100%;
-    padding: clamp(1.5rem, 4vw, 3.25rem) 0;
+    padding: 1.25rem 0 0;
     border-top: 1px solid rgb(var(--fluvio-ink) / 0.16);
   }
 
@@ -251,8 +251,8 @@ const [stageA, stageB] = stages[(index ?? 0) % stages.length];
     background: rgb(0 0 0 / 0.3);
     border: 1px solid rgb(255 255 255 / 0.08);
     color: rgb(var(--fluvio-mist) / 0.75);
-    font-family: var(--aw-font-mono);
-    font-size: 0.66rem;
+    font-family: var(--aw-font-sans);
+    font-size: 0.75rem;
     letter-spacing: 0.04em;
     text-align: center;
     text-overflow: ellipsis;
@@ -419,10 +419,10 @@ const [stageA, stageB] = stages[(index ?? 0) % stages.length];
   .fluvio-platform-feature__eyebrow {
     margin: 0.25rem 0 1.5rem;
     color: rgb(var(--fluvio-river));
-    font-family: var(--aw-font-mono);
-    font-size: 0.68rem;
+    font-family: var(--aw-font-sans);
+    font-size: 0.75rem;
     font-weight: 600;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
   }
 
@@ -430,15 +430,15 @@ const [stageA, stageB] = stages[(index ?? 0) % stages.length];
     margin: 0;
     color: var(--aw-color-text-heading);
     font-family: var(--aw-font-heading);
-    font-size: clamp(1.9rem, 3.4vw, 3.1rem);
-    font-weight: 560;
-    letter-spacing: -0.03em;
+    font-size: var(--fluvio-section-size);
+    font-weight: var(--fluvio-section-weight);
+    letter-spacing: -0.025em;
     line-height: 1.02;
   }
 
   .fluvio-platform-feature__description {
     margin: 1.2rem 0 0;
-    max-width: 52ch;
+    max-width: 100%;
     color: var(--aw-color-text-muted);
     line-height: 1.7;
   }

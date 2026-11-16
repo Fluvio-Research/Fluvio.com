@@ -3,12 +3,10 @@ import ContactPanel from '~/components/fluvio/ContactPanel.astro';
 import PageHero from '~/components/fluvio/PageHero.astro';
 import PlatformFeature from '~/components/fluvio/PlatformFeature.astro';
 import ProjectCard from '~/components/fluvio/ProjectCard.astro';
-import ProjectFeature from '~/components/fluvio/ProjectFeature.astro';
 import SectionFrame from '~/components/fluvio/SectionFrame.astro';
 import SectionHeading from '~/components/fluvio/SectionHeading.astro';
 import { REVEAL } from '~/components/fluvio/reveal';
 import { getExpertiseAreas, getProjects } from '~/data/fluvio/localized';
-import { getLocations } from '~/data/fluvio/relations';
 import { getHomepage } from '~/data/fluvio/store.ts';
 import { t, type Locale } from '~/i18n';
 import Layout from '~/layouts/PageLayout.astro';
@@ -19,11 +17,9 @@ export interface Props {
 
 const { locale } = Astro.props;
 const c = t(locale).projectsPage;
-const { platforms, glance } = getHomepage(locale);
+const { platforms } = getHomepage(locale);
 const projects = getProjects(locale);
 const areas = getExpertiseAreas(locale);
-const locations = getLocations(locale);
-const [lead, ...rest] = projects;
 
 /* Each project's expertise areas, for the capability filter. */
 const areasFor = (slug: string) => areas.filter((area) => area.relatedProjects.includes(slug)).map((area) => area.slug);
@@ -39,27 +35,7 @@ const metadata = {
 ---
 
 <Layout metadata={metadata} locale={locale}>
-  {
-    /* The lead project is featured above the list and counted by the filter;
-      the grid holds the rest so no photograph appears twice on the page. */
-  }
-  <PageHero locale={locale} eyebrow={c.eyebrow} title={c.title} lede={c.lede}>
-    <div slot="actions" class="fluvio-projects-hero__facts" aria-label={c.allProjects}>
-      <span><strong>{String(projects.length).padStart(2, '0')}</strong>{glance.projects}</span>
-      <span><strong>{String(areas.length).padStart(2, '0')}</strong>{glance.expertise}</span>
-      <span><strong>{String(locations.length).padStart(2, '0')}</strong>{c.locationsLabel}</span>
-    </div>
-  </PageHero>
-
-  {
-    lead && (
-      <div class="fluvio-shell fluvio-projects-lead">
-        <div class={REVEAL}>
-          <ProjectFeature project={lead} locale={locale} eyebrow={c.featuredLabel} priority />
-        </div>
-      </div>
-    )
-  }
+  <PageHero locale={locale} eyebrow={c.eyebrow} title={c.title} lede={c.lede} />
 
   <SectionFrame tone="paper" rule="ink" motif="contour" labelledby="project-list-heading">
     <div class:list={['fluvio-projects-heading', REVEAL]}>
@@ -72,7 +48,7 @@ const metadata = {
       />
     </div>
 
-    <fluvio-project-filter class={REVEAL} data-lead-areas={lead ? areasFor(lead.slug).join(' ') : ''}>
+    <fluvio-project-filter class={REVEAL}>
       <div class="fluvio-projects-filter" role="group" aria-label={c.filterLabel}>
         <div class="fluvio-projects-filter__row">
           <span class="fluvio-label fluvio-projects-filter__label">{c.filterLabel}</span>
@@ -98,7 +74,7 @@ const metadata = {
 
       <div class="fluvio-projects-grid" aria-label={c.allProjects} data-project-grid>
         {
-          rest.map((project, index) => (
+          projects.map((project, index) => (
             <div class:list={[REVEAL, 'fluvio-projects-grid__cell']} data-project-cell>
               <ProjectCard
                 project={project}
@@ -165,13 +141,11 @@ const metadata = {
     private buttons: HTMLButtonElement[] = [];
     private template = '';
     private total = 0;
-    private leadAreas: string[] = [];
 
     connectedCallback() {
       this.buttons = Array.from(this.querySelectorAll<HTMLButtonElement>('[data-filter]'));
       const count = this.querySelector<HTMLElement>('[data-project-count]');
-      this.leadAreas = (this.dataset.leadAreas ?? '').split(' ').filter(Boolean);
-      this.total = this.querySelectorAll('[data-project-cell]').length + (this.dataset.leadAreas === undefined ? 0 : 1);
+      this.total = this.querySelectorAll('[data-project-cell]').length;
       this.template = count?.textContent?.trim().replace(String(this.total), '{shown}') ?? '';
       this.buttons.forEach((button) =>
         button.addEventListener('click', () => this.select(button.dataset.filter ?? ''))
@@ -189,8 +163,7 @@ const metadata = {
       this.buttons.forEach((button) =>
         button.setAttribute('aria-pressed', String((button.dataset.filter ?? '') === area))
       );
-      /* The featured project above the list counts when it matches. */
-      let shown = this.dataset.leadAreas === undefined ? 0 : !area || this.leadAreas.includes(area) ? 1 : 0;
+      let shown = 0;
       this.querySelectorAll<HTMLElement>('[data-project-cell]').forEach((cell) => {
         const card = cell.querySelector<HTMLElement>('[data-areas]');
         const areas = (card?.dataset.areas ?? '').split(' ').filter(Boolean);
@@ -207,40 +180,8 @@ const metadata = {
 </script>
 
 <style>
-  .fluvio-projects-hero__facts {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem 2.25rem;
-    margin-top: 2.25rem;
-  }
-
-  .fluvio-projects-hero__facts span {
-    display: inline-flex;
-    gap: 0.6rem;
-    align-items: baseline;
-    color: var(--aw-color-text-muted);
-    font-family: var(--aw-font-mono);
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
-  .fluvio-projects-hero__facts strong {
-    color: var(--aw-color-text-heading);
-    font-family: var(--aw-font-heading);
-    font-size: 1.6rem;
-    font-weight: 540;
-    letter-spacing: -0.03em;
-    line-height: 1;
-  }
-
-  .fluvio-projects-lead {
-    padding-bottom: clamp(3.5rem, 8vw, 7rem);
-  }
-
   .fluvio-projects-heading {
-    margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
+    margin-bottom: var(--fluvio-heading-gap);
   }
 
   fluvio-project-filter {
@@ -250,7 +191,7 @@ const metadata = {
   .fluvio-projects-filter {
     display: grid;
     gap: 1rem;
-    margin-bottom: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: var(--fluvio-heading-gap);
   }
 
   .fluvio-projects-filter__row {
@@ -302,8 +243,8 @@ const metadata = {
     border-radius: 999px;
     background: rgb(var(--fluvio-ink) / 0.07);
     color: var(--aw-color-text-muted);
-    font-family: var(--aw-font-mono);
-    font-size: 0.64rem;
+    font-family: var(--aw-font-sans);
+    font-size: 0.75rem;
     font-weight: 600;
     font-variant-numeric: tabular-nums;
   }

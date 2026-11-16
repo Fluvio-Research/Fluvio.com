@@ -2,10 +2,10 @@
   "en": {
     "productsLabel": "Products",
     "systemsLabel": "Systems",
-    "productsTitle": "Built for the *real world*.",
-    "systemsTitle": "One platform. A clearer view of *your water systems*.",
-    "productsIntro": "Autonomous instruments developed by Fluvio, informed by fieldwork across Australia and Melanesia.",
-    "systemsIntro": "FlowSense, FloodSense and NodeSense bring field observations into FluvioSense for analysis and operational decisions.",
+    "productsTitle": "Next Generation Products for Hydrology and Greenhouse Gas Monitoring",
+    "systemsTitle": "Connected systems. Clearer decisions.",
+    "productsIntro": "Autonomous instruments developed by Fluvio, informed by fieldwork across the Asia-Pacific.",
+    "systemsIntro": "FluvioSense, FluvioReef and FluvioPulse turn environmental observations into practical intelligence.",
     "contactLabel": "Discuss your monitoring needs",
     "systemsAction": "Explore systems",
     "productsAction": "Explore products",
@@ -67,9 +67,23 @@
           "Rating curves and cross-sections",
           "Camera footage and site history"
         ],
-        "image": "/src/assets/images/fluvio/platform-sense-map.jpg",
-        "imageAlt": "FlowSense site map and stream monitoring dashboard",
-        "href": "/expertise/hydrological-monitoring"
+        "image": "/src/assets/images/fluvio/flowsense-lockyer-preview.jpg",
+        "imageAlt": "Camera preview · Lockyer Creek, Glenore Grove",
+        "href": "/expertise/hydrological-monitoring",
+        "screens": [
+          {
+            "image": "/src/assets/images/fluvio/flowsense-lockyer-velocity.jpg",
+            "imageAlt": "Surface velocity · Lockyer Creek, Glenore Grove"
+          },
+          {
+            "image": "/src/assets/images/fluvio/flowsense-lockyer-timeseries.jpg",
+            "imageAlt": "Discharge time series · Lockyer Creek, Glenore Grove"
+          },
+          {
+            "image": "/src/assets/images/fluvio/flowsense-lockyer-report.jpg",
+            "imageAlt": "Gauging report preview · Lockyer Creek, Glenore Grove"
+          }
+        ]
       },
       {
         "slug": "floodsense",
@@ -81,8 +95,8 @@
           "Detection of people, vehicles and debris",
           "Water-level context and alerts"
         ],
-        "image": "/src/assets/images/fluvio/floodsense-dashboard.jpg",
-        "imageAlt": "FloodSense dashboard showing flood cameras and monitoring sites",
+        "image": "/src/assets/images/fluvio/floodsense-panorama-segmentation.jpg",
+        "imageAlt": "Road and water segmentation · Panorama Creek",
         "href": "/flood-camera-intelligence"
       },
       {
@@ -95,8 +109,8 @@
           "Battery, solar and connectivity status",
           "Shared site management and data export"
         ],
-        "image": "/src/assets/images/fluvio/nodesense-dashboard.jpg",
-        "imageAlt": "NodeSense dashboard showing sensor readings and connected sites",
+        "image": "/src/assets/images/fluvio/nodesense-obi-obi-timeseries.jpg",
+        "imageAlt": "Water-level time series · Obi Obi Creek",
         "href": "/expertise/operational-monitoring"
       }
     ]
@@ -104,10 +118,10 @@
   "pijin": {
     "productsLabel": "Olketa prodak",
     "systemsLabel": "Olketa sistem",
-    "productsTitle": "Mifala buildim fo *real waka*.",
-    "systemsTitle": "Wan platform. Luksave moa klia long *olketa wata sistem*.",
-    "productsIntro": "Olketa instrument wea Fluvio developim from field waka long Australia an Melanesia.",
-    "systemsIntro": "FlowSense, FloodSense an NodeSense joinim data long field insaet FluvioSense fo analysis an olketa disison.",
+    "productsTitle": "Olketa Niu Produk fo Haedroloji an fo Monitim Olketa Grinhaos Gas",
+    "systemsTitle": "Olketa sistem wea join. Olketa disison wea klia.",
+    "productsIntro": "Olketa instrument wea Fluvio developim from field waka long Asia-Pacific.",
+    "systemsIntro": "FluvioSense, FluvioReef an FluvioPulse tanem olketa environmental observation into information fo waka.",
     "contactLabel": "Tok wetem mifala abaot monitoring",
     "systemsAction": "Lukim olketa sistem",
     "productsAction": "Lukim olketa prodak",
@@ -165,9 +179,23 @@
           "Rating curve an cross-section",
           "Camera video an histori blong site"
         ],
-        "image": "/src/assets/images/fluvio/platform-sense-map.jpg",
-        "imageAlt": "FlowSense map an stream dashboard",
-        "href": "/expertise/hydrological-monitoring"
+        "image": "/src/assets/images/fluvio/flowsense-lockyer-preview.jpg",
+        "imageAlt": "Camera preview · Lockyer Creek, Glenore Grove",
+        "href": "/expertise/hydrological-monitoring",
+        "screens": [
+          {
+            "image": "/src/assets/images/fluvio/flowsense-lockyer-velocity.jpg",
+            "imageAlt": "Spid blong wata antap · Lockyer Creek, Glenore Grove"
+          },
+          {
+            "image": "/src/assets/images/fluvio/flowsense-lockyer-timeseries.jpg",
+            "imageAlt": "Discharge ova taem · Lockyer Creek, Glenore Grove"
+          },
+          {
+            "image": "/src/assets/images/fluvio/flowsense-lockyer-report.jpg",
+            "imageAlt": "Preview blong gauging ripot · Lockyer Creek, Glenore Grove"
+          }
+        ]
       },
       {
         "slug": "floodsense",
@@ -179,8 +207,8 @@
           "Luksave long pipol, trak an debris",
           "Data blong wata level an alert"
         ],
-        "image": "/src/assets/images/fluvio/floodsense-dashboard.jpg",
-        "imageAlt": "FloodSense dashboard wit flood kamera an monitoring site",
+        "image": "/src/assets/images/fluvio/floodsense-panorama-segmentation.jpg",
+        "imageAlt": "Segmentation blong road an wata · Panorama Creek",
         "href": "/flood-camera-intelligence"
       },
       {
@@ -193,8 +221,8 @@
           "Battery, solar an connection status",
           "Site management an data export"
         ],
-        "image": "/src/assets/images/fluvio/nodesense-dashboard.jpg",
-        "imageAlt": "NodeSense dashboard wit sensor reading an olketa connected site",
+        "image": "/src/assets/images/fluvio/nodesense-obi-obi-timeseries.jpg",
+        "imageAlt": "Wata level ova taem · Obi Obi Creek",
         "href": "/expertise/operational-monitoring"
       }
     ]
@@ -202,10 +230,10 @@
   "fr": {
     "productsLabel": "Produits",
     "systemsLabel": "Systèmes",
-    "productsTitle": "Conçus pour *le terrain*.",
-    "systemsTitle": "Une plateforme. Une vision plus claire de *vos systèmes aquatiques*.",
-    "productsIntro": "Des instruments autonomes développés par Fluvio, nourris par le travail de terrain en Australie et en Mélanésie.",
-    "systemsIntro": "FlowSense, FloodSense et NodeSense rassemblent les observations de terrain dans FluvioSense pour l’analyse et les décisions opérationnelles.",
+    "productsTitle": "Produits de nouvelle génération pour l’hydrologie et le suivi des gaz à effet de serre",
+    "systemsTitle": "Des systèmes connectés. Des décisions éclairées.",
+    "productsIntro": "Des instruments autonomes développés par Fluvio, nourris par le travail de terrain en Asie-Pacifique.",
+    "systemsIntro": "FluvioSense, FluvioReef et FluvioPulse transforment les observations environnementales en informations opérationnelles.",
     "contactLabel": "Parlons de vos besoins de suivi",
     "systemsAction": "Explorer les systèmes",
     "productsAction": "Explorer les produits",
@@ -263,9 +291,23 @@
         "title": "Comprendre l’écoulement de votre rivière.",
         "description": "Explorez débit, niveau et vitesse avec les courbes de tarage, profils en travers et archives vidéo pour mieux comprendre les variations de la rivière.",
         "highlights": ["Séries de débit et de vitesse", "Courbes de tarage et profils", "Images et historique du site"],
-        "image": "/src/assets/images/fluvio/platform-sense-map.jpg",
-        "imageAlt": "Carte des sites et tableau de bord FlowSense",
-        "href": "/expertise/hydrological-monitoring"
+        "image": "/src/assets/images/fluvio/flowsense-lockyer-preview.jpg",
+        "imageAlt": "Vue caméra · Lockyer Creek, Glenore Grove",
+        "href": "/expertise/hydrological-monitoring",
+        "screens": [
+          {
+            "image": "/src/assets/images/fluvio/flowsense-lockyer-velocity.jpg",
+            "imageAlt": "Vitesse de surface · Lockyer Creek, Glenore Grove"
+          },
+          {
+            "image": "/src/assets/images/fluvio/flowsense-lockyer-timeseries.jpg",
+            "imageAlt": "Série temporelle du débit · Lockyer Creek, Glenore Grove"
+          },
+          {
+            "image": "/src/assets/images/fluvio/flowsense-lockyer-report.jpg",
+            "imageAlt": "Aperçu du rapport de jaugeage · Lockyer Creek, Glenore Grove"
+          }
+        ]
       },
       {
         "slug": "floodsense",
@@ -277,8 +319,8 @@
           "Détection des personnes, véhicules et débris",
           "Niveaux d’eau et alertes"
         ],
-        "image": "/src/assets/images/fluvio/floodsense-dashboard.jpg",
-        "imageAlt": "Tableau de bord FloodSense avec caméras de crue et sites de suivi",
+        "image": "/src/assets/images/fluvio/floodsense-panorama-segmentation.jpg",
+        "imageAlt": "Segmentation de la route et de l’eau · Panorama Creek",
         "href": "/flood-camera-intelligence"
       },
       {
@@ -291,8 +333,8 @@
           "Batterie, solaire et connectivité",
           "Gestion des sites et export des données"
         ],
-        "image": "/src/assets/images/fluvio/nodesense-dashboard.jpg",
-        "imageAlt": "Tableau de bord NodeSense avec mesures des capteurs et sites connectés",
+        "image": "/src/assets/images/fluvio/nodesense-obi-obi-timeseries.jpg",
+        "imageAlt": "Série temporelle du niveau d’eau · Obi Obi Creek",
         "href": "/expertise/operational-monitoring"
       }
     ]
@@ -300,10 +342,10 @@
   "es": {
     "productsLabel": "Productos",
     "systemsLabel": "Sistemas",
-    "productsTitle": "Diseñados para *el trabajo de campo*.",
-    "systemsTitle": "Una plataforma. Una visión más clara de *sus sistemas de agua*.",
-    "productsIntro": "Instrumentos autónomos desarrollados por Fluvio a partir del trabajo de campo en Australia y Melanesia.",
-    "systemsIntro": "FlowSense, FloodSense y NodeSense reúnen observaciones de campo en FluvioSense para el análisis y las decisiones operativas.",
+    "productsTitle": "Productos de nueva generación para la hidrología y el monitoreo de gases de efecto invernadero",
+    "systemsTitle": "Sistemas conectados. Decisiones más claras.",
+    "productsIntro": "Instrumentos autónomos desarrollados por Fluvio a partir del trabajo de campo en Asia-Pacífico.",
+    "systemsIntro": "FluvioSense, FluvioReef y FluvioPulse convierten observaciones ambientales en información práctica.",
     "contactLabel": "Hablemos de sus necesidades",
     "systemsAction": "Explorar sistemas",
     "productsAction": "Explorar productos",
@@ -361,9 +403,23 @@
         "title": "Comprender el flujo de su río.",
         "description": "Explore caudal, nivel y velocidad junto con curvas de aforo, secciones transversales e imágenes para comprender los cambios del río.",
         "highlights": ["Series de caudal y velocidad", "Curvas de aforo y secciones", "Imágenes e historial del sitio"],
-        "image": "/src/assets/images/fluvio/platform-sense-map.jpg",
-        "imageAlt": "Mapa y panel de monitoreo FlowSense",
-        "href": "/expertise/hydrological-monitoring"
+        "image": "/src/assets/images/fluvio/flowsense-lockyer-preview.jpg",
+        "imageAlt": "Vista de cámara · Lockyer Creek, Glenore Grove",
+        "href": "/expertise/hydrological-monitoring",
+        "screens": [
+          {
+            "image": "/src/assets/images/fluvio/flowsense-lockyer-velocity.jpg",
+            "imageAlt": "Velocidad superficial · Lockyer Creek, Glenore Grove"
+          },
+          {
+            "image": "/src/assets/images/fluvio/flowsense-lockyer-timeseries.jpg",
+            "imageAlt": "Serie temporal de caudal · Lockyer Creek, Glenore Grove"
+          },
+          {
+            "image": "/src/assets/images/fluvio/flowsense-lockyer-report.jpg",
+            "imageAlt": "Vista previa del informe de aforo · Lockyer Creek, Glenore Grove"
+          }
+        ]
       },
       {
         "slug": "floodsense",
@@ -375,8 +431,8 @@
           "Detección de personas, vehículos y escombros",
           "Niveles de agua y alertas"
         ],
-        "image": "/src/assets/images/fluvio/floodsense-dashboard.jpg",
-        "imageAlt": "Panel FloodSense con cámaras de inundaciones y sitios de monitoreo",
+        "image": "/src/assets/images/fluvio/floodsense-panorama-segmentation.jpg",
+        "imageAlt": "Segmentación de carretera y agua · Panorama Creek",
         "href": "/flood-camera-intelligence"
       },
       {
@@ -385,8 +441,128 @@
         "title": "Conectar su red de monitoreo.",
         "description": "Integre nodos de calidad del agua y estaciones en FluvioSense. Consulte observaciones, estado de los sitios, telemetría y exportaciones.",
         "highlights": ["Nodos de calidad del agua", "Batería, solar y conectividad", "Gestión de sitios y exportación"],
-        "image": "/src/assets/images/fluvio/nodesense-dashboard.jpg",
-        "imageAlt": "Panel NodeSense con lecturas de sensores y sitios conectados",
+        "image": "/src/assets/images/fluvio/nodesense-obi-obi-timeseries.jpg",
+        "imageAlt": "Serie temporal del nivel de agua · Obi Obi Creek",
+        "href": "/expertise/operational-monitoring"
+      }
+    ]
+  },
+  "de": {
+    "productsLabel": "Produkte",
+    "systemsLabel": "Systeme",
+    "productsTitle": "Produkte der nächsten Generation für Hydrologie und Treibhausgasüberwachung",
+    "systemsTitle": "Vernetzte Systeme. Klarere Entscheidungen.",
+    "productsIntro": "Fluvio entwickelt autonome Messgeräte auf Grundlage seiner Feldarbeit in der Asien-Pazifik-Region.",
+    "systemsIntro": "FluvioSense, FluvioReef und FluvioPulse machen Umweltbeobachtungen zu nutzbaren Erkenntnissen.",
+    "contactLabel": "Über Ihren Messbedarf sprechen",
+    "systemsAction": "Systeme entdecken",
+    "productsAction": "Produkte entdecken",
+    "fieldAction": "Im Feldeinsatz ansehen",
+    "videoLabel": "FloodSense-Demonstration ansehen",
+    "demoTitle": "Eine Kamera zeigt das Wasser. *FloodSense hilft bei der Auswertung*.",
+    "demoDescription": "Computergestützte Bildauswertung erkennt Hochwasser, überflutete Straßen, Fahrzeuge, Personen und Treibgut. Das Dashboard führt die Aufnahmen mit Wasserstandsdaten zusammen.",
+    "sourceLabel": "Quelle: Fluvio auf LinkedIn",
+    "selectLabel": "System auswählen",
+    "products": [
+      {
+        "slug": "fs-spot",
+        "name": "FS-Spot",
+        "title": "Kompakt gebaut. Kontinuierlich messen.",
+        "description": "Kompaktes optisches Messsystem für Bäche und schmale Gewässer. Mobil oder fest installiert misst es Oberflächengeschwindigkeit und Abfluss berührungslos.",
+        "highlights": [
+          "Kompaktes Messgerät mit 0,5 kg Gewicht",
+          "Oberflächengeschwindigkeit und Abfluss",
+          "Mobilfunk oder Ethernet, optional Satellitenanbindung"
+        ],
+        "image": "/src/assets/images/fluvio/fs-spot.png",
+        "imageAlt": "FS-Spot-Kamera auf einem Stativ",
+        "href": "/bina"
+      },
+      {
+        "slug": "fs-halo",
+        "name": "FS-Halo",
+        "title": "Große Flüsse im Blick behalten.",
+        "description": "Optische Überwachung auf große Distanz für breite Flüsse und Gerinne. Die automatische Wassererkennung passt Kameraneigung und Zoom an wechselnde Bedingungen an. Das Gerät ist für den Nachteinsatz optimiert.",
+        "highlights": [
+          "32-facher optischer Zoom",
+          "Messung aus bis zu 500 m Entfernung",
+          "Automatische Wassererkennung"
+        ],
+        "image": "/src/assets/images/fluvio/fs-halo.png",
+        "imageAlt": "Optisches FS-Halo-Messgerät mit mehreren Kameras",
+        "href": "/tina"
+      },
+      {
+        "slug": "fs-flux",
+        "name": "FS-Flux",
+        "title": "Methan regelmäßig messen.",
+        "description": "Schwimmkammer für langfristige Methanmessungen in Stauseen, Feuchtgebieten, Kanälen und Absetzbecken. Sie erleichtert die kontinuierliche Überwachung der Emissionen.",
+        "highlights": [
+          "Autonome Messung über Wochen bis Monate",
+          "Erfasst diffuse Emissionen und Gasblasen",
+          "Solarbetrieb für lange Einsätze",
+          "Optionale Satellitenanbindung für den Fernzugriff auf Daten"
+        ],
+        "image": "/src/assets/images/fluvio/fs-flux-deployment.jpg",
+        "imageAlt": "Schwimmende FS-Flux-Methankammer im Einsatz auf einem Teich",
+        "href": "/ghg-emissions-reservoirs"
+      }
+    ],
+    "systems": [
+      {
+        "slug": "flowsense",
+        "name": "FlowSense",
+        "title": "Verstehen, wie Ihr Fluss strömt.",
+        "description": "Analysieren Sie Abfluss, Wasserstand und Fließgeschwindigkeit zusammen mit Abflusskurven, Querprofilen und Kameraaufnahmen. Optische Beobachtungen zeigen, wie sich der Fluss verändert.",
+        "highlights": [
+          "Zeitreihen für Abfluss und Fließgeschwindigkeit",
+          "Wasserstands-Abfluss-Beziehungen und Querprofile",
+          "Kameraaufnahmen und Standortverlauf"
+        ],
+        "image": "/src/assets/images/fluvio/flowsense-lockyer-preview.jpg",
+        "imageAlt": "Kameravorschau · Lockyer Creek, Glenore Grove",
+        "href": "/expertise/hydrological-monitoring",
+        "screens": [
+          {
+            "image": "/src/assets/images/fluvio/flowsense-lockyer-velocity.jpg",
+            "imageAlt": "Oberflächengeschwindigkeit · Lockyer Creek, Glenore Grove"
+          },
+          {
+            "image": "/src/assets/images/fluvio/flowsense-lockyer-timeseries.jpg",
+            "imageAlt": "Abflusszeitreihe · Lockyer Creek, Glenore Grove"
+          },
+          {
+            "image": "/src/assets/images/fluvio/flowsense-lockyer-report.jpg",
+            "imageAlt": "Vorschau des Abflussmessberichts · Lockyer Creek, Glenore Grove"
+          }
+        ]
+      },
+      {
+        "slug": "floodsense",
+        "name": "FloodSense",
+        "title": "Risiken bei wechselnden Bedingungen erkennen.",
+        "description": "Werten Sie vorhandene Hochwasserkameras nahezu in Echtzeit aus, um überflutete Straßen, Fahrzeuge und Personen im Wasser zu erkennen. Kombinieren Sie Bilder mit Wasserständen für Einsatz und Wiederherstellung.",
+        "highlights": [
+          "Segmentierung von Straßen und Hochwasserflächen",
+          "Erkennung von Personen, Fahrzeugen und Treibgut",
+          "Wasserstandsdaten und Warnmeldungen"
+        ],
+        "image": "/src/assets/images/fluvio/floodsense-panorama-segmentation.jpg",
+        "imageAlt": "Straßen- und Wassersegmentierung · Panorama Creek",
+        "href": "/flood-camera-intelligence"
+      },
+      {
+        "slug": "nodesense",
+        "name": "NodeSense",
+        "title": "Ihr Messnetz vernetzen.",
+        "description": "Binden Sie Wasserqualitätssensoren und Messstationen in FluvioSense ein. Rufen Sie Messwerte, Standortstatus und Gerätedaten ab und exportieren Sie die Daten.",
+        "highlights": [
+          "Messknoten zur Überwachung der Wasserqualität",
+          "Status von Batterie, Solarversorgung und Verbindung",
+          "Gemeinsame Standortverwaltung und Datenexport"
+        ],
+        "image": "/src/assets/images/fluvio/nodesense-obi-obi-timeseries.jpg",
+        "imageAlt": "Wasserstandszeitreihe · Obi Obi Creek",
         "href": "/expertise/operational-monitoring"
       }
     ]

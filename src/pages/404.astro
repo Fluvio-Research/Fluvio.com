@@ -4,22 +4,25 @@ import ArrowLink from '~/components/fluvio/ArrowLink.astro';
 import Layout from '~/layouts/PageLayout.astro';
 import { getPermalink } from '~/utils/permalinks';
 
-const metadata = {
-  title: 'Page not found',
-  description: 'The requested Fluvio page could not be found.',
-};
+import { getNavigation, getPages, getUi } from '~/data/fluvio/store.ts';
+import { defaultLocale } from '~/i18n';
+
+const copy = getUi(defaultLocale).notFound;
+const home = getPages(defaultLocale).common.home;
+const nav = getNavigation(defaultLocale);
+const metadata = { title: copy.title, description: copy.description };
 ---
 
 <Layout metadata={metadata}>
   <section class="fluvio-not-found">
     <div class="fluvio-not-found__shell">
       <p class="fluvio-not-found__code">404</p>
-      <h1><Accent text="This path does not *lead to a page*." /></h1>
-      <p class="fluvio-not-found__intro">Continue with Fluvio's work, capabilities or current projects.</p>
-      <nav aria-label="Page not found options">
-        <ArrowLink href={getPermalink('/')} variant="pill">Home</ArrowLink>
-        <ArrowLink href={getPermalink('/expertise')} variant="ghost">Expertise</ArrowLink>
-        <ArrowLink href={getPermalink('/projects')} variant="ghost">Projects</ArrowLink>
+      <h1><Accent text={copy.heading} /></h1>
+      <p class="fluvio-not-found__intro">{copy.intro}</p>
+      <nav aria-label={copy.navigation}>
+        <ArrowLink href={getPermalink('/')} variant="pill">{home}</ArrowLink>
+        <ArrowLink href={getPermalink('/expertise')} variant="ghost">{nav.expertise}</ArrowLink>
+        <ArrowLink href={getPermalink('/projects')} variant="ghost">{nav.projects}</ArrowLink>
       </nav>
     </div>
   </section>
@@ -28,8 +31,7 @@ const metadata = {
 <style>
   .fluvio-not-found {
     display: grid;
-    min-height: min(42rem, calc(100dvh - 10rem));
-    padding: clamp(4rem, 10vw, 9rem) 0;
+    padding-block: var(--fluvio-section-wide);
     align-items: center;
   }
 
@@ -41,10 +43,10 @@ const metadata = {
   .fluvio-not-found__code {
     margin: 0 0 1.25rem;
     color: rgb(var(--fluvio-river));
-    font-family: var(--aw-font-mono);
+    font-family: var(--aw-font-sans);
     font-size: 0.75rem;
     font-weight: 600;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.06em;
   }
 
   h1 {
@@ -53,8 +55,8 @@ const metadata = {
     color: var(--aw-color-text-heading);
     font-family: var(--aw-font-heading);
     font-size: clamp(2.9rem, 6.6vw, 6rem);
-    font-weight: 560;
-    letter-spacing: -0.035em;
+    font-weight: var(--fluvio-section-weight);
+    letter-spacing: -0.025em;
     line-height: 0.98;
     text-wrap: balance;
   }

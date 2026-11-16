@@ -118,5 +118,35 @@
     ],
     "featured": true,
     "relatedProjects": ["tina", "bina"]
+  },
+  "de": {
+    "order": 1,
+    "title": "Autonome Gewässerüberwachung der nächsten Generation",
+    "slug": "advance-queensland",
+    "summary": "Weiterentwicklung eines bildgestützten Abflussmesssystems zur Marktreife.",
+    "location": "Queensland, Australien",
+    "timeframe": "Seit 2024",
+    "disciplines": ["Hydrologische Überwachung", "Computergestützte Bildauswertung"],
+    "heroImage": "/src/assets/images/fluvio/project-advance-queensland.jpeg",
+    "heroAlt": "Ein Techniker auf einer Trittleiter verkabelt eine Kamera und ein Solarpanel an einem Messmast neben einem Bach",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-advance-queensland-station.jpeg",
+        "alt": "Ein fertiger Messschrank mit Kamera über einem breiten Fluss, beschriftet als Optical Flow River Monitoring System",
+        "caption": "Eine in Betrieb genommene bildgestützte Abflussmessstation an einem Fluss in Queensland."
+      }
+    ],
+    "challenge": [
+      "Fluvio hat eine Förderung von Advance Queensland erhalten, um sein bildgestütztes Abflussmesssystem (CVSG) zur Marktreife zu bringen. Das Projekt entwickelt den Kameraprototyp zu einer kostengünstigen Lösung für die Messung von Abfluss und Fließgeschwindigkeit weiter. Damit lassen sich deutlich mehr Daten erfassen und die Sicherheitsrisiken herkömmlicher Messverfahren bei Abflussereignissen verringern."
+    ],
+    "approach": [
+      "Zu den wichtigsten Meilensteinen gehören die Erprobung an verschiedenen Gewässern in Queensland und die Entwicklung eines Systems zur Echtzeitüberwachung von Stofffrachten. Ein benutzerfreundliches Cloud-Archiv soll dem Betriebspersonal Zugriff auf Konfigurationen, archivierte Aufnahmen und Datenauswertungen geben.",
+      "Mit Projektpartnern wird das System gezielt an verschiedenen Gewässern in Queensland eingesetzt und überprüft. Zum Projekt gehören außerdem das Cloud-Archiv und standardisierte Abläufe für Installation und Wartung, die Gesundheits- und Sicherheitsrisiken für das Feldpersonal reduzieren."
+    ],
+    "outcome": [
+      "Mit CVSG lassen sich Wasserressourcen in lokalen Gewässern besser erfassen und bewirtschaften. Politische Entscheidungsträger erhalten die dafür nötigen Informationen über ihre Einzugsgebiete."
+    ],
+    "featured": true,
+    "relatedProjects": ["tina", "bina"]
   }
 }

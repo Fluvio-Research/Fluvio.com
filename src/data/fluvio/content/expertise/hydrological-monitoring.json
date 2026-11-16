@@ -74,5 +74,24 @@
     "imageAlt": "La velocidad superficial de un río en crecida, resuelta por visión artificial y dibujada como un campo de color, del azul para el agua lenta al rojo para el flujo más rápido",
     "video": "/src/assets/images/fluvio/expertise-velocity-map.mp4",
     "relatedProjects": ["tina", "bina", "advance-queensland", "laidley-creek-flood", "flood-camera-intelligence"]
+  },
+  "de": {
+    "order": 1,
+    "slug": "hydrological-monitoring",
+    "title": "Innovative hydrologische Überwachung",
+    "summary": "Entwicklung und Einsatz eines hydrologischen Messsystems mit computergestützter Bildauswertung.",
+    "description": [
+      "Das System erfasst Fließgeschwindigkeit und Abfluss in Flüssen mit berührungslosen Sensoren und Echtzeitanalysen. So wird die Überwachung sicherer und effizienter."
+    ],
+    "highlights": [
+      "Bildgestützte Abflussmessung, im Feld entwickelt und eingesetzt",
+      "Berührungslose Sensoren ohne Messgeräte im Wasser",
+      "Echtzeitanalyse von Fließgeschwindigkeit und Abfluss",
+      "Sicherere und effizientere Überwachung von Flüssen"
+    ],
+    "image": "/src/assets/images/fluvio/expertise-velocity-map-poster.jpg",
+    "imageAlt": "Bildgestützt ermittelte Oberflächengeschwindigkeit eines Hochwasser führenden Flusses, von Blau für langsame bis Rot für schnelle Strömung",
+    "video": "/src/assets/images/fluvio/expertise-velocity-map.mp4",
+    "relatedProjects": ["tina", "bina", "advance-queensland", "laidley-creek-flood", "flood-camera-intelligence"]
   }
 }

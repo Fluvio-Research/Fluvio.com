@@ -1,0 +1,247 @@
+{
+  "en": {
+    "overview": {
+      "title": "Innovative solutions for tomorrow",
+      "intro": "We combine field expertise, in-house research and technology to help solve water, environmental and climate challenges.",
+      "expertise": "Water and greenhouse gas monitoring, robotics and environmental assessments.",
+      "products": "Field instruments for hydrology and greenhouse gas monitoring.",
+      "systems": "Digital systems that turn environmental data into insights, reports and alerts."
+    },
+    "flux": {
+      "field": "FS-Flux in the field",
+      "photo": "Solar panels around the FS-Flux floating methane chamber",
+      "brochure": "Download the FS-Flux brochure (Word, English)",
+      "video": "FS-Flux floating on a pond during a field deployment"
+    },
+    "enquiry": {
+      "name": "Name",
+      "email": "Email",
+      "organisation": "Organisation (optional)",
+      "location": "Project location (optional)",
+      "message": "How can we help?",
+      "submit": "Send enquiry",
+      "sending": "Sending…",
+      "success": "Thank you. Your enquiry has been sent to Fluvio.",
+      "error": "We could not send your enquiry. Your text is still here. Please try again or email info@fluvio.com.au.",
+      "note": "Your details and message will be emailed to Fluvio so we can respond to your enquiry.",
+      "emailOption": "Prefer email?",
+      "emailOnly": "Email your enquiry to"
+    },
+    "header": {
+      "language": "English",
+      "solutions": "Solutions",
+      "contact": "Contact us",
+      "navigation": "Main navigation",
+      "menu": "Menu",
+      "theme": "Switch between light and dark mode"
+    },
+    "slider": {
+      "carousel": "Carousel",
+      "slide": "Slide",
+      "controls": "Slide controls"
+    },
+    "notFound": {
+      "title": "Page not found",
+      "description": "The requested Fluvio page could not be found.",
+      "heading": "This path does not *lead to a page*.",
+      "intro": "Explore Fluvio’s expertise or browse our current projects.",
+      "navigation": "Page not found options"
+    }
+  },
+  "pijin": {
+    "overview": {
+      "title": "Olketa niu solution fo tumoro",
+      "intro": "Mifala joenem savve blong fieldwork, research an teknoloji fo help stretem olketa hevi blong wata, enviromen an klaemet.",
+      "expertise": "Monitoring blong wata an greenhouse gas, robotics an assessment blong enviromen.",
+      "products": "Olketa instrument fo measurem wata an greenhouse gas long field.",
+      "systems": "Olketa digital sistem wea tanem data blong enviromen kamap analysis, report an alert."
+    },
+    "flux": {
+      "field": "FS-Flux long field",
+      "photo": "Olketa solar panel raonem FS-Flux chamber wea float fo measurem methane",
+      "brochure": "Downloadem FS-Flux brochure (Word, English)",
+      "video": "FS-Flux wea float long pond long field deployment"
+    },
+    "enquiry": {
+      "name": "Nem",
+      "email": "Email",
+      "organisation": "Organisation (sapos iu laek)",
+      "location": "Ples blong project (sapos iu laek)",
+      "message": "Hao nao mifala savve helpem iu?",
+      "submit": "Sendem enquiry",
+      "sending": "Hem sendem…",
+      "success": "Tagio. Enquiry blong iu hem go finis long Fluvio.",
+      "error": "Mifala no savve sendem enquiry. Text blong iu stap yet. Traem moa o email info@fluvio.com.au.",
+      "note": "Details an message blong iu bae go long Fluvio long email fo mifala savve ansarem enquiry blong iu.",
+      "emailOption": "Iu laek email?",
+      "emailOnly": "Sendem kwestin blong iu long"
+    },
+    "header": {
+      "language": "Pijin",
+      "solutions": "Olketa Solution",
+      "contact": "Kontaktem mifala",
+      "navigation": "Mein menu",
+      "menu": "Menu",
+      "theme": "Senisim laet o dak mod"
+    },
+    "slider": {
+      "carousel": "Olketa slaed wea tane raon",
+      "slide": "Slaed",
+      "controls": "Kontrol blong slaed"
+    },
+    "notFound": {
+      "title": "Pej no stap",
+      "description": "Mifala no faendem pej blong Fluvio wea iu laek lukim.",
+      "heading": "Disfala link hem no go long *wanfala pej*.",
+      "intro": "Lukim savve blong Fluvio o lukluk long olketa project blong mifala.",
+      "navigation": "Olketa link taem pej no stap"
+    }
+  },
+  "es": {
+    "overview": {
+      "title": "Soluciones innovadoras para el futuro",
+      "intro": "Combinamos experiencia de campo, investigación propia y tecnología para afrontar desafíos hídricos, ambientales y climáticos.",
+      "expertise": "Monitoreo del agua y los gases de efecto invernadero, robótica y evaluaciones ambientales.",
+      "products": "Instrumentos de campo para la hidrología y el monitoreo de gases de efecto invernadero.",
+      "systems": "Sistemas digitales que convierten datos ambientales en análisis, informes y alertas."
+    },
+    "flux": {
+      "field": "FS-Flux en campo",
+      "photo": "Paneles solares alrededor de la cámara flotante de metano FS-Flux",
+      "brochure": "Descargar el folleto FS-Flux (Word, en inglés)",
+      "video": "FS-Flux flotando en un estanque durante un despliegue"
+    },
+    "enquiry": {
+      "name": "Nombre",
+      "email": "Correo electrónico",
+      "organisation": "Organización (opcional)",
+      "location": "Ubicación del proyecto (opcional)",
+      "message": "¿Cómo podemos ayudarte?",
+      "submit": "Enviar consulta",
+      "sending": "Enviando…",
+      "success": "Gracias. Tu consulta se ha enviado a Fluvio.",
+      "error": "No se pudo enviar la consulta. Tu texto se conserva. Inténtalo de nuevo o escribe a info@fluvio.com.au.",
+      "note": "Tus datos y tu mensaje se enviarán por correo a Fluvio para responder a tu consulta.",
+      "emailOption": "¿Prefieres el correo?",
+      "emailOnly": "Envía tu consulta por correo a"
+    },
+    "header": {
+      "language": "Español",
+      "solutions": "Soluciones",
+      "contact": "Contáctanos",
+      "navigation": "Navegación principal",
+      "menu": "Menú",
+      "theme": "Cambiar entre el modo claro y el oscuro"
+    },
+    "slider": {
+      "carousel": "Carrusel",
+      "slide": "Diapositiva",
+      "controls": "Controles de diapositivas"
+    },
+    "notFound": {
+      "title": "Página no encontrada",
+      "description": "No se encontró la página solicitada de Fluvio.",
+      "heading": "Esta ruta no *lleva a una página*.",
+      "intro": "Conoce las especialidades de Fluvio o explora nuestros proyectos actuales.",
+      "navigation": "Opciones para la página no encontrada"
+    }
+  },
+  "fr": {
+    "overview": {
+      "title": "Des solutions innovantes pour demain",
+      "intro": "Nous associons expertise de terrain, recherche interne et technologie pour répondre aux enjeux liés à l’eau, à l’environnement et au climat.",
+      "expertise": "Suivi de l’eau et des gaz à effet de serre, robotique et évaluations environnementales.",
+      "products": "Des instruments de terrain pour l’hydrologie et le suivi des gaz à effet de serre.",
+      "systems": "Des systèmes numériques pour analyser les données environnementales, produire des rapports et émettre des alertes."
+    },
+    "flux": {
+      "field": "FS-Flux sur le terrain",
+      "photo": "Panneaux solaires autour de la chambre flottante de mesure du méthane FS-Flux",
+      "brochure": "Télécharger la brochure FS-Flux (Word, en anglais)",
+      "video": "FS-Flux flottant sur un étang lors d’un déploiement"
+    },
+    "enquiry": {
+      "name": "Nom",
+      "email": "E-mail",
+      "organisation": "Organisation (facultatif)",
+      "location": "Lieu du projet (facultatif)",
+      "message": "Comment pouvons-nous vous aider ?",
+      "submit": "Envoyer la demande",
+      "sending": "Envoi…",
+      "success": "Merci. Votre demande a été envoyée à Fluvio.",
+      "error": "Envoi impossible. Votre texte est conservé. Réessayez ou écrivez à info@fluvio.com.au.",
+      "note": "Vos coordonnées et votre message seront envoyés par e-mail à Fluvio pour répondre à votre demande.",
+      "emailOption": "Vous préférez un e-mail ?",
+      "emailOnly": "Envoyez votre demande par e-mail à"
+    },
+    "header": {
+      "language": "Français",
+      "solutions": "Solutions",
+      "contact": "Contactez-nous",
+      "navigation": "Navigation principale",
+      "menu": "Menu",
+      "theme": "Basculer entre le mode clair et le mode sombre"
+    },
+    "slider": {
+      "carousel": "Carrousel",
+      "slide": "Diapositive",
+      "controls": "Commandes du diaporama"
+    },
+    "notFound": {
+      "title": "Page introuvable",
+      "description": "La page Fluvio demandée est introuvable.",
+      "heading": "Ce chemin ne *mène à aucune page*.",
+      "intro": "Découvrez les domaines d’expertise de Fluvio ou parcourez nos projets en cours.",
+      "navigation": "Options pour la page introuvable"
+    }
+  },
+  "de": {
+    "overview": {
+      "title": "Innovative Lösungen für morgen",
+      "intro": "Wir verbinden Feldarbeit, eigene Forschung und Technologie, um Herausforderungen rund um Wasser, Umwelt und Klima zu bewältigen.",
+      "expertise": "Wasser- und Treibhausgasüberwachung, Robotik und Umweltbewertung.",
+      "products": "Feldmessgeräte für Hydrologie und Treibhausgasüberwachung.",
+      "systems": "Digitale Systeme für Auswertungen, Berichte und Warnmeldungen aus Umweltdaten."
+    },
+    "flux": {
+      "field": "FS-Flux im Feldeinsatz",
+      "photo": "Solarpanels rund um die schwimmende FS-Flux-Methankammer",
+      "brochure": "FS-Flux-Broschüre herunterladen (Word, Englisch)",
+      "video": "FS-Flux schwimmt bei einem Feldeinsatz auf einem Teich"
+    },
+    "enquiry": {
+      "name": "Name",
+      "email": "E-Mail",
+      "organisation": "Organisation (optional)",
+      "location": "Projektstandort (optional)",
+      "message": "Wie können wir Ihnen helfen?",
+      "submit": "Anfrage senden",
+      "sending": "Wird gesendet …",
+      "success": "Vielen Dank. Ihre Anfrage wurde an Fluvio gesendet.",
+      "error": "Ihre Anfrage konnte nicht gesendet werden. Ihr Text bleibt erhalten. Versuchen Sie es erneut oder schreiben Sie an info@fluvio.com.au.",
+      "note": "Ihre Angaben und Ihre Nachricht werden per E-Mail an Fluvio gesendet, damit wir Ihre Anfrage beantworten können.",
+      "emailOption": "Lieber per E-Mail?",
+      "emailOnly": "Senden Sie Ihre Anfrage per E-Mail an"
+    },
+    "header": {
+      "language": "Deutsch",
+      "solutions": "Lösungen",
+      "contact": "Kontakt",
+      "navigation": "Hauptnavigation",
+      "menu": "Menü",
+      "theme": "Zwischen hellem und dunklem Design wechseln"
+    },
+    "slider": {
+      "carousel": "Karussell",
+      "slide": "Folie",
+      "controls": "Steuerung der Folien"
+    },
+    "notFound": {
+      "title": "Seite nicht gefunden",
+      "description": "Die angeforderte Fluvio-Seite wurde nicht gefunden.",
+      "heading": "Unter dieser Adresse gibt es *keine Seite*.",
+      "intro": "Entdecken Sie Fluvios Fachgebiete oder sehen Sie sich unsere aktuellen Projekte an.",
+      "navigation": "Links bei nicht gefundener Seite"
+    }
+  }
+}

@@ -38,5 +38,15 @@
     "portraitAlt": "Louis Ray",
     "specialties": ["Consultoría ambiental y de sostenibilidad"],
     "expertise": ["catchment-management"]
+  },
+  "de": {
+    "order": 5,
+    "name": "Louis Ray",
+    "role": "Leitender Umweltwissenschaftler",
+    "bio": "Louis ist ein erfahrener Umwelt- und Nachhaltigkeitsberater, der zahlreiche wirksame Projekte umgesetzt hat. Er verbindet ökologische, soziale und wirtschaftliche Aspekte, um für lokale Gemeinschaften positive Ergebnisse zu erzielen.",
+    "portrait": "/src/assets/images/fluvio/team-louis.jpeg",
+    "portraitAlt": "Louis Ray",
+    "specialties": ["Umwelt- und Nachhaltigkeitsberatung"],
+    "expertise": ["catchment-management"]
   }
 }

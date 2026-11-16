@@ -2,7 +2,7 @@
 import Accent from './Accent.astro';
 import ArrowLink from './ArrowLink.astro';
 import LargeImage from './LargeImage.astro';
-import { getHomepage } from '~/data/fluvio/store.ts';
+import { getHomepage, getUi } from '~/data/fluvio/store.ts';
 import { plainText } from '~/utils/accent';
 import { findVideo } from '~/utils/images';
 import { defaultLocale, localeHref, t, type Locale } from '~/i18n';
@@ -13,6 +13,7 @@ export interface Props {
 
 const { locale = defaultLocale } = Astro.props;
 const strings = t(locale).slider;
+const labels = getUi(locale).slider;
 
 /** Slides are editable content, managed in the admin under Site settings. */
 const slides = getHomepage(locale).slides;
@@ -28,7 +29,7 @@ const videoUrls = slides.map((slide) => findVideo(slide.video));
 <fluvio-hero-slider
   class="fluvio-hero"
   role="region"
-  aria-roledescription="carousel"
+  aria-roledescription={labels.carousel}
   aria-label={strings.regionLabel}
   tabindex="0"
   style={`--hero-interval: ${INTERVAL_MS}ms`}
@@ -49,7 +50,7 @@ const videoUrls = slides.map((slide) => findVideo(slide.video));
           class:list={['fluvio-hero__slide', { 'is-active': index === 0 }]}
           data-hero-slide
           role="group"
-          aria-roledescription="slide"
+          aria-roledescription={labels.slide}
           aria-label={`${index + 1} ${strings.slideOf} ${slides.length}`}
           inert={index !== 0}
         >
@@ -75,7 +76,9 @@ const videoUrls = slides.map((slide) => findVideo(slide.video));
               <h1>
                 <Accent text={slide.title} />
               </h1>
-              <p class="fluvio-hero__description">{slide.description}</p>
+              <p class="fluvio-hero__description">
+                {slide.emphasizeDescription ? <em>{slide.description}</em> : slide.description}
+              </p>
               <ArrowLink class="fluvio-hero__link" href={localeHref(slide.href, locale)} variant="ghost" tone="paper">
                 {slide.action}
               </ArrowLink>
@@ -86,7 +89,7 @@ const videoUrls = slides.map((slide) => findVideo(slide.video));
     }
   </div>
 
-  <div class="fluvio-hero__navigation" aria-label="Slide controls">
+  <div class="fluvio-hero__navigation" aria-label={labels.controls}>
     <div class="fluvio-shell fluvio-hero__navrow">
       <div class="fluvio-hero__count" aria-hidden="true">
         <span data-hero-current>01</span>
@@ -324,8 +327,8 @@ const videoUrls = slides.map((slide) => findVideo(slide.video));
 
       if (this.reducedMotion?.matches) {
         button.disabled = true;
-        button.setAttribute('aria-label', this.dataset.labelAutoplayOffAria ?? 'Autoplay off');
-        label.textContent = this.dataset.labelAutoplayOff ?? 'Autoplay off';
+        button.setAttribute('aria-label', this.dataset.labelAutoplayOffAria ?? '');
+        label.textContent = this.dataset.labelAutoplayOff ?? '';
         return;
       }
 
@@ -373,7 +376,7 @@ const videoUrls = slides.map((slide) => findVideo(slide.video));
     grid-area: 1 / 1;
     display: flex;
     align-items: flex-end;
-    min-height: clamp(32rem, 92dvh, 56rem);
+    min-height: clamp(29rem, 78dvh, 48rem);
     overflow: hidden;
     z-index: 0;
     opacity: 0;
@@ -448,7 +451,7 @@ const videoUrls = slides.map((slide) => findVideo(slide.video));
     position: relative;
     z-index: 2;
     width: 100%;
-    padding: clamp(6rem, 16vh, 9rem) 0 clamp(7.5rem, 14vh, 9.5rem);
+    padding: clamp(3rem, 8vh, 5.5rem) 0 clamp(6.5rem, 11vh, 8rem);
   }
 
   .fluvio-hero__content {
@@ -460,22 +463,22 @@ const videoUrls = slides.map((slide) => findVideo(slide.video));
   .fluvio-hero__eyebrow {
     margin: 0 0 1.4rem;
     color: rgb(216 238 244);
-    font-family: var(--aw-font-mono);
-    font-size: 0.72rem;
+    font-family: var(--aw-font-sans);
+    font-size: 0.75rem;
     font-weight: 600;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
   }
 
   h1 {
     margin: 0;
-    max-width: 15ch;
+    max-width: 24ch;
     color: rgb(var(--fluvio-paper));
     font-family: var(--aw-font-heading);
-    font-size: clamp(2.5rem, 5.6vw, 5.4rem);
-    font-weight: 540;
-    letter-spacing: -0.03em;
-    line-height: 1;
+    font-size: var(--fluvio-title-size);
+    font-weight: var(--fluvio-title-weight);
+    letter-spacing: -0.025em;
+    line-height: 1.12;
     text-wrap: balance;
   }
 
@@ -485,6 +488,10 @@ const videoUrls = slides.map((slide) => findVideo(slide.video));
     color: rgb(226 236 242 / 0.92);
     font-size: clamp(1rem, 1.5vw, 1.18rem);
     line-height: 1.65;
+  }
+
+  .fluvio-hero__description em {
+    font-style: italic;
   }
 
   .fluvio-hero__link {
@@ -541,9 +548,10 @@ const videoUrls = slides.map((slide) => findVideo(slide.video));
     display: flex;
     gap: 0.4rem;
     color: rgb(255 255 255 / 0.65);
-    font-family: var(--aw-font-mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
+    font-family: var(--aw-font-sans);
+    font-size: 0.75rem;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.06em;
   }
 
   .fluvio-hero__count [data-hero-current] {
@@ -619,8 +627,8 @@ const videoUrls = slides.map((slide) => findVideo(slide.video));
     width: auto;
     min-width: 5rem;
     padding-inline: 1rem;
-    font-family: var(--aw-font-mono);
-    font-size: 0.68rem;
+    font-family: var(--aw-font-sans);
+    font-size: 0.75rem;
     letter-spacing: 0.04em;
   }
 
@@ -648,7 +656,7 @@ const videoUrls = slides.map((slide) => findVideo(slide.video));
 
   @media (max-width: 767px) {
     .fluvio-hero__slide {
-      min-height: clamp(30rem, 88dvh, 44rem);
+      min-height: clamp(27rem, 74dvh, 38rem);
     }
 
     .fluvio-hero__navrow {

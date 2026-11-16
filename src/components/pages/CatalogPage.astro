@@ -1,92 +1,149 @@
 ---
+import senseLogo from '~/assets/images/fluvio/fluviosense-logo.png';
+import senseLogoDark from '~/assets/images/fluvio/fluviosense-logo-dark.png';
 import Layout from '~/layouts/PageLayout.astro';
 import OverviewHero from '~/components/fluvio/OverviewHero.astro';
 import SectionFrame from '~/components/fluvio/SectionFrame.astro';
 import LargeImage from '~/components/fluvio/LargeImage.astro';
 import ArrowLink from '~/components/fluvio/ArrowLink.astro';
 import FluxMedia from '~/components/fluvio/FluxMedia.astro';
-import FloodDemo from '~/components/fluvio/FloodDemo.astro';
+import PlatformFeature from '~/components/fluvio/PlatformFeature.astro';
+import ScreenshotGallery from '~/components/fluvio/ScreenshotGallery.astro';
 import ContactPanel from '~/components/fluvio/ContactPanel.astro';
-import { getCatalog } from '~/data/fluvio/store.ts';
+import { getCatalog, getHomepage } from '~/data/fluvio/store.ts';
 import { localeHref, type Locale } from '~/i18n';
 export interface Props {
   locale: Locale;
-  kind: 'products' | 'systems';
+  kind: 'products' | 'systems' | 'fluviosense';
 }
 const { locale, kind } = Astro.props;
 const c = getCatalog(locale);
 const products = kind === 'products';
-const title = products ? c.productsTitle : c.systemsTitle;
-const intro = products ? c.productsIntro : c.systemsIntro;
-const label = products ? c.productsLabel : c.systemsLabel;
-const items = c[kind];
+const sense = kind === 'fluviosense';
+const platforms = getHomepage(locale).platforms;
+const title = products ? c.productsTitle : sense ? platforms.sense.title : c.systemsTitle;
+const intro = products ? c.productsIntro : sense ? platforms.sense.description : c.systemsIntro;
+const label = products ? c.productsLabel : sense ? platforms.sense.title : c.systemsLabel;
+const items = products ? c.products : c.systems;
+// Overview cards use isolated instruments; detail sections retain field photography.
+const productCardImages: Record<string, string> = {
+  'fs-halo': '~/assets/images/fluvio/fs-halo-cutout.png',
+  'fs-flux': '~/assets/images/fluvio/fs-flux-cutout.png',
+};
+const systemPlatforms = [
+  { id: 'fluviosense', platform: platforms.sense },
+  { id: 'reef', platform: platforms.reef },
+  { id: 'pulse', platform: platforms.cascade },
+];
 ---
 
 <Layout locale={locale} metadata={{ title: label, description: intro }}>
   <OverviewHero
-    eyebrow={`FluvioSense / ${label}`}
+    eyebrow={`Fluvio / ${label}`}
     title={title}
+    titleLogo={sense ? { light: senseLogo, dark: senseLogoDark } : undefined}
     intro={intro}
     label={label}
-    items={items.map((item, index) => ({
-      name: item.name,
-      href: `#${item.slug}`,
-      image: item.image,
-      contain: products && index < 2,
-    }))}
+    items={products || sense
+      ? items.map((item, index) => ({
+          name: item.name,
+          href: `#${item.slug}`,
+          image: products ? (productCardImages[item.slug] ?? item.image) : item.image,
+          contain: products || index < 2,
+        }))
+      : systemPlatforms.map(({ id, platform }) => ({
+          name: platform.title,
+          href: `#${id}`,
+          image: platform.image,
+          contain: true,
+        }))}
   />
   {
-    items.map((item, index) => (
-      <SectionFrame tone={index === 1 ? 'water' : 'paper'} rule="ink" labelledby={`${item.slug}-heading`}>
-        <article id={item.slug} class:list={['catalog-feature', { 'catalog-feature--reverse': index % 2 === 1 }]}>
-          <div class:list={['catalog-feature__media', { 'catalog-feature__media--device': products && index < 2 }]}>
-            <LargeImage
-              src={item.image}
-              alt={item.imageAlt}
-              aspect="landscape"
-              radius="lg"
-              sizes="(min-width:900px) 50vw, 95vw"
+    !products &&
+      !sense &&
+      systemPlatforms.map(({ id, platform }, index) => (
+        <SectionFrame tone={index === 1 ? 'mist' : 'paper'} rule="ink">
+          <div class="catalog-platform" id={id}>
+            <PlatformFeature
+              {...platform}
+              href={id === 'fluviosense' ? localeHref('/systems/fluviosense', locale) : platform.href}
+              imageHref={id === 'fluviosense' ? localeHref('/systems/fluviosense', locale) : platform.href}
+              actionLabel={id === 'fluviosense' ? platform.title : platform.action}
+              highlights={
+                id === 'fluviosense'
+                  ? platform.highlights?.filter((line) => !/FlowSense|FloodSense|NodeSense/i.test(line))
+                  : platform.highlights
+              }
+              locale={locale}
+              index={index}
             />
           </div>
-          <div class="catalog-feature__copy">
-            <p class="fluvio-label">
-              0{index + 1} / {label}
-            </p>
-            <h2 id={`${item.slug}-heading`}>{item.name}</h2>
-            <>
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-            </>
-            <ul>
-              {item.highlights.map((highlight) => (
-                <li>{highlight}</li>
-              ))}
-            </ul>
-            <div class="catalog-actions">
-              <ArrowLink href={localeHref('/contact', locale)}>{c.contactLabel}</ArrowLink>
-              <ArrowLink href={localeHref(item.href, locale)}>{c.fieldAction}</ArrowLink>
-            </div>
-          </div>
-        </article>
-        {products && item.slug === 'fs-flux' && <FluxMedia locale={locale} />}
-      </SectionFrame>
-    ))
+        </SectionFrame>
+      ))
   }
   {
-    !products && (
-      <SectionFrame tone="navy">
-        <FloodDemo locale={locale} />
-      </SectionFrame>
-    )
+    (products || sense) &&
+      items.map((item, index) => (
+        <SectionFrame tone={index === 1 ? 'water' : 'paper'} rule="ink" labelledby={`${item.slug}-heading`}>
+          <article
+            id={item.slug}
+            class:list={[
+              'catalog-feature',
+              { 'catalog-feature--reverse': products && index % 2 === 1, 'catalog-feature--module': sense },
+            ]}
+          >
+            <div class:list={['catalog-feature__media', { 'catalog-feature__media--device': products && index < 2 }]}>
+              {sense ? (
+                <ScreenshotGallery
+                  screens={[{ image: item.image, imageAlt: item.imageAlt }, ...(item.screens ?? [])]}
+                  label={item.name}
+                />
+              ) : (
+                <LargeImage
+                  src={item.image}
+                  alt={item.imageAlt}
+                  aspect="landscape"
+                  radius="lg"
+                  sizes="(min-width:900px) 50vw, 95vw"
+                />
+              )}
+            </div>
+            <div class="catalog-feature__copy">
+              <p class="fluvio-label">
+                0{index + 1} / {label}
+              </p>
+              <h2 id={`${item.slug}-heading`}>{item.name}</h2>
+              <>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </>
+              <ul>
+                {item.highlights.map((highlight) => (
+                  <li>{highlight}</li>
+                ))}
+              </ul>
+              <div class="catalog-actions">
+                <ArrowLink href={localeHref('/contact', locale)}>{c.contactLabel}</ArrowLink>
+                <ArrowLink href={localeHref(item.href, locale)}>{c.fieldAction}</ArrowLink>
+              </div>
+            </div>
+          </article>
+          {products && item.slug === 'fs-flux' && <FluxMedia locale={locale} />}
+        </SectionFrame>
+      ))
   }
-  <SectionFrame tone="mist"
-    ><ArrowLink href={localeHref(products ? '/systems' : '/products', locale)}
-      >{products ? c.systemsAction : c.productsAction}</ArrowLink
+  <SectionFrame tone="mist" spacing="compact"
+    ><ArrowLink href={localeHref(products || sense ? '/systems' : '/products', locale)}
+      >{products || sense ? c.systemsAction : c.productsAction}</ArrowLink
     ></SectionFrame
   >
   <SectionFrame tone="warm"><ContactPanel locale={locale} /></SectionFrame>
 </Layout>
 <style>
+  .catalog-platform {
+    scroll-margin-top: 7rem;
+  }
+
   .catalog-feature__media--device {
     background: linear-gradient(145deg, #e7eeeb, #b5cdc7);
     border-radius: 24px;
@@ -97,14 +154,14 @@ const items = c[kind];
   }
   .catalog-feature {
     display: grid;
-    gap: clamp(2rem, 5vw, 5rem);
+    gap: var(--fluvio-column-gap);
     align-items: center;
     scroll-margin-top: 7rem;
   }
   .catalog-feature__copy h2 {
     font-family: var(--aw-font-heading);
-    font-size: clamp(3rem, 5vw, 5rem);
-    letter-spacing: -0.05em;
+    font-size: var(--fluvio-title-size);
+    letter-spacing: -0.025em;
     line-height: 1;
     margin: 1rem 0;
   }
@@ -140,6 +197,35 @@ const items = c[kind];
     }
     .catalog-feature--reverse .catalog-feature__media {
       order: 2;
+    }
+  }
+</style>
+
+<style>
+  .catalog-feature--module {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .catalog-feature--module .catalog-feature__media {
+    order: 2;
+    min-width: 0;
+  }
+  .catalog-feature--module .catalog-feature__copy {
+    max-width: none;
+  }
+  @media (min-width: 900px) {
+    .catalog-feature--module .catalog-feature__copy {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 3rem;
+    }
+    .catalog-feature--module .catalog-feature__copy > .fluvio-label,
+    .catalog-feature--module h2 {
+      grid-column: 1 / -1;
+    }
+    .catalog-feature--module ul {
+      grid-column: 2;
+      grid-row: 3 / 5;
+      margin-top: 1.5rem;
     }
   }
 </style>

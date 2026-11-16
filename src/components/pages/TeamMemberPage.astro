@@ -180,11 +180,11 @@ const position = c.memberOf
 
 <style>
   .fluvio-person-hero {
-    padding: clamp(2.5rem, 6vw, 5rem) 0 clamp(3.5rem, 8vw, 7rem);
+    padding-block: var(--fluvio-section-compact) var(--fluvio-section-standard);
   }
 
   .fluvio-person-hero__crumbs {
-    margin-bottom: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: var(--fluvio-heading-gap);
   }
 
   .fluvio-person-hero__grid {
@@ -203,17 +203,17 @@ const position = c.memberOf
   }
 
   .fluvio-person-hero__copy :global(h1) {
-    max-width: 12ch;
-    font-size: clamp(2.6rem, 5.6vw, 5rem);
+    max-width: 100%;
+    font-size: var(--fluvio-title-size);
   }
 
   .fluvio-person-hero__role {
     margin: 1rem 0 0;
     color: rgb(var(--fluvio-river));
-    font-family: var(--aw-font-mono);
-    font-size: 0.74rem;
+    font-family: var(--aw-font-sans);
+    font-size: 0.75rem;
     font-weight: 600;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
   }
 
@@ -277,7 +277,7 @@ const position = c.memberOf
   }
 
   .fluvio-person-section-heading {
-    margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
+    margin-bottom: var(--fluvio-heading-gap);
   }
 
   .fluvio-person-expertise,
@@ -293,13 +293,13 @@ const position = c.memberOf
   }
 
   .fluvio-person-adjacent {
-    padding-top: clamp(3rem, 7vw, 6rem);
+    padding-top: var(--fluvio-section-compact);
   }
 
   @media (min-width: 768px) {
     .fluvio-person-hero__grid {
       grid-template-columns: minmax(18rem, 0.8fr) minmax(0, 1.2fr);
-      gap: clamp(3rem, 8vw, 8rem);
+      gap: var(--fluvio-column-gap);
     }
 
     .fluvio-person-hero__facts {

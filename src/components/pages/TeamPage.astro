@@ -87,7 +87,7 @@ const metadata = {
 
 <style>
   .fluvio-team-heading {
-    margin-bottom: clamp(3rem, 6vw, 5rem);
+    margin-bottom: var(--fluvio-heading-gap);
   }
 
   .fluvio-team-grid {
@@ -100,7 +100,7 @@ const metadata = {
     position: relative;
     display: flex;
     align-items: flex-end;
-    min-height: clamp(26rem, 64vh, 40rem);
+    min-height: clamp(19rem, 50svh, 32rem);
     overflow: hidden;
     color: rgb(var(--fluvio-paper));
   }
@@ -127,26 +127,26 @@ const metadata = {
     display: grid;
     gap: 1.5rem;
     justify-items: start;
-    padding: clamp(5rem, 12vh, 8rem) 0 clamp(2.5rem, 6vw, 4.5rem);
+    padding-block: var(--fluvio-section-standard) var(--fluvio-section-compact);
   }
 
   .fluvio-team-statement__eyebrow {
     margin: 0;
     color: rgb(var(--fluvio-wash));
-    font-family: var(--aw-font-mono);
-    font-size: 0.7rem;
+    font-family: var(--aw-font-sans);
+    font-size: 0.75rem;
     font-weight: 600;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
   }
 
   .fluvio-team-statement h2 {
     margin: 0;
-    max-width: 22ch;
+    max-width: 100%;
     color: inherit;
     font-family: var(--aw-font-heading);
-    font-size: clamp(1.8rem, 3.8vw, 3.4rem);
-    font-weight: 520;
+    font-size: var(--fluvio-section-size);
+    font-weight: var(--fluvio-section-weight);
     letter-spacing: -0.025em;
     line-height: 1.1;
     text-wrap: balance;

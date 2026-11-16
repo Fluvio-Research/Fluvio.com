@@ -38,5 +38,15 @@
     "portraitAlt": "Eric Cheung",
     "specialties": ["Visión artificial", "Aprendizaje automático"],
     "expertise": ["hydrological-monitoring"]
+  },
+  "de": {
+    "order": 9,
+    "name": "Eric Cheung",
+    "role": "Senior Data Scientist",
+    "bio": "Eric setzt computergestützte Bildauswertung und maschinelles Lernen ein, um aus Bilddaten verwertbare Erkenntnisse zu gewinnen. Mit Daten und Technologie möchte er Umweltprobleme angehen und die Überwachung und Analyse verbessern.",
+    "portrait": "/src/assets/images/fluvio/team-eric.jpeg",
+    "portraitAlt": "Eric Cheung",
+    "specialties": ["Computergestützte Bildauswertung", "Maschinelles Lernen"],
+    "expertise": ["hydrological-monitoring"]
   }
 }

@@ -38,5 +38,15 @@
     "portraitAlt": "Melanie Johnson",
     "specialties": ["Análisis geoespacial", "Ciencia de la conservación"],
     "expertise": ["island-scale-modelling", "catchment-management"]
+  },
+  "de": {
+    "order": 4,
+    "name": "Melanie Johnson",
+    "role": "Geodatenanalyse und Wissenschaftskommunikation",
+    "bio": "Melanie ist eine erfahrene Geodatenanalystin, Naturschutzwissenschaftlerin und Drohnenpilotin. Mit kreativen Ansätzen vermittelt sie wissenschaftliche Erkenntnisse über unterschiedliche Medien und setzt ihre vielfältigen Fähigkeiten ein, um positive Veränderungen zu unterstützen.",
+    "portrait": "/src/assets/images/fluvio/team-melanie.jpeg",
+    "portraitAlt": "Melanie Johnson",
+    "specialties": ["Geodatenanalyse", "Naturschutzwissenschaft"],
+    "expertise": ["island-scale-modelling", "catchment-management"]
   }
 }

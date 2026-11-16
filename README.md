@@ -4,7 +4,7 @@ The Fluvio consultancy website: water, environmental and climate solutions groun
 
 Built with [Astro](https://astro.build/) and Tailwind CSS on the AstroWind template foundation. The site is fully static, has no server runtime and no client-side framework.
 
-Every project, expertise area and team member has its own page, generated from the content store, in all four languages.
+Every project, expertise area and team member has its own page, generated from the content store, in all five languages.
 
 ## Commands
 
@@ -24,7 +24,7 @@ Run `npm test`, `npm run check` and `npm run build` after every content or code 
 
 ## Where content lives
 
-All Fluvio content is localized JSON in `src/data/fluvio/content/`, one file per record with `en`, `fr` and `es` sections side by side:
+All Fluvio content is localized JSON in `src/data/fluvio/content/`, one file per record with `en`, `pijin`, `es`, `fr` and `de` sections side by side:
 
 | Location                       | Owns                                                                                                                 |
 | ------------------------------ | -------------------------------------------------------------------------------------------------------------------- |
@@ -47,11 +47,11 @@ All Fluvio content is localized JSON in `src/data/fluvio/content/`, one file per
 
 ### Heading accents
 
-Wrap one phrase of a heading in asterisks (`Observe water *as it moves*.`) and it is set in the serif accent face. `src/utils/accent.ts` renders the markup and strips it wherever plain text is required (page titles, aria labels, slider announcements). A test fails if any heading has an unbalanced pair.
+Wrap one phrase of a heading in asterisks (`Observe water *as it moves*.`) to preserve the heading’s semantic emphasis. `src/utils/accent.ts` renders the markup and strips it wherever plain text is required (page titles, aria labels, slider announcements). A test fails if any heading has an unbalanced pair.
 
 ## Editing content without code
 
-The content admin lives in the private `Fluvio-Research/Webiste-CMS` repository, with language tabs for English, Solomon Islands Pijin, French and Spanish. Two ways to use it:
+The content admin lives in the private `Fluvio-Research/Webiste-CMS` repository, with language tabs for English, Solomon Islands Pijin, Spanish, French and German. Two ways to use it:
 
 - Locally: clone `Webiste-CMS` next to this repository and run `npm run cms` there. Choose **Work with Local Repository** and select this repository's folder; edits are written to the JSON files in your working tree. Review with `git diff`, then commit and push.
 - Hosted: `https://data.fluvio.com.au/fluvio-cms/` (behind the Grafana login on that server) edits this repository on GitHub directly; sign in with a GitHub access token.
@@ -61,8 +61,8 @@ The content admin lives in the private `Fluvio-Research/Webiste-CMS` repository,
 Use the admin (`npm run cms`, above), or edit the JSON directly:
 
 1. Add images to `src/assets/images/fluvio/` with descriptive kebab-case names. Give each record its own lead photo; the archive in `../Old/images/` has more originals than the site currently uses.
-2. Create the record in the matching `src/data/fluvio/content/` folder, filling `en`, `pijin`, `fr` and `es`. For projects and expertise areas, `slug` becomes the public route and must never change after publishing; a team member's route is the record's file name (an optional `slug` field overrides it). `challenge`, `approach` and `outcome` are arrays of paragraphs, and only verified facts belong in them. Expertise areas take three to five `highlights`; team members list their `expertise` area slugs. A project or expertise area may carry an optional `video` (an `.mp4` or `.webm` in `src/assets/images/fluvio/`, silent, 12 MB at most): on a project it plays over the lead photograph at the top of the project page, on an expertise area it replaces the photograph wherever the area is illustrated. The photograph stays as the poster, for lists and for visitors who prefer reduced motion.
-3. Set the `order` field to control display position, and `featured: true` on a project to place it in the homepage selection.
+2. Create the record in the matching `src/data/fluvio/content/` folder, filling `en`, `pijin`, `es`, `fr` and `de`. For projects and expertise areas, `slug` becomes the public route and must never change after publishing; a team member's route is the record's file name (an optional `slug` field overrides it). `challenge`, `approach` and `outcome` are arrays of paragraphs, and only verified facts belong in them. Expertise areas take three to five `highlights`; team members list their `expertise` area slugs. A project or expertise area may carry an optional `video` (an `.mp4` or `.webm` in `src/assets/images/fluvio/`, silent, 12 MB at most): on a project it plays over the lead photograph at the top of the project page, on an expertise area it replaces the photograph wherever the area is illustrated. The photograph stays as the poster, for lists and for visitors who prefer reduced motion.
+3. Set the `order` field to control display position.
 4. Update the pinned lists in `tests/fluvio-content.test.mjs` (`expectedSlugs`, `expectedTeamNames`, `expectedTeamSlugs`, `expectedExpertiseTitles`, and counts).
 5. Run `npm test && npm run check && npm run build`.
 
@@ -70,11 +70,15 @@ No page changes are needed: every route, including the record's own page in ever
 
 ## Languages and translations
 
-The site ships in English (default, at the root), Solomon Islands Pijin (`/pijin/...`), French (`/fr/...`) and Spanish (`/es/...`), with a language dropdown in the header. French and Spanish are currently built but hidden from the dropdown (`hiddenLocales` in `src/i18n/index.ts`); remove a locale from that list to offer it again.
+The header picker offers English (at the root), Solomon Islands Pijin (`/pijin`), Spanish (`/es`), French (`/fr`) and German (`/de`).
 
-- UI and page copy (headings, ledes, slider slides, labels) live in the content store under `src/data/fluvio/content/site/`, with one section per locale. The store schema requires every string in every locale, so a missing translation fails `npm test` and the build, and a test verifies key-for-key parity. The locale list lives in `src/i18n/index.ts` (and the matching `contentLocales` in `src/data/fluvio/store.ts`); the `[lang]` route files take their paths from `localeStaticPaths()` and `localeRecordStaticPaths()` there, so adding a language never touches a route file.
-- Content records carry their own translations: each JSON file in `src/data/fluvio/content/` holds `en`, `pijin`, `fr` and `es` sections, validated together by the store's schema.
-- Routes, slugs and images are shared across languages; only human-readable text is translated.
+Use [website-copy.json](website-copy.json) to review and edit site copy in all five languages in one file. It groups the site settings, pages, interface, expertise, projects and team records with translations side by side.
+
+1. Run `npm run content:export` before editing to pick up the latest site and CMS changes.
+2. Edit the text in `website-copy.json`. Preserve keys, placeholders such as `{count}`, links, media paths and record IDs.
+3. Run `npm run content:import` to apply the edits to the site’s content records. Run `npm test` and `npm run build` to validate and preview them.
+
+The build and CMS use the per-record JSON under `src/data/fluvio/content/`. Shared interface labels, form messages and accessibility text live in `site/ui.json`. The store validates all five locales and generates the translated routes from `contentLocales`.
 
 ## Updating navigation and metadata
 
@@ -97,11 +101,11 @@ The isolated service listens on localhost:3311. The script adds only `/api/websi
 
 ## Routes
 
-Public routes: `/`, `/vision`, `/expertise`, `/projects`, `/team`, `/contact`, one page per record (`/<project-slug>`, `/expertise/<slug>`, `/team/<slug>`), all of the above under `/pijin`, `/fr` and `/es`, a custom 404, and permanent redirects `/about -> /vision` and `/services -> /expertise`. Project routes stay flat because they predate this site and are linked externally. `src/data/fluvio/routes.ts` builds every internal link. The template blog is disabled in `src/config.yaml` and its demonstration pages have been removed.
+Public routes: `/`, `/vision`, `/expertise`, `/projects`, `/team`, `/contact`, one page per record (`/<project-slug>`, `/expertise/<slug>`, `/team/<slug>`), all of the above under `/pijin`, `/es`, `/fr` and `/de`, a custom 404, and permanent redirects `/about -> /vision` and `/services -> /expertise`. Project routes stay flat because they predate this site and are linked externally. `src/data/fluvio/routes.ts` builds every internal link. The template blog is disabled in `src/config.yaml` and its demonstration pages have been removed.
 
 ## Design system
 
-- Type: Inter for body and interface text, Bricolage Grotesque for display headings, Instrument Serif italic for the accented phrase inside a heading. All three are bundled in `src/assets/fonts/` and self-hosted by `LocalFonts.astro`, with no external font requests at build time.
+- Type: Inter for headings, body copy and interface labels. The variable font is self-hosted by `LocalFonts.astro`.
 - Shared components live in `src/components/fluvio/`: `ArrowLink`, `ArrowIcon` and `LinkList` are the only call-to-action treatments (no bare arrow glyphs); `ProjectCard`, `ExpertiseCard` and `TeamCard` are the record cards (one stretched link each); `PageHero`, `Breadcrumbs`, `AdjacentNav` and `SectionFrame` frame every page; `DisciplineTicker` is built from the project disciplines.
 - Photographs morph between a card and the page they open through Astro view transitions (`transitionName` on `LargeImage`).
 

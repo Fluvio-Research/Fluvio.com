@@ -70,5 +70,23 @@
     "image": "/src/assets/images/fluvio/expertise-coastal-model.png",
     "imageAlt": "Modelo de transporte de contaminación costera",
     "relatedProjects": ["cordap"]
+  },
+  "de": {
+    "order": 2,
+    "slug": "island-scale-modelling",
+    "title": "Modellierung von Inseln und Einzugsgebieten",
+    "summary": "Entwicklung eines globalen Modells für den Schadstofftransport in Küstengewässern.",
+    "description": [
+      "Das Modell nutzt Erdbeobachtung und Cloud-Computing, um die gemeinsame Planung für Land und Meer sowie Renaturierungsmaßnahmen zu unterstützen."
+    ],
+    "highlights": [
+      "Globales Modell für den Schadstofftransport in Küstengewässern",
+      "Erdbeobachtung und Cloud-Computing als Grundlage",
+      "Unterstützung der integrierten Land- und Meeresplanung",
+      "Datengrundlagen für Renaturierungsmaßnahmen"
+    ],
+    "image": "/src/assets/images/fluvio/expertise-coastal-model.png",
+    "imageAlt": "Modell für den Schadstofftransport in Küstengewässern",
+    "relatedProjects": ["cordap"]
   }
 }

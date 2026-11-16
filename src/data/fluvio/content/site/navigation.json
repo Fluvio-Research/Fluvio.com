@@ -54,5 +54,19 @@
     "linkedinLabel": "Fluvio en LinkedIn",
     "languageLabel": "Idioma",
     "linkedinUrl": "https://www.linkedin.com/company/fluvioptyltd/"
+  },
+  "de": {
+    "vision": "Vision",
+    "expertise": "Fachgebiete",
+    "projects": "Projekte",
+    "team": "Team",
+    "contact": "Kontakt",
+    "startProject": "Projekt starten",
+    "explore": "Entdecken",
+    "company": "Unternehmen",
+    "allRightsReserved": "Alle Rechte vorbehalten.",
+    "linkedinLabel": "Fluvio auf LinkedIn",
+    "languageLabel": "Sprache",
+    "linkedinUrl": "https://www.linkedin.com/company/fluvioptyltd/"
   }
 }

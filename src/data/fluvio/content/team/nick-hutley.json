@@ -42,5 +42,16 @@
     "specialties": ["Tecnología de flujo óptico"],
     "expertise": ["hydrological-monitoring", "island-scale-modelling"],
     "projects": ["cordap", "laidley-creek-flood"]
+  },
+  "de": {
+    "order": 3,
+    "name": "Nick Hutley",
+    "role": "Leitung Forschung und Technologie",
+    "bio": "Nick leitet die Entwicklung von Verfahren zur Messung des optischen Flusses für die hydrologische Überwachung. Für ein wirksames Management natürlicher Ressourcen verbindet er adaptive numerische Modelle mit entscheidenden Umweltdaten.",
+    "portrait": "/src/assets/images/fluvio/team-nick.png",
+    "portraitAlt": "Nick Hutley",
+    "specialties": ["Optischer Fluss"],
+    "expertise": ["hydrological-monitoring", "island-scale-modelling"],
+    "projects": ["cordap", "laidley-creek-flood"]
   }
 }

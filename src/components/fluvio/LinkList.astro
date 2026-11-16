@@ -93,10 +93,10 @@ const { items, tone = 'default', class: className, ...rest } = Astro.props;
     flex: none;
     min-width: 1.6rem;
     color: var(--row-accent);
-    font-family: var(--aw-font-mono);
-    font-size: 0.68rem;
+    font-family: var(--aw-font-sans);
+    font-size: 0.75rem;
     font-weight: 600;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.06em;
   }
 
   .fluvio-link-list__text {
@@ -110,7 +110,7 @@ const { items, tone = 'default', class: className, ...rest } = Astro.props;
     color: var(--row-title);
     font-family: var(--aw-font-heading);
     font-size: 1.08rem;
-    font-weight: 560;
+    font-weight: var(--fluvio-section-weight);
     letter-spacing: -0.015em;
     line-height: 1.3;
   }

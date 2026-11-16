@@ -46,5 +46,17 @@
     "location": "Islas Salomón",
     "expertise": ["catchment-management", "blue-carbon-assessment"],
     "projects": ["monitoring-honiara"]
+  },
+  "de": {
+    "order": 6,
+    "name": "Mandus Boselalu",
+    "role": "Leitender Umweltwissenschaftler für Melanesien",
+    "bio": "Mandus verfügt über mehr als 15 Jahre Erfahrung in der Leitung von Umwelt- und Sozialverträglichkeitsprüfungen für Großprojekte in Melanesien. Von den Salomonen aus setzt er die integrierten Ansätze von Fluvio für komplexe Herausforderungen ländlicher Gemeinschaften ein.",
+    "portrait": "/src/assets/images/fluvio/team-mandus.jpg",
+    "portraitAlt": "Mandus Boselalu",
+    "specialties": ["Umwelt- und Sozialverträglichkeitsprüfungen"],
+    "location": "Salomonen",
+    "expertise": ["catchment-management", "blue-carbon-assessment"],
+    "projects": ["monitoring-honiara"]
   }
 }

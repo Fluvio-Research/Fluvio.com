@@ -70,5 +70,23 @@
     "image": "/src/assets/images/fluvio/expertise-catchment-aerial.jpg",
     "imageAlt": "Vista aérea de un río que serpentea por una cuenca boscosa hacia la costa",
     "relatedProjects": ["monitoring-honiara", "wrd"]
+  },
+  "de": {
+    "order": 3,
+    "slug": "catchment-management",
+    "title": "Management von Einzugsgebieten und Wasserressourcen",
+    "summary": "Gemeinsam mit Behörden, lokalen Gemeinschaften und Unternehmen untersuchen wir die Zusammenhänge zwischen Einzugsgebieten, Fließgewässern und Meer.",
+    "description": [
+      "Wir arbeiten mit Behörden, lokalen Gemeinschaften und der Wirtschaft zusammen, um die Zusammenhänge zwischen Einzugsgebieten, Fließgewässern und Meer besser zu verstehen. Dabei geht es darum, die Bedürfnisse der Bevölkerung mit ökologischen Vorteilen in Einklang zu bringen."
+    ],
+    "highlights": [
+      "Analyse der Zusammenhänge vom Einzugsgebiet über die Fließgewässer bis zum Meer",
+      "Zusammenarbeit mit Behörden, lokalen Gemeinschaften und der Wirtschaft",
+      "Abwägung zwischen lokalen Bedürfnissen und ökologischem Nutzen",
+      "Datengrundlagen für Entscheidungen zur Wasserbewirtschaftung"
+    ],
+    "image": "/src/assets/images/fluvio/expertise-catchment-aerial.jpg",
+    "imageAlt": "Luftaufnahme eines verzweigten Flusses, der durch ein bewaldetes Einzugsgebiet zur Küste fließt",
+    "relatedProjects": ["monitoring-honiara", "wrd"]
   }
 }

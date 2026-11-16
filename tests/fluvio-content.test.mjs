@@ -15,7 +15,7 @@ import {
   getSiteContent,
   getTeamMembers,
 } from '../src/data/fluvio/store.ts';
-import { featuredProjects, getProjectBySlug, projects } from '../src/data/fluvio/projects.ts';
+import { getProjectBySlug, projects } from '../src/data/fluvio/projects.ts';
 import { siteContent } from '../src/data/fluvio/site.ts';
 import { teamMembers } from '../src/data/fluvio/team.ts';
 import { plainText, splitAccent } from '../src/utils/accent.ts';
@@ -115,7 +115,6 @@ const sharedComponentFiles = [
   'src/components/fluvio/PageHero.astro',
   'src/components/fluvio/PlatformFeature.astro',
   'src/components/fluvio/ProjectCard.astro',
-  'src/components/fluvio/ProjectFeature.astro',
   'src/components/fluvio/ProjectGallery.astro',
   'src/components/fluvio/ProjectMeta.astro',
   'src/components/fluvio/SectionFrame.astro',
@@ -214,13 +213,7 @@ test('Fluvio site content provides the homepage and vision contract', () => {
   }
 });
 
-test('Fluvio project selectors return featured and matching projects', () => {
-  assert.deepEqual(featuredProjects.map(({ slug }) => slug).sort(), [
-    'advance-queensland',
-    'monitoring-honiara',
-    'moreton-bay-sediment-monitoring',
-    'tina',
-  ]);
+test('Fluvio project lookup returns the matching project', () => {
   assert.equal(getProjectBySlug('tina')?.title, 'Hydrological monitoring of Tina Hydro');
   assert.equal(getProjectBySlug('missing-project'), undefined);
 });
@@ -283,7 +276,7 @@ test('Fluvio catalogs translate every string for every locale', () => {
     );
 
   const reference = keyPaths(getPages('en')).sort();
-  for (const locale of ['pijin', 'fr', 'es']) {
+  for (const locale of contentLocales.filter((locale) => locale !== 'en')) {
     assert.deepEqual(keyPaths(getPages(locale)).sort(), reference);
     assert.notEqual(getPages(locale).visionPage.title, getPages('en').visionPage.title);
     assert.notEqual(getPages(locale).teamDetail.expertiseTitle, getPages('en').teamDetail.expertiseTitle);
@@ -327,7 +320,7 @@ test('Fluvio locale routes exist for every page and record type', async () => {
 
   // The locale list lives in src/i18n; route files must not hardcode it.
   const i18n = await read('src/i18n/index.ts');
-  assert.match(i18n, /export const locales = \['en', 'pijin', 'fr', 'es'\] as const;/);
+  assert.match(i18n, /export const locales = contentLocales;/);
   for (const page of localePages) {
     const source = await read(`src/pages/[lang]/${page}.astro`);
     assert.match(source, /localeStaticPaths\(\)/);
@@ -359,7 +352,6 @@ test('Fluvio detail pages share components and build links through the route hel
   const routes = await read('src/data/fluvio/routes.ts');
   const largeImage = await read('src/components/fluvio/LargeImage.astro');
   const projectCard = await read('src/components/fluvio/ProjectCard.astro');
-  const projectFeature = await read('src/components/fluvio/ProjectFeature.astro');
   const expertiseCard = await read('src/components/fluvio/ExpertiseCard.astro');
   const teamCard = await read('src/components/fluvio/TeamCard.astro');
   const platformFeature = await read('src/components/fluvio/PlatformFeature.astro');
@@ -378,7 +370,6 @@ test('Fluvio detail pages share components and build links through the route hel
   assert.match(largeImage, /transitionName\?:\s*string/);
   for (const [source, helper] of [
     [projectCard, 'projectHref(project.slug, locale)'],
-    [projectFeature, 'projectHref(project.slug, locale)'],
     [expertiseCard, 'expertiseHref(area.slug, locale)'],
     [teamCard, 'teamMemberHref(member.slug, locale)'],
   ]) {
@@ -386,9 +377,7 @@ test('Fluvio detail pages share components and build links through the route hel
     assert.doesNotMatch(source, /localeHref\(`\//);
   }
   assert.match(projectCard, /alt=\{project\.heroAlt\}/);
-  assert.match(projectFeature, /alt=\{project\.heroAlt\}/);
   assert.match(projectCard, /\{strings\.viewProject\}/);
-  assert.match(projectFeature, /<h2>\s*<a href=\{href\}>\{project\.title\}<\/a>\s*<\/h2>/);
   assert.match(teamCard, /transitionName=\{`team-\$\{member\.slug\}`\}/);
   assert.match(projectCard, /transitionName=\{`project-\$\{project\.slug\}`\}/);
   assert.doesNotMatch(platformFeature, /target=["']_blank["']/);

@@ -38,5 +38,15 @@
     "portraitAlt": "Yuval Kark-Levin",
     "specialties": ["Detección ambiental"],
     "expertise": ["island-scale-modelling", "hydrological-monitoring"]
+  },
+  "de": {
+    "order": 8,
+    "name": "Yuval Kark-Levin",
+    "role": "Data Scientist",
+    "bio": "Yuval entwickelt Methoden zur Erfassung von Umweltdaten weiter und erweitert die Einsatzmöglichkeiten globaler Datensätze und Modelle. Er entwickelt Werkzeuge und Datensätze, die lokale Besonderheiten in unterschiedlichen Umgebungen weltweit abbilden.",
+    "portrait": "/src/assets/images/fluvio/team-yuval.jpg",
+    "portraitAlt": "Yuval Kark-Levin",
+    "specialties": ["Erfassung von Umweltdaten"],
+    "expertise": ["island-scale-modelling", "hydrological-monitoring"]
   }
 }

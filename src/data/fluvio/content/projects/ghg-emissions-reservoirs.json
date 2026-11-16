@@ -114,5 +114,34 @@
       "Al entregar múltiples evaluaciones de gases de efecto invernadero de tierras inundadas, Fluvio ha demostrado una sólida experiencia en la cuantificación de emisiones de metano y en la aplicación de marcos de evaluación reconocidos mundialmente."
     ],
     "relatedProjects": ["reservoir-sedimentation"]
+  },
+  "de": {
+    "order": 4,
+    "title": "Treibhausgasemissionen von Stauseen",
+    "slug": "ghg-emissions-reservoirs",
+    "summary": "Bewertung der Treibhausgasemissionen großflächig überfluteter Gebiete.",
+    "location": "Australienweit",
+    "timeframe": "Seit 2024",
+    "disciplines": ["Treibhausgasbewertung", "Methanemissionen"],
+    "heroImage": "/src/assets/images/fluvio/project-ghg-reservoirs.jpg",
+    "heroAlt": "Schwimmende Methankammern quer über einen Stausee mit abgestorbenen Bäumen im Wasser",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-ghg-methane-chambers.jpg",
+        "alt": "Weiße Messkammern und eine Markierungsleine auf einem ruhigen Stausee, daneben ein kleines gelbes Messboot",
+        "caption": "Methankammern messen die Emissionsrate durch aufsteigende Gasblasen."
+      }
+    ],
+    "challenge": [
+      "Süßgewässer setzen erhebliche Mengen an Treibhausgasen frei, vor allem Methan, und tragen damit zu den weltweiten Emissionen bei."
+    ],
+    "approach": [
+      "Um diese Prozesse besser zu verstehen, hat Fluvio die Treibhausgasemissionen großflächig überfluteter Gebiete anhand der IPCC-Methoden Tier 1 und Tier 2 bewertet.",
+      "Fluvio untersuchte außerdem gezielt die Methanemissionen von Laufwassersystemen. Im Mittelpunkt standen Feldmethoden zur Überprüfung der Entgasungswege und der Emissionen flussabwärts."
+    ],
+    "outcome": [
+      "Bei mehreren Treibhausgasbewertungen überfluteter Flächen hat Fluvio Methanemissionen quantifiziert und international anerkannte Bewertungsverfahren angewendet."
+    ],
+    "relatedProjects": ["reservoir-sedimentation"]
   }
 }

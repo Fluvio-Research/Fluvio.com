@@ -13,6 +13,7 @@ import { REVEAL } from '~/components/fluvio/reveal';
 import { getExpertiseAreas } from '~/data/fluvio/localized';
 import { getAdjacent, getProjectsForExpertise, getTeamForExpertise, withoutImages } from '~/data/fluvio/relations';
 import { expertiseHref } from '~/data/fluvio/routes';
+import { getCatalog } from '~/data/fluvio/store';
 import type { ExpertiseArea } from '~/data/fluvio/types';
 import { localeHref, t, type Locale } from '~/i18n';
 import Layout from '~/layouts/PageLayout.astro';
@@ -29,6 +30,11 @@ const projects = withoutImages(getProjectsForExpertise(locale, area), [area.imag
 const specialists = getTeamForExpertise(locale, area);
 const adjacent = getAdjacent(areas, area.slug);
 const others = areas.filter((candidate) => candidate.slug !== area.slug);
+const catalog = getCatalog(locale);
+const relatedProducts =
+  area.slug === 'hydrological-monitoring'
+    ? catalog.products.filter(({ slug }) => slug === 'fs-halo' || slug === 'fs-spot')
+    : [];
 
 const metadata = {
   title: area.title,
@@ -129,6 +135,23 @@ const position = c.areaOf
     )
   }
 
+  {
+    relatedProducts.length > 0 && (
+      <SectionFrame tone="mist" rule="ink" spacing="compact" labelledby="area-products-heading">
+        <div class="fluvio-area-others">
+          <SectionHeading id="area-products-heading" title={catalog.productsLabel} />
+          <LinkList
+            items={relatedProducts.map((product) => ({
+              href: localeHref(`/products#${product.slug}`, locale),
+              title: product.name,
+              meta: product.description,
+            }))}
+          />
+        </div>
+      </SectionFrame>
+    )
+  }
+
   <SectionFrame tone="water" rule="ink" motif="grid" labelledby="area-others-heading">
     <div class="fluvio-area-others">
       <div class={REVEAL}>
@@ -170,11 +193,11 @@ const position = c.areaOf
 
 <style>
   .fluvio-area-hero {
-    padding: clamp(2.5rem, 6vw, 5rem) 0 clamp(3.5rem, 8vw, 7rem);
+    padding-block: var(--fluvio-section-compact) var(--fluvio-section-standard);
   }
 
   .fluvio-area-hero__crumbs {
-    margin-bottom: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: var(--fluvio-heading-gap);
   }
 
   .fluvio-area-hero__grid {
@@ -189,7 +212,7 @@ const position = c.areaOf
   }
 
   .fluvio-area-hero__copy :global(h1) {
-    max-width: 13ch;
+    max-width: 100%;
   }
 
   .fluvio-area-hero__copy :global(.fluvio-lede) {
@@ -235,15 +258,15 @@ const position = c.areaOf
 
   .fluvio-area-detail__index {
     color: rgb(var(--fluvio-river));
-    font-family: var(--aw-font-mono);
-    font-size: 0.7rem;
+    font-family: var(--aw-font-sans);
+    font-size: 0.75rem;
     font-weight: 600;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.06em;
     line-height: 2.2;
   }
 
   .fluvio-area-section-heading {
-    margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
+    margin-bottom: var(--fluvio-heading-gap);
   }
 
   .fluvio-area-projects,
@@ -258,7 +281,7 @@ const position = c.areaOf
   }
 
   .fluvio-area-adjacent {
-    padding-top: clamp(3rem, 7vw, 6rem);
+    padding-top: var(--fluvio-section-compact);
   }
 
   .visually-hidden {
@@ -285,12 +308,12 @@ const position = c.areaOf
   @media (min-width: 768px) {
     .fluvio-area-hero__grid {
       grid-template-columns: minmax(0, 0.9fr) minmax(22rem, 1.1fr);
-      gap: clamp(3rem, 8vw, 8rem);
+      gap: var(--fluvio-column-gap);
     }
 
     .fluvio-area-detail {
       grid-template-columns: minmax(0, 1.1fr) minmax(20rem, 0.9fr);
-      gap: clamp(3rem, 8vw, 8rem);
+      gap: var(--fluvio-column-gap);
       align-items: start;
     }
 
@@ -304,7 +327,7 @@ const position = c.areaOf
 
     .fluvio-area-others {
       grid-template-columns: minmax(0, 0.8fr) minmax(24rem, 1.2fr);
-      gap: clamp(3rem, 8vw, 8rem);
+      gap: var(--fluvio-column-gap);
       align-items: start;
     }
   }

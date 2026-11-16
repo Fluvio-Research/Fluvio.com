@@ -12,7 +12,7 @@ import { z } from 'astro/zod';
 
 import type { ExpertiseArea, Project, SiteContent, TeamMember } from './types';
 
-export const contentLocales = ['en', 'pijin', 'fr', 'es'] as const;
+export const contentLocales = ['en', 'pijin', 'es', 'fr', 'de'] as const;
 export type ContentLocale = (typeof contentLocales)[number];
 
 /* The module may execute from a bundled location at build time, so fall back
@@ -125,6 +125,7 @@ const slideSchema = z.object({
   eyebrow: text,
   title: text,
   description: text,
+  emphasizeDescription: z.boolean().optional(),
   action: text,
   href: z.string().regex(/^\/[a-z0-9#/-]*$/),
   image: localImage,
@@ -545,8 +546,7 @@ const pagesSchema: z.ZodType<Pages> = z.object({
   }),
 });
 
-const localized = <Schema extends z.ZodTypeAny>(schema: Schema) =>
-  z.object({ en: schema, pijin: schema, fr: schema, es: schema });
+const localized = <Schema extends z.ZodTypeAny>(schema: Schema) => z.record(z.enum(contentLocales), schema);
 
 /* ------------------------------------------------------------------ */
 /* Loading                                                             */
@@ -583,6 +583,7 @@ function loadCollection<Schema extends z.ZodTypeAny>(
 }
 
 const catalogItemSchema = z.object({
+  screens: z.array(z.object({ image: localImage, imageAlt: text })).optional(),
   slug,
   name: text,
   title: text,
@@ -614,6 +615,58 @@ const catalogSchema = z.object({
 export type CatalogItem = z.infer<typeof catalogItemSchema>;
 const catalogRecord = loadRecord(join(contentDir, 'site', 'catalog.json'), catalogSchema);
 export const getCatalog = (locale: ContentLocale) => catalogRecord[locale];
+
+const uiSchema = z.object({
+  overview: z.object({
+    title: text,
+    intro: text,
+    expertise: text,
+    products: text,
+    systems: text,
+  }),
+  flux: z.object({
+    field: text,
+    photo: text,
+    brochure: text,
+    video: text,
+  }),
+  enquiry: z.object({
+    name: text,
+    email: text,
+    organisation: text,
+    location: text,
+    message: text,
+    submit: text,
+    sending: text,
+    success: text,
+    error: text,
+    note: text,
+    emailOption: text,
+    emailOnly: text,
+  }),
+  header: z.object({
+    language: text,
+    solutions: text,
+    contact: text,
+    navigation: text,
+    menu: text,
+    theme: text,
+  }),
+  slider: z.object({
+    carousel: text,
+    slide: text,
+    controls: text,
+  }),
+  notFound: z.object({
+    title: text,
+    description: text,
+    heading: text,
+    intro: text,
+    navigation: text,
+  }),
+});
+const uiRecord = loadRecord(join(contentDir, 'site', 'ui.json'), uiSchema);
+export const getUi = (locale: ContentLocale) => uiRecord[locale];
 
 const projectRecords = loadCollection('projects', projectSchema);
 const teamRecords = loadCollection('team', teamMemberSchema);

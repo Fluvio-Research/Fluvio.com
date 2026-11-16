@@ -114,5 +114,34 @@
       "En conjunto, estos levantamientos identifican y cuantifican las tasas de sedimentación en todo el embalse y caracterizan el comportamiento del sedimento durante el descenso del nivel, en apoyo de la gestión a largo plazo de la capacidad del embalse."
     ],
     "relatedProjects": ["ghg-emissions-reservoirs"]
+  },
+  "de": {
+    "order": 9,
+    "title": "Studien zur Sedimentation in Stauseen",
+    "slug": "reservoir-sedimentation",
+    "summary": "Ermittlung und Quantifizierung der Sedimentationsraten in einem Stausee.",
+    "location": "Australien",
+    "timeframe": "2024–2025",
+    "disciplines": ["Überwachung der Sedimentation", "Felddatenerhebung"],
+    "heroImage": "/src/assets/images/fluvio/project-reservoir-sedimentation.jpeg",
+    "heroAlt": "Eine Person in Warnkleidung nimmt Proben auf freiliegenden Schlickflächen eines abgesenkten Stausees",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-reservoir-cores.png",
+        "alt": "Zwei durchsichtige Bohrkernrohre über dem Stausee zeigen dunkle Feinsedimentschichten über dem Material des Gewässerbetts",
+        "caption": "Zwei Sedimentkerne aus Seeböden."
+      }
+    ],
+    "challenge": [
+      "Wenn sich Schwebstoffe aus der Wassersäule absetzen, verringert sich das Speichervolumen von Stauseen. Sedimentation ist ein natürlicher Prozess, kann bei erhöhten Raten aber den Betrieb beeinträchtigen. Wasserstandsabsenkungen im Pumpspeicherbetrieb können sie beschleunigen. Ziel des Projekts war die Ermittlung und Quantifizierung der Sedimentationsraten im Stausee."
+    ],
+    "approach": [
+      "Eine erste Felderhebung mit einem Freifall-Penetrometer ermöglichte die zügige Kartierung großflächiger Ablagerungszonen und legte die Standorte für die anschließende Probenahme mit Sedimentkernen fest.",
+      "Fluvio installierte Vor-Ort-Messanordnungen für die Sedimentation und ereignisgesteuerte Messstationen an den wichtigsten Zuflüssen. Eine visuelle Uferuntersuchung ergänzte das Feldprogramm, um die Sedimentdynamik bei sinkendem Wasserstand zu bestimmen."
+    ],
+    "outcome": [
+      "Die Erhebungen quantifizieren die Sedimentation im Stausee und zeigen, wie sich Sedimente bei Wasserstandsabsenkungen verhalten. Das unterstützt die langfristige Bewirtschaftung des Speichervolumens."
+    ],
+    "relatedProjects": ["ghg-emissions-reservoirs"]
   }
 }

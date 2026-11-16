@@ -130,5 +130,37 @@
       "Estar en el lugar correcto en el momento correcto para registrar un evento histórico fue posible gracias a la estrecha colaboración con Port of Brisbane, Urban Utilities, Xylem ANZ, SonTek y Water Queensland."
     ],
     "relatedProjects": ["advance-queensland", "tina"]
+  },
+  "de": {
+    "order": 10,
+    "title": "Hochwasserüberwachung am Laidley Creek",
+    "slug": "laidley-creek-flood",
+    "summary": "Messung der Fließgeschwindigkeit und Probenahme bei einem nächtlichen Rekordhochwasser zur Berechnung von Sediment- und Nährstofffrachten.",
+    "location": "Laidley Creek, Queensland, Australien",
+    "timeframe": "2024",
+    "disciplines": ["Hochwasserüberwachung", "Wasserprobenahme", "Sediment- und Nährstofffrachten"],
+    "partners": ["Port of Brisbane", "Urban Utilities", "Xylem ANZ", "SonTek", "Water Queensland"],
+    "heroImage": "/src/assets/images/fluvio/project-laidley-creek.jpg",
+    "heroAlt": "Messgerät und Kamera am Brückengeländer über dem braunen Hochwasser, daneben die farbige Darstellung der gemessenen Oberflächenströmung",
+    "video": "/src/assets/images/fluvio/project-laidley-flood.mp4",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-laidley-flood-sampling.jpg",
+        "alt": "Sechs Hochwasserszenen: Probenahme von einer Brücke, zwei Probenflaschen im Abstand von drei Stunden, Treibgut am Geländer, ein Sensor über dem Wasser, beschriftete Probengläser und ein Strömungsfeld",
+        "caption": "Zwei Proben im Abstand von drei Stunden zeigen, wie schnell sich der Bach während des Hochwassers veränderte."
+      }
+    ],
+    "challenge": [
+      "Im Januar 2024 zog nachts ein Rekordhochwasser durch das Einzugsgebiet des Laidley Creek. Am Pegel Mulgowie erreichte das Wasser 9,63 m, den höchsten Stand seit Beginn der Aufzeichnungen in den 1960er-Jahren. Messungen während des Hochwasserscheitels sind unerlässlich, um Auswirkungen auf Gemeinden und Gewässer flussabwärts zu verstehen. Zugleich sind die Bedingungen dann besonders schwierig und gefährlich."
+    ],
+    "approach": [
+      "Alistair Grinham und das Fluvio-Team maßen ab Mitternacht die Fließgeschwindigkeit und nahmen Wasserproben, bevor sie sich um 4 Uhr auf höheres Gelände zurückzogen. Die Messung des optischen Flusses lieferte Tausende Abflusswerte ohne Messgerät im Wasser. Zusammen mit den Konzentrationen aus den Proben ließ sich daraus die Stofffracht schätzen.",
+      "Zwei Probenflaschen im Abstand von drei Stunden zeigen, wie schnell sich das System verändert: Während des Hochwasserscheitels wurde aus klarem Wasser innerhalb weniger Stunden stark sedimentbeladenes Wasser."
+    ],
+    "outcome": [
+      "Sediment- und Nährstoffkonzentrationen bei solchen Ereignissen sind entscheidend, um laufende Uferrenaturierungen zu bewerten und künftige Maßnahmen zu planen.",
+      "Die Zusammenarbeit mit Port of Brisbane, Urban Utilities, Xylem ANZ, SonTek und Water Queensland ermöglichte die Erfassung dieses historischen Ereignisses."
+    ],
+    "relatedProjects": ["advance-queensland", "tina"]
   }
 }

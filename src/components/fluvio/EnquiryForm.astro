@@ -1,83 +1,35 @@
 ---
 import type { Locale } from '~/i18n';
+import { getUi } from '~/data/fluvio/store.ts';
 export interface Props {
   locale: Locale;
 }
 const { locale } = Astro.props;
-const copy = {
-  en: [
-    'Name',
-    'Email',
-    'Organisation (optional)',
-    'Project location (optional)',
-    'Tell us about your project',
-    'Send enquiry',
-    'Sending…',
-    'Thank you. Your enquiry has been sent to Fluvio.',
-    'We could not send your enquiry. Your text is still here. Please try again or email info@fluvio.com.au.',
-    'Your details and message will be emailed to Fluvio so we can respond to your enquiry.',
-    'Prefer email?',
-  ],
-  pijin: [
-    'Nem',
-    'Email',
-    'Organisation (sapos iu laek)',
-    'Ples blong project (sapos iu laek)',
-    'Talem mifala abaot project blong iu',
-    'Sendem enquiry',
-    'Hem sendem…',
-    'Tagio. Enquiry blong iu hem go finis long Fluvio.',
-    'Mifala no savve sendem enquiry. Text blong iu stap yet. Traem moa o email info@fluvio.com.au.',
-    'Details an message blong iu bae go long Fluvio long email fo mifala savve ansarem enquiry blong iu.',
-    'Iu laek email?',
-  ],
-  fr: [
-    'Nom',
-    'E-mail',
-    'Organisation (facultatif)',
-    'Lieu du projet (facultatif)',
-    'Parlez-nous de votre projet',
-    'Envoyer la demande',
-    'Envoi…',
-    'Merci. Votre demande a été envoyée à Fluvio.',
-    'Envoi impossible. Votre texte est conservé. Réessayez ou écrivez à info@fluvio.com.au.',
-    'Vos coordonnées et votre message seront envoyés par e-mail à Fluvio pour répondre à votre demande.',
-    'Vous préférez un e-mail ?',
-  ],
-  es: [
-    'Nombre',
-    'Correo electrónico',
-    'Organización (opcional)',
-    'Ubicación del proyecto (opcional)',
-    'Cuéntenos sobre su proyecto',
-    'Enviar consulta',
-    'Enviando…',
-    'Gracias. Su consulta se ha enviado a Fluvio.',
-    'No se pudo enviar la consulta. Su texto se conserva. Inténtelo de nuevo o escriba a info@fluvio.com.au.',
-    'Sus datos y su mensaje se enviarán por correo a Fluvio para responder a su consulta.',
-    '¿Prefiere el correo?',
-  ],
-}[locale];
+const copy = getUi(locale).enquiry;
 ---
 
-<form class="enquiry-form" data-enquiry-form data-sending={copy[6]} data-success={copy[7]} data-error={copy[8]}>
+<form
+  class="enquiry-form"
+  data-enquiry-form
+  data-sending={copy.sending}
+  data-success={copy.success}
+  data-error={copy.error}
+>
   <div class="enquiry-fields">
-    <label>{copy[0]}<input name="name" autocomplete="name" maxlength="100" required /></label>
-    <label>{copy[1]}<input name="email" type="email" autocomplete="email" maxlength="254" required /></label>
-    <label>{copy[2]}<input name="organisation" autocomplete="organization" maxlength="150" /></label>
-    <label>{copy[3]}<input name="location" maxlength="200" /></label>
+    <label>{copy.name}<input name="name" autocomplete="name" maxlength="100" required /></label>
+    <label>{copy.email}<input name="email" type="email" autocomplete="email" maxlength="254" required /></label>
+    <label>{copy.organisation}<input name="organisation" autocomplete="organization" maxlength="150" /></label>
+    <label>{copy.location}<input name="location" maxlength="200" /></label>
   </div>
-  <label>{copy[4]}<textarea name="message" rows="6" minlength="10" maxlength="4000" required></textarea></label>
+  <label>{copy.message}<textarea name="message" rows="6" minlength="10" maxlength="4000" required></textarea></label>
   <div class="enquiry-trap" aria-hidden="true">
-    <label>Website<input name="website" tabindex="-1" autocomplete="off" /></label>
+    <input name="website" tabindex="-1" autocomplete="off" />
   </div>
-  <p class="enquiry-note">{copy[9]}</p>
-  <button type="submit" disabled>{copy[5]}</button>
+  <p class="enquiry-note">{copy.note}</p>
+  <button type="submit" disabled>{copy.submit}</button>
   <p class="enquiry-status" role="status" aria-live="polite" tabindex="-1"></p>
-  <p>{copy[10]} <a href="mailto:info@fluvio.com.au">info@fluvio.com.au</a></p>
-  <noscript
-    ><p>Please email <a href="mailto:info@fluvio.com.au">info@fluvio.com.au</a> to send your enquiry.</p></noscript
-  >
+  <p>{copy.emailOption} <a href="mailto:info@fluvio.com.au">info@fluvio.com.au</a></p>
+  <noscript><p>{copy.emailOnly} <a href="mailto:info@fluvio.com.au">info@fluvio.com.au</a>.</p></noscript>
 </form>
 <script>
   function setupEnquiry() {

@@ -94,5 +94,29 @@
       "laidley-creek-flood",
       "moreton-bay-sediment-monitoring"
     ]
+  },
+  "de": {
+    "order": 6,
+    "slug": "sediment-loading",
+    "title": "Sedimenttransport und Untersuchung von Stauseen",
+    "summary": "Überwachung und Kartierung von Sedimentfrachten in Küstengewässern.",
+    "description": [
+      "Wir kombinieren Inkubationsversuche zum Nährstoffaustausch, Probenahmen, Korngrößenanalysen und Penetrometermessungen."
+    ],
+    "highlights": [
+      "Messung und Kartierung von Sedimentfrachten in Küstengewässern",
+      "Inkubationsversuche zum Nährstoffaustausch und Probenahmen",
+      "Korngrößenanalysen und Penetrometermessungen",
+      "Ermittlung und Quantifizierung der Sedimentationsraten in Stauseen"
+    ],
+    "image": "/src/assets/images/fluvio/expertise-sediment-survey.jpg",
+    "imageAlt": "Ein Messteam lässt eine gelbe Messboje vom Deck eines Boots ins Wasser",
+    "relatedProjects": [
+      "tina",
+      "ghg-emissions-reservoirs",
+      "reservoir-sedimentation",
+      "laidley-creek-flood",
+      "moreton-bay-sediment-monitoring"
+    ]
   }
 }

@@ -40,7 +40,7 @@ const metadata = {
   <SectionFrame tone="paper" rule="ink" motif="contour" labelledby="contact-enquiry-heading">
     <div class="fluvio-contact-grid">
       <h2 id="contact-enquiry-heading" class:list={['fluvio-display', REVEAL]}><Accent text={c.enquiryTitle} /></h2>
-      <div class:list={['fluvio-contact-body', REVEAL]}>
+      <div class:list={['fluvio-contact-body', 'enquiry-card', REVEAL]}>
         <p>{c.enquiryBody}</p>
         <EnquiryForm locale={locale} />
       </div>
@@ -78,12 +78,17 @@ const metadata = {
     line-height: 1.75;
   }
 
-  .fluvio-contact-note {
-    margin: 0.25rem 0 0;
-    max-width: 42rem;
-    color: var(--aw-color-text-muted);
-    font-size: 0.82rem;
-    line-height: 1.65;
+  .enquiry-card {
+    min-width: 0;
+    padding: clamp(1rem, 4vw, 2.5rem);
+    border: 1px solid rgb(var(--fluvio-river) / 0.24);
+    border-radius: 1.5rem;
+    background: var(--aw-color-bg-page);
+    box-shadow: 0 14px 40px rgb(17 45 51 / 0.09);
+  }
+
+  :global(.dark) .enquiry-card {
+    border-color: rgb(var(--fluvio-mist) / 0.2);
   }
 
   @media (min-width: 768px) {

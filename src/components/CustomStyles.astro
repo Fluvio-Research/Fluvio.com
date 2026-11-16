@@ -1,9 +1,4 @@
 ---
-// All faces are bundled locally by LocalFonts.astro.
-// Inter carries body and interface text, Bricolage Grotesque carries display
-// headings, and Instrument Serif italic marks the one accented phrase inside a
-// heading. The mono stack is reserved for compact labels and readouts.
-//
 // Colour system: warm paper and soft mist lead the backgrounds, navy leads
 // typography and dark chapters, river blue and teal carry water and
 // technology, mineral blue supports technical detail, silt adds landscape
@@ -28,9 +23,8 @@
     --fluvio-slate: 71 88 101; /* accessible muted text on paper */
     --fluvio-silt-deep: 138 100 44; /* silt darkened for small text accents */
 
-    --aw-font-sans: var(--font-inter);
-    --aw-font-serif: var(--font-instrument-serif);
-    --aw-font-heading: var(--font-bricolage);
+    --aw-font-sans: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    --aw-font-heading: var(--aw-font-sans);
     --aw-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
     --aw-color-primary: rgb(var(--fluvio-river));

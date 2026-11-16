@@ -1,19 +1,9 @@
-import { getPages, type Pages } from '~/data/fluvio/store.ts';
+import { contentLocales, getPages, type Pages } from '~/data/fluvio/store.ts';
 import { getPermalink } from '~/utils/permalinks';
 
-export const locales = ['en', 'pijin', 'fr', 'es'] as const;
+export const locales = contentLocales;
 export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = 'en';
-
-/**
- * Locales that are built and reachable by URL but not offered in the language
- * picker. Their content stays complete and validated; they are simply not
- * advertised on the site for now.
- */
-export const hiddenLocales: readonly Locale[] = ['fr', 'es'];
-
-/** The locales a visitor can switch to from the header. */
-export const visibleLocales = locales.filter((locale) => !hiddenLocales.includes(locale));
 
 /** Every locale that lives under a path prefix (all but the default). */
 export const secondaryLocales = locales.filter((locale): locale is Exclude<Locale, 'en'> => locale !== defaultLocale);
@@ -37,13 +27,6 @@ export const localeRecordStaticPaths = <T>(
     records(lang).map((record) => ({ params: { lang, ...params(record) }, props: { record } }))
   );
 
-export const localeNames: Record<Locale, string> = {
-  en: 'English',
-  pijin: 'Pijin',
-  fr: 'Français',
-  es: 'Español',
-};
-
 /** BCP-47 language tags for the html lang attribute; Solomon Islands Pijin
  *  keeps the readable "pijin" slug in URLs but its registered code is "pis". */
 export const langTags: Record<Locale, string> = {
@@ -51,6 +34,7 @@ export const langTags: Record<Locale, string> = {
   pijin: 'pis',
   fr: 'fr',
   es: 'es',
+  de: 'de',
 };
 
 /** The full page-string catalog for a locale, served from the content store. */

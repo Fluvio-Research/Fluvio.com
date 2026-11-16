@@ -110,5 +110,33 @@
       "Los hallazgos de esta evaluación se han categorizado para comprender los impactos del incidente en el entorno circundante."
     ],
     "relatedProjects": ["cordap"]
+  },
+  "de": {
+    "order": 7,
+    "title": "Bewertung der Umweltschäden nach der Havarie der MV Solomon Trader",
+    "slug": "sol-trader-oil-spill",
+    "summary": "Bewertung der Umweltauswirkungen der Grundberührung und des Ölaustritts der MV Solomon Trader.",
+    "location": "Rennell, Salomonen",
+    "timeframe": "2019 und 2025",
+    "disciplines": ["Umweltverträglichkeitsprüfung", "Ökologische Bewertung"],
+    "heroImage": "/src/assets/images/fluvio/project-sol-trader.jpg",
+    "heroAlt": "Blick aus einem kleinen Boot in Richtung der bewaldeten Kalksteinküste von Rennell",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-sol-trader-aerial.png",
+        "alt": "Luftbild des auf einem Saumriff gestrandeten Frachters, hinter dem sich dunkles Öl im Flachwasser ausbreitet",
+        "caption": "Die MV Solomon Trader auf dem Saumriff in der Kagava Bay."
+      }
+    ],
+    "challenge": [
+      "Die MV Solomon Trader lief am 5. Februar 2019 in der Kagava Bay vor Rennell auf ein Korallenriff. Am 15. Februar trat sichtbar Schweröl am Heck aus. Nachdem mehr als 300 Tonnen Schweröl das flache Saumriff und die umgebenden Gewässer verunreinigt hatten, liefen von Anfang März bis zum 26. Juli 2019 intensive Reinigungsarbeiten."
+    ],
+    "approach": [
+      "Im Auftrag der Regierung der Salomonen untersuchte Fluvio 2019 und 2025 die Umweltauswirkungen der Havarie und des Ölaustritts. Dazu wurden Uferbereiche, Sedimente, der Gewässergrund und die Ökologie untersucht, um den Zustand und die Erholung der Region zu beurteilen."
+    ],
+    "outcome": [
+      "Die Ergebnisse wurden nach Art der Auswirkungen ausgewertet, um die Folgen des Vorfalls für die umliegende Umwelt zu erfassen."
+    ],
+    "relatedProjects": ["cordap"]
   }
 }

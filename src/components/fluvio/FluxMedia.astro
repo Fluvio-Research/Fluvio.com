@@ -1,52 +1,31 @@
 ---
 import LargeImage from './LargeImage.astro';
-import ArrowLink from './ArrowLink.astro';
 import { findVideo } from '~/utils/images';
-import { getAsset } from '~/utils/permalinks';
 import type { Locale } from '~/i18n';
+import { getUi } from '~/data/fluvio/store.ts';
 export interface Props {
   locale: Locale;
 }
 const { locale } = Astro.props;
-const labels = {
-  en: [
-    'FS-Flux in the field',
-    'Solar panels around the FS-Flux floating methane chamber',
-    'Download the FS-Flux brochure (Word)',
-    'FS-Flux floating on a pond during a field deployment',
-  ],
-  pijin: [
-    'FS-Flux long field',
-    'Olketa solar panel raonem FS-Flux chamber wea float fo measurem methane',
-    'Downloadem FS-Flux brochure (Word)',
-    'FS-Flux wea float long pond long field deployment',
-  ],
-  fr: [
-    'FS-Flux sur le terrain',
-    'Panneaux solaires autour de la chambre flottante de mesure du méthane FS-Flux',
-    'Télécharger la brochure FS-Flux (Word)',
-    'FS-Flux flottant sur un étang lors d’un déploiement',
-  ],
-  es: [
-    'FS-Flux en campo',
-    'Paneles solares alrededor de la cámara flotante de metano FS-Flux',
-    'Descargar el folleto FS-Flux (Word)',
-    'FS-Flux flotando en un estanque durante un despliegue',
-  ],
-}[locale];
+const labels = getUi(locale).flux;
 const video = findVideo('/src/assets/images/fluvio/fs-flux-field.mp4');
 import poster from '~/assets/images/fluvio/fs-flux-video-poster.jpg';
 ---
 
-<section class="flux-media" aria-label={labels[0]}>
+<section class="flux-media" aria-label={labels.field}>
   <div class="flux-media__grid">
-    <LargeImage src="/src/assets/images/fluvio/fs-flux-overhead.jpg" alt={labels[1]} aspect="landscape" radius="lg" />
+    <LargeImage
+      src="/src/assets/images/fluvio/fs-flux-overhead.jpg"
+      alt={labels.photo}
+      caption={labels.photo}
+      aspect="hero"
+      radius="lg"
+    />
     <figure>
-      <video src={video} poster={poster.src} controls playsinline preload="none" aria-label={labels[3]}></video>
-      <figcaption>{labels[0]}</figcaption>
+      <video src={video} poster={poster.src} controls playsinline preload="none" aria-label={labels.video}></video>
+      <figcaption>{labels.field}</figcaption>
     </figure>
   </div>
-  <ArrowLink href={getAsset('/downloads/FS_Flux_Brochure.docx')}>{labels[2]}</ArrowLink>
 </section>
 <style>
   .flux-media {
@@ -66,11 +45,15 @@ import poster from '~/assets/images/fluvio/fs-flux-video-poster.jpg';
     display: block;
     width: 100%;
     aspect-ratio: 16/9;
-    border-radius: 18px;
+    border-radius: 20px;
+    object-fit: contain;
     background: #071f2a;
   }
-  figcaption {
-    padding: 0.75rem 0;
+  .flux-media__grid :global(figcaption) {
+    margin: 0.75rem 0 0;
+    padding: 0;
+    font-family: var(--aw-font-sans);
+    line-height: 1.5;
     color: var(--aw-color-text-muted);
     font-size: 0.85rem;
   }

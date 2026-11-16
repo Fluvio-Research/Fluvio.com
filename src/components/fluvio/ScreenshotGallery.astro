@@ -1,0 +1,136 @@
+---
+import LargeImage from './LargeImage.astro';
+export interface Props {
+  screens: Array<{ image: string; imageAlt: string }>;
+  label: string;
+}
+const { screens, label } = Astro.props;
+---
+
+<div class="screen-gallery" data-screen-gallery aria-label={label}>
+  <div class="screen-gallery__stage">
+    {
+      screens.map((screen, index) => (
+        <div data-screen-panel hidden={index !== 0}>
+          <LargeImage
+            src={screen.image}
+            alt={screen.imageAlt}
+            caption={screen.imageAlt}
+            aspect="hero"
+            sizes="(min-width:1440px) 1280px, 95vw"
+          />
+        </div>
+      ))
+    }
+  </div>
+  {
+    screens.length > 1 && (
+      <div class="screen-gallery__choices" role="group" aria-label={label}>
+        {screens.map((screen, index) => (
+          <button type="button" data-screen-choice={index} aria-pressed={index === 0}>
+            <span class="screen-gallery__number">0{index + 1}</span>
+            {screen.imageAlt.split(' · ')[0]}
+          </button>
+        ))}
+      </div>
+    )
+  }
+</div>
+<script>
+  function initGalleries() {
+    document.querySelectorAll<HTMLElement>('[data-screen-gallery]').forEach((gallery) => {
+      if (gallery.dataset.ready) return;
+      gallery.dataset.ready = 'true';
+      const buttons = gallery.querySelectorAll<HTMLButtonElement>('[data-screen-choice]');
+      const panels = gallery.querySelectorAll<HTMLElement>('[data-screen-panel]');
+      buttons.forEach((button, selected) => {
+        button.addEventListener('click', () => {
+          buttons.forEach((item, index) => item.setAttribute('aria-pressed', String(index === selected)));
+          panels.forEach((panel, index) => {
+            panel.hidden = index !== selected;
+          });
+        });
+      });
+    });
+  }
+  initGalleries();
+  document.addEventListener('astro:page-load', initGalleries);
+</script>
+<style>
+  .screen-gallery {
+    min-width: 0;
+  }
+  .screen-gallery__stage {
+    padding: clamp(0.5rem, 1.5vw, 1.25rem);
+    border: 1px solid rgb(var(--fluvio-ink) / 0.15);
+    border-radius: 20px;
+    background: rgb(var(--fluvio-mist) / 0.45);
+  }
+  .screen-gallery :global(.fluvio-image__frame) {
+    aspect-ratio: 1914 / 951 !important;
+  }
+  .screen-gallery :global(img) {
+    object-fit: contain !important;
+  }
+  .screen-gallery__choices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1.25rem;
+  }
+  button {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.7rem 1rem;
+    border: 1px solid rgb(var(--fluvio-ink) / 0.25);
+    border-radius: 999px;
+    color: var(--aw-color-text-heading);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition:
+      background 0.2s,
+      color 0.2s;
+  }
+  button[aria-pressed='true'] {
+    background: rgb(var(--fluvio-river));
+    color: white;
+    border-color: transparent;
+  }
+  button:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+  }
+  .screen-gallery__number {
+    font-family: var(--aw-font-mono);
+    opacity: 0.7;
+    font-size: 0.7rem;
+  }
+  [data-screen-panel]:not([hidden]) {
+    animation: screen-enter 0.3s ease-out;
+  }
+  @keyframes screen-enter {
+    from {
+      opacity: 0.3;
+      transform: translateY(5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    [data-screen-panel]:not([hidden]) {
+      animation: none;
+    }
+    button {
+      transition: none;
+    }
+  }
+  @media (max-width: 540px) {
+    button {
+      font-size: 0.75rem;
+      padding: 0.6rem 0.75rem;
+    }
+  }
+</style>

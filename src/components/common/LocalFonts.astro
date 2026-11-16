@@ -1,20 +1,11 @@
 ---
 import inter from '~/assets/fonts/font-inter-100-900-normal-latin-2640269fc0017342.woff2?url';
-import bricolage from '~/assets/fonts/font-bricolage-200-800-normal-latin-93b3050bb25583df.woff2?url';
-import serifItalic from '~/assets/fonts/font-instrument-serif-400-italic-latin-9c5d29d57130827a.woff2?url';
-import serifNormal from '~/assets/fonts/font-instrument-serif-400-normal-latin-db79ca77d751cdf0.woff2?url';
 ---
 
 <link rel="preload" href={inter} as="font" type="font/woff2" crossorigin="anonymous" />
-<link rel="preload" href={bricolage} as="font" type="font/woff2" crossorigin="anonymous" />
-<link rel="preload" href={serifItalic} as="font" type="font/woff2" crossorigin="anonymous" />
 <style
   is:inline
   set:html={`
 @font-face {font-family:'Inter';src:url('${inter}') format('woff2');font-style:normal;font-weight:100 900;font-display:swap;}
-@font-face {font-family:'Bricolage Grotesque';src:url('${bricolage}') format('woff2');font-style:normal;font-weight:200 800;font-display:swap;}
-@font-face {font-family:'Instrument Serif';src:url('${serifItalic}') format('woff2');font-style:italic;font-weight:400;font-display:swap;}
-@font-face {font-family:'Instrument Serif';src:url('${serifNormal}') format('woff2');font-style:normal;font-weight:400;font-display:swap;}
-:root {--font-inter:'Inter',sans-serif;--font-bricolage:'Bricolage Grotesque',sans-serif;--font-instrument-serif:'Instrument Serif',serif;}
 `}
 ></style>

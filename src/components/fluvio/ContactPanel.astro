@@ -42,7 +42,7 @@ const {
     display: grid;
     gap: 2rem;
     overflow: hidden;
-    padding: clamp(2rem, 6vw, 5rem);
+    padding: clamp(1.5rem, 4vw, 3rem);
     border-radius: 20px;
     background:
       radial-gradient(120% 110% at 88% -10%, rgb(var(--fluvio-river) / 0.34), transparent 55%),
@@ -116,35 +116,35 @@ const {
   .fluvio-contact-panel__eyebrow {
     margin: 0 0 1rem;
     color: rgb(var(--fluvio-wash));
-    font-family: var(--aw-font-mono);
-    font-size: 0.7rem;
+    font-family: var(--aw-font-sans);
+    font-size: 0.75rem;
     font-weight: 600;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
   }
 
   h2 {
     margin: 0;
-    max-width: 17ch;
+    max-width: 100%;
     color: inherit;
     font-family: var(--aw-font-heading);
-    font-size: clamp(2.1rem, 4.6vw, 4.25rem);
-    font-weight: 540;
-    letter-spacing: -0.03em;
+    font-size: var(--fluvio-section-size);
+    font-weight: var(--fluvio-section-weight);
+    letter-spacing: -0.025em;
     line-height: 1.02;
     text-wrap: balance;
   }
 
   .fluvio-contact-panel__action {
     display: grid;
-    gap: 1.6rem;
+    gap: 1rem;
     align-self: end;
     justify-items: start;
   }
 
   .fluvio-contact-panel__action p {
     margin: 0;
-    max-width: 46ch;
+    max-width: 100%;
     color: rgb(var(--fluvio-paper) / 0.74);
     line-height: 1.7;
   }

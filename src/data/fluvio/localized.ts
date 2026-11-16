@@ -9,8 +9,6 @@ import {
 import type { Project } from './types';
 
 export const getProjects = (locale: Locale): Project[] => storeProjects(locale);
-export const getFeaturedProjects = (locale: Locale): Project[] =>
-  storeProjects(locale).filter(({ featured }) => featured);
 export const getProjectBySlug = (locale: Locale, slug: string): Project | undefined =>
   storeProjects(locale).find((project) => project.slug === slug);
 export const getTeamMembers = (locale: Locale) => storeTeam(locale);

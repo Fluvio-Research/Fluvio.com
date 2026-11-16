@@ -1,118 +1,92 @@
 ---
 import { Icon } from 'astro-icon/components';
 import Logo from '~/components/Logo.astro';
-import { getHomePermalink } from '~/utils/permalinks';
-
-interface Link {
-  text?: string;
-  href?: string;
-  ariaLabel?: string;
-  icon?: string;
-  target?: string;
-}
-
-interface Links {
-  title?: string;
-  links: Array<Link>;
-}
+import { defaultLocale, localeHref, type Locale } from '~/i18n';
 
 export interface Props {
-  description?: string;
-  links: Array<Links>;
-  secondaryLinks: Array<Link>;
-  socialLinks: Array<Link>;
-  footNote?: string;
-  theme?: string;
+  description: string;
+  linkedin: { label: string; href: string };
+  copyright: string;
+  locale?: Locale;
 }
 
-const {
-  description = '',
-  socialLinks = [],
-  secondaryLinks = [],
-  links = [],
-  footNote = '',
-  theme = 'light',
-} = Astro.props;
+const { description, linkedin, copyright, locale = defaultLocale } = Astro.props;
 ---
 
-<footer
-  class:list={[
-    { dark: theme === 'dark' },
-    'relative border-t border-[rgb(var(--fluvio-ink)/0.12)] dark:border-[rgb(var(--fluvio-paper)/0.12)] not-prose',
-  ]}
->
-  <div class="dark:bg-dark absolute inset-0 pointer-events-none" aria-hidden="true"></div>
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 text-default">
-    <div class="grid grid-cols-12 gap-8 py-12 md:py-16">
-      <div class="col-span-12 lg:col-span-6">
-        <div class="mb-5">
-          <a
-            class="inline-flex rounded-[4px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-            href={getHomePermalink()}
-          >
-            <Logo />
-          </a>
-        </div>
-        <p class="max-w-lg text-base leading-relaxed text-muted">{description}</p>
-        <div class="mt-5 text-sm text-muted flex flex-wrap gap-x-4 gap-y-2">
-          {
-            secondaryLinks.map(({ text, href }) => (
-              <a class="text-muted hover:text-primary transition-colors duration-150" href={href} set:html={text} />
-            ))
-          }
-        </div>
-      </div>
-      {
-        links.map(({ title, links }) => (
-          <div class="col-span-6 md:col-span-3">
-            <div class="font-mono text-[0.7rem] font-semibold tracking-[0.14em] uppercase text-muted mb-4">{title}</div>
-            {links && Array.isArray(links) && links.length > 0 && (
-              <ul class="text-sm space-y-3">
-                {links.map(({ text, href, ariaLabel }) => (
-                  <li>
-                    <a
-                      class="text-default hover:text-primary transition-colors duration-150"
-                      href={href}
-                      aria-label={ariaLabel}
-                    >
-                      <Fragment set:html={text} />
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-        ))
-      }
-    </div>
-    <div
-      class="flex flex-col-reverse gap-5 border-t border-[rgb(var(--fluvio-ink)/0.1)] py-6 md:flex-row md:items-center md:justify-between dark:border-[rgb(var(--fluvio-paper)/0.1)]"
-    >
-      {
-        socialLinks?.length ? (
-          <ul class="flex md:order-1">
-            {socialLinks.map(({ ariaLabel, href, text, icon, target }) => (
-              <li>
-                <a
-                  class="text-muted hover:text-primary hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-[4px] text-sm p-2.5 inline-flex items-center"
-                  aria-label={ariaLabel}
-                  href={href}
-                  {...(target ? { target, rel: 'noopener noreferrer' } : {})}
-                >
-                  {icon && <Icon name={icon} class="w-5 h-5" />}
-                  <Fragment set:html={text} />
-                </a>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          ''
-        )
-      }
-
-      <div class="text-sm text-muted">
-        <Fragment set:html={footNote} />
-      </div>
-    </div>
+<footer class="border-t border-[rgb(var(--fluvio-ink)/0.12)] dark:border-[rgb(var(--fluvio-paper)/0.12)]">
+  <div class="fluvio-shell footer-inner">
+    <a class="footer-brand" href={localeHref('/', locale)}><Logo /></a>
+    <p class="footer-description">{description}</p>
+    <p class="footer-copyright">{copyright}</p>
+    <a class="footer-social" href={linkedin.href} aria-label={linkedin.label} target="_blank" rel="noopener noreferrer">
+      <Icon name="tabler:brand-linkedin" class="w-5 h-5" aria-hidden="true" />
+    </a>
   </div>
 </footer>
+
+<style>
+  .footer-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.4rem 1rem;
+    padding-block: 1.15rem;
+  }
+
+  .footer-brand {
+    justify-self: start;
+  }
+
+  .footer-brand :global(img) {
+    width: auto;
+    height: 2rem;
+  }
+
+  .footer-description,
+  .footer-copyright {
+    grid-column: 1 / -1;
+    margin: 0;
+    color: var(--aw-color-text-muted);
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .footer-social {
+    grid-column: 2;
+    grid-row: 1;
+    display: grid;
+    width: 2.75rem;
+    height: 2.75rem;
+    place-items: center;
+    color: var(--aw-color-text-muted);
+    border-radius: 0.35rem;
+  }
+
+  .footer-social:hover {
+    color: var(--aw-color-primary);
+    background: rgb(var(--fluvio-river) / 0.08);
+  }
+
+  .footer-inner a:focus-visible {
+    outline: 2px solid var(--aw-color-primary);
+    outline-offset: 3px;
+  }
+
+  @media (min-width: 960px) {
+    .footer-inner {
+      grid-template-columns: auto minmax(0, 1fr) auto auto;
+      column-gap: 1.5rem;
+    }
+
+    .footer-description,
+    .footer-copyright,
+    .footer-social {
+      grid-column: auto;
+      grid-row: auto;
+    }
+
+    .footer-description {
+      max-width: 52ch;
+    }
+  }
+</style>

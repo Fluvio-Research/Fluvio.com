@@ -146,5 +146,42 @@
     ],
     "featured": true,
     "relatedProjects": ["bina", "advance-queensland"]
+  },
+  "de": {
+    "order": 6,
+    "title": "Hydrologische Überwachung für das Wasserkraftprojekt am Tina River",
+    "slug": "tina",
+    "summary": "Hydrologische Überwachung und Sedimentmessungen für das Tina River Hydro Development Project.",
+    "location": "Tina River, Salomonen",
+    "timeframe": "Seit 2025",
+    "disciplines": ["Hydrologische Überwachung", "Sedimentüberwachung"],
+    "heroImage": "/src/assets/images/fluvio/project-tina.jpeg",
+    "heroAlt": "Ein ferngesteuertes ADCP-Boot überquert an einer Führungsleine den Tina River, während ein Techniker vom felsigen Ufer aus arbeitet",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-tina-station.png",
+        "alt": "Ein offener Messschrank und ein Kameramast auf einem Felsvorsprung über dem Tina River",
+        "caption": "Echtzeit-Messstation am Tina River."
+      },
+      {
+        "src": "/src/assets/images/fluvio/project-tina-field-stations.jpg",
+        "alt": "Sechs Szenen vom Oberlauf des Tina River: eine Bohrung im Fels, ein ADCP-Boot an einer Leine, ein Techniker in einer Stromschnelle, eine Kamera über braunem Hochwasser, eine Person im Fluss und die Sandsteinschlucht",
+        "caption": "Installation der Messstationen am Oberlauf des Tina River auf Guadalcanal."
+      }
+    ],
+    "challenge": [
+      "Das Tina River Hydro Development Project ist ein nationales Vorhaben der Salomonen und das erste große Projekt für erneuerbare Energie im Versorgungsmaßstab. Es soll den Anteil erneuerbarer Energie im Netz von Honiara um fast 70 % erhöhen und die Abhängigkeit von Dieselstrom senken. Ziel ist eine erschwingliche, zuverlässige und saubere Stromversorgung mit weniger importierten fossilen Brennstoffen und deutlich geringeren Treibhausgasemissionen."
+    ],
+    "approach": [
+      "Fluvio wurde mit der hydrologischen Überwachung und Sedimentmessung im Tina River beauftragt. Die Ergebnisse dienen der Berechnung von Sedimentfrachten, Wasserstands-Abfluss-Beziehungen und mittleren Abflüssen für die Energieberechnung.",
+      "Zum Einsatz kamen bildgestützte Abflussmessungen, Echtzeit-Pegelstationen mit Daten im Minutentakt, Wasserqualitätsstationen mit Daten alle zehn Minuten, Sedimentanalysen und manuelle Messungen.",
+      "Die Stationen kombinieren bildgestützte Abflussmessung mit SonTek QC4, Xylem-EXO-Wasserqualitätssensoren und ADCP-Messungen. Trotz der abgelegenen Lage werden Wasserqualität, Wasserstand und videobasierte Abflussdaten in hoher Frequenz über eine hybride Satellitenverbindung aus Starlink und RockBLOCK Pro von Ground Control übertragen."
+    ],
+    "outcome": [
+      "Für den zuverlässigen Betrieb unter abgelegenen und schwierigen Bedingungen entwickelte Fluvio standortspezifische Stromversorgungs- und Kommunikationslösungen.",
+      "Rasch wechselnde Wasserstände und unwegsames Gelände erfordern Erfahrung, sorgfältige Planung, Anpassungsfähigkeit vor Ort und enge Zusammenarbeit mit lokalen Partnern."
+    ],
+    "featured": true,
+    "relatedProjects": ["bina", "advance-queensland"]
   }
 }

@@ -70,5 +70,23 @@
     "image": "/src/assets/images/fluvio/expertise-blue-carbon-mangroves.jpg",
     "imageAlt": "Un colaborador de campo remando en canoa por un canal de manglar de aguas claras",
     "relatedProjects": ["sol-trader-oil-spill"]
+  },
+  "de": {
+    "order": 4,
+    "slug": "blue-carbon-assessment",
+    "title": "Bewertung von Blue Carbon und Treibhausgasen",
+    "summary": "Ermittlung der Kohlenstoffvorräte in Mangroven- und Seegrasökosystemen in ganz Melanesien.",
+    "description": [
+      "Gemeinsam mit lokalen Gemeinschaften, Behörden und regionalen Organisationen ermitteln wir die Kohlenstoffvorräte in Mangroven- und Seegrasökosystemen in Melanesien."
+    ],
+    "highlights": [
+      "Ermittlung der Kohlenstoffvorräte in Mangroven und Seegraswiesen",
+      "Bewertung der Treibhausgasemissionen überfluteter Flächen",
+      "Zusammenarbeit mit lokalen Gemeinschaften, Behörden und regionalen Organisationen",
+      "Feldprogramme in ganz Melanesien"
+    ],
+    "image": "/src/assets/images/fluvio/expertise-blue-carbon-mangroves.jpg",
+    "imageAlt": "Ein lokaler Projektpartner paddelt mit einem Kanu durch einen klaren Mangrovenkanal",
+    "relatedProjects": ["sol-trader-oil-spill"]
   }
 }

@@ -40,7 +40,7 @@ const langTag = locale ? (langTags[locale as Locale] ?? locale) : language;
     <LocalFonts />
     <CustomStyles />
     <ApplyColorMode />
-    <Metadata {...metadata} />
+    <Metadata {...metadata} openGraph={{ locale: langTag, ...metadata.openGraph }} />
     <SiteVerification />
     <Analytics />
 

@@ -38,5 +38,15 @@
     "portraitAlt": "Mubashir Imran",
     "specialties": ["Sistemas interoperables impulsados por datos"],
     "expertise": ["operational-monitoring"]
+  },
+  "de": {
+    "order": 7,
+    "name": "Mubashir Imran",
+    "role": "Senior Data Scientist",
+    "bio": "Mubashir entwickelt datenbasierte, interoperable Systeme, die Menschen den Zugang zu Daten erleichtern. Er entwickelt intuitive Werkzeuge, die neue Möglichkeiten für die Umweltüberwachung und die Anbindung von Datenquellen eröffnen.",
+    "portrait": "/src/assets/images/fluvio/team-mubashir.jpg",
+    "portraitAlt": "Mubashir Imran",
+    "specialties": ["Datenbasierte, interoperable Systeme"],
+    "expertise": ["operational-monitoring"]
   }
 }

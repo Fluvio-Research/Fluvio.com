@@ -2,7 +2,7 @@
   "en": {
     "name": "Fluvio",
     "tagline": "Innovative Solutions for Tomorrow",
-    "summary": "To support community, government and industry tackle water, environmental and climate challenges.",
+    "summary": "We help communities, governments and industry tackle water, environmental and climate challenges.",
     "heroImage": "/src/assets/images/fluvio/home-river.jpg",
     "heroAlt": "Aerial view of a river winding through rainforest",
     "vision": {
@@ -136,6 +136,41 @@
       {
         "title": "Empoderamiento",
         "description": "Dotar a clientes y comunidades del conocimiento y las herramientas para adoptar y aplicar decisiones basadas en datos."
+      }
+    ]
+  },
+  "de": {
+    "name": "Fluvio",
+    "tagline": "Innovative Lösungen für morgen",
+    "summary": "Wir unterstützen lokale Gemeinschaften, Behörden und Unternehmen bei Herausforderungen rund um Wasser, Umwelt und Klima.",
+    "heroImage": "/src/assets/images/fluvio/home-river.jpg",
+    "heroAlt": "Luftaufnahme eines Flusses, der sich durch Regenwald schlängelt",
+    "vision": {
+      "title": "Vision",
+      "description": "Fluvio setzt sich für eine Welt ein, in der Wissen und Technologie einen lebenswerten und widerstandsfähigen Planeten für heutige und künftige Generationen sichern. Wir wollen mit neuen Lösungen für die Wasserbewirtschaftung und den Umgang mit dem Klimawandel zu einer besseren Zukunft beitragen.",
+      "image": "/src/assets/images/fluvio/vision-kovi-river.jpg",
+      "imageAlt": "Kovi River, Salomonen"
+    },
+    "values": [
+      {
+        "title": "Innovation",
+        "description": "Wir entwickeln und nutzen neue Technologien für nachhaltige Umweltlösungen."
+      },
+      {
+        "title": "Integrität",
+        "description": "Wir halten bei allen Projekten und in der Zusammenarbeit hohe ethische Standards ein."
+      },
+      {
+        "title": "Zusammenarbeit",
+        "description": "Gemeinsam mit Auftraggebern, lokalen Gemeinschaften und Fachleuten verfolgen wir Umweltziele, die der Gesellschaft zugutekommen."
+      },
+      {
+        "title": "Nachhaltigkeit",
+        "description": "Langfristig intakte Ökosysteme haben bei unseren Projekten und Entwicklungen Vorrang."
+      },
+      {
+        "title": "Kompetenzaufbau",
+        "description": "Wir vermitteln Auftraggebern und lokalen Gemeinschaften Wissen und Werkzeuge, mit denen sie Entscheidungen auf Datengrundlage treffen können."
       }
     ]
   }

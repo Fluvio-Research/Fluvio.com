@@ -25,7 +25,7 @@
       "The project has included the development and design of a bespoke data management system; training across topics including GIS, hydrology, data collection, data storage and data security; the development of data collection, dissemination and management strategies; and a cost benefit analysis of data management solutions."
     ],
     "outcome": [
-      "The SIWIS platform enhances WRD’s ability to collect, securely store, and meaningfully analyse hydrological data to support evidence-based water management decisions."
+      "The SIWIS system enhances WRD’s ability to collect, securely store, and meaningfully analyse hydrological data to support evidence-based water management decisions."
     ],
     "relatedProjects": ["monitoring-honiara"]
   },
@@ -55,7 +55,7 @@
       "Insaet long project ia: fo developim an designim wanfala spesol data management sistem; trening long olketa topik olsem GIS, hydrology, hao fo collectim data, hao fo storem data an data security; fo developim olketa strategy fo collectim, sharem an manijim data; an wanfala cost benefit analysis blong olketa data management solusen."
     ],
     "outcome": [
-      "SIWIS platform hemi strongim wei blong WRD fo collectim, storem sef, an analysim gud hydrological data, fo sapotem olketa disison abaotem wata wea stanap long evidens."
+      "SIWIS sistem hemi strongim wei blong WRD fo collectim, storem sef, an analysim gud hydrological data, fo sapotem olketa disison abaotem wata wea stanap long evidens."
     ],
     "relatedProjects": ["monitoring-honiara"]
   },
@@ -85,7 +85,7 @@
       "Le projet a comporté la conception et le développement d’un système de gestion des données sur mesure ; des formations portant notamment sur les SIG, l’hydrologie, la collecte, le stockage et la sécurité des données ; l’élaboration de stratégies de collecte, de diffusion et de gestion des données ; ainsi qu’une analyse coûts-bénéfices des solutions de gestion des données."
     ],
     "outcome": [
-      "La plateforme SIWIS renforce la capacité de la WRD à collecter, stocker en toute sécurité et analyser utilement les données hydrologiques, à l’appui de décisions de gestion de l’eau fondées sur les faits."
+      "Le système SIWIS renforce la capacité de la WRD à collecter, stocker en toute sécurité et analyser utilement les données hydrologiques, à l’appui de décisions de gestion de l’eau fondées sur les faits."
     ],
     "relatedProjects": ["monitoring-honiara"]
   },
@@ -115,7 +115,37 @@
       "El proyecto incluyó el diseño y desarrollo de un sistema de gestión de datos a medida; capacitación en temas como SIG, hidrología, recopilación de datos, almacenamiento y seguridad de la información; el desarrollo de estrategias de recopilación, difusión y gestión de datos; y un análisis costo-beneficio de las soluciones de gestión de datos."
     ],
     "outcome": [
-      "La plataforma SIWIS mejora la capacidad de la WRD para recopilar, almacenar de forma segura y analizar de manera significativa los datos hidrológicos, en apoyo de decisiones de gestión del agua basadas en evidencia."
+      "El sistema SIWIS mejora la capacidad de la WRD para recopilar, almacenar de forma segura y analizar de manera significativa los datos hidrológicos, en apoyo de decisiones de gestión del agua basadas en evidencia."
+    ],
+    "relatedProjects": ["monitoring-honiara"]
+  },
+  "de": {
+    "order": 5,
+    "title": "Entwicklung eines Datenmanagementsystems und Schulung",
+    "slug": "wrd",
+    "summary": "Entwicklung des Wasserinformationssystems der Salomonen für die Water Resources Division.",
+    "location": "Honiara, Salomonen",
+    "timeframe": "2025–2026",
+    "disciplines": ["Datenmanagement", "Hydrologie", "Schulung"],
+    "partners": ["Water Resources Division"],
+    "heroImage": "/src/assets/images/fluvio/project-wrd-field.jpg",
+    "heroAlt": "Mitarbeitende der Water Resources Division stehen in einem flachen Bach und lesen an einer Messstange ein Strömungsmessgerät ab",
+    "gallery": [
+      {
+        "src": "/src/assets/images/fluvio/project-wrd-workshop.jpg",
+        "alt": "Eine Person verfolgt ein ferngesteuertes Messboot auf einem Tablet, während Kollegen es an einer Leine über den Fluss führen",
+        "caption": "Praktische Schulung zur Abflussmessung mit einem ferngesteuerten ADCP für die Water Resources Division."
+      }
+    ],
+    "challenge": [
+      "Die Water Resources Division (WRD) im Ministerium für Bergbau, Energie und ländliche Elektrifizierung erfasst, verwaltet und verbreitet hydrologische Daten auf den Salomonen. Vor Projektbeginn verfügte sie über ein weitgehend unstrukturiertes, schwer zugängliches Archiv historischer Messdaten. Die WRD erhob weiterhin Daten, war aber durch das fehlende Datenmanagementsystem in ihrer Arbeit eingeschränkt."
+    ],
+    "approach": [
+      "Fluvio entwickelte gemeinsam mit der WRD das Wasserinformationssystem der Salomonen (SIWIS) als nachhaltiges Pilotprojekt. Schulungen unterstützten Mitarbeitende bei der Erhebung und Nutzung hydrologischer Daten.",
+      "Zum Projekt gehörten die Entwicklung eines maßgeschneiderten Datenmanagementsystems, Schulungen in GIS, Hydrologie, Datenerhebung, Speicherung und Datensicherheit, Strategien für Datenerhebung, Bereitstellung und Verwaltung sowie eine Kosten-Nutzen-Analyse verschiedener Lösungen."
+    ],
+    "outcome": [
+      "SIWIS hilft der WRD, hydrologische Daten zu erheben, sicher zu speichern und auszuwerten, um Entscheidungen zur Wasserbewirtschaftung auf eine Datengrundlage zu stellen."
     ],
     "relatedProjects": ["monitoring-honiara"]
   }

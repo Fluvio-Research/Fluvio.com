@@ -3,135 +3,96 @@ import { Icon } from 'astro-icon/components';
 import Logo from '~/components/Logo.astro';
 import ToggleTheme from '~/components/common/ToggleTheme.astro';
 import LanguagePicker from '~/components/common/LanguagePicker.astro';
-import ToggleMenu from '~/components/common/ToggleMenu.astro';
-import Button from '~/components/ui/Button.astro';
-
-import { getPermalink, trimSlash } from '~/utils/permalinks';
-import { defaultLocale, localizePath, type Locale } from '~/i18n';
-import type { CallToAction } from '~/types';
+import { defaultLocale, localeHref, type Locale } from '~/i18n';
+import { getUi } from '~/data/fluvio/store.ts';
 
 interface Link {
-  text?: string;
-  href?: string;
-  ariaLabel?: string;
-  icon?: string;
+  text: string;
+  href: string;
 }
 
-interface MenuLink extends Link {
-  links?: Array<MenuLink>;
+interface Group extends Link {
+  links: Link[];
 }
 
-export interface Props {
-  id?: string;
-  links?: Array<MenuLink>;
-  actions?: Array<CallToAction>;
+interface Props {
+  links: Array<Link | { text: string; groups: Group[] }>;
+  contact: Link;
   isSticky?: boolean;
-  isDark?: boolean;
-  isFullWidth?: boolean;
   showToggleTheme?: boolean;
-  position?: string;
   locale?: Locale;
 }
 
-const {
-  id = 'header',
-  links = [],
-  actions = [],
-  isSticky = false,
-  isDark = false,
-  isFullWidth = false,
-  showToggleTheme = false,
-  position = 'center',
-  locale = defaultLocale,
-} = Astro.props;
-
-const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
+const { links, contact, isSticky, showToggleTheme, locale = defaultLocale } = Astro.props;
+const normalize = (path: string) => path.replace(/\/$/, '') || '/';
+const current = (href: string) => normalize(Astro.url.pathname) === normalize(href);
+const inGroup = (href: string) => current(href) || normalize(Astro.url.pathname).startsWith(`${normalize(href)}/`);
+const labels = getUi(locale).header;
 ---
 
-<aw-header transition:persist="header">
-  <header
-    class:list={[
-      { sticky: isSticky, relative: !isSticky, dark: isDark },
-      'top-0 z-40 flex-none mx-auto w-full border-b border-transparent',
-    ]}
-    {...isSticky ? { 'data-aw-sticky-header': true } : {}}
-    {...id ? { id } : {}}
-  >
-    <div class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
-    <div
-      class:list={[
-        'relative text-default min-h-[72px] py-3 px-4 xl:px-6 mx-auto w-full',
-        {
-          'xl:flex xl:justify-between': position !== 'center',
-        },
-        {
-          'xl:grid xl:grid-cols-3 xl:items-center': position === 'center',
-        },
-        {
-          'max-w-7xl': !isFullWidth,
-        },
-      ]}
-    >
-      <div class:list={[{ 'mr-auto rtl:mr-0 rtl:ml-auto': position === 'right' }, 'flex justify-between']}>
-        <a
-          class="flex items-center rounded-[4px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-          href={getPermalink(localizePath('/', locale))}
-        >
-          <Logo />
-        </a>
-        <div class="flex items-center xl:hidden">
-          <ToggleMenu
-            class="group flex h-12 w-12 cursor-pointer flex-col items-center justify-center rounded-[4px] transition-colors hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-          />
-        </div>
-      </div>
-      <nav
-        class="items-center w-full xl:w-auto hidden xl:flex xl:mx-5 text-default overflow-y-auto overflow-x-hidden xl:overflow-visible xl:justify-self-center"
-        aria-label="Main navigation"
+<fluvio-header>
+  <header id="header" class:list={['site-header', { 'site-header--sticky': isSticky }]}>
+    <div class="header-inner">
+      <a class="brand" href={localeHref('/', locale)}><Logo /></a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label={labels.menu}
+        aria-expanded="false"
+        aria-controls="main-navigation header-preferences"
       >
-        <ul
-          class="flex flex-col xl:flex-row xl:self-center w-full xl:w-auto text-xl xl:text-[0.875rem] tracking-[0.01em] font-medium xl:justify-center"
-        >
+        <Icon name="tabler:menu-2" class="open-icon" aria-hidden="true" />
+        <Icon name="tabler:x" class="close-icon" aria-hidden="true" />
+      </button>
+
+      <nav id="main-navigation" class="main-nav" aria-label={labels.navigation}>
+        <ul class="top-links">
           {
-            links.map(({ text, href, links }) => (
-              <li class={links?.length ? 'dropdown' : ''}>
-                {links?.length ? (
-                  <>
-                    <button
-                      type="button"
-                      class="flex items-center whitespace-nowrap rounded-[4px] px-3 py-3 hover:bg-primary/10 hover:text-primary focus-visible:bg-primary/10 focus-visible:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-                    >
-                      {text}{' '}
-                      <Icon
-                        name="tabler:chevron-down"
-                        class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden xl:inline"
-                      />
-                    </button>
-                    <ul class="dropdown-menu xl:backdrop-blur-md dark:xl:bg-dark rounded xl:absolute pl-4 xl:pl-0 xl:hidden font-medium xl:bg-white/90 xl:min-w-[200px] drop-shadow-xl">
-                      {links.map(({ text: text2, href: href2 }) => (
-                        <li>
-                          <a
-                            class:list={[
-                              'first:rounded-t last:rounded-b xl:hover:bg-primary/10 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary py-2 px-5 block whitespace-no-wrap',
-                              { 'aw-link-active': href2 === currentPath },
-                            ]}
-                            href={href2}
-                          >
-                            {text2}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </>
-                ) : (
-                  <a
-                    class:list={[
-                      'flex items-center whitespace-nowrap rounded-[4px] px-3 py-3 hover:bg-primary/10 hover:text-primary focus-visible:bg-primary/10 focus-visible:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary',
-                      { 'aw-link-active': href === currentPath },
-                    ]}
-                    href={href}
+            links.map((link) => (
+              <li>
+                {'groups' in link ? (
+                  <details
+                    class:list={['solutions', { 'solutions--active': link.groups.some(({ href }) => inGroup(href)) }]}
                   >
-                    {text}
+                    <summary class="nav-link">
+                      {link.text}
+                      <Icon name="tabler:chevron-down" class="chevron" aria-hidden="true" />
+                    </summary>
+                    <div class="solutions-panel">
+                      <div class="solutions-grid">
+                        {link.groups.map((group) => (
+                          <div class="solutions-group">
+                            <a
+                              class="group-link"
+                              href={group.href}
+                              aria-current={current(group.href) ? 'page' : undefined}
+                            >
+                              {group.text}
+                              <Icon name="tabler:arrow-up-right" class="link-arrow" aria-hidden="true" />
+                            </a>
+                            <ul>
+                              {group.links.map((item) => (
+                                <li>
+                                  <a
+                                    class="solution-link"
+                                    href={item.href}
+                                    aria-current={current(item.href) ? 'page' : undefined}
+                                  >
+                                    {item.text}
+                                    <Icon name="tabler:arrow-right" class="link-arrow" aria-hidden="true" />
+                                  </a>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </details>
+                ) : (
+                  <a class="nav-link" href={link.href} aria-current={current(link.href) ? 'page' : undefined}>
+                    {link.text}
                   </a>
                 )}
               </li>
@@ -139,138 +100,449 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
           }
         </ul>
       </nav>
-      <div
-        class:list={[
-          { 'ml-auto rtl:ml-0 rtl:mr-auto': position === 'left' },
-          'hidden xl:self-center xl:flex items-center xl:mb-0 fixed w-full xl:w-auto xl:static justify-end left-0 rtl:left-auto rtl:right-0 bottom-0 p-3 xl:p-0 xl:justify-self-end',
-        ]}
-      >
-        <div class="items-center flex justify-between w-full xl:w-auto">
-          <div class="flex items-center">
-            {showToggleTheme && <ToggleTheme iconClass="w-6 h-6 xl:w-5 xl:h-5 xl:inline-block" />}
-            <LanguagePicker locale={locale} />
-          </div>
-          {
-            actions?.length ? (
-              <span class="ml-4 rtl:ml-0 rtl:mr-4">
-                {actions.map((btnProps) => (
-                  <Button
-                    {...btnProps}
-                    class="ml-2 py-2.5 px-5 xl:px-6 font-semibold shadow-none text-sm w-auto whitespace-nowrap"
-                  />
-                ))}
-              </span>
-            ) : (
-              ''
-            )
-          }
-        </div>
+
+      <div class="header-tools" id="header-preferences">
+        {showToggleTheme && <ToggleTheme label={labels.theme} iconClass="w-5 h-5 inline-block" />}
+        <LanguagePicker locale={locale} />
       </div>
+
+      <a class="contact-link" href={contact.href} aria-current={current(contact.href) ? 'page' : undefined}>
+        {contact.text}
+        <Icon name="tabler:arrow-up-right" class="contact-arrow" aria-hidden="true" />
+      </a>
     </div>
   </header>
-</aw-header>
+</fluvio-header>
 
 <style>
-  aw-header {
+  fluvio-header {
     display: contents;
+  }
+
+  .site-header {
+    --header-border: rgb(var(--fluvio-ink) / 0.12);
+    --header-surface: rgb(var(--fluvio-paper) / 0.96);
+    --header-hover: rgb(var(--fluvio-river) / 0.1);
+    --header-accent: rgb(var(--fluvio-river));
+    --menu-surface: rgb(var(--fluvio-paper));
+    position: relative;
+    z-index: 45;
+    color: var(--aw-color-text-heading);
+    background: var(--header-surface);
+    border-bottom: 1px solid var(--header-border);
+    box-shadow: 0 8px 28px rgb(17 45 51 / 0.08);
+    backdrop-filter: blur(16px) saturate(1.2);
+  }
+
+  :global(.dark) .site-header {
+    --header-border: rgb(var(--fluvio-mist) / 0.18);
+    --header-surface: rgb(19 32 42 / 0.96);
+    --header-hover: rgb(125 186 188 / 0.16);
+    --header-accent: rgb(150 214 209);
+    --menu-surface: rgb(var(--fluvio-ink));
+    box-shadow: 0 8px 28px rgb(0 0 0 / 0.24);
+  }
+
+  .site-header::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto;
+    height: 3px;
+    background: linear-gradient(
+      90deg,
+      rgb(var(--fluvio-navy)),
+      rgb(var(--fluvio-river)) 40%,
+      rgb(var(--fluvio-teal)) 72%,
+      rgb(var(--fluvio-silt))
+    );
+  }
+
+  .site-header--sticky {
+    position: sticky;
+    top: 0;
+  }
+
+  .header-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    align-items: center;
+    gap: 0 0.5rem;
+    max-width: 83rem;
+    min-height: 4.5rem;
+    margin-inline: auto;
+    padding: 0.65rem clamp(0.75rem, 3vw, 2rem);
+  }
+
+  .brand {
+    justify-self: start;
+    border-radius: 0.4rem;
+  }
+
+  .brand :global(img) {
+    height: clamp(2.15rem, 5vw, 3rem);
+  }
+
+  .main-nav,
+  .header-tools {
+    display: none;
+  }
+
+  .top-links,
+  .solutions-group ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .nav-link,
+  .group-link,
+  .solution-link,
+  .menu-toggle,
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    border-radius: 0.75rem;
+    font-size: 0.91rem;
+    font-weight: 650;
+    text-decoration: none;
+  }
+
+  .site-header :is(a, button, summary):focus-visible {
+    outline: 2px solid var(--header-accent);
+    outline-offset: 3px;
+  }
+
+  .nav-link,
+  .menu-toggle {
+    min-height: 2.75rem;
+    padding-inline: 0.85rem;
+    white-space: nowrap;
+  }
+
+  .nav-link:hover,
+  .nav-link[aria-current],
+  .solutions--active > summary,
+  .solutions[open] > summary,
+  .group-link:hover,
+  .solution-link:hover,
+  .menu-toggle:hover {
+    color: var(--header-accent);
+    background: var(--header-hover);
+  }
+
+  .solutions summary {
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .solutions summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .chevron,
+  .link-arrow,
+  .contact-arrow {
+    flex: none;
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .solutions[open] .chevron {
+    transform: rotate(180deg);
+  }
+
+  .solutions-panel {
+    margin: 0.2rem 0 0.65rem 0.85rem;
+    padding-inline-start: 0.6rem;
+    border-inline-start: 1px solid var(--header-border);
+  }
+
+  .solutions-grid {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .solutions-group {
+    min-width: 0;
+  }
+
+  .group-link {
+    min-height: 2.75rem;
+    padding-inline: 0.75rem;
+    font-weight: 700;
+  }
+
+  .solution-link {
+    min-height: 2.75rem;
+    padding-inline: 0.75rem;
+    font-weight: 500;
+  }
+
+  .solution-link[aria-current] {
+    color: var(--header-accent);
+  }
+
+  .link-arrow {
+    margin-inline-start: auto;
+    color: var(--header-accent);
+  }
+
+  .contact-link {
+    justify-self: end;
+    padding: 0.65rem clamp(0.65rem, 1.5vw, 1.1rem);
+    min-height: 2.75rem;
+    border-radius: 999px;
+    background: linear-gradient(120deg, #12566a, #17434f);
+    color: #fff;
+    box-shadow: 0 3px 9px rgb(18 86 106 / 0.24);
+    white-space: nowrap;
+  }
+
+  .contact-link:hover {
+    background: linear-gradient(120deg, #106678, #17434f);
+    box-shadow: 0 6px 15px rgb(18 86 106 / 0.34);
+  }
+
+  .contact-link[aria-current] {
+    outline: 2px solid var(--header-accent);
+    outline-offset: 2px;
+  }
+
+  .menu-toggle {
+    justify-content: center;
+    width: 2.75rem;
+    padding: 0;
+    border: 1px solid var(--header-border);
+    cursor: pointer;
+  }
+
+  .menu-toggle :global(svg) {
+    width: 1.35rem;
+    height: 1.35rem;
+  }
+
+  .menu-toggle[aria-expanded='false'] .close-icon,
+  .menu-toggle[aria-expanded='true'] .open-icon {
+    display: none;
+  }
+
+  @media (max-width: 959px) {
+    .contact-link {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .menu-toggle {
+      grid-column: 3;
+      grid-row: 1;
+    }
+
+    .site-header[data-menu-open] .main-nav {
+      display: block;
+      grid-row: 2;
+      grid-column: 1 / -1;
+      max-height: calc(100dvh - 9rem);
+      overflow: auto;
+      padding: 0.8rem 0.25rem 0.35rem;
+      margin-top: 0.65rem;
+      border-top: 1px solid var(--header-border);
+    }
+
+    .site-header[data-menu-open] .header-tools {
+      display: flex;
+      grid-row: 3;
+      grid-column: 1 / -1;
+      align-items: center;
+      padding: 0.4rem 0.25rem;
+    }
+
+    .solutions summary {
+      justify-content: space-between;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .header-inner {
+      display: flex;
+      gap: clamp(0.45rem, 1.5vw, 1.4rem);
+      min-height: 5rem;
+    }
+
+    .main-nav,
+    .header-tools,
+    .top-links {
+      display: flex;
+      align-items: center;
+    }
+
+    .main-nav {
+      margin-inline: auto;
+    }
+
+    .top-links {
+      gap: 0.15rem;
+    }
+
+    .solutions > summary {
+      position: relative;
+    }
+
+    .solutions[open] > summary::after {
+      content: '';
+      position: absolute;
+      inset: auto 0.85rem 0;
+      height: 2px;
+      background: var(--header-accent);
+    }
+
+    .solutions-panel {
+      position: absolute;
+      inset: 100% 0 auto;
+      max-height: calc(100dvh - 5rem);
+      overflow: auto;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      border-block-end: 1px solid var(--header-border);
+      background: var(--menu-surface);
+      box-shadow: 0 22px 32px -18px rgb(0 0 0 / 0.28);
+    }
+
+    .solutions-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0;
+      max-width: 51rem;
+      margin-inline: auto;
+      padding: 1.25rem 1rem 1.5rem;
+    }
+
+    .solutions-group {
+      padding-inline: clamp(1rem, 3vw, 2rem);
+    }
+
+    .solutions-group + .solutions-group {
+      border-inline-start: 1px solid var(--header-border);
+    }
+
+    .group-link {
+      font-size: 1.125rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .solution-link {
+      min-height: 2.75rem;
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .nav-link,
+    .group-link,
+    .solution-link,
+    .menu-toggle,
+    .contact-link {
+      transition:
+        background-color 180ms ease,
+        color 180ms ease,
+        box-shadow 180ms ease;
+    }
+
+    .chevron,
+    .link-arrow,
+    .contact-arrow {
+      transition: transform 200ms ease;
+    }
+
+    .solutions[open] .solutions-panel,
+    .site-header[data-menu-open] .main-nav {
+      animation: header-enter 220ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    }
+
+    .solution-link:hover .link-arrow {
+      transform: translateX(0.2rem);
+    }
+
+    .contact-link:hover .contact-arrow {
+      transform: translate(0.15rem, -0.15rem);
+    }
+
+    @keyframes header-enter {
+      from {
+        opacity: 0;
+        transform: translateY(-0.45rem);
+      }
+    }
   }
 </style>
 
 <script>
-  class AwHeader extends HTMLElement {
-    private mql?: MediaQueryList;
-    private onMqlChange?: () => void;
-    private header?: HTMLElement | null;
-    private onScroll = () => {
-      this.header?.classList.toggle('is-scrolled', window.scrollY > 24);
-    };
-    private onPageLoad = () => {
-      this.updateActiveLinks();
-      this.closeOpenDropdown();
-      this.onScroll();
-    };
+  class FluvioHeader extends HTMLElement {
+    private listeners?: AbortController;
 
     connectedCallback() {
-      const header = this.querySelector<HTMLElement>('#header');
-      this.header = header;
+      const header = this.querySelector('header')!;
+      const solutions = this.querySelector<HTMLDetailsElement>('.solutions');
+      const summary = solutions?.querySelector('summary');
+      const toggle = this.querySelector<HTMLButtonElement>('.menu-toggle')!;
+      const desktop = matchMedia('(min-width: 960px)');
+      this.listeners = new AbortController();
+      const { signal } = this.listeners;
 
-      // Condense the bar into its floating state once the page scrolls.
-      window.addEventListener('scroll', this.onScroll, { passive: true });
-      this.onScroll();
-      const toggle = this.querySelector<HTMLElement>('[data-aw-toggle-menu]');
-      const nav = this.querySelector<HTMLElement>('#header nav');
-      const lastChild = this.querySelector<HTMLElement>('#header > div > div:last-child');
-
-      // The header persists across view transitions (transition:persist), so
-      // the server-rendered `aw-link-active` class would go stale. Re-compute it
-      // on every navigation (astro:page-load fires on load and after each swap).
-      this.updateActiveLinks();
-      document.addEventListener('astro:page-load', this.onPageLoad);
-
-      const closeMenu = () => {
-        toggle?.classList.remove('expanded');
-        toggle?.setAttribute('aria-expanded', 'false');
-        document.body.classList.remove('overflow-hidden');
-        header?.classList.remove('expanded');
-        nav?.classList.add('hidden');
-        lastChild?.classList.add('hidden');
+      const setExpanded = (expanded: boolean) => {
+        header.toggleAttribute('data-menu-open', expanded);
+        toggle.setAttribute('aria-expanded', String(expanded));
+        if (!expanded && solutions) solutions.open = false;
       };
 
-      // Mobile menu toggle.
-      toggle?.addEventListener('click', () => {
-        const expanded = toggle.classList.toggle('expanded');
-        toggle.setAttribute('aria-expanded', String(expanded));
-        document.body.classList.toggle('overflow-hidden');
-        header?.classList.toggle('expanded');
-        nav?.classList.toggle('hidden');
-        lastChild?.classList.toggle('hidden');
-      });
+      toggle.addEventListener('click', () => setExpanded(!header.hasAttribute('data-menu-open')), { signal });
+      desktop.addEventListener('change', () => setExpanded(false), { signal });
 
-      // Close the mobile menu when a nav link is clicked.
-      nav?.addEventListener('click', closeMenu);
+      document.addEventListener(
+        'click',
+        (event) => {
+          const target = event.target;
+          if (!(target instanceof Element)) return;
+          if (!header.contains(target) || target.closest('a')) {
+            setExpanded(false);
+          } else if (solutions && !solutions.contains(target)) {
+            solutions.open = false;
+          }
+        },
+        { signal }
+      );
 
-      // Desktop dropdowns open on hover/`:focus-within`. When a dropdown link is
-      // clicked it keeps focus, and because the header uses `transition:persist`
-      // the dropdown would stay open after the client-side navigation. Blur the
-      // link on click so it closes right away (the `astro:page-load` handler is
-      // the safety net if focus is restored during the swap).
-      nav?.addEventListener('click', (e) => {
-        const link = (e.target as HTMLElement)?.closest<HTMLElement>('.dropdown-menu a');
-        if (link) link.blur();
-      });
+      solutions?.addEventListener(
+        'focusout',
+        (event) => {
+          if (event.relatedTarget instanceof Node && !solutions.contains(event.relatedTarget)) solutions.open = false;
+        },
+        { signal }
+      );
 
-      // Close it when leaving the mobile breakpoint.
-      this.mql = window.matchMedia('(max-width: 1279px)');
-      this.onMqlChange = () => closeMenu();
-      this.mql.addEventListener('change', this.onMqlChange);
-
-      document.documentElement.classList.add('motion-safe:scroll-smooth');
+      header.addEventListener(
+        'keydown',
+        (event) => {
+          if (event.key !== 'Escape') return;
+          if (solutions?.open) {
+            solutions.open = false;
+            summary?.focus();
+          } else if (header.hasAttribute('data-menu-open') && !header.querySelector('.fluvio-lang[open]')) {
+            setExpanded(false);
+            toggle.focus();
+          }
+        },
+        { signal }
+      );
     }
 
     disconnectedCallback() {
-      if (this.mql && this.onMqlChange) this.mql.removeEventListener('change', this.onMqlChange);
-      document.removeEventListener('astro:page-load', this.onPageLoad);
-      window.removeEventListener('scroll', this.onScroll);
-    }
-
-    // With `transition:persist` the header (and its focus) survives client-side
-    // navigations, so a clicked dropdown link keeps `:focus-within` and its menu
-    // would stay open on the next page. Drop the focus so the CSS closes it.
-    private closeOpenDropdown() {
-      const active = document.activeElement as HTMLElement | null;
-      if (active && this.contains(active) && active.closest('.dropdown')) active.blur();
-    }
-
-    private updateActiveLinks() {
-      const norm = (p: string) => '/' + p.replace(/^\/+|\/+$/g, '');
-      const current = norm(window.location.pathname);
-      this.querySelectorAll<HTMLAnchorElement>('nav a[href]').forEach((a) => {
-        a.classList.toggle('aw-link-active', norm(new URL(a.href).pathname) === current);
-      });
+      this.listeners?.abort();
     }
   }
 
-  if (!customElements.get('aw-header')) {
-    customElements.define('aw-header', AwHeader);
-  }
+  if (!customElements.get('fluvio-header')) customElements.define('fluvio-header', FluvioHeader);
 </script>

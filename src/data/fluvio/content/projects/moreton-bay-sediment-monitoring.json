@@ -94,5 +94,29 @@
     ],
     "relatedProjects": ["reservoir-sedimentation", "ghg-emissions-reservoirs"],
     "featured": true
+  },
+  "de": {
+    "order": 11,
+    "title": "Langfristige Sedimentüberwachung in der Moreton Bay",
+    "slug": "moreton-bay-sediment-monitoring",
+    "summary": "Erfassung von Sedimentveränderungen an 223 Standorten in einer dynamischen Küstenbucht mit FS-Nomad, Fluvios integriertem Felddatensystem.",
+    "location": "Moreton Bay, Queensland, Australien",
+    "timeframe": "2026",
+    "disciplines": ["Sedimentüberwachung", "Überwachung der Wasserqualität", "Felddatenerhebung"],
+    "heroImage": "/src/assets/images/fluvio/project-moreton-bay-nomad.jpg",
+    "heroAlt": "Eine Person lässt einen Wasserqualitätssensor von einem Boot in der Moreton Bay herab, daneben eine Karte der Messrouten, ein abgestorbener Baum im Wasser und die FS-Nomad-App auf einem Tablet",
+    "challenge": [
+      "In der Moreton Bay verlagern sich Sedimente durch Wetter, Gezeiten und Zuflüsse. Fluvio betreibt an 223 Standorten ein langfristiges Messprogramm, um diese Veränderungen zu verfolgen. Effiziente, robuste Feldsysteme sind dafür entscheidend. Modellierung und Fernerkundung sind gerade in Küstengewässern auf hochaufgelöste Felddaten angewiesen."
+    ],
+    "approach": [
+      "Fluvio entwickelte FS-Nomad als Teil der FluvioSense-Technologie, um Felddaten aus unterschiedlichen Quellen zusammenzuführen. Mit einer kompakten Einheit für Datenerfassung und Stromversorgung und einer mobilen App kann das Team Wasserqualitätsmessgeräte und weitere Sensoren per Smartphone oder Tablet konfigurieren und betreiben. Die Technik ist in einem transportablen Koffer untergebracht.",
+      "Bei diesem Einsatz führte das System einen Xylem-EXO-Sensor für die Wasserqualität, Unterwasserbilder vom Gewässergrund, ein Cruzpro-Echolot und einen Emlid-RS3-GPS-Empfänger zusammen. Entlang aller Messlinien entstand alle zwei Sekunden ein gemeinsamer Datensatz mit Zeitstempel."
+    ],
+    "outcome": [
+      "Auch bei rasch wechselnden Bedingungen lieferte das System stabile und räumlich detaillierte Daten. Dadurch ließ sich die Variabilität entlang der Messlinien zeitlich und räumlich fein aufgelöst kartieren.",
+      "FS-Nomad wird um Windmessungen zur Erfassung lokaler Windfelder und einen Methananalysator zur kontinuierlichen Überwachung der Atmosphäre während der Erhebungen erweitert."
+    ],
+    "relatedProjects": ["reservoir-sedimentation", "ghg-emissions-reservoirs"],
+    "featured": true
   }
 }
