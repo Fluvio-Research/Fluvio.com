@@ -51,7 +51,7 @@ const widths = [480, 768, 1080, 1440, 1920, 2560];
     'fluvio-image',
     `fluvio-image--${aspect}`,
     `fluvio-image--radius-${radius}`,
-    { 'fluvio-image--product': isProductCutout },
+    { 'fluvio-image--product': isProductCutout, 'fluvio-image--halo-photo': src.endsWith('/fs-halo-cutout.png') },
     className,
   ]}
 >
@@ -179,5 +179,15 @@ const widths = [480, 768, 1080, 1440, 1920, 2560];
       transform: translateY(-5px) rotateX(3deg) rotateY(-5deg) scale(1.025);
       filter: drop-shadow(0 7px 5px rgb(16 37 48 / 0.12)) drop-shadow(0 24px 18px rgb(16 37 48 / 0.2));
     }
+  }
+</style>
+
+<style>
+  .fluvio-image--halo-photo :global(img) {
+    object-view-box: inset(24% 7% 8% 10%);
+    filter: brightness(1.08) drop-shadow(0 8px 10px rgb(16 37 48 / 0.18));
+  }
+  .fluvio-image--halo-photo:hover :global(img) {
+    filter: brightness(1.12) drop-shadow(0 14px 14px rgb(16 37 48 / 0.22));
   }
 </style>

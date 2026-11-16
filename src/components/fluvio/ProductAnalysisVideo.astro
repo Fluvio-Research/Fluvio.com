@@ -25,8 +25,8 @@ const video = findVideo(`/src/assets/images/fluvio/${product}-analysis.mp4`);
   <video
     src={video}
     poster={poster.src}
-    width={spot ? 622 : 758}
-    height="1280"
+    width={poster.width}
+    height={poster.height}
     controls
     playsinline
     preload="none"

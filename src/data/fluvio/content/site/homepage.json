@@ -98,7 +98,7 @@
         "description": "The FluvioSense stream vision system: computer vision stream gauging cameras, real-time water quality nodes and flood cameras on one live map, with discharge, level, velocity and rating curves for every site.",
         "action": "Visit FluvioSense",
         "href": "https://sense.fluvio.com.au/",
-        "image": "/src/assets/images/fluvio/system-sense-light.jpg",
+        "image": "/src/assets/images/fluvio/system-sense-overview.png",
         "imageAlt": "The FluvioSense site list with live stream camera feeds and monitoring stations mapped across Queensland.",
         "highlights": [
           "Live site map with online, recent and offline status, and Bureau of Meteorology river, catchment and gauge layers",
@@ -288,7 +288,7 @@
         "description": "FluvioSense stream vision sistem: olketa computer vision camera fo mesarem flow, olketa real-time node blong kwaliti blong wata an olketa flood camera long wanfala live map, wetem discharge, level, spid an rating curve fo evri ples.",
         "action": "Go long FluvioSense",
         "href": "https://sense.fluvio.com.au/",
-        "image": "/src/assets/images/fluvio/system-sense-light.jpg",
+        "image": "/src/assets/images/fluvio/system-sense-overview.png",
         "imageAlt": "Site list blong FluvioSense wetem olketa live camera feed an olketa monitoring station long map blong Queensland.",
         "highlights": [
           "Live map blong olketa ples wea soim online, recent an offline, wetem olketa Bureau of Meteorology layer fo riva, catchment an gauge",
@@ -478,7 +478,7 @@
         "description": "Le système de vision fluviale FluvioSense : caméras de jaugeage par vision par ordinateur, nœuds de qualité de l’eau en temps réel et caméras de crue sur une seule carte en direct, avec débit, niveau, vitesse et courbes de tarage pour chaque site.",
         "action": "Visiter FluvioSense",
         "href": "https://sense.fluvio.com.au/",
-        "image": "/src/assets/images/fluvio/system-sense-light.jpg",
+        "image": "/src/assets/images/fluvio/system-sense-overview.png",
         "imageAlt": "La liste des sites FluvioSense avec des flux de caméras en direct et des stations de surveillance cartographiées dans le Queensland.",
         "highlights": [
           "Carte en direct des sites (en ligne, récents, hors ligne) avec les couches rivières, bassins et stations du Bureau of Meteorology",
@@ -668,7 +668,7 @@
         "description": "El sistema de visión fluvial FluvioSense: cámaras de aforo por visión artificial, nodos de calidad del agua en tiempo real y cámaras de inundación en un solo mapa en vivo, con caudal, nivel, velocidad y curvas de gasto para cada sitio.",
         "action": "Visitar FluvioSense",
         "href": "https://sense.fluvio.com.au/",
-        "image": "/src/assets/images/fluvio/system-sense-light.jpg",
+        "image": "/src/assets/images/fluvio/system-sense-overview.png",
         "imageAlt": "La lista de sitios de FluvioSense con cámaras en directo y estaciones de monitoreo cartografiadas en Queensland.",
         "highlights": [
           "Mapa en vivo de los sitios (en línea, recientes, fuera de línea) con capas de ríos, cuencas y estaciones del Bureau of Meteorology",
@@ -858,7 +858,7 @@
         "description": "FluvioSense zeigt optische Abflussmessstationen, Echtzeit-Sensoren für Wasserqualität und Hochwasserkameras auf einer gemeinsamen Karte. Für jeden Standort sind Abfluss, Wasserstand, Fließgeschwindigkeit und Abflusskurven abrufbar.",
         "action": "FluvioSense öffnen",
         "href": "https://sense.fluvio.com.au/",
-        "image": "/src/assets/images/fluvio/system-sense-light.jpg",
+        "image": "/src/assets/images/fluvio/system-sense-overview.png",
         "imageAlt": "FluvioSense-Standortliste mit Livebildern und Karte der Messstationen in Queensland",
         "highlights": [
           "Livekarte mit Verbindungsstatus sowie Fluss-, Einzugsgebiets- und Pegeldaten des Bureau of Meteorology",

@@ -10,18 +10,15 @@ import FluxMedia from '~/components/fluvio/FluxMedia.astro';
 import ProductAnalysisVideo from '~/components/fluvio/ProductAnalysisVideo.astro';
 import PlatformFeature from '~/components/fluvio/PlatformFeature.astro';
 import ScreenshotGallery from '~/components/fluvio/ScreenshotGallery.astro';
-import TeamCard from '~/components/fluvio/TeamCard.astro';
-import { getTeamMembers } from '~/data/fluvio/localized';
 import ContactPanel from '~/components/fluvio/ContactPanel.astro';
 import { getCatalog, getHomepage } from '~/data/fluvio/store.ts';
-import { localeHref, t, type Locale } from '~/i18n';
+import { localeHref, type Locale } from '~/i18n';
 export interface Props {
   locale: Locale;
   kind: 'products' | 'systems' | 'fluviosense';
 }
 const { locale, kind } = Astro.props;
 const c = getCatalog(locale);
-const louis = getTeamMembers(locale).find((member) => member.slug === 'louis-ray');
 const products = kind === 'products';
 const sense = kind === 'fluviosense';
 const platforms = getHomepage(locale).platforms;
@@ -93,7 +90,11 @@ const systemPlatforms = [
             id={item.slug}
             class:list={[
               'catalog-feature',
-              { 'catalog-feature--reverse': products && index % 2 === 1, 'catalog-feature--module': sense },
+              {
+                'catalog-feature--reverse': products && index % 2 === 1,
+                'catalog-feature--module': sense,
+                'catalog-feature--halo': products && item.slug === 'fs-halo',
+              },
             ]}
           >
             <div class="catalog-feature__media">
@@ -103,7 +104,19 @@ const systemPlatforms = [
                   label={item.name}
                 />
               ) : products && (item.slug === 'fs-spot' || item.slug === 'fs-halo') ? (
-                <ProductAnalysisVideo product={item.slug} locale={locale} />
+                <div class:list={['catalog-product-media', { 'catalog-product-media--pair': item.slug === 'fs-halo' }]}>
+                  <ProductAnalysisVideo product={item.slug} locale={locale} />
+                  {item.slug === 'fs-halo' && (
+                    <LargeImage
+                      src="/src/assets/images/fluvio/home-expertise-camera-scan.png"
+                      alt={item.imageAlt}
+                      aspect="wide"
+                      class="catalog-halo-field"
+                      radius="lg"
+                      sizes="(min-width: 1200px) 40vw, (min-width: 600px) 55vw, 95vw"
+                    />
+                  )}
+                </div>
               ) : (
                 <LargeImage
                   src={item.image}
@@ -137,12 +150,6 @@ const systemPlatforms = [
             </div>
           </article>
           {products && item.slug === 'fs-flux' && <FluxMedia locale={locale} />}
-          {products && item.slug === 'fs-flux' && louis && (
-            <div class="catalog-specialist">
-              <h3>{t(locale).expertiseDetail.teamTitle}</h3>
-              <TeamCard member={louis} locale={locale} variant="compact" headingLevel="h4" />
-            </div>
-          )}
         </SectionFrame>
       ))
   }
@@ -154,13 +161,31 @@ const systemPlatforms = [
   <SectionFrame tone="warm"><ContactPanel locale={locale} /></SectionFrame>
 </Layout>
 <style>
-  .catalog-specialist {
-    margin-top: 3rem;
-    max-width: 20rem;
+  .catalog-product-media :global(.catalog-halo-field .fluvio-image__frame) {
+    aspect-ratio: 1576 / 803;
   }
-  .catalog-specialist h3 {
-    margin-bottom: 1.5rem;
-    font-size: 1.4rem;
+  .catalog-product-media {
+    min-width: 0;
+  }
+  .catalog-product-media--pair {
+    display: grid;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  @media (min-width: 600px) {
+    .catalog-product-media--pair {
+      grid-template-columns: minmax(0, 0.65fr) minmax(0, 1.35fr);
+    }
+    .catalog-product-media--pair :global(video) {
+      width: 100%;
+      max-height: none;
+    }
+  }
+  @media (min-width: 900px) {
+    .catalog-feature.catalog-feature--halo {
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.5fr);
+      gap: clamp(2rem, 4vw, 4rem);
+    }
   }
   .catalog-platform {
     scroll-margin-top: 7rem;

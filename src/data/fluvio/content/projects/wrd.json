@@ -8,8 +8,8 @@
     "timeframe": "2025 - 2026",
     "disciplines": ["Data management", "Hydrology", "Training"],
     "partners": ["Water Resources Division"],
-    "heroImage": "/src/assets/images/fluvio/project-wrd-field.jpg",
-    "heroAlt": "Water Resources Division staff standing in a shallow stream around a wading rod, taking a current meter reading",
+    "heroImage": "/src/assets/images/fluvio/project-wrd-siwis-overview.png",
+    "heroAlt": "SIWIS dashboard showing monitoring stations across the Solomon Islands, site totals and water resource records",
     "gallery": [
       {
         "src": "/src/assets/images/fluvio/project-wrd-workshop.jpg",
@@ -38,8 +38,8 @@
     "timeframe": "2025 - 2026",
     "disciplines": ["Data management", "Hydrology", "Trening"],
     "partners": ["Water Resources Division"],
-    "heroImage": "/src/assets/images/fluvio/project-wrd-field.jpg",
-    "heroAlt": "Olketa staff blong Water Resources Division stanap insaet long wanfala smol stream raonem wanfala wading rod, an tekem reading long wanfala current meter",
+    "heroImage": "/src/assets/images/fluvio/project-wrd-siwis-overview.png",
+    "heroAlt": "SIWIS dashboard wea soim olketa monitoring station raon Solomon Aelan, namba blong site an wata risos rekod",
     "gallery": [
       {
         "src": "/src/assets/images/fluvio/project-wrd-workshop.jpg",
@@ -68,8 +68,8 @@
     "timeframe": "2025 - 2026",
     "disciplines": ["Gestion des données", "Hydrologie", "Formation"],
     "partners": ["Water Resources Division"],
-    "heroImage": "/src/assets/images/fluvio/project-wrd-field.jpg",
-    "heroAlt": "Des agents de la Water Resources Division, debout dans un cours d’eau peu profond autour d’une perche de jaugeage, relèvent une mesure au moulinet",
+    "heroImage": "/src/assets/images/fluvio/project-wrd-siwis-overview.png",
+    "heroAlt": "Tableau de bord SIWIS montrant les stations de suivi des Îles Salomon, les sites et les données sur les ressources en eau",
     "gallery": [
       {
         "src": "/src/assets/images/fluvio/project-wrd-workshop.jpg",
@@ -98,8 +98,8 @@
     "timeframe": "2025 - 2026",
     "disciplines": ["Gestión de datos", "Hidrología", "Capacitación"],
     "partners": ["Water Resources Division"],
-    "heroImage": "/src/assets/images/fluvio/project-wrd-field.jpg",
-    "heroAlt": "Personal de la Water Resources Division, de pie en un arroyo poco profundo alrededor de una barra de vadeo, toma una lectura con el molinete",
+    "heroImage": "/src/assets/images/fluvio/project-wrd-siwis-overview.png",
+    "heroAlt": "Panel SIWIS con estaciones de monitoreo en las Islas Salomón, totales de sitios y registros de recursos hídricos",
     "gallery": [
       {
         "src": "/src/assets/images/fluvio/project-wrd-workshop.jpg",
@@ -128,8 +128,8 @@
     "timeframe": "2025–2026",
     "disciplines": ["Datenmanagement", "Hydrologie", "Schulung"],
     "partners": ["Water Resources Division"],
-    "heroImage": "/src/assets/images/fluvio/project-wrd-field.jpg",
-    "heroAlt": "Mitarbeitende der Water Resources Division stehen in einem flachen Bach und lesen an einer Messstange ein Strömungsmessgerät ab",
+    "heroImage": "/src/assets/images/fluvio/project-wrd-siwis-overview.png",
+    "heroAlt": "SIWIS-Dashboard mit Messstationen auf den Salomonen, Standortzahlen und Wasserressourcendaten",
     "gallery": [
       {
         "src": "/src/assets/images/fluvio/project-wrd-workshop.jpg",

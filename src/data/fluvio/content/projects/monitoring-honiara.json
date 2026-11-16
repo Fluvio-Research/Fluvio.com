@@ -8,8 +8,8 @@
     "timeframe": "2022 - Current",
     "disciplines": ["Hydrological monitoring", "Catchment investigations", "Water quality monitoring"],
     "partners": ["Solomon Water"],
-    "heroImage": "/src/assets/images/fluvio/project-honiara-siwis-dashboard.png",
-    "heroAlt": "The Solomon Islands Water Information System dashboard, mapping monitoring stations across the country alongside site, river and record counts",
+    "heroImage": "/src/assets/images/fluvio/system-pulse-demo-light.png",
+    "heroAlt": "FluvioPulse water quality dashboard with illustrative monitoring data and anonymous sites",
     "gallery": [
       {
         "src": "/src/assets/images/fluvio/project-honiara.jpeg",
@@ -57,8 +57,8 @@
     "timeframe": "2022 - Distaem",
     "disciplines": ["Monitorim wata", "Olketa catchment investigation", "Monitorim kwaliti blong wata"],
     "partners": ["Solomon Water"],
-    "heroImage": "/src/assets/images/fluvio/project-honiara-siwis-dashboard.png",
-    "heroAlt": "Dashboard blong Solomon Islands Water Information System, wea mapem olketa monitoring station raonem full kantri, wetem namba blong olketa site, reva an record",
+    "heroImage": "/src/assets/images/fluvio/system-pulse-demo-light.png",
+    "heroAlt": "FluvioPulse dashboard blong wata kualiti wetem eksampol data an olketa site wea no gat nem",
     "gallery": [
       {
         "src": "/src/assets/images/fluvio/project-honiara.jpeg",
@@ -106,8 +106,8 @@
     "timeframe": "2022 - En cours",
     "disciplines": ["Surveillance hydrologique", "Études de bassins versants", "Surveillance de la qualité de l’eau"],
     "partners": ["Solomon Water"],
-    "heroImage": "/src/assets/images/fluvio/project-honiara-siwis-dashboard.png",
-    "heroAlt": "Le tableau de bord du Solomon Islands Water Information System, cartographiant les stations de surveillance du pays avec le nombre de sites, de rivières et d’enregistrements",
+    "heroImage": "/src/assets/images/fluvio/system-pulse-demo-light.png",
+    "heroAlt": "Tableau de bord FluvioPulse de qualité de l’eau avec données illustratives et sites anonymes",
     "gallery": [
       {
         "src": "/src/assets/images/fluvio/project-honiara.jpeg",
@@ -155,8 +155,8 @@
     "timeframe": "2022 - Actualidad",
     "disciplines": ["Monitoreo hidrológico", "Investigaciones de cuencas", "Monitoreo de calidad del agua"],
     "partners": ["Solomon Water"],
-    "heroImage": "/src/assets/images/fluvio/project-honiara-siwis-dashboard.png",
-    "heroAlt": "El tablero del Solomon Islands Water Information System, que cartografía las estaciones de monitoreo del país junto con los recuentos de sitios, ríos y registros",
+    "heroImage": "/src/assets/images/fluvio/system-pulse-demo-light.png",
+    "heroAlt": "Panel de calidad del agua FluvioPulse con datos ilustrativos y sitios anónimos",
     "gallery": [
       {
         "src": "/src/assets/images/fluvio/project-honiara.jpeg",
@@ -208,8 +208,8 @@
       "Überwachung der Wasserqualität"
     ],
     "partners": ["Solomon Water"],
-    "heroImage": "/src/assets/images/fluvio/project-honiara-siwis-dashboard.png",
-    "heroAlt": "Dashboard des Wasserinformationssystems der Salomonen mit landesweiter Messstationskarte und Zahlen zu Standorten, Flüssen und Datensätzen",
+    "heroImage": "/src/assets/images/fluvio/system-pulse-demo-light.png",
+    "heroAlt": "FluvioPulse-Dashboard zur Wasserqualität mit Beispieldaten und anonymisierten Standorten",
     "gallery": [
       {
         "src": "/src/assets/images/fluvio/project-honiara.jpeg",

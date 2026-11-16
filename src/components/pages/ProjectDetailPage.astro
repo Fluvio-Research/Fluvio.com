@@ -1,4 +1,5 @@
 ---
+import ArrowLink from '~/components/fluvio/ArrowLink.astro';
 import FluxFeature from '~/components/fluvio/FluxFeature.astro';
 import AdjacentNav from '~/components/fluvio/AdjacentNav.astro';
 import Breadcrumbs from '~/components/fluvio/Breadcrumbs.astro';
@@ -46,6 +47,13 @@ const story = [
   { id: 'approach', number: '02', title: c.approach, paragraphs: project.approach },
   { id: 'outcome', number: '03', title: c.outcome, paragraphs: project.outcome },
 ];
+const pollutionWatchLabel = {
+  en: 'Explore Global Pollution Watch',
+  pijin: 'Lukim Global Pollution Watch',
+  fr: 'Découvrir Global Pollution Watch',
+  es: 'Explorar Global Pollution Watch',
+  de: 'Global Pollution Watch entdecken',
+}[locale];
 const position = `${String(adjacent.index + 1).padStart(2, '0')} / ${String(adjacent.total).padStart(2, '0')}`;
 ---
 
@@ -139,6 +147,11 @@ const position = `${String(adjacent.index + 1).padStart(2, '0')} / ${String(adja
                   {section.paragraphs.map((paragraph) => (
                     <p>{paragraph}</p>
                   ))}
+                  {project.slug === 'cordap' && section.id === 'outcome' && (
+                    <ArrowLink href="https://globalpollutionwatch.org/" external>
+                      {pollutionWatchLabel}
+                    </ArrowLink>
+                  )}
                 </div>
               </section>
             ))
