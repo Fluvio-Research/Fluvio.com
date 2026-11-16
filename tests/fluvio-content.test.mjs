@@ -475,7 +475,7 @@ test('Fluvio recovery and contact routes use explicit destinations', async () =>
   const enquiry = await read('src/components/fluvio/EnquiryForm.astro');
   assert.doesNotMatch(enquiry, /info@fluvio\.com\.au|mailto:/);
   assert.equal(getNavigation('en').linkedinUrl, 'https://www.linkedin.com/company/fluvioptyltd/');
-  assert.match(contact, /navigation\.linkedinUrl/);
+  assert.doesNotMatch(contact, /contact-social-heading/);
   assert.doesNotMatch(
     contact + getPages('en').contactPage.enquiryNote,
     /within \d+ hours|attachment upload|server submission/i

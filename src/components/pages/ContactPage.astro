@@ -1,14 +1,10 @@
 ---
-import Logo from '~/components/Logo.astro';
-import LinkedInMark from '~/components/common/LinkedInMark.astro';
 import EnquiryForm from '~/components/fluvio/EnquiryForm.astro';
 import Accent from '~/components/fluvio/Accent.astro';
-import ArrowLink from '~/components/fluvio/ArrowLink.astro';
 import floodVideo from '~/assets/images/fluvio/project-laidley-flood.mp4?url';
-import floodPoster from '~/assets/images/fluvio/project-laidley-creek.jpg';
+import floodPoster from '~/assets/images/fluvio/contact-flood-poster.jpg';
 import SectionFrame from '~/components/fluvio/SectionFrame.astro';
 import { REVEAL } from '~/components/fluvio/reveal';
-import { getNavigation } from '~/data/fluvio/store.ts';
 import { t, type Locale } from '~/i18n';
 import Layout from '~/layouts/PageLayout.astro';
 
@@ -18,7 +14,6 @@ export interface Props {
 
 const { locale } = Astro.props;
 const c = t(locale).contactPage;
-const navigation = getNavigation(locale);
 
 const metadata = {
   title: c.metaTitle,
@@ -62,21 +57,6 @@ const metadata = {
       </div>
     </div>
   </SectionFrame>
-
-  <SectionFrame tone="mist" rule="ink" labelledby="contact-social-heading">
-    <div class="fluvio-contact-grid">
-      <h2 id="contact-social-heading" class={REVEAL}>
-        <span class="sr-only">{c.socialTitle}</span>
-        <span aria-hidden="true"><Logo /></span>
-      </h2>
-      <div class:list={['fluvio-contact-body', REVEAL]}>
-        <p>{c.socialBody}</p>
-        <ArrowLink href={navigation.linkedinUrl} ariaLabel={c.socialAction} external variant="ghost" tone="ink">
-          <LinkedInMark />
-        </ArrowLink>
-      </div>
-    </div>
-  </SectionFrame>
 </Layout>
 
 <script>
@@ -85,13 +65,18 @@ const metadata = {
     connectedCallback() {
       const video = this.querySelector('video')!;
       const button = this.querySelector('button')!;
+      video.muted = true;
+      video.defaultMuted = true;
       const motion = matchMedia('(prefers-reduced-motion: reduce)');
       let paused = motion.matches;
-      let visible = true;
+      let visible = false;
       const update = () => {
         if (paused || !visible || document.hidden) video.pause();
-        else
-          video.play().catch(() => {
+        else if (video.paused)
+          video.play().catch((error: DOMException) => {
+            // Visibility changes and Astro navigation can interrupt a pending play.
+            // An interrupted request must not become a persistent user pause.
+            if (error.name === 'AbortError' || !this.isConnected) return;
             paused = true;
             render();
           });
@@ -115,12 +100,14 @@ const metadata = {
       observer.observe(this);
       button.hidden = false;
       button.addEventListener('click', toggle);
+      video.addEventListener('canplay', update);
       motion.addEventListener('change', preference);
       document.addEventListener('visibilitychange', update);
       this.cleanup = () => {
         observer.disconnect();
         video.pause();
         button.removeEventListener('click', toggle);
+        video.removeEventListener('canplay', update);
         motion.removeEventListener('change', preference);
         document.removeEventListener('visibilitychange', update);
       };
