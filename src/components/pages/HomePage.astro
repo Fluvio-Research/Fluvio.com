@@ -246,7 +246,7 @@ const views = [
   }
   .overview-view--hardware .visual-stage :global(figure) {
     min-height: 0;
-    filter: drop-shadow(0 9px 7px rgb(16 37 48 / 0.16));
+
     transform-origin: 50% 75%;
   }
   .overview-view--hardware .visual-stage :global(img) {
@@ -277,15 +277,15 @@ const views = [
       animation-delay: -4.6s;
     }
     .overview-view--hardware .image-control:is(:hover, :focus-visible) :global(figure) {
-      filter: drop-shadow(0 13px 9px rgb(16 37 48 / 0.25));
+      animation-play-state: paused;
     }
     @keyframes product-hover {
       0%,
       100% {
-        transform: translateY(0) rotate(-1deg);
+        transform: perspective(900px) translateY(0) rotateX(1deg) rotateY(-3deg);
       }
       50% {
-        transform: translateY(-6px) rotate(1deg);
+        transform: perspective(900px) translateY(-6px) rotateX(-1deg) rotateY(3deg);
       }
     }
   }

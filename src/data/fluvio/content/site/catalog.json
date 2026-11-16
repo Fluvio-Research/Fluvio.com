@@ -76,7 +76,7 @@
             "imageAlt": "Surface velocity · Lockyer Creek, Glenore Grove"
           },
           {
-            "image": "/src/assets/images/fluvio/flowsense-lockyer-timeseries.jpg",
+            "image": "/src/assets/images/fluvio/flowsense-lockyer-march-2025-timeseries.png",
             "imageAlt": "Discharge time series · Lockyer Creek, Glenore Grove"
           },
           {
@@ -109,8 +109,8 @@
           "Battery, solar and connectivity status",
           "Shared site management and data export"
         ],
-        "image": "/src/assets/images/fluvio/nodesense-obi-obi-timeseries.jpg",
-        "imageAlt": "Water-level time series · Obi Obi Creek",
+        "image": "/src/assets/images/fluvio/nodesense-demo-timeseries.png",
+        "imageAlt": "Water-level time series · Illustrative site and synthetic data",
         "href": "/expertise/operational-monitoring"
       }
     ]
@@ -188,7 +188,7 @@
             "imageAlt": "Spid blong wata antap · Lockyer Creek, Glenore Grove"
           },
           {
-            "image": "/src/assets/images/fluvio/flowsense-lockyer-timeseries.jpg",
+            "image": "/src/assets/images/fluvio/flowsense-lockyer-march-2025-timeseries.png",
             "imageAlt": "Discharge ova taem · Lockyer Creek, Glenore Grove"
           },
           {
@@ -221,8 +221,8 @@
           "Battery, solar an connection status",
           "Site management an data export"
         ],
-        "image": "/src/assets/images/fluvio/nodesense-obi-obi-timeseries.jpg",
-        "imageAlt": "Wata level ova taem · Obi Obi Creek",
+        "image": "/src/assets/images/fluvio/nodesense-demo-timeseries.png",
+        "imageAlt": "Wata level ova taem · Example saet wetem data wea no real",
         "href": "/expertise/operational-monitoring"
       }
     ]
@@ -300,7 +300,7 @@
             "imageAlt": "Vitesse de surface · Lockyer Creek, Glenore Grove"
           },
           {
-            "image": "/src/assets/images/fluvio/flowsense-lockyer-timeseries.jpg",
+            "image": "/src/assets/images/fluvio/flowsense-lockyer-march-2025-timeseries.png",
             "imageAlt": "Série temporelle du débit · Lockyer Creek, Glenore Grove"
           },
           {
@@ -333,8 +333,8 @@
           "Batterie, solaire et connectivité",
           "Gestion des sites et export des données"
         ],
-        "image": "/src/assets/images/fluvio/nodesense-obi-obi-timeseries.jpg",
-        "imageAlt": "Série temporelle du niveau d’eau · Obi Obi Creek",
+        "image": "/src/assets/images/fluvio/nodesense-demo-timeseries.png",
+        "imageAlt": "Série temporelle du niveau d’eau · Site illustratif et données synthétiques",
         "href": "/expertise/operational-monitoring"
       }
     ]
@@ -412,7 +412,7 @@
             "imageAlt": "Velocidad superficial · Lockyer Creek, Glenore Grove"
           },
           {
-            "image": "/src/assets/images/fluvio/flowsense-lockyer-timeseries.jpg",
+            "image": "/src/assets/images/fluvio/flowsense-lockyer-march-2025-timeseries.png",
             "imageAlt": "Serie temporal de caudal · Lockyer Creek, Glenore Grove"
           },
           {
@@ -441,8 +441,8 @@
         "title": "Conectar su red de monitoreo.",
         "description": "Integre nodos de calidad del agua y estaciones en FluvioSense. Consulte observaciones, estado de los sitios, telemetría y exportaciones.",
         "highlights": ["Nodos de calidad del agua", "Batería, solar y conectividad", "Gestión de sitios y exportación"],
-        "image": "/src/assets/images/fluvio/nodesense-obi-obi-timeseries.jpg",
-        "imageAlt": "Serie temporal del nivel de agua · Obi Obi Creek",
+        "image": "/src/assets/images/fluvio/nodesense-demo-timeseries.png",
+        "imageAlt": "Serie temporal del nivel de agua · Sitio ilustrativo y datos sintéticos",
         "href": "/expertise/operational-monitoring"
       }
     ]
@@ -528,7 +528,7 @@
             "imageAlt": "Oberflächengeschwindigkeit · Lockyer Creek, Glenore Grove"
           },
           {
-            "image": "/src/assets/images/fluvio/flowsense-lockyer-timeseries.jpg",
+            "image": "/src/assets/images/fluvio/flowsense-lockyer-march-2025-timeseries.png",
             "imageAlt": "Abflusszeitreihe · Lockyer Creek, Glenore Grove"
           },
           {
@@ -561,8 +561,8 @@
           "Status von Batterie, Solarversorgung und Verbindung",
           "Gemeinsame Standortverwaltung und Datenexport"
         ],
-        "image": "/src/assets/images/fluvio/nodesense-obi-obi-timeseries.jpg",
-        "imageAlt": "Wasserstandszeitreihe · Obi Obi Creek",
+        "image": "/src/assets/images/fluvio/nodesense-demo-timeseries.png",
+        "imageAlt": "Wasserstandszeitreihe · Beispielstandort und synthetische Daten",
         "href": "/expertise/operational-monitoring"
       }
     ]

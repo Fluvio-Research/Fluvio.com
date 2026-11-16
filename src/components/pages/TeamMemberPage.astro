@@ -8,7 +8,6 @@ import LargeImage from '~/components/fluvio/LargeImage.astro';
 import ProjectCard from '~/components/fluvio/ProjectCard.astro';
 import SectionFrame from '~/components/fluvio/SectionFrame.astro';
 import SectionHeading from '~/components/fluvio/SectionHeading.astro';
-import TeamCard from '~/components/fluvio/TeamCard.astro';
 import { REVEAL } from '~/components/fluvio/reveal';
 import { getTeamMembers } from '~/data/fluvio/localized';
 import { getAdjacent, getExpertiseForMember, getProjectsForMember } from '~/data/fluvio/relations';
@@ -27,7 +26,6 @@ const c = t(locale).teamDetail;
 const team = getTeamMembers(locale);
 const expertise = getExpertiseForMember(locale, member);
 const projects = getProjectsForMember(locale, member);
-const colleagues = team.filter((candidate) => candidate.slug !== member.slug);
 const adjacent = getAdjacent(team, member.slug);
 
 const metadata = {
@@ -138,24 +136,9 @@ const position = c.memberOf
     )
   }
 
-  <SectionFrame tone="paper" motif="wash-left" labelledby="person-colleagues-heading">
-    <div class:list={['fluvio-person-section-heading', REVEAL]}>
-      <SectionHeading id="person-colleagues-heading" eyebrow={c.colleaguesEyebrow} title={c.colleaguesTitle} />
-    </div>
-    <div class="fluvio-person-colleagues">
-      {
-        colleagues.map((colleague) => (
-          <div class={REVEAL}>
-            <TeamCard member={colleague} locale={locale} variant="compact" headingLevel="h3" />
-          </div>
-        ))
-      }
-    </div>
-  </SectionFrame>
-
   <div class="fluvio-shell fluvio-person-adjacent">
     <AdjacentNav
-      label={c.colleaguesTitle}
+      label={c.back}
       previousLabel={c.previous}
       nextLabel={c.next}
       previous={adjacent.previous && {
@@ -284,12 +267,6 @@ const position = c.memberOf
   .fluvio-person-projects {
     display: grid;
     gap: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem);
-  }
-
-  .fluvio-person-colleagues {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(6.75rem, 1fr));
-    gap: clamp(1rem, 2vw, 1.75rem);
   }
 
   .fluvio-person-adjacent {

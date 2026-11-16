@@ -135,6 +135,8 @@ const position = c.areaOf
     )
   }
 
+  {area.slug === 'blue-carbon-assessment' && <FluxFeature locale={locale} />}
+
   {
     relatedProducts.length > 0 && (
       <SectionFrame tone="mist" rule="ink" spacing="compact" labelledby="area-products-heading">
@@ -188,7 +190,6 @@ const position = c.areaOf
       <ContactPanel locale={locale} eyebrow={c.contactEyebrow} title={c.contactTitle} intro={c.contactIntro} />
     </div>
   </SectionFrame>
-  {area.slug === 'blue-carbon-assessment' && <FluxFeature locale={locale} />}
 </Layout>
 
 <style>

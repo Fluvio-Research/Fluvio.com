@@ -7,7 +7,7 @@
     "portrait": "/src/assets/images/fluvio/team-louis.jpeg",
     "portraitAlt": "Louis Ray",
     "specialties": ["Environmental and sustainability consulting"],
-    "expertise": ["catchment-management"]
+    "expertise": ["catchment-management", "blue-carbon-assessment"]
   },
   "pijin": {
     "order": 5,
@@ -17,7 +17,7 @@
     "portrait": "/src/assets/images/fluvio/team-louis.jpeg",
     "portraitAlt": "Louis Ray",
     "specialties": ["Consulting fo enviromen an sustainability"],
-    "expertise": ["catchment-management"]
+    "expertise": ["catchment-management", "blue-carbon-assessment"]
   },
   "fr": {
     "order": 5,
@@ -27,7 +27,7 @@
     "portrait": "/src/assets/images/fluvio/team-louis.jpeg",
     "portraitAlt": "Louis Ray",
     "specialties": ["Conseil en environnement et développement durable"],
-    "expertise": ["catchment-management"]
+    "expertise": ["catchment-management", "blue-carbon-assessment"]
   },
   "es": {
     "order": 5,
@@ -37,7 +37,7 @@
     "portrait": "/src/assets/images/fluvio/team-louis.jpeg",
     "portraitAlt": "Louis Ray",
     "specialties": ["Consultoría ambiental y de sostenibilidad"],
-    "expertise": ["catchment-management"]
+    "expertise": ["catchment-management", "blue-carbon-assessment"]
   },
   "de": {
     "order": 5,
@@ -47,6 +47,6 @@
     "portrait": "/src/assets/images/fluvio/team-louis.jpeg",
     "portraitAlt": "Louis Ray",
     "specialties": ["Umwelt- und Nachhaltigkeitsberatung"],
-    "expertise": ["catchment-management"]
+    "expertise": ["catchment-management", "blue-carbon-assessment"]
   }
 }
