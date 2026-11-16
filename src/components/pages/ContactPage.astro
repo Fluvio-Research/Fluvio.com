@@ -55,6 +55,7 @@ const metadata = {
         <p class="fluvio-eyebrow">{c.eyebrow}</p>
         <h2 id="contact-enquiry-heading" class="fluvio-display"><Accent text={c.enquiryTitle} /></h2>
         <p>{c.enquiryBody}</p>
+        <p class="contact-office">{c.enquiryNote}</p>
       </div>
       <div class:list={['fluvio-contact-body', 'enquiry-card', REVEAL]}>
         <EnquiryForm locale={locale} />
@@ -232,6 +233,13 @@ const metadata = {
     line-height: 1.75;
     max-width: 32ch;
   }
+  .enquiry-intro > .contact-office {
+    border-top: 1px solid rgb(var(--fluvio-river) / 0.25);
+    padding-top: 1.25rem;
+    font-weight: 600;
+    color: var(--aw-color-text-default);
+  }
+
   .enquiry-card {
     min-width: 0;
     padding: clamp(1rem, 4vw, 2.5rem);
