@@ -3,7 +3,7 @@
     "order": 2,
     "slug": "island-scale-modelling",
     "title": "Island-scale and catchment modelling",
-    "summary": "Creating a pioneering global-scale coastal pollution transport model.",
+    "summary": "Modelling how pollution travels from catchments to the coast, from single islands up to a pioneering global-scale transport model.",
     "description": [
       "This innovative tool leverages earth observation and cloud computing to support integrated land-sea planning and restoration efforts."
     ],
@@ -21,7 +21,7 @@
     "order": 2,
     "slug": "island-scale-modelling",
     "title": "Modelling fo full aelan an catchment",
-    "summary": "Mifala wakem wanfala barava niufala model fo trakem pollution long solwata saed, fo full wol.",
+    "summary": "Mifala modelem hao pollution hemi muv from catchment go kasem solwata saed, stat long wanwan aelan go kasem wanfala barava niufala model fo full wol.",
     "description": [
       "Niufala tul ia iusim earth observation an cloud computing fo sapotem planning wea joinim land an solwata tugeta, an fo sapotem waka fo stretem bak enviromen."
     ],
@@ -39,7 +39,7 @@
     "order": 2,
     "slug": "island-scale-modelling",
     "title": "Modélisation insulaire et de bassins versants",
-    "summary": "Créer un modèle pionnier de transport de la pollution côtière à l’échelle mondiale.",
+    "summary": "Modéliser le transport de la pollution des bassins versants vers la côte, de l’échelle d’une île jusqu’à un modèle pionnier à l’échelle mondiale.",
     "description": [
       "Cet outil innovant s’appuie sur l’observation de la Terre et l’informatique en nuage pour soutenir la planification intégrée terre-mer et les efforts de restauration."
     ],
@@ -57,7 +57,7 @@
     "order": 2,
     "slug": "island-scale-modelling",
     "title": "Modelación a escala insular y de cuencas",
-    "summary": "Crear un modelo pionero de transporte de contaminación costera a escala global.",
+    "summary": "Modelar cómo la contaminación viaja de las cuencas a la costa, desde la escala de una isla hasta un modelo pionero a escala global.",
     "description": [
       "Esta herramienta innovadora aprovecha la observación de la Tierra y la computación en la nube para apoyar la planificación integrada tierra-mar y los esfuerzos de restauración."
     ],
@@ -75,7 +75,7 @@
     "order": 2,
     "slug": "island-scale-modelling",
     "title": "Modellierung von Inseln und Einzugsgebieten",
-    "summary": "Entwicklung eines globalen Modells für den Schadstofftransport in Küstengewässern.",
+    "summary": "Modellierung des Schadstofftransports aus Einzugsgebieten an die Küste, von einzelnen Inseln bis zu einem wegweisenden globalen Modell.",
     "description": [
       "Das Modell nutzt Erdbeobachtung und Cloud-Computing, um die gemeinsame Planung für Land und Meer sowie Renaturierungsmaßnahmen zu unterstützen."
     ],

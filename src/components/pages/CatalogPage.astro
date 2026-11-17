@@ -93,7 +93,7 @@ const systemPlatforms = [
               {
                 'catalog-feature--reverse': products && index % 2 === 1,
                 'catalog-feature--module': sense,
-                'catalog-feature--halo': products && item.slug === 'fs-halo',
+                'catalog-feature--spot': products && item.slug === 'fs-spot',
               },
             ]}
           >
@@ -103,20 +103,17 @@ const systemPlatforms = [
                   screens={[{ image: item.image, imageAlt: item.imageAlt }, ...(item.screens ?? [])]}
                   label={item.name}
                 />
-              ) : products && (item.slug === 'fs-spot' || item.slug === 'fs-halo') ? (
-                <div class:list={['catalog-product-media', { 'catalog-product-media--pair': item.slug === 'fs-halo' }]}>
-                  <ProductAnalysisVideo product={item.slug} locale={locale} />
-                  {item.slug === 'fs-halo' && (
-                    <LargeImage
-                      src="/src/assets/images/fluvio/home-expertise-camera-scan.png"
-                      alt={item.imageAlt}
-                      aspect="wide"
-                      class="catalog-halo-field"
-                      radius="lg"
-                      sizes="(min-width: 1200px) 40vw, (min-width: 600px) 55vw, 95vw"
-                    />
-                  )}
-                </div>
+              ) : products && item.slug === 'fs-spot' ? (
+                <ProductAnalysisVideo locale={locale} />
+              ) : products && item.slug === 'fs-halo' ? (
+                <LargeImage
+                  src="/src/assets/images/fluvio/home-expertise-camera-scan.png"
+                  alt={item.imageAlt}
+                  aspect="wide"
+                  class="catalog-halo-field"
+                  radius="lg"
+                  sizes="(min-width:900px) 50vw, 95vw"
+                />
               ) : (
                 <LargeImage
                   src={item.image}
@@ -161,29 +158,16 @@ const systemPlatforms = [
   <SectionFrame tone="warm"><ContactPanel locale={locale} /></SectionFrame>
 </Layout>
 <style>
-  .catalog-product-media :global(.catalog-halo-field .fluvio-image__frame) {
+  .catalog-feature__media :global(.catalog-halo-field .fluvio-image__frame) {
     aspect-ratio: 1576 / 803;
   }
-  .catalog-product-media {
+  .catalog-feature__media {
     min-width: 0;
   }
-  .catalog-product-media--pair {
-    display: grid;
-    align-items: center;
-    gap: 1.5rem;
-  }
-  @media (min-width: 600px) {
-    .catalog-product-media--pair {
-      grid-template-columns: minmax(0, 0.65fr) minmax(0, 1.35fr);
-    }
-    .catalog-product-media--pair :global(video) {
-      width: 100%;
-      max-height: none;
-    }
-  }
   @media (min-width: 900px) {
-    .catalog-feature.catalog-feature--halo {
-      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.5fr);
+    /* FS-Spot shows two clips side by side, so its media column is wider. */
+    .catalog-feature.catalog-feature--spot {
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 0.8fr);
       gap: clamp(2rem, 4vw, 4rem);
     }
   }
