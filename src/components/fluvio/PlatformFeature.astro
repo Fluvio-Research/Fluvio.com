@@ -23,6 +23,8 @@ export interface Props {
   screens?: Array<{ image: string; imageAlt: string }>;
   index?: number;
   locale?: Locale;
+  /** Set when the feature spans the full content width instead of a grid column. */
+  wide?: boolean;
 }
 
 const {
@@ -37,13 +39,18 @@ const {
   screens = [],
   index,
   locale = defaultLocale,
+  wide = false,
 } = Astro.props;
 const platformLabel = getHomepage(locale).platforms.label;
 
 const shotHref = imageHref ?? href;
 const shotHost = shotHref?.startsWith('http') ? new URL(shotHref).hostname : undefined;
-const shotSizes = '(min-width: 1280px) 640px, (min-width: 768px) 48vw, calc(100vw - 2rem)';
-const screenSizes = '(min-width: 1280px) 300px, (min-width: 768px) 24vw, calc(50vw - 1.5rem)';
+const shotSizes = wide
+  ? '(min-width: 1440px) 1240px, calc(100vw - 5rem)'
+  : '(min-width: 1280px) 640px, (min-width: 768px) 48vw, calc(100vw - 2rem)';
+const screenSizes = wide
+  ? '(min-width: 1440px) 580px, (min-width: 640px) 42vw, calc(50vw - 2rem)'
+  : '(min-width: 1280px) 300px, (min-width: 768px) 24vw, calc(50vw - 1.5rem)';
 
 /* Each stage takes a tint from the palette in turn: river, mineral, coral, teal. */
 const stages = [

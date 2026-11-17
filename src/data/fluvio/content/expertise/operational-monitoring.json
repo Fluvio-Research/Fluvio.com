@@ -13,7 +13,7 @@
       "Digitised monitoring with state-owned water utilities",
       "Operational dashboards built with the teams who use them"
     ],
-    "image": "/src/assets/images/fluvio/system-sense-overview.png",
+    "image": "/src/assets/images/fluvio/system-sense-overview.jpg",
     "imageAlt": "FluvioSense overview showing connected monitoring sites",
     "relatedProjects": ["monitoring-honiara", "wrd", "moreton-bay-sediment-monitoring"]
   },
@@ -31,7 +31,7 @@
       "Monitoring wea kamap digital tugeta wetem olketa wata utility blong gavman",
       "Olketa operational dashboard wea mifala buildim wetem olketa tim wea iusim olketa"
     ],
-    "image": "/src/assets/images/fluvio/system-sense-overview.png",
+    "image": "/src/assets/images/fluvio/system-sense-overview.jpg",
     "imageAlt": "FluvioSense overview blong olketa monitoring site",
     "relatedProjects": ["monitoring-honiara", "wrd", "moreton-bay-sediment-monitoring"]
   },
@@ -49,7 +49,7 @@
       "Une surveillance numérisée avec des services publics de l’eau",
       "Des tableaux de bord opérationnels construits avec les équipes qui les utilisent"
     ],
-    "image": "/src/assets/images/fluvio/system-sense-overview.png",
+    "image": "/src/assets/images/fluvio/system-sense-overview.jpg",
     "imageAlt": "Vue FluvioSense des sites connectés",
     "relatedProjects": ["monitoring-honiara", "wrd", "moreton-bay-sediment-monitoring"]
   },
@@ -67,7 +67,7 @@
       "Monitoreo digitalizado con empresas públicas de agua",
       "Tableros operativos construidos con los equipos que los usan"
     ],
-    "image": "/src/assets/images/fluvio/system-sense-overview.png",
+    "image": "/src/assets/images/fluvio/system-sense-overview.jpg",
     "imageAlt": "Vista FluvioSense de los sitios conectados",
     "relatedProjects": ["monitoring-honiara", "wrd", "moreton-bay-sediment-monitoring"]
   },
@@ -85,7 +85,7 @@
       "Digitale Überwachung gemeinsam mit staatlichen Wasserversorgern",
       "Betriebsdashboards, gemeinsam mit den zuständigen Teams entwickelt"
     ],
-    "image": "/src/assets/images/fluvio/system-sense-overview.png",
+    "image": "/src/assets/images/fluvio/system-sense-overview.jpg",
     "imageAlt": "FluvioSense-Übersicht mit angebundenen Messstandorten",
     "relatedProjects": ["monitoring-honiara", "wrd", "moreton-bay-sediment-monitoring"]
   }
