@@ -23,13 +23,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # The repository stays configured for the production domain. Only this
-      # preview build is repointed at the GitHub Pages origin and base path.
-      - name: Point the build at GitHub Pages
-        run: |
-          sed -i "s|site: 'https://fluvio.com.au'|site: 'https://fluvio-research.github.io'|" src/config.yaml
-          sed -i "s|base: '/'|base: '/Fluvio.com'|" src/config.yaml
-
+      # The site is served from the custom domain fluvio.com.au at the root
+      # path, so it builds with the site and base values in src/config.yaml.
       - name: Build site
         uses: withastro/action@v3
         env:
