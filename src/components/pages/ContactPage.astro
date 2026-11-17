@@ -155,8 +155,10 @@ const metadata = {
   }
   .contact-hero .fluvio-title {
     color: white;
-    max-width: 18ch;
-    text-wrap: balance;
+    max-width: none;
+    font-size: clamp(2rem, 3.6vw, 3.75rem);
+    line-height: 1.15;
+    text-wrap: pretty;
   }
   .contact-hero__lede {
     max-width: 38rem;
@@ -209,21 +211,29 @@ const metadata = {
 
   .enquiry-intro {
     display: grid;
-    gap: 1.5rem;
+    gap: 1.25rem;
+    align-content: start;
     padding-top: 0.5rem;
   }
   .enquiry-intro h2 {
-    max-width: 12ch;
+    max-width: none;
+    margin: 0;
+    font-size: clamp(1.65rem, 2.3vw, 2.35rem);
+    line-height: 1.2;
+    letter-spacing: -0.035em;
+    text-wrap: pretty;
   }
   .enquiry-intro > p:not(.fluvio-eyebrow) {
     color: var(--aw-color-text-muted);
     line-height: 1.75;
-    max-width: 32ch;
+    max-width: 38ch;
+    margin: 0;
+    font-size: 1rem;
   }
   .enquiry-intro > .contact-office {
     border-top: 1px solid rgb(var(--fluvio-river) / 0.25);
     padding-top: 1.25rem;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--aw-color-text-default);
   }
 
@@ -241,9 +251,9 @@ const metadata = {
     border-color: rgb(var(--fluvio-mist) / 0.2);
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     .fluvio-contact-grid {
-      grid-template-columns: minmax(15rem, 0.65fr) minmax(24rem, 1.35fr);
+      grid-template-columns: minmax(20rem, 0.85fr) minmax(0, 1.5fr);
       gap: var(--fluvio-column-gap);
       align-items: start;
     }
