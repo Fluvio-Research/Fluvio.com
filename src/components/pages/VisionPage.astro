@@ -104,6 +104,13 @@ const metadata = {
     padding-bottom: clamp(1.25rem, 2.5vw, 2rem);
   }
 
+  /* The title is capped a little below the standard size so the English line
+     fits the narrow shell on one line on desktop; longer translations balance. */
+  .fluvio-vision-hero :global(h1) {
+    font-size: clamp(2rem, 3.6vw, 3rem);
+    text-wrap: balance;
+  }
+
   .fluvio-vision-hero__image {
     padding-bottom: clamp(1rem, 2vw, 1.5rem);
   }
@@ -191,8 +198,8 @@ const metadata = {
 
   @media (min-width: 768px) {
     .fluvio-vision-statement {
-      grid-template-columns: minmax(15rem, 0.6fr) minmax(0, 1.4fr);
-      gap: clamp(4rem, 10vw, 10rem);
+      grid-template-columns: minmax(15rem, 1fr) minmax(0, 1.4fr);
+      gap: clamp(3rem, 7vw, 7rem);
     }
 
     .fluvio-vision-values {
