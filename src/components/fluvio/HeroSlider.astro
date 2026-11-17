@@ -173,9 +173,7 @@ const videoUrls = slides.map((slide) => findVideo(slide.video));
       this.querySelector('[data-hero-previous]')?.addEventListener('click', this.previous);
       this.querySelector('[data-hero-next]')?.addEventListener('click', this.next);
       this.addEventListener('keydown', this.handleKeydown);
-      this.addEventListener('mouseenter', this.pause);
-      this.addEventListener('mouseleave', this.resume);
-      this.addEventListener('focusin', this.pause);
+      this.addEventListener('focusin', this.handleFocusIn);
       this.addEventListener('focusout', this.handleFocusOut);
       this.reducedMotion.addEventListener('change', this.handleMotionChange);
       this.show(0, false);
@@ -189,9 +187,7 @@ const videoUrls = slides.map((slide) => findVideo(slide.video));
       this.querySelector('[data-hero-previous]')?.removeEventListener('click', this.previous);
       this.querySelector('[data-hero-next]')?.removeEventListener('click', this.next);
       this.removeEventListener('keydown', this.handleKeydown);
-      this.removeEventListener('mouseenter', this.pause);
-      this.removeEventListener('mouseleave', this.resume);
-      this.removeEventListener('focusin', this.pause);
+      this.removeEventListener('focusin', this.handleFocusIn);
       this.removeEventListener('focusout', this.handleFocusOut);
       this.reducedMotion?.removeEventListener('change', this.handleMotionChange);
     }
@@ -292,13 +288,7 @@ const videoUrls = slides.map((slide) => findVideo(slide.video));
 
     private resume = () => {
       this.pause();
-      if (
-        this.manuallyPaused ||
-        this.reducedMotion?.matches ||
-        this.matches(':hover') ||
-        this.contains(document.activeElement)
-      )
-        return;
+      if (this.manuallyPaused || this.reducedMotion?.matches || this.hasKeyboardFocus()) return;
       this.classList.add('is-playing');
       this.schedule();
     };
@@ -339,6 +329,17 @@ const videoUrls = slides.map((slide) => findVideo(slide.video));
       );
       label.textContent = (this.manuallyPaused ? this.dataset.labelResume : this.dataset.labelPause) ?? '';
     }
+
+    /* Autoplay holds still only for someone working through the banner with
+       the keyboard. A resting mouse or a click on an arrow does not stop it:
+       the banner fills the first screen, so pausing on hover made it look stuck. */
+    private hasKeyboardFocus() {
+      return this.matches(':focus-visible') || this.querySelector(':focus-visible') !== null;
+    }
+
+    private handleFocusIn = () => {
+      if (this.hasKeyboardFocus()) this.pause();
+    };
 
     private handleFocusOut = () => window.setTimeout(this.resume, 0);
 
