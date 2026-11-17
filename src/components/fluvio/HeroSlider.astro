@@ -152,6 +152,11 @@ const videoUrls = slides.map((slide) => findVideo(slide.video));
     private slides: HTMLElement[] = [];
     private reducedMotion?: MediaQueryList;
     private manuallyPaused = false;
+    /* Countdown bookkeeping, so a pause freezes the bar and a resume carries on
+       from the same point instead of starting the slide's time again. */
+    private delay = 0;
+    private startedAt = 0;
+    private remaining?: number;
 
     connectedCallback() {
       this.slides = Array.from(this.querySelectorAll<HTMLElement>('[data-hero-slide]'));
@@ -219,7 +224,9 @@ const videoUrls = slides.map((slide) => findVideo(slide.video));
           .replace('{title}', title);
       }
       this.syncVideos();
+      this.remaining = undefined;
       if (this.timer) this.schedule();
+      else this.restartCountdown();
     }
 
     private videoFor(index: number) {
@@ -249,10 +256,19 @@ const videoUrls = slides.map((slide) => findVideo(slide.video));
        clip can never stall the carousel. */
     private schedule() {
       if (this.timer) window.clearTimeout(this.timer);
-      const delay = this.delayForActiveSlide();
-      this.style.setProperty('--hero-interval', `${delay}ms`);
-      this.timer = window.setTimeout(this.advance, delay);
+      this.remaining = undefined;
+      this.delay = this.delayForActiveSlide();
+      this.startedAt = performance.now();
+      this.style.setProperty('--hero-interval', `${this.delay}ms`);
+      this.timer = window.setTimeout(this.advance, this.delay);
       this.restartCountdown();
+    }
+
+    /* Pick the countdown up where a pause left it. */
+    private continueCountdown(remaining: number) {
+      this.startedAt = performance.now() - (this.delay - remaining);
+      this.remaining = undefined;
+      this.timer = window.setTimeout(this.advance, remaining);
     }
 
     private delayForActiveSlide(): number {
@@ -281,7 +297,10 @@ const videoUrls = slides.map((slide) => findVideo(slide.video));
     };
 
     private pause = () => {
-      if (this.timer) window.clearTimeout(this.timer);
+      if (this.timer) {
+        window.clearTimeout(this.timer);
+        this.remaining = Math.max(0, this.delay - (performance.now() - this.startedAt));
+      }
       this.timer = undefined;
       this.classList.remove('is-playing');
     };
@@ -290,7 +309,8 @@ const videoUrls = slides.map((slide) => findVideo(slide.video));
       this.pause();
       if (this.manuallyPaused || this.reducedMotion?.matches || this.hasKeyboardFocus()) return;
       this.classList.add('is-playing');
-      this.schedule();
+      if (this.remaining !== undefined) this.continueCountdown(this.remaining);
+      else this.schedule();
     };
 
     /* Restart the visual autoplay countdown so it stays in step with the timer. */
@@ -575,10 +595,16 @@ const videoUrls = slides.map((slide) => findVideo(slide.video));
     transition: width 350ms ease;
   }
 
-  /* Autoplay countdown: the bar fills across each cycle (INTERVAL_MS, or the video's length). */
+  /* Autoplay countdown: the bar fills across each cycle (INTERVAL_MS, or the
+     video's length). While autoplay is held the bar freezes where it is. */
   @media (prefers-reduced-motion: no-preference) {
+    .fluvio-hero .fluvio-hero__progress span {
+      animation: fluvio-hero-countdown var(--hero-interval, 3s) linear both paused;
+      transition: none;
+    }
+
     .fluvio-hero.is-playing .fluvio-hero__progress span {
-      animation: fluvio-hero-countdown var(--hero-interval, 3s) linear both;
+      animation-play-state: running;
     }
   }
 
