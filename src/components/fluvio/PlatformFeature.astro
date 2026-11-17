@@ -23,7 +23,8 @@ export interface Props {
   screens?: Array<{ image: string; imageAlt: string }>;
   index?: number;
   locale?: Locale;
-  /** Set when the feature spans the full content width instead of a grid column. */
+  /** Set when the feature has the full content width to itself: on large
+   * screens the screenshot then sits beside the copy instead of above it. */
   wide?: boolean;
 }
 
@@ -46,10 +47,10 @@ const platformLabel = getHomepage(locale).platforms.label;
 const shotHref = imageHref ?? href;
 const shotHost = shotHref?.startsWith('http') ? new URL(shotHref).hostname : undefined;
 const shotSizes = wide
-  ? '(min-width: 1440px) 1240px, calc(100vw - 5rem)'
+  ? '(min-width: 1440px) 640px, (min-width: 1024px) 46vw, calc(100vw - 5rem)'
   : '(min-width: 1280px) 640px, (min-width: 768px) 48vw, calc(100vw - 2rem)';
 const screenSizes = wide
-  ? '(min-width: 1440px) 580px, (min-width: 640px) 42vw, calc(50vw - 2rem)'
+  ? '(min-width: 1440px) 300px, (min-width: 1024px) 21vw, (min-width: 640px) 42vw, calc(50vw - 2rem)'
   : '(min-width: 1280px) 300px, (min-width: 768px) 24vw, calc(50vw - 1.5rem)';
 
 /* Each stage takes a tint from the palette in turn: river, mineral, coral, teal. */
@@ -62,7 +63,10 @@ const stages = [
 const [stageA, stageB] = stages[(index ?? 0) % stages.length];
 ---
 
-<article class="fluvio-platform-feature" style={`--stage-a: ${stageA}; --stage-b: ${stageB}`}>
+<article
+  class:list={['fluvio-platform-feature', { 'fluvio-platform-feature--wide': wide }]}
+  style={`--stage-a: ${stageA}; --stage-b: ${stageB}`}
+>
   {
     image && (
       <div
@@ -150,6 +154,19 @@ const [stageA, stageB] = stages[(index ?? 0) % stages.length];
     height: 100%;
     padding: 1.25rem 0 0;
     border-top: 1px solid rgb(var(--fluvio-ink) / 0.16);
+  }
+
+  /* Wide features put the screenshot beside the copy so one system fits a screen. */
+  @media (min-width: 1024px) {
+    .fluvio-platform-feature--wide {
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      align-items: center;
+      column-gap: clamp(2rem, 4vw, 4rem);
+      padding-top: 2rem;
+    }
+    .fluvio-platform-feature--wide .fluvio-platform-feature__stage--fan {
+      padding-bottom: clamp(4rem, 6vw, 5.5rem);
+    }
   }
 
   /* The stage: a tinted gradient panel the device sits on. */
