@@ -77,6 +77,7 @@ const systemPlatforms = [
               }
               locale={locale}
               index={index}
+              wide
             />
           </div>
         </SectionFrame>
@@ -93,7 +94,6 @@ const systemPlatforms = [
               {
                 'catalog-feature--reverse': products && index % 2 === 1,
                 'catalog-feature--module': sense,
-                'catalog-feature--spot': products && item.slug === 'fs-spot',
               },
             ]}
           >
@@ -103,17 +103,8 @@ const systemPlatforms = [
                   screens={[{ image: item.image, imageAlt: item.imageAlt }, ...(item.screens ?? [])]}
                   label={item.name}
                 />
-              ) : products && item.slug === 'fs-spot' ? (
-                <ProductAnalysisVideo locale={locale} />
-              ) : products && item.slug === 'fs-halo' ? (
-                <LargeImage
-                  src="/src/assets/images/fluvio/home-expertise-camera-scan.png"
-                  alt={item.imageAlt}
-                  aspect="wide"
-                  class="catalog-halo-field"
-                  radius="lg"
-                  sizes="(min-width:900px) 50vw, 95vw"
-                />
+              ) : products && (item.slug === 'fs-spot' || item.slug === 'fs-halo') ? (
+                <ProductAnalysisVideo product={item.slug} locale={locale} />
               ) : (
                 <LargeImage
                   src={item.image}
@@ -158,18 +149,8 @@ const systemPlatforms = [
   <SectionFrame tone="warm"><ContactPanel locale={locale} /></SectionFrame>
 </Layout>
 <style>
-  .catalog-feature__media :global(.catalog-halo-field .fluvio-image__frame) {
-    aspect-ratio: 1576 / 803;
-  }
   .catalog-feature__media {
     min-width: 0;
-  }
-  @media (min-width: 900px) {
-    /* FS-Spot shows two clips side by side, so its media column is wider. */
-    .catalog-feature.catalog-feature--spot {
-      grid-template-columns: minmax(0, 1.6fr) minmax(0, 0.8fr);
-      gap: clamp(2rem, 4vw, 4rem);
-    }
   }
   .catalog-platform {
     scroll-margin-top: 7rem;
