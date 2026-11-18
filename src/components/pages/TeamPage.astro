@@ -160,5 +160,10 @@ const metadata = {
     .fluvio-team-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
+
+    /* A lone card on the last row sits in the middle column, not at the left edge. */
+    .fluvio-team-grid > :last-child:nth-child(3n + 1) {
+      grid-column: 2;
+    }
   }
 </style>

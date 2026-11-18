@@ -1,0 +1,47 @@
+{
+  "en": {
+    "order": 10,
+    "name": "Miranda Fittock",
+    "role": "Ecologist",
+    "bio": "Miranda is a passionate, hands-on ecologist with extensive field experience in both aquatic and terrestrial environments. She believes in a practical approach and working with local communities to create meaningful, long-term change.",
+    "portrait": "/src/assets/images/fluvio/team-placeholder.png",
+    "portraitAlt": "Photo of Miranda Fittock coming soon",
+    "specialties": ["Aquatic and terrestrial ecology"]
+  },
+  "pijin": {
+    "order": 10,
+    "name": "Miranda Fittock",
+    "role": "Ecologist",
+    "bio": "Miranda hemi wanfala ecologist wea barava laekem waka blong hem an hemi waka stret long field, wetem staka field experience long wata an long land enviromen tugeta. Hemi biliv long praktikol wei an long wei fo waka tugeta wetem olketa local komuniti fo mekem gudfala senis wea stap longtaem.",
+    "portrait": "/src/assets/images/fluvio/team-placeholder.png",
+    "portraitAlt": "Foto blong Miranda Fittock bae kam bihaen",
+    "specialties": ["Ecology blong wata an land"]
+  },
+  "fr": {
+    "order": 10,
+    "name": "Miranda Fittock",
+    "role": "Écologue",
+    "bio": "Miranda est une écologue passionnée et proche du terrain, forte d’une vaste expérience en milieux aquatiques comme terrestres. Elle privilégie une approche pratique et le travail avec les communautés locales pour créer des changements significatifs et durables.",
+    "portrait": "/src/assets/images/fluvio/team-placeholder.png",
+    "portraitAlt": "Photo de Miranda Fittock à venir",
+    "specialties": ["Écologie aquatique et terrestre"]
+  },
+  "es": {
+    "order": 10,
+    "name": "Miranda Fittock",
+    "role": "Ecóloga",
+    "bio": "Miranda es una ecóloga apasionada y práctica, con amplia experiencia de campo en entornos acuáticos y terrestres. Cree en un enfoque práctico y en trabajar con las comunidades locales para lograr cambios significativos y duraderos.",
+    "portrait": "/src/assets/images/fluvio/team-placeholder.png",
+    "portraitAlt": "Foto de Miranda Fittock próximamente",
+    "specialties": ["Ecología acuática y terrestre"]
+  },
+  "de": {
+    "order": 10,
+    "name": "Miranda Fittock",
+    "role": "Ökologin",
+    "bio": "Miranda ist eine leidenschaftliche, praxisnahe Ökologin mit umfangreicher Felderfahrung in aquatischen und terrestrischen Lebensräumen. Sie setzt auf einen praktischen Ansatz und die Zusammenarbeit mit lokalen Gemeinschaften, um sinnvolle, langfristige Veränderungen zu bewirken.",
+    "portrait": "/src/assets/images/fluvio/team-placeholder.png",
+    "portraitAlt": "Foto von Miranda Fittock folgt",
+    "specialties": ["Aquatische und terrestrische Ökologie"]
+  }
+}
