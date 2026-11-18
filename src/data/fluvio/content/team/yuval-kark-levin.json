@@ -1,6 +1,6 @@
 {
   "en": {
-    "order": 8,
+    "order": 9,
     "name": "Yuval Kark-Levin",
     "role": "Data Scientist",
     "bio": "Yuval is advancing environmental sensing techniques and pushing the current boundaries of global datasets and applied models. He is passionate about innovating tools and datasets that capture complex local features across diverse environments at a planetary scale.",
@@ -10,7 +10,7 @@
     "expertise": ["island-scale-modelling", "hydrological-monitoring"]
   },
   "pijin": {
-    "order": 8,
+    "order": 9,
     "name": "Yuval Kark-Levin",
     "role": "Data Saentis",
     "bio": "Yuval hemi waka fo mekem olketa wei fo sensim enviromen kamap moa gud, an hemi pusum mak blong olketa global dataset an model. Hemi barava laekem fo wakem olketa niufala tul an dataset wea savve kasem olketa hadfala local samting long staka difren enviromen, long level blong full wol.",
@@ -20,7 +20,7 @@
     "expertise": ["island-scale-modelling", "hydrological-monitoring"]
   },
   "fr": {
-    "order": 8,
+    "order": 9,
     "name": "Yuval Kark-Levin",
     "role": "Data scientist",
     "bio": "Yuval fait progresser les techniques de détection environnementale et repousse les limites des jeux de données mondiaux et des modèles appliqués. Il se passionne pour la création d’outils et de jeux de données qui capturent des caractéristiques locales complexes à l’échelle planétaire.",
@@ -30,7 +30,7 @@
     "expertise": ["island-scale-modelling", "hydrological-monitoring"]
   },
   "es": {
-    "order": 8,
+    "order": 9,
     "name": "Yuval Kark-Levin",
     "role": "Científico de Datos",
     "bio": "Yuval impulsa las técnicas de detección ambiental y amplía las fronteras actuales de los conjuntos de datos globales y los modelos aplicados. Le apasiona innovar herramientas y conjuntos de datos que capturen características locales complejas en entornos diversos a escala planetaria.",
@@ -40,7 +40,7 @@
     "expertise": ["island-scale-modelling", "hydrological-monitoring"]
   },
   "de": {
-    "order": 8,
+    "order": 9,
     "name": "Yuval Kark-Levin",
     "role": "Data Scientist",
     "bio": "Yuval entwickelt Methoden zur Erfassung von Umweltdaten weiter und erweitert die Einsatzmöglichkeiten globaler Datensätze und Modelle. Er entwickelt Werkzeuge und Datensätze, die lokale Besonderheiten in unterschiedlichen Umgebungen weltweit abbilden.",
